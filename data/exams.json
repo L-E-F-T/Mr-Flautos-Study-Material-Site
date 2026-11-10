@@ -1,0 +1,46 @@
+{
+  "$schema": "../schemas/exams.schema.json",
+  "schemaVersion": 1,
+  "site": {
+    "title": "CompTIA Cert Prep"
+  },
+  "exams": [
+    {
+      "id": "a-plus-core-1",
+      "family": "A+",
+      "code": "220-1201",
+      "name": "CompTIA A+ Core 1",
+      "status": "live",
+      "theme": "aplus",
+      "dataPath": "data/a-plus-core-1",
+      "facts": { "maxQuestions": 90, "minutes": 90, "passingScore": "675 (scale of 100 to 900)" },
+      "sources": {
+        "certmaster": { "title": "A+ CertMaster Learn 15.0 (Core 1, Modules 1 to 10)" }
+      }
+    },
+    {
+      "id": "a-plus-core-2",
+      "family": "A+",
+      "code": "220-1202",
+      "name": "CompTIA A+ Core 2",
+      "status": "planned",
+      "theme": "aplus"
+    },
+    {
+      "id": "network-plus",
+      "family": "Network+",
+      "code": "N10-009",
+      "name": "CompTIA Network+",
+      "status": "planned",
+      "theme": "netplus"
+    },
+    {
+      "id": "security-plus",
+      "family": "Security+",
+      "code": "SY0-701",
+      "name": "CompTIA Security+",
+      "status": "planned",
+      "theme": "secplus"
+    }
+  ]
+}

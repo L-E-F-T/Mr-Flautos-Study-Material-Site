@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Flashcard pack",
+  "description": "Term/value pairs. Students choose term-first or definition-first, so one card covers both directions.",
+  "type": "object",
+  "required": ["flashcards"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "pack": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "reviewed": { "type": "boolean" },
+        "placeholder": { "type": "boolean", "description": "true = first-pass test content that must be deleted and replaced. Never set this on real content." },
+        "notes": { "type": "string" }
+      }
+    },
+    "flashcards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "term", "definition", "units"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$" },
+          "status": { "enum": ["draft", "published"] },
+          "term": { "type": "string", "minLength": 1, "maxLength": 60, "description": "Something the exam names: a term, acronym, port, standard, connector, or component, never a bare measurement from the reading (see What makes a good flashcard in docs/CONTENT-GUIDE.md). Aim for 40 characters or fewer." },
+          "definition": { "type": "string", "minLength": 1 },
+          "aliases": { "type": "array", "items": { "type": "string" }, "description": "Other spellings that search should match." },
+          "objectives": { "type": "array", "items": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.[a-z][a-z0-9]*)?$" } },
+          "units": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.\\d+)?$" } },
+          "reference": {
+            "type": "object",
+            "required": ["source", "section"],
+            "properties": {
+              "source": { "type": "string" },
+              "section": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+              "title": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

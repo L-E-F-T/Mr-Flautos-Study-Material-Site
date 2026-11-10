@@ -1,0 +1,846 @@
+{
+  "$schema": "../../schemas/objectives.schema.json",
+  "exam": "220-1201",
+  "title": "CompTIA A+ Core 1 (220-1201) Exam Objectives",
+  "source": "CompTIA A+ Core 1 (220-1201) Exam Objectives, Document Version 4.0 (V15). Transcribed twice independently from the official PDF; both transcriptions matched.",
+  "notes": "Sub-objective ids (1.1.a, 1.1.b, ...) are assigned by this site in the order CompTIA prints the bullets. \"details\" holds the nested bullets, flattened as \"Parent > child\". The troubleshooting methodology box is not an objective and is not tested, so it is not listed.",
+  "domains": [
+    {
+      "id": "1.0",
+      "title": "Mobile Devices",
+      "weight": 13,
+      "objectives": [
+        {
+          "id": "1.1",
+          "title": "Given a scenario, monitor mobile device hardware and use appropriate replacement techniques.",
+          "subobjectives": [
+            { "id": "1.1.a", "title": "Battery" },
+            { "id": "1.1.b", "title": "Keyboard/keys" },
+            { "id": "1.1.c", "title": "Random-access memory (RAM)" },
+            { "id": "1.1.d", "title": "Hard disk drive (HDD)/solid-state drive (SSD)" },
+            { "id": "1.1.e", "title": "Wireless cards" },
+            {
+              "id": "1.1.f",
+              "title": "Physical privacy and security components",
+              "details": ["Biometrics", "Near-field scanner features"]
+            },
+            { "id": "1.1.g", "title": "Wi-Fi antenna connector/placement" },
+            { "id": "1.1.h", "title": "Camera/webcam" },
+            { "id": "1.1.i", "title": "Microphone" }
+          ]
+        },
+        {
+          "id": "1.2",
+          "title": "Compare and contrast accessories and connectivity options for mobile devices.",
+          "subobjectives": [
+            {
+              "id": "1.2.a",
+              "title": "Connection methods",
+              "details": [
+                "Universal Serial Bus (USB)/USB-C/microUSB/miniUSB",
+                "Lightning",
+                "Near-field communication (NFC)",
+                "Bluetooth",
+                "Tethering/hotspot"
+              ]
+            },
+            {
+              "id": "1.2.b",
+              "title": "Accessories",
+              "details": ["Stylus", "Headsets", "Speakers", "Webcam"]
+            },
+            { "id": "1.2.c", "title": "Docking station" },
+            { "id": "1.2.d", "title": "Port replicator" },
+            { "id": "1.2.e", "title": "Trackpad/drawing pad/track points" }
+          ]
+        },
+        {
+          "id": "1.3",
+          "title": "Given a scenario, configure basic mobile device network connectivity and provide application support.",
+          "subobjectives": [
+            {
+              "id": "1.3.a",
+              "title": "Wireless/cellular data network (enable/disable)",
+              "details": ["3G/4G/5G", "Hotspot", "Wi-Fi", "Subscriber Identity Module (SIM)/eSIM"]
+            },
+            {
+              "id": "1.3.b",
+              "title": "Bluetooth",
+              "details": [
+                "Enable Bluetooth",
+                "Enable pairing",
+                "Find a device for pairing",
+                "Enter the appropriate personal identification number (PIN) code",
+                "Test connectivity"
+              ]
+            },
+            {
+              "id": "1.3.c",
+              "title": "Location services",
+              "details": ["Global positioning system (GPS) services", "Cellular location services"]
+            },
+            {
+              "id": "1.3.d",
+              "title": "Mobile device management (MDM)",
+              "details": [
+                "Device configurations",
+                "Device configurations > Corporate",
+                "Device configurations > Bring your own device (BYOD)",
+                "Policy enforcement",
+                "Corporate applications"
+              ]
+            },
+            {
+              "id": "1.3.e",
+              "title": "Mobile device synchronization",
+              "details": [
+                "Recognizing data caps",
+                "Calendar",
+                "Contacts",
+                "Business applications",
+                "Business applications > Mail",
+                "Business applications > Cloud storage"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2.0",
+      "title": "Networking",
+      "weight": 23,
+      "objectives": [
+        {
+          "id": "2.1",
+          "title": "Compare and contrast Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) ports, protocols, and their purposes.",
+          "subobjectives": [
+            {
+              "id": "2.1.a",
+              "title": "Ports and protocols",
+              "details": [
+                "20-21 – File Transfer Protocol (FTP)",
+                "22 – Secure Shell (SSH)",
+                "23 – Telnet",
+                "25 – Simple Mail Transfer Protocol (SMTP)",
+                "53 – Domain Name System (DNS)",
+                "67/68 – Dynamic Host Configuration Protocol (DHCP)",
+                "80 – Hypertext Transfer Protocol (HTTP)",
+                "110 – Post Office Protocol 3 (POP3)",
+                "143 – Internet Mail Access Protocol (IMAP)",
+                "137-139 Network Basic Input/Output System (NetBIOS)/NetBIOS over TCP/IP (NetBT)",
+                "389 – Lightweight Directory Access Protocol (LDAP)",
+                "443 – Hypertext Transfer Protocol Secure (HTTPS)",
+                "445 – Server Message Block (SMB)/Common Internet File System (CIFS)",
+                "3389 – Remote Desktop Protocol (RDP)"
+              ]
+            },
+            { "id": "2.1.b", "title": "TCP vs. UDP" }
+          ]
+        },
+        {
+          "id": "2.2",
+          "title": "Explain wireless networking technologies.",
+          "subobjectives": [
+            {
+              "id": "2.2.a",
+              "title": "Frequencies",
+              "details": ["2.4GHz", "5GHz", "6GHz"]
+            },
+            {
+              "id": "2.2.b",
+              "title": "Channels",
+              "details": [
+                "Regulations",
+                "Channel selection",
+                "Channel selection > Widths",
+                "Channel selection > Frequencies",
+                "Channel selection > Bands"
+              ]
+            },
+            { "id": "2.2.c", "title": "Bluetooth" },
+            { "id": "2.2.d", "title": "802.11 standards" },
+            { "id": "2.2.e", "title": "NFC" },
+            { "id": "2.2.f", "title": "Radio-frequency identification (RFID)" }
+          ]
+        },
+        {
+          "id": "2.3",
+          "title": "Summarize services provided by networked hosts.",
+          "subobjectives": [
+            {
+              "id": "2.3.a",
+              "title": "Server roles",
+              "details": [
+                "DNS",
+                "DHCP",
+                "Fileshare",
+                "Print servers",
+                "Mail servers",
+                "Syslog",
+                "Web servers",
+                "Authentication, Authorization, and Accounting (AAA)",
+                "Database servers",
+                "Network Time Protocol (NTP)"
+              ]
+            },
+            {
+              "id": "2.3.b",
+              "title": "Internet appliances",
+              "details": ["Spam gateways", "Unified threat management (UTM)", "Load balancers", "Proxy servers"]
+            },
+            {
+              "id": "2.3.c",
+              "title": "Legacy/embedded systems",
+              "details": ["Supervisory control and data acquisition (SCADA)"]
+            },
+            { "id": "2.3.d", "title": "Internet of Things (IoT) devices" }
+          ]
+        },
+        {
+          "id": "2.4",
+          "title": "Explain common network configuration concepts.",
+          "subobjectives": [
+            {
+              "id": "2.4.a",
+              "title": "DNS",
+              "details": [
+                "A",
+                "AAAA",
+                "Canonical Name (CNAME)",
+                "Mail exchanger (MX)",
+                "Text (TXT)",
+                "Text (TXT) > Spam management",
+                "Text (TXT) > Spam management > DomainKeys Identified Mail (DKIM)",
+                "Text (TXT) > Spam management > Sender Policy Framework (SPF)",
+                "Text (TXT) > Spam management > Domain-based Message Authentication, Reporting, and Conformance (DMARC)"
+              ]
+            },
+            {
+              "id": "2.4.b",
+              "title": "DHCP",
+              "details": ["Leases", "Reservations", "Scope", "Exclusions"]
+            },
+            { "id": "2.4.c", "title": "Virtual LAN [local area network] (VLAN)" },
+            { "id": "2.4.d", "title": "Virtual private network (VPN)" }
+          ]
+        },
+        {
+          "id": "2.5",
+          "title": "Compare and contrast common networking hardware devices.",
+          "subobjectives": [
+            { "id": "2.5.a", "title": "Routers" },
+            {
+              "id": "2.5.b",
+              "title": "Switches",
+              "details": ["Managed", "Unmanaged"]
+            },
+            { "id": "2.5.c", "title": "Access points" },
+            { "id": "2.5.d", "title": "Patch panel" },
+            { "id": "2.5.e", "title": "Firewall" },
+            {
+              "id": "2.5.f",
+              "title": "Power over Ethernet (PoE)",
+              "details": ["Injectors", "Switch", "PoE standards"]
+            },
+            { "id": "2.5.g", "title": "Cable modem" },
+            { "id": "2.5.h", "title": "Digital subscriber line (DSL)" },
+            { "id": "2.5.i", "title": "Optical network terminal (ONT)" },
+            {
+              "id": "2.5.j",
+              "title": "Network interface card (NIC)",
+              "details": ["Physical media access control (MAC) address"]
+            }
+          ]
+        },
+        {
+          "id": "2.6",
+          "title": "Given a scenario, configure basic wired/wireless small office/home office (SOHO) networks.",
+          "subobjectives": [
+            {
+              "id": "2.6.a",
+              "title": "Internet Protocol (IP) addressing",
+              "details": [
+                "IPv4",
+                "IPv4 > Private addresses",
+                "IPv4 > Public addresses",
+                "IPv6",
+                "Automatic Private IP Addressing (APIPA)",
+                "Static",
+                "Dynamic",
+                "Subnet mask",
+                "Gateway"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2.7",
+          "title": "Compare and contrast internet connection types, network types, and their characteristics.",
+          "subobjectives": [
+            {
+              "id": "2.7.a",
+              "title": "Internet connection types",
+              "details": ["Satellite", "Fiber", "Cable", "DSL", "Cellular", "Wireless internet service provider (WISP)"]
+            },
+            {
+              "id": "2.7.b",
+              "title": "Network types",
+              "details": [
+                "LAN",
+                "Wide area network (WAN)",
+                "Personal area network (PAN)",
+                "Metropolitan area network (MAN)",
+                "Storage area network (SAN)",
+                "Wireless local area network (WLAN)"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2.8",
+          "title": "Explain networking tools and their purposes.",
+          "subobjectives": [
+            { "id": "2.8.a", "title": "Crimper" },
+            { "id": "2.8.b", "title": "Cable stripper" },
+            { "id": "2.8.c", "title": "Wi-Fi analyzer" },
+            { "id": "2.8.d", "title": "Toner probe" },
+            { "id": "2.8.e", "title": "Punchdown tool" },
+            { "id": "2.8.f", "title": "Cable tester" },
+            { "id": "2.8.g", "title": "Loopback plug" },
+            { "id": "2.8.h", "title": "Network tap" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3.0",
+      "title": "Hardware",
+      "weight": 25,
+      "objectives": [
+        {
+          "id": "3.1",
+          "title": "Compare and contrast display components and attributes.",
+          "subobjectives": [
+            {
+              "id": "3.1.a",
+              "title": "Types",
+              "details": [
+                "Liquid crystal display (LCD)",
+                "Liquid crystal display (LCD) > In-plane switching (IPS)",
+                "Liquid crystal display (LCD) > Twisted nematic (TN)",
+                "Liquid crystal display (LCD) > Vertical alignment (VA)",
+                "Organic light-emitting diode (OLED)",
+                "Mini light-emitting diode (Mini-LED)"
+              ]
+            },
+            { "id": "3.1.b", "title": "Touch screen/digitizer" },
+            { "id": "3.1.c", "title": "Inverter" },
+            {
+              "id": "3.1.d",
+              "title": "Attributes",
+              "details": ["Pixel density", "Refresh rates", "Screen resolution", "Color gamut"]
+            }
+          ]
+        },
+        {
+          "id": "3.2",
+          "title": "Summarize basic cable types and their connectors, features, and purposes.",
+          "subobjectives": [
+            {
+              "id": "3.2.a",
+              "title": "Network cables",
+              "details": [
+                "Copper",
+                "Copper > Categories",
+                "Copper > Categories > T568A/T568B standards",
+                "Copper > Coaxial",
+                "Copper > Shielded twisted pair",
+                "Copper > Shielded twisted pair > Direct burial",
+                "Copper > Unshielded twisted pair",
+                "Plenum-rated",
+                "Optical",
+                "Optical > Single-mode",
+                "Optical > Multimode"
+              ]
+            },
+            {
+              "id": "3.2.b",
+              "title": "Peripheral cables",
+              "details": ["USB 2.0", "USB 3.0", "Serial", "Thunderbolt"]
+            },
+            {
+              "id": "3.2.c",
+              "title": "Video cables",
+              "details": [
+                "High-definition Multimedia Interface (HDMI)",
+                "DisplayPort",
+                "Digital Visual Interface (DVI)",
+                "Video Graphics Array (VGA)",
+                "USB-C"
+              ]
+            },
+            {
+              "id": "3.2.d",
+              "title": "Hard drive cables",
+              "details": ["Serial Advanced Technology Attachment (SATA)", "External SATA (eSATA)"]
+            },
+            { "id": "3.2.e", "title": "Adapters" },
+            {
+              "id": "3.2.f",
+              "title": "Connector types",
+              "details": [
+                "RJ11",
+                "RJ45",
+                "F-type",
+                "Straight tip (ST)",
+                "Subscriber connector (SC)",
+                "Lucent connector (LC)",
+                "Punchdown block",
+                "MicroUSB",
+                "MiniUSB",
+                "USB-C",
+                "Molex",
+                "Lightning",
+                "DB9"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "3.3",
+          "title": "Compare and contrast RAM characteristics.",
+          "subobjectives": [
+            {
+              "id": "3.3.a",
+              "title": "Form factors",
+              "details": ["Small Outline Dual In-line Memory Module (SODIMM)", "Dual In-line Memory Module (DIMM)"]
+            },
+            { "id": "3.3.b", "title": "Double Data Rate (DDR) iterations" },
+            { "id": "3.3.c", "title": "Error-correcting code (ECC) vs. non-ECC RAM" },
+            { "id": "3.3.d", "title": "Channel configurations" }
+          ]
+        },
+        {
+          "id": "3.4",
+          "title": "Compare and contrast storage devices.",
+          "subobjectives": [
+            {
+              "id": "3.4.a",
+              "title": "Hard drives",
+              "details": ["Spindle speeds", "Form factors", "Form factors > 2.5-inch", "Form factors > 3.5-inch"]
+            },
+            {
+              "id": "3.4.b",
+              "title": "Solid-state drives",
+              "details": [
+                "Communications interfaces",
+                "Communications interfaces > Non-volatile Memory Express (NVMe)",
+                "Communications interfaces > SATA",
+                "Communications interfaces > Peripheral Component Interconnect Express (PCIe)",
+                "Communications interfaces > Serial Attached SCSI [Small Computer System Interface] (SAS)",
+                "Form factors",
+                "Form factors > M.2",
+                "Form factors > Mini-serial Advanced Technology Attachment (mSATA)"
+              ]
+            },
+            {
+              "id": "3.4.c",
+              "title": "Drive configurations",
+              "details": ["Redundant Array of Independent Disks (RAID) 0, 1, 5, 6, 10"]
+            },
+            {
+              "id": "3.4.d",
+              "title": "Removable storage",
+              "details": ["Flash drives", "Memory cards"]
+            },
+            { "id": "3.4.e", "title": "Optical drives" }
+          ]
+        },
+        {
+          "id": "3.5",
+          "title": "Given a scenario, install and configure motherboards, central processing units (CPUs), and add-on cards.",
+          "subobjectives": [
+            {
+              "id": "3.5.a",
+              "title": "Motherboard form factors",
+              "details": ["Advanced Technology Extended (ATX)", "microATX", "Information Technology eXtended (ITX)"]
+            },
+            {
+              "id": "3.5.b",
+              "title": "Motherboard connector types",
+              "details": [
+                "Peripheral Component Interconnect (PCI)",
+                "PCIe",
+                "Power connectors",
+                "SATA",
+                "eSATA",
+                "Headers",
+                "M.2"
+              ]
+            },
+            {
+              "id": "3.5.c",
+              "title": "Motherboard compatibility",
+              "details": [
+                "CPU socket types",
+                "CPU socket types > Advanced Micro Devices, Inc. (AMD)",
+                "CPU socket types > Intel",
+                "Multisocket"
+              ]
+            },
+            {
+              "id": "3.5.d",
+              "title": "BIOS/Unified Extensible Firmware Interface (UEFI) settings",
+              "details": [
+                "Boot options",
+                "USB permissions",
+                "Trusted Platform Module (TPM) security features",
+                "Fan considerations",
+                "Secure Boot",
+                "Boot password",
+                "BIOS password",
+                "Temperature monitoring"
+              ]
+            },
+            { "id": "3.5.e", "title": "Virtualization support" },
+            {
+              "id": "3.5.f",
+              "title": "Encryption",
+              "details": ["TPM", "Hardware security module (HSM)"]
+            },
+            {
+              "id": "3.5.g",
+              "title": "CPU architecture",
+              "details": [
+                "x86/x64",
+                "Advanced RISC [Reduced Instruction Set Computer] Machine (ARM)",
+                "Core configurations"
+              ]
+            },
+            {
+              "id": "3.5.h",
+              "title": "Expansion cards",
+              "details": ["Sound card", "Video card", "Capture card", "Network interface card"]
+            },
+            {
+              "id": "3.5.i",
+              "title": "Cooling",
+              "details": ["Fans", "Heat sink", "Thermal paste/pads", "Liquid"]
+            }
+          ]
+        },
+        {
+          "id": "3.6",
+          "title": "Given a scenario, install the appropriate power supply.",
+          "subobjectives": [
+            { "id": "3.6.a", "title": "Input 110–120 VAC vs. 220–240 VAC" },
+            { "id": "3.6.b", "title": "Output 3.3V vs. 5V vs. 12V" },
+            { "id": "3.6.c", "title": "20+4 pin motherboard connector" },
+            { "id": "3.6.d", "title": "Redundant power supply" },
+            { "id": "3.6.e", "title": "Modular power supply" },
+            { "id": "3.6.f", "title": "Wattage rating" },
+            { "id": "3.6.g", "title": "Energy efficiency" }
+          ]
+        },
+        {
+          "id": "3.7",
+          "title": "Given a scenario, deploy and configure multifunction devices/printers and settings.",
+          "subobjectives": [
+            { "id": "3.7.a", "title": "Properly unbox device and consider set-up location" },
+            {
+              "id": "3.7.b",
+              "title": "Use appropriate drivers for a given operating system",
+              "details": ["Printer Control Language (PCL) vs. postscript"]
+            },
+            { "id": "3.7.c", "title": "Firmware" },
+            {
+              "id": "3.7.d",
+              "title": "Device connectivity",
+              "details": ["USB", "Ethernet", "Wireless"]
+            },
+            {
+              "id": "3.7.e",
+              "title": "Public/shared devices",
+              "details": ["Printer share", "Print server"]
+            },
+            {
+              "id": "3.7.f",
+              "title": "Configuration settings",
+              "details": ["Duplex", "Orientation", "Tray settings", "Quality"]
+            },
+            {
+              "id": "3.7.g",
+              "title": "Security",
+              "details": ["User authentication", "Badging", "Audit logs", "Secured prints"]
+            },
+            {
+              "id": "3.7.h",
+              "title": "Network scan services",
+              "details": ["Email", "SMB", "Cloud services"]
+            },
+            { "id": "3.7.i", "title": "Automatic document feeder (ADF)/flatbed scanner" }
+          ]
+        },
+        {
+          "id": "3.8",
+          "title": "Given a scenario, perform appropriate printer maintenance.",
+          "subobjectives": [
+            {
+              "id": "3.8.a",
+              "title": "Laser",
+              "details": ["Maintenance: Replace toner, apply maintenance kit, calibrate, and clean"]
+            },
+            {
+              "id": "3.8.b",
+              "title": "Inkjet",
+              "details": [
+                "Ink cartridge, printhead, roller, and feeder",
+                "Maintenance: Clean printheads, replace cartridges, calibrate, and clear jams"
+              ]
+            },
+            {
+              "id": "3.8.c",
+              "title": "Thermal",
+              "details": [
+                "Feed assembly",
+                "Special thermal paper",
+                "Maintenance: Replace paper, clean heating element, and remove debris"
+              ]
+            },
+            {
+              "id": "3.8.d",
+              "title": "Impact",
+              "details": ["Multipart paper", "Maintenance: Replace ribbon, printhead, and paper"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4.0",
+      "title": "Virtualization and Cloud Computing",
+      "weight": 11,
+      "objectives": [
+        {
+          "id": "4.1",
+          "title": "Explain virtualization concepts.",
+          "subobjectives": [
+            {
+              "id": "4.1.a",
+              "title": "Purpose of virtual machines",
+              "details": [
+                "Sandbox",
+                "Test development",
+                "Application virtualization",
+                "Application virtualization > Legacy software/OS",
+                "Application virtualization > Cross-platform virtualization"
+              ]
+            },
+            {
+              "id": "4.1.b",
+              "title": "Requirements",
+              "details": ["Security", "Network", "Storage"]
+            },
+            {
+              "id": "4.1.c",
+              "title": "Desktop virtualization",
+              "details": ["Virtual Desktop Infrastructure (VDI)"]
+            },
+            { "id": "4.1.d", "title": "Containers" },
+            {
+              "id": "4.1.e",
+              "title": "Hypervisors",
+              "details": ["Type 1", "Type 2"]
+            }
+          ]
+        },
+        {
+          "id": "4.2",
+          "title": "Summarize cloud computing concepts.",
+          "subobjectives": [
+            {
+              "id": "4.2.a",
+              "title": "Common cloud models",
+              "details": [
+                "Private cloud",
+                "Public cloud",
+                "Hybrid cloud",
+                "Community cloud",
+                "Infrastructure as a service (IaaS)",
+                "Software as a service (SaaS)",
+                "Platform as a service (PaaS)"
+              ]
+            },
+            {
+              "id": "4.2.b",
+              "title": "Cloud characteristics",
+              "details": [
+                "Shared resources vs. dedicated resources",
+                "Metered utilization",
+                "Metered utilization > Ingress/egress",
+                "Elasticity",
+                "Availability",
+                "File synchronization",
+                "Multitenancy"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5.0",
+      "title": "Hardware and Network Troubleshooting",
+      "weight": 28,
+      "objectives": [
+        {
+          "id": "5.1",
+          "title": "Given a scenario, troubleshoot motherboards, RAM, CPUs, and power.",
+          "subobjectives": [
+            {
+              "id": "5.1.a",
+              "title": "Common symptoms",
+              "details": [
+                "Power-on self-test (POST) beeps",
+                "Proprietary crash screens",
+                "Blank screen",
+                "No power",
+                "Sluggish performance",
+                "Overheating",
+                "Burning smell",
+                "Random shutdown",
+                "Application crashes",
+                "Unusual noise",
+                "Capacitor swelling",
+                "Inaccurate system date/time"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5.2",
+          "title": "Given a scenario, troubleshoot drive and RAID issues.",
+          "subobjectives": [
+            {
+              "id": "5.2.a",
+              "title": "Common symptoms",
+              "details": [
+                "Light-emitting diode (LED) status indicators",
+                "Grinding noises",
+                "Clicking sounds",
+                "Bootable device not found",
+                "Data loss/corruption",
+                "RAID failure",
+                "Self-monitoring and Reporting Technology (S.M.A.R.T.) failure",
+                "Extended read/write times",
+                "Low performance input/output operations per second (IOPS)",
+                "Missing drives in OS",
+                "Array missing",
+                "Audible alarms"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5.3",
+          "title": "Given a scenario, troubleshoot video, projector, and display issues.",
+          "subobjectives": [
+            {
+              "id": "5.3.a",
+              "title": "Common symptoms",
+              "details": [
+                "Incorrect input source",
+                "Physical cabling issues",
+                "Burnt-out bulb",
+                "Fuzzy image",
+                "Display burn-in",
+                "Dead pixels",
+                "Flashing screen",
+                "Incorrect color display",
+                "Audio issues",
+                "Dim image",
+                "Intermittent projector shutdown",
+                "Sizing issues",
+                "Distorted image"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5.4",
+          "title": "Given a scenario, troubleshoot common mobile device issues.",
+          "subobjectives": [
+            {
+              "id": "5.4.a",
+              "title": "Common symptoms",
+              "details": [
+                "Poor battery health",
+                "Swollen battery",
+                "Broken screen",
+                "Improper charging",
+                "Poor/no connectivity",
+                "Liquid damage",
+                "Overheating",
+                "Digitizer issues",
+                "Physically damaged ports",
+                "Malware",
+                "Cursor drift/touch calibration",
+                "Unable to install new applications",
+                "Stylus does not work",
+                "Degraded performance"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5.5",
+          "title": "Given a scenario, troubleshoot network issues.",
+          "subobjectives": [
+            {
+              "id": "5.5.a",
+              "title": "Common symptoms",
+              "details": [
+                "Intermittent wireless connectivity",
+                "Slow network speeds",
+                "Limited connectivity",
+                "Jitter",
+                "Poor Voice over Internet Protocol (VoIP) quality",
+                "Port flapping",
+                "High latency",
+                "External interference",
+                "Authentication failures",
+                "Intermittent internet connectivity"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5.6",
+          "title": "Given a scenario, troubleshoot printer issues.",
+          "subobjectives": [
+            { "id": "5.6.a", "title": "Lines down the printed pages" },
+            { "id": "5.6.b", "title": "Garbled print" },
+            { "id": "5.6.c", "title": "Paper jams" },
+            { "id": "5.6.d", "title": "Faded prints" },
+            { "id": "5.6.e", "title": "Paper not feeding" },
+            { "id": "5.6.f", "title": "Multipage misfeed" },
+            { "id": "5.6.g", "title": "Multiple prints pending in queue" },
+            { "id": "5.6.h", "title": "Speckling on printed pages" },
+            { "id": "5.6.i", "title": "Double/echo images on the print" },
+            { "id": "5.6.j", "title": "Grinding noise" },
+            {
+              "id": "5.6.k",
+              "title": "Finishing issues",
+              "details": ["Staple jams", "Hole punch"]
+            },
+            { "id": "5.6.l", "title": "Incorrect page orientation" },
+            { "id": "5.6.m", "title": "Tray not recognized" },
+            { "id": "5.6.n", "title": "Connectivity issues" },
+            { "id": "5.6.o", "title": "Frozen print queue" }
+          ]
+        }
+      ]
+    }
+  ]
+}

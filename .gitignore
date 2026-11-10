@@ -1,0 +1,21 @@
+# --- Never commit copyrighted source material or lab-only content -------------
+# Lab-only content packs live in a "private" folder next to the public packs and
+# are listed in manifest.private.json. They are only copied to the lab server.
+private/
+**/private/
+**/manifest.private.json
+# Keep textbook PDFs, question-pool exports, and practice-exam books out of the repo.
+sources/
+*.pdf
+
+# --- Build / tooling ----------------------------------------------------------
+node_modules/
+_site/
+.claude/settings.local.json
+
+# --- OS / editor clutter ------------------------------------------------------
+Thumbs.db
+desktop.ini
+.DS_Store
+*.tmp
+~$*

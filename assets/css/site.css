@@ -1,0 +1,823 @@
+/* =========================================================================
+   CompTIA study site: shared styles
+   Plain CSS, no build step. Colors are tokens on :root.
+   - Light or dark: <html data-theme="light|dark">. assets/js/theme-init.js sets it
+     before first paint (saved choice, else the device setting) and the header
+     toggle flips it (assets/js/lib/theme.js).
+   - Course color: <html data-exam-theme="aplus|netplus|secplus">.
+   Phones first-class: see "Responsive" and "Touch" at the end.
+   ========================================================================= */
+
+:root {
+  color-scheme: light;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --surface-2: #eef1f5;
+  --surface-3: #e3e8ee;
+  --border: #d3dae3;
+  --border-strong: #b7c1cd;
+  --text: #16202b;
+  --text-muted: #566375;
+  --text-faint: #5f6b7c;
+
+  /* Class color. Every highlighted control uses it:
+       --accent        fill for primary buttons, checked boxes, the selected option
+       --on-accent     text on that fill
+       --accent-hover  the fill while hovered
+       --accent-text   class color for text, outlines, and focus rings on page backgrounds
+       --accent-soft   faint tint behind hovered and selected rows
+     This neutral set is the home page; each exam overrides it below. */
+  --accent: #3b4654;
+  --accent-hover: #29313b;
+  --accent-text: #29313b;
+  --accent-soft: #e6ebf0;
+  --on-accent: #ffffff;
+
+  --good: #17773a;
+  --on-good: #ffffff;
+  --on-bad: #ffffff;
+  --good-soft: #e3f4e8;
+  --good-border: #8fd0a4;
+  --bad: #b3261e;
+  --bad-soft: #fdeceb;
+  --bad-border: #efa29c;
+  --warn: #7a5600;
+  --warn-soft: #fff4d1;
+  --warn-border: #e8c766;
+  --info-soft: #e8f0fb;
+  --info-border: #a9c4ea;
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 6px 18px rgba(16, 24, 40, 0.07);
+  --shadow-lg: 0 2px 4px rgba(16, 24, 40, 0.06), 0 18px 40px rgba(16, 24, 40, 0.12);
+  --shadow-up: 0 -10px 24px -14px rgba(16, 24, 40, 0.35);
+  --content-width: 1120px;
+}
+
+/* Class colors, matching the class slide decks:
+   A+ warm graphite #55504A · Network+ forest green #15654A · Security+ teal-navy #0B4F6C */
+:root[data-exam-theme="aplus"]    { --accent: #55504A; --accent-hover: #3d3934; --accent-text: #3d3934; --accent-soft: #EFECE7; }
+:root[data-exam-theme="netplus"]  { --accent: #15654A; --accent-hover: #0f4b37; --accent-text: #0f4b37; --accent-soft: #E3EFE9; }
+:root[data-exam-theme="secplus"]  { --accent: #0B4F6C; --accent-hover: #083a50; --accent-text: #083a50; --accent-soft: #E1ECF2; }
+
+/* Dark mode. Must come after the light course colors: it resets the accent, and the
+   dark course colors below (more specific) set it again. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0e1319;
+  --surface: #151c24;
+  --surface-2: #1b232d;
+  --surface-3: #232d39;
+  --border: #2b3643;
+  --border-strong: #3c4958;
+  --text: #e5eaf0;
+  --text-muted: #a1adbb;
+  --text-faint: #8794a3;
+
+  --accent: #66758a;
+  --accent-hover: #586578;
+  --accent-text: #c3ccd6;
+  --accent-soft: #1f2833;
+  --on-accent: #ffffff;
+
+  --good: #5cc983;
+  --on-good: #0b1118;
+  --on-bad: #0b1118;
+  --good-soft: #13281c;
+  --good-border: #2f6b45;
+  --bad: #ff8a80;
+  --bad-soft: #321718;
+  --bad-border: #7a3430;
+  --warn: #f2c94c;
+  --warn-soft: #2e2611;
+  --warn-border: #6b5719;
+  --info-soft: #16233a;
+  --info-border: #2f4a72;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 22px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.4), 0 18px 40px rgba(0, 0, 0, 0.5);
+  --shadow-up: 0 -10px 24px -14px rgba(0, 0, 0, 0.8);
+}
+/* Dark mode keeps each class color recognizable: the fill is the same hue lifted just enough
+   to stand out from the dark page while white text on it stays readable (4.5:1 or better).
+   Class-colored text and outlines use a light tint of the hue instead. */
+:root[data-theme="dark"][data-exam-theme="aplus"]   { --accent: #787066; --accent-hover: #6a635a; --accent-text: #d3cbc0; --accent-soft: #2a2724; }
+:root[data-theme="dark"][data-exam-theme="netplus"] { --accent: #1d8060; --accent-hover: #186e52; --accent-text: #86d1ad; --accent-soft: #15291f; }
+:root[data-theme="dark"][data-exam-theme="secplus"] { --accent: #1a7aa3; --accent-hover: #16698d; --accent-text: #8cc6df; --accent-soft: #13283a; }
+
+/* ---------- Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* The hidden attribute always wins, even over a display rule on the same element. */
+[hidden] { display: none !important; }
+
+/* No grey or blue flash on tap (Android, iPhone): pressed buttons and picked answers already
+   show the class color. */
+html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+main { flex: 1; width: 100%; }
+
+h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 0.5em; }
+h1 { font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.3rem); letter-spacing: -0.01em; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem; }
+p { margin: 0 0 1em; }
+a { color: var(--accent-text); }
+code, kbd { font-family: var(--font-mono); font-size: 0.92em; }
+img { max-width: 100%; height: auto; }
+
+/* No double-tap zoom delay on controls. */
+a, button, label, summary, select, input { touch-action: manipulation; }
+
+/* Keyboard focus ring, in the class color. */
+:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 2px; border-radius: 4px; }
+
+.wrap { width: 100%; max-width: var(--content-width); margin: 0 auto; padding: 0 16px; }
+.muted { color: var(--text-muted); }
+.faint { color: var(--text-faint); }
+.small { font-size: 0.875rem; }
+.nowrap { white-space: nowrap; }
+.stack > * + * { margin-top: 1rem; }
+.row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.row.spread { justify-content: space-between; }
+.grow { flex: 1 1 auto; }
+.center { text-align: center; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; left: 12px; top: -48px; z-index: 100;
+  background: var(--surface); color: var(--text); padding: 8px 12px;
+  border-radius: var(--radius-sm); box-shadow: var(--shadow);
+}
+.skip-link:focus { top: 12px; }
+
+kbd {
+  display: inline-block; min-width: 1.6em; padding: 0 0.35em; text-align: center;
+  border: 1px solid var(--border-strong); border-bottom-width: 2px; border-radius: 4px;
+  background: var(--surface); color: var(--text); font-size: 0.8em; line-height: 1.5;
+}
+
+/* Line icons made by icon() in assets/js/lib/dom.js. The UI uses these and CSS shapes,
+   never emoji or symbol characters. */
+.icon {
+  display: inline-block; flex: none; width: 1em; height: 1em; vertical-align: -0.14em;
+  fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ---------- Header / footer ----------
+   Wide:   [CP Site name] [Exam name code] .......... [Flashcards][Practice test] [theme]
+   Phone:  [CP] Exam name code
+           [ Flashcards ][ Practice test ] [theme]
+   The first item is the home link (a house icon); header-actions holds the theme button. */
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; min-height: 60px; padding-top: 8px; padding-bottom: 8px; }
+/* header-main takes whatever room the tabs and buttons leave, and wraps inside itself,
+   so the theme button can never drop onto a row of its own. */
+.header-main { display: flex; flex: 1 1 0; flex-wrap: wrap; align-items: center; gap: 0.3rem 1.25rem; min-width: 0; }
+/* Home link: a house icon, with the site name beside it where there is room. */
+.brand {
+  display: inline-flex; align-items: center; gap: 0.5rem; flex: none; min-height: 40px;
+  color: var(--text); text-decoration: none; font-weight: 700; font-size: 1.05rem;
+}
+.brand-icon {
+  display: block; flex: none; width: 24px; height: 24px;
+  fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.exam-title { display: flex; align-items: baseline; gap: 0 0.5rem; flex-wrap: wrap; min-width: 0; }
+.exam-title strong { font-size: 1rem; }
+.exam-code { color: var(--text-muted); font-size: 0.875rem; }
+
+.mode-nav { display: flex; gap: 0.25rem; margin-left: auto; }
+.mode-nav a {
+  padding: 0.45rem 0.85rem; border-radius: 999px; text-decoration: none;
+  color: var(--text-muted); font-weight: 600; font-size: 0.95rem;
+}
+.mode-nav a[aria-current="page"] { background: var(--accent-soft); color: var(--accent-text); box-shadow: inset 0 -3px 0 var(--accent); }
+
+.header-actions { display: flex; align-items: center; gap: 0.35rem; margin-left: auto; }
+.mode-nav + .header-actions { margin-left: 0; }
+
+.icon-btn {
+  display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; padding: 0;
+  border: 1px solid var(--border); border-radius: 999px;
+  background: transparent; color: var(--text-muted); cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+.icon-btn svg { display: block; width: 20px; height: 20px; }
+/* Show the mode you would switch TO: moon while light, sun while dark. */
+.icon-btn .icon-sun { display: none; }
+:root[data-theme="dark"] .icon-btn .icon-sun { display: block; }
+:root[data-theme="dark"] .icon-btn .icon-moon { display: none; }
+
+/* Shown under the header while placeholder (first-pass) content is loaded. */
+.test-banner {
+  padding: 0.45rem 0; font-size: 0.9rem; color: var(--text);
+  background: var(--warn-soft); border-bottom: 1px solid var(--warn-border);
+}
+
+.site-footer {
+  margin-top: 3rem; padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem;
+}
+.site-footer p { margin: 0.25rem 0; }
+
+/* ---------- Buttons, chips, inputs ---------- */
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  min-height: 40px; padding: 0.5rem 1rem; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong); background: var(--surface); color: var(--text);
+  font: inherit; font-weight: 600; font-size: 0.95rem; line-height: 1.2;
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, transform 80ms ease;
+}
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
+/* Pressed feedback, which also works on touch screens (hover styles do not apply there). */
+.btn:active:not(:disabled) { transform: scale(0.98); }
+/* Main action: filled with the class color. */
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+/* Second action beside a main one (Take out beside Next): outlined in the class color. */
+.btn-outline { background: transparent; border-color: var(--accent); color: var(--accent-text); }
+.btn-ghost { background: transparent; border-color: transparent; color: var(--text-muted); }
+.btn-sm { min-height: 32px; padding: 0.3rem 0.65rem; font-size: 0.85rem; }
+.btn-lg { min-height: 48px; padding: 0.7rem 1.4rem; font-size: 1.05rem; }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 0.25rem;
+  padding: 0.1rem 0.5rem; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--surface-2); color: var(--text-muted);
+  font-size: 0.78rem; font-weight: 600; white-space: nowrap;
+}
+.chip-accent { background: var(--accent-soft); border-color: transparent; color: var(--accent-text); }
+.badge {
+  display: inline-block; padding: 0.05rem 0.45rem; border-radius: 4px;
+  font-size: 0.7rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
+  background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn-border);
+}
+
+input[type="search"], input[type="number"], input[type="text"], select {
+  min-height: 40px; padding: 0.45rem 0.7rem; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong); background: var(--surface); color: var(--text);
+  font: inherit;
+}
+input[type="checkbox"], input[type="radio"] { width: 1.1rem; height: 1.1rem; accent-color: var(--accent); margin: 0; flex: none; }
+
+label.inline { display: inline-flex; align-items: center; gap: 0.45rem; cursor: pointer; }
+
+/* Segmented control built from radio buttons. */
+.segmented {
+  display: inline-flex; padding: 3px; gap: 3px; border-radius: 999px;
+  background: var(--surface-2); border: 1px solid var(--border);
+}
+.segmented label { position: relative; }
+.segmented input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.segmented span {
+  display: block; padding: 0.4rem 0.95rem; border-radius: 999px;
+  font-weight: 600; font-size: 0.9rem; color: var(--text-muted); text-align: center;
+}
+.segmented input:checked + span { background: var(--accent); color: var(--on-accent); box-shadow: var(--shadow-sm); }
+.segmented input:focus-visible + span { outline: 3px solid var(--accent-text); outline-offset: 1px; }
+
+/* ---------- Cards, notices, layout pieces ---------- */
+
+.panel {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 1.25rem;
+}
+.panel + .panel { margin-top: 1rem; }
+.panel-title { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.panel-title h2, .panel-title h3 { margin: 0; }
+
+.notice {
+  padding: 0.75rem 1rem; border-radius: var(--radius); border: 1px solid var(--info-border);
+  background: var(--info-soft); color: var(--text);
+}
+.notice + .notice { margin-top: 0.5rem; }
+.notice-warn { background: var(--warn-soft); border-color: var(--warn-border); }
+.notice-bad { background: var(--bad-soft); border-color: var(--bad-border); }
+.notice-good { background: var(--good-soft); border-color: var(--good-border); }
+
+.page-head { padding: 1.75rem 0 1rem; }
+.page-head p { color: var(--text-muted); max-width: 70ch; }
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 0.75rem; }
+.toolbar .spacer { flex: 1 1 auto; }
+
+.loading { padding: 2rem 0; color: var(--text-muted); }
+.error-box { margin: 2rem 0; }
+
+/* Docked bar for a page's main action (Build deck, Start). It stays at the bottom of the
+   screen while the list above it scrolls, so the button is always one tap away. */
+.action-bar {
+  position: sticky; bottom: 0; z-index: 20; margin-top: 1rem;
+  padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+  background: var(--surface); border: 1px solid var(--border); border-bottom: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0; box-shadow: var(--shadow-up);
+}
+.action-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+.action-bar-text { min-width: 0; color: var(--text-muted); font-weight: 600; }
+.action-bar .btn { flex: none; }
+.action-bar.only-narrow { display: none; }
+/* The term table sits above the docked Build bar at every width: a control reached with Tab stops
+   above the bar instead of behind it. (The practice tree gets the same at 860px and below.) */
+.fc-table input, .fc-table button { scroll-margin-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)); }
+
+/* ---------- Home ---------- */
+
+/* One card per exam, filled with that exam's class color: the exact color, the same in
+   light and dark mode. Text on it is white and the buttons are white on color. */
+.exam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.exam-card {
+  --course: var(--accent);
+  display: flex; flex-direction: column; gap: 0.6rem;
+  background: var(--course); color: #ffffff; border: 1px solid transparent;
+  border-radius: var(--radius-lg); padding: 1.1rem 1.1rem 1.2rem; box-shadow: var(--shadow-sm);
+}
+.exam-card[data-theme-key="aplus"]   { --course: #55504A; }
+.exam-card[data-theme-key="netplus"] { --course: #15654A; }
+.exam-card[data-theme-key="secplus"] { --course: #0B4F6C; }
+.exam-card h2 { margin: 0; font-size: 1.15rem; color: #ffffff; }
+.exam-card .exam-code { font-weight: 700; color: #ffffff; }
+.exam-card p { margin: 0; color: rgba(255, 255, 255, 0.9); font-size: 0.92rem; }
+/* Buttons sit at the bottom of the card; everything else stays at the top. When a deck or
+   test is unfinished, a row of Resume buttons comes first. Each row shares the card width:
+   one button fills it, two split it, so Resume deck sits above Flashcards and Resume test
+   above Practice test. */
+.exam-card .exam-actions { margin-top: auto; padding-top: 0.4rem; display: grid; gap: 0.5rem; }
+.exam-card .exam-buttons { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 0.5rem; }
+.exam-card .exam-buttons .btn { padding-left: 0.5rem; padding-right: 0.5rem; white-space: normal; text-align: center; }
+.exam-card .chip { background: rgba(255, 255, 255, 0.16); border-color: rgba(255, 255, 255, 0.45); color: #ffffff; }
+.exam-card .btn { background: transparent; border-color: rgba(255, 255, 255, 0.75); color: #ffffff; }
+.exam-card .btn-primary { background: #ffffff; border-color: #ffffff; color: var(--course); }
+/* A study mode with no content yet: not a link, dashed like the exams still to come. */
+.exam-card .btn.is-soon {
+  flex-direction: column; gap: 0; line-height: 1.25; cursor: default;
+  border-style: dashed; border-color: rgba(255, 255, 255, 0.6); color: rgba(255, 255, 255, 0.9);
+}
+.exam-card .btn.is-soon small { font-size: 0.75rem; font-weight: 500; }
+.exam-card .btn.is-soon:active { transform: none; }
+.exam-card :focus-visible { outline-color: #ffffff; }
+/* Exams not built yet: same color, dashed edge, no buttons. */
+.exam-card.is-planned { border: 1px dashed rgba(255, 255, 255, 0.6); box-shadow: none; }
+
+/* ---------- Tree picker (practice test setup) ---------- */
+
+.tree, .tree ul { list-style: none; margin: 0; padding: 0; }
+.tree ul { margin-left: 1.35rem; border-left: 1px dashed var(--border); padding-left: 0.35rem; }
+.tree-row {
+  display: flex; align-items: flex-start; gap: 0.4rem;
+  padding: 0.3rem 0.4rem; border-radius: var(--radius-sm);
+}
+.tree-toggle, .tree-spacer {
+  flex: none; width: 26px; height: 26px; display: inline-grid; place-items: center;
+  border: 0; border-radius: 6px; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 0.8rem;
+}
+/* Chevron drawn with borders: points right when closed, down when open. */
+.chev {
+  display: inline-block; width: 0.5rem; height: 0.5rem; margin-left: -0.15rem;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg); transition: transform 120ms ease;
+}
+.tree-toggle[aria-expanded="true"] .chev { transform: rotate(45deg); margin-left: 0; margin-top: -0.15rem; }
+.tree-spacer { cursor: default; }
+.tree-row label { display: flex; align-items: flex-start; gap: 0.55rem; flex: 1; min-width: 0; cursor: pointer; padding-top: 3px; }
+.tree-row input { margin-top: 0.15rem; }
+.tree-label { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.tree-id { font-weight: 700; margin-right: 0.1rem; font-variant-numeric: tabular-nums; }
+/* A topic with no content yet: greyed out, one line, with a "Coming soon" chip. The number
+   always shows; on a narrow screen the title is cut short so the chip always fits. */
+.tree-row.is-empty { color: var(--text-faint); }
+.tree-row.is-empty label { cursor: default; align-items: center; padding-top: 0; }
+.tree-row.is-empty input { margin-top: 0; }
+.tree-row.is-empty .tree-label, .group-row.is-soon .group-name {
+  flex: 1 1 auto; min-width: 0; display: flex; gap: 0.3rem; white-space: nowrap;
+}
+.tree-row.is-empty .tree-id, .group-row.is-soon .tree-id { flex: none; margin-right: 0; }
+.tree-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.tree-row.is-empty .chip, .group-row.is-soon .chip { flex: none; font-weight: 600; }
+.tree-count {
+  flex: none; margin-top: 3px; min-width: 2.2em; text-align: center;
+  padding: 0 0.45rem; border-radius: 999px; background: var(--surface-2); color: var(--text-muted);
+  font-size: 0.78rem; font-weight: 700; font-variant-numeric: tabular-nums;
+}
+.tree-row.is-empty .tree-count { background: transparent; }
+.tree-depth-0 > .tree-row { font-weight: 600; }
+
+/* ---------- Flashcard picker table ---------- */
+
+.table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.fc-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.fc-table thead th {
+  position: sticky; top: 0; z-index: 1;
+  background: var(--surface-2); color: var(--text-muted);
+  text-align: left; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border);
+}
+.fc-table td { padding: 0.45rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.fc-table .col-check { width: 2.75rem; }
+/* The term is the checkbox's label, so the whole cell is a tap target. */
+.fc-table td.term { padding: 0; font-weight: 600; }
+.fc-table td.term label { display: block; padding: 0.45rem 0.75rem; cursor: pointer; overflow-wrap: anywhere; }
+.fc-table .tags { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.group-row th {
+  text-align: left; font-weight: 700; padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--border); background: var(--surface);
+}
+.group-row .group-inner { display: flex; align-items: center; gap: 0.45rem; }
+.group-row label { display: inline-flex; align-items: center; gap: 0.55rem; cursor: pointer; flex: 1; min-width: 0; }
+.group-row.level-0 th { background: var(--accent-soft); color: var(--text); }
+.group-row.level-1 th { padding-left: 1.6rem; font-weight: 600; }
+.group-row .group-count { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; }
+/* A domain, objective, unit, or lesson with no cards yet. max-width: 0 lets the name be cut
+   short instead of stretching the table (the cell still spans the full table width). */
+.group-row.is-soon th { color: var(--text-faint); max-width: 0; }
+.group-row.is-soon label { cursor: default; }
+.item-row td.col-check { padding-left: 2.6rem; }
+
+/* ---------- Flashcard deck ---------- */
+
+.deck-layout { display: grid; gap: 1rem; }
+.deck-head { padding-bottom: 0; }
+.deck-stats { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; color: var(--text-muted); font-weight: 600; }
+.deck-stats strong { color: var(--text); font-variant-numeric: tabular-nums; }
+
+.flashcard-stage { perspective: 1400px; }
+.flashcard {
+  position: relative; width: 100%; min-height: 300px;
+  border: 0; padding: 0; background: transparent; color: inherit; font: inherit; text-align: center;
+  cursor: pointer; transform-style: preserve-3d; transition: transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.flashcard.is-flipped { transform: rotateY(180deg); }
+.card-face {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem;
+  padding: 2rem 1.5rem; border-radius: var(--radius-lg);
+  background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-lg);
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.card-face.back { transform: rotateY(180deg); background: var(--surface); border-color: var(--accent); }
+.card-side-label { position: absolute; top: 0.85rem; left: 1rem; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
+.card-tags { position: absolute; top: 0.7rem; right: 0.9rem; display: flex; gap: 0.3rem; flex-wrap: wrap; justify-content: flex-end; max-width: 60%; }
+.card-text { font-size: clamp(1.25rem, 1rem + 1.4vw, 2rem); font-weight: 700; line-height: 1.25; max-width: 32ch; overflow-wrap: anywhere; }
+.card-face.back .card-text { font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.3rem); font-weight: 500; max-width: 60ch; }
+.card-ref { font-size: 0.85rem; color: var(--text-muted); max-width: 60ch; }
+
+/* Main card actions: four across on wide screens, 2 x 2 on phones. */
+.deck-controls { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem; }
+.deck-controls .btn { min-height: 48px; }
+/* Secondary deck actions (side shown first, shuffle, put back, choose cards). */
+.deck-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+.deck-done { text-align: center; padding: 2.5rem 1rem; }
+
+.pile-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+.pile-list li { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.35rem 0.5rem; border-radius: var(--radius-sm); background: var(--surface-2); }
+
+/* Open/close rows draw the CSS chevron, not the browser's own triangle. */
+details.disclosure > summary { display: block; list-style: none; cursor: pointer; font-weight: 600; color: var(--text-muted); padding: 0.25rem 0; }
+details.disclosure > summary::-webkit-details-marker { display: none; }
+details.disclosure > summary .chev { margin-right: 0.6rem; vertical-align: 0.1em; }
+details.disclosure[open] > summary .chev { transform: rotate(45deg); margin-left: 0; }
+details.disclosure[open] > summary { margin-bottom: 0.5rem; }
+
+/* ---------- Practice test ---------- */
+
+.setup-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 1rem; align-items: start; }
+.setup-side { position: sticky; top: 1rem; }
+.count-presets { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.quiz-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; margin-bottom: 0.6rem; }
+.quiz-score { display: inline-flex; gap: 0.75rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.quiz-score > span { display: inline-flex; align-items: center; gap: 0.25rem; }
+.quiz-score .ok { color: var(--good); }
+.quiz-score .no { color: var(--bad); }
+.progress { height: 8px; border-radius: 999px; background: var(--surface-3); overflow: hidden; }
+.progress > span { display: block; height: 100%; width: 0; background: var(--accent); transition: width 200ms ease; }
+
+.question { margin-top: 1rem; }
+.q-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.75rem; }
+.q-meta:empty { display: none; }
+.q-stem { font-size: 1.12rem; line-height: 1.55; white-space: pre-line; margin-bottom: 0.4rem; }
+.q-instruction { font-weight: 700; color: var(--accent-text); margin-bottom: 0.9rem; }
+.q-exhibit { margin: 0 0 1rem; padding: 0.75rem 1rem; border-radius: var(--radius); background: var(--surface-2); border: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.9rem; white-space: pre-wrap; overflow-x: auto; }
+
+.choices { display: grid; gap: 0.55rem; margin: 0; padding: 0; border: 0; list-style: none; min-inline-size: 0; }
+.choice {
+  position: relative; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.75rem;
+  padding: 0.8rem 0.95rem; border-radius: var(--radius);
+  border: 2px solid var(--border); background: var(--surface); cursor: pointer;
+  transition: border-color 100ms ease, background-color 100ms ease;
+}
+.choice input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.choice-letter {
+  flex: none; width: 28px; height: 28px; display: inline-grid; place-items: center;
+  border-radius: 50%; border: 2px solid var(--border-strong); font-weight: 800; font-size: 0.85rem; color: var(--text-muted);
+}
+.choices.is-multi .choice-letter { border-radius: 7px; }
+.choice-text { padding-top: 2px; flex: 1 1 0; min-width: min(10rem, 100%); overflow-wrap: anywhere; }
+.choice:has(input:focus-visible) { outline: 3px solid var(--accent-text); outline-offset: 2px; }
+/* The picked answer is highlighted in the class color; right and wrong keep green and red. */
+.choice.is-selected { border-color: var(--accent); background: var(--accent-soft); }
+.choice.is-selected .choice-letter { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.choice.is-locked { cursor: default; }
+.choice.is-correct { border-color: var(--good); background: var(--good-soft); }
+.choice.is-correct .choice-letter { background: var(--good); border-color: var(--good); color: var(--on-good); }
+.choice.is-wrong { border-color: var(--bad); background: var(--bad-soft); }
+.choice.is-wrong .choice-letter { background: var(--bad); border-color: var(--bad); color: var(--on-bad); }
+.choice-mark { display: inline-flex; align-items: center; gap: 0.3rem; margin-left: auto; padding-left: 0.5rem; font-weight: 800; white-space: nowrap; font-size: 0.85rem; }
+.choice-mark:empty { display: none; }
+.choice.is-correct .choice-mark { color: var(--good); }
+.choice.is-wrong .choice-mark { color: var(--bad); }
+
+.quiz-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-top: 1rem; }
+
+.feedback { margin-top: 1rem; border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; }
+.feedback-head { display: flex; align-items: center; gap: 0.6rem; padding: 0.75rem 1rem; font-weight: 800; font-size: 1.05rem; }
+.feedback.is-good .feedback-head { background: var(--good-soft); color: var(--good); border-bottom: 1px solid var(--good-border); }
+.feedback.is-bad .feedback-head { background: var(--bad-soft); color: var(--bad); border-bottom: 1px solid var(--bad-border); }
+.feedback-body { padding: 0.9rem 1rem 1rem; background: var(--surface); }
+
+.reference-where { overflow-wrap: anywhere; }
+.reference-quote {
+  margin: 0.7rem 0 0; padding: 0.6rem 0.9rem; border-left: 4px solid var(--accent);
+  background: var(--surface-2); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-style: italic; line-height: 1.55;
+}
+.reference-missing { margin-top: 0.6rem; color: var(--text-faint); font-size: 0.9rem; }
+
+/* ---------- Results ---------- */
+
+.score-hero { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+.score-big { font-size: 3.2rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.score-detail { color: var(--text-muted); }
+.score-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-left: auto; }
+.breakdown { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.breakdown th, .breakdown td { padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+.breakdown th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+.breakdown td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* Score bar: green for the share answered correctly, red for the share missed.
+   So 0% is a fully red bar and 100% a fully green one. */
+.bar { display: block; height: 8px; min-width: 80px; border-radius: 999px; background: var(--bad); overflow: hidden; }
+.bar > span { display: block; height: 100%; background: var(--good); }
+
+/* Review of missed questions: the question as the student saw it, their pick, the right
+   answer, and the reading. "Retry missed" sits above and below the list. */
+.missed-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.9rem; }
+.missed-item { border: 1px solid var(--border); border-radius: var(--radius); padding: 0.9rem 1rem; background: var(--surface); min-width: 0; }
+.missed-number { margin-bottom: 0.3rem; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); }
+.missed-item .q-stem { font-size: 1rem; margin-bottom: 0.7rem; }
+.review-choices { gap: 0.4rem; }
+.review-choices .choice { padding: 0.5rem 0.7rem; border-width: 1px; }
+.review-choices .choice.is-correct, .review-choices .choice.is-wrong { border-width: 2px; }
+.missed-ref { margin-top: 0.8rem; }
+.review-foot { display: flex; justify-content: flex-end; margin-top: 1rem; }
+
+/* ---------- Validator page ---------- */
+
+.report-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
+.report-list li { padding: 0.45rem 0.7rem; border-radius: var(--radius-sm); font-size: 0.92rem; border: 1px solid var(--border); background: var(--surface); }
+.report-list li.is-error { border-color: var(--bad-border); background: var(--bad-soft); }
+.report-list li.is-warning { border-color: var(--warn-border); background: var(--warn-soft); }
+.report-list .where { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.6rem; }
+.stat { padding: 0.75rem 0.9rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); }
+.stat .n { font-size: 1.6rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.stat .l { color: var(--text-muted); font-size: 0.85rem; }
+
+/* ---------- History side panel ----------
+   A drawer on the right (full width on phones) built by components/history-panel.js. */
+
+.drawer-backdrop { position: fixed; inset: 0; z-index: 50; background: rgba(8, 12, 18, 0.55); }
+.drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 51;
+  width: min(460px, 100%); display: flex; flex-direction: column;
+  background: var(--bg); border-left: 1px solid var(--border); box-shadow: var(--shadow-lg);
+}
+.drawer-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0.75rem 1rem; background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.drawer-head h2 { margin: 0; }
+.drawer-body {
+  flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+}
+.drawer-body > * + * { margin-top: 1rem; }
+.drawer-body .panel { padding: 1rem; }
+.drawer-body h3 { margin: 0 0 0.6rem; }
+
+.hist-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+.hist-stats .stat { padding: 0.6rem 0.7rem; min-width: 0; }
+.hist-stats .stat .n { font-size: 1.35rem; }
+.hist-stats .chip { margin-top: 0.3rem; }
+
+/* Recent scores: one bar per test, oldest on the left, percent under each bar. */
+.trend-bars { display: flex; align-items: stretch; gap: 6px; height: 120px; margin: 0; padding: 0; list-style: none; }
+.trend-bars li { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.trend-track { flex: 1 1 auto; min-height: 0; width: 100%; display: flex; align-items: flex-end; justify-content: center; }
+.trend-bar { display: block; width: 100%; max-width: 30px; border-radius: 4px 4px 0 0; background: var(--accent); }
+.trend-value { font-size: 0.72rem; font-variant-numeric: tabular-nums; color: var(--text-muted); }
+
+/* Breakdown by unit, each opening to its lessons. */
+.hist-weakest { margin: 0 0 0.5rem; }
+.hist-unit { border-top: 1px solid var(--border); }
+.hist-unit:first-child { border-top: 0; }
+.hist-unit > summary { display: block; list-style: none; cursor: pointer; padding: 0.65rem 0; }
+.hist-unit > summary::-webkit-details-marker { display: none; }
+.hist-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.3rem 0.75rem; align-items: center; }
+.hist-row-unit { grid-template-columns: 0.9rem minmax(0, 1fr) auto; }
+.hist-name { min-width: 0; overflow-wrap: anywhere; font-weight: 600; }
+.hist-score { font-variant-numeric: tabular-nums; }
+.hist-meta { grid-column: 1 / -1; display: flex; align-items: center; gap: 0.6rem; min-width: 0; }
+.hist-row-unit .hist-meta { grid-column: 2 / -1; }
+.hist-meta .bar { flex: 1 1 auto; min-width: 40px; }
+.hist-unit[open] > summary .chev { transform: rotate(45deg); margin-left: 0; margin-top: -0.15rem; }
+/* Lessons line up under the unit's name (past the chevron column and its gap). */
+.hist-lessons { list-style: none; margin: 0; padding: 0 0 0.7rem 1.65rem; display: grid; gap: 0.65rem; }
+.hist-lessons .hist-name { font-weight: 500; }
+
+/* The log of tests. */
+.hist-tests { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.hist-test { display: grid; gap: 0.3rem; padding: 0.6rem 0.7rem; border: 1px solid var(--border); border-radius: var(--radius); }
+.hist-chips { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.hist-foot { display: flex; justify-content: flex-end; }
+.chip-good { background: var(--good-soft); border-color: var(--good-border); color: var(--good); }
+.chip-bad { background: var(--bad-soft); border-color: var(--bad-border); color: var(--bad); }
+
+/* ---------- Hover (mouse and trackpad only) ----------
+   Hover highlights use the class color. They are kept off touch screens on purpose:
+   there a hover style sticks to the last thing tapped and looks like a selection. */
+@media (hover: hover) {
+  .brand:hover { color: var(--accent-text); }
+  .mode-nav a:hover { background: var(--accent-soft); color: var(--text); }
+  .icon-btn:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-text); }
+
+  .btn:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--text); }
+  .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--on-accent); }
+  .btn-outline:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-text); }
+  .btn-ghost:hover { background: var(--accent-soft); border-color: transparent; color: var(--text); }
+  /* Disabled buttons do not react. */
+  .btn:disabled:hover { background: var(--surface); border-color: var(--border-strong); color: var(--text); }
+  .btn-primary:disabled:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .btn-outline:disabled:hover { background: transparent; border-color: var(--accent); color: var(--accent-text); }
+  .btn-ghost:disabled:hover { background: transparent; border-color: transparent; color: var(--text-muted); }
+
+  .exam-card .btn:hover { background: rgba(255, 255, 255, 0.16); border-color: #ffffff; color: #ffffff; }
+  .exam-card .btn-primary:hover { background: rgba(255, 255, 255, 0.88); border-color: transparent; color: var(--course); }
+  .exam-card .btn.is-soon:hover { background: transparent; border-color: rgba(255, 255, 255, 0.6); color: rgba(255, 255, 255, 0.9); }
+
+  .tree-row:not(.is-empty):hover { background: var(--accent-soft); }
+  .tree-toggle:hover { background: var(--accent-soft); color: var(--accent-text); box-shadow: inset 0 0 0 1px var(--accent); }
+  .fc-table tr.item-row:hover td { background: var(--accent-soft); }
+  .choice:not(.is-locked):hover { border-color: var(--accent); }
+}
+
+/* ---------- Responsive ---------- */
+
+/* Tablets and phones: one column; the Start button moves into the docked bar. */
+@media (max-width: 860px) {
+  .setup-grid { grid-template-columns: minmax(0, 1fr); }
+  .setup-side { position: static; }
+  .action-bar.only-narrow { display: block; }
+  .start-inline { display: none; }
+  /* Controls above the docked Start bar stop above it when reached with Tab. */
+  .tree input, .tree button, .setup-side input, .setup-side button {
+    scroll-margin-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Exam pages on narrower screens: the exam name matters more than the site name, so the
+   home link collapses to just its icon (the name stays readable to screen readers). */
+@media (max-width: 900px) {
+  .site-header.has-exam .brand-name {
+    position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap;
+  }
+  /* Icon-only link: keep a finger-size target. */
+  .site-header.has-exam .brand { min-width: 40px; }
+  .site-header.has-exam .header-main { flex-wrap: nowrap; gap: 0.6rem; }
+}
+
+/* Phones: two-row header on exam pages (title row, then tabs + theme button). */
+@media (max-width: 600px) {
+  .site-header.has-exam .header-inner { gap: 0.4rem 0.5rem; }
+  .site-header.has-exam .header-main { flex: 1 1 100%; }
+  .site-header.has-exam .mode-nav { flex: 1 1 0; min-width: 0; margin-left: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem; }
+  .site-header.has-exam .mode-nav a {
+    display: grid; place-items: center; min-height: 44px; padding: 0.3rem 0.5rem; text-align: center;
+    border-radius: var(--radius-sm); background: var(--surface-2);
+  }
+  .site-header.has-exam .mode-nav a[aria-current="page"] { background: var(--accent-soft); }
+}
+
+@media (max-width: 560px) {
+  .page-head { padding: 1.1rem 0 0.75rem; }
+  .panel { padding: 1rem; border-radius: var(--radius); }
+  /* Long button labels wrap instead of pushing the page sideways. */
+  .btn { white-space: normal; text-align: center; }
+
+  .segmented { display: flex; width: 100%; }
+  .segmented label { flex: 1 1 0; min-width: 0; }
+  .segmented span { padding-left: 0.5rem; padding-right: 0.5rem; }
+  .toolbar input[type="search"] { flex: 1 1 100%; min-width: 0; }
+
+  .flashcard { min-height: 250px; }
+  .card-face { padding: 2.25rem 1rem 2rem; }
+  .deck-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .deck-tools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .deck-tools > * { width: 100%; min-width: 0; }
+  .fc-table .col-unit, .fc-table td.col-unit { display: none; }
+  .item-row td.col-check { padding-left: 1.6rem; }
+  /* Rows with nothing to open keep only a small gap where the arrow would be, so nested
+     topics get more room for their names. */
+  .tree .tree-spacer { width: 14px; }
+  /* "Coming soon" rows: the greyed-out checkbox and the empty arrow column give their room to the name. */
+  .tree-row.is-empty input, .tree-row.is-empty .tree-spacer,
+  .group-row.is-soon input, .group-row.is-soon .tree-spacer { display: none; }
+
+  .quiz-actions .btn-lg { flex: 1 1 100%; }
+  /* The score bar is decoration; the numbers beside it say the same thing. */
+  .breakdown.has-bar th:last-child, .breakdown.has-bar td:last-child { display: none; }
+  .score-big { font-size: 2.6rem; }
+  .score-actions { width: 100%; margin-left: 0; }
+  .score-actions .btn { flex: 1 1 auto; }
+  .review-foot .btn, .panel-title > .btn { width: 100%; }
+  .action-bar { padding-left: 0.75rem; padding-right: 0.75rem; }
+}
+
+/* The narrowest phones (320px, or a phone set to large display size): smaller indents, so
+   topic names and terms are not squeezed into a column a few words wide. */
+@media (max-width: 359px) {
+  .tree ul { margin-left: 0.5rem; padding-left: 0.25rem; }
+  .group-row.level-1 th { padding-left: 0.6rem; }
+  .fc-table td.term label { padding-left: 0.4rem; padding-right: 0.4rem; }
+  .item-row td.col-check { padding-left: 0.6rem; padding-right: 0.3rem; }
+}
+
+/* ---------- Touch ---------- */
+
+/* Bigger targets for fingers (phones, tablets, touch Chromebooks in tablet mode). */
+@media (pointer: coarse) {
+  input[type="checkbox"], input[type="radio"] { width: 1.3rem; height: 1.3rem; }
+  .icon-btn { width: 44px; height: 44px; }
+  .brand { min-height: 44px; }
+  .site-header.has-exam .brand { min-width: 44px; }
+  .btn { min-height: 44px; }
+  .btn-lg { min-height: 48px; }
+  .btn-sm { min-height: 40px; padding-left: 0.8rem; padding-right: 0.8rem; }
+  .tree-row { padding-top: 0.45rem; padding-bottom: 0.45rem; }
+  .tree-toggle, .tree-spacer { width: 36px; height: 36px; }
+  .tree-row label { padding-top: 7px; }
+  .tree-count { margin-top: 7px; }
+  .group-row th { padding-top: 0.6rem; padding-bottom: 0.6rem; }
+  .fc-table td { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+  .fc-table td.term { padding: 0; }
+  .fc-table td.term label { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+  .pile-list li { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+}
+
+/* Windows contrast themes: keep selected states visible with system colors. */
+@media (forced-colors: active) {
+  .choice.is-selected { outline: 3px solid Highlight; }
+  .choice.is-selected .choice-letter { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+  .choice.is-correct, .choice.is-wrong { outline: 3px solid CanvasText; }
+  .segmented input:checked + span { outline: 2px solid Highlight; outline-offset: -2px; }
+  .mode-nav a[aria-current="page"] { outline: 2px solid Highlight; }
+}
+
+@media print {
+  .site-header, .site-footer, .quiz-actions, .deck-controls, .deck-tools, .toolbar, .action-bar, .drawer, .drawer-backdrop { display: none !important; }
+  body { background: #fff; color: #000; }
+}

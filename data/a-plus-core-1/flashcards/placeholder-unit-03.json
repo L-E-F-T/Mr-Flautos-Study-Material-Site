@@ -1,0 +1,524 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": {
+    "id": "placeholder-unit-03",
+    "title": "PLACEHOLDER: Unit 3.0 Installing System Devices (first-pass test content)",
+    "placeholder": true,
+    "reviewed": false,
+    "notes": "FIRST-PASS TEST CONTENT. It exists only so the website can be tested and has NOT been approved by Mr. Flauto. Known problem: several cards use a bare value as the term (for example an RPM figure) with a back that does not help a student. Do not edit or extend it. When real Unit 3.0 cards are ready: delete this file, remove it from manifest.json, and add the new pack (see docs/CONTENT-GUIDE.md). Real cards must use fresh ids (c1-u03-f001, ...), never these ph- ids."
+  },
+  "flashcards": [
+    {
+      "id": "ph-u03-f001",
+      "term": "Low-line voltage",
+      "definition": "120 VAC outlet power, as in North America; PSUs accept about 100–127 VAC",
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["3.1.1"],
+      "reference": { "source": "certmaster", "section": "3.1.1", "title": "Power Supply Units" }
+    },
+    {
+      "id": "ph-u03-f002",
+      "term": "High-line voltage",
+      "definition": "230 VAC outlet power, as in the UK and many data centers; PSUs accept about 220–240 VAC",
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["3.1.1"],
+      "reference": { "source": "certmaster", "section": "3.1.1", "title": "Power Supply Units" }
+    },
+    {
+      "id": "ph-u03-f003",
+      "term": "Auto-switching PSU",
+      "definition": "Dual voltage PSU that adjusts to low-line or high-line input by itself, with no switch to set",
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["3.1.1"],
+      "reference": { "source": "certmaster", "section": "3.1.1", "title": "Power Supply Units" }
+    },
+    {
+      "id": "ph-u03-f004",
+      "term": "Wattage rating",
+      "definition": "Most power, in watts, a PSU can deliver to all of a PC's components combined",
+      "objectives": ["3.6", "3.6.f"],
+      "units": ["3.1.3"],
+      "reference": { "source": "certmaster", "section": "3.1.3", "title": "Wattage Rating" }
+    },
+    {
+      "id": "ph-u03-f005",
+      "term": "+12 V rail",
+      "definition": "Most heavily used PSU output in modern PCs, so check its rating first",
+      "objectives": ["3.6", "3.6.b"],
+      "units": ["3.1.3"],
+      "reference": { "source": "certmaster", "section": "3.1.3", "title": "Wattage Rating" }
+    },
+    {
+      "id": "ph-u03-f006",
+      "term": "80 PLUS",
+      "definition": "PSU efficiency certification; a passing unit turns at least 80% of wall power into output at 20–100% load",
+      "objectives": ["3.6", "3.6.g"],
+      "units": ["3.1.3"],
+      "reference": { "source": "certmaster", "section": "3.1.3", "title": "Wattage Rating" }
+    },
+    {
+      "id": "ph-u03-f007",
+      "term": "P1 connector",
+      "definition": "Main motherboard power connector: 24 pins (2x12) on most systems, 20 pins (2x10) on original ATX",
+      "objectives": ["3.6", "3.6.c"],
+      "units": ["3.1.5"],
+      "reference": { "source": "certmaster", "section": "3.1.5", "title": "20-pin to 24-pin Motherboard Adapter" }
+    },
+    {
+      "id": "ph-u03-f008",
+      "term": "20+4-pin P1 cable",
+      "definition": "Main power cable that fits newer 24-pin motherboards and older 20-pin motherboards",
+      "objectives": ["3.6", "3.6.c"],
+      "units": ["3.1.5"],
+      "reference": { "source": "certmaster", "section": "3.1.5", "title": "20-pin to 24-pin Motherboard Adapter" }
+    },
+    {
+      "id": "ph-u03-f009",
+      "term": "Yellow PSU wire",
+      "definition": "+12 V",
+      "objectives": ["3.6", "3.6.b"],
+      "units": ["3.1.5"],
+      "reference": { "source": "certmaster", "section": "3.1.5", "title": "20-pin to 24-pin Motherboard Adapter" }
+    },
+    {
+      "id": "ph-u03-f010",
+      "term": "Red PSU wire",
+      "definition": "+5 V",
+      "objectives": ["3.6", "3.6.b"],
+      "units": ["3.1.5"],
+      "reference": { "source": "certmaster", "section": "3.1.5", "title": "20-pin to 24-pin Motherboard Adapter" }
+    },
+    {
+      "id": "ph-u03-f011",
+      "term": "Orange PSU wire",
+      "definition": "+3.3 V",
+      "objectives": ["3.6", "3.6.b"],
+      "units": ["3.1.5"],
+      "reference": { "source": "certmaster", "section": "3.1.5", "title": "20-pin to 24-pin Motherboard Adapter" }
+    },
+    {
+      "id": "ph-u03-f012",
+      "term": "Black PSU wire",
+      "definition": "Ground",
+      "objectives": ["3.6", "3.6.b"],
+      "units": ["3.1.5"],
+      "reference": { "source": "certmaster", "section": "3.1.5", "title": "20-pin to 24-pin Motherboard Adapter" }
+    },
+    {
+      "id": "ph-u03-f013",
+      "term": "Modular PSU",
+      "definition": "PSU with detachable cables, so unused ones stay out of the case for less clutter and better airflow",
+      "objectives": ["3.6", "3.6.e"],
+      "units": ["3.1.6"],
+      "reference": { "source": "certmaster", "section": "3.1.6", "title": "Modular Power Supplies" }
+    },
+    {
+      "id": "ph-u03-f014",
+      "term": "Redundant PSU",
+      "definition": "Second PSU that takes over right away if the first fails, keeping a server running",
+      "objectives": ["3.6", "3.6.d"],
+      "units": ["3.1.7"],
+      "reference": { "source": "certmaster", "section": "3.1.7", "title": "Redundant Power Supplies" }
+    },
+    {
+      "id": "ph-u03-f015",
+      "term": "Passive heat sink",
+      "definition": "Heat sink with no fan that relies on surface area; on memory modules it is called a heat spreader",
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.1.11"],
+      "reference": { "source": "certmaster", "section": "3.1.11", "title": "Heat Sinks and Thermal Paste" }
+    },
+    {
+      "id": "ph-u03-f016",
+      "term": "Thermal paste",
+      "definition": "Compound spread between a CPU and its heat sink to fill air gaps; may be more reliable than a pad",
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.1.11"],
+      "reference": { "source": "certmaster", "section": "3.1.11", "title": "Heat Sinks and Thermal Paste" }
+    },
+    {
+      "id": "ph-u03-f017",
+      "term": "Water block",
+      "definition": "Liquid cooling part mounted on a device that carries the device's heat into the coolant",
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.1.13"],
+      "reference": { "source": "certmaster", "section": "3.1.13", "title": "Liquid Cooling Systems" }
+    },
+    {
+      "id": "ph-u03-f018",
+      "term": "RAID 0",
+      "definition": "Striping data across two or more disks for speed, with no fault tolerance",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.6"],
+      "reference": { "source": "certmaster", "section": "3.2.6", "title": "RAID 0 and RAID 1" }
+    },
+    {
+      "id": "ph-u03-f019",
+      "term": "RAID 1",
+      "definition": "Mirroring on two disks; survives one disk failure, but only half the total space is usable",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.6"],
+      "reference": { "source": "certmaster", "section": "3.2.6", "title": "RAID 0 and RAID 1" }
+    },
+    {
+      "id": "ph-u03-f020",
+      "term": "RAID 5",
+      "definition": "Striping with parity spread across all disks; three or more disks; survives one disk failure",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.7"],
+      "reference": { "source": "certmaster", "section": "3.2.7", "title": "RAID 5 and RAID 10" }
+    },
+    {
+      "id": "ph-u03-f021",
+      "term": "RAID 6",
+      "definition": "Striping with two sets of parity; four or more disks; survives two disk failures at once",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.8"],
+      "reference": { "source": "certmaster", "section": "3.2.8", "title": "RAID 6 (Striping with Double Parity)" }
+    },
+    {
+      "id": "ph-u03-f022",
+      "term": "RAID 10",
+      "definition": "Striped set of mirrored pairs; four or more disks in an even number; half the space holds copies",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.7"],
+      "reference": { "source": "certmaster", "section": "3.2.7", "title": "RAID 5 and RAID 10" }
+    },
+    {
+      "id": "ph-u03-f023",
+      "term": "NVMe",
+      "definition": "High-speed SSD interface that uses the PCIe bus instead of SATA",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "ph-u03-f024",
+      "term": "SATA",
+      "definition": "Common drive interface whose 600 MBps limit can hold back fast SSDs",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "ph-u03-f025",
+      "term": "SAS",
+      "definition": "Server and workstation drive interface, faster and more reliable than SATA",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "ph-u03-f026",
+      "term": "M.2",
+      "definition": "Small, flat SSD form factor powered by its slot; a size label like 2280 means 22 mm by 80 mm",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "ph-u03-f027",
+      "term": "mSATA",
+      "definition": "Mini SATA SSD card that gets data and power through one motherboard connector",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "ph-u03-f028",
+      "term": "3.5-inch HDD",
+      "definition": "Hard drive size made for desktop PCs",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["3.2.4"],
+      "reference": { "source": "certmaster", "section": "3.2.4", "title": "Hard Disk Drives" }
+    },
+    {
+      "id": "ph-u03-f029",
+      "term": "2.5-inch HDD",
+      "definition": "Smaller hard drive size used in laptops and portable external drives",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["3.2.4"],
+      "reference": { "source": "certmaster", "section": "3.2.4", "title": "Hard Disk Drives" }
+    },
+    {
+      "id": "ph-u03-f030",
+      "term": "15,000 RPM",
+      "definition": "High-performance hard drive spindle speed; supports up to 180 MBps",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["3.2.4"],
+      "reference": { "source": "certmaster", "section": "3.2.4", "title": "Hard Disk Drives" }
+    },
+    {
+      "id": "ph-u03-f031",
+      "term": "7,200 RPM",
+      "definition": "Spindle speed of an average hard drive; around 110 MBps",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["3.2.4"],
+      "reference": { "source": "certmaster", "section": "3.2.4", "title": "Hard Disk Drives" }
+    },
+    {
+      "id": "ph-u03-f032",
+      "term": "Flash drive",
+      "definition": "Small USB stick of flash memory; also called a thumb drive or pen drive",
+      "objectives": ["3.4", "3.4.d"],
+      "units": ["3.2.10"],
+      "reference": { "source": "certmaster", "section": "3.2.10", "title": "Removable Storage Drives" }
+    },
+    {
+      "id": "ph-u03-f033",
+      "term": "SDHC",
+      "definition": "SD card type that holds up to 32 GB",
+      "objectives": ["3.4", "3.4.d"],
+      "units": ["3.2.10"],
+      "reference": { "source": "certmaster", "section": "3.2.10", "title": "Removable Storage Drives" }
+    },
+    {
+      "id": "ph-u03-f034",
+      "term": "SDXC",
+      "definition": "SD card type that holds up to 2 TB",
+      "objectives": ["3.4", "3.4.d"],
+      "units": ["3.2.10"],
+      "reference": { "source": "certmaster", "section": "3.2.10", "title": "Removable Storage Drives" }
+    },
+    {
+      "id": "ph-u03-f035",
+      "term": "Blu-ray",
+      "definition": "Optical disc that stores 25 GB on each layer",
+      "objectives": ["3.4", "3.4.e"],
+      "units": ["3.2.11"],
+      "reference": { "source": "certmaster", "section": "3.2.11", "title": "Optical Drives" }
+    },
+    {
+      "id": "ph-u03-f036",
+      "term": "SODIMM",
+      "definition": "Small memory module for laptops and compact PCs where space is tight",
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["3.3.3"],
+      "reference": { "source": "certmaster", "section": "3.3.3", "title": "Memory Modules" }
+    },
+    {
+      "id": "ph-u03-f037",
+      "term": "DIMM",
+      "definition": "Full-size memory module for desktops, gaming PCs, workstations, and servers",
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["3.3.3"],
+      "reference": { "source": "certmaster", "section": "3.3.3", "title": "Memory Modules" }
+    },
+    {
+      "id": "ph-u03-f038",
+      "term": "DDR SDRAM",
+      "definition": "Memory that transfers data twice per clock cycle, once on each edge of the clock",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["3.3.2"],
+      "reference": { "source": "certmaster", "section": "3.3.2", "title": "RAM Types" }
+    },
+    {
+      "id": "ph-u03-f039",
+      "term": "DDR3",
+      "definition": "800 to 2133 MT/s data rate; modules up to 16 GB",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["3.3.2"],
+      "reference": { "source": "certmaster", "section": "3.3.2", "title": "RAM Types" }
+    },
+    {
+      "id": "ph-u03-f040",
+      "term": "DDR4",
+      "definition": "1600 to 3200 MT/s data rate; modules up to 32 GB; more power efficient than DDR3",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["3.3.2"],
+      "reference": { "source": "certmaster", "section": "3.3.2", "title": "RAM Types" }
+    },
+    {
+      "id": "ph-u03-f041",
+      "term": "DDR5",
+      "definition": "4800 to 8000+ MT/s; modules 128 GB or more; two 32-bit subchannels in each module",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["3.3.2"],
+      "reference": { "source": "certmaster", "section": "3.3.2", "title": "RAM Types" }
+    },
+    {
+      "id": "ph-u03-f042",
+      "term": "PC1600",
+      "definition": "DDR-200 label: 200 MT/s times 8 bytes = 1600 MBps, a 1.6 GB/s peak transfer rate",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["3.3.2"],
+      "reference": { "source": "certmaster", "section": "3.3.2", "title": "RAM Types" }
+    },
+    {
+      "id": "ph-u03-f043",
+      "term": "CAS latency",
+      "definition": "Clock cycles from a data request until the data is ready; a lower number is faster",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["3.3.2"],
+      "reference": { "source": "certmaster", "section": "3.3.2", "title": "RAM Types" }
+    },
+    {
+      "id": "ph-u03-f044",
+      "term": "Single-channel memory",
+      "definition": "A single 64-bit path connecting the memory controller to RAM",
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["3.3.5"],
+      "reference": { "source": "certmaster", "section": "3.3.5", "title": "Multi-channel System Memory" }
+    },
+    {
+      "id": "ph-u03-f045",
+      "term": "Dual-channel memory",
+      "definition": "Two 64-bit paths, 128 bits per transfer; needs CPU, controller, and board support, not special RAM",
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["3.3.5"],
+      "reference": { "source": "certmaster", "section": "3.3.5", "title": "Multi-channel System Memory" }
+    },
+    {
+      "id": "ph-u03-f046",
+      "term": "Flex mode",
+      "definition": "Uneven pair: the matched amount runs dual-channel and the extra runs single-channel",
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["3.3.5"],
+      "reference": { "source": "certmaster", "section": "3.3.5", "title": "Multi-channel System Memory" }
+    },
+    {
+      "id": "ph-u03-f047",
+      "term": "Quad-channel memory",
+      "definition": "Four memory channels; with some left empty, the system uses only the filled ones",
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["3.3.5"],
+      "reference": { "source": "certmaster", "section": "3.3.5", "title": "Multi-channel System Memory" }
+    },
+    {
+      "id": "ph-u03-f048",
+      "term": "ECC RAM",
+      "definition": "Fixes single-bit errors, detects multi-bit errors, and uses a 72-bit data bus",
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["3.3.8"],
+      "reference": { "source": "certmaster", "section": "3.3.8", "title": "ECC RAM" }
+    },
+    {
+      "id": "ph-u03-f049",
+      "term": "RDIMM",
+      "definition": "Registered DIMM: a register eases the memory controller's load; most ECC RAM is this type",
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["3.3.8"],
+      "reference": { "source": "certmaster", "section": "3.3.8", "title": "ECC RAM" }
+    },
+    {
+      "id": "ph-u03-f050",
+      "term": "UDIMM",
+      "definition": "Unbuffered DIMM: common in consumer PCs and usually does not support ECC",
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["3.3.8"],
+      "reference": { "source": "certmaster", "section": "3.3.8", "title": "ECC RAM" }
+    },
+    {
+      "id": "ph-u03-f051",
+      "term": "LGA",
+      "definition": "Socket design with the pins on the motherboard and flat pads on the CPU; Intel's usual choice",
+      "objectives": ["3.5", "3.5.c"],
+      "units": ["3.4.6"],
+      "reference": { "source": "certmaster", "section": "3.4.6", "title": "CPU Socket Types" }
+    },
+    {
+      "id": "ph-u03-f052",
+      "term": "PGA",
+      "definition": "Socket design with the pins on the CPU itself, which drop into the socket; AMD's long-time choice",
+      "objectives": ["3.5", "3.5.c"],
+      "units": ["3.4.6"],
+      "reference": { "source": "certmaster", "section": "3.4.6", "title": "CPU Socket Types" }
+    },
+    {
+      "id": "ph-u03-f053",
+      "term": "ZIF",
+      "definition": "Socket mechanism that lets a CPU drop in without pressure, which lowers the risk of damaged pins",
+      "objectives": ["3.5", "3.5.c"],
+      "units": ["3.4.6"],
+      "reference": { "source": "certmaster", "section": "3.4.6", "title": "CPU Socket Types" }
+    },
+    {
+      "id": "ph-u03-f054",
+      "term": "AM4",
+      "definition": "AMD socket used by several generations of Ryzen CPUs; PGA design with the pins on the CPU",
+      "objectives": ["3.5", "3.5.c"],
+      "units": ["3.4.6"],
+      "reference": { "source": "certmaster", "section": "3.4.6", "title": "CPU Socket Types" }
+    },
+    {
+      "id": "ph-u03-f055",
+      "term": "LGA 1700",
+      "definition": "Intel socket for 12th- and 13th-gen Core CPUs, with DDR5 and PCIe 5.0 support",
+      "objectives": ["3.5", "3.5.c"],
+      "units": ["3.4.7"],
+      "reference": { "source": "certmaster", "section": "3.4.7", "title": "CPU Types and Motherboard Compatibility" }
+    },
+    {
+      "id": "ph-u03-f056",
+      "term": "SMP",
+      "definition": "Two or more identical physical CPUs on a multisocket motherboard, with the OS spreading tasks across them",
+      "objectives": ["3.5", "3.5.c"],
+      "units": ["3.4.5"],
+      "reference": { "source": "certmaster", "section": "3.4.5", "title": "CPU Features" }
+    },
+    {
+      "id": "ph-u03-f057",
+      "term": "SMT",
+      "definition": "Each physical core runs two threads at once and acts like two cores; Intel calls it Hyper-Threading",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.5"],
+      "reference": { "source": "certmaster", "section": "3.4.5", "title": "CPU Features" }
+    },
+    {
+      "id": "ph-u03-f058",
+      "term": "8C/16T",
+      "definition": "A CPU with eight physical cores that can run 16 threads at the same time",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.5"],
+      "reference": { "source": "certmaster", "section": "3.4.5", "title": "CPU Features" }
+    },
+    {
+      "id": "ph-u03-f059",
+      "term": "Intel VT / AMD-V",
+      "definition": "Hardware virtualization support built into the CPU that helps virtual machines run faster",
+      "objectives": ["3.5", "3.5.e"],
+      "units": ["3.4.5"],
+      "reference": { "source": "certmaster", "section": "3.4.5", "title": "CPU Features" }
+    },
+    {
+      "id": "ph-u03-f060",
+      "term": "x64",
+      "definition": "64-bit extension of x86, first made by AMD as AMD64; lets the CPU use more than 4 GB of RAM",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.3"],
+      "reference": { "source": "certmaster", "section": "3.4.3", "title": "x64 CPU Architecture" }
+    },
+    {
+      "id": "ph-u03-f061",
+      "term": "CISC",
+      "definition": "Design with a large set of complex instructions; Intel and AMD x86/x64 CPUs use it",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.2"],
+      "reference": { "source": "certmaster", "section": "3.4.2", "title": "x86 CPU Architecture" }
+    },
+    {
+      "id": "ph-u03-f062",
+      "term": "RISC",
+      "definition": "Small, simple instruction set built for efficiency; ARM CPUs are based on it",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.4"],
+      "reference": { "source": "certmaster", "section": "3.4.4", "title": "ARM CPU Architecture" }
+    },
+    {
+      "id": "ph-u03-f063",
+      "term": "SoC",
+      "definition": "One chip that holds the CPU plus the video, sound, network, and storage controllers; typical of ARM",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.4"],
+      "reference": { "source": "certmaster", "section": "3.4.4", "title": "ARM CPU Architecture" }
+    },
+    {
+      "id": "ph-u03-f064",
+      "term": "CPU cache",
+      "definition": "Small, fast memory in the CPU (L1, L2, L3) that holds often-used instructions and data",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.1"],
+      "reference": { "source": "certmaster", "section": "3.4.1", "title": "CPU Architecture" }
+    }
+  ]
+}

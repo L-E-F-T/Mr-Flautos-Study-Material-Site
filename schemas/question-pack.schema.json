@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Practice question pack",
+  "description": "Multiple-choice questions. One correct choice id in \"answer\" = single answer; two or more = \"Choose two/three\" (the site adds that instruction).",
+  "type": "object",
+  "required": ["questions"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "pack": { "$ref": "#/definitions/packInfo" },
+    "questions": { "type": "array", "items": { "$ref": "#/definitions/question" } }
+  },
+  "definitions": {
+    "packInfo": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "reviewed": { "type": "boolean", "description": "Set true once the teacher has read the pack." },
+        "placeholder": { "type": "boolean", "description": "true = first-pass test content that must be deleted and replaced. The site shows a Test content banner and the content check keeps warning. Never set this on real content." },
+        "notes": { "type": "string" }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "required": ["source", "section"],
+      "properties": {
+        "source": { "type": "string", "description": "Key from the exam's \"sources\" in data/exams.json, e.g. certmaster." },
+        "section": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "description": "Reading section, e.g. 3.2.4." },
+        "title": { "type": "string", "description": "Section title, e.g. Hard Disk Drives." },
+        "page": { "type": "integer" },
+        "quote": { "type": "string", "description": "The one or two sentences from the reading that answer the question (40 words max)." },
+        "find": { "type": "string", "description": "Teacher helper: a short phrase to search for in the section to locate the quote. Never shown to students." }
+      }
+    },
+    "question": {
+      "type": "object",
+      "required": ["id", "stem", "choices", "answer", "units", "reference"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$" },
+        "status": { "enum": ["draft", "published"], "description": "Drafts are hidden from students (preview with ?drafts=1)." },
+        "sample": { "type": "boolean" },
+        "stem": { "type": "string", "minLength": 1 },
+        "exhibit": {
+          "type": "object",
+          "properties": {
+            "type": { "enum": ["text", "image"] },
+            "text": { "type": "string" },
+            "src": { "type": "string" },
+            "alt": { "type": "string" },
+            "caption": { "type": "string" }
+          }
+        },
+        "choices": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "required": ["id", "text"],
+            "properties": { "id": { "type": "string" }, "text": { "type": "string", "minLength": 1 } },
+            "additionalProperties": false
+          }
+        },
+        "answer": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+        "shuffleChoices": { "type": "boolean", "description": "false keeps the written order (rarely needed)." },
+        "objectives": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.[a-z][a-z0-9]*)?$" },
+          "description": "Objective (2.1) and/or sub-objective (2.1.a) ids."
+        },
+        "units": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.\\d+)?$" },
+          "description": "Unit (3.0), lesson (3.2), or section (3.2.4) ids."
+        },
+        "reference": { "$ref": "#/definitions/reference" },
+        "origin": {
+          "type": "object",
+          "required": ["kind"],
+          "properties": {
+            "kind": { "enum": ["original", "certmaster-variation", "messer-variation", "teacher", "other"] },
+            "basedOn": { "type": "string", "description": "e.g. \"CertMaster 3.0 Q31\" or \"Messer B44\"." },
+            "verbatim": { "type": "boolean", "description": "true = copied word for word. Only allowed in lab-only (private) packs." }
+          }
+        }
+      }
+    }
+  }
+}

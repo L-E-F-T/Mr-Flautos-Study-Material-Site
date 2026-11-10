@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Content manifest (manifest.json / manifest.private.json)",
+  "description": "Lists the pack files to load from this folder. manifest.private.json is for lab-only packs and is never committed.",
+  "type": "object",
+  "required": ["packs"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "packs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[A-Za-z0-9_./-]+\\.json$" }
+    }
+  }
+}

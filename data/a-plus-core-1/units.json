@@ -1,0 +1,515 @@
+{
+  "$schema": "../../schemas/units.schema.json",
+  "courseware": "A+ CertMaster Learn 15.0 (Core 1 is Modules 1 to 10)",
+  "source": "Mapped from the CertMaster Learn 15.0 page printouts (Modules folder, 8/13/26). Lesson objectives come from each lesson page's \"Core 1 Exam Objectives Covered\" box.",
+  "notes": "Only reading sections that were printed are listed, so section numbers skip where CertMaster has a video, lab, or activity. Unit 1 has no objectives: the troubleshooting methodology is not a tested objective. 0.0 Course Introduction and 6.6 Additional Resources are left out because they have no readings to cite.",
+  "units": [
+    {
+      "id": "1.0",
+      "title": "What Does an IT Specialist Do?",
+      "subunits": [
+        {
+          "id": "1.1",
+          "title": "The Hero of Problem Solving",
+          "objectives": [],
+          "sections": [
+            { "id": "1.1.1", "title": "Role of an IT Specialist" },
+            { "id": "1.1.2", "title": "Skills and Abilities" }
+          ]
+        },
+        {
+          "id": "1.2",
+          "title": "The Troubleshooting Methodology",
+          "objectives": [],
+          "sections": [
+            { "id": "1.2.1", "title": "Best Practice Methodology" },
+            { "id": "1.2.2", "title": "Identify the Problem" },
+            { "id": "1.2.3", "title": "Establish and Test a Theory" },
+            { "id": "1.2.4", "title": "Question the Obvious" },
+            { "id": "1.2.5", "title": "Establish a New Theory or Escalate" },
+            { "id": "1.2.6", "title": "Implement a Plan of Action" },
+            { "id": "1.2.7", "title": "Verify and Document" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2.0",
+      "title": "Installing Motherboards and Connectors",
+      "subunits": [
+        {
+          "id": "2.1",
+          "title": "Cables and Connectors",
+          "objectives": ["3.1", "3.2"],
+          "sections": [
+            { "id": "2.1.1", "title": "Personal Computers" },
+            { "id": "2.1.3", "title": "Peripheral Devices" },
+            { "id": "2.1.4", "title": "Universal Serial Bus Cables" },
+            { "id": "2.1.5", "title": "USB Standards" },
+            { "id": "2.1.8", "title": "Display Types" },
+            { "id": "2.1.9", "title": "Display Components" },
+            { "id": "2.1.10", "title": "HDMI and DisplayPort Video Cables" },
+            { "id": "2.1.11", "title": "Thunderbolt Interface" },
+            { "id": "2.1.12", "title": "Lightning Interface" },
+            { "id": "2.1.13", "title": "Serial Advanced Technology Attachment Interface" },
+            { "id": "2.1.14", "title": "Molex Power Connectors" }
+          ]
+        },
+        {
+          "id": "2.2",
+          "title": "Motherboards",
+          "objectives": ["3.3", "3.4", "3.5"],
+          "sections": [
+            { "id": "2.2.1", "title": "Motherboard Functions" },
+            { "id": "2.2.2", "title": "Electrical Safety and ESD" },
+            { "id": "2.2.3", "title": "Motherboard CPU and System Memory Connectors" },
+            { "id": "2.2.4", "title": "Motherboard Storage Connectors" },
+            { "id": "2.2.5", "title": "Peripheral Component Interconnect Express Interface" },
+            { "id": "2.2.6", "title": "Peripheral Component Interconnect Interface" },
+            { "id": "2.2.7", "title": "Motherboard Form Factors" },
+            { "id": "2.2.8", "title": "Motherboard Installation" },
+            { "id": "2.2.10", "title": "Motherboard Headers and Power Connectors" },
+            { "id": "2.2.12", "title": "Video Cards" },
+            { "id": "2.2.14", "title": "Capture Cards" },
+            { "id": "2.2.15", "title": "Sound Cards" },
+            { "id": "2.2.16", "title": "Network Interface Cards" }
+          ]
+        },
+        {
+          "id": "2.3",
+          "title": "Legacy Cables",
+          "objectives": ["3.2"],
+          "sections": [
+            { "id": "2.3.1", "title": "DVI and VGA Video Cables" },
+            { "id": "2.3.3", "title": "Serial Cables" },
+            { "id": "2.3.4", "title": "Adapter Cables" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3.0",
+      "title": "Installing System Devices",
+      "subunits": [
+        {
+          "id": "3.1",
+          "title": "Power Supplies and Cooling",
+          "objectives": ["3.5", "3.6"],
+          "sections": [
+            { "id": "3.1.1", "title": "Power Supply Units" },
+            { "id": "3.1.3", "title": "Wattage Rating" },
+            { "id": "3.1.4", "title": "Power Supply Connectors" },
+            { "id": "3.1.5", "title": "20-pin to 24-pin Motherboard Adapter" },
+            { "id": "3.1.6", "title": "Modular Power Supplies" },
+            { "id": "3.1.7", "title": "Redundant Power Supplies" },
+            { "id": "3.1.10", "title": "Fan Cooling Systems" },
+            { "id": "3.1.11", "title": "Heat Sinks and Thermal Paste" },
+            { "id": "3.1.12", "title": "Fans" },
+            { "id": "3.1.13", "title": "Liquid Cooling Systems" }
+          ]
+        },
+        {
+          "id": "3.2",
+          "title": "Storage Devices",
+          "objectives": ["3.4"],
+          "sections": [
+            { "id": "3.2.2", "title": "Mass Storage Devices" },
+            { "id": "3.2.3", "title": "Solid-State Drives" },
+            { "id": "3.2.4", "title": "Hard Disk Drives" },
+            { "id": "3.2.5", "title": "Redundant Array of Independent Disks" },
+            { "id": "3.2.6", "title": "RAID 0 and RAID 1" },
+            { "id": "3.2.7", "title": "RAID 5 and RAID 10" },
+            { "id": "3.2.8", "title": "RAID 6 (Striping with Double Parity)" },
+            { "id": "3.2.10", "title": "Removable Storage Drives" },
+            { "id": "3.2.11", "title": "Optical Drives" }
+          ]
+        },
+        {
+          "id": "3.3",
+          "title": "System Memory",
+          "objectives": ["3.3"],
+          "sections": [
+            { "id": "3.3.1", "title": "System RAM and Virtual Memory" },
+            { "id": "3.3.2", "title": "RAM Types" },
+            { "id": "3.3.3", "title": "Memory Modules" },
+            { "id": "3.3.5", "title": "Multi-channel System Memory" },
+            { "id": "3.3.8", "title": "ECC RAM" }
+          ]
+        },
+        {
+          "id": "3.4",
+          "title": "CPUs",
+          "objectives": ["3.5"],
+          "sections": [
+            { "id": "3.4.1", "title": "CPU Architecture" },
+            { "id": "3.4.2", "title": "x86 CPU Architecture" },
+            { "id": "3.4.3", "title": "x64 CPU Architecture" },
+            { "id": "3.4.4", "title": "ARM CPU Architecture" },
+            { "id": "3.4.5", "title": "CPU Features" },
+            { "id": "3.4.6", "title": "CPU Socket Types" },
+            { "id": "3.4.7", "title": "CPU Types and Motherboard Compatibility" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4.0",
+      "title": "Troubleshooting PC Hardware",
+      "subunits": [
+        {
+          "id": "4.1",
+          "title": "BIOS and UEFI",
+          "objectives": ["3.5"],
+          "sections": [
+            { "id": "4.1.1", "title": "BIOS and UEFI" },
+            { "id": "4.1.3", "title": "Boot and Device Options" },
+            { "id": "4.1.4", "title": "USB Permissions" },
+            { "id": "4.1.5", "title": "Fan Considerations" },
+            { "id": "4.1.6", "title": "Boot Passwords and Secure Boot" },
+            { "id": "4.1.8", "title": "Trusted Platform Modules" }
+          ]
+        },
+        {
+          "id": "4.2",
+          "title": "Power and Disk Issues",
+          "objectives": ["5.1", "5.2"],
+          "sections": [
+            { "id": "4.2.1", "title": "Troubleshoot Power Issues" },
+            { "id": "4.2.3", "title": "Troubleshoot POST Issues" },
+            { "id": "4.2.5", "title": "Troubleshoot Boot Issues" },
+            { "id": "4.2.7", "title": "Troubleshoot Boot Sector Issues" },
+            { "id": "4.2.8", "title": "Troubleshoot OS Errors and Crash Screens" },
+            { "id": "4.2.9", "title": "Troubleshoot Drive Availability" },
+            { "id": "4.2.11", "title": "Troubleshoot Drive Reliability and Performance" },
+            { "id": "4.2.12", "title": "Troubleshoot RAID Failure" }
+          ]
+        },
+        {
+          "id": "4.3",
+          "title": "System and Display Issues",
+          "objectives": ["5.1", "5.3"],
+          "sections": [
+            { "id": "4.3.1", "title": "Troubleshoot Component Issues" },
+            { "id": "4.3.2", "title": "Overheating" },
+            { "id": "4.3.3", "title": "Physical Damage" },
+            { "id": "4.3.4", "title": "Troubleshoot Performance Issues" },
+            { "id": "4.3.5", "title": "Troubleshoot Inaccurate System Date/Time" },
+            { "id": "4.3.6", "title": "Troubleshoot Missing Video Issues" },
+            { "id": "4.3.7", "title": "Troubleshoot Video Quality Issues" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5.0",
+      "title": "Comparing Local Networking Hardware",
+      "subunits": [
+        {
+          "id": "5.1",
+          "title": "Network Types",
+          "objectives": ["2.7"],
+          "sections": [
+            { "id": "5.1.1", "title": "LANs and WANs" },
+            { "id": "5.1.2", "title": "SOHO and Enterprise Networks" },
+            { "id": "5.1.3", "title": "Datacenters" }
+          ]
+        },
+        {
+          "id": "5.2",
+          "title": "Networking Hardware",
+          "objectives": ["2.5"],
+          "sections": [
+            { "id": "5.2.1", "title": "Network Interface Cards" },
+            { "id": "5.2.3", "title": "Patch Panels" },
+            { "id": "5.2.6", "title": "Switches" },
+            { "id": "5.2.9", "title": "Unmanaged and Managed Switches" },
+            { "id": "5.2.10", "title": "Power over Ethernet" }
+          ]
+        },
+        {
+          "id": "5.3",
+          "title": "Network Cable Types",
+          "objectives": ["2.8", "3.2"],
+          "sections": [
+            { "id": "5.3.1", "title": "Unshielded Twisted Pair" },
+            { "id": "5.3.2", "title": "Shielded Twisted Pair" },
+            { "id": "5.3.4", "title": "Cat Standards" },
+            { "id": "5.3.5", "title": "Copper Cabling Connectors" },
+            { "id": "5.3.7", "title": "Copper Cabling Installation Tools" },
+            { "id": "5.3.8", "title": "Copper Cabling Test Tools" },
+            { "id": "5.3.9", "title": "Network Taps" },
+            { "id": "5.3.10", "title": "Copper Cabling Installation Considerations" },
+            { "id": "5.3.11", "title": "Optical Cabling" },
+            { "id": "5.3.13", "title": "Coaxial Cabling" }
+          ]
+        },
+        {
+          "id": "5.4",
+          "title": "Wireless Networking Types",
+          "objectives": ["2.2", "2.5", "2.8"],
+          "sections": [
+            { "id": "5.4.1", "title": "Access Points" },
+            { "id": "5.4.2", "title": "Frequency Bands" },
+            { "id": "5.4.3", "title": "IEEE 802.11a" },
+            { "id": "5.4.4", "title": "IEEE 802.11b/g" },
+            { "id": "5.4.5", "title": "802.11n" },
+            { "id": "5.4.7", "title": "Wi-Fi 5 and Wi-Fi 6" },
+            { "id": "5.4.8", "title": "Wi-Fi 7 (802.11be)" },
+            { "id": "5.4.9", "title": "Wireless LAN Installation Considerations" },
+            { "id": "5.4.10", "title": "Wi-Fi Analyzers" },
+            { "id": "5.4.11", "title": "Long-Range Fixed Wireless" },
+            { "id": "5.4.12", "title": "Bluetooth, RFID, and NFC" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6.0",
+      "title": "Configuring Network Addressing and Internet Connections",
+      "subunits": [
+        {
+          "id": "6.1",
+          "title": "Internet Connection Types",
+          "objectives": ["2.5", "2.7"],
+          "sections": [
+            { "id": "6.1.1", "title": "Internet Connection Types and Modems" },
+            { "id": "6.1.2", "title": "Digital Subscriber Line Modems" },
+            { "id": "6.1.3", "title": "Cable Modems" },
+            { "id": "6.1.5", "title": "Fiber to the Curb and Fiber to the Premises" },
+            { "id": "6.1.7", "title": "Fixed Wireless Internet Access" },
+            { "id": "6.1.8", "title": "Cellular Radio Internet Connections" },
+            { "id": "6.1.9", "title": "Routers" },
+            { "id": "6.1.10", "title": "Firewalls" }
+          ]
+        },
+        {
+          "id": "6.2",
+          "title": "TCP/IP Concepts",
+          "objectives": ["2.6"],
+          "sections": [
+            { "id": "6.2.1", "title": "TCP/IP" },
+            { "id": "6.2.2", "title": "Link or Network Interface layer" },
+            { "id": "6.2.3", "title": "Internet Layer" },
+            { "id": "6.2.4", "title": "Transport Layer" },
+            { "id": "6.2.5", "title": "Application Layer" },
+            { "id": "6.2.6", "title": "IPv4 Addressing" },
+            { "id": "6.2.8", "title": "Network Prefixes" },
+            { "id": "6.2.9", "title": "IPv4 Forwarding" },
+            { "id": "6.2.10", "title": "Public and Private Addressing" },
+            { "id": "6.2.11", "title": "IPv4 Host Address Configuration" },
+            { "id": "6.2.12", "title": "Static Versus Dynamic Host Address Configuration" },
+            { "id": "6.2.14", "title": "SOHO Router Configuration" },
+            { "id": "6.2.15", "title": "IPv6 Addressing" }
+          ]
+        },
+        {
+          "id": "6.3",
+          "title": "Network Communications",
+          "objectives": ["2.1"],
+          "sections": [
+            { "id": "6.3.1", "title": "Protocols and Ports" },
+            { "id": "6.3.2", "title": "Transmission Control Protocol" },
+            { "id": "6.3.4", "title": "User Datagram Protocol" },
+            { "id": "6.3.6", "title": "Well-Known Ports" }
+          ]
+        },
+        {
+          "id": "6.4",
+          "title": "Network Configuration Concepts",
+          "objectives": ["2.3", "2.4"],
+          "sections": [
+            { "id": "6.4.1", "title": "DHCP Functions" },
+            { "id": "6.4.2", "title": "Domain Name System" },
+            { "id": "6.4.3", "title": "DNS Queries" },
+            { "id": "6.4.4", "title": "DNS Record Types" },
+            { "id": "6.4.5", "title": "DNS Spam Management Records" },
+            { "id": "6.4.6", "title": "Virtual LANs" },
+            { "id": "6.4.7", "title": "Virtual Private Networks" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7.0",
+      "title": "Supporting Network Services",
+      "subunits": [
+        {
+          "id": "7.1",
+          "title": "Networked Host Services",
+          "objectives": ["2.1", "2.3"],
+          "sections": [
+            { "id": "7.1.1", "title": "File/Print Servers" },
+            { "id": "7.1.2", "title": "Database Servers" },
+            { "id": "7.1.3", "title": "Web Servers" },
+            { "id": "7.1.4", "title": "Hypertext Transfer Protocol Secure" },
+            { "id": "7.1.5", "title": "Mail Servers" },
+            { "id": "7.1.6", "title": "Mailbox Servers" },
+            { "id": "7.1.8", "title": "Directory and Authentication Servers" },
+            { "id": "7.1.9", "title": "Remote Terminal Access Servers" },
+            { "id": "7.1.10", "title": "Time Servers" },
+            { "id": "7.1.11", "title": "Network Monitoring Servers" }
+          ]
+        },
+        {
+          "id": "7.2",
+          "title": "Internet and Embedded Appliances",
+          "objectives": ["2.3"],
+          "sections": [
+            { "id": "7.2.1", "title": "Proxy Servers" },
+            { "id": "7.2.3", "title": "Spam Gateways and Unified Threat Management" },
+            { "id": "7.2.4", "title": "Load Balancers" },
+            { "id": "7.2.5", "title": "Legacy Systems" },
+            { "id": "7.2.6", "title": "Embedded Systems and SCADA" },
+            { "id": "7.2.7", "title": "Internet of Things Devices" }
+          ]
+        },
+        {
+          "id": "7.3",
+          "title": "Troubleshoot Networks",
+          "objectives": ["5.5"],
+          "sections": [
+            { "id": "7.3.1", "title": "Troubleshoot Wired Connectivity" },
+            { "id": "7.3.2", "title": "Troubleshoot Network Speed Issues" },
+            { "id": "7.3.4", "title": "Troubleshoot Wireless Issues" },
+            { "id": "7.3.5", "title": "Troubleshoot VoIP Issues" },
+            { "id": "7.3.6", "title": "Troubleshoot Limited Connectivity" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8.0",
+      "title": "Summarizing Virtualization and Cloud Concepts",
+      "subunits": [
+        {
+          "id": "8.1",
+          "title": "Client-Side Virtualization",
+          "objectives": ["4.1"],
+          "sections": [
+            { "id": "8.1.1", "title": "Hypervisors" },
+            { "id": "8.1.2", "title": "Uses for Virtualization" },
+            { "id": "8.1.4", "title": "Virtualization Resource Requirements" },
+            { "id": "8.1.5", "title": "Virtualization Security Requirements" }
+          ]
+        },
+        {
+          "id": "8.2",
+          "title": "Cloud Concepts",
+          "objectives": ["4.2"],
+          "sections": [
+            { "id": "8.2.1", "title": "Cloud Characteristics" },
+            { "id": "8.2.3", "title": "Common Cloud Deployment Models" },
+            { "id": "8.2.5", "title": "Common Cloud Service Models" },
+            { "id": "8.2.7", "title": "Cloud File Storage" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9.0",
+      "title": "Supporting Mobile Devices",
+      "subunits": [
+        {
+          "id": "9.1",
+          "title": "Mobile Devices and Peripherals",
+          "objectives": ["1.2", "1.3"],
+          "sections": [
+            { "id": "9.1.1", "title": "Mobile Device Accessories" },
+            { "id": "9.1.2", "title": "Mobile Device Wired Connection Methods" },
+            { "id": "9.1.3", "title": "Port Replicators and Docking Stations" },
+            { "id": "9.1.5", "title": "Wi-Fi Networking" },
+            { "id": "9.1.7", "title": "Cellular Data Networking" },
+            { "id": "9.1.8", "title": "Mobile Hotspots and Tethering" },
+            { "id": "9.1.9", "title": "Bluetooth Wireless Connections" },
+            { "id": "9.1.10", "title": "Near-Field Communication Wireless Connections" }
+          ]
+        },
+        {
+          "id": "9.2",
+          "title": "Mobile Apps and Data",
+          "objectives": ["1.3"],
+          "sections": [
+            { "id": "9.2.1", "title": "Mobile Apps" },
+            { "id": "9.2.2", "title": "Account Setup" },
+            { "id": "9.2.3", "title": "Types of Data to Synchronize" },
+            { "id": "9.2.4", "title": "Email Configuration Options" },
+            { "id": "9.2.5", "title": "Synchronization Methods" },
+            { "id": "9.2.6", "title": "Enterprise Mobility Management" },
+            { "id": "9.2.7", "title": "Location Services" }
+          ]
+        },
+        {
+          "id": "9.3",
+          "title": "Laptop Hardware",
+          "objectives": ["1.1"],
+          "sections": [
+            { "id": "9.3.1", "title": "Laptop Disassembly Processes" },
+            { "id": "9.3.2", "title": "Battery Replacement" },
+            { "id": "9.3.3", "title": "RAM and Adapter Replacement" },
+            { "id": "9.3.4", "title": "Disk Upgrades and Replacement" },
+            { "id": "9.3.5", "title": "Keyboard and Security Component Replacement" }
+          ]
+        },
+        {
+          "id": "9.4",
+          "title": "Troubleshoot Mobile Devices",
+          "objectives": ["5.4"],
+          "sections": [
+            { "id": "9.4.1", "title": "Power and Battery Issues" },
+            { "id": "9.4.2", "title": "Hardware Failure Issues" },
+            { "id": "9.4.4", "title": "Screen and Calibration Issues" },
+            { "id": "9.4.5", "title": "Connectivity Issues" },
+            { "id": "9.4.6", "title": "Malware Issues" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10.0",
+      "title": "Supporting Print Devices",
+      "subunits": [
+        {
+          "id": "10.1",
+          "title": "Printers and Multifunction Devices",
+          "objectives": ["3.7"],
+          "sections": [
+            { "id": "10.1.1", "title": "Printer Unboxing and Setup Location" },
+            { "id": "10.1.2", "title": "Firmware Management in MFDs and Printers" },
+            { "id": "10.1.3", "title": "Print Device Connectivity" },
+            { "id": "10.1.5", "title": "Printer Drivers and Page Description Languages" },
+            { "id": "10.1.6", "title": "Printer Properties" },
+            { "id": "10.1.7", "title": "Printing Preferences" },
+            { "id": "10.1.8", "title": "Printer Sharing" },
+            { "id": "10.1.11", "title": "Printer Security" },
+            { "id": "10.1.13", "title": "Scanner Configuration" }
+          ]
+        },
+        {
+          "id": "10.2",
+          "title": "Print Device Maintenance",
+          "objectives": ["3.8"],
+          "sections": [
+            { "id": "10.2.1", "title": "Laser Printer Imaging Process" },
+            { "id": "10.2.2", "title": "Laser Printer Maintenance" },
+            { "id": "10.2.3", "title": "Inkjet Printer Imaging Process" },
+            { "id": "10.2.4", "title": "Inkjet Printer Maintenance" },
+            { "id": "10.2.5", "title": "Thermal Printer Maintenance" },
+            { "id": "10.2.6", "title": "Impact Printer Maintenance" }
+          ]
+        },
+        {
+          "id": "10.3",
+          "title": "Troubleshoot Print Devices",
+          "objectives": ["5.6"],
+          "sections": [
+            { "id": "10.3.1", "title": "Printer Connectivity Issues" },
+            { "id": "10.3.2", "title": "Print Feed Issues" },
+            { "id": "10.3.3", "title": "Print Quality Issues" },
+            { "id": "10.3.4", "title": "Finishing Issues" },
+            { "id": "10.3.5", "title": "Print Job Issues" }
+          ]
+        }
+      ]
+    }
+  ]
+}

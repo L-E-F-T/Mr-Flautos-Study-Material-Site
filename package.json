@@ -1,0 +1,14 @@
+{
+  "name": "comptia-cert-prep",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Flashcards and practice tests for CompTIA A+, Network+, and Security+ students. Static site: no build step.",
+  "type": "module",
+  "scripts": {
+    "validate": "node tools/validate-cli.mjs",
+    "validate:public": "node tools/validate-cli.mjs --public-only"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

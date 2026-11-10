@@ -1,0 +1,67 @@
+# Check the content, then publish the site to GitHub Pages.
+# One-time setup on GitHub: Settings → Pages → Build and deployment → Source: "GitHub Actions".
+name: Check content and deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Deploys of main run one at a time; pull-request checks get their own group so they
+# can never cancel or delay a pending deploy.
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('check-{0}', github.ref) || 'pages' }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check content
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      # Same rules as tools/validate.html. Any error stops the deploy below.
+      - run: node tools/validate-cli.mjs --public-only
+      # The check above only reads packs listed in a manifest. This also catches copied
+      # items in any other file under data/ that the deploy would publish.
+      - name: Block copied items outside lab-only folders
+        run: |
+          if grep -rlE --exclude-dir=private '"verbatim"[[:space:]]*:[[:space:]]*true' data; then
+            echo "::error::Items marked verbatim are in files that would be published (listed above). Rewrite them, or move them into a private/ folder."
+            exit 1
+          fi
+
+  deploy:
+    name: Deploy
+    needs: check
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/configure-pages@v5
+      # Publish only what students need. Docs, schemas, and teacher tools stay in the repo.
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp -R index.html flashcards.html practice.html assets data _site/
+          # Lab-only content never ships to the public site, even if it was committed by mistake.
+          find _site/data -type d -name private -prune -exec rm -rf {} +
+          find _site/data -name 'manifest.private.json' -delete
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

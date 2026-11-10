@@ -1,0 +1,15 @@
+{
+  // Inline error checking for the content files while you edit them in VS Code.
+  "json.schemas": [
+    { "fileMatch": ["/data/exams.json"], "url": "./schemas/exams.schema.json" },
+    { "fileMatch": ["/data/*/objectives.json"], "url": "./schemas/objectives.schema.json" },
+    { "fileMatch": ["/data/*/units.json"], "url": "./schemas/units.schema.json" },
+    { "fileMatch": ["/data/*/*/manifest.json", "/data/*/*/manifest.private.json"], "url": "./schemas/manifest.schema.json" },
+    { "fileMatch": ["/data/*/questions/*.json", "/data/*/questions/private/*.json", "!/data/*/questions/manifest*.json"], "url": "./schemas/question-pack.schema.json" },
+    { "fileMatch": ["/data/*/flashcards/*.json", "/data/*/flashcards/private/*.json", "!/data/*/flashcards/manifest*.json"], "url": "./schemas/flashcard-pack.schema.json" }
+  ],
+  "files.encoding": "utf8",
+  "files.insertFinalNewline": true,
+  "editor.tabSize": 2,
+  "cSpell.words": ["CertMaster", "Messer", "UEFI", "APIPA", "PoE", "NVMe", "SODIMM", "MFD"]
+}
