@@ -27,7 +27,8 @@ A chat that was not started with that prompt, and has not been asked for content
 - Double-click `serve.cmd`, or start the preview server named `study-site` (`.claude/launch.json`). The site is at http://localhost:8080/.
 - Content check: http://localhost:8080/tools/validate.html (same rules as `tools/validate-cli.mjs`, which GitHub Actions runs before deploying).
 - **Automated browser tests use port 8081**: start the preview server named `study-site-test` and test at http://localhost:8081/. The same server also answers on 8082 to 8085, so parallel reviewers each get a port (and saved data) of their own. It serves the same files, but a different port is a different site to the browser, so tests never touch the decks, tests, and history Mr. Flauto has saved on port 8080. Never clear or seed saved data on port 8080.
-- As of November 2026 this PC has no Git, Node, or Python. Check before assuming a tool exists.
+- As of November 10, 2026 this PC has Git and the GitHub CLI (`gh`, signed in to the account that owns the repository), but no Node or Python. Check before assuming a tool exists. In a chat that was already open when Git was installed, the tools may be missing from `PATH`: they are in `C:\Program Files\Git\cmd` and `C:\Program Files\GitHub CLI`.
+- **Published** at https://l-e-f-t.github.io/Mr-Flautos-Study-Material-Site/ (repository `L-E-F-T/Mr-Flautos-Study-Material-Site`). Every push to `main` runs the content check and redeploys; other branches do not deploy.
 
 ## Conventions
 

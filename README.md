@@ -43,12 +43,12 @@ Teacher pages while the server runs:
 | `CLAUDE.md` | Short notes Claude reads at the start of every chat in this folder |
 | `.github/workflows/pages.yml` | Checks content, then publishes to GitHub Pages |
 
-## Publish to GitHub Pages (when ready)
+## Published on GitHub Pages
 
-1. Install Git (see "Tools" in `docs/PLAN.md`) and create a GitHub repository.
-2. Push this folder to the repository's `main` branch.
-3. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-4. Every push to `main` runs the content check and, if it passes, publishes the site at `https://<account>.github.io/<repository>/`.
+The site is live at **https://l-e-f-t.github.io/Mr-Flautos-Study-Material-Site/** (repository `L-E-F-T/Mr-Flautos-Study-Material-Site`; the address is case-sensitive).
+
+- Every push to `main` runs the content check and, if it passes, publishes the site. Pushes to other branches do not change the live site.
+- Pages is set to **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
 The site is plain HTML, CSS, and JavaScript with JSON data, so the same files can later be served from any web server on the lab equipment.
 

@@ -27,11 +27,11 @@ Order: A+ Core 1 first, then Core 2, Network+, Security+. Hosting: GitHub Pages 
 | Phone layout: two-row header, docked Build/Start bar, finger-size targets, no sideways scrolling at 320 px | Built and tested |
 | UI cleanup: no emoji, labels instead of instructions | Done |
 | A+ Core 1 outline: 27 objectives and 131 bullets (official v4.0), 10 units, 32 lessons, 223 reading sections | Done |
-| Local test server (`serve.cmd`), content check, quote helper, GitHub Pages deploy file | Done (deploy file not yet run on GitHub) |
+| Local test server (`serve.cmd`), content check, quote helper, GitHub Pages deploy file | Done (first deploy ran 2026-11-10) |
 | **Content** | **Placeholder only.** Unit 3.0 has 51 test questions and 64 test flashcards, flagged as first-pass and not approved. The site shows a "Test content" banner while they are loaded. Real content comes from the separate content chat. |
 | Kept out of search results ("do not list" tag on every page) | Done |
 | Sign-in and scoreboard | **Not building for now** (decided 2026-11-10). Notes for later are in section 5. |
-| Published anywhere | No. Git is not installed on this PC yet (section 9). |
+| Published anywhere | Yes, since 2026-11-10: https://l-e-f-t.github.io/Mr-Flautos-Study-Material-Site/ (repository `L-E-F-T/Mr-Flautos-Study-Material-Site`, public). Every push to `main` runs the content check and redeploys. |
 
 ## 3. Site layout
 
@@ -153,7 +153,7 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 **Website (this folder)**
 
 1. Done: flashcards, practice tests, missed-question retry, light/dark toggle, phone layout, placeholder flag, UI cleanup, test history panel, resume buttons, "Coming soon" labels.
-2. Publish to GitHub Pages: install Git, create the repository, push, set Pages to "GitHub Actions".
+2. Done (2026-11-10): Git and the GitHub CLI installed, repository created, Pages set to "GitHub Actions", first deploy passed.
 3. Later ideas: exam mode (90 questions in 90 minutes, weighted by domain, feedback at the end), a "practice this lesson" button on the weakest lesson in History, a breakdown by exam objective in History (the log already keeps it), add-to-Home-Screen and offline support, CSV import so items can be written in a spreadsheet.
 
 **Content (separate chat)**
@@ -186,7 +186,7 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 
 ## 8. What I need from you
 
-**Publishing:** install Git (section 9) and decide which GitHub account owns the repository (a school-owned one is best).
+**Publishing:** done 2026-11-10. The repository is owned by the `L-E-F-T` GitHub account. To move it to a school-owned account later, use GitHub's repository transfer; the site address changes with the owner.
 
 ## 9. Tools to install
 
