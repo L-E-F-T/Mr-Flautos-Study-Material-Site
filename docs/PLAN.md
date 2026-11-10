@@ -21,7 +21,7 @@ Order: A+ Core 1 first, then Core 2, Network+, Security+. Hosting: GitHub Pages 
 | Practice test: topic picker, random draw, instant feedback, reading reference and quote, choose-two questions, resume after refresh | Built and tested |
 | Results: score, list of missed questions, "Retry missed" rounds, breakdown by lesson or objective | Built and tested |
 | History: every finished test is logged on the device; a side panel shows recent scores and a breakdown by unit and lesson | Built and tested |
-| Home: **Resume deck** and **Resume test** buttons when one is unfinished on the device | Built and tested |
+| Home: **Resume deck** and **Resume test** buttons when one is unfinished on the device, each with a one-tap **Discard** and an **Undo** | Built and tested |
 | "Coming soon" labels on anything without content (exam, study mode, unit, lesson, objective) | Built and tested |
 | Light and dark mode toggle (follows the device until the student chooses) | Built and tested |
 | Phone layout: two-row header, docked Build/Start bar, finger-size targets, no sideways scrolling at 320 px | Built and tested |
@@ -59,7 +59,7 @@ Each exam uses the same pages with `?exam=…` in the address, so adding Core 2,
 
 | Page | Layout |
 |---|---|
-| Home | One card per exam, filled with that exam's class color, with Flashcards and Practice test buttons on live exams. When a deck or a test is unfinished on the device, **Resume deck** and **Resume test** sit above them and go straight back in. No scores are shown here. |
+| Home | One card per exam, filled with that exam's class color, with Flashcards and Practice test buttons on live exams. When a deck or a test is unfinished on the device, **Resume deck** and **Resume test** sit above them, one row each, and go straight back in. A small **Discard** beside each throws that deck or test away in one tap and leaves **Undo** in its place until the page is left. No scores are shown here. |
 | Flashcards: choose terms | Group-by switch (objective or unit), search, then the term table with a checkbox per term and per group. A bar docked to the bottom of the screen shows the number selected and holds **Build deck**. |
 | Flashcards: your deck | Title and counts on one line, the card, four main buttons (Previous, Flip, Next, Take out), then the secondary ones (side shown first, Shuffle, Put all back, Choose cards), then the taken-out list. |
 | Practice: setup | **History** button beside the title. **Topics** (tree by textbook unit or by exam objective, with question counts) and **Questions** (how many). On wide screens they sit side by side; on phones Questions follows Topics and **Start** is docked to the bottom of the screen. |
