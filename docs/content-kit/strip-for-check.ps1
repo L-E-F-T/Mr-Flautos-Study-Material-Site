@@ -10,7 +10,9 @@
                           and each objective and bullet with its title. No answer, find phrase, or origin.
     card-backs.json       For each card: id and back only. The checker names the term.
     card-terms.json       For each card: id, term, and cited section only. The checker writes the back.
-  Optional -Only q005,q017 limits the question copy to those ids (for re-checking fixed items).
+  Optional -Only limits the copies to the ids given, for re-checking fixed items: -Only q005,q017,f012
+  matches c1-u02-q005, c1-u02-q017, and c1-u02-f012. Take ids from packs\ids.tsv and packs\card-ids.tsv
+  after the latest assemble.ps1 run: dropping a slot or a card renumbers every id after it.
 #>
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
@@ -29,7 +31,8 @@ New-Item -ItemType Directory -Force $out | Out-Null
 
 $qs = (Read-Json "$Scratch\packs\unit-$nn.questions.json").questions
 $Only = @($Only | ForEach-Object { $_ -split '[,\s]+' } | Where-Object { $_ })  # -File passes "q005,q019" as one string
-if ($Only.Count) { $qs = @($qs | Where-Object { $id = $_.id; @($Only | Where-Object { $id.EndsWith($_) }).Count -gt 0 }) }
+function Test-Wanted([string]$id) { if (-not $Only.Count) { return $true }; @($Only | Where-Object { $id.EndsWith("-$_") -or $id -eq $_ }).Count -gt 0 }
+$qs = @($qs | Where-Object { Test-Wanted $_.id })
 $blind = @($qs | ForEach-Object {
   [ordered]@{
     id = $_.id
@@ -45,7 +48,7 @@ $blind = @($qs | ForEach-Object {
 
 $cardFile = "$Scratch\packs\unit-$nn.flashcards.json"
 if (Test-Path -LiteralPath $cardFile) {
-  $cards = (Read-Json $cardFile).flashcards
+  $cards = @((Read-Json $cardFile).flashcards | Where-Object { Test-Wanted $_.id })
   $backs = @($cards | ForEach-Object { [ordered]@{ id = $_.id; back = $_.definition } })
   $terms = @($cards | ForEach-Object { [ordered]@{ id = $_.id; term = $_.term; section = $_.reference.section } })
   [IO.File]::WriteAllText((Join-Path $out 'card-backs.json'), (ConvertTo-Json -InputObject $backs -Depth 4), $utf8)

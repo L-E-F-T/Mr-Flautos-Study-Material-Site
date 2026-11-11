@@ -49,6 +49,7 @@ Exam-weighted facts in Unit 3.0 with no usable source item, so they are on flash
 
 ## For later units
 
+- **Cards a later unit should tag:** c1-u03-f022 (PCIe) is also taught in 2.2.5, and c1-u03-f039 (Virtualization support) in 8.1.4. Their `units` were trimmed to Unit 3.0's own sections so lessons 2.2 and 8.1 still say "Coming soon". When Unit 2.0 and Unit 8.0 are written, add 2.2.5 and 8.1.4 back to those cards' `units` (and any other section of yours that teaches a term an earlier unit already carded).
 - **Unit 4.0:** Mr. Flauto's Study Guide 3.0 Q49 and Q50 (used for c1-u03-q035 and c1-u03-q034: a failed RAID 1 disk should be replaced right away; a failed RAID 0 disk means restoring from backup) are his versions of Messer A22 and B55, which are troubleshooting items (objective 5.2). Use A22 and B55 in Unit 4.0 only for what is new in them (the troubleshooting steps and their order), not to test the same RAID facts again.
 - **Mr. Flauto's materials for A+ Core 1:** unit study guides with keys for Units 2.0 to 7.0 (`CompTIAA+\Core 1\Study Guides\`), review decks for Units 2.0-3.0, 5.0-6.0, 6.0, and 7.0 (`Slides\`), lesson decks (`Slides\A+ <lesson> <title>.pptx`), and Blookets (`Activites\`). Units 8.0 to 10.0 have no study guide or review deck: their weighting rests on the exam evidence and the pool.
 

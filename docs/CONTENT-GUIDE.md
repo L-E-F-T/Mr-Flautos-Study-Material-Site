@@ -98,7 +98,7 @@ A pack file looks like this:
 | `choices` | Single answer: exactly 4. Choose two or three: 5 (6 only when the source item had 6 or more). This count applies whatever the source item had. Parallel, similar length, distractors from the same unit. No "all/none of the above". |
 | `answer` | Choice ids. One id = single answer. Two or more = the site shows "Choose two." / "Choose three." automatically, so never write "(Select TWO.)" in the stem. |
 | `objectives` | The objective (`3.4`) plus the best-fitting bullet (`3.4.c`). Bullet ids are listed in `objectives.json`. If no bullet fits, tag the objective alone (the site lists it under "General"); if the question tests two bullets equally, tag both. Never borrow a bullet that does not fit. Unit 1 (troubleshooting methodology) has no exam objective, so it may be left empty. |
-| `units` | The reading section that answers it (`3.2.6`). The site rolls it up to lesson 3.2 and unit 3.0 for filtering. |
+| `units` | The reading section that answers it (`3.2.6`). The site rolls it up to lesson 3.2 and unit 3.0 for filtering. Only sections of the pack's own unit: a section of an unwritten unit would make its lesson show one stray item instead of "Coming soon". |
 | `reference` | Always required. `section` must exist in `units.json`. The site shows **Reading 3.2.6** RAID 0 and RAID 1, followed by the quote. |
 | `reference.quote` | The one or two sentences from the reading that answer the question, word for word, 40 words max. |
 | `reference.find` | Helper for the teacher only: a short phrase to Ctrl+F in that section's PDF to locate the quote. Never shown to students. Take it from one line of the reading: a phrase that crosses a page break, or a word hyphenated across two lines, is not found by Ctrl+F. |
@@ -132,7 +132,7 @@ Check every card against this before it goes in:
 - **The back is useful on its own.** It says what the thing is or does in one plain line a student could say out loud, without needing the reading open.
 - **It works both ways.** Cover the back: could a prepared student say it? Cover the front: does the back point to exactly one term?
 - **It is tied to an objective bullet.** Reading detail beyond the objectives is not card material.
-- **One card per term in an exam.** The same term is often named by bullets taught in different units (SATA, M.2, DHCP). Before writing a card, search the exam's flashcard packs for the term. If a card already exists, do not write a second one (the content check warns about repeats).
+- **One card per term in an exam.** The same term is often named by bullets taught in different units (SATA, M.2, DHCP). Before writing a card, search the exam's flashcard packs for the term. If a card already exists, do not write a second one (the content check warns about repeats). Instead, the later unit adds its own section to that card's `units`, and changes nothing else on it, so the card also shows under the later lesson.
 - **The back is true to the reading.** Every card is checked against the section it cites, not just for style: a back can read well and still be wrong.
 - Mr. Flauto signs off on a unit's cards when he reads the pack and marks it reviewed.
 

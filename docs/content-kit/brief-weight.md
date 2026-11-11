@@ -12,6 +12,10 @@ Every objective bullet that this unit's reading teaches: <<LIST OF BULLETS, each
 
 The mapping is done: `SP\<<PLAN FILE>>` has one line per source item with its section, key, bullet, fact, and status.
 
+**Facts the exam's packs already ask** on this unit's objectives, from earlier units (do not count them again): <<LIST, each with its question id, or "none">>.
+
+Each lens agent writes its result as JSON to its own file (`SP\rank-exam.json` for lens A, `SP\rank-course.json` for lens B) with the Write tool and replies with only the number of bullets ranked. It may write nothing else.
+
 ## Lens A: exam evidence (this lens decides)
 
 For each bullet, count and cite:
@@ -37,7 +41,7 @@ For each bullet: how much of the reading teaches it (sections and rough length),
    - Tier 3: only the facts the exam evidence actually keys. List the rest under "cut".
    - Every bullet the reading teaches with a usable item gets at least one question, so the site shows it.
 3. **Mr. Flauto's materials never add weight.** A fact that only his materials stress, with no exam evidence, is cut or kept at one question. His items are used only to cover an exam-weighted fact that no pool or Messer item covers (`"origin": { "kind": "teacher" }`).
-4. **Count facts, not items.** Items that test the same fact with the same answer become one question ("same as Qn").
+4. **Count facts, not items, across the whole exam.** Items that test the same fact with the same answer become one question ("same as Qn"). A fact that another unit's pack already asks gets no new slot unless the scenario makes a student reason differently: list it under `cut` with that question's id. (Students build one test from several units, so a repeat shows up as the same question twice.)
 5. **Flashcards are not weighted.** Every term named in a bullet that this unit's reading teaches gets one card, unless an earlier unit already has a card for it.
 
 Write the result to `SP\plan-counts.json`:

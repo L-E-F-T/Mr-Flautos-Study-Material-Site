@@ -39,7 +39,8 @@ $utf8 = New-Object System.Text.UTF8Encoding($false)
 function Read-Json([string]$path) { [IO.File]::ReadAllText($path, [Text.Encoding]::UTF8) | ConvertFrom-Json }
 function Get-Norm([string]$s) { (($s -replace '[\u2010\u2011]', '-') -replace '\s+', ' ').Trim().ToLowerInvariant() }
 
-$nn = ($Unit -split '\.')[0].PadLeft(2, '0')
+$unitMajor = ($Unit -split '\.')[0]
+$nn = $unitMajor.PadLeft(2, '0')
 $packName = "unit-$nn.json"
 
 # ---- Outline lookups --------------------------------------------------------------------------------
@@ -102,6 +103,7 @@ foreach ($lp in $spec.lessons.PSObject.Properties) {
     if ($na -gt 3 -or $nc -gt 6) { $problems.Add("$tag $na answers and $nc choices is out of range") }
     foreach ($o in $q.objectives) { if (-not $objTitle.ContainsKey($o)) { $problems.Add("$tag unknown objective '$o'") } }
     foreach ($s in $q.units) { if (-not $secTitle.ContainsKey($s)) { $problems.Add("$tag unknown section '$s'") } }
+    foreach ($s in $q.units) { if (($s -split '\.')[0] -ne $unitMajor) { $problems.Add("$tag section '$s' is outside Unit $Unit (cite only this unit's sections)") } }
     if (@($q.units) -notcontains $q.reference.section) { $problems.Add("$tag reference.section is not in units") }
     if ($secTitle[$q.reference.section] -ne $q.reference.title) { $problems.Add("$tag title should be '$($secTitle[$q.reference.section])'") }
     $w = @($q.reference.find -split '\s+').Count
@@ -125,23 +127,32 @@ foreach ($lp in $spec.lessons.PSObject.Properties) {
     if ($ask -cmatch "\bnot\b|n't\b") { $problems.Add("$tag the question asks a negative in lowercase (write NOT in capitals)") }
     if (@('certmaster-variation', 'messer-variation', 'teacher', 'original') -notcontains $q.origin.kind) { $problems.Add("$tag origin.kind '$($q.origin.kind)'") }
     if ($q.origin.basedOn -and $usedSource.ContainsKey($q.origin.basedOn)) { $problems.Add("$tag $($q.origin.basedOn) is already used by $($usedSource[$q.origin.basedOn])") }
-    $items.Add([pscustomobject]@{ lesson = $lp.Name; q = $q })
+    $items.Add([pscustomobject]@{ lesson = $lp.Name; slot = $slot.slot; keep = [bool]$src.keepOrder; q = $q })
   }
 }
 $items | Group-Object { $_.q.origin.basedOn } | Where-Object Count -gt 1 | ForEach-Object { $problems.Add("$($_.Name) is the source of more than one question") }
 
 # ---- Spread the keys --------------------------------------------------------------------------------
 # Writers tend to put the key first. A student who turns shuffling off would notice, so:
-#  - Choices with a natural order (sizes, voltages, RAID levels: texts that differ only in their
-#    numbers) are never touched.
+#  - Choices with a natural order are never touched: a draft marked "keepOrder": true, or choices whose
+#    texts are the same apart from their numbers and units (RAID 0/1/5/10, 4/8/16 GB, 100 Mbps/1 Gbps,
+#    Cat 5e/6/6a, 802.11ac/ax, Wi-Fi 6/6E).
 #  - A single-answer key moves only while its letter is used more than a quarter of the time (rounded
 #    up), to the least-used letter, by swapping two choices.
 #  - A choose-two or choose-three item whose keys sit at the top (a and b) is rotated down.
 # Only letters change, never which text is the key.
+function Get-Template([string]$text) {
+  $t = $text.ToLowerInvariant()
+  # A number with its unit becomes one placeholder: "100 Mbps" and "1 Gbps" read alike.
+  $t = $t -replace '[+\-]?\d[\d.,]*\s*(?:[kmgt]i?b(?:ps|/s)?|[kmg]?hz|rpm|vac|vdc|v|w|ns|ms|ft|cm|mm|m|in(?:ch(?:es)?)?)\b', '#'
+  # Any other word that holds a digit (5e, 6a, 802.11ac, x16, DDR4, IPv6) becomes a placeholder too.
+  $t = (($t -split '\s+') | ForEach-Object { if ($_ -match '\d') { '#' } else { $_ } }) -join ' '
+  ($t -replace '\s+', ' ').Trim()
+}
 function Test-Ordered($choices) {
   $texts = @($choices | ForEach-Object { $_.text })
   if (@($texts | Where-Object { $_ -notmatch '\d' }).Count) { return $false }
-  @($texts | ForEach-Object { (($_ -replace '[\d.,+\-]', '') -replace '\s+', ' ').Trim().ToLowerInvariant() } | Select-Object -Unique).Count -eq 1
+  @($texts | ForEach-Object { Get-Template $_ } | Select-Object -Unique).Count -eq 1
 }
 $moved = New-Object System.Collections.Generic.List[string]
 if (-not $NoSpread) {
@@ -153,7 +164,7 @@ if (-not $NoSpread) {
   $rot = 0
   foreach ($it in $single) {
     $q = $it.q; $cur = $q.answer[0]
-    if ($count[$cur] -le $cap -or (Test-Ordered $q.choices)) { continue }
+    if ($count[$cur] -le $cap -or $it.keep -or (Test-Ordered $q.choices)) { continue }
     $target = $letters | Where-Object { $count[$_] -lt $cap } | Sort-Object { $count[$_] }, { ([array]::IndexOf($letters, $_) - $rot + 4) % 4 } | Select-Object -First 1
     if (-not $target) { continue }
     $from = [array]::IndexOf($letters, $cur); $to = [array]::IndexOf($letters, $target)
@@ -164,7 +175,7 @@ if (-not $NoSpread) {
   $j = 0
   foreach ($it in $items) {
     $q = $it.q; $k = @($q.answer).Count; $nc = @($q.choices).Count
-    if ($k -lt 2 -or (Test-Ordered $q.choices)) { continue }
+    if ($k -lt 2 -or $it.keep -or (Test-Ordered $q.choices)) { continue }
     $top = 'abcdef'.Substring(0, $k)
     if ((@($q.answer) -join '') -ne $top) { continue }
     $r = ($j % ($nc - $k)) + 1; $j++
@@ -188,10 +199,11 @@ if (Test-Path -LiteralPath $cardFile) {
     $card = [ordered]@{ id = $cid; term = $c.term.Trim(); definition = $c.definition.Trim(); objectives = @($c.objectives); units = @($c.units); reference = [ordered]@{ source = 'certmaster'; section = $c.reference.section; title = $c.reference.title } }
     foreach ($o in $card.objectives) { if (-not $objTitle.ContainsKey($o)) { $cardProblems.Add("$cid unknown objective '$o'") } }
     foreach ($s in $card.units) { if (-not $secTitle.ContainsKey($s)) { $cardProblems.Add("$cid unknown section '$s'") } }
+    foreach ($s in $card.units) { if (($s -split '\.')[0] -ne $unitMajor) { $cardProblems.Add("$cid section '$s' is outside Unit $Unit (cite only this unit's sections)") } }
     if (@($card.units) -notcontains $card.reference.section) { $cardProblems.Add("$cid reference.section is not in units") }
     if ($secTitle[$card.reference.section] -ne $card.reference.title) { $cardProblems.Add("$cid title should be '$($secTitle[$card.reference.section])'") }
     if (($card.term + ' ' + $card.definition) -match '[\u2013\u2014]') { $cardProblems.Add("$cid em or en dash") }
-    if ($usedTerm.ContainsKey((Get-Norm $card.term))) { $cardProblems.Add("$cid '$($card.term)' already has a card: $($usedTerm[(Get-Norm $card.term)])") }
+    if ($usedTerm.ContainsKey((Get-Norm $card.term))) { $cardProblems.Add("$cid '$($card.term)' already has a card, $($usedTerm[(Get-Norm $card.term)]): drop this one and add your section to that card's units instead") }
     $cards.Add($card)
   }
   $cards | Group-Object { Get-Norm $_.term } | Where-Object Count -gt 1 | ForEach-Object { $cardProblems.Add("two cards for the term '$($_.Name)'") }
@@ -248,6 +260,9 @@ if ($cards.Count) {
   [IO.File]::WriteAllText((Join-Path $packs "unit-$nn.flashcards.json"), $fhead + (($cards | ForEach-Object { Format-Card $_ }) -join ",`n") + "`n  ]`n}`n", $utf8)
 }
 [IO.File]::WriteAllLines((Join-Path $packs 'keys-moved.txt'), [string[]]@($moved), $utf8)
+# Checkers report ids; fixes go by slot. Ids follow spec order, so dropping a slot renumbers later ids.
+[IO.File]::WriteAllLines((Join-Path $packs 'ids.tsv'), [string[]]@($items | ForEach-Object { "$($_.q.id)`t$($_.slot)`t$($_.lesson)`t$($_.q.origin.basedOn)" }), $utf8)
+if ($cards.Count) { [IO.File]::WriteAllLines((Join-Path $packs 'card-ids.tsv'), [string[]]@($cards | ForEach-Object { "$($_.id)`t$($_.term)" }), $utf8) }
 
 # Round trip: the files must parse and keep every item.
 $check = Read-Json $qFile

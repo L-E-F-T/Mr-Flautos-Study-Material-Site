@@ -16,12 +16,12 @@ The site prepares students for the real CompTIA exam. **Each unit's questions ar
   - "Summarize" and "Explain" objectives allow short direct items: "Which of the following BEST describes...?", "Which of the following is MOST associated with...?".
 - **Bare recall** ("What is a thumb drive also called?") becomes a requirement or a scenario where the exam would ask it that way. If the exam would never ask it, say so instead of writing it.
 - **Distractors are real.** Every wrong choice is a real term or action from the same unit that a student could confuse with the key. Use Mr. Flauto's mix-ups where he lists them (<<PATH TO HIS STUDY GUIDE'S MIX-UPS OR CONFUSIONS SECTION, OR "none">>). No joke or throwaway choices.
-- **Choose two (or three)** only where the source item is multiple response and the exam would plausibly ask it that way. The site adds "Choose two." itself.
+- **Choose two (or three)** exactly where the source item is multiple response, keyed with the choices the reading supports, and never for a single-answer source (Mr. Flauto's rule: keep whether it is select-one or select-two). The site adds "Choose two." itself.
 - Performance-based questions cannot be shown on this site, but a multiple-choice item can test the same decision a PBQ does: pick the level, part, or setting from requirements, or match a symptom to its cause. Prefer those decisions.
 
 ## Rules for every question (Mr. Flauto's, binding)
 
-1. **A cousin, not a copy.** Every question is modeled on exactly ONE source item and names it in `origin.basedOn`. Keep the objective and the one distinction it tests. Change the scenario, the wording, and the option text. Someone comparing the two should see a cousin, not a copy. No source item appears as written.
+1. **A cousin, not a copy.** Every question is modeled on exactly ONE source item and names it in `origin.basedOn`. Keep the objective, the one distinction it tests, and whether it has one answer or asks for two or three. Change the scenario, the wording, and the option text. Someone comparing the two should see a cousin, not a copy. No source item appears as written.
    - Pool items: `"origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q41" }`.
    - Messer items: `"kind": "messer-variation", "basedOn": "Messer B6"`. A Messer item is used once per exam.
    - Mr. Flauto's items: `"kind": "teacher", "basedOn": "Study Guide 3.0 Q12"` or `"Review 2.0-3.0 slide 85"`. When one of his items is close to a pool or Messer item, base the question on that item instead.
@@ -33,13 +33,17 @@ The site prepares students for the real CompTIA exam. **Each unit's questions ar
    - Choices are parallel and similar in length.
    - The key never repeats a distinctive word from the stem that no distractor shares.
    - The key is not the only plural, the only one without an article, the longest by far, or the only one with an example.
-7. **Tags.** `objectives`: the CompTIA objective plus its best-fitting bullet (`["3.4", "3.4.c"]`); the objective alone when no bullet fits; two bullets only when the question tests both equally. `units` and `reference.section`: the book section that answers it. `reference.title`: copied exactly from `units.json`.
+7. **Tags.** `objectives`: the CompTIA objective plus its best-fitting bullet (`["3.4", "3.4.c"]`); the objective alone when no bullet fits; two bullets only when the question tests both equally. `units` and `reference.section`: the section of Unit <<UNIT>> that answers it, never a section of another unit. `reference.title`: copied exactly from `units.json`.
 8. **`reference.quote` stays empty** (Mr. Flauto adds quotes). `reference.find`: 3 to 6 words copied from ONE line of `SP\text\<section>.raw.txt`, from the sentence that answers the question. It must not cross a line or page break, and must not include a word hyphenated across lines.
-9. **Leave out `status`** (published) and `shuffleChoices`. Do not worry about which letter the key is: `assemble.ps1` spreads the keys.
+9. **Leave out `status`** (published) and `shuffleChoices`. Do not worry about which letter the key is: `assemble.ps1` spreads the keys. Where the choices have a natural order (sizes, speeds, cable categories, Wi-Fi standards, RAID levels), list them in that order and add `"keepOrder": true` to the draft (it does not go into the pack).
+
+## Your slots
+
+<<THE SLOTS THIS AGENT WRITES, from plan-counts.json: each slot id with its lesson, bullet, the fact it tests, its source item, and the section that answers it>>
 
 ## Question JSON
 
-Return `{ "questions": [ ... ] }`, one object per slot, with your slot's id in `slot`:
+Write `{ "questions": [ ... ] }` to `<<OUTPUT FILE, for example SP\work\draft-2.1.json>>` with the Write tool, one object per slot with your slot's id in `slot`, and reply with only the count. You may write nothing else.
 
 ```json
 {
@@ -61,9 +65,10 @@ Return `{ "questions": [ ... ] }`, one object per slot, with your slot's id in `
   - One plain line a student could say out loud, useful without the reading open.
   - Cover the front, and the back points to exactly one term. Cover the back, and a prepared student could say it.
   - True to the reading, word for word where it matters (counts, speeds, which one is which). No em dashes.
-- **One card per term** in the exam. The terms that already have cards in earlier units are listed here: <<TERMS ALREADY CARDED, FROM THE EXAM'S FLASHCARD PACKS>>.
+- **One card per term** in the exam. The terms that already have cards in earlier units are listed here: <<TERMS ALREADY CARDED, FROM THE EXAM'S FLASHCARD PACKS>>. Write no card for those: list them in your reply instead.
+- **Tags.** `units` and `reference.section`: sections of Unit <<UNIT>> only.
 
-Return `{ "flashcards": [ ... ] }`:
+Write `{ "flashcards": [ ... ] }` to `SP\work\cards.json` with the Write tool and reply with only the count and the already-carded terms you skipped. You may write nothing else:
 
 ```json
 { "term": "RAID 5", "definition": "...", "objectives": ["3.4", "3.4.c"], "units": ["3.2.7"], "reference": { "source": "certmaster", "section": "3.2.7", "title": "RAID 5 and RAID 10" } }

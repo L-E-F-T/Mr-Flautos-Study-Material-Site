@@ -159,7 +159,7 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 **Content (separate chat)**
 
 1. Done (2026-11-10): A+ Core 1 Unit 3.0 (62 questions, 61 flashcards); placeholder packs deleted.
-2. A+ Core 1, one chat per unit (started with `docs/CONTENT-HANDOFF.md`), in this order: 2.0, 5.0, 6.0, 4.0, 7.0, 8.0, 9.0, 10.0. Each chat reads `docs/CONTENT-NOTES.md` first and adds to it before it ends.
+2. A+ Core 1, one chat per unit (started with `docs/CONTENT-HANDOFF.md`), in this order: 2.0, 5.0, 6.0, 4.0, 7.0, 8.0, 9.0, 10.0. Each chat reads `docs/CONTENT-NOTES.md` first and adds to it before it ends, commits its unit on `main`, asks before pushing, and ends with a button that starts the next unit's chat.
 3. Unit 1.0 gets no pack. Its troubleshooting methodology is not tested directly: the 220-1201 objectives say "the methodology itself will not be tested", and CertMaster 1.2.1 says it is not tied to an exam objective. The exam uses it only inside Domain 5 scenarios ("which should the technician do FIRST?"), and those questions belong to the units that teach the hardware.
 4. You read each unit on the local site, add the book quotes with the quote helper, and mark the pack reviewed.
 5. Then Core 2, Network+, and Security+, one exam at a time.

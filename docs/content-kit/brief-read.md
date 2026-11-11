@@ -29,7 +29,9 @@ You are mapping source items for Mr. Flauto's CompTIA study site, a high school 
 
 ## Your items
 
-<<THE ITEMS THIS AGENT MAPS, BY NUMBER: a run of pool items ("CertMaster 2.0 Q1 to Q30"), Messer labels, items carried over from earlier units in docs/CONTENT-NOTES.md>>
+<<THE ITEMS THIS AGENT MAPS, BY NUMBER: a run of pool items ("CertMaster 2.0 Q1 to Q30"), Messer labels, items carried over from earlier units in docs/CONTENT-NOTES.md. Leave out every item an existing pack already names in origin.basedOn.>>
+
+You may write only your output file. Never edit anything else.
 
 ## Rules (Mr. Flauto's, binding)
 
@@ -48,7 +50,7 @@ You are mapping source items for Mr. Flauto's CompTIA study site, a high school 
 
 ## Return
 
-One record per item, as JSON: `{ "items": [ ... ] }` with these fields.
+Write one record per item as JSON, `{ "items": [ ... ] }`, to `<<OUTPUT FILE, for example SP\map\pool-Q1-Q25.json>>` with the Write tool, and reply with only the counts by status. The fields:
 
 | Field | Value |
 |---|---|
