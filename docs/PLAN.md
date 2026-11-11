@@ -21,7 +21,7 @@ Order: A+ Core 1 first, then Core 2, Network+, Security+. Hosting: GitHub Pages 
 | Practice test: topic picker, random draw, instant feedback, reading reference and quote, choose-two questions, resume after refresh | Built and tested |
 | Results: score, list of missed questions, "Retry missed" rounds, breakdown by lesson or objective | Built and tested |
 | History: every finished test is logged on the device; a side panel shows recent scores and a breakdown by unit and lesson | Built and tested |
-| Home: **Resume deck** and **Resume test** buttons when one is unfinished on the device, each with a one-tap **Discard** and an **Undo** | Built and tested |
+| Home: **Resume deck** and **Resume test** buttons when one is unfinished on the device, each with a minus that discards it (one click turns it red, a second click discards) | Built and tested |
 | "Coming soon" labels on anything without content (exam, study mode, unit, lesson, objective) | Built and tested |
 | Light and dark mode toggle (follows the device until the student chooses) | Built and tested |
 | Phone layout: two-row header, docked Build/Start bar, finger-size targets, no sideways scrolling at 320 px | Built and tested |
@@ -59,7 +59,7 @@ Each exam uses the same pages with `?exam=…` in the address, so adding Core 2,
 
 | Page | Layout |
 |---|---|
-| Home | One card per exam, filled with that exam's class color, with Flashcards and Practice test buttons on live exams. When a deck or a test is unfinished on the device, **Resume deck** and **Resume test** sit above them, one row each, and go straight back in. A small **Discard** beside each throws that deck or test away in one tap and leaves **Undo** in its place until the page is left. No scores are shown here. |
+| Home | One card per exam, filled with that exam's class color, with Flashcards and Practice test buttons on live exams. When a deck or a test is unfinished on the device, **Resume deck** and **Resume test** sit above them, one row each, and go straight back in. A minus at the right end of each discards it: the first click turns the minus red, and a second click on the red minus discards, leaving the card as a new student sees it. No scores are shown here. |
 | Flashcards: choose terms | Group-by switch (objective or unit), search, then the term table with a checkbox per term and per group. A bar docked to the bottom of the screen shows the number selected and holds **Build deck**. |
 | Flashcards: your deck | Title and counts on one line, the card, four main buttons (Previous, Flip, Next, Take out), then the secondary ones (side shown first, Shuffle, Put all back, Choose cards), then the taken-out list. |
 | Practice: setup | **History** button beside the title. **Topics** (tree by textbook unit or by exam objective, with question counts) and **Questions** (how many). On wide screens they sit side by side; on phones Questions follows Topics and **Start** is docked to the bottom of the screen. |
@@ -74,7 +74,7 @@ Each exam uses the same pages with `?exam=…` in the address, so adding Core 2,
 - **Anything without content says "Coming soon".** The site works this out from the data, so nobody types it: an exam whose status is not `live`, a study mode with no packs (on the home card), any unit, lesson, domain, or objective with no items (in both pickers), and any bullet with no questions (in the practice-test list by objective, the only list that shows bullets). Those rows are greyed out and cannot be picked.
 - Works at 320 px wide with no sideways scrolling, and with touch (targets sized for fingers).
 - Works in light and dark mode. The choice is remembered on the device; until a student chooses, the site follows the device setting.
-- **The class color is the highlight color.** Main buttons, checked boxes, the selected option, the picked answer, hover and focus highlights, and the exam cards on the home page all use it: A+ warm graphite `#55504A`, Network+ forest green `#15654A`, Security+ teal-navy `#0B4F6C` (from the class slide decks). In dark mode the fill is the same hue lifted slightly so white text on it stays readable. Green and red are reserved for right and wrong.
+- **The class color is the highlight color.** Main buttons, checked boxes, the selected option, the picked answer, hover and focus highlights, and the exam cards on the home page all use it: A+ warm graphite `#55504A`, Network+ forest green `#15654A`, Security+ teal-navy `#0B4F6C` (from the class slide decks). In dark mode the fill is the same hue lifted slightly so white text on it stays readable. Green and red are reserved for right and wrong; the one exception is the home card's minus, which turns red before it discards.
 - Keyboard and screen-reader friendly (focus is managed after every action, results are announced, right/wrong never depends on color alone).
 
 ## 4. How it is built

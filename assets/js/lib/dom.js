@@ -48,6 +48,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 const ICON_PATHS = {
   check: 'M4 12.5l5 5L20 6.5',
   x: 'M6 6l12 12M18 6L6 18',
+  minus: 'M5 12h14',
 };
 
 /**
