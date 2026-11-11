@@ -689,9 +689,16 @@ details.disclosure[open] > summary { margin-bottom: 0.5rem; }
 .hist-lessons .hist-name { font-weight: 500; }
 
 /* The log of tests. */
-.hist-tests { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
-.hist-test { display: grid; gap: 0.3rem; padding: 0.6rem 0.7rem; border: 1px solid var(--border); border-radius: var(--radius); }
-.hist-chips { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+/* Tests by date: a heading per day, then one row per test: the time and the score, with the
+   count, the lessons it covered, and any Retry or Ended early chip in a muted line under them. */
+.hist-day + .hist-day { margin-top: 0.9rem; }
+.hist-day h4 { margin: 0; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: var(--text-muted); }
+.hist-tests { list-style: none; margin: 0; padding: 0; }
+.hist-test { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 0.1rem 0.75rem; padding: 0.55rem 0; }
+.hist-test + .hist-test { border-top: 1px solid var(--border); }
+.hist-time { font-weight: 600; font-variant-numeric: tabular-nums; }
+.hist-pct { font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+.hist-detail { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 0.15rem 0.6rem; }
 .hist-foot { display: flex; justify-content: flex-end; }
 .chip-good { background: var(--good-soft); border-color: var(--good-border); color: var(--good); }
 .chip-bad { background: var(--bad-soft); border-color: var(--bad-border); color: var(--bad); }

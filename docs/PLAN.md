@@ -20,7 +20,7 @@ Order: A+ Core 1 first, then Core 2, Network+, Security+. Hosting: GitHub Pages 
 | Flashcards: term table, search, deck (flip, next, take out, shuffle, put back), saved on the device | Built and tested |
 | Practice test: topic picker, random draw, instant feedback, reading reference and quote, choose-two questions, resume after refresh | Built and tested |
 | Results: score, list of missed questions, "Retry missed" rounds, breakdown by lesson or objective | Built and tested |
-| History: every finished test is logged on the device; a side panel shows recent scores and a breakdown by unit and lesson | Built and tested |
+| Recent history: every finished test is logged on the device with the date and time it finished; a side panel shows recent scores, a breakdown by unit and lesson, and the tests by date with each one's time | Built and tested |
 | Home: **Resume deck** and **Resume test** buttons when one is unfinished on the device, each with a minus that discards it (one click turns it red, a second click discards) | Built and tested |
 | "Coming soon" labels on anything without content (exam, study mode, unit, lesson, objective) | Built and tested |
 | Light and dark mode toggle (follows the device until the student chooses) | Built and tested |
@@ -41,7 +41,7 @@ Order: A+ Core 1 first, then Core 2, Network+, Security+. Hosting: GitHub Pages 
 Home (index.html)                 the exams; exams not built yet show "Coming soon"
 ├─ Flashcards (flashcards.html)   1. choose terms   2. your deck
 └─ Practice test (practice.html)  1. topics and number of questions   2. questions   3. results
-                                  History side panel (opens from 1 and 3)
+                                  Recent history side panel (opens from 1 and 3)
 
 Teacher tools (local only, never published)
 ├─ tools/validate.html            content check
@@ -62,10 +62,10 @@ Each exam uses the same pages with `?exam=…` in the address, so adding Core 2,
 | Home | One card per exam, filled with that exam's class color, with Flashcards and Practice test buttons on live exams. When a deck or a test is unfinished on the device, **Resume deck** and **Resume test** sit above them, one row each, and go straight back in. A minus at the right end of each discards it: the first click turns the minus red, and a second click on the red minus discards, leaving the card as a new student sees it. No scores are shown here. |
 | Flashcards: choose terms | Group-by switch (objective or unit), search, then the term table with a checkbox per term and per group. A bar docked to the bottom of the screen shows the number selected and holds **Build deck**. |
 | Flashcards: your deck | Title and counts on one line, the card, four main buttons (Previous, Flip, Next, Take out), then the secondary ones (side shown first, Shuffle, Put all back, Choose cards), then the taken-out list. |
-| Practice: setup | **History** button beside the title. **Topics** (tree by textbook unit or by exam objective, with question counts) and **Questions** (how many). On wide screens they sit side by side; on phones Questions follows Topics and **Start** is docked to the bottom of the screen. |
+| Practice: setup | **Recent history** button beside the title. **Topics** (tree by textbook unit or by exam objective, with question counts) and **Questions** (how many). On wide screens they sit side by side; on phones Questions follows Topics and **Start** is docked to the bottom of the screen. |
 | Practice: question | Progress and running score, the question, the choices, **Check**, then right/wrong with the reading reference, then **Next**. |
-| Practice: results | Score, then **Missed (N)**: each missed question as the student saw it, with their pick, the right answer, and the reading. **Retry missed** sits above and below the list and starts a round of only those questions; rounds repeat until nothing is missed. Then the breakdown by lesson or objective, with a bar that is green for the share correct and red for the share missed. **History** sits with New test and Change topics. |
-| History (side panel) | Slides in from the right; full screen on phones. Closes with Close, Escape, a tap outside, or the Back button. Top to bottom: tests taken, average, and the latest score (or the last 5 with Up/Down/Steady once there are more than five); **Recent scores**, one bar per test; **By unit**, each unit opening to its lessons with percent, a green/red bar, the count, and its own trend, with the weakest lesson called out; **Tests**, the log, newest first; **Clear history**. Retry rounds are listed but left out of the averages. |
+| Practice: results | Score, then **Missed (N)**: each missed question as the student saw it, with their pick, the right answer, and the reading. **Retry missed** sits above and below the list and starts a round of only those questions; rounds repeat until nothing is missed. Then the breakdown by lesson or objective, with a bar that is green for the share correct and red for the share missed. **Recent history** sits with New test and Change topics. |
+| Recent history (side panel) | Named "Recent" because it lives in the browser's saved data, which a device can clear. Slides in from the right; full screen on phones. Closes with Close, Escape, a tap outside, or the Back button. Top to bottom: tests taken, average, and the latest score (or the last 5 with Up/Down/Steady once there are more than five); **Recent scores**, one bar per test; **By unit**, each unit opening to its lessons with percent, a green/red bar, the count, and its own trend, with the weakest lesson called out; **Tests by date**, newest first: a heading per day ("Tue, Nov 10"; the year shows for older tests), then one row per test with its time and score, and under them the count, the lessons it covered (scores per lesson in a tooltip), and a Retry or Ended early tag; **Clear history**. Retry rounds are listed but left out of the averages. |
 
 ### Rules every page follows
 
@@ -94,7 +94,7 @@ Items can be tagged at any level and the pickers roll tags up: a question tagged
 
 **Saved progress.** Decks, unfinished tests, the test history, and the light/dark choice are saved in each student's browser. Nothing leaves the device. Every checked answer and every finished test passes through one module (`assets/js/lib/progress.js`), which is where sign-in and a scoreboard would plug in.
 
-**Test history.** When a test ends, one entry is added to a log on the device: the time, the score, and a tally per unit, lesson, and objective (whichever way the topics were picked). The log keeps the latest 200 tests per exam. The History panel (`assets/js/components/history-panel.js`) reads it; **Clear history** empties it.
+**Test history.** When a test ends, one entry is added to a log on the device: the date and time it finished, the score, and a tally per unit, lesson, and objective (whichever way the topics were picked). The log keeps the latest 200 tests per exam. The Recent history panel (`assets/js/components/history-panel.js`) reads it; **Clear history** empties it.
 
 **Content check.** One set of rules (`assets/js/lib/validate-core.js`) checks ids, tags, answer keys, references, quote length, house style, copied items, and placeholder packs. It runs in the browser at `tools/validate.html` and on GitHub before each deploy. Errors block the deploy.
 
@@ -154,7 +154,7 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 
 1. Done: flashcards, practice tests, missed-question retry, light/dark toggle, phone layout, placeholder flag, UI cleanup, test history panel, resume buttons, "Coming soon" labels.
 2. Done (2026-11-10): Git and the GitHub CLI installed, repository created, Pages set to "GitHub Actions", first deploy passed.
-3. Later ideas: exam mode (90 questions in 90 minutes, weighted by domain, feedback at the end), a "practice this lesson" button on the weakest lesson in History, a breakdown by exam objective in History (the log already keeps it), add-to-Home-Screen and offline support, CSV import so items can be written in a spreadsheet.
+3. Later ideas: exam mode (90 questions in 90 minutes, weighted by domain, feedback at the end), a "practice this lesson" button on the weakest lesson in Recent history, a breakdown by exam objective in Recent history (the log already keeps it), add-to-Home-Screen and offline support, CSV import so items can be written in a spreadsheet.
 
 **Content (separate chat)**
 
@@ -183,7 +183,7 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 7. **Content is written in a separate chat** and anything first-pass is flagged as placeholder until you approve a replacement.
 8. **The UI is labels only:** no emoji, no how-to text.
 9. **No sign-in and no scoreboard for now** (2026-11-10). The site is shared by link and kept out of search results. If sign-in is ever built: Google only, no Firebase.
-10. **No saved score on the home page** (2026-11-10). Scores live in the History panel on the practice page; the home card only offers to resume.
+10. **No saved score on the home page** (2026-11-10). Scores live in the Recent history panel on the practice page; the home card only offers to resume.
 11. **Anything without content is labeled "Coming soon"** (2026-11-10), worked out from the data.
 12. **The exam leads, the reading keys, your materials support** (2026-11-10). What each unit covers, and how much, follows the CompTIA objectives and evidence of what the exam asks (Messer practice exams, Domain 5 links), and questions are written the way the exam presents them. The CertMaster reading decides every answer. Your study guides, slides, and Blookets corroborate the keys and fill gaps; they never set the weight.
 

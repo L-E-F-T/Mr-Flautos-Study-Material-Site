@@ -70,9 +70,12 @@ function start(ctx) {
 
   const poolIds = () => [...itemIdsForLeaves(trees[setup.mode], setup.selected[setup.mode])];
 
-  /** Opens the History side panel (the log of finished tests, with trends by unit). */
+  /**
+   * Opens the Recent history side panel (the log of finished tests, with trends by unit). It is
+   * "recent" because it lives in this browser's saved data, which a device can clear.
+   */
   const historyButton = () => {
-    const button = h('button', { type: 'button', class: 'btn' }, 'History');
+    const button = h('button', { type: 'button', class: 'btn' }, 'Recent history');
     button.addEventListener('click', () => openHistoryPanel(ctx, button));
     return button;
   };
@@ -555,7 +558,7 @@ function start(ctx) {
     renderResults();
   }
 
-  /** Add the test to the History log, once (the logged flag is saved with the run). */
+  /** Add the test to the Recent history log, once (the logged flag is saved with the run). */
   function logRun() {
     if (run.logged) return;
     run.logged = true;

@@ -7,7 +7,7 @@
  * Two things are kept per exam:
  *   - running totals (answered, correct, streak) for the in-test streak chip;
  *   - a log of finished tests, with a tally per unit, lesson, and objective, which the
- *     History panel (assets/js/components/history-panel.js) turns into trends.
+ *     Recent history panel (assets/js/components/history-panel.js) turns into trends.
  */
 import * as store from './storage.js';
 
@@ -70,7 +70,7 @@ export function recordAnswer({ examId, questionId, correct }) {
 /**
  * Add one finished test to the log. The practice page builds the entry:
  *   {
- *     at: ISO time finished,
+ *     at: ISO date and time the test finished,
  *     mode: 'unit' | 'objective',      how the student picked topics
  *     retry: boolean,                  a round of only previously missed questions
  *     planned: number,                 questions in the test

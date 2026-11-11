@@ -1,9 +1,12 @@
 /**
- * History side panel: the log of finished practice tests kept on this device, turned into
- * something a student can act on:
+ * Recent history side panel: the log of finished practice tests kept on this device, turned
+ * into something a student can act on:
  *   - recent scores, to see the trend;
  *   - a breakdown by unit and lesson, with the weakest lesson called out;
- *   - the list of tests, each with its score per unit (or per lesson, for a one-unit test).
+ *   - the list of tests, each with its day, date, and time, and its score per unit (or per
+ *     lesson, for a one-unit test).
+ * It is labeled "Recent" because it lives in the browser's saved data, which a device can
+ * clear, so students do not count on it lasting.
  * Retry rounds (only previously missed questions) are listed but left out of the averages
  * and trends, because they would skew them.
  *
@@ -90,10 +93,24 @@ function collect(tests, bucket) {
   return rows;
 }
 
-function formatWhen(iso) {
+/** "Tue, Nov 10", with the year added for a test from another year. */
+function dayLabel(iso) {
   const when = new Date(iso);
-  if (Number.isNaN(when.getTime())) return '';
-  return when.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+  if (Number.isNaN(when.getTime())) return 'No date';
+  const options = { weekday: 'short', month: 'short', day: 'numeric' };
+  if (when.getFullYear() !== new Date().getFullYear()) options.year = 'numeric';
+  return when.toLocaleDateString(undefined, options);
+}
+
+/** "2:35 PM". */
+function timeLabel(iso) {
+  const when = new Date(iso);
+  return Number.isNaN(when.getTime()) ? '' : when.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+}
+
+/** "Tue, Nov 10, 2:35 PM". */
+function formatWhen(iso) {
+  return [dayLabel(iso), timeLabel(iso)].filter(Boolean).join(', ');
 }
 
 /** One line of the breakdown: name, percent, then the bar, the count, and the trend. */
@@ -227,35 +244,42 @@ function renderBody(body, ctx, onClear) {
     }
   }
 
-  /* ---- The log, newest first ---- */
-  const shown = history.slice(-LOG_LIMIT).reverse();
+  /* ---- Tests by date, newest first: a heading per day, then one row per test ---- */
+  const testRow = (test) => {
+    // A test on one unit names its lessons; a test across units names the units. The score per
+    // lesson or unit is in the tooltip: the By unit section already shows those.
+    const units = pairsOf(test.units);
+    const lessons = pairsOf(test.lessons);
+    const byUnit = units.length > 1 || lessons.length === 0;
+    const parts = byUnit ? units : lessons;
+    const topics = parts.length
+      ? `${byUnit ? 'Unit' : 'Lesson'}${parts.length > 1 ? 's' : ''} ${parts.map(([id]) => id).join(', ')}`
+      : '';
+    const scores = parts.map(([id, pair]) => `${id}: ${pair[0]} of ${pair[1]}`).join(', ');
+    return h('li', { class: 'hist-test' },
+      h('span', { class: 'hist-time' }, timeLabel(test.at)),
+      h('strong', { class: 'hist-pct' }, `${pct(test.correct, test.total)}%`),
+      h('div', { class: 'hist-detail small muted' },
+        h('span', null, `${test.correct} of ${test.total}`),
+        topics ? h('span', { title: scores }, topics) : null,
+        test.retry ? h('span', { class: 'chip chip-accent' }, 'Retry') : null,
+        Number.isFinite(test.planned) && test.planned > test.total ? h('span', { class: 'chip' }, 'Ended early') : null,
+      ),
+    );
+  };
+  const days = [];
+  for (const test of history.slice(-LOG_LIMIT).reverse()) {
+    const label = dayLabel(test.at);
+    const last = days[days.length - 1];
+    if (last && last.label === label) last.tests.push(test);
+    else days.push({ label, tests: [test] });
+  }
   sections.push(h('section', { class: 'panel', 'aria-labelledby': 'hist-log' },
-    h('h3', { id: 'hist-log' }, history.length > LOG_LIMIT ? `Tests (last ${LOG_LIMIT} of ${history.length})` : 'Tests'),
-    h('ul', { class: 'hist-tests' },
-      shown.map((test) => {
-        // A test on one unit lists its lessons; a test across units lists the units.
-        const units = pairsOf(test.units);
-        const parts = units.length > 1
-          ? units.map(([id, pair]) => ({ id, label: `Unit ${id}`, pair }))
-          : pairsOf(test.lessons).map(([id, pair]) => ({ id, label: id, pair }));
-        return h('li', { class: 'hist-test' },
-          h('div', { class: 'row spread' },
-            h('span', null, formatWhen(test.at)),
-            h('strong', null, `${pct(test.correct, test.total)}%`),
-          ),
-          h('div', { class: 'row small muted' },
-            h('span', null, `${test.correct} of ${test.total}`),
-            test.retry ? h('span', { class: 'chip chip-accent' }, 'Retry') : null,
-            Number.isFinite(test.planned) && test.planned > test.total ? h('span', { class: 'chip' }, 'Ended early') : null,
-          ),
-          parts.length
-            ? h('div', { class: 'hist-chips' },
-                parts.map((part) => h('span', { class: 'chip', title: titleOf(part.id) },
-                  `${part.label}: ${part.pair[0]}/${part.pair[1]}`)))
-            : null,
-        );
-      }),
-    ),
+    h('h3', { id: 'hist-log' }, history.length > LOG_LIMIT ? `Tests by date (last ${LOG_LIMIT} of ${history.length})` : 'Tests by date'),
+    days.map((day) => h('div', { class: 'hist-day' },
+      h('h4', null, day.label),
+      h('ul', { class: 'hist-tests' }, day.tests.map(testRow)),
+    )),
   ));
 
   const clear = h('button', { type: 'button', class: 'btn btn-sm btn-ghost' }, 'Clear history');
@@ -281,7 +305,7 @@ export function openHistoryPanel(ctx, opener) {
   const body = h('div', { class: 'drawer-body' });
   const closeButton = h('button', { type: 'button', class: 'btn btn-sm' }, 'Close');
   const panel = h('div', { class: 'drawer', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': titleId },
-    h('div', { class: 'drawer-head' }, h('h2', { id: titleId }, 'History'), closeButton),
+    h('div', { class: 'drawer-head' }, h('h2', { id: titleId }, 'Recent history'), closeButton),
     body,
   );
   const backdrop = h('div', { class: 'drawer-backdrop' });
