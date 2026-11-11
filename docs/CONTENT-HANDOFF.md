@@ -1,137 +1,117 @@
 # Content hand-off prompt
 
-Mr. Flauto: open a new Claude Code chat in `C:\CompTIA Website` and paste everything below the line. It works for the first content chat and for any later one, because it tells the chat to find out what is already done.
+Mr. Flauto: for each unit, open a new Claude Code chat in `C:\CompTIA Website` and paste everything below the line. One chat per unit. The chat works out which unit is next, does all of it, and stops with a report. (Rewritten 2026-11-10 after Unit 3.0, with the steps in the order that worked.)
 
 ---
 
-You are the **content chat** for my CompTIA study site in `C:\CompTIA Website`. The website is built and tested. Your job is to write the practice questions and flashcards it serves, one unit at a time. You write content. You do not change the website.
+You are the **content chat** for my CompTIA study site in `C:\CompTIA Website`. The website is built and tested. Your job is one unit: write its practice questions and flashcards, check them, put them in the site, and stop with a report. You write content. You do not change the website.
 
 My `certmaster` skills are loaded in this chat but are not for you. They make Blookets, slide decks, and paper packets, not this site's files. Do not run them here. Notes about what website chats may do (in `CLAUDE.md` or my saved memory) are not about you.
 
-This prompt is saved as `docs/CONTENT-HANDOFF.md`. Read it again, with the guide, at the start of every unit.
+## What the site mirrors
 
-## Read these first, in order
+The site prepares students for the real CompTIA exam, so it mirrors **the exam**, not my course materials. This decides every choice you make:
+
+1. **The CompTIA objectives and the evidence of what the exam asks decide what is covered and how much.** The evidence: the Professor Messer practice exams (the closest stand-in for the real exam), the troubleshooting items in Domain 5 that lean on this unit's facts, each objective's verb ("Given a scenario" is asked as scenarios and performance-based questions), and the domain weights.
+2. **The CertMaster reading decides every answer,** and every question cites the section that answers it.
+3. **The CertMaster pool and the Messer items** are what each question is modeled on.
+4. **My materials** (unit study guides with keys, review decks, lesson slides, Blookets) are built from the CertMaster platform. They are good, but they are not the last word. They corroborate keys and terms, and they fill a gap only where an exam-weighted fact has no pool or Messer item. They never add weight, and they never override the reading or the objectives.
+5. **Questions are presented the way the exam presents them:** short scenarios, "BEST", "MOST likely", "FIRST", and real distractors from the same unit.
+
+## Your unit
+
+- **A+ Core 1 (220-1201), in this order: 2.0, 5.0, 6.0, 4.0, 7.0, 8.0, 9.0, 10.0.** Unit 3.0 is done. Your unit is the first one in that order that has no pack listed in `data/a-plus-core-1/questions/manifest.json`. If its pack is listed but unfinished, or anything else looks half done, ask me before you touch it.
+- **Unit 1.0 gets no pack.** The troubleshooting methodology is not tested directly: the 220-1201 objectives say the methodology itself will not be tested, and CertMaster 1.2.1 says it is not tied to an exam objective. The exam uses it inside Domain 5 scenarios ("Which should the technician do FIRST?"), and those questions belong to the units that teach the hardware or network involved.
+- **Then the other three exams,** one at a time, when I say. Each needs its two outline files first (the guide, "Adding another exam").
+
+## Read these first
 
 1. `CLAUDE.md`
-2. `docs/CONTENT-GUIDE.md`. This is the contract: file formats, every rule for questions, flashcards, tags, references, and ids, how the placeholder content is removed, how "Coming soon" works, and how to add another exam. All of it is binding.
-3. `docs/PLAN.md` sections 1, 4, 6, and 7, and the appendix.
-4. `data/exams.json`, then `data/a-plus-core-1/objectives.json` and `units.json`: the ids you tag with.
-5. One existing question pack, for the file shape only (the first 60 lines are enough): `data/a-plus-core-1/questions/placeholder-unit-03.json` while it exists, otherwise the newest `unit-NN.json`. The placeholder's content is not a model. I rejected it.
+2. `docs/CONTENT-GUIDE.md`: the contract. File formats and every rule for questions, flashcards, tags, references, ids, and "Coming soon". All of it is binding.
+3. `docs/CONTENT-NOTES.md`: what earlier units passed to yours (source items your reading answers), known problems in the reading, gaps.
+4. `docs/content-kit/README.md`, and each brief in that folder when you reach its step.
+5. `docs/PLAN.md` sections 1, 4, 6, and 7.
+6. `data/exams.json`, then `data/a-plus-core-1/objectives.json` and `units.json`: the ids you tag with.
+7. `data/a-plus-core-1/questions/unit-03.json` and `flashcards/unit-03.json`: the finished Unit 3.0 packs, your model for shape and voice.
 
-## Find out what is already done
-
-Before anything else, read `data/exams.json` to see which exams are live. For each live exam, read both `manifest.json` files and the `pack` block at the top of every pack they list.
-
-- A `placeholder-…` pack (`"placeholder": true`, ids starting `ph-`) is first-pass material I rejected (A+ Core 1 Unit 3.0). Never edit or extend it, and never reuse a `ph-` id. It is deleted when the real Unit 3.0 packs go in (step 3 below).
-- A pack with `"reviewed": true` is approved. Leave it alone unless I name items to fix.
-- A pack with `"reviewed": false` was written and is waiting for me, or is unfinished. Ask before you touch it.
-
-## The job
-
-1. **A+ Core 1 (220-1201), all ten units.** If the placeholder packs are still there, start with Unit 3.0, because its packs replace them. After that, and after every unit, I name the next one.
-   - **Unit 1.0 is the exception.** It has no question pool, no exam objective, and no Messer items, so the plan below gives it nothing. Leave it for last and ask me what I want before you write anything. Do the same for any unit, in any course, that has neither pool items nor Messer items.
-2. **Then the other three exams,** one at a time, when I say. Each needs its two outline files (`objectives.json` and `units.json`) before any pack. The steps are in the guide under "Adding another exam".
-
-Each unit gets one question pack and one flashcard pack (for example `unit-03.json` in each folder), listed in that folder's `manifest.json`.
+A pack with `"reviewed": true` is approved: leave it alone unless I name items to fix. A pack with `"reviewed": false` is waiting for me: do not change it unless I ask.
 
 ## Source material
 
-All of it is outside this project, in the `Documents` folder of my school OneDrive. In PowerShell, `$env:OneDriveCommercial` is the OneDrive folder.
+All of it is outside this project, in the `Documents` folder of my school OneDrive. In PowerShell, `$env:OneDriveCommercial` is the OneDrive folder. The kit's `extract-sources.ps1` and `extract-aids.ps1` pull what you need into your scratchpad as text.
 
 | Course | The reading | Question pool (no answer key) | Messer practice exams (keyed) | Official objectives |
 |---|---|---|---|---|
-| A+ Core 1 | `CompTIAA+\Core 1\Modules\`, one PDF per reading section | `CompTIAA+\Core 1\Certmaster Questions\`, `2.0.txt` to `10.0.txt` | `CompTIAA+\Core 1\professor-messer-a-plus-220-1201-core-1-practice-exams-v112.pdf` | Already in `objectives.json` |
+| A+ Core 1 | `CompTIAA+\Core 1\Modules\`, one PDF per reading section | `CompTIAA+\Core 1\Certmaster Questions\`, `2.0.txt` to `10.0.txt` | `CompTIAA+\Core 1\professor-messer-a-plus-220-1201-core-1-practice-exams-v112.pdf` | Already in `objectives.json`; weights in `CompTIAA+\Core 1\A+Core1ExamDetails.pdf` |
 | A+ Core 2 | `CompTIAA+\Book\byUnit\`, `A+ 11.0.pdf` to `A+ 22.0.pdf` | None yet | `CompTIAA+\professor-messer-a-plus-220-1202-core-2-practice-exams-v111.pdf` | Not in my folders |
 | Network+ | `CompTIANet+\Book\bySubunit\` and `CompTIANet+\Book\byUnit\` | `CompTIANet+\Certmaster Questions\`, `1.0.txt` and `2.0.txt` | None | `CompTIANet+\Book\bySubunit\B.1.3 Exam Objectives for CompTIA Network+ N10-009.pdf` |
 | Security+ | `CompTIASec+\Book\bySubunit\` and `CompTIASec+\Book\byUnit\` | `CompTIASec+\Certmaster Questions\` | `CompTIASec+\professor-messer-sy0-701-comptia-security-plus-practice-exams-v18.pdf` | Not in my folders |
 
+**My materials for A+ Core 1** (corroboration only): unit study guides with keys for Units 2.0 to 7.0 in `CompTIAA+\Core 1\Study Guides\`, review decks and lesson decks in `CompTIAA+\Core 1\Slides\`, Blookets in `CompTIAA+\Core 1\Activites\`. Units 8.0 to 10.0 have no study guide or review deck.
+
 **Gaps I know about.** Do not work around them. Tell me when you reach one.
 
-- **Section printouts.** Only A+ Core 1 has a printout for every reading section. Network+ has them for units 1.0 to 7.0 only. Security+ has them for units 1.0 to 7.0 except lessons 2.2, 7.2, and 7.3. Everything else, and all of Core 2, is only in the `byUnit` PDFs: whole chapters (12 to 51 pages) that label lessons 8A, 8B, and so on and print no section numbers. CertMaster's section numbers skip videos and labs, so never number sections yourself. Before you write an exam's `units.json`, tell me which units have no section printouts, and wait.
-- **Objectives.** Core 2 and Security+ have no objectives document in my folders: ask me. (The Security+ book only names the objectives each lesson covers, with no bullets or weights.) Network+'s B.1.3 has the objectives and bullets but no domain weights. Take the weights from `B.1.2 Exam Details for CompTIA Network+ N10-009.pdf` in the same folder, and keep B.1.3's domain titles.
-- **Pools.** Security+ `4.0.txt` is a copy of the A+ Core 1 Unit 4.0 pool, so Security+ Unit 4.0 has no pool yet, and `14.0.txt` and `All.txt` are empty. Network+ `4.0 Custom Subnetting.txt` is not a pool export: ask me before you use it. The three matching items in Network+ `1.0.txt` have no `answer` line, so they get no number: skip them.
+- **Section printouts.** Only A+ Core 1 has a printout for every reading section. Network+ has them for units 1.0 to 7.0 only. Security+ has them for units 1.0 to 7.0 except lessons 2.2, 7.2, and 7.3. Everything else, and all of Core 2, is only in the `byUnit` PDFs: whole chapters that label lessons 8A, 8B, and so on and print no section numbers. CertMaster's section numbers skip videos and labs, so never number sections yourself. Before you write an exam's `units.json`, tell me which units have no section printouts, and wait.
+- **Objectives.** Core 2 and Security+ have no objectives document in my folders: ask me. Network+'s B.1.3 has the objectives and bullets but no domain weights: take the weights from `B.1.2 Exam Details for CompTIA Network+ N10-009.pdf` in the same folder, and keep B.1.3's domain titles.
+- **Pools.** See "Other exams" in `docs/CONTENT-NOTES.md` for Security+. Security+ `14.0.txt` and `All.txt` are empty. Network+ `4.0 Custom Subnetting.txt` is not a pool export: ask me before you use it. The three matching items in Network+ `1.0.txt` have no `answer` line, so they get no number: skip them.
 
 Rules for the source folders:
 
-- **Read the sources where they are. Never copy them into this project.** The only text that comes from them is what the guide names: CompTIA's objective wording and the book's unit, lesson, and section titles (in the two outline files and in `reference.title`), and the short `reference.find` phrases.
-- Check that a path exists before you rely on it. Never write a question with no source item to model it on.
-- My study aids (Blookets, flashcard sheets, study guides, slides) show which terms I stress. Use them to shape a term list, and for nothing else.
-- **Never open graded work:** any folder named `Tests`, `Assignments`, or `Projects` at any depth, `CompTIAA+\Core 1\Study Guides\2.0 Take Home`, and any file in a course's `claude` folder with Test, Quiz, Exam, Assignment, Project, Form, or Virtual Day in its name. Ignore `CompTIAA+\Core 1\Study Guides\Documents\` completely: it is a stray old copy of my folders. If you cannot tell whether a file is graded work, ask me before you open it.
+- **Read the sources where they are. Never copy them into this project.** The only text that comes from them is what the guide names: CompTIA's objective wording, the book's unit, lesson, and section titles, and the short `reference.find` phrases. The repository is public.
+- **Never open graded work:** any folder named `Tests`, `Assignments`, or `Projects` at any depth, `CompTIAA+\Core 1\Study Guides\2.0 Take Home`, and any file in a course's `claude` folder with Test, Quiz, Exam, Assignment, Project, Form, or Virtual Day in its name. Ignore `CompTIAA+\Core 1\Study Guides\Documents\` completely: it is a stray old copy of my folders. If you cannot tell whether a file is graded work, ask me before you open it. (`extract-aids.ps1` never goes into subfolders.)
 
 ## Rules I will hold you to
 
 The guide has the full list. These are the ones that sink a unit:
 
-1. **A cousin, not a copy.** Every question is modeled on one pool item or one Messer item and names it in `origin.basedOn`, numbered the way the guide says ("Numbering source items"). Keep the objective and the one distinction it tests. Change the scenario, the wording, and the option text. No source item appears as written anywhere in `data/`. The option count follows the guide: 4 for one answer, 5 for choose two or three (6 only when the source item had 6 or more).
-2. **The reading decides the answer.** The pool has no key, and Messer is a different book. Key every question from the reading section you cite. Where the reading and the source item disagree, the reading wins, and you tell me. Where the reading contradicts itself or is plainly wrong (Unit 3.0 gives two ways to apply thermal paste in 3.4.6 and 3.4.7, and the last sentence of 3.3.8 reverses the rest of that section), key no question to that point: tell me at Stop 1.
-3. **An item belongs to the unit whose reading answers it.** Objectives are split across units: objective 3.5 is taught in lessons 2.2, 3.1, 3.4, and 4.1. Cite only reading sections inside the unit you are writing, and leave a Messer item or an objective bullet that another unit teaches for that unit. A Messer item is used once per exam: before you use one, search this exam's packs for its label with the closing quote (`Messer B6"`, so it does not also match B64). A hit in a `placeholder-` file does not count.
-4. **Tag as specifically as you can:** the objective and its best-fitting bullet (`3.4` and `3.4.c`), and the reading section (`3.2.6`). Book numbers and CompTIA numbers overlap by accident (lesson 3.4 is CPUs, objective 3.4 is storage devices): `units` and `reference.section` take book numbers, and `objectives` takes CompTIA numbers. Copy `reference.title` exactly from `units.json`. If no bullet fits, tag the objective alone (`["3.6"]`); the site lists it under "General". If a question tests two bullets equally, tag both. Never borrow a bullet that does not fit.
-5. **Leave `reference.quote` empty.** I add the quotes from my own copy. Give me a good `reference.find` instead: three to six words from the sentence that answers the question, taken from one line of the section's `pdftotext -layout` text. Never let it cross a page break or a word hyphenated across two lines: the Read tool's text and plain `pdftotext` join such words ("dualchannel"), and my Ctrl+F will not find them.
-6. **Flashcards** follow "What makes a good flashcard" in the guide, and nothing else. One card per term in an exam: search this exam's flashcard packs (not `placeholder-` files) before you write a card, and if an earlier unit already has the term, list it at Stop 1 under "already has a card" instead of writing it again. The placeholder set failed on cards.
-7. **Wording:** CompTIA voice, plain enough for a 10th grader meeting this for the first time, no em dashes, no "all of the above", and never "(Select TWO.)" in a stem. The site adds "Choose two." by itself.
-8. **A pack I have touched is mine.** Once I have added quotes or set `"reviewed": true`, its ids never change (students' saved history points at them), and you change the file only with small edits to the items I name. Never rewrite or regenerate it, never blank a quote, and tell me when a fix changes a question that already has a quote. Copy the file to your scratchpad before you edit it: there is no undo on this PC.
+1. **A cousin, not a copy.** Every question is modeled on one source item and names it in `origin.basedOn`, numbered the way the guide says. Keep the objective and the one distinction it tests. Change the scenario, the wording, and the option text. The option count follows the guide: 4 for one answer, 5 for choose two or three (6 only when the source item had 6 or more).
+2. **The reading decides the answer.** Key every question from the section you cite. Where the reading and a source item disagree (or my key), the reading wins, and you tell me. Where the reading contradicts itself or is plainly wrong, key nothing to that point: add it to `docs/CONTENT-NOTES.md` and tell me.
+3. **An item belongs to the unit whose reading answers it.** Cite only sections inside your unit. An item that another unit's reading answers goes into `docs/CONTENT-NOTES.md` for that unit. A Messer item is used once per exam (`assemble.ps1` checks the other packs).
+4. **Tag as specifically as you can:** the objective and its best-fitting bullet (`3.4` and `3.4.c`), and the reading section (`3.2.6`). Book numbers and CompTIA numbers overlap by accident: `units` and `reference.section` take book numbers, `objectives` takes CompTIA numbers. Never borrow a bullet that does not fit.
+5. **Leave `reference.quote` empty.** I add the quotes. Give me a good `reference.find`: three to six words from the sentence that answers the question, taken from one line of the section's `pdftotext -layout` text, never across a page break or a hyphenated word.
+6. **Flashcards** follow "What makes a good flashcard" in the guide. One card per term in an exam. Every card is fact-checked against its section.
+7. **Wording:** CompTIA voice, plain enough for a 10th grader meeting this for the first time, no em dashes, no "all of the above", and never "(Select TWO.)" in a stem.
+8. **A pack I have touched is mine.** Once I have added quotes or set `"reviewed": true`, its ids never change (students' saved history points at them), and you change it only with small edits to the items I name. Never rewrite or regenerate it, and never blank a quote.
 
-Set `"reviewed": false` on every pack you write. Leave `status` out of every item, which means published; use `"status": "draft"` only if I ask for it.
+Set `"reviewed": false` on every pack you write. Leave `status` out of every item (published).
+
+## The steps, in this order
+
+Work straight through. Do not stop between steps to ask me; the only stop is the report at the end. Ask only when a rule above says to. Use separate agents for the mapping, weighting, writing, and checking, and run them in parallel where the brief allows (the Agent tool, or a workflow if I have turned that on). Never check your own work and call it independent.
+
+1. **Set up.** Ask the app to keep this PC awake; if that is refused, tell me in one line, because a sleeping PC pauses every agent. Run `extract-sources.ps1` and `extract-aids.ps1 -Unit <N>` into your scratchpad (`docs/content-kit/README.md`). Start your plan file there (`plan-unitNN.tsv`, one line per source item) and keep it current to the end: this chat will be summarized partway through, and the plan file is how you remember.
+2. **Scope the unit.** From `units.json`: its lessons, the objectives each lesson lists, and its sections. Read every section as text. Note the bullets of those objectives that other units teach, any contradiction or error in the reading, and the terms the unit's bullets name that its reading teaches (your card list).
+3. **Map every source item** (`brief-read.md`). The items: this unit's pool file; every Messer item tagged with an objective this unit's lessons list; every Messer item tagged 5.x whose answer this unit's reading gives; and the items `docs/CONTENT-NOTES.md` passes to this unit. Agents in parallel, about 25 items each. Then a second agent re-keys each usable item blind (the item without its key, plus the cited section), and a third settles any disagreement. Record every item in the plan file: usable, other unit (with its section), no reading, or skip.
+4. **Corroborate with my materials.** Compare the plan's keys with my study guide key and review decks for the same facts. A disagreement goes in your report; the reading still wins. Note my items that cover an exam-weighted fact no pool or Messer item covers: they are the only ones you may use (`"kind": "teacher"`).
+5. **Weight the unit by the exam** (`brief-weight.md`). Two agents rank the unit's bullets in parallel, one by exam evidence and one by course coverage. You reconcile them: the exam lens decides. The result is the question count per lesson and one slot per fact, written to `plan-counts.json` and `spec.json`. Count facts, not items.
+6. **Post the plan and keep going.** In the chat, a short note: questions per lesson, the tier 1 bullets, how many cards, and what you cut, skipped, or passed to other units. Do not wait for an answer.
+7. **Write** (`brief-write.md`). One agent per lesson for the questions, one for the flashcards (give it the terms the exam's packs already have cards for).
+8. **Check** (`brief-review.md`). Run `assemble.ps1` and `strip-for-check.ps1`, then in parallel: the blind key check, the exam-style review, and the three card checks. Fix every finding, re-assemble, and re-check the changed items until nothing is flagged. A question that cannot be keyed cleanly from the reading is dropped.
+9. **Put it in the site, one lesson at a time.** Start the question pack with its first lesson (`packs\unit-NN.lesson-X.Y.txt` holds each lesson's blocks), add each later lesson with Edit, and list the pack in `manifest.json`. Add the flashcard pack the same way. Open the content check after each lesson: 0 errors, and the only warnings left are `"reviewed": false` (one per pack) and empty quotes (one per question).
+10. **Look at it on the site** at phone width, in light and dark mode, as a student would: take a short test on the unit, build a deck from it, and check the "Coming soon" labels in the three places the guide names (the home card, the practice-test topic list by unit and by objective opened down to the bullets, and the flashcard term table). Everything you wrote should be live; a bullet with no usable item still says "Coming soon", which is correct.
+11. **Update the notes and docs.** In `docs/CONTENT-NOTES.md`, remove what you used (say which question it became) and add what you found for later units. Update the Content row in `docs/PLAN.md` section 2, the list in section 6, and the "Content so far" line in `README.md`.
+12. **Commit** your unit on a new branch named `content-unit-NN`, made from `main`: the two packs, the two manifests, and the docs you changed. Do not push, and do not merge.
+13. **Report, then stop.** Questions (and how many are choose two or three), cards, coverage by lesson and by objective from the content check, the tier 1 bullets and what you cut, what still says "Coming soon" (with bullets), the items you skipped and why, the items you passed to other units, every disagreement between the reading and a source item or my key, and anything you were unsure of. Then ask me whether to push to `main`, which publishes the site. Wait for my answer.
 
 ## "Coming soon"
 
-Anything without content must say "Coming soon" on the site. The site already works this out from the data: an exam that is not `live`, a study mode with no packs, and any unit, lesson, domain, objective, or bullet with no items. Your part:
-
-- Never add filler items, empty packs, or "TBD" text to make something look covered.
-- Leave an exam `planned` until its two outline files exist. Then make it `live` and run the content check. Its home card keeps saying "Coming soon" until its first pack is listed.
-- **Never stop partway through a lesson.** If a lesson or objective in the unit has only one or two usable source items, or none, list it at Stop 1 and I will decide whether to write it or leave it "Coming soon". Never stretch a tag or write an unmodeled question to fill it.
-- At step 6 of every unit, check the labels in three places: the home card; the practice-test topic list, which counts questions (by textbook unit, and by exam objective opened down to the bullets); and the flashcard term table, which counts cards (it stops at objectives and lessons, so it has no bullet rows). Everything you have not written should say "Coming soon". No lesson or objective you wrote questions for should say it in the practice-test list, and none you wrote cards for should say it in the term table. A bullet with no usable source item will still say "Coming soon" in the practice-test list. That is correct: list those bullets at Stop 2.
-- If missing content ever shows as a blank, a zero, or an error instead, do not fix the site. Tell me.
-
-## How to work, unit by unit
-
-1. **Read the unit:** every reading section (as text, see "Testing on this PC"), the objectives its lessons list, the pool file, and the Messer items whose objective is one that this unit's lessons list in `units.json` and whose answer this unit's reading gives. Start a plan file in your scratchpad with one line per source item: its number, the section that answers it, the key, the bullet, the find phrase, or why you skip it. Keep it current until Stop 2: the chat will be summarized partway through a unit, and the plan file is how you remember.
-2. **Stop 1. Put all of this in your reply, and write nothing under `data/` until I answer:** the flashcard term list (with the "already has a card" terms marked), 10 sample cards, 10 sample questions, the counts you plan for each lesson, the lessons and objectives with too few usable items (see "Coming soon"), the items you will skip, by number, with a few words on why, the pool items that another unit's reading answers, each with that section ("CertMaster 3.0 Q19: 2.2.6"), and, separately, the items that no reading answers.
-   - **The default plan,** if I change nothing: one question for each usable pool item and each usable Messer item, and a card for every term named in an objective bullet that this unit's reading teaches.
-   - **Count facts, not items.** When two or more usable items test the same fact with the same answer, write one question (two only when the scenarios make a student reason differently) and list the others as "same as Qn".
-   - A bullet that names only values (input and output voltages, spindle speeds) is covered by questions. Give it a card only when the reading names a term for it that passes "What makes a good flashcard", and flag that card in the term list.
-   - **Usable** means this unit's reading settles the answer and the item is plain multiple choice. Skip Messer's performance-based questions (the first five of each practice exam: A1 to A5, B1 to B5, C1 to C5) and anything that needs a picture. A pool item that another unit's reading answers is not usable here. When I paste such lines while you work on that other unit, treat them as part of its pool, still numbered by their own file.
-3. **Write the rest, one lesson at a time.** Create each pack with its first lesson, add each later lesson with Edit, and open the content check after each lesson to catch format errors early. For Unit 3.0, once both finished packs are in, delete the two placeholder files and take them out of both `manifest.json` files, before the final content check. Do not wait for my approval of the unit, and do not do it any earlier. Until then, the placeholder warnings and "Same term" warnings against `ph-` cards are expected.
-4. **Independent checks.** Each is done by a separate agent that has not seen your reasoning:
-   - **Key and tags:** in your scratchpad, make a copy of the questions with `answer`, `reference.find`, and `origin` taken out, and with each objective and bullet id followed by its title from `objectives.json`. The agent opens only that copy and the section text files, not `data/` and not the rest of your scratchpad. It answers each question from the cited section alone, and says whether that section really answers it and whether the objective and bullet match what it tests. Fix or drop every mismatch.
-   - **Cousin check:** it compares each question with the item it is based on. Rewrite anything that reads as a copy. Give it the option-count rule, the numbering rule from the guide, and your Messer list with page numbers, so it finds the right item.
-   - **Cards, two agents:** one sees only the backs and names each term. The other sees only the terms and writes each back. Rewrite or drop any card either one misses.
-   - If you cannot start separate agents, tell me. Do not check your own work and call it independent.
-5. **Run the content check** until it shows 0 errors. The warnings left should be `"reviewed": false` (one per pack), empty quotes (one per question), and, for Unit 1.0 items only, "No objective tag". Fix any other warning. If you cannot fix one without bending a tag or a term, leave it and list it at Stop 2.
-6. **Look at it on the site** at phone width, as a student would. Take a short test on the unit, build a deck from it, and check the "Coming soon" labels as described above.
-7. **Stop 2.** Report how many questions (and how many are choose-two), how many cards, the coverage by lesson and by objective from the content check, what still says "Coming soon" (including bullets), the items you skipped, the pool items that another unit's reading answers (with their sections, so I can pass them on), every place the reading and a source item disagreed, and anything you were unsure of. **Then wait.** I will send fixes or name the next unit. Do not start another unit until I do.
+The site labels anything without content "Coming soon" by itself. Never add filler items, empty packs, or "TBD" text to make something look covered. If a lesson or objective has no usable source item, it stays "Coming soon": list it in your report. If missing content ever shows as a blank, a zero, or an error instead, do not fix the site: tell me.
 
 ## Testing on this PC
 
-- There is no Git, Node, or Python here (`python` is only a Microsoft Store shortcut). PowerShell 5.1 is.
-- **Files.** Write files under `data/` and `docs/` with the Write and Edit tools, not PowerShell. PowerShell and `pdftotext` may write in your scratchpad: text pulled from PDFs, the Messer list, and the stripped copy for the key check (`ConvertFrom-Json`, drop the fields, `ConvertTo-Json -Depth 10`). The one PowerShell change under `data/` is deleting the two placeholder files in step 3, with `Remove-Item -LiteralPath`.
-- **The reading as text.** `pdftotext` and `pdfinfo` are installed (they came with MiKTeX). Pull each section's text into your scratchpad once (`pdftotext -layout -enc UTF-8 "<section PDF>" "<scratchpad>\<section>.txt"`), work from those files, and search them to find the section that answers an item. Give the checking agents the same files. Open a PDF with the Read tool only to look at a figure: it returns every page as an image, and a whole unit read that way fills most of your context before Stop 1.
-- **The Messer list.** Build it once per book with the lines below and keep it in your scratchpad. Each line is label, PDF page, objective, and topic. It takes each objective from the end of its answer, because a few long answers run onto the next page. For A+ Core 1 it gives 273 lines for the 270 labels (C3 has four). For another book, change the file and the exam code, and check that every label from A1 to C90 appears before you use the list. To read one item: `pdftotext -layout -f <page> -l <page> "<book>" -`.
-
-```powershell
-$book = "$env:OneDriveCommercial\Documents\CompTIAA+\Core 1\professor-messer-a-plus-220-1201-core-1-practice-exams-v112.pdf"
-$t = pdftotext -enc UTF-8 $book -
-$pg = 1; $l = ''; $lp = 0
-$out = foreach ($x in $t) {
-  $pg += ([regex]::Matches($x, "`f")).Count
-  if ($x -match '^\f?([A-C]\d{1,2})\.\s+\S.{3,}') { $l = $matches[1]; $lp = $pg }
-  elseif ($x -match '^\f?220-1201,?\s*-?\s*(?:Objective|Section) (\d\.\d+) - (.+)$') { "$l`tp$lp`t$($matches[1])`t$($matches[2])" }
-}
-$out | Set-Content -Encoding UTF8 "<your scratchpad>\messer-220-1201.tsv"
-```
-
-- Start the preview server named `study-site-test` and use **http://localhost:8081/**. Never test on port 8080. That is the copy I use, and my saved decks, tests, and history live there.
-- Content check: http://localhost:8081/tools/validate.html
-- `?drafts=1` on a page address shows items marked `"status": "draft"`.
+- Git and the GitHub CLI are installed (they may be missing from `PATH` in this chat: add `C:\Program Files\Git\cmd` and `C:\Program Files\GitHub CLI`). There is no Node or Python (`python` is only a Microsoft Store shortcut). PowerShell is 5.1. `pdftotext` and `pdfinfo` came with MiKTeX.
+- **Files.** Write files under `data/` and `docs/` with the Write and Edit tools, not PowerShell. PowerShell and the kit's scripts write only in your scratchpad.
+- **The reading as text.** Work from the text files `extract-sources.ps1` makes, and give the checking agents the same files. Open a section PDF with the Read tool only to look at a figure: it returns every page as an image and fills your context fast.
+- Start the preview server named `study-site-test` and use **http://localhost:8081/**. Never test on port 8080: that is my copy, and my saved decks, tests, and history live there.
+- Content check: http://localhost:8081/tools/validate.html. `?drafts=1` on a page address shows items marked `"status": "draft"`.
 
 ## Stay out of the website
 
-- Write only under `data/`. In `data/exams.json`, change only an exam's `status`, `dataPath`, and `sources`.
-- Working files (the stripped copy for the checking agent, notes, the Messer list, text pulled from PDFs, backups) go in your scratchpad folder, outside this project. Never put them under `data/`: everything there is published as it is.
-- Do not edit anything in `assets/`, the HTML pages, `tools/`, `schemas/`, `.github/`, or `.claude/`. If content needs something the site cannot do (a new field, a new kind of question, a bug), stop and describe it to me. The website is changed in a different chat.
-- One exception: keep the docs true. When the placeholders are gone, remove the placeholder notes from `CLAUDE.md` and `README.md` and the "Start here" section of the guide. When an exam goes live, fix the "Live now" line in `README.md`. Update the Content row in `docs/PLAN.md` section 2 and the Content list in section 6 as units are finished.
+- Write only under `data/` and `docs/`. In `data/exams.json`, change only an exam's `status`, `dataPath`, and `sources`. In `docs/`, change only `CONTENT-NOTES.md`, the PLAN.md lines named in step 11, and the README line.
+- Working files go in your scratchpad, outside this project. Never put them under `data/`: everything there is published as it is.
+- Do not edit anything in `assets/`, the HTML pages, `tools/`, `schemas/`, `.github/`, `.claude/`, or `docs/content-kit/`. If content needs something the site cannot do (a new field, a new kind of question, a bug), or a kit script fails, stop and describe it to me.
 - Do not edit this prompt. If it is wrong, tell me. When I give an instruction that should hold for later units too, end your reply with the exact line to add to this prompt, and I will add it.
 
 ## Your first reply
 
-After reading, tell me in a few lines what you understood and what content already exists, and list anything in the source folders that is missing or not as described here. Then go straight to Stop 1 for the next unit: A+ Core 1 Unit 3.0 if the placeholder packs are still there, otherwise ask me which unit.
+After reading, tell me in a few lines which unit you are doing, what content already exists, and anything in the source folders that is missing or not as described here. Then start step 1 without waiting.

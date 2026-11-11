@@ -2,27 +2,6 @@
 
 This is the contract between the website and whoever writes the questions and flashcards. The website is built in one chat; **content is written in a separate chat** and dropped into `data/`. Everything here is enforced or reported by the content check (`tools/validate.html`; the same check runs on GitHub before every deploy).
 
-## Start here: remove the placeholder content
-
-The site currently ships with **first-pass test content** so the pages can be tried out. Mr. Flauto has not approved it, and it must not be kept, edited, or extended.
-
-| File | What it is |
-|---|---|
-| `data/a-plus-core-1/questions/placeholder-unit-03.json` | 51 test questions for Unit 3.0 |
-| `data/a-plus-core-1/flashcards/placeholder-unit-03.json` | 64 test flashcards for Unit 3.0 |
-
-How to recognize it: the file name starts with `placeholder-`, the pack says `"placeholder": true`, and every id starts with `ph-`. While it is loaded, the site shows a yellow "Test content" banner and the content check says "not ready for students".
-
-When the real packs for Unit 3.0 are written (not before, and without waiting for them to be approved), in the same step:
-
-1. Delete the placeholder file for that kind (questions or flashcards).
-2. Remove its name from `manifest.json` in the same folder.
-3. Add the real pack (for example `unit-03.json`) and list it in `manifest.json`.
-4. Use fresh ids (`c1-u03-q001`, `c1-u03-f001`, …). Never reuse a `ph-` id.
-5. Run the content check. The banner and the placeholder warnings disappear once no pack is marked `"placeholder": true`.
-
-Known problems with the placeholder flashcards, so they are not repeated: several cards use a bare value as the term (an RPM figure, for example) with a back that tells the student nothing useful. See "What makes a good flashcard" below.
-
 ## Where content lives
 
 ```
@@ -126,7 +105,7 @@ A pack file looks like this:
 | `origin` | Where the idea came from: `certmaster-variation`, `messer-variation`, `original`, or `teacher`. `basedOn` names the item ("Messer B44", "CertMaster 3.0 Q41"), numbered as in "Numbering source items" below. |
 | `status` | Leave out (published) or `"draft"` to hide it from students. Preview drafts with `?drafts=1` on the URL. |
 
-Answer order does not matter: the site shuffles choices for every student (turn off per question with `"shuffleChoices": false`).
+The site shuffles choices for every student (turn off per question with `"shuffleChoices": false`), but a student can switch shuffling off, so spread the keys evenly across a, b, c, and d within a pack. Where the choices have a natural order (sizes, voltages, RAID levels), keep that order and let the key fall where it falls.
 
 What students see with a question: right or wrong immediately, the reading reference and quote, and at the end of a test a list of every question they missed with a button to retry those.
 
@@ -147,14 +126,15 @@ Students choose "Term first" or "Definition first", so one card covers both dire
 
 ### What makes a good flashcard
 
-The placeholder set failed here, so check every card against this before it goes in:
+Check every card against this before it goes in:
 
 - **The front is something the exam names**: a term, acronym, port, standard, connector, or component the student has to recognize. A bare measurement or detail from the reading (an RPM figure, a wattage) is not a term.
 - **The back is useful on its own.** It says what the thing is or does in one plain line a student could say out loud, without needing the reading open.
 - **It works both ways.** Cover the back: could a prepared student say it? Cover the front: does the back point to exactly one term?
 - **It is tied to an objective bullet.** Reading detail beyond the objectives is not card material.
 - **One card per term in an exam.** The same term is often named by bullets taught in different units (SATA, M.2, DHCP). Before writing a card, search the exam's flashcard packs for the term. If a card already exists, do not write a second one (the content check warns about repeats).
-- Get Mr. Flauto's sign-off on the term list and a sample of cards for a unit before writing the rest.
+- **The back is true to the reading.** Every card is checked against the section it cites, not just for style: a back can read well and still be wrong.
+- Mr. Flauto signs off on a unit's cards when he reads the pack and marks it reviewed.
 
 ## Where questions come from (the rule)
 
@@ -162,7 +142,9 @@ From Mr. Flauto's own unit-review rules:
 
 > A book item never appears as written. Keep the objective and the one distinction it tests; change the scenario, the wording, and the option text; keep the option count and whether it is select-one or select-two. Someone comparing the two should see a cousin, not a copy.
 
-- Every question is modeled on a CertMaster pool item or a Messer practice-exam item (`origin.basedOn`), never invented from nothing.
+- **The exam decides what is written and how much.** Each unit's questions are weighted by the CompTIA objectives and by evidence of what the exam asks (the objective's verb, the Messer practice exams, the troubleshooting items in Domain 5 that depend on the unit). How often the CertMaster pool or Mr. Flauto's materials repeat a fact does not set its weight.
+- **Questions read like the exam:** short scenarios ending in "Which of the following BEST…" or "MOST likely…", with real distractors from the same unit.
+- Every question is modeled on a CertMaster pool item or a Messer practice-exam item (`origin.basedOn`), never invented from nothing. Mr. Flauto's study-guide and review-deck items (`teacher`) are used only to cover an exam-weighted fact that no pool or Messer item covers, and his keys are checked against the reading like any other source.
 - **One question per fact.** The pool and the Messer book often test the same fact several times. When they do, write one question (two only when the scenarios make a student reason differently), so a short random test does not ask the same thing twice.
 - If the reading contradicts itself or is plainly wrong on a point, no question is keyed to that point until Mr. Flauto settles it.
 - The CertMaster pool export has **no answer key**. Every item is keyed against the reading. When the book and the reading disagree, the reading wins.
@@ -175,6 +157,7 @@ From Mr. Flauto's own unit-review rules:
 
 - **CertMaster pool files** have no item numbers. Number items by position: count the lines that read `answer`. The item with the first `answer` line in `3.0.txt` is "CertMaster 3.0 Q1"; the one with the 41st is "CertMaster 3.0 Q41". Do not count `Select Question` lines: some files have none before their first item.
 - **Messer items** keep the book's own labels: practice exam letter and question number ("Messer B44").
+- **Mr. Flauto's items** name the document and its own numbering: "Study Guide 3.0 Q56" (the unit study guide), "Review 2.0-3.0 slide 85" (a review deck).
 - **Public packs never contain copied items.** An item marked `"origin": { "verbatim": true }` outside a `private/` folder is an error, and GitHub will refuse to deploy.
 
 ## Quotes from the book
@@ -205,3 +188,5 @@ For content that should never be on the public internet (for example, items reus
 ## Marking something as placeholder yourself
 
 Any pack can be flagged as throwaway test content with `"pack": { "placeholder": true }`. The site then shows the "Test content" banner, the content check warns until the pack is gone, and its items are left out of the coverage tables. Use ids that cannot collide with real ones (`ph-…`).
+
+The first-pass Unit 3.0 placeholder packs (`ph-u03-…`) were deleted on 2026-11-10 when the real packs went in. Never reuse a `ph-` id: decks and tests saved on students' devices may still point at one. (The site drops a missing card from a saved deck and discards a saved test that holds a missing question.)

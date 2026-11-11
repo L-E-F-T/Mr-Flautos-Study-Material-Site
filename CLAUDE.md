@@ -11,11 +11,10 @@ Read `docs/PLAN.md` (plan, site layout, sign-in and scoreboard design) and `docs
 
 A chat that was not started with that prompt, and has not been asked for content, is a website chat.
 
-## Placeholder content: remove it when real content arrives
+## Content
 
-- `data/a-plus-core-1/questions/placeholder-unit-03.json` and `data/a-plus-core-1/flashcards/placeholder-unit-03.json` are **first-pass test content**. Mr. Flauto has not approved them (the flashcards in particular are poor). They exist only so the site can be tested.
-- Marked three ways: file name `placeholder-…`, `"pack": { "placeholder": true }`, and ids starting `ph-`.
-- When real packs are added: delete those files and their `manifest.json` entries, and never reuse a `ph-` id. Steps are at the top of `docs/CONTENT-GUIDE.md`.
+- Which units are written, and the order of the rest, is in `docs/PLAN.md` section 6.
+- The first-pass placeholder packs were deleted on 2026-11-10. Never reuse a `ph-` id: decks and tests saved on students' devices may still point at one.
 
 ## Sign-in
 

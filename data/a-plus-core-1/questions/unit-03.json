@@ -1,0 +1,1319 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-03", "title": "Unit 3.0 Installing System Devices", "reviewed": false },
+  "questions": [
+    {
+      "id": "c1-u03-q001",
+      "stem": "Staff who take a demo PC to trade shows in the United States and the United Kingdom keep forgetting to set its power supply for the local outlet voltage. Which of the following power supplies would let the PC run in both countries without that step?",
+      "choices": [
+        { "id": "a", "text": "A power supply fixed to high-line input" },
+        { "id": "b", "text": "A power supply fixed to low-line input" },
+        { "id": "c", "text": "A power supply with auto-switching input" },
+        { "id": "d", "text": "A power supply backed by a redundant unit" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["3.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.1",
+        "title": "Power Supply Units",
+        "quote": "",
+        "find": "dual voltage and auto-switching"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B64" }
+    },
+    {
+      "id": "c1-u03-q002",
+      "stem": "While replacing a desktop power supply, a technician notices a two-position switch marked 115 and 230 next to the power cord socket. Which of the following does this switch select?",
+      "choices": [
+        { "id": "a", "text": "The DC output voltage sent to the motherboard" },
+        { "id": "b", "text": "The AC input voltage the power supply accepts" },
+        { "id": "c", "text": "The speed of the power supply's cooling fan" },
+        { "id": "d", "text": "The wattage the power supply can deliver" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["3.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.1",
+        "title": "Power Supply Units",
+        "quote": "",
+        "find": "manual switch or are fixed"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C16" }
+    },
+    {
+      "id": "c1-u03-q003",
+      "stem": "A technician moves a desktop PC from an office in London to a desk in Chicago, and now it shows no lights and no fan movement when it is turned on. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The CPU fan is plugged into the wrong motherboard header" },
+        { "id": "b", "text": "The power supply's wattage rating is higher than the PC needs" },
+        { "id": "c", "text": "The memory modules are not installed as a matched pair" },
+        { "id": "d", "text": "The power supply's input switch is set to 230 VAC" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["3.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.1",
+        "title": "Power Supply Units",
+        "quote": "",
+        "find": "Ensure the PSU is compatible with"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C58" }
+    },
+    {
+      "id": "c1-u03-q004",
+      "stem": "A technician is installing a rack server in a data center that runs on high-line power, and the server's power supply has a voltage selector switch. Which of the following should the technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Set the selector switch to 115 VAC" },
+        { "id": "b", "text": "Set the selector switch to 230 VAC" },
+        { "id": "c", "text": "Plug it in and let it detect the voltage" },
+        { "id": "d", "text": "Install a higher-wattage power supply" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["3.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.1",
+        "title": "Power Supply Units",
+        "quote": "",
+        "find": "while UK outlets provide 230 VAC"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q3" }
+    },
+    {
+      "id": "c1-u03-q005",
+      "stem": "A technician in Canada is choosing a power supply model for basic PCs that will be shipped to the company's warehouse in the United Kingdom. Which of the following specifications is MOST important to check?",
+      "choices": [
+        { "id": "a", "text": "Its +12 V rail rating" },
+        { "id": "b", "text": "Its DC output voltages" },
+        { "id": "c", "text": "Its AC input voltage range" },
+        { "id": "d", "text": "Its 80 PLUS efficiency rating" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["3.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.1",
+        "title": "Power Supply Units",
+        "quote": "",
+        "find": "compatible with the outlet's voltage"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A23" }
+    },
+    {
+      "id": "c1-u03-q006",
+      "stem": "A student building a first PC asks a technician which voltages an ATX power supply delivers to the motherboard and drives. Which of the following should the technician list?",
+      "choices": [
+        { "id": "a", "text": "3.3 V" },
+        { "id": "b", "text": "5 V" },
+        { "id": "c", "text": "8 V" },
+        { "id": "d", "text": "12 V" },
+        { "id": "e", "text": "20 V" },
+        { "id": "f", "text": "24 V" }
+      ],
+      "answer": ["a", "b", "d"],
+      "objectives": ["3.6", "3.6.b"],
+      "units": ["3.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.4",
+        "title": "Power Supply Connectors",
+        "quote": "",
+        "find": "5 VDC, and 12 VDC"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q9" }
+    },
+    {
+      "id": "c1-u03-q007",
+      "stem": "While training a new hire, a technician unplugs the 24-pin cable that runs from the power supply to the motherboard. Which of the following BEST describes the power this cable carries?",
+      "choices": [
+        { "id": "a", "text": "Low-voltage AC that the power supply stepped down" },
+        { "id": "b", "text": "120 V DC that the power supply rectified from AC" },
+        { "id": "c", "text": "Low-voltage DC that the power supply converted from AC" },
+        { "id": "d", "text": "The outlet's AC, which the motherboard's regulators convert" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.6", "3.6.b"],
+      "units": ["3.1.4", "3.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.4",
+        "title": "Power Supply Connectors",
+        "quote": "",
+        "find": "supply DC voltage to the motherboard"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B51" }
+    },
+    {
+      "id": "c1-u03-q008",
+      "stem": "A technician is choosing between two 850 W power supplies for a video-editing workstation and compares their power distribution tables. Which output rail's rating matters MOST for this system?",
+      "choices": [
+        { "id": "a", "text": "+3.3 V" },
+        { "id": "b", "text": "+5 V" },
+        { "id": "c", "text": "+12 V" },
+        { "id": "d", "text": "-12 V" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.6", "3.6.b"],
+      "units": ["3.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.3",
+        "title": "Wattage Rating",
+        "quote": "",
+        "find": "most important due to its heavy"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q17" }
+    },
+    {
+      "id": "c1-u03-q009",
+      "stem": "Before reusing an old ATX power supply in a new build, a technician checks its P1 connector with a multimeter. Which of the following readings would show the power supply is working normally?",
+      "choices": [
+        { "id": "a", "text": "About +5 V on an orange wire" },
+        { "id": "b", "text": "About +12 V on a yellow wire" },
+        { "id": "c", "text": "About +3.3 V on a red wire" },
+        { "id": "d", "text": "About +3.3 V on an orange wire" },
+        { "id": "e", "text": "About +12 V on a red wire" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["3.6", "3.6.b"],
+      "units": ["3.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.5",
+        "title": "20-pin to 24-pin Motherboard Adapter",
+        "quote": "",
+        "find": "black wires for ground, yellow for"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q24" }
+    },
+    {
+      "id": "c1-u03-q010",
+      "stem": "A technician is replacing the power supply in an older PC built to the original ATX standard. Which of the following connectors could the technician plug into the motherboard's main power port?",
+      "choices": [
+        { "id": "a", "text": "A 20-pin P1 connector" },
+        { "id": "b", "text": "A 6-pin PCIe power connector" },
+        { "id": "c", "text": "An 8-pin CPU power connector" },
+        { "id": "d", "text": "A 20+4-pin P1 connector" },
+        { "id": "e", "text": "A SATA power connector" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["3.6", "3.6.c"],
+      "units": ["3.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.5",
+        "title": "20-pin to 24-pin Motherboard Adapter",
+        "quote": "",
+        "find": "include a 20+4-pin P1 adapter cable"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q22" }
+    },
+    {
+      "id": "c1-u03-q011",
+      "stem": "A technician checks a clinic's records server and finds two power supplies installed side by side. Which of the following BEST describes the purpose of this setup?",
+      "choices": [
+        { "id": "a", "text": "The server uses less electricity when it is idle" },
+        { "id": "b", "text": "The server has less cable clutter inside the case" },
+        { "id": "c", "text": "The server accepts 120 V or 230 V without a switch" },
+        { "id": "d", "text": "The server keeps running if one unit fails" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.6", "3.6.d"],
+      "units": ["3.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.7",
+        "title": "Redundant Power Supplies",
+        "quote": "",
+        "find": "the other can immediately take over"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C28" }
+    },
+    {
+      "id": "c1-u03-q012",
+      "stem": "A law firm's administrator is ordering a file server and must be able to replace a failed power supply during business hours without shutting the server down. Which of the following BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "A modular power supply" },
+        { "id": "b", "text": "A hot-swappable redundant power supply" },
+        { "id": "c", "text": "An auto-switching dual-voltage power supply" },
+        { "id": "d", "text": "A high-efficiency 80 PLUS Gold power supply" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.6", "3.6.d"],
+      "units": ["3.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.7",
+        "title": "Redundant Power Supplies",
+        "quote": "",
+        "find": "be replaced without opening the case"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q23" }
+    },
+    {
+      "id": "c1-u03-q013",
+      "stem": "A technician is building a compact PC with a single SSD and wants to keep spare power leads from blocking airflow inside the case. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Choose a power supply rated for more watts" },
+        { "id": "b", "text": "Add a second power supply as a redundant unit" },
+        { "id": "c", "text": "Leave the blanking plates off the empty adapter slots" },
+        { "id": "d", "text": "Choose a modular power supply for the build" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.6", "3.6.e"],
+      "units": ["3.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.6",
+        "title": "Modular Power Supplies",
+        "quote": "",
+        "find": "reduces clutter within the chassis"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C68" }
+    },
+    {
+      "id": "c1-u03-q014",
+      "stem": "While unboxing a new power supply, a technician finds its cables in a separate bag, ready to plug into sockets on the unit as needed. Which type of power supply is this?",
+      "choices": [
+        { "id": "a", "text": "A redundant power supply" },
+        { "id": "b", "text": "An auto-switching power supply" },
+        { "id": "c", "text": "A modular power supply" },
+        { "id": "d", "text": "A hot-swappable power supply" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.6", "3.6.e"],
+      "units": ["3.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.6",
+        "title": "Modular Power Supplies",
+        "quote": "",
+        "find": "has detachable power connector cables"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q6" }
+    },
+    {
+      "id": "c1-u03-q015",
+      "stem": "A technician adds three hard drives and a faster CPU to a small office server with a 300 W power supply, and now the server restarts at random when it is busy. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Move the power supply's input switch to 230 VAC" },
+        { "id": "b", "text": "Install a 300 W power supply with an 80 PLUS Gold rating" },
+        { "id": "c", "text": "Install a 300 W modular power supply" },
+        { "id": "d", "text": "Install a power supply with a higher wattage rating" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.6", "3.6.f"],
+      "units": ["3.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.3",
+        "title": "Wattage Rating",
+        "quote": "",
+        "find": "Insufficient power can cause random shutdowns"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q14" }
+    },
+    {
+      "id": "c1-u03-q016",
+      "stem": "A technician is building a gaming PC whose parts need about 520 W combined. Which of the following power supplies should the technician install?",
+      "choices": [
+        { "id": "a", "text": "A 500 W unit rated 80 PLUS Platinum" },
+        { "id": "b", "text": "A 400 W unit rated 80 PLUS Gold" },
+        { "id": "c", "text": "A 650 W unit rated 80 PLUS Bronze" },
+        { "id": "d", "text": "A 450 W unit rated 80 PLUS Titanium" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.6", "3.6.f"],
+      "units": ["3.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.3",
+        "title": "Wattage Rating",
+        "quote": "",
+        "find": "known as its wattage rating"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q4" }
+    },
+    {
+      "id": "c1-u03-q017",
+      "stem": "A file server's 600 W ENERGY STAR 80 PLUS power supply is running at full load. Which of the following is the maximum power it could draw from the outlet?",
+      "choices": [
+        { "id": "a", "text": "480 W" },
+        { "id": "b", "text": "600 W" },
+        { "id": "c", "text": "750 W" },
+        { "id": "d", "text": "800 W" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.6", "3.6.g"],
+      "units": ["3.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.3",
+        "title": "Wattage Rating",
+        "quote": "",
+        "find": "must be at least 80% efficient"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q21" }
+    },
+    {
+      "id": "c1-u03-q018",
+      "stem": "A replacement power supply has just arrived for an office PC whose original unit failed. Which of the following specifications will MOST affect whether the new unit works in this PC?",
+      "choices": [
+        { "id": "a", "text": "Form factor" },
+        { "id": "b", "text": "80 PLUS rating" },
+        { "id": "c", "text": "Wattage rating" },
+        { "id": "d", "text": "Modular cables" },
+        { "id": "e", "text": "Connector types" },
+        { "id": "f", "text": "Hot-swap support" }
+      ],
+      "answer": ["a", "c", "e"],
+      "objectives": ["3.6"],
+      "units": ["3.1.1", "3.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.1",
+        "title": "Power Supply Units",
+        "quote": "",
+        "find": "size and shape determine its compatibility"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q11" }
+    },
+    {
+      "id": "c1-u03-q019",
+      "stem": "A technician is cabling a new motherboard after mounting it in the case. Which of the following connectors on the motherboard receive cables directly from the power supply?",
+      "choices": [
+        { "id": "a", "text": "The 24-pin main power port" },
+        { "id": "b", "text": "The M.2 SSD slot" },
+        { "id": "c", "text": "The SATA data ports" },
+        { "id": "d", "text": "The PCIe x16 expansion slot" },
+        { "id": "e", "text": "The 8-pin CPU power port" }
+      ],
+      "answer": ["a", "e"],
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["3.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.4",
+        "title": "Power Supply Connectors",
+        "quote": "",
+        "find": "P1 connector or the 24-pin ATX"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q13" }
+    },
+    {
+      "id": "c1-u03-q020",
+      "stem": "A technician is checking how each part of a new desktop PC is cooled. Which of the following parts is MOST likely cooled by a passive heat sink with no fan?",
+      "choices": [
+        { "id": "a", "text": "The processor" },
+        { "id": "b", "text": "The high-end video card" },
+        { "id": "c", "text": "The system memory" },
+        { "id": "d", "text": "The power supply" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.1.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.11",
+        "title": "Heat Sinks and Thermal Paste",
+        "quote": "",
+        "find": "Memory modules use passive heat sinks"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q1" }
+    },
+    {
+      "id": "c1-u03-q021",
+      "stem": "A technician is reinstalling a CPU cooler after cleaning both surfaces. Which of the following should go between the processor and the cooler so heat moves efficiently into the cooler's fins?",
+      "choices": [
+        { "id": "a", "text": "Thermal paste" },
+        { "id": "b", "text": "Heat spreader" },
+        { "id": "c", "text": "Radiator" },
+        { "id": "d", "text": "Case fan" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.1.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.11",
+        "title": "Heat Sinks and Thermal Paste",
+        "quote": "",
+        "find": "the CPU chip using thermal paste/pad"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C67" }
+    },
+    {
+      "id": "c1-u03-q022",
+      "stem": "After a graphics card is added to a custom liquid cooling loop, the CPU stays cool but the graphics card overheats. Which part was MOST likely mounted incorrectly?",
+      "choices": [
+        { "id": "a", "text": "Water block" },
+        { "id": "b", "text": "Radiator" },
+        { "id": "c", "text": "Reservoir" },
+        { "id": "d", "text": "Pump" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.1.13"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.13",
+        "title": "Liquid Cooling Systems",
+        "quote": "",
+        "find": "to remove heat by convection"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q7" }
+    },
+    {
+      "id": "c1-u03-q023",
+      "stem": "A veterinary clinic's staff must be able to open patient records on the file server without interruption when one of its drives fails. Which of the following BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "Install ECC memory modules in the server" },
+        { "id": "b", "text": "Back up the records to an external drive each night" },
+        { "id": "c", "text": "Replace the drives with solid-state drives" },
+        { "id": "d", "text": "Configure the drives as a RAID array" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.5",
+        "title": "Redundant Array of Independent Disks",
+        "quote": "",
+        "find": "multiple disks to provide fault tolerance"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B20" }
+    },
+    {
+      "id": "c1-u03-q024",
+      "stem": "A technician needs to mirror two disks in a small desktop whose motherboard has no RAID support and no free expansion slot. Which of the following should the technician use?",
+      "choices": [
+        { "id": "a", "text": "Software RAID" },
+        { "id": "b", "text": "Hardware RAID" },
+        { "id": "c", "text": "Integrated RAID" },
+        { "id": "d", "text": "Nested RAID" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.5",
+        "title": "Redundant Array of Independent Disks",
+        "quote": "",
+        "find": "(software RAID) using OS features"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q34" }
+    },
+    {
+      "id": "c1-u03-q025",
+      "stem": "A video editing workstation keeps temporary cache files that can be recreated if a disk fails, and the editor wants that storage to respond as quickly as it can. Which RAID level BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "RAID 0" },
+        { "id": "b", "text": "RAID 1" },
+        { "id": "c", "text": "RAID 5" },
+        { "id": "d", "text": "RAID 6" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.6",
+        "title": "RAID 0 and RAID 1",
+        "quote": "",
+        "find": "disks to service requests in parallel"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C63" }
+    },
+    {
+      "id": "c1-u03-q026",
+      "stem": "A tutor's compact desktop has room for only two hard drives, and the tutor wants no files lost if one of the drives fails. Which RAID level BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "RAID 0" },
+        { "id": "b", "text": "RAID 1" },
+        { "id": "c", "text": "RAID 5" },
+        { "id": "d", "text": "RAID 10" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.6", "3.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.6",
+        "title": "RAID 0 and RAID 1",
+        "quote": "",
+        "find": "mirrored drive configuration using two disks"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C87" }
+    },
+    {
+      "id": "c1-u03-q027",
+      "stem": "A bookkeeper needs a RAID 1 mirror that holds at least 3 TB of files. Which of the following is the smallest pair of drives that meets this need?",
+      "choices": [
+        { "id": "a", "text": "Two 1 TB drives" },
+        { "id": "b", "text": "Two 2 TB drives" },
+        { "id": "c", "text": "Two 4 TB drives" },
+        { "id": "d", "text": "Two 8 TB drives" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.6",
+        "title": "RAID 0 and RAID 1",
+        "quote": "",
+        "find": "50% of the total disk space"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q40" }
+    },
+    {
+      "id": "c1-u03-q028",
+      "stem": "A technician is setting up a RAID 5 array on a new file server. Which of the following BEST describes how the array stores data?",
+      "choices": [
+        { "id": "a", "text": "Striping with one set of parity spread across the disks" },
+        { "id": "b", "text": "Striping with no parity and no copies of the data" },
+        { "id": "c", "text": "Mirroring that copies each write to a second disk" },
+        { "id": "d", "text": "Striping with two sets of parity spread across the disks" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.7", "3.2.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.7",
+        "title": "RAID 5 and RAID 10",
+        "quote": "",
+        "find": "RAID 5 combines striping"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q30" }
+    },
+    {
+      "id": "c1-u03-q029",
+      "stem": "A shop's file server uses a two-disk RAID 1 mirror, and the owner is thinking about moving the files to a RAID 5 array. Which of the following would the change provide?",
+      "choices": [
+        { "id": "a", "text": "Fewer disks needed to build the array" },
+        { "id": "b", "text": "Protection against two disks failing at the same time" },
+        { "id": "c", "text": "Faster rebuilds after a failed disk is replaced" },
+        { "id": "d", "text": "Faster read performance from the array" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.7", "3.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.7",
+        "title": "RAID 5 and RAID 10",
+        "quote": "",
+        "find": "offer better performance, disk utilization"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q32" }
+    },
+    {
+      "id": "c1-u03-q030",
+      "stem": "A photo studio's server has four 4 TB drives, and the array must hold at least 12 TB and keep working if one drive fails. Which RAID level BEST meets these needs?",
+      "choices": [
+        { "id": "a", "text": "RAID 0" },
+        { "id": "b", "text": "RAID 5" },
+        { "id": "c", "text": "RAID 6" },
+        { "id": "d", "text": "RAID 10" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.7", "3.2.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.7",
+        "title": "RAID 5 and RAID 10",
+        "quote": "",
+        "find": "one-quarter of each disk is reserved"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B6" }
+    },
+    {
+      "id": "c1-u03-q031",
+      "stem": "A design firm is ordering three identical drives for a new RAID 5 array that must provide at least 24 TB of usable space. Which drive size should the firm order to keep the cost as low as possible?",
+      "choices": [
+        { "id": "a", "text": "8 TB" },
+        { "id": "b", "text": "12 TB" },
+        { "id": "c", "text": "16 TB" },
+        { "id": "d", "text": "24 TB" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.7",
+        "title": "RAID 5 and RAID 10",
+        "quote": "",
+        "find": "one-third of each disk is used"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 2.0-3.0 slide 85" }
+    },
+    {
+      "id": "c1-u03-q032",
+      "stem": "A hospital's imaging server needs a four-disk array that gives fast writes without parity overhead and stays online if a disk fails. Which RAID level BEST meets these needs?",
+      "choices": [
+        { "id": "a", "text": "RAID 0" },
+        { "id": "b", "text": "RAID 1" },
+        { "id": "c", "text": "RAID 6" },
+        { "id": "d", "text": "RAID 10" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.7",
+        "title": "RAID 5 and RAID 10",
+        "quote": "",
+        "find": "a striped volume (RAID 0)"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A77" }
+    },
+    {
+      "id": "c1-u03-q033",
+      "stem": "A research lab's eight-disk array can take many hours to rebuild, so the lab wants it to survive the loss of any two disks at once. Which RAID level BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "RAID 1" },
+        { "id": "b", "text": "RAID 5" },
+        { "id": "c", "text": "RAID 6" },
+        { "id": "d", "text": "RAID 10" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.8", "3.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.8",
+        "title": "RAID 6 (Striping with Double Parity)",
+        "quote": "",
+        "find": "simultaneous failure of two disks"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 3.0 Q56" }
+    },
+    {
+      "id": "c1-u03-q034",
+      "stem": "A game developer keeps project files on a two-disk RAID 0 volume, and one of the disks has just failed. Which of the following should the technician tell the developer?",
+      "choices": [
+        { "id": "a", "text": "The files must be restored from a backup after the disk is replaced" },
+        { "id": "b", "text": "The files are safe on the other disk until the new one arrives" },
+        { "id": "c", "text": "The files will be rebuilt from parity once the disk is replaced" },
+        { "id": "d", "text": "The files can still be opened, but more slowly than before" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.6",
+        "title": "RAID 0 and RAID 1",
+        "quote": "",
+        "find": "necessitating data recovery from backups"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 3.0 Q50" }
+    },
+    {
+      "id": "c1-u03-q035",
+      "stem": "A dental office's two-disk RAID 1 mirror has one failed disk, and the manager wants to wait a month to replace it because staff can still open every file. Which of the following BEST explains why the technician should replace it now?",
+      "choices": [
+        { "id": "a", "text": "Each file is now rebuilt from parity as it opens" },
+        { "id": "b", "text": "The mirror runs at half speed until it is rebuilt" },
+        { "id": "c", "text": "The remaining disk cannot save new changes" },
+        { "id": "d", "text": "The files no longer have a second copy" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.6",
+        "title": "RAID 0 and RAID 1",
+        "quote": "",
+        "find": "replaced quickly to restore redundancy"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 3.0 Q49" }
+    },
+    {
+      "id": "c1-u03-q036",
+      "stem": "A software developer wants the quickest storage available for a new workstation, and capacity is not a concern. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "A 512 GB solid-state drive" },
+        { "id": "b", "text": "A 600 GB 15,000 RPM hard drive" },
+        { "id": "c", "text": "A 4 TB SAS hard drive" },
+        { "id": "d", "text": "Two 4 TB hard drives in RAID 0" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3", "3.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.3",
+        "title": "Solid-State Drives",
+        "quote": "",
+        "find": "transfer rates up to 6.7 GB/s"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B22" }
+    },
+    {
+      "id": "c1-u03-q037",
+      "stem": "A technician is setting up a desktop that has a 500 GB SSD and a 4 TB hard drive, and the user wants it to boot and respond quickly. Which of the following should the technician place on the SSD?",
+      "choices": [
+        { "id": "a", "text": "The user's large photo library" },
+        { "id": "b", "text": "The installed software applications" },
+        { "id": "c", "text": "The operating system files" },
+        { "id": "d", "text": "Rarely opened archive files" },
+        { "id": "e", "text": "Backup copies of the user's files" }
+      ],
+      "answer": ["b", "c"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.3",
+        "title": "Solid-State Drives",
+        "quote": "",
+        "find": "SSD hosting the OS and applications"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q36" }
+    },
+    {
+      "id": "c1-u03-q038",
+      "stem": "A gamer wants an SSD that connects directly to the PCIe bus so games load as fast as possible. Which drive interface should the gamer look for?",
+      "choices": [
+        { "id": "a", "text": "NVMe" },
+        { "id": "b", "text": "SATA" },
+        { "id": "c", "text": "mSATA" },
+        { "id": "d", "text": "SAS" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.3",
+        "title": "Solid-State Drives",
+        "quote": "",
+        "find": "(NVMe) interface for better performance"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q44" }
+    },
+    {
+      "id": "c1-u03-q039",
+      "stem": "A technician is ordering an M.2 2280 module to add storage to a thin laptop. Which type of device is the technician MOST likely ordering?",
+      "choices": [
+        { "id": "a", "text": "A solid-state drive" },
+        { "id": "b", "text": "A hard disk drive" },
+        { "id": "c", "text": "An SD memory card" },
+        { "id": "d", "text": "A SODIMM memory module" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.3",
+        "title": "Solid-State Drives",
+        "quote": "",
+        "find": "M.2 SSDs are smaller"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C76" }
+    },
+    {
+      "id": "c1-u03-q040",
+      "stem": "A technician replaces a desktop's M.2 SATA SSD with an M.2 NVMe SSD that the motherboard supports. Which of the following is the MOST likely result?",
+      "choices": [
+        { "id": "a", "text": "Storage speed stays the same, because both are M.2" },
+        { "id": "b", "text": "Storage gets faster, because NVMe uses the PCIe bus" },
+        { "id": "c", "text": "Storage gets slower, because NVMe tops out at 600 MBps" },
+        { "id": "d", "text": "Storage gets faster, but only once a power cable is added" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.3",
+        "title": "Solid-State Drives",
+        "quote": "",
+        "find": "typically outperform their SATA counterparts"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 2.0-3.0 slide 81" }
+    },
+    {
+      "id": "c1-u03-q041",
+      "stem": "A technician is explaining to a customer how hard disk drives differ from SSDs. Which of the following do hard disk drives have that SSDs do NOT?",
+      "choices": [
+        { "id": "a", "text": "Flash memory that wears out with many writes" },
+        { "id": "b", "text": "Storage that keeps data when powered off" },
+        { "id": "c", "text": "Models in the 2.5-inch form factor" },
+        { "id": "d", "text": "Spinning platters with a magnetic coating" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["3.2.4", "3.2.3", "3.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.4",
+        "title": "Hard Disk Drives",
+        "quote": "",
+        "find": "on metal or glass platters"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q35" }
+    },
+    {
+      "id": "c1-u03-q042",
+      "stem": "A technician is ordering a high-performance drive for a database server, and its spec sheet lists a speed of 15,000 RPM. Which type of drive is the technician ordering?",
+      "choices": [
+        { "id": "a", "text": "A USB flash drive" },
+        { "id": "b", "text": "A SATA solid-state drive" },
+        { "id": "c", "text": "An NVMe solid-state drive" },
+        { "id": "d", "text": "A hard disk drive" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["3.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.4",
+        "title": "Hard Disk Drives",
+        "quote": "",
+        "find": "HDD performance is determined by"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q51" }
+    },
+    {
+      "id": "c1-u03-q043",
+      "stem": "A tax preparer gives each client a copy of their files to take home, and the clients use many different computers. Which of the following will work in the MOST computers without extra hardware?",
+      "choices": [
+        { "id": "a", "text": "A flash drive" },
+        { "id": "b", "text": "A microSD memory card" },
+        { "id": "c", "text": "A rewritable Blu-ray disc" },
+        { "id": "d", "text": "A hard drive in an eSATA enclosure" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.d"],
+      "units": ["3.2.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.10",
+        "title": "Removable Storage Drives",
+        "quote": "",
+        "find": "into any available USB port"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q42" }
+    },
+    {
+      "id": "c1-u03-q044",
+      "stem": "A wildlife photographer asks a technician for spare storage to swap into a digital camera during a long trip. Which of the following should the technician recommend?",
+      "choices": [
+        { "id": "a", "text": "SD memory cards" },
+        { "id": "b", "text": "USB flash drives" },
+        { "id": "c", "text": "M.2 solid-state drives" },
+        { "id": "d", "text": "SODIMM memory modules" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.d"],
+      "units": ["3.2.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.10",
+        "title": "Removable Storage Drives",
+        "quote": "",
+        "find": "Commonly used in digital cameras"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q47" }
+    },
+    {
+      "id": "c1-u03-q045",
+      "stem": "A law office must store closed case files on media that can be written once and never erased, even by accident. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Rewritable DVDs" },
+        { "id": "b", "text": "Recordable DVDs" },
+        { "id": "c", "text": "USB flash drives" },
+        { "id": "d", "text": "RAID 1 mirrored disks" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.e"],
+      "units": ["3.2.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.11",
+        "title": "Optical Drives",
+        "quote": "",
+        "find": "Can be written to once"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A15" }
+    },
+    {
+      "id": "c1-u03-q046",
+      "stem": "A technician finds a box of discs labeled BD-RE in a client's office. Which of the following BEST describes these discs?",
+      "choices": [
+        { "id": "a", "text": "Blu-ray discs that can be erased and rewritten" },
+        { "id": "b", "text": "Blu-ray discs that can be written only once" },
+        { "id": "c", "text": "Blu-ray discs that hold data but cannot be written" },
+        { "id": "d", "text": "DVDs that can be erased and rewritten" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.e"],
+      "units": ["3.2.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.11",
+        "title": "Optical Drives",
+        "quote": "",
+        "find": "Read-only (BD-ROM) and Rewritable (BD-RE)"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q43" }
+    },
+    {
+      "id": "c1-u03-q047",
+      "stem": "A technician puts ECC modules in an office desktop so it can run a small database more reliably, but it will not boot until the old non-ECC modules are put back. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Dual-channel mode is turned off in the firmware" },
+        { "id": "b", "text": "The new ECC modules are not a matched dual-channel set" },
+        { "id": "c", "text": "The power supply's wattage rating is too low for the new modules" },
+        { "id": "d", "text": "The motherboard does not support ECC memory" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["3.3.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.8",
+        "title": "ECC RAM",
+        "quote": "",
+        "find": "Both must support ECC"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A84" }
+    },
+    {
+      "id": "c1-u03-q048",
+      "stem": "An engineering firm is buying a workstation for week-long simulations, and one bad bit in memory must not corrupt the results or crash a run. Which type of memory should the firm order?",
+      "choices": [
+        { "id": "a", "text": "Dual-channel memory" },
+        { "id": "b", "text": "ECC memory" },
+        { "id": "c", "text": "Low-latency memory" },
+        { "id": "d", "text": "High-capacity memory" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["3.3.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.8",
+        "title": "ECC RAM",
+        "quote": "",
+        "find": "detect and correct single-bit memory errors"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C74" }
+    },
+    {
+      "id": "c1-u03-q049",
+      "stem": "An online store's server, which uses ECC RAM, suddenly halts and displays a memory error message. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A single-bit memory error" },
+        { "id": "b", "text": "A single-channel memory setup" },
+        { "id": "c", "text": "A memory speed mismatch" },
+        { "id": "d", "text": "A multi-bit memory error" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["3.3.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.8",
+        "title": "ECC RAM",
+        "quote": "",
+        "find": "error message and halting the system"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q78" }
+    },
+    {
+      "id": "c1-u03-q050",
+      "stem": "A video editor's PC has a single 16 GB memory module installed. Which of the following upgrades would MOST increase its memory bandwidth?",
+      "choices": [
+        { "id": "a", "text": "Replace the module with a single 32 GB module" },
+        { "id": "b", "text": "Replace the module with a single 16 GB ECC module" },
+        { "id": "c", "text": "Add a second 16 GB module identical to the first" },
+        { "id": "d", "text": "Add an NVMe SSD to store the video files" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["3.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.5",
+        "title": "Multi-channel System Memory",
+        "quote": "",
+        "find": "doubling the data bandwidth"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A49" }
+    },
+    {
+      "id": "c1-u03-q051",
+      "stem": "A technician is adding memory to a PC so it can run in dual-channel mode. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Buy modules that are made only for dual-channel use" },
+        { "id": "b", "text": "Pair a fast module with a slower one" },
+        { "id": "c", "text": "Use modules that are identical in capacity and speed" },
+        { "id": "d", "text": "Place both modules in the same channel" },
+        { "id": "e", "text": "Place one module in the same slot of each channel" }
+      ],
+      "answer": ["c", "e"],
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["3.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.5",
+        "title": "Multi-channel System Memory",
+        "quote": "",
+        "find": "should match in clock speed, capacity"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q59" }
+    },
+    {
+      "id": "c1-u03-q052",
+      "stem": "An office manager asks a technician to add RAM to the company's desktop towers and laptops. Which type of module should the technician order for the laptops?",
+      "choices": [
+        { "id": "a", "text": "SODIMM" },
+        { "id": "b", "text": "DIMM" },
+        { "id": "c", "text": "RDIMM" },
+        { "id": "d", "text": "mSATA" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["3.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.3",
+        "title": "Memory Modules",
+        "quote": "",
+        "find": "SODIMMs are ideal for laptops"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B35" }
+    },
+    {
+      "id": "c1-u03-q053",
+      "stem": "A technician is installing a DDR4 DIMM in a desktop built for DDR4 DIMMs, but the module will not go fully into the slot. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The module is rated faster than the motherboard supports" },
+        { "id": "b", "text": "The module is turned the wrong way around" },
+        { "id": "c", "text": "The slot belongs to the other memory channel" },
+        { "id": "d", "text": "The module needs to go in at a 45-degree angle" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["3.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.3",
+        "title": "Memory Modules",
+        "quote": "",
+        "find": "and prevent incorrect"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q58" }
+    },
+    {
+      "id": "c1-u03-q054",
+      "stem": "A customer wants to add two DDR4 modules from an old desktop to a new PC with a DDR5 motherboard. Which of the following BEST describes the result?",
+      "choices": [
+        { "id": "a", "text": "All the modules will run at the DDR4 modules' speed" },
+        { "id": "b", "text": "The PC will drop to single-channel memory mode" },
+        { "id": "c", "text": "The DDR4 modules will not fit the memory slots" },
+        { "id": "d", "text": "The added modules will run in flex mode" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["3.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.3",
+        "title": "Memory Modules",
+        "quote": "",
+        "find": "DDR type matches the motherboard"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 2.0-3.0 slide 73" }
+    },
+    {
+      "id": "c1-u03-q055",
+      "stem": "A tablet maker is replacing the x86 processor in its next model with an ARM-based processor. Which of the following are advantages of the ARM-based processor?",
+      "choices": [
+        { "id": "a", "text": "It uses a CISC design that needs fewer instructions" },
+        { "id": "b", "text": "It needs no special build of the operating system" },
+        { "id": "c", "text": "It runs x86 software with no performance penalty" },
+        { "id": "d", "text": "It draws little power, so batteries last longer" },
+        { "id": "e", "text": "It fits the same socket as desktop CPUs" },
+        { "id": "f", "text": "It runs cool enough to work without a fan" }
+      ],
+      "answer": ["d", "f"],
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.4",
+        "title": "ARM CPU Architecture",
+        "quote": "",
+        "find": "power consumption and efficient heat management"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B28" }
+    },
+    {
+      "id": "c1-u03-q056",
+      "stem": "A technician is listing the processor type of every device in a small office. Which of the following devices MOST likely uses an ARM processor?",
+      "choices": [
+        { "id": "a", "text": "The laptop with an Intel Core i7 processor" },
+        { "id": "b", "text": "The database server with two CPU sockets" },
+        { "id": "c", "text": "The tower PC that hosts several virtual machines" },
+        { "id": "d", "text": "The smart thermostat that runs on batteries" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.4",
+        "title": "ARM CPU Architecture",
+        "quote": "",
+        "find": "making ARM ideal for mobile"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A52" }
+    },
+    {
+      "id": "c1-u03-q057",
+      "stem": "After a technician upgrades an older PC from 4 GB to 8 GB of RAM, the PC still uses no more than 4 GB, and a 64-bit operating system will not install on it. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The CPU does not support Intel VT-x or AMD-V" },
+        { "id": "b", "text": "The memory is running in single-channel mode" },
+        { "id": "c", "text": "The CPU uses the 32-bit x86 architecture" },
+        { "id": "d", "text": "The new module is slower than the old one" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "x64 CPU Architecture",
+        "quote": "",
+        "find": "access to more than 4 GB"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 2.0-3.0 slide 87" }
+    },
+    {
+      "id": "c1-u03-q058",
+      "stem": "A technician replaces the 32-bit operating system on an office PC with a 64-bit version, and now the PC's document scanner does not work. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Reinstall the scanner's original 32-bit driver" },
+        { "id": "b", "text": "Install a 64-bit driver for the scanner" },
+        { "id": "c", "text": "Replace the CPU with a 64-bit processor" },
+        { "id": "d", "text": "Run the 32-bit driver under emulation" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "x64 CPU Architecture",
+        "quote": "",
+        "find": "64-bit drivers are required for"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q84" }
+    },
+    {
+      "id": "c1-u03-q059",
+      "stem": "A technician comparing two six-core CPUs sees one listed as 6C/6T and the other as 6C/12T. Which of the following CPU features explains the difference?",
+      "choices": [
+        { "id": "a", "text": "Chip-level multiprocessing (CMP)" },
+        { "id": "b", "text": "Simultaneous multithreading (SMT)" },
+        { "id": "c", "text": "Symmetric multiprocessing (SMP)" },
+        { "id": "d", "text": "Intel Turbo Boost technology" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.5",
+        "title": "CPU Features",
+        "quote": "",
+        "find": "can process 16 threads simultaneously"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q85" }
+    },
+    {
+      "id": "c1-u03-q060",
+      "stem": "While installing an Intel Core i5 processor in a desktop PC, a technician misaligns it and suspects that some pins were bent. Where are the bent pins MOST likely located?",
+      "choices": [
+        { "id": "a", "text": "In the LGA socket on the motherboard" },
+        { "id": "b", "text": "On the bottom of the PGA processor" },
+        { "id": "c", "text": "In the PGA socket on the motherboard" },
+        { "id": "d", "text": "On the bottom of the LGA processor" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.5", "3.5.c"],
+      "units": ["3.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.6",
+        "title": "CPU Socket Types",
+        "quote": "",
+        "find": "Intel predominantly uses Land Grid Array"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q87" }
+    },
+    {
+      "id": "c1-u03-q061",
+      "stem": "A small business is buying a PC to run virtual machines (VMs), and its VM software requires a CPU with hardware-assisted virtualization. Which item on a CPU's specification sheet shows that the CPU meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "Intel Turbo Boost" },
+        { "id": "b", "text": "Hyper-Threading or SMT" },
+        { "id": "c", "text": "Intel VT-x or AMD-V" },
+        { "id": "d", "text": "ECC memory support" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.5", "3.5.e"],
+      "units": ["3.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.5",
+        "title": "CPU Features",
+        "quote": "",
+        "find": "such as Intel VT and AMD-V"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 3.0 Q93" }
+    },
+    {
+      "id": "c1-u03-q062",
+      "stem": "A technician building a desktop PC has seated the processor and clamped its cooler to the motherboard. Which of the following should the technician do to finish installing the cooler?",
+      "choices": [
+        { "id": "a", "text": "Connect the cooler to the 8-pin CPU power port" },
+        { "id": "b", "text": "Connect the cooler to the CPU fan header" },
+        { "id": "c", "text": "Connect the cooler to a SATA power connector" },
+        { "id": "d", "text": "Leave the cooler unplugged, since it needs no power" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.4.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.7",
+        "title": "CPU Types and Motherboard Compatibility",
+        "quote": "",
+        "find": "connected to the CPU fan header"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q88" }
+    }
+  ]
+}

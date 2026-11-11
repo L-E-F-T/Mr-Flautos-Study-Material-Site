@@ -28,7 +28,7 @@ Order: A+ Core 1 first, then Core 2, Network+, Security+. Hosting: GitHub Pages 
 | UI cleanup: no emoji, labels instead of instructions | Done |
 | A+ Core 1 outline: 27 objectives and 131 bullets (official v4.0), 10 units, 32 lessons, 223 reading sections | Done |
 | Local test server (`serve.cmd`), content check, quote helper, GitHub Pages deploy file | Done (first deploy ran 2026-11-10) |
-| **Content** | **Placeholder only.** Unit 3.0 has 51 test questions and 64 test flashcards, flagged as first-pass and not approved. The site shows a "Test content" banner while they are loaded. Real content comes from the separate content chat. |
+| **Content** | **A+ Core 1 Unit 3.0 written** (2026-11-10): 62 questions (8 choose-two or choose-three) and 61 flashcards, weighted by exam evidence, keyed to the reading, and checked by independent agents. Not yet marked reviewed; book quotes still to add. The placeholder packs are deleted. Every other unit says "Coming soon". |
 | Kept out of search results ("do not list" tag on every page) | Done |
 | Sign-in and scoreboard | **Not building for now** (decided 2026-11-10). Notes for later are in section 5. |
 | Published anywhere | Yes, since 2026-11-10: https://l-e-f-t.github.io/Mr-Flautos-Study-Material-Site/ (repository `L-E-F-T/Mr-Flautos-Study-Material-Site`, public). Every push to `main` runs the content check and redeploys. |
@@ -158,9 +158,11 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 
 **Content (separate chat)**
 
-1. Replace the Unit 3.0 placeholder packs (steps at the top of `docs/CONTENT-GUIDE.md`).
-2. Write each unit's questions and flashcards to the format in the guide. You approve the term list and a sample before the rest is written.
-3. You read each unit on the local site, add the book quotes with the quote helper, and mark the pack reviewed.
+1. Done (2026-11-10): A+ Core 1 Unit 3.0 (62 questions, 61 flashcards); placeholder packs deleted.
+2. A+ Core 1, one chat per unit (started with `docs/CONTENT-HANDOFF.md`), in this order: 2.0, 5.0, 6.0, 4.0, 7.0, 8.0, 9.0, 10.0. Each chat reads `docs/CONTENT-NOTES.md` first and adds to it before it ends.
+3. Unit 1.0 gets no pack. Its troubleshooting methodology is not tested directly: the 220-1201 objectives say "the methodology itself will not be tested", and CertMaster 1.2.1 says it is not tied to an exam objective. The exam uses it only inside Domain 5 scenarios ("which should the technician do FIRST?"), and those questions belong to the units that teach the hardware.
+4. You read each unit on the local site, add the book quotes with the quote helper, and mark the pack reviewed.
+5. Then Core 2, Network+, and Security+, one exam at a time.
 
 **Hosting and more exams**
 
@@ -183,6 +185,7 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 9. **No sign-in and no scoreboard for now** (2026-11-10). The site is shared by link and kept out of search results. If sign-in is ever built: Google only, no Firebase.
 10. **No saved score on the home page** (2026-11-10). Scores live in the History panel on the practice page; the home card only offers to resume.
 11. **Anything without content is labeled "Coming soon"** (2026-11-10), worked out from the data.
+12. **The exam leads, the reading keys, your materials support** (2026-11-10). What each unit covers, and how much, follows the CompTIA objectives and evidence of what the exam asks (Messer practice exams, Domain 5 links), and questions are written the way the exam presents them. The CertMaster reading decides every answer. Your study guides, slides, and Blookets corroborate the keys and fill gaps; they never set the weight.
 
 ## 8. What I need from you
 

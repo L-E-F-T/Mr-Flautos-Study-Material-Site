@@ -1,0 +1,494 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-03", "title": "Unit 3.0 Installing System Devices", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "c1-u03-f001",
+      "term": "DIMM (Dual Inline Memory Module)",
+      "definition": "The full-size memory module used in desktop PCs, offering higher capacities and better performance than laptop modules.",
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["3.3.3"],
+      "reference": { "source": "certmaster", "section": "3.3.3", "title": "Memory Modules" }
+    },
+    {
+      "id": "c1-u03-f002",
+      "term": "SODIMM (Small Outline DIMM)",
+      "definition": "The smaller memory module used in laptops and other compact computers, with lower capacities than a desktop DIMM.",
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["3.3.3"],
+      "reference": { "source": "certmaster", "section": "3.3.3", "title": "Memory Modules" }
+    },
+    {
+      "id": "c1-u03-f003",
+      "term": "DDR SDRAM (Double Data Rate SDRAM)",
+      "definition": "The family of system RAM that is synchronized to the system clock and moves data on both edges of each clock cycle; its generations include DDR3, DDR4, and DDR5.",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["3.3.2"],
+      "reference": { "source": "certmaster", "section": "3.3.2", "title": "RAM Types" }
+    },
+    {
+      "id": "c1-u03-f004",
+      "term": "DDR3",
+      "definition": "The DDR generation just before DDR4, with modules of up to 16 GB.",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["3.3.2"],
+      "reference": { "source": "certmaster", "section": "3.3.2", "title": "RAM Types" }
+    },
+    {
+      "id": "c1-u03-f005",
+      "term": "DDR4",
+      "definition": "The DDR generation after DDR3 that brought better power efficiency and higher density, with modules of up to 32 GB.",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["3.3.2"],
+      "reference": { "source": "certmaster", "section": "3.3.2", "title": "RAM Types" }
+    },
+    {
+      "id": "c1-u03-f006",
+      "term": "DDR5",
+      "definition": "The newest DDR generation, which splits each module into two 32-bit subchannels and will not fit a DDR4 slot.",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["3.3.2", "3.3.3"],
+      "reference": { "source": "certmaster", "section": "3.3.2", "title": "RAM Types" }
+    },
+    {
+      "id": "c1-u03-f007",
+      "term": "RAM (Random-Access Memory)",
+      "definition": "The system memory that running programs and open files load into; faster than SSDs and HDDs but volatile, so it holds data only while powered on.",
+      "objectives": ["3.3"],
+      "units": ["3.3.1"],
+      "reference": { "source": "certmaster", "section": "3.3.1", "title": "System RAM and Virtual Memory" }
+    },
+    {
+      "id": "c1-u03-f008",
+      "term": "ECC RAM (Error Correction Code)",
+      "definition": "Server and workstation memory that fixes single-bit errors and halts the system on multi-bit errors; the motherboard and CPU must both support it.",
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["3.3.8"],
+      "reference": { "source": "certmaster", "section": "3.3.8", "title": "ECC RAM" }
+    },
+    {
+      "id": "c1-u03-f009",
+      "term": "Non-ECC RAM",
+      "definition": "The ordinary memory in most consumer PCs, without the extra 8-bit checksum the memory controller uses to catch and fix errors.",
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["3.3.8"],
+      "reference": { "source": "certmaster", "section": "3.3.8", "title": "ECC RAM" }
+    },
+    {
+      "id": "c1-u03-f010",
+      "term": "Single-channel memory",
+      "definition": "A memory setup with one 64-bit data bus to the RAM, which can limit transfer rates; a PC may fall back to it when its modules do not match.",
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["3.3.5"],
+      "reference": { "source": "certmaster", "section": "3.3.5", "title": "Multi-channel System Memory" }
+    },
+    {
+      "id": "c1-u03-f011",
+      "term": "Dual-channel memory",
+      "definition": "Two 64-bit pathways (128 bits per transfer) that double memory bandwidth, using identical ordinary modules in the matching slot of each channel, such as A1 and B1.",
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["3.3.5"],
+      "reference": { "source": "certmaster", "section": "3.3.5", "title": "Multi-channel System Memory" }
+    },
+    {
+      "id": "c1-u03-f012",
+      "term": "Triple-channel memory",
+      "definition": "Three memory channels, supported by some CPUs and chipsets; with fewer modules installed, the system uses only as many channels as are filled.",
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["3.3.5"],
+      "reference": { "source": "certmaster", "section": "3.3.5", "title": "Multi-channel System Memory" }
+    },
+    {
+      "id": "c1-u03-f013",
+      "term": "Quad-channel memory",
+      "definition": "Four memory channels, supported by some CPUs and chipsets; with fewer modules installed, the system uses only as many channels as are filled.",
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["3.3.5"],
+      "reference": { "source": "certmaster", "section": "3.3.5", "title": "Multi-channel System Memory" }
+    },
+    {
+      "id": "c1-u03-f014",
+      "term": "Flex mode",
+      "definition": "A mode for mismatched module sizes that runs the matching amount in dual-channel and the leftover memory in single-channel.",
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["3.3.5"],
+      "reference": { "source": "certmaster", "section": "3.3.5", "title": "Multi-channel System Memory" }
+    },
+    {
+      "id": "c1-u03-f015",
+      "term": "Hard disk drive (HDD)",
+      "definition": "A drive that stores data on spinning metal or glass platters with a magnetic coating, using read/write heads on a moving actuator; most connect by SATA.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["3.2.4"],
+      "reference": { "source": "certmaster", "section": "3.2.4", "title": "Hard Disk Drives" }
+    },
+    {
+      "id": "c1-u03-f016",
+      "term": "Spindle speed (RPM)",
+      "definition": "How fast an HDD's platters spin in revolutions per minute: 5,400 or 7,200 on average drives and 10,000 or 15,000 on high-performance drives.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["3.2.4"],
+      "reference": { "source": "certmaster", "section": "3.2.4", "title": "Hard Disk Drives" }
+    },
+    {
+      "id": "c1-u03-f017",
+      "term": "3.5-inch drive form factor",
+      "definition": "The larger of the two main hard drive form factors, used for drives inside desktop PCs.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["3.2.4"],
+      "reference": { "source": "certmaster", "section": "3.2.4", "title": "Hard Disk Drives" }
+    },
+    {
+      "id": "c1-u03-f018",
+      "term": "2.5-inch drive form factor",
+      "definition": "The smaller of the two main hard drive form factors, used in laptops and portable drives; an adapter caddy fits it in a 3.5-inch bay.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["3.2.4", "3.2.2"],
+      "reference": { "source": "certmaster", "section": "3.2.4", "title": "Hard Disk Drives" }
+    },
+    {
+      "id": "c1-u03-f019",
+      "term": "Solid-state drive (SSD)",
+      "definition": "An internal drive that stores data in flash memory with no moving parts, so it reads much faster than an HDD and better withstands shock.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "c1-u03-f020",
+      "term": "NVMe (Non-Volatile Memory Express)",
+      "definition": "The SSD interface that runs directly over the PCIe bus for far more speed than SATA, on an expansion card or in an M.2 slot.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "c1-u03-f021",
+      "term": "SATA (Serial Advanced Technology Attachment)",
+      "definition": "The drive interface used by most HDDs and by 2.5-inch SSDs; its 600 MBps limit can bottleneck fast SSDs.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3", "3.2.4"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "c1-u03-f022",
+      "term": "PCIe (Peripheral Component Interconnect Express)",
+      "definition": "The motherboard's standard bus for expansion cards, which fast NVMe SSDs also use directly for better performance.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3", "2.2.5"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "c1-u03-f023",
+      "term": "SAS (Serial Attached SCSI)",
+      "definition": "An enterprise drive interface, faster and more reliable than SATA, that links many drives to one controller; common in servers and workstations.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "c1-u03-f024",
+      "term": "M.2",
+      "definition": "A small SSD form factor that lies flat on the motherboard, draws power from its slot with no cable, and can use SATA or NVMe.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "c1-u03-f025",
+      "term": "mSATA (mini-SATA)",
+      "definition": "A small SATA-only SSD card that plugs into a combined data and power port on the motherboard.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
+    },
+    {
+      "id": "c1-u03-f026",
+      "term": "RAID (Redundant Array of Independent Disks)",
+      "definition": "The general way of combining several disks into one volume the OS sees as a single drive, for fault tolerance, speed, or both; its levels include 0, 1, 5, 6, and 10.",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.5"],
+      "reference": { "source": "certmaster", "section": "3.2.5", "title": "Redundant Array of Independent Disks" }
+    },
+    {
+      "id": "c1-u03-f027",
+      "term": "RAID 0",
+      "definition": "Striping without parity across at least two disks; it is faster, but if any disk fails, the whole volume is lost.",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.6"],
+      "reference": { "source": "certmaster", "section": "3.2.6", "title": "RAID 0 and RAID 1" }
+    },
+    {
+      "id": "c1-u03-f028",
+      "term": "RAID 1",
+      "definition": "Mirroring on two disks; every write goes to both, so one disk can fail without data loss, but only half the space is usable.",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.6"],
+      "reference": { "source": "certmaster", "section": "3.2.6", "title": "RAID 0 and RAID 1" }
+    },
+    {
+      "id": "c1-u03-f029",
+      "term": "RAID 5",
+      "definition": "Striping with parity spread across at least three disks; it survives one disk failure and gives up one disk's worth of space to parity.",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.7"],
+      "reference": { "source": "certmaster", "section": "3.2.7", "title": "RAID 5 and RAID 10" }
+    },
+    {
+      "id": "c1-u03-f030",
+      "term": "RAID 6",
+      "definition": "Striping with two sets of parity across at least four disks; it survives two disks failing at once and gives up two disks' worth of space.",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.8"],
+      "reference": { "source": "certmaster", "section": "3.2.8", "title": "RAID 6 (Striping with Double Parity)" }
+    },
+    {
+      "id": "c1-u03-f031",
+      "term": "RAID 10",
+      "definition": "A stripe of mirrored pairs on at least four disks, always an even number; one disk in each mirror can fail, and half the space goes to mirroring.",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["3.2.7"],
+      "reference": { "source": "certmaster", "section": "3.2.7", "title": "RAID 5 and RAID 10" }
+    },
+    {
+      "id": "c1-u03-f032",
+      "term": "Flash drive",
+      "definition": "A flash memory board with a built-in USB connector and protective cover that plugs into any USB port; also called a thumb drive or pen drive.",
+      "objectives": ["3.4", "3.4.d"],
+      "units": ["3.2.10"],
+      "reference": { "source": "certmaster", "section": "3.2.10", "title": "Removable Storage Drives" }
+    },
+    {
+      "id": "c1-u03-f033",
+      "term": "Memory card",
+      "definition": "Removable flash storage, such as Secure Digital (SD), used in cameras, phones, and tablets; a PC needs a card reader to use it.",
+      "objectives": ["3.4", "3.4.d"],
+      "units": ["3.2.10"],
+      "reference": { "source": "certmaster", "section": "3.2.10", "title": "Removable Storage Drives" }
+    },
+    {
+      "id": "c1-u03-f034",
+      "term": "Optical drive",
+      "definition": "A drive that uses a laser to read and write CDs, DVDs, and Blu-ray discs; an internal one fits a 5.25-inch bay and connects by SATA.",
+      "objectives": ["3.4", "3.4.e"],
+      "units": ["3.2.11"],
+      "reference": { "source": "certmaster", "section": "3.2.11", "title": "Optical Drives" }
+    },
+    {
+      "id": "c1-u03-f035",
+      "term": "Power connectors",
+      "definition": "The PSU's plugs that deliver DC power: the 24-pin P1 for the motherboard, 4/6/8/16-pin leads for the CPU and PCIe cards, SATA power, and Molex.",
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["3.1.4"],
+      "reference": { "source": "certmaster", "section": "3.1.4", "title": "Power Supply Connectors" }
+    },
+    {
+      "id": "c1-u03-f036",
+      "term": "LGA (Land Grid Array)",
+      "definition": "A CPU socket design with the pins in the motherboard socket and flat contact pads on the CPU; Intel's usual design, now used by AMD's newer sockets too.",
+      "objectives": ["3.5", "3.5.c"],
+      "units": ["3.4.6"],
+      "reference": { "source": "certmaster", "section": "3.4.6", "title": "CPU Socket Types" }
+    },
+    {
+      "id": "c1-u03-f037",
+      "term": "PGA (Pin Grid Array)",
+      "definition": "A CPU socket design with the pins on the CPU, which fit into the motherboard socket; AMD's traditional design, as in AM4.",
+      "objectives": ["3.5", "3.5.c"],
+      "units": ["3.4.6"],
+      "reference": { "source": "certmaster", "section": "3.4.6", "title": "CPU Socket Types" }
+    },
+    {
+      "id": "c1-u03-f038",
+      "term": "Multisocket motherboard",
+      "definition": "A motherboard with two or more CPU sockets for symmetric multiprocessing (SMP), each holding an identical CPU; used in servers and high-end workstations.",
+      "objectives": ["3.5", "3.5.c"],
+      "units": ["3.4.5"],
+      "reference": { "source": "certmaster", "section": "3.4.5", "title": "CPU Features" }
+    },
+    {
+      "id": "c1-u03-f039",
+      "term": "Virtualization support",
+      "definition": "CPU features such as Intel VT or AMD-V that help virtual machines perform better; they may need to be enabled in BIOS/UEFI setup.",
+      "objectives": ["3.5", "3.5.e"],
+      "units": ["3.4.5", "8.1.4"],
+      "reference": { "source": "certmaster", "section": "3.4.5", "title": "CPU Features" }
+    },
+    {
+      "id": "c1-u03-f040",
+      "term": "CPU (Central Processing Unit)",
+      "definition": "The processor, which executes the instruction code of firmware, the operating system, and applications.",
+      "objectives": ["3.5"],
+      "units": ["3.4.1"],
+      "reference": { "source": "certmaster", "section": "3.4.1", "title": "CPU Architecture" }
+    },
+    {
+      "id": "c1-u03-f041",
+      "term": "x86",
+      "definition": "The 32-bit CISC instruction set of Intel and AMD processors, which can address no more than 4 GB of RAM.",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.3", "3.4.4"],
+      "reference": { "source": "certmaster", "section": "3.4.3", "title": "x64 CPU Architecture" }
+    },
+    {
+      "id": "c1-u03-f042",
+      "term": "x64 (x86-64)",
+      "definition": "The 64-bit extension of x86, called AMD64 or Intel 64; it can use more than 4 GB of RAM and runs both 32-bit and 64-bit software.",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.3"],
+      "reference": { "source": "certmaster", "section": "3.4.3", "title": "x64 CPU Architecture" }
+    },
+    {
+      "id": "c1-u03-f043",
+      "term": "ARM (Advanced RISC Machines)",
+      "definition": "A power-efficient RISC processor design, usually built as a system-on-chip, used in most Android devices and in Apple's M1 and M2 chips.",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.4"],
+      "reference": { "source": "certmaster", "section": "3.4.4", "title": "ARM CPU Architecture" }
+    },
+    {
+      "id": "c1-u03-f044",
+      "term": "RISC (Reduced Instruction Set Computing)",
+      "definition": "A CPU design using simpler instructions that usually finish in one clock cycle each, for better performance per watt; ARM is based on it.",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.4"],
+      "reference": { "source": "certmaster", "section": "3.4.4", "title": "ARM CPU Architecture" }
+    },
+    {
+      "id": "c1-u03-f045",
+      "term": "Multicore CPU",
+      "definition": "A processor with two or more cores on a single chip, each with its own execution unit and cache; also called chip-level multiprocessing (CMP).",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.5"],
+      "reference": { "source": "certmaster", "section": "3.4.5", "title": "CPU Features" }
+    },
+    {
+      "id": "c1-u03-f046",
+      "term": "Simultaneous multithreading (SMT)",
+      "definition": "A CPU feature that lets each physical core run two threads at once (Intel calls it Hyper-Threading), so an eight-core CPU is listed as 8C/16T.",
+      "objectives": ["3.5", "3.5.g"],
+      "units": ["3.4.5"],
+      "reference": { "source": "certmaster", "section": "3.4.5", "title": "CPU Features" }
+    },
+    {
+      "id": "c1-u03-f047",
+      "term": "Cooling fans",
+      "definition": "Move air through the case, drawing cool air in the front vents and pushing warm air out the back; thermometer sensors set their speed and detect failures.",
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.1.12"],
+      "reference": { "source": "certmaster", "section": "3.1.12", "title": "Fans" }
+    },
+    {
+      "id": "c1-u03-f048",
+      "term": "Heat sink",
+      "definition": "A part that cools a chip by adding surface area; memory uses passive ones called heat spreaders, and CPUs use active ones that typically have a fan.",
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.1.11"],
+      "reference": { "source": "certmaster", "section": "3.1.11", "title": "Heat Sinks and Thermal Paste" }
+    },
+    {
+      "id": "c1-u03-f049",
+      "term": "Thermal paste",
+      "definition": "The material between a CPU and its heat sink that fills air gaps for efficient heat transfer; harder to apply than a thermal pad but may be more reliable.",
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.1.11"],
+      "reference": { "source": "certmaster", "section": "3.1.11", "title": "Heat Sinks and Thermal Paste" }
+    },
+    {
+      "id": "c1-u03-f050",
+      "term": "Thermal pad",
+      "definition": "A solid sheet between a chip and its heat sink that softens when heated; easier to apply than paste but may be less reliable.",
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.1.11"],
+      "reference": { "source": "certmaster", "section": "3.1.11", "title": "Heat Sinks and Thermal Paste" }
+    },
+    {
+      "id": "c1-u03-f051",
+      "term": "Liquid cooling",
+      "definition": "Pumps coolant through water blocks and radiators, cooling better than air and often more quietly; all-in-one coolers are simpler closed loops for one CPU or GPU.",
+      "objectives": ["3.5", "3.5.i"],
+      "units": ["3.1.13"],
+      "reference": { "source": "certmaster", "section": "3.1.13", "title": "Liquid Cooling Systems" }
+    },
+    {
+      "id": "c1-u03-f052",
+      "term": "Low-line voltage",
+      "definition": "The lower AC input range, about 120 V, supplied by North American wall outlets.",
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["3.1.1"],
+      "reference": { "source": "certmaster", "section": "3.1.1", "title": "Power Supply Units" }
+    },
+    {
+      "id": "c1-u03-f053",
+      "term": "High-line voltage",
+      "definition": "The higher AC input range, 220 to 240 V, supplied by UK outlets and used by many data centers for efficiency.",
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["3.1.1"],
+      "reference": { "source": "certmaster", "section": "3.1.1", "title": "Power Supply Units" }
+    },
+    {
+      "id": "c1-u03-f054",
+      "term": "Auto-switching PSU",
+      "definition": "A dual-voltage PSU that adjusts itself to low-line or high-line input, unlike a PSU with a manual switch that must be set to match the outlet.",
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["3.1.1"],
+      "reference": { "source": "certmaster", "section": "3.1.1", "title": "Power Supply Units" }
+    },
+    {
+      "id": "c1-u03-f055",
+      "term": "Power supply unit (PSU)",
+      "definition": "The component that converts AC from the wall outlet into the low-voltage DC (3.3, 5, and 12 V) that PC parts use.",
+      "objectives": ["3.6", "3.6.b"],
+      "units": ["3.1.1", "3.1.4"],
+      "reference": { "source": "certmaster", "section": "3.1.1", "title": "Power Supply Units" }
+    },
+    {
+      "id": "c1-u03-f056",
+      "term": "Rail (PSU)",
+      "definition": "A PSU output wire that carries current at one DC voltage, such as +3.3, +5, or +12 V; the +12 V one is the most heavily used.",
+      "objectives": ["3.6", "3.6.b"],
+      "units": ["3.1.3"],
+      "reference": { "source": "certmaster", "section": "3.1.3", "title": "Wattage Rating" }
+    },
+    {
+      "id": "c1-u03-f057",
+      "term": "20+4-pin motherboard connector",
+      "definition": "The PSU's main P1 cable to the motherboard: 24 pins, with 4 that come off so it also fits older 20-pin boards.",
+      "objectives": ["3.6", "3.6.c"],
+      "units": ["3.1.5"],
+      "reference": { "source": "certmaster", "section": "3.1.5", "title": "20-pin to 24-pin Motherboard Adapter" }
+    },
+    {
+      "id": "c1-u03-f058",
+      "term": "Redundant power supply",
+      "definition": "A second PSU that takes over at once if the first fails; standard in servers, where a failed unit can often be swapped without powering down.",
+      "objectives": ["3.6", "3.6.d"],
+      "units": ["3.1.7"],
+      "reference": { "source": "certmaster", "section": "3.1.7", "title": "Redundant Power Supplies" }
+    },
+    {
+      "id": "c1-u03-f059",
+      "term": "Modular power supply",
+      "definition": "A PSU with detachable cables, so only the needed ones are attached, cutting clutter and improving airflow and cooling.",
+      "objectives": ["3.6", "3.6.e"],
+      "units": ["3.1.6"],
+      "reference": { "source": "certmaster", "section": "3.1.6", "title": "Modular Power Supplies" }
+    },
+    {
+      "id": "c1-u03-f060",
+      "term": "Wattage rating",
+      "definition": "The most power a PSU can output, in watts; it must cover all the components' combined needs, or the PC may shut down or reboot at random.",
+      "objectives": ["3.6", "3.6.f"],
+      "units": ["3.1.3"],
+      "reference": { "source": "certmaster", "section": "3.1.3", "title": "Wattage Rating" }
+    },
+    {
+      "id": "c1-u03-f061",
+      "term": "Energy efficiency (PSU)",
+      "definition": "How much of the power a PSU draws from the outlet reaches the components as DC, with the rest lost as heat; shown by 80 PLUS ratings.",
+      "objectives": ["3.6", "3.6.g"],
+      "units": ["3.1.3"],
+      "reference": { "source": "certmaster", "section": "3.1.3", "title": "Wattage Rating" }
+    }
+  ]
+}

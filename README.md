@@ -6,7 +6,7 @@ Live now: **A+ Core 1 (220-1201)**. Planned: A+ Core 2 (220-1202), Network+ (N10
 
 It works on phones and computers, in light or dark mode (the sun/moon button in the header).
 
-> **The questions and flashcards in here right now are placeholder test content** (Unit 3.0 only, first pass, not approved). The site shows a yellow "Test content" banner while they are loaded. Real content is written separately and replaces them: see the top of `docs/CONTENT-GUIDE.md`.
+Content so far: A+ Core 1 Unit 3.0 (62 questions, 61 flashcards). Every other unit says "Coming soon" until its packs are written.
 
 ## Test it on this computer
 
@@ -38,8 +38,10 @@ Teacher pages while the server runs:
 | `schemas/` | Format definitions (VS Code uses them to flag mistakes as you type) |
 | `tools/` | Local server, content check (browser + command line) |
 | `docs/PLAN.md` | The plan: site layout, how it is built, sign-in and scoreboard design, roadmap, tools to install |
-| `docs/CONTENT-GUIDE.md` | The contract for whoever writes content: file format, rules, and how to replace the placeholder set |
-| `docs/CONTENT-HANDOFF.md` | The prompt to paste into a new Claude Code chat to start (or restart) the content work |
+| `docs/CONTENT-GUIDE.md` | The contract for whoever writes content: file format and rules |
+| `docs/CONTENT-HANDOFF.md` | The prompt to paste into a new Claude Code chat, one chat per unit |
+| `docs/CONTENT-NOTES.md` | Notes passed from one unit's chat to the next: source items another unit answers, reading problems, open questions |
+| `docs/content-kit/` | Scripts and agent briefs the content chats use (they write only to the chat's scratchpad) |
 | `CLAUDE.md` | Short notes Claude reads at the start of every chat in this folder |
 | `.github/workflows/pages.yml` | Checks content, then publishes to GitHub Pages |
 
