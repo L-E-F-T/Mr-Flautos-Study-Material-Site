@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Raccoon face in black and white. The white face has a black outline so it reads on light and dark tab bars. -->
-  <path d="M10 27L11 4l17 10zM54 27L53 4 36 14z" fill="#000" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
-  <path d="M14.5 21l.5-11 7.5 4.5zM49.5 21l-.5-11-7.5 4.5z" fill="#fff"/>
-  <path d="M32 12c9 0 16 4 20 11l9 12-8 3c-3 11-11 18-21 19-10-1-18-8-21-19l-8-3 9-12c4-7 11-11 20-11z" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
-  <path d="M30.5 13h3L33 31h-2z" fill="#000"/>
-  <path d="M5 35c5-8 15-10 22-6 3 2 7 2 10 0 7-4 17-2 22 6-5 6-14 8-21 4-3-2-9-2-12 0-7 4-16 2-21-4z" fill="#000"/>
-  <circle cx="19.5" cy="34" r="3.4" fill="#fff"/>
-  <circle cx="44.5" cy="34" r="3.4" fill="#fff"/>
-  <path d="M27 43.5h10c1.3 0 2 1.5 1.1 2.4l-4.6 4.8c-.8.8-2.2.8-3 0l-4.6-4.8c-.9-.9-.2-2.4 1.1-2.4z" fill="#000"/>
+  <!-- Cute, simple raccoon face: round black head, a soft mask across the eyes set off by white lines, big white eyes, and a small nose. The white edge keeps it visible on dark tab bars. -->
+  <path d="M32 59C22 59 3 52 3 39 3 33 4.5 30 6.5 27Q8 10 13 9.5 17.5 9 23 15.5C26 13.5 29 13 32 13 35 13 38 13.5 41 15.5Q46.5 9 51 9.5 56 10 57.5 27C59.5 30 61 33 61 39 61 52 42 59 32 59Z" fill="#fff" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M32 59C22 59 3 52 3 39 3 33 4.5 30 6.5 27Q8 10 13 9.5 17.5 9 23 15.5C26 13.5 29 13 32 13 35 13 38 13.5 41 15.5Q46.5 9 51 9.5 56 10 57.5 27C59.5 30 61 33 61 39 61 52 42 59 32 59Z" fill="#000" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M13.2 13.8 11.4 20.4 17.4 16.6ZM50.8 13.8 52.6 20.4 46.6 16.6Z" fill="#fff" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M1.5 32C9 24.5 20 24 26 28 29 30 30 31.5 32 31.5 34 31.5 35 30 38 28 44 24 55 24.5 62.5 32M2 43.5C9 48.5 20 49.5 26 45.5 29 43.6 30 42.5 32 42.5 34 42.5 35 43.6 38 45.5 44 49.5 55 48.5 62 43.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="16" cy="37" r="5.4" fill="#fff"/>
+  <circle cx="48" cy="37" r="5.4" fill="#fff"/>
+  <path d="M28.7 49.8h6.6c1.2 0 1.8 1.4 1 2.2l-3.3 3.2c-.6.6-1.4.6-2 0l-3.3-3.2c-.8-.8-.2-2.2 1-2.2z" fill="#fff"/>
 </svg>
