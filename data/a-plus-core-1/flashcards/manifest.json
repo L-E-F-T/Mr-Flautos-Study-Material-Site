@@ -1,4 +1,4 @@
 {
   "$schema": "../../../schemas/manifest.schema.json",
-  "packs": ["unit-03.json"]
+  "packs": ["unit-02.json", "unit-03.json"]
 }

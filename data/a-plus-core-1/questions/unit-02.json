@@ -1,0 +1,931 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-02", "title": "Unit 2.0 Installing Motherboards and Connectors", "reviewed": false },
+  "questions": [
+    {
+      "id": "c1-u02-q001",
+      "stem": "A school is setting up a computer lab and needs to connect keyboards, mice, webcams, and printers to the new PCs. Which interface will these devices MOST likely use?",
+      "choices": [
+        { "id": "a", "text": "PS/2" },
+        { "id": "b", "text": "eSATA" },
+        { "id": "c", "text": "RS-232 serial" },
+        { "id": "d", "text": "USB" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["2.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.4",
+        "title": "Universal Serial Bus Cables",
+        "quote": "",
+        "find": "standard for connecting most peripheral devices"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q2" }
+    },
+    {
+      "id": "c1-u02-q002",
+      "stem": "A student plugs a new USB 3.0 flash drive into the USB 2.0 port on an older library PC, and large files copy much more slowly than the drive's package promised. Which of the following BEST explains this?",
+      "choices": [
+        { "id": "a", "text": "The drive needs a Power Delivery port to go faster" },
+        { "id": "b", "text": "The drive needs a USB-C cable to go faster" },
+        { "id": "c", "text": "The USB 2.0 port cannot power the drive at full speed" },
+        { "id": "d", "text": "The USB 2.0 port limits the connection to USB 2.0 speed" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["2.1.4", "2.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.4",
+        "title": "Universal Serial Bus Cables",
+        "quote": "",
+        "find": "physically compatible with USB 1.1"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q1" }
+    },
+    {
+      "id": "c1-u02-q003",
+      "stem": "An IT manager wants the company's new laptops, tablets, and phones to share one compact USB connector that plugs in either way up. Which connector should the manager choose?",
+      "choices": [
+        { "id": "a", "text": "USB Type A" },
+        { "id": "b", "text": "MicroUSB" },
+        { "id": "c", "text": "MiniUSB" },
+        { "id": "d", "text": "USB-C" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["2.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.4",
+        "title": "Universal Serial Bus Cables",
+        "quote": "",
+        "find": "compact, reversible, and durable design"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 2.0 Part 4 Set 1 D" }
+    },
+    {
+      "id": "c1-u02-q004",
+      "stem": "A video editor's new external SSD needs a USB connection of at least 5 Gbps to run at full speed. Which of the following is the oldest USB version that meets this need?",
+      "choices": [
+        { "id": "a", "text": "USB 1.1" },
+        { "id": "b", "text": "USB 2.0" },
+        { "id": "c", "text": "USB 3.0" },
+        { "id": "d", "text": "USB4" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["2.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.5",
+        "title": "USB Standards",
+        "quote": "",
+        "find": "Introduced SuperSpeed at 5 Gbps"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q4" }
+    },
+    {
+      "id": "c1-u02-q005",
+      "stem": "A museum is buying displays for a new exhibit and wants panels that need no backlight behind the screen. Which display type BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "Mini-LED" },
+        { "id": "b", "text": "TN LCD" },
+        { "id": "c", "text": "OLED" },
+        { "id": "d", "text": "VA LCD" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["2.1.8", "2.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.8",
+        "title": "Display Types",
+        "quote": "",
+        "find": "each pixel emits its own light"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A25" }
+    },
+    {
+      "id": "c1-u02-q006",
+      "stem": "A hospital is replacing a nurses' station monitor that shows the same chart layout all day to staff who read its color-coded charts from off to one side. Which display type is the BEST choice for the new monitor?",
+      "choices": [
+        { "id": "a", "text": "OLED" },
+        { "id": "b", "text": "TN" },
+        { "id": "c", "text": "VA" },
+        { "id": "d", "text": "IPS" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["2.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.8",
+        "title": "Display Types",
+        "quote": "",
+        "find": "Superior color accuracy and wide viewing"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B8" }
+    },
+    {
+      "id": "c1-u02-q007",
+      "stem": "A gaming center is replacing its LCD monitors and wants the panel type with the fastest response time for fast-paced games. Which of the following should the center choose?",
+      "choices": [
+        { "id": "a", "text": "Mini-LED" },
+        { "id": "b", "text": "IPS" },
+        { "id": "c", "text": "TN" },
+        { "id": "d", "text": "VA" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["2.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.8",
+        "title": "Display Types",
+        "quote": "",
+        "find": "Faster response times and higher refresh"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 2.0 Part 4 Set 3 B" }
+    },
+    {
+      "id": "c1-u02-q008",
+      "stem": "A library's touch-screen kiosk shows its menu clearly, but nothing happens when patrons tap the buttons. Which component is MOST likely faulty?",
+      "choices": [
+        { "id": "a", "text": "The inverter" },
+        { "id": "b", "text": "The video card" },
+        { "id": "c", "text": "The backlight" },
+        { "id": "d", "text": "The digitizer" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["2.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.9",
+        "title": "Display Components",
+        "quote": "",
+        "find": "direct interaction through touch or stylus"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B11" }
+    },
+    {
+      "id": "c1-u02-q009",
+      "stem": "An older LCD monitor shows only a very faint image because its fluorescent backlight no longer lights. Which component converts DC power to AC to run this backlight?",
+      "choices": [
+        { "id": "a", "text": "The digitizer" },
+        { "id": "b", "text": "The power supply" },
+        { "id": "c", "text": "The video card" },
+        { "id": "d", "text": "The inverter" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.c"],
+      "units": ["2.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.9",
+        "title": "Display Components",
+        "quote": "",
+        "find": "converting DC power to AC"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C15" }
+    },
+    {
+      "id": "c1-u02-q010",
+      "stem": "A company logo looks dull and washed out on the office monitors but rich and vivid on the designer's monitor. Which specification MOST likely explains the difference?",
+      "choices": [
+        { "id": "a", "text": "Pixel density" },
+        { "id": "b", "text": "Refresh rate" },
+        { "id": "c", "text": "Color gamut" },
+        { "id": "d", "text": "Response time" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["2.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.9",
+        "title": "Display Components",
+        "quote": "",
+        "find": "more vibrant and accurate color"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A45" }
+    },
+    {
+      "id": "c1-u02-q011",
+      "stem": "A technician is ordering 4K monitors for a school's media lab. Which resolution on a monitor's spec sheet shows that it is a 4K model?",
+      "choices": [
+        { "id": "a", "text": "1920 x 1080" },
+        { "id": "b", "text": "2560 x 1440" },
+        { "id": "c", "text": "3840 x 2160" },
+        { "id": "d", "text": "7680 x 4320" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["2.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.9",
+        "title": "Display Components",
+        "quote": "",
+        "find": "3840x2160 for 4K"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 2.0-3.0 slide 5" }
+    },
+    {
+      "id": "c1-u02-q012",
+      "stem": "A gamer says fast-moving scenes look choppy on an old monitor and wants a new monitor that shows motion more smoothly. Which of the following upgrades BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "A wider color gamut" },
+        { "id": "b", "text": "A higher refresh rate" },
+        { "id": "c", "text": "A higher pixel density" },
+        { "id": "d", "text": "A higher screen resolution" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["2.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.9",
+        "title": "Display Components",
+        "quote": "",
+        "find": "provide smoother motion"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 2.0 Part 4 Set 3 F" }
+    },
+    {
+      "id": "c1-u02-q013",
+      "stem": "A technician replaces the DVI-D cable between an office PC and its monitor with an HDMI cable. Which of the following can the HDMI cable carry that DVI-D lacks?",
+      "choices": [
+        { "id": "a", "text": "Analog video signals" },
+        { "id": "b", "text": "Audio signals" },
+        { "id": "c", "text": "Digital video signals" },
+        { "id": "d", "text": "Video for several displays" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.c"],
+      "units": ["2.1.10", "2.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.10",
+        "title": "HDMI and DisplayPort Video Cables",
+        "quote": "",
+        "find": "Transmits both high-definition video and audio"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q8" }
+    },
+    {
+      "id": "c1-u02-q014",
+      "stem": "A user asks whether a new monitor's built-in speakers will play sound from a PC that is connected to the monitor only by a DisplayPort cable. Which of the following should the technician tell the user?",
+      "choices": [
+        { "id": "a", "text": "Yes, but only after adding a DisplayPort to HDMI adapter" },
+        { "id": "b", "text": "No, because DisplayPort carries video but not audio" },
+        { "id": "c", "text": "No, because only HDMI cables carry audio to a monitor" },
+        { "id": "d", "text": "Yes, because DisplayPort carries audio as well as video" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.c"],
+      "units": ["2.1.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.10",
+        "title": "HDMI and DisplayPort Video Cables",
+        "quote": "",
+        "find": "interface for connecting a video source"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q14" }
+    },
+    {
+      "id": "c1-u02-q015",
+      "stem": "A user wants to connect a laptop to a desk dock with one cable, and the dock must run two monitors plus a keyboard, mouse, and external drive. Which interface BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "HDMI" },
+        { "id": "b", "text": "eSATA" },
+        { "id": "c", "text": "Thunderbolt" },
+        { "id": "d", "text": "DisplayPort" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["2.1.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.11",
+        "title": "Thunderbolt Interface",
+        "quote": "",
+        "find": "and as a general peripheral"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B39" }
+    },
+    {
+      "id": "c1-u02-q016",
+      "stem": "A user needs a new cable to charge an older iPhone and to sync its photos with a Windows PC. Which connector will the cable MOST likely need on the phone end?",
+      "choices": [
+        { "id": "a", "text": "MicroUSB" },
+        { "id": "b", "text": "Lightning" },
+        { "id": "c", "text": "Thunderbolt" },
+        { "id": "d", "text": "MiniUSB" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["2.1.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.12",
+        "title": "Lightning Interface",
+        "quote": "",
+        "find": "used primarily in iPhone and iPad"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A30" }
+    },
+    {
+      "id": "c1-u02-q017",
+      "stem": "A technician is adding a second hard drive inside an office desktop PC. Which interface will the technician MOST likely use to connect the drive to the motherboard?",
+      "choices": [
+        { "id": "a", "text": "eSATA" },
+        { "id": "b", "text": "PATA" },
+        { "id": "c", "text": "USB" },
+        { "id": "d", "text": "SATA" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.d"],
+      "units": ["2.1.13"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.13",
+        "title": "Serial Advanced Technology Attachment Interface",
+        "quote": "",
+        "find": "standard for connecting internal storage drives"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q5" }
+    },
+    {
+      "id": "c1-u02-q018",
+      "stem": "A technician plans to run two SATA hard drives from a single motherboard SATA port by using one cable. Which of the following BEST describes this plan?",
+      "choices": [
+        { "id": "a", "text": "It will work if each drive gets its own power connector" },
+        { "id": "b", "text": "It will fail, since each SATA connector supports only one device" },
+        { "id": "c", "text": "It will work if the data cable is no longer than 1 meter" },
+        { "id": "d", "text": "It will fail, since a SATA port can power only one drive" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.d"],
+      "units": ["2.1.13"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.13",
+        "title": "Serial Advanced Technology Attachment Interface",
+        "quote": "",
+        "find": "each supporting a single device"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q6" }
+    },
+    {
+      "id": "c1-u02-q019",
+      "stem": "While removing a SATA hard drive, a technician unplugs a 15-pin cable and a 7-pin cable from it. What does the 7-pin cable carry?",
+      "choices": [
+        { "id": "a", "text": "Power from the power supply" },
+        { "id": "b", "text": "Data to and from the motherboard" },
+        { "id": "c", "text": "Both power and data" },
+        { "id": "d", "text": "Power from the motherboard" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.d"],
+      "units": ["2.1.13"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.13",
+        "title": "Serial Advanced Technology Attachment Interface",
+        "quote": "",
+        "find": "The 7-pin data connector"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q9" }
+    },
+    {
+      "id": "c1-u02-q020",
+      "stem": "A technician is reusing a hard drive from a very old PC as extra storage in a newer desktop. Which power supply connector will this older drive MOST likely use?",
+      "choices": [
+        { "id": "a", "text": "A PCIe power connector" },
+        { "id": "b", "text": "A SATA power connector" },
+        { "id": "c", "text": "A Molex power connector" },
+        { "id": "d", "text": "A P1 main power connector" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["2.1.14"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.1.14",
+        "title": "Molex Power Connectors",
+        "quote": "",
+        "find": "using a 4-pin Molex connector"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q12" }
+    },
+    {
+      "id": "c1-u02-q021",
+      "stem": "A customer wants to replace the Intel processor in a desktop PC with a faster AMD processor. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Update the BIOS so the board can accept an AMD processor" },
+        { "id": "b", "text": "Replace the motherboard with one whose socket fits an AMD processor" },
+        { "id": "c", "text": "Upgrade the chipset so the board can accept an AMD processor" },
+        { "id": "d", "text": "Replace the memory with modules made for an AMD processor" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.5", "3.5.c"],
+      "units": ["2.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.3",
+        "title": "Motherboard CPU and System Memory Connectors",
+        "quote": "",
+        "find": "uses different socket designs"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q23" }
+    },
+    {
+      "id": "c1-u02-q022",
+      "stem": "A technician needs to connect a hard drive enclosure that sits on the desk to a port on the back of an older workstation's case. Which of the following is designed for this connection?",
+      "choices": [
+        { "id": "a", "text": "SATA" },
+        { "id": "b", "text": "Molex" },
+        { "id": "c", "text": "eSATA" },
+        { "id": "d", "text": "M.2" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.d"],
+      "units": ["2.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.4",
+        "title": "Motherboard Storage Connectors",
+        "quote": "",
+        "find": "cables are designed for external connections"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B30" }
+    },
+    {
+      "id": "c1-u02-q023",
+      "stem": "While upgrading a small desktop, a technician finds a short slot that lies flat against the motherboard, with a screw post beyond it and printed labels for 42 mm to 80 mm cards. Which type of connector is this?",
+      "choices": [
+        { "id": "a", "text": "A DIMM slot" },
+        { "id": "b", "text": "A PCIe x1 slot" },
+        { "id": "c", "text": "A PCI slot" },
+        { "id": "d", "text": "An M.2 slot" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["2.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.4",
+        "title": "Motherboard Storage Connectors",
+        "quote": "",
+        "find": "often using an M.2 interface"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q45" }
+    },
+    {
+      "id": "c1-u02-q024",
+      "stem": "A technician is building a desktop PC with one M.2 SSD and one SATA SSD. Which of the following drives must be connected to a power cable from the power supply?",
+      "choices": [
+        { "id": "a", "text": "Only the M.2 SSD" },
+        { "id": "b", "text": "Only the SATA SSD" },
+        { "id": "c", "text": "Both of the drives" },
+        { "id": "d", "text": "Neither of the drives" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["2.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.4",
+        "title": "Motherboard Storage Connectors",
+        "quote": "",
+        "find": "M.2 supplies power over the"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q16" }
+    },
+    {
+      "id": "c1-u02-q025",
+      "stem": "A trainee asks how a card in a PCIe slot exchanges data with the other components on the motherboard. Which of the following BEST describes how PCIe carries that data?",
+      "choices": [
+        { "id": "a", "text": "Parallel signals over one bus that every card shares" },
+        { "id": "b", "text": "Serial signals over one bus that every card shares" },
+        { "id": "c", "text": "Serial signals over a link dedicated to that card" },
+        { "id": "d", "text": "Parallel signals over a link dedicated to that card" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["2.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.5",
+        "title": "Peripheral Component Interconnect Express Interface",
+        "quote": "",
+        "find": "adapter cards, using point-to-point serial"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q19" }
+    },
+    {
+      "id": "c1-u02-q026",
+      "stem": "A technician needs to install a PCIe x4 card, but the PC's only free slot is a PCIe x1 slot. Which of the following BEST describes whether the card can be installed?",
+      "choices": [
+        { "id": "a", "text": "It can be installed if the board labels the slot as x4 capable" },
+        { "id": "b", "text": "It cannot be installed, since a card needs a slot with the same number of lanes" },
+        { "id": "c", "text": "It cannot be installed, since a card needs a slot with the same number of lanes or more" },
+        { "id": "d", "text": "It can be installed if nothing blocks the end of the longer card" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["2.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.5",
+        "title": "Peripheral Component Interconnect Express Interface",
+        "quote": "",
+        "find": "fitting a longer card into"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q39" }
+    },
+    {
+      "id": "c1-u02-q027",
+      "stem": "A technician wants to reuse a 3.3V PCI card in an old PC whose only free PCI slot is built for 5V cards. Which of the following will MOST likely happen?",
+      "choices": [
+        { "id": "a", "text": "The card will fit but run at half speed" },
+        { "id": "b", "text": "The card will fit and run normally" },
+        { "id": "c", "text": "The card will not fit in the slot" },
+        { "id": "d", "text": "The card will fit but need a PCIe power cable" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["2.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.6",
+        "title": "Peripheral Component Interconnect Interface",
+        "quote": "",
+        "find": "To prevent incompatible cards from"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q19" }
+    },
+    {
+      "id": "c1-u02-q028",
+      "stem": "A technician is building a home media PC that must fit in a small case on a living room shelf. Which motherboard form factor should the technician choose?",
+      "choices": [
+        { "id": "a", "text": "ATX" },
+        { "id": "b", "text": "Micro-ATX" },
+        { "id": "c", "text": "Mini-ITX" },
+        { "id": "d", "text": "Nano-ITX" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.5", "3.5.a"],
+      "units": ["2.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.7",
+        "title": "Motherboard Form Factors",
+        "quote": "",
+        "find": "Small form factor (SFF) PCs"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q47" }
+    },
+    {
+      "id": "c1-u02-q029",
+      "stem": "A technician is moving a Micro-ATX motherboard from a small case into a full-size ATX case. Which of the following should the technician do before screwing the board into place?",
+      "choices": [
+        { "id": "a", "text": "Install standoffs in every position for extra support" },
+        { "id": "b", "text": "Install standoffs only where the board has mounting holes" },
+        { "id": "c", "text": "Install standoffs only along the edges of the board" },
+        { "id": "d", "text": "Skip the standoffs and screw the board straight to the case" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.5"],
+      "units": ["2.2.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.8",
+        "title": "Motherboard Installation",
+        "quote": "",
+        "find": "standoffs are only positioned where"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q28" }
+    },
+    {
+      "id": "c1-u02-q030",
+      "stem": "A technician is installing a new case whose front panel has two USB 3 ports. Which motherboard connector should the front USB cable plug into?",
+      "choices": [
+        { "id": "a", "text": "A 20-pin header" },
+        { "id": "b", "text": "A 9-pin header" },
+        { "id": "c", "text": "The 24-pin P1 connector" },
+        { "id": "d", "text": "A SATA port" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["2.2.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.10",
+        "title": "Motherboard Headers and Power Connectors",
+        "quote": "",
+        "find": "connect to two USB 3.x ports"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B27" }
+    },
+    {
+      "id": "c1-u02-q031",
+      "stem": "After moving an office PC's parts into a new case, a technician finds that the case's front headphone jack is silent while the rear audio jack works. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The front audio cable is not on the HD Audio header" },
+        { "id": "b", "text": "The onboard audio is turned off in the firmware" },
+        { "id": "c", "text": "The 24-pin P1 cable is not fully seated" },
+        { "id": "d", "text": "The front jack needs its own sound card" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["2.2.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.10",
+        "title": "Motherboard Headers and Power Connectors",
+        "quote": "",
+        "find": "via an HD Audio header"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q27" }
+    },
+    {
+      "id": "c1-u02-q032",
+      "stem": "A technician is moving a desktop PC's motherboard into a new case and must connect the case's power button. Which of the following motherboard connectors should the technician use?",
+      "choices": [
+        { "id": "a", "text": "The front panel header" },
+        { "id": "b", "text": "The HD Audio header" },
+        { "id": "c", "text": "The 24-pin P1 connector" },
+        { "id": "d", "text": "A 4-pin fan connector" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["2.2.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.10",
+        "title": "Motherboard Headers and Power Connectors",
+        "quote": "",
+        "find": "panels of the case connect to"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q20" }
+    },
+    {
+      "id": "c1-u02-q033",
+      "stem": "After a technician reinstalls a desktop PC's motherboard, the PC runs normally, but the case's drive activity light never turns on. Which of the following would MOST likely have prevented this?",
+      "choices": [
+        { "id": "a", "text": "Taking photos of the header connectors before unplugging them" },
+        { "id": "b", "text": "Wearing an anti-static wrist strap while handling the board" },
+        { "id": "c", "text": "Installing the I/O shield before mounting the board" },
+        { "id": "d", "text": "Reseating the 24-pin power cable after mounting the board" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["2.2.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.10",
+        "title": "Motherboard Headers and Power Connectors",
+        "quote": "",
+        "find": "create a diagram or take photos"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q18" }
+    },
+    {
+      "id": "c1-u02-q034",
+      "stem": "A school is buying new graphics cards for its lab PCs, and each card will connect to a classroom projector. Which video port are the new cards MOST likely to have?",
+      "choices": [
+        { "id": "a", "text": "HDMI" },
+        { "id": "b", "text": "VGA" },
+        { "id": "c", "text": "DVI-A" },
+        { "id": "d", "text": "DVI-I" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.c"],
+      "units": ["2.2.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.12",
+        "title": "Video Cards",
+        "quote": "",
+        "find": "graphics cards typically feature HDMI"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C90" }
+    },
+    {
+      "id": "c1-u02-q035",
+      "stem": "A designer's desktop PC uses integrated graphics that cannot keep up with 3D modeling software, so a technician is adding a discrete graphics card. Which motherboard slot is BEST for the card?",
+      "choices": [
+        { "id": "a", "text": "A PCIe x16 slot" },
+        { "id": "b", "text": "A PCIe x1 slot" },
+        { "id": "c", "text": "A PCI slot" },
+        { "id": "d", "text": "An M.2 slot" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.5", "3.5.h"],
+      "units": ["2.2.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.12",
+        "title": "Video Cards",
+        "quote": "",
+        "find": "graphics cards use a PCIe x16"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q21" }
+    },
+    {
+      "id": "c1-u02-q036",
+      "stem": "A history teacher wants to save interviews from a camcorder's HDMI output as video files on a desktop PC. Which of the following should a technician install?",
+      "choices": [
+        { "id": "a", "text": "A video card" },
+        { "id": "b", "text": "A capture card" },
+        { "id": "c", "text": "A sound card" },
+        { "id": "d", "text": "A network interface card" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.5", "3.5.h"],
+      "units": ["2.2.14"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.14",
+        "title": "Capture Cards",
+        "quote": "",
+        "find": "Record video from various HDMI sources"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C44" }
+    },
+    {
+      "id": "c1-u02-q037",
+      "stem": "A video studio's file server has one onboard Ethernet port, and it slows down when several editors copy large files at once. Which of the following BEST adds bandwidth without replacing the studio's copper cabling?",
+      "choices": [
+        { "id": "a", "text": "A Wi-Fi network card" },
+        { "id": "b", "text": "A NIC with bonded ports" },
+        { "id": "c", "text": "A cellular data card" },
+        { "id": "d", "text": "A NIC with fiber optic ports" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.5", "3.5.h"],
+      "units": ["2.2.16"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.2.16",
+        "title": "Network Interface Cards",
+        "quote": "",
+        "find": "NIC can also provide multiple ports"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 2.0 Part 4 Set 6 L" }
+    },
+    {
+      "id": "c1-u02-q038",
+      "stem": "A school is replacing its old analog monitors with new monitors that accept only digital video. Which of the following video card ports send digital video?",
+      "choices": [
+        { "id": "a", "text": "VGA" },
+        { "id": "b", "text": "DVI-A" },
+        { "id": "c", "text": "DVI-D" },
+        { "id": "d", "text": "HDMI" },
+        { "id": "e", "text": "DB9" }
+      ],
+      "answer": ["c", "d"],
+      "objectives": ["3.2", "3.2.c"],
+      "units": ["2.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.3.1",
+        "title": "DVI and VGA Video Cables",
+        "quote": "",
+        "find": "DVI-A supports only analog output"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C29" }
+    },
+    {
+      "id": "c1-u02-q039",
+      "stem": "A technician must connect a PC to an old CRT monitor that accepts only an analog signal. Which of the following ports on the PC's video card carries an analog signal?",
+      "choices": [
+        { "id": "a", "text": "DVI-I" },
+        { "id": "b", "text": "DVI-D" },
+        { "id": "c", "text": "HDMI" },
+        { "id": "d", "text": "DisplayPort" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.c"],
+      "units": ["2.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.3.1",
+        "title": "DVI and VGA Video Cables",
+        "quote": "",
+        "find": "DVI-I supports both analog and digital"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q52" }
+    },
+    {
+      "id": "c1-u02-q040",
+      "stem": "While labeling the ports on a new rack switch, a technician finds one marked CONSOLE that is used to set up and manage the switch. Which type of connection does this port MOST likely use?",
+      "choices": [
+        { "id": "a", "text": "Serial" },
+        { "id": "b", "text": "DisplayPort" },
+        { "id": "c", "text": "eSATA" },
+        { "id": "d", "text": "PS/2" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["2.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.3.3",
+        "title": "Serial Cables",
+        "quote": "",
+        "find": "serial ports on network equipment"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B42" }
+    },
+    {
+      "id": "c1-u02-q041",
+      "stem": "An older desktop PC connects to an external dial-up modem through its serial port, and the cable between them is damaged. Which connector will the replacement cable MOST likely need at the PC end?",
+      "choices": [
+        { "id": "a", "text": "6-pin mini-DIN" },
+        { "id": "b", "text": "9-pin DB9" },
+        { "id": "c", "text": "15-pin VGA" },
+        { "id": "d", "text": "25-pin D-shell" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["2.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.3.3",
+        "title": "Serial Cables",
+        "quote": "",
+        "find": "typically use the cheaper 9-pin"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B21" }
+    },
+    {
+      "id": "c1-u02-q042",
+      "stem": "A technician must connect a new laptop's HDMI port to an old lab monitor that accepts only VGA. Which of the following BEST describes the adapter the technician needs?",
+      "choices": [
+        { "id": "a", "text": "An active adapter that converts digital to analog" },
+        { "id": "b", "text": "A passive adapter that only changes the connector" },
+        { "id": "c", "text": "An active adapter that converts analog to digital" },
+        { "id": "d", "text": "A passive adapter, since both use digital video" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.e"],
+      "units": ["2.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.3.4",
+        "title": "Adapter Cables",
+        "quote": "",
+        "find": "like digital HDMI to analog VGA"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q54" }
+    },
+    {
+      "id": "c1-u02-q043",
+      "stem": "A museum's new kiosk tablet has only a USB-C port and must send video to the gallery's projector, which has only an HDMI input. Which of the following should a technician use?",
+      "choices": [
+        { "id": "a", "text": "A USB-C to HDMI adapter" },
+        { "id": "b", "text": "A USB-C to USB-A adapter" },
+        { "id": "c", "text": "An HDMI to VGA adapter" },
+        { "id": "d", "text": "A DisplayPort to HDMI adapter" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.e"],
+      "units": ["2.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.3.4",
+        "title": "Adapter Cables",
+        "quote": "",
+        "find": "Include adapters like USB-C to HDMI"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q51" }
+    },
+    {
+      "id": "c1-u02-q044",
+      "stem": "An old lab instrument sends its readings through an RS-232 port, and the lab's new laptop has only USB ports. Which of the following should a technician use to connect them?",
+      "choices": [
+        { "id": "a", "text": "A USB to serial adapter cable" },
+        { "id": "b", "text": "A USB to PS/2 adapter cable" },
+        { "id": "c", "text": "A serial extension cable" },
+        { "id": "d", "text": "A four-port USB hub" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.e"],
+      "units": ["2.3.4", "2.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "2.3.4",
+        "title": "Adapter Cables",
+        "quote": "",
+        "find": "An adapter cable can solve"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q48" }
+    }
+  ]
+}

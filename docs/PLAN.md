@@ -28,7 +28,7 @@ Order: A+ Core 1 first, then Core 2, Network+, Security+. Hosting: GitHub Pages 
 | UI cleanup: no emoji, labels instead of instructions | Done |
 | A+ Core 1 outline: 27 objectives and 131 bullets (official v4.0), 10 units, 32 lessons, 223 reading sections | Done |
 | Local test server (`serve.cmd`), content check, quote helper, GitHub Pages deploy file | Done (first deploy ran 2026-11-10) |
-| **Content** | **A+ Core 1 Unit 3.0 written** (2026-11-10): 62 questions (8 choose-two or choose-three) and 61 flashcards, weighted by exam evidence, keyed to the reading, and checked by independent agents. Not yet marked reviewed; book quotes still to add. The placeholder packs are deleted. Every other unit says "Coming soon". |
+| **Content** | **A+ Core 1 Units 2.0 and 3.0 written.** Unit 3.0 (2026-11-10): 62 questions (8 choose-two or choose-three) and 61 flashcards. Unit 2.0 (2026-11-12): 44 questions (1 choose-two) and 39 flashcards. Both are weighted by exam evidence, keyed to the reading, and checked by independent agents. Neither is marked reviewed yet; book quotes still to add. The placeholder packs are deleted. Every other unit says "Coming soon". |
 | Kept out of search results ("do not list" tag on every page) | Done |
 | Sign-in and scoreboard | **Not building for now** (decided 2026-11-10). Notes for later are in section 5. |
 | Published anywhere | Yes, since 2026-11-10: https://l-e-f-t.github.io/Mr-Flautos-Study-Material-Site/ (repository `L-E-F-T/Mr-Flautos-Study-Material-Site`, public). Every push to `main` runs the content check and redeploys. |
@@ -158,8 +158,8 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 
 **Content (separate chat)**
 
-1. Done (2026-11-10): A+ Core 1 Unit 3.0 (62 questions, 61 flashcards); placeholder packs deleted.
-2. A+ Core 1, one chat per unit (started with `docs/CONTENT-HANDOFF.md`), in this order: 2.0, 5.0, 6.0, 4.0, 7.0, 8.0, 9.0, 10.0. Each chat reads `docs/CONTENT-NOTES.md` first and adds to it before it ends, commits its unit on `main`, asks before pushing, and ends with a button that starts the next unit's chat.
+1. Done: A+ Core 1 Unit 3.0 (2026-11-10: 62 questions, 61 flashcards; placeholder packs deleted) and Unit 2.0 (2026-11-12: 44 questions, 39 flashcards).
+2. A+ Core 1, one chat per unit (started with `docs/CONTENT-HANDOFF.md`), in this order: 5.0, 6.0, 4.0, 7.0, 8.0, 9.0, 10.0. Each chat reads `docs/CONTENT-NOTES.md` first and adds to it before it ends, commits its unit on `main`, asks before pushing, and ends with a button that starts the next unit's chat.
 3. Unit 1.0 gets no pack. Its troubleshooting methodology is not tested directly: the 220-1201 objectives say "the methodology itself will not be tested", and CertMaster 1.2.1 says it is not tied to an exam objective. The exam uses it only inside Domain 5 scenarios ("which should the technician do FIRST?"), and those questions belong to the units that teach the hardware.
 4. You read each unit on the local site, add the book quotes with the quote helper, and mark the pack reviewed.
 5. Then Core 2, Network+, and Security+, one exam at a time.
@@ -218,7 +218,7 @@ Also worth doing: apply for **GitHub Education as a teacher** (free private repo
 
 | Source | What it gives | Notes |
 |---|---|---|
-| CertMaster Learn 15.0 printout (Modules folder, 581 pages) | The reading: 223 sections | Section numbers skip where CertMaster has a video, lab, or activity |
+| CertMaster Learn 15.0 printout (`CompTIAA+\Book\bySubunit`, 581 pages) | The reading: 223 sections | Section numbers skip where CertMaster has a video, lab, or activity |
 | CertMaster question pool (`2.0.txt` to `10.0.txt`) | 659 items: 580 single answer, 79 multiple response | No answer key. Items run in lesson order. No pool for Unit 1. |
 | Professor Messer 220-1201 Practice Exams v1.12 | 255 multiple-choice items (plus 15 performance-based, not used) | Key, explanations, and an objective tag on every item |
 | CompTIA 220-1201 objectives v4.0 | The objective tree | Domain weights: 13 / 23 / 25 / 11 / 28 % |

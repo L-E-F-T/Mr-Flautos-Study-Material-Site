@@ -7,7 +7,7 @@
       "term": "DIMM (Dual Inline Memory Module)",
       "definition": "The full-size memory module used in desktop PCs, offering higher capacities and better performance than laptop modules.",
       "objectives": ["3.3", "3.3.a"],
-      "units": ["3.3.3"],
+      "units": ["3.3.3", "2.2.3"],
       "reference": { "source": "certmaster", "section": "3.3.3", "title": "Memory Modules" }
     },
     {
@@ -47,7 +47,7 @@
       "term": "DDR5",
       "definition": "The newest DDR generation, which splits each module into two 32-bit subchannels and will not fit a DDR4 slot.",
       "objectives": ["3.3", "3.3.b"],
-      "units": ["3.3.2", "3.3.3"],
+      "units": ["3.3.2", "3.3.3", "2.2.3"],
       "reference": { "source": "certmaster", "section": "3.3.2", "title": "RAM Types" }
     },
     {
@@ -55,7 +55,7 @@
       "term": "RAM (Random-Access Memory)",
       "definition": "The system memory that running programs and open files load into; faster than SSDs and HDDs but volatile, so it holds data only while powered on.",
       "objectives": ["3.3"],
-      "units": ["3.3.1"],
+      "units": ["3.3.1", "2.2.1", "2.2.3"],
       "reference": { "source": "certmaster", "section": "3.3.1", "title": "System RAM and Virtual Memory" }
     },
     {
@@ -167,7 +167,7 @@
       "term": "SATA (Serial Advanced Technology Attachment)",
       "definition": "The drive interface used by most HDDs and by 2.5-inch SSDs; its 600 MBps limit can bottleneck fast SSDs.",
       "objectives": ["3.4", "3.4.b"],
-      "units": ["3.2.3", "3.2.4"],
+      "units": ["3.2.3", "3.2.4", "2.1.13", "2.2.4"],
       "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
     },
     {
@@ -175,7 +175,7 @@
       "term": "PCIe (Peripheral Component Interconnect Express)",
       "definition": "The motherboard's standard bus for expansion cards, which fast NVMe SSDs also use directly for better performance.",
       "objectives": ["3.4", "3.4.b"],
-      "units": ["3.2.3"],
+      "units": ["3.2.3", "2.2.5"],
       "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
     },
     {
@@ -191,7 +191,7 @@
       "term": "M.2",
       "definition": "A small SSD form factor that lies flat on the motherboard, draws power from its slot with no cable, and can use SATA or NVMe.",
       "objectives": ["3.4", "3.4.b"],
-      "units": ["3.2.3"],
+      "units": ["3.2.3", "2.2.4"],
       "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
     },
     {
@@ -279,7 +279,7 @@
       "term": "Power connectors",
       "definition": "The PSU's plugs that deliver DC power: the 24-pin P1 for the motherboard, 4/6/8/16-pin leads for the CPU and PCIe cards, SATA power, and Molex.",
       "objectives": ["3.5", "3.5.b"],
-      "units": ["3.1.4"],
+      "units": ["3.1.4", "2.2.10"],
       "reference": { "source": "certmaster", "section": "3.1.4", "title": "Power Supply Connectors" }
     },
     {
@@ -319,7 +319,7 @@
       "term": "CPU (Central Processing Unit)",
       "definition": "The processor, which executes the instruction code of firmware, the operating system, and applications.",
       "objectives": ["3.5"],
-      "units": ["3.4.1"],
+      "units": ["3.4.1", "2.2.1"],
       "reference": { "source": "certmaster", "section": "3.4.1", "title": "CPU Architecture" }
     },
     {

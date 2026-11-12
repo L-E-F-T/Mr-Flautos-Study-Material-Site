@@ -1,0 +1,318 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-02", "title": "Unit 2.0 Installing Motherboards and Connectors", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "c1-u02-f001",
+      "term": "MiniUSB",
+      "definition": "The small USB connector once used on smaller peripherals such as early digital cameras; it is rarely used now.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["2.1.4"],
+      "reference": { "source": "certmaster", "section": "2.1.4", "title": "Universal Serial Bus Cables" }
+    },
+    {
+      "id": "c1-u02-f002",
+      "term": "MicroUSB",
+      "definition": "The flatter USB connector used on smaller devices such as smartphones and tablets; its USB 3 version will not plug into a USB 2 port.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["2.1.4"],
+      "reference": { "source": "certmaster", "section": "2.1.4", "title": "Universal Serial Bus Cables" }
+    },
+    {
+      "id": "c1-u02-f003",
+      "term": "USB-C",
+      "definition": "The compact, reversible USB connector introduced with USB 3.1; besides data and charging, it can carry video when the port supports DisplayPort or Thunderbolt.",
+      "objectives": ["3.2", "3.2.c", "3.2.f"],
+      "units": ["2.1.4", "2.2.12"],
+      "reference": { "source": "certmaster", "section": "2.1.4", "title": "Universal Serial Bus Cables" }
+    },
+    {
+      "id": "c1-u02-f004",
+      "term": "USB 2.0",
+      "definition": "High Speed USB at 480 Mbps, which introduced the Mini and Micro connectors; its cables can run up to 5 meters.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["2.1.5", "2.1.4"],
+      "reference": { "source": "certmaster", "section": "2.1.5", "title": "USB Standards" }
+    },
+    {
+      "id": "c1-u02-f005",
+      "term": "USB 3.0",
+      "definition": "SuperSpeed USB at 5 Gbps, later renamed USB 3.1 Gen 1; its connectors often have a blue tab, and its Type A plugs also fit USB 2 ports.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["2.1.5", "2.1.4"],
+      "reference": { "source": "certmaster", "section": "2.1.5", "title": "USB Standards" }
+    },
+    {
+      "id": "c1-u02-f006",
+      "term": "LCD (Liquid Crystal Display)",
+      "definition": "The most common display type, lit by a backlight (LED in modern panels, fluorescent tubes in older ones); its three main subtypes are IPS, TN, and VA.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["2.1.8", "2.1.9"],
+      "reference": { "source": "certmaster", "section": "2.1.8", "title": "Display Types" }
+    },
+    {
+      "id": "c1-u02-f007",
+      "term": "IPS (In-Plane Switching)",
+      "definition": "An LCD type with crystals aligned parallel to the screen; its superior color accuracy and wide viewing angles suit graphic design, but it responds slower than TN.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["2.1.8"],
+      "reference": { "source": "certmaster", "section": "2.1.8", "title": "Display Types" }
+    },
+    {
+      "id": "c1-u02-f008",
+      "term": "TN (Twisted Nematic)",
+      "definition": "An LCD type whose crystals twist 90 degrees; its faster response times and higher refresh rates suit gaming, but it has poorer color and limited viewing angles.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["2.1.8"],
+      "reference": { "source": "certmaster", "section": "2.1.8", "title": "Display Types" }
+    },
+    {
+      "id": "c1-u02-f009",
+      "term": "VA (Vertical Alignment)",
+      "definition": "An LCD type with vertically aligned crystals that tilt under voltage; it has better color and viewing angles than TN but slower response, and colors can shift at extreme angles.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["2.1.8"],
+      "reference": { "source": "certmaster", "section": "2.1.8", "title": "Display Types" }
+    },
+    {
+      "id": "c1-u02-f010",
+      "term": "OLED (Organic Light-Emitting Diode)",
+      "definition": "A display where each pixel emits its own light, giving true blacks and excellent contrast and color; static images left on too long can cause burn-in.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["2.1.8"],
+      "reference": { "source": "certmaster", "section": "2.1.8", "title": "Display Types" }
+    },
+    {
+      "id": "c1-u02-f011",
+      "term": "Mini-LED (Mini Light-Emitting Diode)",
+      "definition": "An LCD enhancement, not a type of OLED, that backlights the screen with thousands of tiny LEDs for better brightness and contrast, but without OLED's true blacks.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["2.1.8"],
+      "reference": { "source": "certmaster", "section": "2.1.8", "title": "Display Types" }
+    },
+    {
+      "id": "c1-u02-f012",
+      "term": "Touch screen/digitizer",
+      "definition": "Lets a user interact directly with a display by touch or stylus; common in smartphones, tablets, and some laptops.",
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["2.1.9"],
+      "reference": { "source": "certmaster", "section": "2.1.9", "title": "Display Components" }
+    },
+    {
+      "id": "c1-u02-f013",
+      "term": "Inverter",
+      "definition": "Converts DC power to AC for the backlight in older LCDs; modern displays with LED backlighting typically do not need one.",
+      "objectives": ["3.1", "3.1.c"],
+      "units": ["2.1.9"],
+      "reference": { "source": "certmaster", "section": "2.1.9", "title": "Display Components" }
+    },
+    {
+      "id": "c1-u02-f014",
+      "term": "Pixel density",
+      "definition": "How closely a screen's pixels are packed together; higher density results in sharper images.",
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["2.1.9"],
+      "reference": { "source": "certmaster", "section": "2.1.9", "title": "Display Components" }
+    },
+    {
+      "id": "c1-u02-f015",
+      "term": "Refresh rate",
+      "definition": "How often a display redraws its image, measured in hertz (Hz); higher rates give smoother motion for gaming and video playback.",
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["2.1.9"],
+      "reference": { "source": "certmaster", "section": "2.1.9", "title": "Display Components" }
+    },
+    {
+      "id": "c1-u02-f016",
+      "term": "Screen resolution",
+      "definition": "The number of pixels across and down a display, which defines its clarity and detail: Full HD is 1920x1080, Quad HD 2560x1440, and 4K 3840x2160.",
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["2.1.9"],
+      "reference": { "source": "certmaster", "section": "2.1.9", "title": "Display Components" }
+    },
+    {
+      "id": "c1-u02-f017",
+      "term": "Color gamut",
+      "definition": "The range of colors a display can produce; a wider gamut, such as DCI-P3 compared with sRGB, gives more vibrant and accurate color.",
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["2.1.9"],
+      "reference": { "source": "certmaster", "section": "2.1.9", "title": "Display Components" }
+    },
+    {
+      "id": "c1-u02-f018",
+      "term": "HDMI (High-Definition Multimedia Interface)",
+      "definition": "Carries high-definition video and audio through a single cable; the common connection for TVs, monitors, and gaming consoles.",
+      "objectives": ["3.2", "3.2.c"],
+      "units": ["2.1.10"],
+      "reference": { "source": "certmaster", "section": "2.1.10", "title": "HDMI and DisplayPort Video Cables" }
+    },
+    {
+      "id": "c1-u02-f019",
+      "term": "DisplayPort",
+      "definition": "A digital display interface with higher resolutions and refresh rates than HDMI; it also carries audio and can run several monitors from one port with Multi-Stream Transport (MST).",
+      "objectives": ["3.2", "3.2.c"],
+      "units": ["2.1.10"],
+      "reference": { "source": "certmaster", "section": "2.1.10", "title": "HDMI and DisplayPort Video Cables" }
+    },
+    {
+      "id": "c1-u02-f020",
+      "term": "Thunderbolt",
+      "definition": "An interface for both displays and peripherals, marked with a lightning bolt icon; versions 3 and 4 use the USB-C connector and run at up to 40 Gbps.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["2.1.11"],
+      "reference": { "source": "certmaster", "section": "2.1.11", "title": "Thunderbolt Interface" }
+    },
+    {
+      "id": "c1-u02-f021",
+      "term": "Lightning",
+      "definition": "Apple's proprietary, reversible connector for iPhones and iPads; it needs an adapter cable to reach a PC's USB port and is being phased out for USB-C.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["2.1.12"],
+      "reference": { "source": "certmaster", "section": "2.1.12", "title": "Lightning Interface" }
+    },
+    {
+      "id": "c1-u02-f022",
+      "term": "Molex",
+      "definition": "The 4-pin PSU connector that powers legacy internal drives and components, usually white or clear plastic, with red 5 VDC, yellow 12 VDC, and black ground wires.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["2.1.14"],
+      "reference": { "source": "certmaster", "section": "2.1.14", "title": "Molex Power Connectors" }
+    },
+    {
+      "id": "c1-u02-f023",
+      "term": "eSATA (External SATA)",
+      "definition": "The external version of SATA, with better-shielded cables up to 2 meters long; unlike USB or Thunderbolt, it supplies no power over the cable.",
+      "objectives": ["3.2", "3.2.d"],
+      "units": ["2.2.4"],
+      "reference": { "source": "certmaster", "section": "2.2.4", "title": "Motherboard Storage Connectors" }
+    },
+    {
+      "id": "c1-u02-f024",
+      "term": "PCI (Peripheral Component Interconnect)",
+      "definition": "The legacy parallel expansion bus, typically 32-bit at up to 133 MBps, that PCIe replaced; its cards cannot fit into PCIe slots.",
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["2.2.6"],
+      "reference": { "source": "certmaster", "section": "2.2.6", "title": "Peripheral Component Interconnect Interface" }
+    },
+    {
+      "id": "c1-u02-f025",
+      "term": "ATX (Advanced Technology Extended)",
+      "definition": "The standard form factor for most desktop motherboards and cases; a full-size board measures 12 x 9.6 inches and can have up to seven expansion slots.",
+      "objectives": ["3.5", "3.5.a"],
+      "units": ["2.2.7"],
+      "reference": { "source": "certmaster", "section": "2.2.7", "title": "Motherboard Form Factors" }
+    },
+    {
+      "id": "c1-u02-f026",
+      "term": "microATX (mATX)",
+      "definition": "A square 9.6 x 9.6 inch motherboard with up to four expansion slots; most of these boards also mount in ATX cases.",
+      "objectives": ["3.5", "3.5.a"],
+      "units": ["2.2.7"],
+      "reference": { "source": "certmaster", "section": "2.2.7", "title": "Motherboard Form Factors" }
+    },
+    {
+      "id": "c1-u02-f027",
+      "term": "Mini-ITX (Information Technology eXtended)",
+      "definition": "A 6.7 x 6.7 inch motherboard with one expansion slot, used in small form factor (SFF) PCs for home use and mini servers; it also fits ATX cases.",
+      "objectives": ["3.5", "3.5.a"],
+      "units": ["2.2.7"],
+      "reference": { "source": "certmaster", "section": "2.2.7", "title": "Motherboard Form Factors" }
+    },
+    {
+      "id": "c1-u02-f028",
+      "term": "Header (motherboard)",
+      "definition": "A motherboard connector for parts on the case panels, such as the power button, drive activity light, audio ports, and USB ports (9-pin for USB 2, 20-pin for USB 3).",
+      "objectives": ["3.5", "3.5.b"],
+      "units": ["2.2.10"],
+      "reference": { "source": "certmaster", "section": "2.2.10", "title": "Motherboard Headers and Power Connectors" }
+    },
+    {
+      "id": "c1-u02-f029",
+      "term": "Expansion card",
+      "definition": "A card that plugs into a PCIe or PCI slot on the motherboard to add functions or ports the motherboard does not already have.",
+      "objectives": ["3.5", "3.5.h"],
+      "units": ["2.2.12"],
+      "reference": { "source": "certmaster", "section": "2.2.12", "title": "Video Cards" }
+    },
+    {
+      "id": "c1-u02-f030",
+      "term": "Video card",
+      "definition": "Also called a graphics adapter, it generates the signal for a monitor or projector; a discrete card for 3D gaming or CAD usually goes in a PCIe x16 slot.",
+      "objectives": ["3.5", "3.5.h"],
+      "units": ["2.2.12"],
+      "reference": { "source": "certmaster", "section": "2.2.12", "title": "Video Cards" }
+    },
+    {
+      "id": "c1-u02-f031",
+      "term": "Capture card",
+      "definition": "Records incoming video, such as gameplay, and saves it as a file or streams it live; internal cards use a PCIe slot, and external ones connect by USB or Thunderbolt.",
+      "objectives": ["3.5", "3.5.h"],
+      "units": ["2.2.14"],
+      "reference": { "source": "certmaster", "section": "2.2.14", "title": "Capture Cards" }
+    },
+    {
+      "id": "c1-u02-f032",
+      "term": "Sound card",
+      "definition": "A PCIe or PCI card for audio playback and microphone recording, with better sound than onboard audio; speakers and headphones plug into its 3.5 mm jacks.",
+      "objectives": ["3.5", "3.5.h"],
+      "units": ["2.2.15"],
+      "reference": { "source": "certmaster", "section": "2.2.15", "title": "Sound Cards" }
+    },
+    {
+      "id": "c1-u02-f033",
+      "term": "NIC (Network Interface Card)",
+      "definition": "An add-on network card, installed to use a different network type or cabling (copper or fiber optic) or to add ports that can be bonded into one faster link.",
+      "objectives": ["3.5", "3.5.h"],
+      "units": ["2.2.16"],
+      "reference": { "source": "certmaster", "section": "2.2.16", "title": "Network Interface Cards" }
+    },
+    {
+      "id": "c1-u02-f034",
+      "term": "DVI (Digital Visual Interface)",
+      "definition": "An older video-only interface (no audio) that can be analog or digital: DVI-I carries both, DVI-A only analog, and DVI-D only digital.",
+      "objectives": ["3.2", "3.2.c"],
+      "units": ["2.3.1"],
+      "reference": { "source": "certmaster", "section": "2.3.1", "title": "DVI and VGA Video Cables" }
+    },
+    {
+      "id": "c1-u02-f035",
+      "term": "VGA (Video Graphics Array)",
+      "definition": "The legacy 15-pin analog video interface, with a D-shell connector held by screws; it carries no audio and typically supports up to Full HD (1920x1080).",
+      "objectives": ["3.2", "3.2.c"],
+      "units": ["2.3.1"],
+      "reference": { "source": "certmaster", "section": "2.3.1", "title": "DVI and VGA Video Cables" }
+    },
+    {
+      "id": "c1-u02-f036",
+      "term": "Serial (RS-232)",
+      "definition": "A legacy interface that sends data one bit at a time at up to about 115 Kbps; Windows calls it a COM port, and network equipment may still use it for device management.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["2.3.3"],
+      "reference": { "source": "certmaster", "section": "2.3.3", "title": "Serial Cables" }
+    },
+    {
+      "id": "c1-u02-f037",
+      "term": "DB9",
+      "definition": "The cheaper 9-pin D-subminiature port PCs use for RS-232 serial, in place of the 25-pin interface the standard specifies.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["2.3.3"],
+      "reference": { "source": "certmaster", "section": "2.3.3", "title": "Serial Cables" }
+    },
+    {
+      "id": "c1-u02-f038",
+      "term": "Active adapter",
+      "definition": "An adapter cable with circuitry that converts the signal itself, such as digital HDMI to analog VGA; needed when the two ends use different protocols.",
+      "objectives": ["3.2", "3.2.e"],
+      "units": ["2.3.4"],
+      "reference": { "source": "certmaster", "section": "2.3.4", "title": "Adapter Cables" }
+    },
+    {
+      "id": "c1-u02-f039",
+      "term": "Passive adapter",
+      "definition": "An adapter cable that changes only the connector type, not the signal, such as USB-C to USB-A; it works when both ends use the same signaling standard.",
+      "objectives": ["3.2", "3.2.e"],
+      "units": ["2.3.4"],
+      "reference": { "source": "certmaster", "section": "2.3.4", "title": "Adapter Cables" }
+    }
+  ]
+}
