@@ -1,0 +1,534 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-05", "title": "Unit 5.0 Comparing Local Networking Hardware", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "c1-u05-f001",
+      "term": "LAN (Local Area Network)",
+      "definition": "Computers connected by cabling and switches at one site, such as a floor, a building, or a campus of nearby buildings, usually owned by the organization that uses it.",
+      "objectives": ["2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": { "source": "certmaster", "section": "5.1.1", "title": "LANs and WANs" }
+    },
+    {
+      "id": "c1-u05-f002",
+      "term": "WAN (Wide Area Network)",
+      "definition": "A network that spans multiple geographic locations, such as branch offices linked to a head office using cabling leased from an ISP; the Internet is one example.",
+      "objectives": ["2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": { "source": "certmaster", "section": "5.1.1", "title": "LANs and WANs" }
+    },
+    {
+      "id": "c1-u05-f003",
+      "term": "WLAN (Wireless Local Area Network)",
+      "definition": "A local network that uses radios and antennas to send and receive data, mostly based on the IEEE 802.11 (Wi-Fi) standards; it is often a segment of the same LAN as wired Ethernet.",
+      "objectives": ["2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": { "source": "certmaster", "section": "5.1.1", "title": "LANs and WANs" }
+    },
+    {
+      "id": "c1-u05-f004",
+      "term": "MAN (Metropolitan Area Network)",
+      "definition": "A network covering an area about the size of a city, such as one company's connected networks within that city; larger than a LAN but smaller than a WAN.",
+      "objectives": ["2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": { "source": "certmaster", "section": "5.1.1", "title": "LANs and WANs" }
+    },
+    {
+      "id": "c1-u05-f005",
+      "term": "PAN (Personal Area Network)",
+      "definition": "Wireless connections to devices within a few meters; the most common example is Bluetooth earbuds and a smartwatch connected to one person's phone.",
+      "objectives": ["2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": { "source": "certmaster", "section": "5.1.1", "title": "LANs and WANs" }
+    },
+    {
+      "id": "c1-u05-f006",
+      "term": "SAN (Storage Area Network)",
+      "definition": "A dedicated high-speed network, separate from the LAN, that joins storage such as RAID arrays and tape drives so servers can use it as if it were directly attached.",
+      "objectives": ["2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": { "source": "certmaster", "section": "5.1.1", "title": "LANs and WANs" }
+    },
+    {
+      "id": "c1-u05-f007",
+      "term": "MAC address (Media Access Control)",
+      "definition": "The unique hardware (physical) address of each Ethernet NIC port: 48 bits, usually written as 12 hexadecimal digits, with the first 24 bits identifying the manufacturer.",
+      "objectives": ["2.5", "2.5.j"],
+      "units": ["5.2.1"],
+      "reference": { "source": "certmaster", "section": "5.2.1", "title": "Network Interface Cards" }
+    },
+    {
+      "id": "c1-u05-f008",
+      "term": "Patch panel",
+      "definition": "The panel where cables from the wall ports end in punchdown blocks on the back; patch cords connect its front RJ45 ports to switch ports, making connections easy to change.",
+      "objectives": ["2.5", "2.5.d"],
+      "units": ["5.2.3"],
+      "reference": { "source": "certmaster", "section": "5.2.3", "title": "Patch Panels" }
+    },
+    {
+      "id": "c1-u05-f009",
+      "term": "Switch",
+      "definition": "Connects multiple devices in a network with one port per device, forwarding each frame to the port that matches its destination MAC address in its MAC address table.",
+      "objectives": ["2.5", "2.5.b"],
+      "units": ["5.2.6"],
+      "reference": { "source": "certmaster", "section": "5.2.6", "title": "Switches" }
+    },
+    {
+      "id": "c1-u05-f010",
+      "term": "Unmanaged switch",
+      "definition": "A switch that needs no configuration and works as soon as it is powered on with hosts connected; common ones have four or eight ports for small networks.",
+      "objectives": ["2.5", "2.5.b"],
+      "units": ["5.2.9"],
+      "reference": { "source": "certmaster", "section": "5.2.9", "title": "Unmanaged and Managed Switches" }
+    },
+    {
+      "id": "c1-u05-f011",
+      "term": "Managed switch",
+      "definition": "A switch for larger networks that an administrator can connect to over a management port to configure security settings and advanced features, using a web or command line interface.",
+      "objectives": ["2.5", "2.5.b"],
+      "units": ["5.2.9"],
+      "reference": { "source": "certmaster", "section": "5.2.9", "title": "Unmanaged and Managed Switches" }
+    },
+    {
+      "id": "c1-u05-f012",
+      "term": "PoE (Power over Ethernet)",
+      "definition": "Supplies electrical power over ordinary Ethernet data cabling to powered devices such as VoIP phones, cameras, and wireless access points.",
+      "objectives": ["2.5", "2.5.f"],
+      "units": ["5.2.10"],
+      "reference": { "source": "certmaster", "section": "5.2.10", "title": "Power over Ethernet" }
+    },
+    {
+      "id": "c1-u05-f013",
+      "term": "802.3af (PoE)",
+      "definition": "The PoE standard that supplies up to 15.4 W, about 13 W usable at the device, enough for basic VoIP handsets, wireless access points, and security cameras.",
+      "objectives": ["2.5", "2.5.f"],
+      "units": ["5.2.10"],
+      "reference": { "source": "certmaster", "section": "5.2.10", "title": "Power over Ethernet" }
+    },
+    {
+      "id": "c1-u05-f014",
+      "term": "802.3at (PoE+)",
+      "definition": "The PoE standard that lets a device draw up to about 25 W, for devices that need more power, such as advanced access points, pan-tilt-zoom cameras, and video IP phones.",
+      "objectives": ["2.5", "2.5.f"],
+      "units": ["5.2.10"],
+      "reference": { "source": "certmaster", "section": "5.2.10", "title": "Power over Ethernet" }
+    },
+    {
+      "id": "c1-u05-f015",
+      "term": "802.3bt (PoE++)",
+      "definition": "The PoE standard that supplies up to about 51 W (Type 3) or 73 W (Type 4) of usable power, for high-power devices such as LED lighting, digital signage, and point-of-sale systems.",
+      "objectives": ["2.5", "2.5.f"],
+      "units": ["5.2.10"],
+      "reference": { "source": "certmaster", "section": "5.2.10", "title": "Power over Ethernet" }
+    },
+    {
+      "id": "c1-u05-f016",
+      "term": "PoE switch",
+      "definition": "A switch that supplies power through its ports; it first detects whether each connected device is PoE enabled and sends no power to one that is not, so it causes no damage.",
+      "objectives": ["2.5", "2.5.f"],
+      "units": ["5.2.10"],
+      "reference": { "source": "certmaster", "section": "5.2.10", "title": "Power over Ethernet" }
+    },
+    {
+      "id": "c1-u05-f017",
+      "term": "PoE injector",
+      "definition": "A device that adds power when a switch does not support PoE; one port connects to the switch port and the other to the powered device, with no more than 100 m of cable overall.",
+      "objectives": ["2.5", "2.5.f"],
+      "units": ["5.2.10"],
+      "reference": { "source": "certmaster", "section": "5.2.10", "title": "Power over Ethernet" }
+    },
+    {
+      "id": "c1-u05-f018",
+      "term": "UTP (Unshielded Twisted Pair)",
+      "definition": "The most popular network cable: four copper wire pairs with no shielding, each pair twisted at a different rate to reduce interference, with a recommended maximum of 100 m (328 feet) per segment.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.1"],
+      "reference": { "source": "certmaster", "section": "5.3.1", "title": "Unshielded Twisted Pair" }
+    },
+    {
+      "id": "c1-u05-f019",
+      "term": "STP (Shielded Twisted Pair)",
+      "definition": "Twisted pair cable with foil or braided shielding for extra protection against interference; typically required near fluorescent lights, power lines, motors, or generators.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.2"],
+      "reference": { "source": "certmaster", "section": "5.3.2", "title": "Shielded Twisted Pair" }
+    },
+    {
+      "id": "c1-u05-f020",
+      "term": "Cat 5",
+      "definition": "Twisted pair cable for 100 Mbps Fast Ethernet up to 100 m; it is no longer sold, and a network cabled with it will probably need rewiring for Gigabit Ethernet.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.4"],
+      "reference": { "source": "certmaster", "section": "5.3.4", "title": "Cat Standards" }
+    },
+    {
+      "id": "c1-u05-f021",
+      "term": "Cat 5e",
+      "definition": "Twisted pair cable for 1 Gbps (Gigabit Ethernet) up to 100 m; still acceptable for client computers, though most sites now install Cat 6 instead.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.4"],
+      "reference": { "source": "certmaster", "section": "5.3.4", "title": "Cat Standards" }
+    },
+    {
+      "id": "c1-u05-f022",
+      "term": "Cat 6",
+      "definition": "Twisted pair cable for 1 Gbps up to 100 m, more reliable than Cat 5e for Gigabit Ethernet, that also supports 10 Gbps but only up to 55 m (180 feet).",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.4"],
+      "reference": { "source": "certmaster", "section": "5.3.4", "title": "Cat Standards" }
+    },
+    {
+      "id": "c1-u05-f023",
+      "term": "Cat 6A",
+      "definition": "Twisted pair cable for 10 Gbps over the full 100 m; bulkier and heavier than Cat 6, and recommended for 802.3bt PoE and cable runs to wireless access points.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.4"],
+      "reference": { "source": "certmaster", "section": "5.3.4", "title": "Cat Standards" }
+    },
+    {
+      "id": "c1-u05-f024",
+      "term": "Cat 7",
+      "definition": "Twisted pair cable for 10 Gbps up to 100 m or 100 Gbps up to 15 m (50 feet); not widely used yet outside short, high-bandwidth runs such as in data centers.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.4"],
+      "reference": { "source": "certmaster", "section": "5.3.4", "title": "Cat Standards" }
+    },
+    {
+      "id": "c1-u05-f025",
+      "term": "Cat 8",
+      "definition": "Twisted pair cable for 25 or 40 Gbps up to 30 m (100 feet); used mainly in short, high-bandwidth runs such as in data centers, not in typical home or office networks.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.4"],
+      "reference": { "source": "certmaster", "section": "5.3.4", "title": "Cat Standards" }
+    },
+    {
+      "id": "c1-u05-f026",
+      "term": "RJ45",
+      "definition": "The modular connector that terminates four-pair twisted pair Ethernet cable; also called 8P8C, for eight-position/eight-contact.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.5"],
+      "reference": { "source": "certmaster", "section": "5.3.5", "title": "Copper Cabling Connectors" }
+    },
+    {
+      "id": "c1-u05-f027",
+      "term": "T568A",
+      "definition": "The twisted pair wiring standard that puts the green pair on pins 1 and 2 (green/white on pin 1) and the orange pair on pins 3 and 6.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.5"],
+      "reference": { "source": "certmaster", "section": "5.3.5", "title": "Copper Cabling Connectors" }
+    },
+    {
+      "id": "c1-u05-f028",
+      "term": "T568B",
+      "definition": "The twisted pair wiring standard that puts the orange pair on pins 1 and 2 (orange/white on pin 1) and the green pair on pins 3 and 6.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.5"],
+      "reference": { "source": "certmaster", "section": "5.3.5", "title": "Copper Cabling Connectors" }
+    },
+    {
+      "id": "c1-u05-f029",
+      "term": "RJ11",
+      "definition": "The connector typically used on two-pair twisted pair cable, as in telephone systems and broadband DSL modems.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.5"],
+      "reference": { "source": "certmaster", "section": "5.3.5", "title": "Copper Cabling Connectors" }
+    },
+    {
+      "id": "c1-u05-f030",
+      "term": "Punchdown block",
+      "definition": "An insulation displacement connector (IDC) where permanent cable is terminated at wall ports and on the back of patch panels; blades in its terminals cut through each wire's insulation.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.7", "5.2.3"],
+      "reference": { "source": "certmaster", "section": "5.3.7", "title": "Copper Cabling Installation Tools" }
+    },
+    {
+      "id": "c1-u05-f031",
+      "term": "Cable stripper",
+      "definition": "A tool that scores a cable's outer jacket just enough to remove it, exposing the wire pairs without damaging their insulation, before the cable is terminated.",
+      "objectives": ["2.8", "2.8.b"],
+      "units": ["5.3.7"],
+      "reference": { "source": "certmaster", "section": "5.3.7", "title": "Copper Cabling Installation Tools" }
+    },
+    {
+      "id": "c1-u05-f032",
+      "term": "Punchdown tool",
+      "definition": "A tool that presses each wire into the color-coded terminals of an IDC (punchdown block) at a wall port or patch panel.",
+      "objectives": ["2.8", "2.8.e"],
+      "units": ["5.3.7"],
+      "reference": { "source": "certmaster", "section": "5.3.7", "title": "Copper Cabling Installation Tools" }
+    },
+    {
+      "id": "c1-u05-f033",
+      "term": "Crimper",
+      "definition": "A tool that attaches an RJ45 plug to the end of a patch cord, piercing the wire insulation at the pins and sealing the plug to the cable jacket.",
+      "objectives": ["2.8", "2.8.a"],
+      "units": ["5.3.7"],
+      "reference": { "source": "certmaster", "section": "5.3.7", "title": "Copper Cabling Installation Tools" }
+    },
+    {
+      "id": "c1-u05-f034",
+      "term": "Cable tester",
+      "definition": "A pair of devices attached to each end of a cable that energize each wire in turn, with LEDs showing whether every wire conducts and reaches the same pin at both ends.",
+      "objectives": ["2.8", "2.8.f"],
+      "units": ["5.3.8"],
+      "reference": { "source": "certmaster", "section": "5.3.8", "title": "Copper Cabling Test Tools" }
+    },
+    {
+      "id": "c1-u05-f035",
+      "term": "Toner probe",
+      "definition": "A tone generator that puts a continuous audio signal on a cable and a probe that detects it, used to trace a cable or pick it out of a bundle when it is not labeled.",
+      "objectives": ["2.8", "2.8.d"],
+      "units": ["5.3.8"],
+      "reference": { "source": "certmaster", "section": "5.3.8", "title": "Copper Cabling Test Tools" }
+    },
+    {
+      "id": "c1-u05-f036",
+      "term": "Loopback plug",
+      "definition": "An adapter that plugs into a NIC or switch port to test it; a solid link LED shows that the port can send and receive.",
+      "objectives": ["2.8", "2.8.g"],
+      "units": ["5.3.8"],
+      "reference": { "source": "certmaster", "section": "5.3.8", "title": "Copper Cabling Test Tools" }
+    },
+    {
+      "id": "c1-u05-f037",
+      "term": "Network tap",
+      "definition": "A device that intercepts the signals passing over a cable and sends them to a packet or protocol analyzer; passive taps need no power, while active taps are powered.",
+      "objectives": ["2.8", "2.8.h"],
+      "units": ["5.3.9"],
+      "reference": { "source": "certmaster", "section": "5.3.9", "title": "Network Taps" }
+    },
+    {
+      "id": "c1-u05-f038",
+      "term": "Plenum-rated cable",
+      "definition": "Fire-retardant cable required in plenum spaces, such as false ceilings that carry HVAC systems; it must give off little smoke when burned, and its jacket is marked CMP.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.10"],
+      "reference": { "source": "certmaster", "section": "5.3.10", "title": "Copper Cabling Installation Considerations" }
+    },
+    {
+      "id": "c1-u05-f039",
+      "term": "Direct burial cable",
+      "definition": "Outdoor cable that is laid and then covered with earth or concrete; it is often gel-filled against damp and temperature extremes and may be armored against rodents.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.10"],
+      "reference": { "source": "certmaster", "section": "5.3.10", "title": "Copper Cabling Installation Considerations" }
+    },
+    {
+      "id": "c1-u05-f040",
+      "term": "Optical (fiber optic) cable",
+      "definition": "Cable that carries light pulses through a glass core; unlike copper, it is not affected by interference and loses less signal over distance, so it supports faster, longer runs.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.11"],
+      "reference": { "source": "certmaster", "section": "5.3.11", "title": "Optical Cabling" }
+    },
+    {
+      "id": "c1-u05-f041",
+      "term": "Single-mode fiber (SMF)",
+      "definition": "Fiber with a small core that carries a laser signal, supporting high data rates over runs of many kilometers; it costs more to deploy than multimode.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.11"],
+      "reference": { "source": "certmaster", "section": "5.3.11", "title": "Optical Cabling" }
+    },
+    {
+      "id": "c1-u05-f042",
+      "term": "Multimode fiber (MMF)",
+      "definition": "Fiber with a larger core and cheaper light sources such as LEDs; it costs less than single-mode but supports lower speeds and shorter distances, so it suits LANs more than WANs.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.11"],
+      "reference": { "source": "certmaster", "section": "5.3.11", "title": "Optical Cabling" }
+    },
+    {
+      "id": "c1-u05-f043",
+      "term": "ST (Straight Tip)",
+      "definition": "A bayonet-style fiber optic connector with a push-and-twist lock, used mostly on older multimode networks.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.11"],
+      "reference": { "source": "certmaster", "section": "5.3.11", "title": "Optical Cabling" }
+    },
+    {
+      "id": "c1-u05-f044",
+      "term": "SC (Subscriber Connector)",
+      "definition": "A push/pull fiber optic connector, larger than LC, that is simple to insert and remove; it works with single-mode or multimode fiber in simplex or duplex versions.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.11"],
+      "reference": { "source": "certmaster", "section": "5.3.11", "title": "Optical Cabling" }
+    },
+    {
+      "id": "c1-u05-f045",
+      "term": "LC (Lucent Connector)",
+      "definition": "A small form factor fiber optic connector with a tabbed push/pull design; similar to SC but smaller, so more ports fit in the same space.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.11"],
+      "reference": { "source": "certmaster", "section": "5.3.11", "title": "Optical Cabling" }
+    },
+    {
+      "id": "c1-u05-f046",
+      "term": "Coaxial cable",
+      "definition": "Copper cable with a core signal conductor and a wire mesh conductor sharing the same axis, the mesh acting as shielding and ground; used for CCTV, cable TV, and cable modems.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.13"],
+      "reference": { "source": "certmaster", "section": "5.3.13", "title": "Coaxial Cabling" }
+    },
+    {
+      "id": "c1-u05-f047",
+      "term": "F-type",
+      "definition": "The screw-down connector that typically terminates coax for cable TV (CATV), such as the patch cable to a broadband cable modem.",
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.13"],
+      "reference": { "source": "certmaster", "section": "5.3.13", "title": "Coaxial Cabling" }
+    },
+    {
+      "id": "c1-u05-f048",
+      "term": "Access point (AP)",
+      "definition": "The device wireless clients connect through, acting as a bridge to the wired network; it is cabled to a switch like a host computer and is often powered by PoE.",
+      "objectives": ["2.5", "2.5.c"],
+      "units": ["5.4.1"],
+      "reference": { "source": "certmaster", "section": "5.4.1", "title": "Access Points" }
+    },
+    {
+      "id": "c1-u05-f049",
+      "term": "Channel (Wi-Fi)",
+      "definition": "One of the smaller frequency ranges a wireless band is split into; channels act like lanes so nearby networks can share a band without interfering.",
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.4.2"],
+      "reference": { "source": "certmaster", "section": "5.4.2", "title": "Frequency Bands" }
+    },
+    {
+      "id": "c1-u05-f050",
+      "term": "Channel width",
+      "definition": "The size of each Wi-Fi channel, such as 20 or 40 MHz; bonding channels together makes a wider channel, and the wider the channel, the more data it can carry.",
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.4.2", "5.4.5"],
+      "reference": { "source": "certmaster", "section": "5.4.2", "title": "Frequency Bands" }
+    },
+    {
+      "id": "c1-u05-f051",
+      "term": "2.4 GHz band",
+      "definition": "The Wi-Fi band that passes through walls best, giving the longest range, but it has few channels and is crowded by other networks, Bluetooth, and microwave ovens.",
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.4.2"],
+      "reference": { "source": "certmaster", "section": "5.4.2", "title": "Frequency Bands" }
+    },
+    {
+      "id": "c1-u05-f052",
+      "term": "5 GHz band",
+      "definition": "The Wi-Fi band with more channels and less congestion and interference than 2.4 GHz, giving higher data rates, and a range shorter than 2.4 GHz but longer than 6 GHz.",
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.4.2"],
+      "reference": { "source": "certmaster", "section": "5.4.2", "title": "Frequency Bands" }
+    },
+    {
+      "id": "c1-u05-f053",
+      "term": "6 GHz band",
+      "definition": "The newest Wi-Fi band: much faster and less congested than 2.4 and 5 GHz, but it passes through walls the least, so it has the shortest range.",
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.4.2"],
+      "reference": { "source": "certmaster", "section": "5.4.2", "title": "Frequency Bands" }
+    },
+    {
+      "id": "c1-u05-f054",
+      "term": "802.11a",
+      "definition": "The Wi-Fi standard that uses only the 5 GHz band, with a maximum data rate of 54 Mbps over 20 MHz channels.",
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.4.3"],
+      "reference": { "source": "certmaster", "section": "5.4.3", "title": "IEEE 802.11a" }
+    },
+    {
+      "id": "c1-u05-f055",
+      "term": "802.11b",
+      "definition": "The Wi-Fi standard that uses the 2.4 GHz band at a nominal data rate of just 11 Mbps, with 22 MHz channels that overlap heavily.",
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.4.4"],
+      "reference": { "source": "certmaster", "section": "5.4.4", "title": "IEEE 802.11b/g" }
+    },
+    {
+      "id": "c1-u05-f056",
+      "term": "Non-overlapping channels (2.4 GHz)",
+      "definition": "Channels 1, 6, and 11, the only three 2.4 GHz channels that do not overlap; access points whose ranges overlap should use them to avoid interference.",
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.4.4", "5.4.9"],
+      "reference": { "source": "certmaster", "section": "5.4.4", "title": "IEEE 802.11b/g" }
+    },
+    {
+      "id": "c1-u05-f057",
+      "term": "802.11g",
+      "definition": "The Wi-Fi standard that runs at up to 54 Mbps in the 2.4 GHz band, with devices that can also support older 802.11b clients.",
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.4.4"],
+      "reference": { "source": "certmaster", "section": "5.4.4", "title": "IEEE 802.11b/g" }
+    },
+    {
+      "id": "c1-u05-f058",
+      "term": "802.11n (Wi-Fi 4)",
+      "definition": "The Wi-Fi standard that works in both 2.4 GHz and 5 GHz and added channel bonding (40 MHz channels) and MIMO, which uses multiple antennas, for more bandwidth.",
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.4.5"],
+      "reference": { "source": "certmaster", "section": "5.4.5", "title": "802.11n" }
+    },
+    {
+      "id": "c1-u05-f059",
+      "term": "802.11ac (Wi-Fi 5)",
+      "definition": "The Wi-Fi standard that works only in the 5 GHz band, with 80 and 160 MHz bonded channels and downlink MU-MIMO to send to up to four clients at once.",
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.4.7"],
+      "reference": { "source": "certmaster", "section": "5.4.7", "title": "Wi-Fi 5 and Wi-Fi 6" }
+    },
+    {
+      "id": "c1-u05-f060",
+      "term": "802.11ax (Wi-Fi 6)",
+      "definition": "The Wi-Fi standard that works in both 2.4 GHz and 5 GHz, reaches 600 Mbps per stream, and supports up to eight clients at once for better performance in congested areas.",
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.4.7"],
+      "reference": { "source": "certmaster", "section": "5.4.7", "title": "Wi-Fi 5 and Wi-Fi 6" }
+    },
+    {
+      "id": "c1-u05-f061",
+      "term": "Wi-Fi 6E",
+      "definition": "The standard that adds the 6 GHz band to Wi-Fi 6; that band has less range but more frequency space, making 80 and 160 MHz channels easier to use.",
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.4.7"],
+      "reference": { "source": "certmaster", "section": "5.4.7", "title": "Wi-Fi 5 and Wi-Fi 6" }
+    },
+    {
+      "id": "c1-u05-f062",
+      "term": "802.11be (Wi-Fi 7)",
+      "definition": "The Wi-Fi standard that uses the 2.4, 5, and 6 GHz bands, with 320 MHz channels in 6 GHz for speeds up to 46 Gbps and Multi-Link Operation (MLO) across bands.",
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.4.8"],
+      "reference": { "source": "certmaster", "section": "5.4.8", "title": "Wi-Fi 7 (802.11be)" }
+    },
+    {
+      "id": "c1-u05-f063",
+      "term": "Wi-Fi analyzer",
+      "definition": "Hardware or software, such as an app on a laptop or phone, that measures the signal strength of nearby networks on each channel to plan channels and troubleshoot Wi-Fi.",
+      "objectives": ["2.8", "2.8.c"],
+      "units": ["5.4.10"],
+      "reference": { "source": "certmaster", "section": "5.4.10", "title": "Wi-Fi Analyzers" }
+    },
+    {
+      "id": "c1-u05-f064",
+      "term": "Bluetooth",
+      "definition": "A wireless PAN technology that connects peripherals such as headphones, speakers, and wearables to PCs and phones; devices pair to authenticate and exchange data securely.",
+      "objectives": ["2.2", "2.2.c"],
+      "units": ["5.4.12"],
+      "reference": { "source": "certmaster", "section": "5.4.12", "title": "Bluetooth, RFID, and NFC" }
+    },
+    {
+      "id": "c1-u05-f065",
+      "term": "RFID (Radio-Frequency Identification)",
+      "definition": "Identifies and tracks objects with encoded tags, passive (unpowered) or active (powered), that answer a reader's scan; used in parcel labels and access badges for electronic locks.",
+      "objectives": ["2.2", "2.2.f"],
+      "units": ["5.4.12"],
+      "reference": { "source": "certmaster", "section": "5.4.12", "title": "Bluetooth, RFID, and NFC" }
+    },
+    {
+      "id": "c1-u05-f066",
+      "term": "NFC (Near-Field Communication)",
+      "definition": "A very short-range, peer-to-peer version of RFID in which a device can act as both tag and reader; used for contactless payments, security ID tags, and pairing Bluetooth devices.",
+      "objectives": ["2.2", "2.2.e"],
+      "units": ["5.4.12"],
+      "reference": { "source": "certmaster", "section": "5.4.12", "title": "Bluetooth, RFID, and NFC" }
+    }
+  ]
+}

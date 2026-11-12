@@ -1,0 +1,1227 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-05", "title": "Unit 5.0 Comparing Local Networking Hardware", "reviewed": false },
+  "questions": [
+    {
+      "id": "c1-u05-q001",
+      "stem": "A bakery chain links the LANs at its 12 stores to the LAN at its main office. Which of the following is MOST likely true of the network that links these sites?",
+      "choices": [
+        { "id": "a", "text": "It uses cabling and equipment that the chain owns" },
+        { "id": "b", "text": "It links only sites within about 1 or 2 km of each other" },
+        { "id": "c", "text": "It uses radios and antennas instead of cabling" },
+        { "id": "d", "text": "It uses cabling and equipment leased from an ISP" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.1",
+        "title": "LANs and WANs",
+        "quote": "",
+        "find": "equipment leased from an ISP"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q1" }
+    },
+    {
+      "id": "c1-u05-q002",
+      "stem": "A nonprofit needs one private network that connects its offices in Boston, Denver, and Seattle. Which of the following network types BEST fits this need?",
+      "choices": [
+        { "id": "a", "text": "MAN" },
+        { "id": "b", "text": "LAN" },
+        { "id": "c", "text": "WAN" },
+        { "id": "d", "text": "WLAN" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.1",
+        "title": "LANs and WANs",
+        "quote": "",
+        "find": "network spans multiple geographic locations"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A66" }
+    },
+    {
+      "id": "c1-u05-q003",
+      "stem": "A school district is connecting the networks at its six schools, which sit in different neighborhoods across one city. Which of the following BEST describes the network this creates?",
+      "choices": [
+        { "id": "a", "text": "WAN" },
+        { "id": "b", "text": "WLAN" },
+        { "id": "c", "text": "LAN" },
+        { "id": "d", "text": "MAN" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.1",
+        "title": "LANs and WANs",
+        "quote": "",
+        "find": "within the same metropolitan area"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B87" }
+    },
+    {
+      "id": "c1-u05-q004",
+      "stem": "A runner's phone connects to the Bluetooth earbuds and smartwatch she wears on every run. Which of the following BEST describes the network these devices form?",
+      "choices": [
+        { "id": "a", "text": "LAN" },
+        { "id": "b", "text": "WLAN" },
+        { "id": "c", "text": "PAN" },
+        { "id": "d", "text": "MAN" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.1",
+        "title": "LANs and WANs",
+        "quote": "",
+        "find": "most common example of a PAN"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A36" }
+    },
+    {
+      "id": "c1-u05-q005",
+      "stem": "A technician is setting up a personal area network (PAN) so that a manager's laptop can use a wireless headset and a portable speaker. Which of the following technologies will this PAN MOST likely use?",
+      "choices": [
+        { "id": "a", "text": "Wi-Fi" },
+        { "id": "b", "text": "NFC" },
+        { "id": "c", "text": "RFID" },
+        { "id": "d", "text": "Bluetooth" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.2", "2.2.c", "2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.1",
+        "title": "LANs and WANs",
+        "quote": "",
+        "find": "Bluetooth devices such as earbuds"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q3" }
+    },
+    {
+      "id": "c1-u05-q006",
+      "stem": "A company wants its servers to reach a shared pool of disks over a separate high-speed network, as if the disks were directly attached to each server. Which of the following network types BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "LAN" },
+        { "id": "b", "text": "WLAN" },
+        { "id": "c", "text": "WAN" },
+        { "id": "d", "text": "SAN" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.7", "2.7.b"],
+      "units": ["5.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.1",
+        "title": "LANs and WANs",
+        "quote": "",
+        "find": "is dedicated to storage devices"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C56" }
+    },
+    {
+      "id": "c1-u05-q007",
+      "stem": "A technician is building a desktop PC for a new hire, and the PC must connect to the office LAN with a copper Ethernet cable. Which of the following gives the PC its physical connection to that cable?",
+      "choices": [
+        { "id": "a", "text": "An Ethernet switch" },
+        { "id": "b", "text": "A network interface card" },
+        { "id": "c", "text": "A patch panel" },
+        { "id": "d", "text": "A PoE injector" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.j"],
+      "units": ["5.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.1",
+        "title": "Network Interface Cards",
+        "quote": "",
+        "find": "physical connection to the cable"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B53" }
+    },
+    {
+      "id": "c1-u05-q008",
+      "stem": "A research lab's PC must connect directly to a fiber optic Ethernet cable, but its motherboard has only a built-in 1000BASE-T port. Which of the following should a technician install?",
+      "choices": [
+        { "id": "a", "text": "An unmanaged switch" },
+        { "id": "b", "text": "A patch panel" },
+        { "id": "c", "text": "A NIC adapter card" },
+        { "id": "d", "text": "A PoE injector" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.5", "2.5.j"],
+      "units": ["5.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.1",
+        "title": "Network Interface Cards",
+        "quote": "",
+        "find": "support other types of Ethernet"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q30" }
+    },
+    {
+      "id": "c1-u05-q009",
+      "stem": "A clinic's IT manager asks a technician to list the unique hardware address of each new laptop's Ethernet port. Which of the following should the technician list?",
+      "choices": [
+        { "id": "a", "text": "The broadcast address" },
+        { "id": "b", "text": "The OUI" },
+        { "id": "c", "text": "The MAC address" },
+        { "id": "d", "text": "The multicast address" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.5", "2.5.j"],
+      "units": ["5.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.1",
+        "title": "Network Interface Cards",
+        "quote": "",
+        "find": "has a unique hardware/physical address"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B49" }
+    },
+    {
+      "id": "c1-u05-q010",
+      "stem": "A technician is planning the cabling for a new office and wants it to be easy to change which switch port each wall port connects to. Which of the following should the cables from the wall ports run to?",
+      "choices": [
+        { "id": "a", "text": "An Ethernet switch" },
+        { "id": "b", "text": "A patch panel" },
+        { "id": "c", "text": "A PoE injector" },
+        { "id": "d", "text": "An access point" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.d"],
+      "units": ["5.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.3",
+        "title": "Patch Panels",
+        "quote": "",
+        "find": "wall port location is connected"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q12" }
+    },
+    {
+      "id": "c1-u05-q011",
+      "stem": "A new technician looks at the back of the patch panel in a school's network closet. Which of the following will the technician MOST likely see there?",
+      "choices": [
+        { "id": "a", "text": "RJ45 ports holding patch cords that run to the switch" },
+        { "id": "b", "text": "IDC punchdown blocks holding the cables that run to the wall ports" },
+        { "id": "c", "text": "RJ45 ports holding the cables that run to the wall ports" },
+        { "id": "d", "text": "IDC punchdown blocks holding patch cords that run to the switch" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.d", "3.2", "3.2.f"],
+      "units": ["5.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.3",
+        "title": "Patch Panels",
+        "quote": "",
+        "find": "punchdown blocks at the back"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q16" }
+    },
+    {
+      "id": "c1-u05-q012",
+      "stem": "A laptop on port 3 sends a frame to a server on port 8 through a switch whose MAC address table is empty. Which of the following does the switch add to its table when the frame arrives?",
+      "choices": [
+        { "id": "a", "text": "The laptop's MAC address with port 3" },
+        { "id": "b", "text": "The server's MAC address with port 8" },
+        { "id": "c", "text": "Both MAC addresses, each with its own port" },
+        { "id": "d", "text": "Nothing until the server replies" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.5", "2.5.b"],
+      "units": ["5.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.6",
+        "title": "Switches",
+        "quote": "",
+        "find": "the switch reads the source address"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q14" }
+    },
+    {
+      "id": "c1-u05-q013",
+      "stem": "A switch's MAC address table lists a printer's MAC address on port 5, and a desktop on port 2 sends a frame to that printer. Which of the following ports will the switch send the frame out of?",
+      "choices": [
+        { "id": "a", "text": "Only port 5" },
+        { "id": "b", "text": "Only port 2" },
+        { "id": "c", "text": "No port until the printer asks for it" },
+        { "id": "d", "text": "All ports" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.5", "2.5.b"],
+      "units": ["5.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.6",
+        "title": "Switches",
+        "quote": "",
+        "find": "intelligently forward it to the port"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q23" }
+    },
+    {
+      "id": "c1-u05-q014",
+      "stem": "The four-port switch in a home office failed, and the owner wants a replacement that has no settings to change. Which of the following should a technician install?",
+      "choices": [
+        { "id": "a", "text": "A managed switch" },
+        { "id": "b", "text": "An unmanaged switch" },
+        { "id": "c", "text": "A modular switch" },
+        { "id": "d", "text": "A patch panel" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.b"],
+      "units": ["5.2.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.9",
+        "title": "Unmanaged and Managed Switches",
+        "quote": "",
+        "find": "without requiring any sort of configuration"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A86" }
+    },
+    {
+      "id": "c1-u05-q015",
+      "stem": "A school is mounting security cameras on hallway ceilings that have no power outlets, so each camera must get its power through its data cable. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "A managed switch" },
+        { "id": "b", "text": "A modular switch" },
+        { "id": "c", "text": "A patch panel" },
+        { "id": "d", "text": "A PoE switch" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.5", "2.5.f"],
+      "units": ["5.2.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.10",
+        "title": "Power over Ethernet",
+        "quote": "",
+        "find": "electrical power from a switch port"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A29" }
+    },
+    {
+      "id": "c1-u05-q016",
+      "stem": "An office's switch has no PoE ports, and a technician must add a VoIP handset that needs PoE without replacing the switch. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Connect the handset to the switch through a patch panel port" },
+        { "id": "b", "text": "Install a power injector between the switch and the handset" },
+        { "id": "c", "text": "Enable PoE on the switch through its management port" },
+        { "id": "d", "text": "Plug the handset into one of the switch's uplink ports" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.f"],
+      "units": ["5.2.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.10",
+        "title": "Power over Ethernet",
+        "quote": "",
+        "find": "If the switch does not support"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B48" }
+    },
+    {
+      "id": "c1-u05-q017",
+      "stem": "A company is replacing its desk phones with video IP phones that each draw about 20 W from the switch. Which of the following is the minimum PoE standard the new switch must support?",
+      "choices": [
+        { "id": "a", "text": "802.3af (Type 1)" },
+        { "id": "b", "text": "802.3at (Type 2)" },
+        { "id": "c", "text": "802.3bt (Type 3)" },
+        { "id": "d", "text": "802.3bt (Type 4)" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.f"],
+      "units": ["5.2.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.10",
+        "title": "Power over Ethernet",
+        "quote": "",
+        "find": "draw up to about 25 W"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q21" }
+    },
+    {
+      "id": "c1-u05-q018",
+      "stem": "A technician is running a network cable to a workstation on a factory floor, and the cable must pass right beside several large electric motors. Which type of cable should the technician use?",
+      "choices": [
+        { "id": "a", "text": "UTP cable" },
+        { "id": "b", "text": "Plenum-rated cable" },
+        { "id": "c", "text": "STP cable" },
+        { "id": "d", "text": "Aerial cable" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.2",
+        "title": "Shielded Twisted Pair",
+        "quote": "",
+        "find": "power lines, motors, and generators"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q49" }
+    },
+    {
+      "id": "c1-u05-q019",
+      "stem": "A design firm needs every link in its new office to carry 10 Gbps, and its longest cable run will be 80 m. Which of the following is the lowest Cat standard that meets this need?",
+      "choices": [
+        { "id": "a", "text": "Cat 5e" },
+        { "id": "b", "text": "Cat 6" },
+        { "id": "c", "text": "Cat 6A" },
+        { "id": "d", "text": "Cat 7" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.4",
+        "title": "Cat Standards",
+        "quote": "",
+        "find": "supports 10 Gbps over 100 m"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 5.0-6.0 slide 71" }
+    },
+    {
+      "id": "c1-u05-q020",
+      "stem": "A technician is checking a patch cord that should be wired to T568A. Which pin should the orange/white wire be on?",
+      "choices": [
+        { "id": "a", "text": "Pin 1" },
+        { "id": "b", "text": "Pin 2" },
+        { "id": "c", "text": "Pin 3" },
+        { "id": "d", "text": "Pin 6" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.5",
+        "title": "Copper Cabling Connectors",
+        "quote": "",
+        "find": "pin 3 is wired to orange/white"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q46" }
+    },
+    {
+      "id": "c1-u05-q021",
+      "stem": "A new technician is making patch cords for an office whose cabling follows the T568B standard. Which wire pair belongs on pins 1 and 2 of each RJ45 plug?",
+      "choices": [
+        { "id": "a", "text": "The orange pair" },
+        { "id": "b", "text": "The green pair" },
+        { "id": "c", "text": "The blue pair" },
+        { "id": "d", "text": "The brown pair" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.5",
+        "title": "Copper Cabling Connectors",
+        "quote": "",
+        "find": "so that orange terminates"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 5.0-6.0 slide 110" }
+    },
+    {
+      "id": "c1-u05-q022",
+      "stem": "In a new office building, heating and cooling air flows through the space under a raised floor where the network cables will run. Which type of cable do building codes require for this run?",
+      "choices": [
+        { "id": "a", "text": "STP cable" },
+        { "id": "b", "text": "General-purpose PVC cable" },
+        { "id": "c", "text": "Plenum-rated cable" },
+        { "id": "d", "text": "Direct burial cable" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.10",
+        "title": "Copper Cabling Installation Considerations",
+        "quote": "",
+        "find": "use of fire-retardant plenum cable"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B37" }
+    },
+    {
+      "id": "c1-u05-q023",
+      "stem": "A school is running a copper network cable to a portable classroom, and the cable will be laid in a trench without conduit and covered with soil. Which type of cable should the installer use?",
+      "choices": [
+        { "id": "a", "text": "Aerial cable" },
+        { "id": "b", "text": "Direct burial cable" },
+        { "id": "c", "text": "Plenum-rated cable" },
+        { "id": "d", "text": "General-purpose PVC cable" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.10",
+        "title": "Copper Cabling Installation Considerations",
+        "quote": "",
+        "find": "Direct burial cable is laid"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C53" }
+    },
+    {
+      "id": "c1-u05-q024",
+      "stem": "A warehouse needs a wired link from its network closet to a shipping desk at the far end of the building, a cable run of about 160 m. Which type of cable should a technician install?",
+      "choices": [
+        { "id": "a", "text": "Cat 6A cable" },
+        { "id": "b", "text": "Cat 8 cable" },
+        { "id": "c", "text": "STP Cat 6 cable" },
+        { "id": "d", "text": "Fiber optic cable" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.11", "5.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.11",
+        "title": "Optical Cabling",
+        "quote": "",
+        "find": "measured in miles rather than feet"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C19" }
+    },
+    {
+      "id": "c1-u05-q025",
+      "stem": "A copper link that runs past the backup generators in a hospital's basement keeps dropping, and the drops stop once it is replaced with fiber optic cable. Which of the following BEST explains why?",
+      "choices": [
+        { "id": "a", "text": "The fiber's light pulses are not affected by interference" },
+        { "id": "b", "text": "The fiber's cladding shields the core from interference" },
+        { "id": "c", "text": "The fiber's strands carry balanced signals that cancel interference" },
+        { "id": "d", "text": "The fiber's buffer coating absorbs the interference" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.11",
+        "title": "Optical Cabling",
+        "quote": "",
+        "find": "are not susceptible to interference"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q42" }
+    },
+    {
+      "id": "c1-u05-q026",
+      "stem": "A company needs a 15 km fiber link to a branch office and several low-cost fiber links between floors of its main building. Which of the following plans BEST meets these needs?",
+      "choices": [
+        { "id": "a", "text": "Multimode for the branch office and single-mode between floors" },
+        { "id": "b", "text": "Single-mode for the branch office and single-mode between floors" },
+        { "id": "c", "text": "Single-mode for the branch office and multimode between floors" },
+        { "id": "d", "text": "Multimode for the branch office and multimode between floors" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.11",
+        "title": "Optical Cabling",
+        "quote": "",
+        "find": "more suitable for LANs than WANs"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q41" }
+    },
+    {
+      "id": "c1-u05-q027",
+      "stem": "A technician is showing an intern the cut end of the coaxial cable that runs to the building's security cameras. Which of the following are jobs of the wire mesh layer?",
+      "choices": [
+        { "id": "a", "text": "Balancing the signal to cancel noise" },
+        { "id": "b", "text": "Shielding the core from EMI" },
+        { "id": "c", "text": "Acting as a ground" },
+        { "id": "d", "text": "Carrying the main signal" },
+        { "id": "e", "text": "Insulating the core conductor" }
+      ],
+      "answer": ["b", "c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["5.3.13"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.13",
+        "title": "Coaxial Cabling",
+        "quote": "",
+        "find": "serves both as shielding from EMI"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q44" }
+    },
+    {
+      "id": "c1-u05-q028",
+      "stem": "While restocking the IT supply cabinet, a technician finds a bag of connectors labeled 8P8C. Which of the following is another name for these connectors?",
+      "choices": [
+        { "id": "a", "text": "RJ11" },
+        { "id": "b", "text": "RJ45" },
+        { "id": "c", "text": "ST" },
+        { "id": "d", "text": "F-type" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.5",
+        "title": "Copper Cabling Connectors",
+        "quote": "",
+        "find": "standing for eight-position/eight-contact"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q45" }
+    },
+    {
+      "id": "c1-u05-q029",
+      "stem": "A small office is switching its internet service from a cable company to a DSL provider. Which connector will the new modem's line cord MOST likely use?",
+      "choices": [
+        { "id": "a", "text": "RJ11" },
+        { "id": "b", "text": "RJ45" },
+        { "id": "c", "text": "F-type" },
+        { "id": "d", "text": "SC" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.5",
+        "title": "Copper Cabling Connectors",
+        "quote": "",
+        "find": "broadband digital subscriber line (DSL) modems"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A89" }
+    },
+    {
+      "id": "c1-u05-q030",
+      "stem": "A technician is ordering patch cords for the fiber optic ports on a new switch. Which of the following connectors will these patch cords MOST likely have?",
+      "choices": [
+        { "id": "a", "text": "RJ45" },
+        { "id": "b", "text": "BNC" },
+        { "id": "c", "text": "SC" },
+        { "id": "d", "text": "RJ11" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.11",
+        "title": "Optical Cabling",
+        "quote": "",
+        "find": "Subscriber connector (SC) has a push/pull"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C36" }
+    },
+    {
+      "id": "c1-u05-q031",
+      "stem": "A school is linking a switch in its main building to a switch in a gym about 300 m away. Which connector will the cable for this link MOST likely use?",
+      "choices": [
+        { "id": "a", "text": "RJ45" },
+        { "id": "b", "text": "LC" },
+        { "id": "c", "text": "RJ11" },
+        { "id": "d", "text": "F-type" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.11", "5.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.11",
+        "title": "Optical Cabling",
+        "quote": "",
+        "find": "Lucent connector (LC) is a small"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C60" }
+    },
+    {
+      "id": "c1-u05-q032",
+      "stem": "A technician is repairing a link on an older multimode fiber network, and the link's connectors lock in place with a push-and-twist bayonet mechanism. Which type of connector is the technician MOST likely working with?",
+      "choices": [
+        { "id": "a", "text": "SC" },
+        { "id": "b", "text": "LC" },
+        { "id": "c", "text": "BNC" },
+        { "id": "d", "text": "ST" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.11",
+        "title": "Optical Cabling",
+        "quote": "",
+        "find": "bayonet-style connector that uses a push-and-twist"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 5.0-6.0 slide 116" }
+    },
+    {
+      "id": "c1-u05-q033",
+      "stem": "A technician is installing a cable modem at a customer's apartment and needs a cord to join it to the cable outlet on the wall. Which connector will this cord MOST likely have on each end?",
+      "choices": [
+        { "id": "a", "text": "F-type" },
+        { "id": "b", "text": "BNC" },
+        { "id": "c", "text": "RJ11" },
+        { "id": "d", "text": "RJ45" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.f"],
+      "units": ["5.3.13"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.13",
+        "title": "Coaxial Cabling",
+        "quote": "",
+        "find": "Coax for CATV installations is typically"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A55" }
+    },
+    {
+      "id": "c1-u05-q034",
+      "stem": "After the desks in a computer lab were moved, the patch cords no longer reach the wall ports, so a technician will make longer cords from a spool of Cat 5e cable. Which of the following tools will the technician use to put the connectors on the new cords?",
+      "choices": [
+        { "id": "a", "text": "A cable stripper" },
+        { "id": "b", "text": "A punchdown tool" },
+        { "id": "c", "text": "A toner probe" },
+        { "id": "d", "text": "A crimper" },
+        { "id": "e", "text": "A cable tester" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["2.8", "2.8.a", "2.8.b"],
+      "units": ["5.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.7",
+        "title": "Copper Cabling Installation Tools",
+        "quote": "",
+        "find": "cable stripper is designed to score"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q51" }
+    },
+    {
+      "id": "c1-u05-q035",
+      "stem": "A user's patch cord keeps slipping out of the wall port because the plastic latch on its RJ45 plug broke off. Which of the following tools should a technician use to repair the cord?",
+      "choices": [
+        { "id": "a", "text": "Punchdown tool" },
+        { "id": "b", "text": "Crimper" },
+        { "id": "c", "text": "Cable tester" },
+        { "id": "d", "text": "Loopback plug" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.8", "2.8.a"],
+      "units": ["5.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.7",
+        "title": "Copper Cabling Installation Tools",
+        "quote": "",
+        "find": "RJ45 plugs crimped to the end"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A26" }
+    },
+    {
+      "id": "c1-u05-q036",
+      "stem": "A technician is installing a new wall port and must seat each wire of the in-wall cable into the port's color-coded terminals. Which of the following tools should the technician use?",
+      "choices": [
+        { "id": "a", "text": "Crimper" },
+        { "id": "b", "text": "Cable stripper" },
+        { "id": "c", "text": "Punchdown tool" },
+        { "id": "d", "text": "Cable tester" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.8", "2.8.e"],
+      "units": ["5.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.7",
+        "title": "Copper Cabling Installation Tools",
+        "quote": "",
+        "find": "fix each conductor into an IDC"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A32" }
+    },
+    {
+      "id": "c1-u05-q037",
+      "stem": "Before reusing a box of old patch cords, a technician wants to confirm that every wire in each cord still makes contact and reaches the correct pin at both ends. Which of the following should the technician use?",
+      "choices": [
+        { "id": "a", "text": "Toner probe" },
+        { "id": "b", "text": "Loopback plug" },
+        { "id": "c", "text": "Crimper" },
+        { "id": "d", "text": "Cable tester" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.8", "2.8.f"],
+      "units": ["5.3.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.8",
+        "title": "Copper Cabling Test Tools",
+        "quote": "",
+        "find": "have been terminated to different pins"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C27" }
+    },
+    {
+      "id": "c1-u05-q038",
+      "stem": "A PC stopped connecting to the network right after an electrician drilled into the wall near its wall port, and a technician suspects the drill hit the wiring inside the wall. Which of the following tools would BEST confirm this?",
+      "choices": [
+        { "id": "a", "text": "Cable tester" },
+        { "id": "b", "text": "Toner probe" },
+        { "id": "c", "text": "Loopback plug" },
+        { "id": "d", "text": "Network tap" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.8", "2.8.f"],
+      "units": ["5.3.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.8",
+        "title": "Copper Cabling Test Tools",
+        "quote": "",
+        "find": "to test the permanent link"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q52" }
+    },
+    {
+      "id": "c1-u05-q039",
+      "stem": "The unlabeled cables in an equipment room end in RJ45 plugs that are not yet connected to the switch, and a technician must find the one that runs to a new wall port in the library. Which of the following tools is BEST for this job?",
+      "choices": [
+        { "id": "a", "text": "Cable tester" },
+        { "id": "b", "text": "Toner probe" },
+        { "id": "c", "text": "Loopback plug" },
+        { "id": "d", "text": "Network tap" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.8", "2.8.d"],
+      "units": ["5.3.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.8",
+        "title": "Copper Cabling Test Tools",
+        "quote": "",
+        "find": "is used to identify a cable"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A9" }
+    },
+    {
+      "id": "c1-u05-q040",
+      "stem": "A technician must move the cable for one classroom's wall port, but above the hallway ceiling it runs in a bundle with dozens of identical unlabeled cables. Which of the following tools would BEST help the technician pick out that cable?",
+      "choices": [
+        { "id": "a", "text": "Punchdown tool" },
+        { "id": "b", "text": "Cable tester" },
+        { "id": "c", "text": "Toner probe" },
+        { "id": "d", "text": "Loopback plug" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.8", "2.8.d"],
+      "units": ["5.3.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.8",
+        "title": "Copper Cabling Test Tools",
+        "quote": "",
+        "find": "follow the cable over ceilings"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q54" }
+    },
+    {
+      "id": "c1-u05-q041",
+      "stem": "The link LED on a desktop PC's network port stays off, even after a technician swaps in a known good patch cord. Which of the following tools should the technician use to test the PC's network port?",
+      "choices": [
+        { "id": "a", "text": "Cable tester" },
+        { "id": "b", "text": "Toner probe" },
+        { "id": "c", "text": "Network tap" },
+        { "id": "d", "text": "Loopback plug" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.8", "2.8.g"],
+      "units": ["5.3.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.8",
+        "title": "Copper Cabling Test Tools",
+        "quote": "",
+        "find": "test a NIC or switch port"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C71" }
+    },
+    {
+      "id": "c1-u05-q042",
+      "stem": "A security team wants a packet analyzer to receive a copy of all the traffic on the cable between the firewall and the main switch. Which of the following should a technician install?",
+      "choices": [
+        { "id": "a", "text": "Network tap" },
+        { "id": "b", "text": "Toner probe" },
+        { "id": "c", "text": "Cable tester" },
+        { "id": "d", "text": "Loopback plug" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.8", "2.8.h"],
+      "units": ["5.3.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.9",
+        "title": "Network Taps",
+        "quote": "",
+        "find": "is used to intercept the signals"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B77" }
+    },
+    {
+      "id": "c1-u05-q043",
+      "stem": "A restaurant's new order-taking tablets connect only over Wi-Fi, and they must reach the kitchen printers on the restaurant's wired Ethernet network. Which of the following devices should a technician install?",
+      "choices": [
+        { "id": "a", "text": "An Ethernet switch" },
+        { "id": "b", "text": "An access point" },
+        { "id": "c", "text": "A patch panel" },
+        { "id": "d", "text": "A network tap" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.c"],
+      "units": ["5.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.1",
+        "title": "Access Points",
+        "quote": "",
+        "find": "wireless stations and a wired network"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C7" }
+    },
+    {
+      "id": "c1-u05-q044",
+      "stem": "A technician is setting up one access point for a small warehouse, and the packing area it must also cover is behind two concrete walls. Which of the following should the technician do to give the packing area the BEST coverage?",
+      "choices": [
+        { "id": "a", "text": "Use the 2.4 GHz band" },
+        { "id": "b", "text": "Use the 5 GHz band" },
+        { "id": "c", "text": "Use the 6 GHz band" },
+        { "id": "d", "text": "Use bonded channels" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.2",
+        "title": "Frequency Bands",
+        "quote": "",
+        "find": "better at propagating through solid surfaces"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q75" }
+    },
+    {
+      "id": "c1-u05-q045",
+      "stem": "Laptops connected to a dual-band access point in a staff lounge lose their Wi-Fi connection whenever the lounge's microwave oven is running. Which of the following should a technician do to BEST solve this problem?",
+      "choices": [
+        { "id": "a", "text": "Change the channel on the 2.4 GHz band" },
+        { "id": "b", "text": "Bond two channels into one wider channel" },
+        { "id": "c", "text": "Move the laptops to the 5 GHz band" },
+        { "id": "d", "text": "Rename the SSID the laptops connect to" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.2",
+        "title": "Frequency Bands",
+        "quote": "",
+        "find": "suffers less from congestion and interference"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 5.0-6.0 slide 164" }
+    },
+    {
+      "id": "c1-u05-q046",
+      "stem": "A technician changes a 5 GHz access point from 20 MHz channels to 80 MHz channels. Which of the following is the MOST likely result?",
+      "choices": [
+        { "id": "a", "text": "Faster data rates" },
+        { "id": "b", "text": "Longer range through walls" },
+        { "id": "c", "text": "Less interference from nearby networks" },
+        { "id": "d", "text": "More channels that do not overlap" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.4.2", "5.4.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.2",
+        "title": "Frequency Bands",
+        "quote": "",
+        "find": "The larger the channel width"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A78" }
+    },
+    {
+      "id": "c1-u05-q047",
+      "stem": "The two strongest nearby 2.4 GHz networks are on channels 1 and 6. Which channel should a technician set on a new access point to avoid interference with both?",
+      "choices": [
+        { "id": "a", "text": "Channel 3" },
+        { "id": "b", "text": "Channel 8" },
+        { "id": "c", "text": "Channel 9" },
+        { "id": "d", "text": "Channel 11" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.4",
+        "title": "IEEE 802.11b/g",
+        "quote": "",
+        "find": "one of the three non-overlapping channels"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 5.0-6.0 slide 133" }
+    },
+    {
+      "id": "c1-u05-q048",
+      "stem": "A video studio needs access points that are designed to work only in the 5 GHz band and offer the fastest data rates. Which of the following standards BEST meets these requirements?",
+      "choices": [
+        { "id": "a", "text": "802.11a" },
+        { "id": "b", "text": "802.11g" },
+        { "id": "c", "text": "802.11n" },
+        { "id": "d", "text": "802.11ac" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.4.7", "5.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.7",
+        "title": "Wi-Fi 5 and Wi-Fi 6",
+        "quote": "",
+        "find": "work only in the 5 GHz"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q64" }
+    },
+    {
+      "id": "c1-u05-q049",
+      "stem": "A technician is choosing wireless adapters for an office's new laptops, and the adapters must be able to connect on the 6 GHz band. Which of the following standards would meet this requirement?",
+      "choices": [
+        { "id": "a", "text": "Wi-Fi 4" },
+        { "id": "b", "text": "Wi-Fi 5" },
+        { "id": "c", "text": "Wi-Fi 6" },
+        { "id": "d", "text": "Wi-Fi 6E" },
+        { "id": "e", "text": "Wi-Fi 7" }
+      ],
+      "answer": ["d", "e"],
+      "objectives": ["2.2", "2.2.a", "2.2.d"],
+      "units": ["5.4.7", "5.4.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.7",
+        "title": "Wi-Fi 5 and Wi-Fi 6",
+        "quote": "",
+        "find": "Wi-Fi 6e standard adds support"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 5.0-6.0 slide 149" }
+    },
+    {
+      "id": "c1-u05-q050",
+      "stem": "A coffee shop owner wants customers' phones to join whichever band of the shop's dual-band access point has the strongest signal, without the customers picking a band. Which of the following should a technician configure?",
+      "choices": [
+        { "id": "a", "text": "A separate SSID for each band" },
+        { "id": "b", "text": "The same SSID on both bands" },
+        { "id": "c", "text": "Automatic channel selection on both bands" },
+        { "id": "d", "text": "Channel bonding on both bands" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.4.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.9",
+        "title": "Wireless LAN Installation Considerations",
+        "quote": "",
+        "find": "select the band with the strongest"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q66" }
+    },
+    {
+      "id": "c1-u05-q051",
+      "stem": "Laptops at one end of a law office have had slow wireless connections since the business next door added its own access points. Which of the following tools would BEST help a technician find the cause?",
+      "choices": [
+        { "id": "a", "text": "A Wi-Fi analyzer" },
+        { "id": "b", "text": "A network tap" },
+        { "id": "c", "text": "A cable tester" },
+        { "id": "d", "text": "A loopback plug" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.8", "2.8.c"],
+      "units": ["5.4.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.10",
+        "title": "Wi-Fi Analyzers",
+        "quote": "",
+        "find": "troubleshoot wireless network performance"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q53" }
+    },
+    {
+      "id": "c1-u05-q052",
+      "stem": "A technician uses a Wi-Fi analyzer to check the access point's signal strength in four classrooms. Which of the following readings shows the BEST signal?",
+      "choices": [
+        { "id": "a", "text": "-90 dBm" },
+        { "id": "b", "text": "-85 dBm" },
+        { "id": "c", "text": "-75 dBm" },
+        { "id": "d", "text": "-65 dBm" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.8", "2.8.c"],
+      "units": ["5.4.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.10",
+        "title": "Wi-Fi Analyzers",
+        "quote": "",
+        "find": "dBm values closer to zero"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q56" }
+    },
+    {
+      "id": "c1-u05-q053",
+      "stem": "A technician sets up a point-to-point wireless link on the 5 GHz band, but the radio will not let its transmit power go above a set level. Which of the following BEST explains this?",
+      "choices": [
+        { "id": "a", "text": "Regulations cap the strength of its signal" },
+        { "id": "b", "text": "The PoE injector cannot supply more power" },
+        { "id": "c", "text": "The antennas are not aimed at each other" },
+        { "id": "d", "text": "The channel width is set too narrow" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.4.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.11",
+        "title": "Long-Range Fixed Wireless",
+        "quote": "",
+        "find": "is limited by regulatory requirements"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B79" }
+    },
+    {
+      "id": "c1-u05-q054",
+      "stem": "A hospital needs a wireless link between its main building and a clinic across a crowded downtown area, and the link must have as little interference as possible. Which of the following BEST meets these requirements?",
+      "choices": [
+        { "id": "a", "text": "A licensed fixed wireless link" },
+        { "id": "b", "text": "An unlicensed fixed wireless link" },
+        { "id": "c", "text": "A Wi-Fi bridge on the 2.4 GHz band" },
+        { "id": "d", "text": "A Wi-Fi bridge on the 5 GHz band" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.4.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.11",
+        "title": "Long-Range Fixed Wireless",
+        "quote": "",
+        "find": "has the legal right to get"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q78" }
+    },
+    {
+      "id": "c1-u05-q055",
+      "stem": "A user wants a new Bluetooth keyboard to work only with her tablet, and the two devices must confirm their identities before any keystrokes are sent. Which of the following should the user do?",
+      "choices": [
+        { "id": "a", "text": "Update both devices to Bluetooth 5" },
+        { "id": "b", "text": "Join both devices to the same SSID" },
+        { "id": "c", "text": "Set both devices to Bluetooth Low Energy" },
+        { "id": "d", "text": "Pair both devices with each other" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.2", "2.2.c"],
+      "units": ["5.4.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.12",
+        "title": "Bluetooth, RFID, and NFC",
+        "quote": "",
+        "find": "pairing procedure to authenticate and exchange"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q61" }
+    },
+    {
+      "id": "c1-u05-q056",
+      "stem": "A school wants teachers to sign in to classroom PCs by holding their phones up to a reader, and sign-in must work only within a few inches of the reader. Which wireless technology BEST meets these requirements?",
+      "choices": [
+        { "id": "a", "text": "RFID" },
+        { "id": "b", "text": "NFC" },
+        { "id": "c", "text": "Bluetooth" },
+        { "id": "d", "text": "Wi-Fi" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.2", "2.2.e"],
+      "units": ["5.4.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.12",
+        "title": "Bluetooth, RFID, and NFC",
+        "quote": "",
+        "find": "security ID tags"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B36" }
+    },
+    {
+      "id": "c1-u05-q057",
+      "stem": "A company wants employees' phones to trade digital business cards directly, with each phone able to work as both a tag and a reader. Which technology BEST fits this need?",
+      "choices": [
+        { "id": "a", "text": "NFC" },
+        { "id": "b", "text": "RFID" },
+        { "id": "c", "text": "Bluetooth" },
+        { "id": "d", "text": "Wi-Fi" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.e"],
+      "units": ["5.4.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.12",
+        "title": "Bluetooth, RFID, and NFC",
+        "quote": "",
+        "find": "as both tag and reader"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q58" }
+    },
+    {
+      "id": "c1-u05-q058",
+      "stem": "Researchers open the electronic lock on their lab's door by holding their access badges up to a reader mounted beside it. Which technology do the badges MOST likely use?",
+      "choices": [
+        { "id": "a", "text": "Bluetooth" },
+        { "id": "b", "text": "Wi-Fi" },
+        { "id": "c", "text": "RFID" },
+        { "id": "d", "text": "Bluetooth Low Energy" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.2", "2.2.f"],
+      "units": ["5.4.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.12",
+        "title": "Bluetooth, RFID, and NFC",
+        "quote": "",
+        "find": "some types of access badges"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B66" }
+    }
+  ]
+}

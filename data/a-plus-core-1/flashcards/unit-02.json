@@ -263,7 +263,7 @@
       "term": "NIC (Network Interface Card)",
       "definition": "An add-on network card, installed to use a different network type or cabling (copper or fiber optic) or to add ports that can be bonded into one faster link.",
       "objectives": ["3.5", "3.5.h"],
-      "units": ["2.2.16"],
+      "units": ["2.2.16", "5.2.1"],
       "reference": { "source": "certmaster", "section": "2.2.16", "title": "Network Interface Cards" }
     },
     {
