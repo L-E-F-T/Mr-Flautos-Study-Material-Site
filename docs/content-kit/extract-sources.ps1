@@ -6,7 +6,8 @@
     powershell -ExecutionPolicy Bypass -File extract-sources.ps1 -Scratch "<scratchpad>"
 
   The defaults are A+ Core 1. For another course pass -CourseDir, -ModulesDir, -MesserBook, -ExamCode,
-  and -ExamDetails (or '' when there is none).
+  and -ExamDetails (or '' when there is none). -ModulesDir is relative to -CourseDir: A+ Core 1's
+  section PDFs moved from Core 1\Modules to CompTIAA+\Book\bySubunit in November 2026.
 
   Writes, under -Scratch:
     text\<section>.raw.txt    pdftotext -layout of each reading-section PDF. Page breaks are form feeds.
@@ -24,7 +25,7 @@
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
   [string]$CourseDir   = (Join-Path $env:OneDriveCommercial 'Documents\CompTIAA+\Core 1'),
-  [string]$ModulesDir  = 'Modules',
+  [string]$ModulesDir  = '..\Book\bySubunit',
   [string]$PoolDir     = 'Certmaster Questions',
   [string]$MesserBook  = 'professor-messer-a-plus-220-1201-core-1-practice-exams-v112.pdf',
   [string]$ExamCode    = '220-1201',

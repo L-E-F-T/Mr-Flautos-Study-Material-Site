@@ -45,22 +45,65 @@ A pack with `"reviewed": true` is approved, and a pack with `"reviewed": false` 
 
 ## Source material
 
-All of it is outside this project, in the `Documents` folder of my school OneDrive. In PowerShell, `$env:OneDriveCommercial` is the OneDrive folder. The kit's `extract-sources.ps1` and `extract-aids.ps1` pull what you need into your scratchpad as text.
+All of it is outside this project, in the `Documents` folder of my school OneDrive: `C:\Users\Flautoa\OneDrive - Trinity High School\Documents` (in PowerShell, `$env:OneDriveCommercial\Documents`). You can read it directly, so I never attach files. The kit's `extract-sources.ps1` and `extract-aids.ps1` pull what you need into your scratchpad as text. Every path below starts from that `Documents` folder, and all of them were checked on disk on 2026-11-11. If one has moved, find it, use it, and tell me.
 
-| Course | The reading | Question pool (no answer key) | Messer practice exams (keyed) | Official objectives |
-|---|---|---|---|---|
-| A+ Core 1 | `CompTIAA+\Core 1\Modules\`, one PDF per reading section | `CompTIAA+\Core 1\Certmaster Questions\`, `2.0.txt` to `10.0.txt` | `CompTIAA+\Core 1\professor-messer-a-plus-220-1201-core-1-practice-exams-v112.pdf` | Already in `objectives.json`; weights in `CompTIAA+\Core 1\A+Core1ExamDetails.pdf` |
-| A+ Core 2 | `CompTIAA+\Book\byUnit\`, `A+ 11.0.pdf` to `A+ 22.0.pdf` | None yet | `CompTIAA+\professor-messer-a-plus-220-1202-core-2-practice-exams-v111.pdf` | Not in my folders |
-| Network+ | `CompTIANet+\Book\bySubunit\` and `CompTIANet+\Book\byUnit\` | `CompTIANet+\Certmaster Questions\`, `1.0.txt` and `2.0.txt` | None | `CompTIANet+\Book\bySubunit\B.1.3 Exam Objectives for CompTIA Network+ N10-009.pdf` |
-| Security+ | `CompTIASec+\Book\bySubunit\` and `CompTIASec+\Book\byUnit\` | `CompTIASec+\Certmaster Questions\` | `CompTIASec+\professor-messer-sy0-701-comptia-security-plus-practice-exams-v18.pdf` | Not in my folders |
+**A+ Core 1 (220-1201)**
 
-**My materials for A+ Core 1** (corroboration only): unit study guides with keys for Units 2.0 to 7.0 in `CompTIAA+\Core 1\Study Guides\`, review decks and lesson decks in `CompTIAA+\Core 1\Slides\`, Blookets in `CompTIAA+\Core 1\Activites\`. Units 8.0 to 10.0 have no study guide or review deck.
+| What | Where |
+|---|---|
+| The reading, one PDF per section | `CompTIAA+\Book\bySubunit\`, named like `2.1.4 Universal Serial Bus Cables.pdf`. The same folder has each unit's and lesson's opening page (`2.1 Cables and Connectors.pdf`), an `Exam Details` folder, and a zip; the script reads only the PDFs at the top. |
+| The reading as whole chapters | `CompTIAA+\Book\byUnit\A+ 1.0.pdf` to `A+ 10.0.pdf` |
+| Question pools (no answer key) | `CompTIAA+\Core 1\Certmaster Questions\2.0.txt` to `10.0.txt` |
+| Messer practice exams (keyed) | `CompTIAA+\Core 1\professor-messer-a-plus-220-1201-core-1-practice-exams-v112.pdf` |
+| Objectives and domain weights | Objectives are already in `objectives.json`. Weights: `CompTIAA+\Core 1\A+Core1ExamDetails.pdf` |
+| My study guides with keys (Units 2.0 to 7.0) | `CompTIAA+\Core 1\Study Guides\`: `A+ Unit 2.0 Review - Study Guide.pdf` and `A+ Unit 2.0 Review - Study Guide KEY.pdf`, the same for 3.0 to 5.0, and `A+ Unit 6.0 Review - KEY.pdf`, `A+ Unit 7.0 Review - KEY.pdf` for 6.0 and 7.0 |
+| My review decks | `CompTIAA+\Core 1\Slides\`: `A+ Units 2.0-3.0 Review.pptx`, `A+ Units 5.0-6.0 Review.pptx`, `A+ Unit 6.0 Review.pptx`, `A+ Unit 7.0 Review.pptx`, and lesson reviews such as `A+ 2.0 Review.pptx` |
+| My lesson decks | `CompTIAA+\Core 1\Slides\A+ <lesson> <title>.pptx` |
+| My Blookets | `CompTIAA+\Core 1\Blookets\` (Units 2.0, 4.0, 5.0, 5.0-6.0, 6.0, 7.0; some names start `A ` instead of `A+ `). Unit 3.0's are in `CompTIAA+\Core 1\Activites\`. |
+
+Units 8.0 to 10.0 have no study guide, review deck, or Blooket.
+
+**A+ Core 2 (220-1202)**
+
+| What | Where |
+|---|---|
+| The reading | Whole chapters only: `CompTIAA+\Book\byUnit\A+ 11.0.pdf` to `A+ 22.0.pdf` |
+| Question pools | `CompTIAA+\Core 2\Certmaster Questions\` (empty so far) |
+| Messer practice exams | `CompTIAA+\professor-messer-a-plus-220-1202-core-2-practice-exams-v111.pdf` |
+| Objectives and weights | Not in my folders |
+| My materials | `CompTIAA+\Core 2\Study Guides\`, `Slides\`, `Blookets\`, `Activites\` (all empty so far) |
+
+**Network+ (N10-009)**
+
+| What | Where |
+|---|---|
+| The reading | Sections: `CompTIANet+\Book\bySubunit\`. Whole chapters: `CompTIANet+\Book\byUnit\Net+ 1.0.pdf` to `Net+ 14.0.pdf` |
+| Question pools | `CompTIANet+\Certmaster Questions\1.0.txt` to `14.0.txt`, plus `All.txt` (all of them combined) |
+| Messer practice exams | None |
+| Objectives and weights | `CompTIANet+\Book\bySubunit\B.1.3 Exam Objectives for CompTIA Network+ N10-009.pdf` and `B.1.2 Exam Details for CompTIA Network+ N10-009.pdf` |
+| My study guide with key (Unit 1.0) | `CompTIANet+\Study Guides\Net+ Unit 1.0 Review.pdf` and `Net+ Unit 1.0 Review - KEY.pdf` |
+| My decks | `CompTIANet+\Slides\` (lesson decks, `Net+ 3.0 Unit review.pptx`, `Net+ Unit 5.0 Review.pptx`); `CompTIANet+\Activities\Net+ Unit 1.0 Review_3.pptx` |
+| My Blookets | `CompTIANet+\Blooket\` (Units 3.0 to 5.0) and `CompTIANet+\Activities\` (Unit 2.0) |
+
+**Security+ (SY0-701)**
+
+| What | Where |
+|---|---|
+| The reading | Sections: `CompTIASec+\Book\bySubunit\`. Whole chapters: `CompTIASec+\Book\byUnit\Sec+ 1.0.pdf` to `Sec+ 16.0.pdf` |
+| Question pools | `CompTIASec+\Certmaster Questions\1.0 + 2.0.txt`, `3.0.txt` to `16.0.txt`, and `All.txt` |
+| Messer practice exams | `CompTIASec+\professor-messer-sy0-701-comptia-security-plus-practice-exams-v18.pdf` |
+| Objectives and weights | Not in my folders |
+| My study guide with key (Units 1.0-2.0) | `CompTIASec+\Study Guides\1.0-2.0\`: `Sec+ Units 1.0-2.0 Review - Study Guide.pdf`, `Sec+ 1.0-2.0 Review - Questions.pdf` and its KEY. `extract-aids.ps1` reads only the top of `Study Guides`, so read these by hand. |
+| My decks | `CompTIASec+\Slides\` (lesson decks, `Sec+ Units 1.0-6.0 Review.pptx`, `Sec+ Unit 7.0 Review.pptx`); `CompTIASec+\Activities\Sec+ Units 1.0-2.0 Review Deck Activity.pptx` |
+| My Blookets | `CompTIASec+\Blookets\` (Units 4.0 to 7.0) |
+
+Not needed for content: each course's `claude` folder (notes my other chats saved while building my materials), `Guided Notes`, `Lab-Activities`, and `Syllabus`.
 
 **Gaps I know about.** Do not work around them. Tell me when you reach one.
 
-- **Section printouts.** Only A+ Core 1 has a printout for every reading section. Network+ has them for units 1.0 to 7.0 only. Security+ has them for units 1.0 to 7.0 except lessons 2.2, 7.2, and 7.3. Everything else, and all of Core 2, is only in the `byUnit` PDFs: whole chapters that label lessons 8A, 8B, and so on and print no section numbers. CertMaster's section numbers skip videos and labs, so never number sections yourself. Before you write an exam's `units.json`, tell me which units have no section printouts, and wait.
+- **Section printouts.** A+ Core 1 has a printout for every reading section. Network+ has them for units 1.0 to 14.0 and Security+ for 1.0 to 16.0, but not for every lesson: on 2026-11-11 Network+ had none for 9.2, 10.3, or 11.2, and Security+ had only 14.2 in unit 14.0 and only 15.1 in unit 15.0 (check the `byUnit` chapter to see whether those lessons exist). All of Core 2, and any lesson without printouts, is only in the `byUnit` PDFs: whole chapters that label lessons 8A, 8B, and so on and print no section numbers. CertMaster's section numbers skip videos and labs, so never number sections yourself. Before you write an exam's `units.json`, tell me which lessons have no section printouts, and wait.
 - **Objectives.** Core 2 and Security+ have no objectives document in my folders: ask me. Network+'s B.1.3 has the objectives and bullets but no domain weights: take the weights from `B.1.2 Exam Details for CompTIA Network+ N10-009.pdf` in the same folder, and keep B.1.3's domain titles.
-- **Pools.** See "Other exams" in `docs/CONTENT-NOTES.md` for Security+. Security+ `14.0.txt` and `All.txt` are empty. Network+ `4.0 Custom Subnetting.txt` is not a pool export: ask me before you use it. The three matching items in Network+ `1.0.txt` have no `answer` line, so they get no number: skip them.
+- **Pools.** See "Other exams" in `docs/CONTENT-NOTES.md` for Security+. Number items from the unit files, never from `All.txt`, and ask me before you use `All.txt` (Security+'s is three times the size of its unit files together). A matching item with no `answer` line gets no number (Network+ `1.0.txt` had three): skip it.
 
 Rules for the source folders:
 

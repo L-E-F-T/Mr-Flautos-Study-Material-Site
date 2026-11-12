@@ -167,11 +167,11 @@ Each question shows a short quote from the reading under the section name. Rules
 1. The sentence (or two) that actually answers the question, copied exactly.
 2. 40 words max. The check warns above that.
 3. The teacher adds quotes from his own copy of the reading. The fastest way is the **quote helper** at `http://localhost:8080/tools/quotes.html` (Chrome or Edge, with `serve.cmd` running):
-   - Open a pack (for example `data/a-plus-core-1/questions/unit-03.json`) and, once, choose the CertMaster `Modules` folder.
+   - Open a pack (for example `data/a-plus-core-1/questions/unit-03.json`) and, once, click **Choose Modules folder** and pick the reading folder, `CompTIAA+\Book\bySubunit` in OneDrive `Documents`.
    - For each question it shows the stem, the correct answer, the reading section, and the `find` phrase. Click **Open 3.2.6 PDF**, press Ctrl+F, paste the phrase, then copy the sentence into the box. The word count turns red over 40.
    - **Save changes** writes straight back into the pack file.
 
-   By hand instead: open the section PDF (for example `Modules\3.2.6 RAID 0 and RAID 1.pdf`), search the `find` phrase, and paste the sentence into `"quote"`.
+   By hand instead: open the section PDF (for example `Book\bySubunit\3.2.6 RAID 0 and RAID 1.pdf`), search the `find` phrase, and paste the sentence into `"quote"`.
 4. Until a quote is added, students still see "Reading 3.2.6 RAID 0 and RAID 1", and the content check counts questions still missing a quote.
 
 ## Lab-only packs

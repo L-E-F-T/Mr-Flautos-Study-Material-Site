@@ -6,7 +6,8 @@
 
     powershell -ExecutionPolicy Bypass -File extract-aids.ps1 -Scratch "<scratchpad>" -Unit 2
 
-  It reads only the top level of Slides, Activites (his spelling), and Study Guides, so it never opens
+  It reads only the top level of Slides, Activites (his spelling) or Activities, Blookets or Blooket,
+  and Study Guides, so it never opens
   graded work in a subfolder (Tests, Assignments, Projects, "2.0 Take Home", Study Guides\Documents).
   It also skips any file whose name looks like graded work.
 
@@ -29,7 +30,8 @@ $out = Join-Path $Scratch 'aids'
 New-Item -ItemType Directory -Force $out | Out-Null
 # "Form" is left out on purpose: deck names such as "Form Factors" would match it.
 $graded = '(?i)\b(test|quiz|exam|assignment|project|virtual day|take home)s?\b'
-$p = [regex]::Escape($Prefix)
+# Some file names drop the plus ("A 2.0 Installing ... Blooket.csv", "Sec 4.0 Review Blooket.csv").
+$p = [regex]::Escape($Prefix.TrimEnd('+')) + '\+?'
 
 function Test-NamesUnit([string]$name, [int]$u) {
   # "A+ 2.1 Motherboards.pptx", "A+ Unit 6.0 Review.pptx", "A+ Units 2.0-3.0 Review.pptx"
@@ -72,7 +74,7 @@ foreach ($f in Get-TopFiles 'Slides' '*.pptx') {
   [IO.File]::WriteAllText((Join-Path $out ($f.BaseName + '.txt')), (Get-PptxText $f.FullName), $utf8)
   "Deck: $($f.Name)"; $found++
 }
-foreach ($folder in 'Activites', 'Activities') {
+foreach ($folder in 'Activites', 'Activities', 'Blookets', 'Blooket') {
   foreach ($f in Get-TopFiles $folder '*.csv') {
     if ($f.Name -match $graded) { "Skipped (looks like graded work): $($f.Name)"; continue }
     Copy-Item -LiteralPath $f.FullName -Destination (Join-Path $out $f.Name) -Force
