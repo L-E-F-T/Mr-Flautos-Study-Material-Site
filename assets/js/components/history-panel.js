@@ -2,9 +2,10 @@
  * Recent history side panel: the log of finished practice tests kept on this device, turned
  * into something a student can act on:
  *   - recent scores, to see the trend;
- *   - a breakdown by unit and lesson, with the weakest lesson called out;
- *   - the list of tests, each with its day, date, and time, and its score per unit (or per
- *     lesson, for a one-unit test).
+ *   - a breakdown by textbook unit and lesson, or by exam domain and objective (a switch, as
+ *     on the practice setup), with the weakest lesson or objective called out;
+ *   - the list of tests by date, each with its time, score, and the lessons (or objectives)
+ *     it covered.
  * It is labeled "Recent" because it lives in the browser's saved data, which a device can
  * clear, so students do not count on it lasting.
  * Retry rounds (only previously missed questions) are listed but left out of the averages
@@ -16,14 +17,37 @@
 import { h, mount, nextId } from '../lib/dom.js';
 import { getHistory, clearHistory } from '../lib/progress.js';
 import { naturalCompare } from '../lib/taxonomy.js';
+import * as store from '../lib/storage.js';
 import { displayCode } from './tree-picker.js';
+import { segmented } from './segmented.js';
 
 const RECENT_TESTS = 5; // "Last 5" in the summary, and the overall trend
 const RECENT_PER_TOPIC = 3; // tests compared with earlier ones for a unit or lesson trend
 const CHART_TESTS = 10; // bars in the recent-scores chart
 const LOG_LIMIT = 30; // tests listed
-const MIN_FOR_WEAKEST = 4; // answers a lesson needs before it can be called the weakest
+const MIN_FOR_WEAKEST = 4; // answers a lesson or objective needs before it can be called the weakest
 const TREND_TITLE = 'Latest tests compared with the ones before';
+
+/**
+ * The two outlines the breakdown can follow, as on the practice setup. Every logged test keeps a
+ * tally for both, so switching needs nothing new from the student.
+ */
+const VIEWS = {
+  unit: { label: 'Textbook unit', heading: 'By unit', top: 'units', inner: 'lessons', topNoun: 'Unit', innerNoun: 'Lesson' },
+  objective: { label: 'Exam objective', heading: 'By domain', top: 'domains', inner: 'objectives', topNoun: 'Domain', innerNoun: 'Objective' },
+};
+const isView = (value) => value === 'unit' || value === 'objective';
+/** Where the student's choice of outline is remembered, per exam. */
+const viewKey = (examId) => `history-view:${examId}`;
+
+/** The top of an outline for an id: "3.4" → "3.0". */
+const topIdOf = (id) => `${String(id).split('.')[0]}.0`;
+
+/** The unit of a lesson, or the domain of an objective, from the outline when it is known. */
+function parentOf(index, id) {
+  const entry = index.get(id);
+  return entry && entry.parentId ? entry.parentId : topIdOf(id);
+}
 
 let isOpen = false;
 
@@ -78,11 +102,28 @@ function pairsOf(counts) {
   return Object.entries(counts).filter(([, pair]) => isPair(pair)).sort((a, b) => naturalCompare(a[0], b[0]));
 }
 
-/** Totals per unit or lesson id across tests: Map(id → { id, correct, total, pairs }). */
-function collect(tests, bucket) {
+/**
+ * A test's tally at the top of an outline: its units, or its domains. Tests logged before
+ * 2026-11-12 kept no domain tally, so their objectives are added up by domain instead (a question
+ * tagged with two objectives of one domain then counts twice there, which is close enough).
+ */
+function topPairs(test, view, index) {
+  if (view === 'unit' || test.domains) return pairsOf(test[VIEWS[view].top]);
+  const sums = {};
+  for (const [id, pair] of pairsOf(test.objectives)) {
+    const domain = parentOf(index, id);
+    const sum = sums[domain] || (sums[domain] = [0, 0]);
+    sum[0] += pair[0];
+    sum[1] += pair[1];
+  }
+  return pairsOf(sums);
+}
+
+/** Totals per id across tests: Map(id → { id, correct, total, pairs }). `pairsFor(test)` is one test's tally. */
+function collect(tests, pairsFor) {
   const rows = new Map();
   for (const test of tests) {
-    for (const [id, pair] of pairsOf(test[bucket])) {
+    for (const [id, pair] of pairsFor(test)) {
       const row = rows.get(id) || { id, correct: 0, total: 0, pairs: [] };
       row.correct += pair[0];
       row.total += pair[1];
@@ -127,16 +168,22 @@ function scoreRow({ code, title, correct, total, delta }) {
   ];
 }
 
-function renderBody(body, ctx, onClear) {
+/**
+ * Draw the panel. `view` is 'unit' or 'objective': the outline the breakdown and the test rows
+ * follow. `onView(next)` switches it; `onClear()` empties the log.
+ */
+function renderBody(body, ctx, view, onView, onClear) {
   const history = getHistory(ctx.exam.id);
   if (history.length === 0) {
     mount(body, h('p', { class: 'muted' }, 'No finished tests yet.'));
     return;
   }
 
+  const outline = VIEWS[view];
+  const index = view === 'objective' ? ctx.objectiveIndex : ctx.unitIndex;
   const firstTries = history.filter((test) => !test.retry);
   const titleOf = (id) => {
-    const entry = ctx.unitIndex.get(id);
+    const entry = index.get(id);
     return entry ? entry.node.title : '';
   };
 
@@ -183,77 +230,80 @@ function renderBody(body, ctx, onClear) {
       ));
     }
 
-    /* ---- By unit, with lessons inside ---- */
-    const unitRows = collect(firstTries, 'units');
-    const lessonRows = collect(firstTries, 'lessons');
-
-    const lessonsOf = (unitId) => [...lessonRows.values()]
-      .filter((lesson) => {
-        const entry = ctx.unitIndex.get(lesson.id);
-        return entry ? entry.parentId === unitId : `${lesson.id.split('.')[0]}.0` === unitId;
-      })
+    /* ---- By unit (lessons inside) or by domain (objectives inside), with the switch ---- */
+    const topRows = collect(firstTries, (test) => topPairs(test, view, index));
+    const innerRows = collect(firstTries, (test) => pairsOf(test[outline.inner]));
+    const childrenOf = (topId) => [...innerRows.values()]
+      .filter((row) => parentOf(index, row.id) === topId)
       .sort((a, b) => naturalCompare(a.id, b.id));
 
-    const units = [...unitRows.values()].sort((a, b) => naturalCompare(a.id, b.id));
-    const candidates = [...lessonRows.values()].filter((lesson) => lesson.total >= MIN_FOR_WEAKEST);
+    const tops = [...topRows.values()].sort((a, b) => naturalCompare(a.id, b.id));
+    const candidates = [...innerRows.values()].filter((row) => row.total >= MIN_FOR_WEAKEST);
     const weakest = candidates.length >= 2
-      ? candidates.reduce((low, lesson) => (pct(lesson.correct, lesson.total) < pct(low.correct, low.total) ? lesson : low))
+      ? candidates.reduce((low, row) => (pct(row.correct, row.total) < pct(low.correct, low.total) ? row : low))
       : null;
 
-    if (units.length) {
-      sections.push(h('section', { class: 'panel', 'aria-labelledby': 'hist-units' },
-        h('h3', { id: 'hist-units' }, 'By unit'),
-        weakest && pct(weakest.correct, weakest.total) < 100
-          ? h('p', { class: 'notice hist-weakest' },
-              h('strong', null, 'Weakest lesson: '),
-              `${weakest.id} ${titleOf(weakest.id)}, ${pct(weakest.correct, weakest.total)}%`)
-          : null,
-        h('div', { class: 'hist-units' },
-          units.map((unit) => {
-            const entry = ctx.unitIndex.get(unit.id);
-            const lessons = lessonsOf(unit.id);
-            // The grid lives on a span inside <summary>: Safari does not lay out a summary as a grid.
-            return h('details', { class: 'hist-unit', open: units.length <= 3 },
-              h('summary', null,
-                h('span', { class: 'hist-row hist-row-unit' },
-                  h('span', { class: 'chev', 'aria-hidden': 'true' }),
-                  scoreRow({
-                    code: entry ? displayCode(entry.node) : `Unit ${unit.id}`,
-                    title: titleOf(unit.id),
-                    correct: unit.correct,
-                    total: unit.total,
-                    delta: trendDelta(unit.pairs, RECENT_PER_TOPIC),
-                  }),
+    const viewSwitch = segmented('Show scores by', 'hist-view', [
+      { value: 'unit', label: VIEWS.unit.label },
+      { value: 'objective', label: VIEWS.objective.label },
+    ], view, onView);
+
+    sections.push(h('section', { class: 'panel', 'aria-labelledby': 'hist-topics' },
+      h('div', { class: 'panel-title' }, h('h3', { id: 'hist-topics' }, outline.heading), viewSwitch),
+      tops.length ? null : h('p', { class: 'muted', style: { margin: 0 } }, `No scores by ${outline.label.toLowerCase()} yet.`),
+      weakest && pct(weakest.correct, weakest.total) < 100
+        ? h('p', { class: 'notice hist-weakest' },
+            h('strong', null, `Weakest ${outline.innerNoun.toLowerCase()}: `),
+            // Objective titles are CompTIA's sentences; drop the final period before ", 17%".
+            `${weakest.id} ${titleOf(weakest.id).replace(/\.$/, '')}, ${pct(weakest.correct, weakest.total)}%`)
+        : null,
+      tops.length
+        ? h('div', { class: 'hist-units' },
+            tops.map((top) => {
+              const entry = index.get(top.id);
+              const children = childrenOf(top.id);
+              // The grid lives on a span inside <summary>: Safari does not lay out a summary as a grid.
+              return h('details', { class: 'hist-unit', open: tops.length <= 3 },
+                h('summary', null,
+                  h('span', { class: 'hist-row hist-row-unit' },
+                    h('span', { class: 'chev', 'aria-hidden': 'true' }),
+                    scoreRow({
+                      code: entry ? displayCode(entry.node) : (view === 'unit' ? `Unit ${top.id}` : top.id),
+                      title: titleOf(top.id),
+                      correct: top.correct,
+                      total: top.total,
+                      delta: trendDelta(top.pairs, RECENT_PER_TOPIC),
+                    }),
+                  ),
                 ),
-              ),
-              lessons.length
-                ? h('ul', { class: 'hist-lessons' },
-                    lessons.map((lesson) => h('li', { class: 'hist-row' },
-                      scoreRow({
-                        code: lesson.id,
-                        title: titleOf(lesson.id),
-                        correct: lesson.correct,
-                        total: lesson.total,
-                        delta: trendDelta(lesson.pairs, RECENT_PER_TOPIC),
-                      }))))
-                : null,
-            );
-          }),
-        ),
-      ));
-    }
+                children.length
+                  ? h('ul', { class: 'hist-lessons' },
+                      children.map((row) => h('li', { class: 'hist-row' },
+                        scoreRow({
+                          code: row.id,
+                          title: titleOf(row.id),
+                          correct: row.correct,
+                          total: row.total,
+                          delta: trendDelta(row.pairs, RECENT_PER_TOPIC),
+                        }))))
+                  : null,
+              );
+            }),
+          )
+        : null,
+    ));
   }
 
   /* ---- Tests by date, newest first: a heading per day, then one row per test ---- */
   const testRow = (test) => {
-    // A test on one unit names its lessons; a test across units names the units. The score per
-    // lesson or unit is in the tooltip: the By unit section already shows those.
-    const units = pairsOf(test.units);
-    const lessons = pairsOf(test.lessons);
-    const byUnit = units.length > 1 || lessons.length === 0;
-    const parts = byUnit ? units : lessons;
+    // A test on one unit (or domain) names its lessons (or objectives); a test across several
+    // names those instead. The score for each is in the tooltip: the section above shows them.
+    const tops = topPairs(test, view, index);
+    const inners = pairsOf(test[outline.inner]);
+    const byTop = tops.length > 1 || inners.length === 0;
+    const parts = byTop ? tops : inners;
     const topics = parts.length
-      ? `${byUnit ? 'Unit' : 'Lesson'}${parts.length > 1 ? 's' : ''} ${parts.map(([id]) => id).join(', ')}`
+      ? `${byTop ? outline.topNoun : outline.innerNoun}${parts.length > 1 ? 's' : ''} ${parts.map(([id]) => id).join(', ')}`
       : '';
     const scores = parts.map(([id, pair]) => `${id}: ${pair[0]} of ${pair[1]}`).join(', ');
     return h('li', { class: 'hist-test' },
@@ -293,11 +343,13 @@ function renderBody(body, ctx, onClear) {
 
 /**
  * Open the panel. `opener` is the button that opened it; focus returns there on close.
+ * `view` ('unit' or 'objective') is the outline to start with when the student has not picked
+ * one in this panel yet; their pick is remembered on this device, per exam.
  * While it is open the rest of the page is inert, so the keyboard and screen readers
  * stay inside the panel. Escape, the Close button, a click outside, or the browser's
  * Back button (the Back gesture on a phone) closes it.
  */
-export function openHistoryPanel(ctx, opener) {
+export function openHistoryPanel(ctx, opener, { view: startView = 'unit' } = {}) {
   if (isOpen) return;
   isOpen = true;
 
@@ -344,7 +396,17 @@ export function openHistoryPanel(ctx, opener) {
     if (ownsHistoryStep && !wentBack) window.history.back();
   }
 
-  const render = () => renderBody(body, ctx, () => {
+  const saved = store.load(viewKey(ctx.exam.id), null);
+  let view = isView(saved) ? saved : (isView(startView) ? startView : 'unit');
+  const switchView = (next) => {
+    view = next;
+    store.save(viewKey(ctx.exam.id), next);
+    render();
+    // The panel was drawn again: keep focus on the switch so arrow keys keep working.
+    const checked = body.querySelector('input[name="hist-view"]:checked');
+    if (checked) checked.focus();
+  };
+  const render = () => renderBody(body, ctx, view, switchView, () => {
     clearHistory(ctx.exam.id);
     render();
     closeButton.focus(); // the Clear button is gone; keep focus inside the panel

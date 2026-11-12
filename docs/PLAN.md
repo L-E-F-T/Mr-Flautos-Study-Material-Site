@@ -20,7 +20,7 @@ Order: A+ Core 1 first, then Core 2, Network+, Security+. Hosting: GitHub Pages 
 | Flashcards: term table, search, deck (flip, next, take out, shuffle, put back), saved on the device | Built and tested |
 | Practice test: topic picker, random draw, instant feedback, reading reference and quote, choose-two questions, resume after refresh | Built and tested |
 | Results: score, list of missed questions, "Retry missed" rounds, breakdown by lesson or objective | Built and tested |
-| Recent history: every finished test is logged on the device with the date and time it finished; a side panel shows recent scores, a breakdown by unit and lesson, and the tests by date with each one's time | Built and tested |
+| Recent history: every finished test is logged on the device with the date and time it finished; a side panel shows recent scores, a breakdown by textbook unit and lesson or by exam domain and objective (a switch), and the tests by date with each one's time | Built and tested |
 | Home: **Resume deck** and **Resume test** buttons when one is unfinished on the device, each with a minus that discards it (one click turns it red, a second click discards) | Built and tested |
 | "Coming soon" labels on anything without content (exam, study mode, unit, lesson, objective) | Built and tested |
 | Light and dark mode toggle (follows the device until the student chooses) | Built and tested |
@@ -65,7 +65,7 @@ Each exam uses the same pages with `?exam=…` in the address, so adding Core 2,
 | Practice: setup | **Recent history** button beside the title. **Topics** (tree by textbook unit or by exam objective, with question counts) and **Questions** (how many). On wide screens they sit side by side; on phones Questions follows Topics and **Start** is docked to the bottom of the screen. |
 | Practice: question | Progress and running score, the question, the choices, **Check**, then right/wrong with the reading reference, then **Next**. |
 | Practice: results | Score, then **Missed (N)**: each missed question as the student saw it, with their pick, the right answer, and the reading. **Retry missed** sits above and below the list and starts a round of only those questions; rounds repeat until nothing is missed. Then the breakdown by lesson or objective, with a bar that is green for the share correct and red for the share missed. **Recent history** sits with New test and Change topics. |
-| Recent history (side panel) | Named "Recent" because it lives in the browser's saved data, which a device can clear. Slides in from the right; full screen on phones. Closes with Close, Escape, a tap outside, or the Back button. Top to bottom: tests taken, average, and the latest score (or the last 5 with Up/Down/Steady once there are more than five); **Recent scores**, one bar per test; **By unit**, each unit opening to its lessons with percent, a green/red bar, the count, and its own trend, with the weakest lesson called out; **Tests by date**, newest first: a heading per day ("Tue, Nov 10"; the year shows for older tests), then one row per test with its time and score, and under them the count, the lessons it covered (scores per lesson in a tooltip), and a Retry or Ended early tag; **Clear history**. Retry rounds are listed but left out of the averages. |
+| Recent history (side panel) | Named "Recent" because it lives in the browser's saved data, which a device can clear. Slides in from the right; full screen on phones. Closes with Close, Escape, a tap outside, or the Back button. Top to bottom: tests taken, average, and the latest score (or the last 5 with Up/Down/Steady once there are more than five); **Recent scores**, one bar per test; the breakdown, with a **Textbook unit / Exam objective** switch in its header (it starts the way the practice setup picks topics, then remembers the student's pick on the device): **By unit**, each unit opening to its lessons, or **By domain**, each exam domain opening to its objectives, with percent, a green/red bar, the count, and its own trend, and the weakest lesson or objective called out; **Tests by date**, newest first: a heading per day ("Tue, Nov 10"; the year shows for older tests), then one row per test with its time and score, and under them the count, the lessons or objectives it covered (following the switch; scores in a tooltip), and a Retry or Ended early tag; **Clear history**. Retry rounds are listed but left out of the averages. |
 
 ### Rules every page follows
 
@@ -94,7 +94,7 @@ Items can be tagged at any level and the pickers roll tags up: a question tagged
 
 **Saved progress.** Decks, unfinished tests, the test history, and the light/dark choice are saved in each student's browser. Nothing leaves the device. Every checked answer and every finished test passes through one module (`assets/js/lib/progress.js`), which is where sign-in and a scoreboard would plug in.
 
-**Test history.** When a test ends, one entry is added to a log on the device: the date and time it finished, the score, and a tally per unit, lesson, and objective (whichever way the topics were picked). The log keeps the latest 200 tests per exam. The Recent history panel (`assets/js/components/history-panel.js`) reads it; **Clear history** empties it.
+**Test history.** When a test ends, one entry is added to a log on the device: the date and time it finished, the score, and a tally per unit, lesson, exam domain, and objective (whichever way the topics were picked; tests logged before 2026-11-12 have no domain tally, so the panel adds up their objectives instead). The log keeps the latest 200 tests per exam. The Recent history panel (`assets/js/components/history-panel.js`) reads it; **Clear history** empties it.
 
 **Content check.** One set of rules (`assets/js/lib/validate-core.js`) checks ids, tags, answer keys, references, quote length, house style, copied items, and placeholder packs. It runs in the browser at `tools/validate.html` and on GitHub before each deploy. Errors block the deploy.
 
@@ -154,7 +154,7 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 
 1. Done: flashcards, practice tests, missed-question retry, light/dark toggle, phone layout, placeholder flag, UI cleanup, test history panel, resume buttons, "Coming soon" labels.
 2. Done (2026-11-10): Git and the GitHub CLI installed, repository created, Pages set to "GitHub Actions", first deploy passed.
-3. Later ideas: exam mode (90 questions in 90 minutes, weighted by domain, feedback at the end), a "practice this lesson" button on the weakest lesson in Recent history, a breakdown by exam objective in Recent history (the log already keeps it), add-to-Home-Screen and offline support, CSV import so items can be written in a spreadsheet.
+3. Later ideas: exam mode (90 questions in 90 minutes, weighted by domain, feedback at the end), a "practice this lesson" button on the weakest lesson in Recent history, add-to-Home-Screen and offline support, CSV import so items can be written in a spreadsheet.
 
 **Content (separate chat)**
 

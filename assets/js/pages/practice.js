@@ -76,7 +76,8 @@ function start(ctx) {
    */
   const historyButton = () => {
     const button = h('button', { type: 'button', class: 'btn' }, 'Recent history');
-    button.addEventListener('click', () => openHistoryPanel(ctx, button));
+    // The breakdown starts in the outline the setup picks topics by, until the student switches it.
+    button.addEventListener('click', () => openHistoryPanel(ctx, button, { view: setup.mode }));
     return button;
   };
 
@@ -574,18 +575,19 @@ function start(ctx) {
         correct: tally.correct,
         units: tally.units,
         lessons: tally.lessons,
+        domains: tally.domains,
         objectives: tally.objectives,
       },
     });
   }
 
   /**
-   * Count the answered questions of the current test by unit, lesson, and objective
-   * (each as [correct, total]). Both outlines are always tallied, whichever way the
-   * student picked topics, so the history can always show a breakdown by unit.
+   * Count the answered questions of the current test by unit, lesson, domain, and objective
+   * (each as [correct, total]). Both outlines are always tallied, whichever way the student
+   * picked topics, so Recent history can show a breakdown by either one.
    */
   function tallyRun() {
-    const tally = { total: 0, correct: 0, units: {}, lessons: {}, objectives: {} };
+    const tally = { total: 0, correct: 0, units: {}, lessons: {}, domains: {}, objectives: {} };
     const add = (bucket, id, correct) => {
       const counts = bucket[id] || (bucket[id] = [0, 0]);
       counts[1] += 1;
@@ -610,6 +612,7 @@ function start(ctx) {
         if (lesson && lesson.kind === 'lesson') once(tally.lessons, 'lesson', lesson);
       }
       for (const tag of mostSpecificTags(ctx.objectiveIndex, question.objectives)) {
+        once(tally.domains, 'domain', ancestorAtDepth(ctx.objectiveIndex, tag, 1));
         const objective = ancestorAtDepth(ctx.objectiveIndex, tag, 2);
         if (objective && objective.kind === 'objective') once(tally.objectives, 'objective', objective);
       }

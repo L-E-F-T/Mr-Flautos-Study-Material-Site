@@ -77,6 +77,8 @@ export function recordAnswer({ examId, questionId, correct }) {
  *     total: number, correct: number,  questions answered, and answered correctly
  *     units:      { '3.0': [correct, total], ... },
  *     lessons:    { '3.2': [correct, total], ... },
+ *     domains:    { '3.0': [correct, total], ... },   (exam domains; tests logged before
+ *                                                    2026-11-12 have none)
  *     objectives: { '3.4': [correct, total], ... },
  *   }
  */

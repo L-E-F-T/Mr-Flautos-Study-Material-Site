@@ -657,6 +657,7 @@ details.disclosure[open] > summary { margin-bottom: 0.5rem; }
 .drawer-body > * + * { margin-top: 1rem; }
 .drawer-body .panel { padding: 1rem; }
 .drawer-body h3 { margin: 0 0 0.6rem; }
+.drawer-body .panel-title h3 { margin: 0; }
 
 .hist-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
 .hist-stats .stat { padding: 0.6rem 0.7rem; min-width: 0; }
