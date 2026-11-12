@@ -1,0 +1,1169 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-06", "title": "Unit 6.0 Configuring Network Addressing and Internet Connections", "reviewed": false },
+  "questions": [
+    {
+      "id": "c1-u06-q001",
+      "stem": "A veterinary clinic in a small town will get its Internet service over the building's copper telephone line. Which of the following devices should a technician connect between the telephone wall jack and the clinic's router?",
+      "choices": [
+        { "id": "a", "text": "A cable modem" },
+        { "id": "b", "text": "An ONT" },
+        { "id": "c", "text": "A satellite modem" },
+        { "id": "d", "text": "A DSL modem" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.5", "2.5.h", "2.7", "2.7.a"],
+      "units": ["6.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.2",
+        "title": "Digital Subscriber Line Modems",
+        "quote": "",
+        "find": "telephone cabling via a DSL modem"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B89" }
+    },
+    {
+      "id": "c1-u06-q002",
+      "stem": "A student's online game starts to lag whenever a parent uploads long videos to a video-sharing site over the family's ADSL connection. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The ADSL uplink is slower than its downlink" },
+        { "id": "b", "text": "The ADSL downlink is slower than its uplink" },
+        { "id": "c", "text": "The ADSL link runs at the same speed both ways" },
+        { "id": "d", "text": "The home router uses NAT for its private addresses" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.7", "2.7.a"],
+      "units": ["6.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.2",
+        "title": "Digital Subscriber Line Modems",
+        "quote": "",
+        "find": "fast downlink, but a slow uplink"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q9" }
+    },
+    {
+      "id": "c1-u06-q003",
+      "stem": "A homeowner's new Internet service will arrive over the same coax line that already brings in the home's TV channels. Which of the following devices should a technician install between that coax line and the home's router?",
+      "choices": [
+        { "id": "a", "text": "A cable modem" },
+        { "id": "b", "text": "A DSL modem" },
+        { "id": "c", "text": "An ONT" },
+        { "id": "d", "text": "A firewall" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.5", "2.5.g", "2.7", "2.7.a"],
+      "units": ["6.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.3",
+        "title": "Cable Modems",
+        "quote": "",
+        "find": "interfaced to the local router"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A72" }
+    },
+    {
+      "id": "c1-u06-q004",
+      "stem": "A provider has run a fiber optic line into a branch office, but the office's router has only RJ45 copper ports. Which of the following devices must be installed between the fiber line and the router?",
+      "choices": [
+        { "id": "a", "text": "A DSL modem" },
+        { "id": "b", "text": "A splitter" },
+        { "id": "c", "text": "A cable modem" },
+        { "id": "d", "text": "An ONT" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.5", "2.5.i"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "Fiber to the Curb and Fiber to the Premises",
+        "quote": "",
+        "find": "The ONT converts the optical signal"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 6.0 slide 42" }
+    },
+    {
+      "id": "c1-u06-q005",
+      "stem": "A law firm wants fiber, not copper wiring, to carry its Internet service all the way into its building. Which of the following connection types meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "FTTC" },
+        { "id": "b", "text": "Cable" },
+        { "id": "c", "text": "FTTP" },
+        { "id": "d", "text": "DSL" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.7", "2.7.a"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "Fiber to the Curb and Fiber to the Premises",
+        "quote": "",
+        "find": "way to the customer's building"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q14" }
+    },
+    {
+      "id": "c1-u06-q006",
+      "stem": "A remote ranch's geostationary satellite Internet service loads web pages fine, but on VoIP calls each person hears the other only after a long delay. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Low download bandwidth on the satellite link" },
+        { "id": "b", "text": "Low upload bandwidth on the satellite link" },
+        { "id": "c", "text": "High latency on the satellite link" },
+        { "id": "d", "text": "A dish that loses aim as the satellite moves" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.7", "2.7.a"],
+      "units": ["6.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.7",
+        "title": "Fixed Wireless Internet Access",
+        "quote": "",
+        "find": "geostationary orbit is increased latency"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q5" }
+    },
+    {
+      "id": "c1-u06-q007",
+      "stem": "A technician is mounting the dish for a farmhouse's new geostationary satellite Internet service in North Dakota. Which of the following does the installation require?",
+      "choices": [
+        { "id": "a", "text": "Adding a motor so the dish can follow the satellite" },
+        { "id": "b", "text": "Joining the dish to the modem with an RJ45 cord" },
+        { "id": "c", "text": "Aiming the dish south toward the satellite" },
+        { "id": "d", "text": "Aiming the dish at the provider's nearest tower" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.7", "2.7.a"],
+      "units": ["6.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.7",
+        "title": "Fixed Wireless Internet Access",
+        "quote": "",
+        "find": "the dish will be pointing south"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q13" }
+    },
+    {
+      "id": "c1-u06-q008",
+      "stem": "Before a local provider can serve a horse farm, it must confirm a clear path between an antenna on the farm's barn and the provider's antenna on the town's water tower. Which of the following connection types is the provider MOST likely offering?",
+      "choices": [
+        { "id": "a", "text": "Satellite" },
+        { "id": "b", "text": "FTTC" },
+        { "id": "c", "text": "Cable" },
+        { "id": "d", "text": "WISP" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.7", "2.7.a"],
+      "units": ["6.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.7",
+        "title": "Fixed Wireless Internet Access",
+        "quote": "",
+        "find": "unobstructed line of sight between"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q10" }
+    },
+    {
+      "id": "c1-u06-q009",
+      "stem": "A city is installing hundreds of small parking sensors along its downtown streets, and each sensor must send its readings without a cable run to it. Which of the following connection types will the sensors MOST likely use?",
+      "choices": [
+        { "id": "a", "text": "WISP" },
+        { "id": "b", "text": "Geostationary satellite" },
+        { "id": "c", "text": "Cellular" },
+        { "id": "d", "text": "LEO satellite" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.7", "2.7.a"],
+      "units": ["6.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.8",
+        "title": "Cellular Radio Internet Connections",
+        "quote": "",
+        "find": "Cellular networking is also used"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 6.0 Harder Q17" }
+    },
+    {
+      "id": "c1-u06-q010",
+      "stem": "A technician is replacing a failed device whose job was to read the IP address in each packet and forward the packet toward its destination. Which of the following devices should the technician install?",
+      "choices": [
+        { "id": "a", "text": "A router" },
+        { "id": "b", "text": "A managed switch" },
+        { "id": "c", "text": "An access point" },
+        { "id": "d", "text": "A cable modem" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.5", "2.5.a"],
+      "units": ["6.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.9",
+        "title": "Routers",
+        "quote": "",
+        "find": "a router forwards packets through"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C38" }
+    },
+    {
+      "id": "c1-u06-q011",
+      "stem": "An architecture firm wants to stop computers on the Internet from opening connections to its office PCs while its staff can still browse the web. Which of the following devices should a technician install?",
+      "choices": [
+        { "id": "a", "text": "An ONT" },
+        { "id": "b", "text": "A cable modem" },
+        { "id": "c", "text": "A firewall" },
+        { "id": "d", "text": "A DSL filter" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.5", "2.5.e"],
+      "units": ["6.1.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.10",
+        "title": "Firewalls",
+        "quote": "",
+        "find": "performed by a network firewall"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A71" }
+    },
+    {
+      "id": "c1-u06-q012",
+      "stem": "A technician is adding an entry to the office's network access control list (ACL) so that PCs on the guest network cannot open files on the file server. Which of the following will the entry list?",
+      "choices": [
+        { "id": "a", "text": "The guest network's address range" },
+        { "id": "b", "text": "The file server's MAC address" },
+        { "id": "c", "text": "The file-sharing protocol" },
+        { "id": "d", "text": "The guest network's SSID" },
+        { "id": "e", "text": "The block action" }
+      ],
+      "answer": ["a", "c", "e"],
+      "objectives": ["2.5", "2.5.e"],
+      "units": ["6.1.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.10",
+        "title": "Firewalls",
+        "quote": "",
+        "find": "network addresses and protocol types"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q16" }
+    },
+    {
+      "id": "c1-u06-q013",
+      "stem": "A technician is checking a spreadsheet of static IPv4 addresses before typing them into new devices at several branch offices. Which of the following entries are NOT valid IPv4 addresses?",
+      "choices": [
+        { "id": "a", "text": "41.0.0.93" },
+        { "id": "b", "text": "58.256.7.144" },
+        { "id": "c", "text": "87.255.14.6" },
+        { "id": "d", "text": "190.42.11.259" },
+        { "id": "e", "text": "212.254.199.3" },
+        { "id": "f", "text": "266.14.9.30" }
+      ],
+      "answer": ["b", "d", "f"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.6",
+        "title": "IPv4 Addressing",
+        "quote": "",
+        "find": "255 (the maximum possible value)"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q24" }
+    },
+    {
+      "id": "c1-u06-q014",
+      "stem": "A technician is assigning static IPv4 addresses to the 30 workstations on one office network. Which of the following must be different on each workstation?",
+      "choices": [
+        { "id": "a", "text": "The network ID" },
+        { "id": "b", "text": "The default gateway" },
+        { "id": "c", "text": "The host ID" },
+        { "id": "d", "text": "The DNS server address" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.8",
+        "title": "Network Prefixes",
+        "quote": "",
+        "find": "identifies a host within a particular"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q23" }
+    },
+    {
+      "id": "c1-u06-q015",
+      "stem": "Since this morning, PCs on the 10.12.5.0/24 network at a car dealership cannot reach any server on the 10.12.6.0/24 network by IP address, but they can still print to a printer on their own network. Which of the following should a technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "The DHCP server" },
+        { "id": "b", "text": "The DNS server" },
+        { "id": "c", "text": "The PCs' network cables" },
+        { "id": "d", "text": "The router" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.9",
+        "title": "IPv4 Forwarding",
+        "quote": "",
+        "find": "a router interface that the host"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B12" }
+    },
+    {
+      "id": "c1-u06-q016",
+      "stem": "A technician is installing a badge reader at a branch office's front door and must give it a private IPv4 address. Which of the following addresses could the technician use?",
+      "choices": [
+        { "id": "a", "text": "172.15.40.12" },
+        { "id": "b", "text": "172.29.40.12" },
+        { "id": "c", "text": "172.32.40.12" },
+        { "id": "d", "text": "192.169.40.12" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.10",
+        "title": "Public and Private Addressing",
+        "quote": "",
+        "find": "Class B private address range"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C45" }
+    },
+    {
+      "id": "c1-u06-q017",
+      "stem": "A technician is adding devices to a company network that uses the Class A network 86.0.0.0 with its default subnet mask. Which of the following addresses are on this network?",
+      "choices": [
+        { "id": "a", "text": "40.0.0.86" },
+        { "id": "b", "text": "85.86.19.4" },
+        { "id": "c", "text": "86.0.0.40" },
+        { "id": "d", "text": "86.19.200.7" },
+        { "id": "e", "text": "86.240.31.5" },
+        { "id": "f", "text": "87.0.0.40" }
+      ],
+      "answer": ["c", "d", "e"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.10",
+        "title": "Public and Private Addressing",
+        "quote": "",
+        "find": "11111111 00000000 00000000"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q30" }
+    },
+    {
+      "id": "c1-u06-q018",
+      "stem": "A technician is typing a static IPv4 configuration into a new network printer from a setup sheet that lists 10.8.4.60, 255.255.255.0, and 10.8.4.1. Which of the following does 255.255.255.0 represent in this configuration?",
+      "choices": [
+        { "id": "a", "text": "The subnet mask" },
+        { "id": "b", "text": "The network ID" },
+        { "id": "c", "text": "The default gateway" },
+        { "id": "d", "text": "The broadcast address" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.11",
+        "title": "IPv4 Host Address Configuration",
+        "quote": "",
+        "find": "The subnet mask is entered"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A35" }
+    },
+    {
+      "id": "c1-u06-q019",
+      "stem": "A technician is giving a PC at a tax preparer's office the static IP address 192.168.0.23/24 and the default gateway 192.168.0.1, which is the office's SOHO router. Which of the following should the technician enter as the preferred DNS server?",
+      "choices": [
+        { "id": "a", "text": "192.168.0.0" },
+        { "id": "b", "text": "192.168.0.1" },
+        { "id": "c", "text": "192.168.0.23" },
+        { "id": "d", "text": "192.168.0.255" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.11",
+        "title": "IPv4 Host Address Configuration",
+        "quote": "",
+        "find": "same as the gateway address"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A54" }
+    },
+    {
+      "id": "c1-u06-q020",
+      "stem": "After a power outage, every PC in a hospital's billing office shows an IPv4 address that starts with 169.254. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The DNS server is down" },
+        { "id": "b", "text": "The PCs have mistyped static IP addresses" },
+        { "id": "c", "text": "The PCs cannot reach the DHCP server" },
+        { "id": "d", "text": "The Internet link is down" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.12",
+        "title": "Static Versus Dynamic Host Address Configuration",
+        "quote": "",
+        "find": "host cannot contact one"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A33" }
+    },
+    {
+      "id": "c1-u06-q021",
+      "stem": "A trucking company is adding a server for its delivery-tracking application, and dispatchers will open the application by typing the server's IP address. Which of the following should a technician configure on the server?",
+      "choices": [
+        { "id": "a", "text": "A static IP address" },
+        { "id": "b", "text": "A dynamic IP address" },
+        { "id": "c", "text": "An APIPA address" },
+        { "id": "d", "text": "A different default gateway" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.12",
+        "title": "Static Versus Dynamic Host Address Configuration",
+        "quote": "",
+        "find": "use a fixed IP address"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q32" }
+    },
+    {
+      "id": "c1-u06-q022",
+      "stem": "A technician is setting up a small office's SOHO router and must enter the static IP address that the ISP assigned to the router's public (WAN) interface. Which of the following could that address be?",
+      "choices": [
+        { "id": "a", "text": "10.0.40.1" },
+        { "id": "b", "text": "99.47.130.12" },
+        { "id": "c", "text": "192.168.1.1" },
+        { "id": "d", "text": "231.6.18.40" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.14"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.14",
+        "title": "SOHO Router Configuration",
+        "quote": "",
+        "find": "This must be an address from"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q28" }
+    },
+    {
+      "id": "c1-u06-q023",
+      "stem": "A technician checking a PC's IP settings sees the IPv6 address 2001:db8:7c0:2e:91a4:3b5:6c2:150d. Which of the following statements about this address are true?",
+      "choices": [
+        { "id": "a", "text": "It must be paired with a subnet mask" },
+        { "id": "b", "text": "The first 64 bits are the network ID" },
+        { "id": "c", "text": "It is a link-local address for the local segment" },
+        { "id": "d", "text": "The last 64 bits are the interface ID" },
+        { "id": "e", "text": "The last 32 bits are the interface ID" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.15"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.15",
+        "title": "IPv6 Addressing",
+        "quote": "",
+        "find": "used as a network ID"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q34" }
+    },
+    {
+      "id": "c1-u06-q024",
+      "stem": "A hotel runs its booking website and its email service on one server that has a single IP address. Which of the following does the server use to pass each piece of incoming data to the right service?",
+      "choices": [
+        { "id": "a", "text": "The MAC address" },
+        { "id": "b", "text": "The IP address" },
+        { "id": "c", "text": "The port number" },
+        { "id": "d", "text": "The sequence number" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.1",
+        "title": "Protocols and Ports",
+        "quote": "",
+        "find": "assigning each application a port number"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q41" }
+    },
+    {
+      "id": "c1-u06-q025",
+      "stem": "Which of the following sets TCP apart from UDP?",
+      "choices": [
+        { "id": "a", "text": "It sends data without waiting for acknowledgments" },
+        { "id": "b", "text": "It can send broadcasts to every host on the local network" },
+        { "id": "c", "text": "It leaves out sequence numbers to keep its header small" },
+        { "id": "d", "text": "It opens each session with a three-way handshake" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["6.3.2", "6.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.2",
+        "title": "Transmission Control Protocol",
+        "quote": "",
+        "find": "using a three-way handshake"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q43" }
+    },
+    {
+      "id": "c1-u06-q026",
+      "stem": "A call center is moving its phone calls onto its office network, where each call needs as little delay as possible and a few lost packets only cause short glitches. Which of the following protocols should carry the calls at the Transport layer?",
+      "choices": [
+        { "id": "a", "text": "Transmission Control Protocol (TCP)" },
+        { "id": "b", "text": "Internet Protocol (IP)" },
+        { "id": "c", "text": "Trivial File Transfer Protocol (TFTP)" },
+        { "id": "d", "text": "User Datagram Protocol (UDP)" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["6.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.4",
+        "title": "User Datagram Protocol",
+        "quote": "",
+        "find": "such as voice or video"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q40" }
+    },
+    {
+      "id": "c1-u06-q027",
+      "stem": "A software company makes its driver files available for download from an FTP server at its main office. Which of the following ports must be open so that customers can reach this server?",
+      "choices": [
+        { "id": "a", "text": "20" },
+        { "id": "b", "text": "21" },
+        { "id": "c", "text": "22" },
+        { "id": "d", "text": "80" },
+        { "id": "e", "text": "445" }
+      ],
+      "answer": ["a", "b"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "download across a network (data"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A24" }
+    },
+    {
+      "id": "c1-u06-q028",
+      "stem": "A game studio's developers connect from their laptops to the studio's Linux build servers on TCP port 22. Which of the following protocols are they MOST likely using?",
+      "choices": [
+        { "id": "a", "text": "Telnet" },
+        { "id": "b", "text": "RDP" },
+        { "id": "c", "text": "FTP" },
+        { "id": "d", "text": "SSH" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "a secure connection to the command-line"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C23" }
+    },
+    {
+      "id": "c1-u06-q029",
+      "stem": "A security audit at a warehouse finds that its old network printers still accept unencrypted command-line logins. Which port should a technician block to stop these logins?",
+      "choices": [
+        { "id": "a", "text": "22" },
+        { "id": "b", "text": "23" },
+        { "id": "c", "text": "80" },
+        { "id": "d", "text": "3389" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "an unsecure connection to the command-line"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 5.0-6.0 slide 270" }
+    },
+    {
+      "id": "c1-u06-q030",
+      "stem": "A hospital's firewall log shows mail servers at other organizations connecting to the hospital's mail server on TCP port 25. Which of the following protocols are these connections using?",
+      "choices": [
+        { "id": "a", "text": "POP3" },
+        { "id": "b", "text": "IMAP" },
+        { "id": "c", "text": "SMTP" },
+        { "id": "d", "text": "Telnet" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "Transfer email messages across a network"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A17" }
+    },
+    {
+      "id": "c1-u06-q031",
+      "stem": "A technician checks which ports a credit union's new server is listening on and finds TCP and UDP port 53. Which of the following services is the server MOST likely running?",
+      "choices": [
+        { "id": "a", "text": "DNS" },
+        { "id": "b", "text": "DHCP" },
+        { "id": "c", "text": "LDAP" },
+        { "id": "d", "text": "NetBIOS" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "Facilitate identification of hosts by name"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q37" }
+    },
+    {
+      "id": "c1-u06-q032",
+      "stem": "A technician monitoring a hardware store's wired network sees a cash register send packets from UDP port 68 to UDP port 67. Which of the following protocols is the cash register using?",
+      "choices": [
+        { "id": "a", "text": "NetBIOS" },
+        { "id": "b", "text": "DHCP" },
+        { "id": "c", "text": "DNS" },
+        { "id": "d", "text": "TFTP" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "Request a dynamic IP address configuration"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q48" }
+    },
+    {
+      "id": "c1-u06-q033",
+      "stem": "A technician opens the setup page built into a dental office's new access point, and the page loads over TCP port 80. Which of the following protocols delivered the page?",
+      "choices": [
+        { "id": "a", "text": "HTTP" },
+        { "id": "b", "text": "HTTPS" },
+        { "id": "c", "text": "FTP" },
+        { "id": "d", "text": "Telnet" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "Provision unsecure websites and web services"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q60" }
+    },
+    {
+      "id": "c1-u06-q034",
+      "stem": "A technician is adding a florist's email account to her new phone, and the phone's mail app asks for the POP3 port. Which port should the technician enter?",
+      "choices": [
+        { "id": "a", "text": "25" },
+        { "id": "b", "text": "110" },
+        { "id": "c", "text": "143" },
+        { "id": "d", "text": "389" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "Post Office Protocol"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 6.0 Harder Q79" }
+    },
+    {
+      "id": "c1-u06-q035",
+      "stem": "An insurance agent's PC mail app sends messages with no trouble, but new mail in her mailbox on the agency's mail server never shows up. Which of the following protocols could the app be using to get new mail?",
+      "choices": [
+        { "id": "a", "text": "POP3" },
+        { "id": "b", "text": "SMTP" },
+        { "id": "c", "text": "LDAP" },
+        { "id": "d", "text": "FTP" },
+        { "id": "e", "text": "IMAP" }
+      ],
+      "answer": ["a", "e"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "Retrieve email messages from a server"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C20" }
+    },
+    {
+      "id": "c1-u06-q036",
+      "stem": "A web hosting company is turning on IMAP on its mail server. Which port must be open on the server for IMAP?",
+      "choices": [
+        { "id": "a", "text": "25" },
+        { "id": "b", "text": "110" },
+        { "id": "c", "text": "137-139" },
+        { "id": "d", "text": "143" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "Internet Mail Access"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q56" }
+    },
+    {
+      "id": "c1-u06-q037",
+      "stem": "A law firm's new network copier must query the firm's directory server for information about network users. Which port will the copier use for these queries?",
+      "choices": [
+        { "id": "a", "text": "389" },
+        { "id": "b", "text": "443" },
+        { "id": "c", "text": "445" },
+        { "id": "d", "text": "3389" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "information about network users and resources"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 5.0-6.0 slide 282" }
+    },
+    {
+      "id": "c1-u06-q038",
+      "stem": "A community college is moving its grade portal from an unsecure HTTP site to a secure HTTPS site. Which port will students' browsers connect to after the move?",
+      "choices": [
+        { "id": "a", "text": "22" },
+        { "id": "b", "text": "80" },
+        { "id": "c", "text": "443" },
+        { "id": "d", "text": "445" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "Provision secure websites and services"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q54" }
+    },
+    {
+      "id": "c1-u06-q039",
+      "stem": "An accounting office's Windows PCs need to share folders and a printer with each other over the office network. Which of the following protocols provides this sharing?",
+      "choices": [
+        { "id": "a", "text": "FTP" },
+        { "id": "b", "text": "RDP" },
+        { "id": "c", "text": "LDAP" },
+        { "id": "d", "text": "SMB" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "Implement Windows-compatible file and printer sharing"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B15" }
+    },
+    {
+      "id": "c1-u06-q040",
+      "stem": "A museum's technician manages the Windows PCs in its lobby kiosks by connecting to each kiosk's graphical desktop from his office. Which port do these connections use?",
+      "choices": [
+        { "id": "a", "text": "22" },
+        { "id": "b", "text": "389" },
+        { "id": "c", "text": "443" },
+        { "id": "d", "text": "3389" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.6",
+        "title": "Well-Known Ports",
+        "quote": "",
+        "find": "connection to the graphical desktop of"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q52" }
+    },
+    {
+      "id": "c1-u06-q041",
+      "stem": "A public library wants every visitor's laptop or phone to be given an IP address configuration automatically as soon as it joins the library's Wi-Fi. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "DNS" },
+        { "id": "b", "text": "DHCP" },
+        { "id": "c", "text": "NAT" },
+        { "id": "d", "text": "APIPA" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["6.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.1",
+        "title": "DHCP Functions",
+        "quote": "",
+        "find": "to any host that connects"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C59" }
+    },
+    {
+      "id": "c1-u06-q042",
+      "stem": "When a print shop opened, its owner typed a static IP address into each new PC, and now two of the PCs report an IP address conflict. Which of the following would BEST prevent another conflict?",
+      "choices": [
+        { "id": "a", "text": "Type a different static address into one of the two PCs" },
+        { "id": "b", "text": "Set each PC to obtain an IP address automatically" },
+        { "id": "c", "text": "Give each PC a different subnet mask" },
+        { "id": "d", "text": "Set each PC's default gateway to the router's address" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.1",
+        "title": "DHCP Functions",
+        "quote": "",
+        "find": "avoid these problems, a DHCP server"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B65" }
+    },
+    {
+      "id": "c1-u06-q043",
+      "stem": "Staff PCs at a dental office lose track of the office printer whenever the DHCP server gives it a new IP address. Which of the following should a technician set up on the DHCP server so the printer always gets the same address?",
+      "choices": [
+        { "id": "a", "text": "A reservation" },
+        { "id": "b", "text": "An exclusion" },
+        { "id": "c", "text": "A longer lease" },
+        { "id": "d", "text": "A larger scope" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.4", "2.4.b"],
+      "units": ["6.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.1",
+        "title": "DHCP Functions",
+        "quote": "",
+        "find": "should receive the same IP address"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A31" }
+    },
+    {
+      "id": "c1-u06-q044",
+      "stem": "A technician opens a factory's DHCP server console and sees a list of client IP addresses, each with a date and time when it expires. Which of the following is the technician looking at?",
+      "choices": [
+        { "id": "a", "text": "Scopes" },
+        { "id": "b", "text": "Leases" },
+        { "id": "c", "text": "Reservations" },
+        { "id": "d", "text": "Exclusions" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.4", "2.4.b"],
+      "units": ["6.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.1",
+        "title": "DHCP Functions",
+        "quote": "",
+        "find": "address is leased by the server"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B74" }
+    },
+    {
+      "id": "c1-u06-q045",
+      "stem": "An architect can open the shared folders on her firm's file server by entering the server's IP address, 10.30.4.12, but not by entering its name, files.example.com. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The DHCP server has run out of addresses" },
+        { "id": "b", "text": "Her PC has an APIPA address" },
+        { "id": "c", "text": "Her PC's network cable has a broken wire" },
+        { "id": "d", "text": "Her PC's DNS server is not responding" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["6.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.3",
+        "title": "DNS Queries",
+        "quote": "",
+        "find": "resolve a host name or FQDN"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q68" }
+    },
+    {
+      "id": "c1-u06-q046",
+      "stem": "At a trucking company, PCs that use IPv6 can reach the payroll server by name, but PCs that use only IPv4 cannot, even though the server also has an IPv4 address. Which type of DNS record is MOST likely missing?",
+      "choices": [
+        { "id": "a", "text": "A record" },
+        { "id": "b", "text": "AAAA record" },
+        { "id": "c", "text": "CNAME record" },
+        { "id": "d", "text": "MX record" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.4",
+        "title": "DNS Record Types",
+        "quote": "",
+        "find": "host name to an IPv4 address"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q83" }
+    },
+    {
+      "id": "c1-u06-q047",
+      "stem": "A university's new research server uses the address 2001:db8:4a::1c, and researchers must reach it by the name lab7.example.org. Which type of DNS record should a technician create?",
+      "choices": [
+        { "id": "a", "text": "A record" },
+        { "id": "b", "text": "AAAA record" },
+        { "id": "c", "text": "CNAME record" },
+        { "id": "d", "text": "MX record" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.4",
+        "title": "DNS Record Types",
+        "quote": "",
+        "find": "host name to an IPv6 address"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 6.0 Harder Q120" }
+    },
+    {
+      "id": "c1-u06-q048",
+      "stem": "A bookstore pays an online store service to run its web shop. Which type of DNS record should a technician create so that shop.maplebooks.example leads to maplebooks.shopservice.example?",
+      "choices": [
+        { "id": "a", "text": "A record" },
+        { "id": "b", "text": "MX record" },
+        { "id": "c", "text": "CNAME record" },
+        { "id": "d", "text": "TXT record" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.4",
+        "title": "DNS Record Types",
+        "quote": "",
+        "find": "link one domain name to another"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q69" }
+    },
+    {
+      "id": "c1-u06-q049",
+      "stem": "A company is setting up mail.example.org to receive all email sent to addresses that end in @example.org. Which DNS record tells other mail servers to deliver the domain's email to this server?",
+      "choices": [
+        { "id": "a", "text": "A record" },
+        { "id": "b", "text": "CNAME record" },
+        { "id": "c", "text": "MX record" },
+        { "id": "d", "text": "SPF record" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.4",
+        "title": "DNS Record Types",
+        "quote": "",
+        "find": "to identify an email server"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q81" }
+    },
+    {
+      "id": "c1-u06-q050",
+      "stem": "A newspaper's mail server rejected a message that claimed to come from a bank's domain, because the server that sent it was not on the bank's published list of servers allowed to send its email. Which of the following did the newspaper's mail server check?",
+      "choices": [
+        { "id": "a", "text": "The bank's DKIM record" },
+        { "id": "b", "text": "The bank's SPF record" },
+        { "id": "c", "text": "The bank's MX record" },
+        { "id": "d", "text": "The bank's CNAME record" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.5",
+        "title": "DNS Spam Management Records",
+        "quote": "",
+        "find": "authorized to send email from that"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A67" }
+    },
+    {
+      "id": "c1-u06-q051",
+      "stem": "A school is moving to a cloud email service, and the service's setup guide says to publish an SPF record for the school's domain. Which type of DNS record should a technician create for the SPF information?",
+      "choices": [
+        { "id": "a", "text": "AAAA record" },
+        { "id": "b", "text": "CNAME record" },
+        { "id": "c", "text": "MX record" },
+        { "id": "d", "text": "TXT record" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.5",
+        "title": "DNS Spam Management Records",
+        "quote": "",
+        "find": "uses a TXT resource record"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C48" }
+    },
+    {
+      "id": "c1-u06-q052",
+      "stem": "A college's office PCs and student lab PCs connect to the same managed switch, and a technician needs the two groups in separate broadcast domains without adding a switch. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Put the lab PCs in their own VLAN" },
+        { "id": "b", "text": "Connect the lab PCs through a VPN" },
+        { "id": "c", "text": "Give the lab PCs their own DHCP scope" },
+        { "id": "d", "text": "Give the lab PCs a different default gateway" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.4", "2.4.c"],
+      "units": ["6.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.6",
+        "title": "Virtual LANs",
+        "quote": "",
+        "find": "ports can be divided into groups"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C11" }
+    },
+    {
+      "id": "c1-u06-q053",
+      "stem": "A clinic put its front desk PCs in VLAN 10 and its billing printers in VLAN 20 on the same switch, and now the PCs cannot print. Which of the following is needed so that traffic can pass between the two VLANs?",
+      "choices": [
+        { "id": "a", "text": "A router between the two VLANs" },
+        { "id": "b", "text": "A VPN between the two VLANs" },
+        { "id": "c", "text": "One shared subnet for both VLANs" },
+        { "id": "d", "text": "A second switch for VLAN 20" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.4", "2.4.c"],
+      "units": ["6.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.6",
+        "title": "Virtual LANs",
+        "quote": "",
+        "find": "Communications between VLANs must go through"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q65" }
+    },
+    {
+      "id": "c1-u06-q054",
+      "stem": "At a senior living center, the smart TVs in the residents' rooms and the staff PCs are on different VLANs. Which of the following does this make possible?",
+      "choices": [
+        { "id": "a", "text": "Encrypting the traffic between the TVs and the staff PCs" },
+        { "id": "b", "text": "Filtering the traffic between the TVs and the staff PCs" },
+        { "id": "c", "text": "Putting the TVs and the staff PCs in one subnet" },
+        { "id": "d", "text": "Giving the TVs and the staff PCs one DHCP scope" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.4", "2.4.c"],
+      "units": ["6.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.6",
+        "title": "Virtual LANs",
+        "quote": "",
+        "find": "can easily be filtered and monitored"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q84" }
+    },
+    {
+      "id": "c1-u06-q055",
+      "stem": "A graphic designer who works from home must open files on her company's office network, and her connection across the Internet must be encrypted. Which of the following BEST meets these requirements?",
+      "choices": [
+        { "id": "a", "text": "A VLAN on the office's switch" },
+        { "id": "b", "text": "A VPN from her laptop to the office" },
+        { "id": "c", "text": "NAT on the router in her home" },
+        { "id": "d", "text": "A public IP address on her laptop" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.4", "2.4.d"],
+      "units": ["6.4.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.7",
+        "title": "Virtual Private Networks",
+        "quote": "",
+        "find": "LAN without being physically installed"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B76" }
+    }
+  ]
+}

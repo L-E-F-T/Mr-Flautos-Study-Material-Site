@@ -1,0 +1,398 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-06", "title": "Unit 6.0 Configuring Network Addressing and Internet Connections", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "c1-u06-f001",
+      "term": "DSL (Digital Subscriber Line)",
+      "definition": "Internet access that uses the higher frequencies of copper telephone lines; the modem's RJ11 port connects to the phone point, and a filter (splitter) in each phone socket separates voice and data.",
+      "objectives": ["2.5", "2.5.h", "2.7", "2.7.a"],
+      "units": ["6.1.2"],
+      "reference": { "source": "certmaster", "section": "6.1.2", "title": "Digital Subscriber Line Modems" }
+    },
+    {
+      "id": "c1-u06-f002",
+      "term": "Cable (internet connection)",
+      "definition": "Internet access that usually comes as part of a cable access TV (CATV) service, over a hybrid fiber coax (HFC) network: a fiber optic core with copper coax links to customer premises.",
+      "objectives": ["2.7", "2.7.a"],
+      "units": ["6.1.3"],
+      "reference": { "source": "certmaster", "section": "6.1.3", "title": "Cable Modems" }
+    },
+    {
+      "id": "c1-u06-f003",
+      "term": "Cable modem",
+      "definition": "The device that connects to the local router through an RJ45 port and to the provider's network through a short segment of coax with threaded F-type connectors.",
+      "objectives": ["2.5", "2.5.g"],
+      "units": ["6.1.3"],
+      "reference": { "source": "certmaster", "section": "6.1.3", "title": "Cable Modems" }
+    },
+    {
+      "id": "c1-u06-f004",
+      "term": "Fiber (internet connection)",
+      "definition": "Internet access that brings fiber optic links into the last mile; with fiber to the premises (FTTP), the provider's fiber optic cable runs all the way to the customer's building.",
+      "objectives": ["2.7", "2.7.a"],
+      "units": ["6.1.5"],
+      "reference": { "source": "certmaster", "section": "6.1.5", "title": "Fiber to the Curb and Fiber to the Premises" }
+    },
+    {
+      "id": "c1-u06-f005",
+      "term": "ONT (Optical Network Terminal)",
+      "definition": "The device at the customer's premises that terminates the provider's fiber and converts the optical signal to an electrical one; it connects to the router with an RJ45 patch cord.",
+      "objectives": ["2.5", "2.5.i"],
+      "units": ["6.1.5"],
+      "reference": { "source": "certmaster", "section": "6.1.5", "title": "Fiber to the Curb and Fiber to the Premises" }
+    },
+    {
+      "id": "c1-u06-f006",
+      "term": "Satellite (internet connection)",
+      "definition": "Internet access by microwave radio to satellites, covering far bigger areas than other types; high geostationary orbit adds a lot of latency, while low Earth orbit (LEO) satellites have less.",
+      "objectives": ["2.7", "2.7.a"],
+      "units": ["6.1.7"],
+      "reference": { "source": "certmaster", "section": "6.1.7", "title": "Fixed Wireless Internet Access" }
+    },
+    {
+      "id": "c1-u06-f007",
+      "term": "WISP (Wireless Internet Service Provider)",
+      "definition": "A provider of ground-based, long-range fixed wireless internet access through a directional antenna at the customer's site; the link needs a clear line of sight and usually has lower latency than satellite.",
+      "objectives": ["2.7", "2.7.a"],
+      "units": ["6.1.7"],
+      "reference": { "source": "certmaster", "section": "6.1.7", "title": "Fixed Wireless Internet Access" }
+    },
+    {
+      "id": "c1-u06-f008",
+      "term": "Cellular (internet connection)",
+      "definition": "Internet access through a cellular radio that connects to the closest base station, whose service area is called a cell; 4G (LTE) and 5G can also be fixed wireless broadband for homes and businesses.",
+      "objectives": ["2.7", "2.7.a"],
+      "units": ["6.1.8"],
+      "reference": { "source": "certmaster", "section": "6.1.8", "title": "Cellular Radio Internet Connections" }
+    },
+    {
+      "id": "c1-u06-f009",
+      "term": "Router",
+      "definition": "A device with interfaces in two or more networks, such as the private LAN and the public WAN, that forwards packets between networks using IP addresses.",
+      "objectives": ["2.5", "2.5.a"],
+      "units": ["6.1.9"],
+      "reference": { "source": "certmaster", "section": "6.1.9", "title": "Routers" }
+    },
+    {
+      "id": "c1-u06-f010",
+      "term": "Firewall",
+      "definition": "Filters which hosts and protocols can pass, using rules called an access control list (ACL) that allow or block traffic by network address and protocol type.",
+      "objectives": ["2.5", "2.5.e"],
+      "units": ["6.1.10"],
+      "reference": { "source": "certmaster", "section": "6.1.10", "title": "Firewalls" }
+    },
+    {
+      "id": "c1-u06-f011",
+      "term": "IPv4 address",
+      "definition": "A 32-bit address written in dotted decimal notation: four octets, each a number from 0 to 255, separated by periods, such as 192.168.0.1.",
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.6"],
+      "reference": { "source": "certmaster", "section": "6.2.6", "title": "IPv4 Addressing" }
+    },
+    {
+      "id": "c1-u06-f012",
+      "term": "Subnet mask",
+      "definition": "A 32-bit value, such as 255.255.255.0 (/24), whose 1 bits mark the network ID part of an IPv4 address; the remaining bits are the host ID.",
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.8", "6.2.11"],
+      "reference": { "source": "certmaster", "section": "6.2.8", "title": "Network Prefixes" }
+    },
+    {
+      "id": "c1-u06-f013",
+      "term": "Default gateway",
+      "definition": "The IP address of a router interface, in the same IP network as the host, that the host uses to forward packets to other networks.",
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.9", "6.2.11"],
+      "reference": { "source": "certmaster", "section": "6.2.9", "title": "IPv4 Forwarding" }
+    },
+    {
+      "id": "c1-u06-f014",
+      "term": "Private address",
+      "definition": "An IPv4 address from a reserved range (10.0.0.0 to 10.255.255.255, 172.16.0.0 to 172.31.255.255, or 192.168.0.0 to 192.168.255.255) that is confined to LANs and cannot route traffic over the Internet.",
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.10"],
+      "reference": { "source": "certmaster", "section": "6.2.10", "title": "Public and Private Addressing" }
+    },
+    {
+      "id": "c1-u06-f015",
+      "term": "Public address",
+      "definition": "A unique address, allocated to the customer's network by the ISP, that a host needs to communicate on the Internet, such as the address of a SOHO router's interface to the ISP.",
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.10", "6.2.14"],
+      "reference": { "source": "certmaster", "section": "6.2.10", "title": "Public and Private Addressing" }
+    },
+    {
+      "id": "c1-u06-f016",
+      "term": "Static IP address",
+      "definition": "An IP address an administrator types in by hand on each host; typically used only for systems with a dedicated function, such as router interfaces or servers that need a fixed address.",
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.12", "6.2.11"],
+      "reference": { "source": "certmaster", "section": "6.2.12", "title": "Static Versus Dynamic Host Address Configuration" }
+    },
+    {
+      "id": "c1-u06-f017",
+      "term": "Dynamic IP address",
+      "definition": "An IP address a host receives automatically from a DHCP server instead of having an administrator type it in by hand.",
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.12"],
+      "reference": { "source": "certmaster", "section": "6.2.12", "title": "Static Versus Dynamic Host Address Configuration" }
+    },
+    {
+      "id": "c1-u06-f018",
+      "term": "APIPA (Automatic Private IP Addressing)",
+      "definition": "A 169.254 address a host gives itself at random when it is set to use DHCP but cannot contact a DHCP server; with it, the host cannot reach other networks.",
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.12"],
+      "reference": { "source": "certmaster", "section": "6.2.12", "title": "Static Versus Dynamic Host Address Configuration" }
+    },
+    {
+      "id": "c1-u06-f019",
+      "term": "IPv6 address",
+      "definition": "A 128-bit address written in hexadecimal as eight 16-bit groups separated by colons; the first 64 bits are the network ID and the last 64 bits identify the interface.",
+      "objectives": ["2.6", "2.6.a"],
+      "units": ["6.2.15"],
+      "reference": { "source": "certmaster", "section": "6.2.15", "title": "IPv6 Addressing" }
+    },
+    {
+      "id": "c1-u06-f020",
+      "term": "TCP (Transmission Control Protocol)",
+      "definition": "The connection-oriented transport protocol: it opens a connection with a three-way handshake (SYN, SYN/ACK, ACK), numbers each packet, and can recover from lost or out-of-order packets.",
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["6.3.2", "6.2.4"],
+      "reference": { "source": "certmaster", "section": "6.3.2", "title": "Transmission Control Protocol" }
+    },
+    {
+      "id": "c1-u06-f021",
+      "term": "UDP (User Datagram Protocol)",
+      "definition": "The connectionless transport protocol with no sequencing or acknowledgments; its lower overhead makes it faster, so it suits time-sensitive data such as voice and video.",
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["6.3.4", "6.2.4"],
+      "reference": { "source": "certmaster", "section": "6.3.4", "title": "User Datagram Protocol" }
+    },
+    {
+      "id": "c1-u06-f022",
+      "term": "FTP (File Transfer Protocol)",
+      "definition": "Makes files available for download across a network; TCP port 20 for the data connection and TCP port 21 for the control connection.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f023",
+      "term": "SSH (Secure Shell)",
+      "definition": "Makes a secure connection to the command-line interface of a server; TCP port 22.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6", "6.3.2"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f024",
+      "term": "Telnet",
+      "definition": "Makes an unsecure connection to the command-line interface of a server; TCP port 23.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f025",
+      "term": "SMTP (Simple Mail Transfer Protocol)",
+      "definition": "Sends (transfers) email messages across a network; TCP port 25.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6", "6.3.1"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f026",
+      "term": "HTTP (Hypertext Transfer Protocol)",
+      "definition": "Delivers unsecure (unencrypted) websites and web services; TCP port 80.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6", "6.3.1"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f027",
+      "term": "POP3 (Post Office Protocol 3)",
+      "definition": "Retrieves email messages from a server mailbox; TCP port 110.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f028",
+      "term": "NetBIOS (Network Basic Input/Output System)/NetBT",
+      "definition": "NetBIOS over TCP/IP supports the networking features of legacy Windows versions; UDP and TCP ports 137 to 139.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f029",
+      "term": "IMAP (Internet Mail Access Protocol)",
+      "definition": "Reads and manages mail messages on a server mailbox; TCP port 143.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f030",
+      "term": "LDAP (Lightweight Directory Access Protocol)",
+      "definition": "Queries information about network users and resources; TCP port 389.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f031",
+      "term": "HTTPS (Hypertext Transfer Protocol Secure)",
+      "definition": "Delivers secure (encrypted) websites and services; TCP port 443.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6", "6.3.2"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f032",
+      "term": "SMB/CIFS (Server Message Block/Common Internet File System)",
+      "definition": "Provides Windows-compatible file and printer sharing services on a local network; TCP port 445.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f033",
+      "term": "RDP (Remote Desktop Protocol)",
+      "definition": "Makes a secure connection to the graphical desktop of a computer; TCP port 3389.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["6.3.6"],
+      "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
+    },
+    {
+      "id": "c1-u06-f034",
+      "term": "DHCP (Dynamic Host Configuration Protocol)",
+      "definition": "Lets a server give hosts their IP address, subnet mask, default gateway, and DNS servers automatically; the server listens on UDP port 67 and the client on UDP port 68.",
+      "objectives": ["2.1", "2.1.a", "2.3", "2.3.a", "2.4", "2.4.b"],
+      "units": ["6.4.1", "6.3.6"],
+      "reference": { "source": "certmaster", "section": "6.4.1", "title": "DHCP Functions" }
+    },
+    {
+      "id": "c1-u06-f035",
+      "term": "DHCP scope",
+      "definition": "The range of IP addresses a DHCP server can offer to client hosts in a particular subnet, such as 192.168.0.100 to 192.168.0.199.",
+      "objectives": ["2.4", "2.4.b"],
+      "units": ["6.4.1"],
+      "reference": { "source": "certmaster", "section": "6.4.1", "title": "DHCP Functions" }
+    },
+    {
+      "id": "c1-u06-f036",
+      "term": "DHCP exclusion",
+      "definition": "An address left out of the DHCP scope because a device already uses it as a static address, such as the SOHO router's own LAN address.",
+      "objectives": ["2.4", "2.4.b"],
+      "units": ["6.4.1"],
+      "reference": { "source": "certmaster", "section": "6.4.1", "title": "DHCP Functions" }
+    },
+    {
+      "id": "c1-u06-f037",
+      "term": "DHCP lease",
+      "definition": "A DHCP server's assignment of an IP address to a client for a limited period only; the client tries to renew it before it expires, and if it cannot, it must release the address and start discovery again.",
+      "objectives": ["2.4", "2.4.b"],
+      "units": ["6.4.1"],
+      "reference": { "source": "certmaster", "section": "6.4.1", "title": "DHCP Functions" }
+    },
+    {
+      "id": "c1-u06-f038",
+      "term": "DHCP reservation",
+      "definition": "A DHCP server setting that ties a host's MAC address to a particular IP address, so that host receives the same address every time it joins the network.",
+      "objectives": ["2.4", "2.4.b"],
+      "units": ["6.4.1"],
+      "reference": { "source": "certmaster", "section": "6.4.1", "title": "DHCP Functions" }
+    },
+    {
+      "id": "c1-u06-f039",
+      "term": "DNS (Domain Name System)",
+      "definition": "Resolves host and domain names to IP addresses, so hosts can be found by name; TCP and UDP port 53.",
+      "objectives": ["2.1", "2.1.a", "2.3", "2.3.a"],
+      "units": ["6.4.3", "6.3.6"],
+      "reference": { "source": "certmaster", "section": "6.4.3", "title": "DNS Queries" }
+    },
+    {
+      "id": "c1-u06-f040",
+      "term": "A record",
+      "definition": "The DNS record that resolves a host name to an IPv4 address.",
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.4"],
+      "reference": { "source": "certmaster", "section": "6.4.4", "title": "DNS Record Types" }
+    },
+    {
+      "id": "c1-u06-f041",
+      "term": "AAAA record",
+      "definition": "The DNS record that resolves a host name to an IPv6 address.",
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.4"],
+      "reference": { "source": "certmaster", "section": "6.4.4", "title": "DNS Record Types" }
+    },
+    {
+      "id": "c1-u06-f042",
+      "term": "CNAME (Canonical Name) record",
+      "definition": "The DNS record that links one domain name to another domain name, such as sending visitors of an acquired company's website to the new owner's site.",
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.4"],
+      "reference": { "source": "certmaster", "section": "6.4.4", "title": "DNS Record Types" }
+    },
+    {
+      "id": "c1-u06-f043",
+      "term": "MX (Mail Exchanger) record",
+      "definition": "The DNS record that identifies an email server for the domain so other servers can send it messages; when there are several, the lowest preference value is preferred.",
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.4"],
+      "reference": { "source": "certmaster", "section": "6.4.4", "title": "DNS Record Types" }
+    },
+    {
+      "id": "c1-u06-f044",
+      "term": "TXT (Text) record",
+      "definition": "The DNS record that stores free-form text for other network services; most often used to verify email services and block spoofed and unwanted messages (spam).",
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.5"],
+      "reference": { "source": "certmaster", "section": "6.4.5", "title": "DNS Spam Management Records" }
+    },
+    {
+      "id": "c1-u06-f045",
+      "term": "SPF (Sender Policy Framework)",
+      "definition": "The TXT record, only one per domain, that lists the hosts authorized to send email from that domain.",
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.5"],
+      "reference": { "source": "certmaster", "section": "6.4.5", "title": "DNS Spam Management Records" }
+    },
+    {
+      "id": "c1-u06-f046",
+      "term": "DKIM (DomainKeys Identified Mail)",
+      "definition": "Publishes a public encryption key as a TXT record so receiving organizations can use cryptography to verify that a message came from an authentic server for the domain.",
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.5"],
+      "reference": { "source": "certmaster", "section": "6.4.5", "title": "DNS Spam Management Records" }
+    },
+    {
+      "id": "c1-u06-f047",
+      "term": "DMARC",
+      "definition": "The TXT record policy that makes sure SPF and DKIM are used effectively, sets how failures are treated (flag, quarantine, or reject), and lets receivers report failures to the sender.",
+      "objectives": ["2.4", "2.4.a"],
+      "units": ["6.4.5"],
+      "reference": { "source": "certmaster", "section": "6.4.5", "title": "DNS Spam Management Records" }
+    },
+    {
+      "id": "c1-u06-f048",
+      "term": "VLAN (Virtual Local Area Network)",
+      "definition": "A managed switch feature that divides its ports into logical groups, each with its own subnet, to reduce broadcast traffic and improve security; traffic between groups must go through a router.",
+      "objectives": ["2.4", "2.4.c"],
+      "units": ["6.4.6"],
+      "reference": { "source": "certmaster", "section": "6.4.6", "title": "Virtual LANs" }
+    },
+    {
+      "id": "c1-u06-f049",
+      "term": "VPN (Virtual Private Network)",
+      "definition": "A protected, encrypted tunnel through the Internet that lets an authenticated remote host join the LAN as if it were on site; it can also link branch offices to a head office.",
+      "objectives": ["2.4", "2.4.d"],
+      "units": ["6.4.7"],
+      "reference": { "source": "certmaster", "section": "6.4.7", "title": "Virtual Private Networks" }
+    }
+  ]
+}
