@@ -7,20 +7,16 @@
  */
 import { fetchJSON, applySiteChrome, showFatal, pageUrl, includePrivatePacks } from '../lib/boot.js';
 import { loadRegistry, contentAvailable } from '../lib/content.js';
-import { h, mount, icon, announce } from '../lib/dom.js';
+import { h, mount, announce } from '../lib/dom.js';
 import * as store from '../lib/storage.js';
 import { initThemeToggle } from '../lib/theme.js';
+import { discardButton } from '../components/discard-button.js';
 
 initThemeToggle();
 
 // Where the flashcards and practice pages save an exam's deck and its unfinished test.
 const deckKey = (examId) => `flashcards:${examId}`;
 const testKey = (examId) => `practice-run:${examId}`;
-
-/** How long the red minus waits for the second click before it turns back. */
-const CONFIRM_MS = 5000;
-/** A second click sooner than this is a double click, not a confirmation. */
-const DOUBLE_CLICK_MS = 500;
 
 /** What is unfinished for an exam on this device (saved by the flashcards and practice pages). */
 function unfinished(examId) {
@@ -45,55 +41,6 @@ function discard(examId, kind) {
   else store.save(deckKey(examId), { ...store.load(deckKey(examId), {}), deck: null });
 }
 
-/**
- * The minus at the right end of a Resume button. The first click only turns it red; a second
- * click on the red minus discards. It turns back after a few seconds, on Escape, or when
- * anything else is clicked or focused.
- */
-function discardButton(what, onConfirm) {
-  const name = `Discard ${what}`;
-  const button = h('button', { type: 'button', class: 'exam-discard', 'aria-label': name, title: name }, icon('minus'));
-  let armedAt = 0;
-  let timer = 0;
-
-  const onOutside = (event) => {
-    if (!button.contains(event.target)) disarm();
-  };
-  const onKey = (event) => {
-    if (event.key === 'Escape') disarm();
-  };
-  function arm() {
-    armedAt = Date.now();
-    button.classList.add('is-armed');
-    button.setAttribute('aria-label', `Confirm: ${name.toLowerCase()}`);
-    button.title = 'Click again to discard';
-    announce(`Press again to discard the ${what}.`);
-    timer = window.setTimeout(disarm, CONFIRM_MS);
-    document.addEventListener('pointerdown', onOutside, true);
-    button.addEventListener('keydown', onKey);
-    button.addEventListener('blur', disarm);
-  }
-  function disarm() {
-    if (!armedAt) return;
-    armedAt = 0;
-    window.clearTimeout(timer);
-    document.removeEventListener('pointerdown', onOutside, true);
-    button.removeEventListener('keydown', onKey);
-    button.removeEventListener('blur', disarm);
-    button.classList.remove('is-armed');
-    button.setAttribute('aria-label', name);
-    button.title = name;
-  }
-  button.addEventListener('click', () => {
-    if (!armedAt) arm();
-    else if (Date.now() - armedAt >= DOUBLE_CLICK_MS) {
-      disarm();
-      onConfirm();
-    }
-  });
-  return button;
-}
-
 /** `has` says which study modes have content: { flashcards, questions }. */
 function examCard(exam, has) {
   // A live exam with no packs at all looks the same as one that is not built yet.
@@ -116,7 +63,7 @@ function examCard(exam, has) {
   // discards it at its right end.
   const resumeRow = (kind, what, href) => h('div', { class: 'exam-resume' },
     h('a', { class: 'exam-resume-link', href }, `Resume ${what.toLowerCase()}`),
-    discardButton(what.toLowerCase(), () => afterDiscard(kind, what)),
+    discardButton({ what: what.toLowerCase(), className: 'exam-discard' }, () => afterDiscard(kind, what)),
   );
   const resume = [
     open.deck ? resumeRow('deck', 'Deck', pageUrl('flashcards.html', exam.id)) : null,

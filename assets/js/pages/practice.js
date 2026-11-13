@@ -17,6 +17,7 @@ import { sample, shuffle } from '../lib/random.js';
 import * as store from '../lib/storage.js';
 import { createTreePicker, displayCode } from '../components/tree-picker.js';
 import { segmented } from '../components/segmented.js';
+import { discardButton } from '../components/discard-button.js';
 import { openHistoryPanel, settleHistoryStep } from '../components/history-panel.js';
 import { recordAnswer, recordTestResult, getExamStats } from '../lib/progress.js';
 import { initThemeToggle } from '../lib/theme.js';
@@ -305,12 +306,23 @@ function start(ctx) {
     const correct = Object.values(run.answers).filter((a) => a.correct).length;
     const view = h('button', { type: 'button', class: 'btn btn-sm' }, 'Results');
     view.addEventListener('click', () => renderResults());
-    return h('div', { class: 'notice', style: { marginBottom: '1rem' } },
+    // The two-click minus (as on the home card) drops this saved test, which only feeds this
+    // banner and its Results page. The test stays in Recent history.
+    const dismiss = discardButton({ verb: 'Dismiss', what: 'last test', className: 'discard-btn' }, () => {
+      run = null;
+      saveRun();
+      banner.remove();
+      const heading = document.getElementById('setup-heading');
+      if (heading) heading.focus({ preventScroll: true });
+      announce('Last test dismissed.');
+    });
+    const banner = h('div', { class: 'notice', style: { marginBottom: '1rem' } },
       h('div', { class: 'row spread' },
         h('span', null, h('strong', null, 'Last test: '), `${correct} of ${answeredCount} correct`),
-        view,
+        h('span', { class: 'row' }, view, dismiss),
       ),
     );
+    return banner;
   }
 
   /* ------------------------------------------------------------------ */
@@ -678,17 +690,26 @@ function start(ctx) {
     const change = h('button', { type: 'button', class: 'btn btn-ghost' }, 'Change topics');
     change.addEventListener('click', () => renderSetup({ focusHeading: true }));
 
-    // Each missed question exactly as the student saw it: same choice order, their pick
-    // marked wrong, the right answer marked, and the reading to review.
-    const missedItems = missed.map((id) => {
+    // Each question exactly as the student saw it: same choice order, their pick marked right or
+    // wrong, the right answer marked, and the reading to review. In the full test each one is also
+    // tagged Right, Missed, or Not answered (a test ended early leaves some unanswered).
+    const reviewItem = (id, tagged) => {
       const question = ctx.questionById.get(id);
+      const answer = run.answers[id];
       const choiceById = new Map(question.choices.map((choice) => [choice.id, choice]));
       const order = (run.choiceOrder[id] || question.choices.map((c) => c.id)).filter((cid) => choiceById.has(cid));
-      const picked = new Set(run.answers[id].selected);
+      const picked = new Set(answer ? answer.selected : []);
       const answerSet = new Set(question.answer);
       const isMulti = question.answer.length > 1;
+      const number = h('div', { class: 'missed-number' }, `Question ${run.questionIds.indexOf(id) + 1}`);
+      let tag = null;
+      if (tagged) {
+        if (!answer) tag = h('span', { class: 'chip' }, 'Not answered');
+        else if (answer.correct) tag = h('span', { class: 'chip chip-good' }, 'Right');
+        else tag = h('span', { class: 'chip chip-bad' }, 'Missed');
+      }
       return h('li', { class: 'missed-item' },
-        h('div', { class: 'missed-number' }, `Question ${run.questionIds.indexOf(id) + 1}`),
+        tag ? h('div', { class: 'review-head' }, number, tag) : number,
         h('p', { class: 'q-stem' }, question.stem),
         renderExhibit(question.exhibit),
         h('ul', { class: `choices review-choices${isMulti ? ' is-multi' : ''}`, 'aria-label': 'Answer choices' },
@@ -705,18 +726,37 @@ function start(ctx) {
         ),
         h('div', { class: 'missed-ref' }, referenceBlock(ctx, question)),
       );
-    });
+    };
 
-    const review = missed.length
-      ? h('section', { class: 'panel', 'aria-labelledby': 'review-heading' },
-          h('div', { class: 'panel-title' },
-            h('h2', { id: 'review-heading' }, `Missed (${missed.length})`),
-            retryButton('btn btn-primary'),
-          ),
-          h('ol', { class: 'missed-list' }, missedItems),
-          missed.length > 1 ? h('div', { class: 'review-foot' }, retryButton('btn btn-primary btn-lg')) : null,
-        )
-      : h('section', { class: 'panel' }, h('p', { style: { margin: 0 } }, 'Nothing missed.'));
+    // Review: the missed questions first, or the full test with every question in order. The
+    // switch redraws only the list, so focus and the page position stay put.
+    let reviewView = 'missed';
+    const reviewList = h('div');
+    const drawReview = () => {
+      const all = reviewView === 'all';
+      const ids = all ? run.questionIds : missed;
+      mount(reviewList,
+        ids.length
+          ? h('ol', { class: 'missed-list' }, ids.map((id) => reviewItem(id, all)))
+          : h('p', { style: { margin: 0 } }, 'Nothing missed.'),
+        missed.length && (all || missed.length > 1) ? h('div', { class: 'review-foot' }, retryButton('btn btn-primary btn-lg')) : null,
+      );
+    };
+    const reviewSwitch = segmented('Questions to show', 'review-view', [
+      { value: 'missed', label: `Missed (${missed.length})` },
+      { value: 'all', label: `Full test (${run.questionIds.length})` },
+    ], reviewView, (value) => {
+      reviewView = value;
+      drawReview();
+    });
+    drawReview();
+    const review = h('section', { class: 'panel', 'aria-labelledby': 'review-heading' },
+      h('div', { class: 'panel-title' },
+        h('div', { class: 'row review-title' }, h('h2', { id: 'review-heading' }, 'Review'), reviewSwitch),
+        missed.length ? retryButton('btn btn-primary') : null,
+      ),
+      reviewList,
+    );
 
     mount(app,
       h('div', { class: 'wrap' },
