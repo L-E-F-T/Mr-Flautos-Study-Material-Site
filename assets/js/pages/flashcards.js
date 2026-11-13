@@ -505,8 +505,8 @@ function renderGroupedTable({ ctx, groupBy, selected, query, onChange }) {
       type: 'button',
       class: 'tree-toggle',
       'aria-controls': controlsId,
-      'aria-label': `Collapse ${[code, node.title].filter(Boolean).join(' ')}`,
-      'aria-expanded': 'true',
+      'aria-label': `Expand ${[code, node.title].filter(Boolean).join(' ')}`,
+      'aria-expanded': 'false',
     }, h('span', { class: 'chev', 'aria-hidden': 'true' }));
     const row = h('tr', { class: `group-row level-${level}` },
       h('th', { colspan: '4', scope: 'rowgroup' },
@@ -604,12 +604,15 @@ function renderGroupedTable({ ctx, groupBy, selected, query, onChange }) {
       tbodies.push(body);
     }
 
-    rootHeader.toggle.addEventListener('click', () => {
-      const open = rootHeader.toggle.getAttribute('aria-expanded') !== 'true';
+    const showRoot = (open) => {
       for (const body of childBodies) body.hidden = !open;
-      const directRows = [...rootBody.querySelectorAll('tr.item-row')];
-      setRowsHidden(directRows, !open);
+      setRowsHidden([...rootBody.querySelectorAll('tr.item-row')], !open);
       setToggle(rootHeader.toggle, open);
+    };
+    // Each domain or unit starts collapsed too, unless searching, so the table opens as a short list.
+    showRoot(Boolean(needle));
+    rootHeader.toggle.addEventListener('click', () => {
+      showRoot(rootHeader.toggle.getAttribute('aria-expanded') !== 'true');
     });
   }
 

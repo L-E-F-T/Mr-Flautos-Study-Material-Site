@@ -262,8 +262,9 @@ function renderBody(body, ctx, view, onView, onClear) {
             tops.map((top) => {
               const entry = index.get(top.id);
               const children = childrenOf(top.id);
+              // Collapsed, like every outline on the site: the student opens the unit or domain they want.
               // The grid lives on a span inside <summary>: Safari does not lay out a summary as a grid.
-              return h('details', { class: 'hist-unit', open: tops.length <= 3 },
+              return h('details', { class: 'hist-unit' },
                 h('summary', null,
                   h('span', { class: 'hist-row hist-row-unit' },
                     h('span', { class: 'chev', 'aria-hidden': 'true' }),
