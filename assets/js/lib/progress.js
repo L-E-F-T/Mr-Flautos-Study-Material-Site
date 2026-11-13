@@ -14,6 +14,8 @@ import * as store from './storage.js';
 const KEY = 'progress';
 /** Oldest entries are dropped past this many tests, to keep storage small. */
 export const HISTORY_LIMIT = 200;
+/** Only this many latest tests keep their questions (for Recent history's View); older ones keep their totals. */
+export const DETAIL_LIMIT = 30;
 const listeners = new Set();
 
 function read() {
@@ -80,6 +82,11 @@ export function recordAnswer({ examId, questionId, correct }) {
  *     domains:    { '3.0': [correct, total], ... },   (exam domains; tests logged before
  *                                                    2026-11-12 have none)
  *     objectives: { '3.4': [correct, total], ... },
+ *     questions: [{ id, order, picked }, ...],   every question in test order: its choice ids
+ *                                                in the order shown, and the student's pick
+ *                                                (no `picked` when not answered). Kept for the
+ *                                                latest DETAIL_LIMIT tests; tests logged before
+ *                                                2026-11-13 have none.
  *   }
  */
 export function recordTestResult({ examId, entry }) {
@@ -87,6 +94,9 @@ export function recordTestResult({ examId, entry }) {
   const exam = examEntry(data, examId);
   exam.history.push(entry);
   if (exam.history.length > HISTORY_LIMIT) exam.history.splice(0, exam.history.length - HISTORY_LIMIT);
+  for (const older of exam.history.slice(0, -DETAIL_LIMIT)) {
+    if (older && typeof older === 'object') delete older.questions;
+  }
   exam.tests = (exam.tests || 0) + 1;
   store.save(KEY, data);
   emit({ type: 'test-complete', examId, correct: entry.correct, total: entry.total, at: entry.at });
@@ -110,6 +120,18 @@ export function clearHistory(examId) {
   if (!data.exams[examId]) return;
   data.exams[examId].history = [];
   store.save(KEY, data);
+}
+
+/** Take one test out of the log (Recent history's discard). `at`, its finish time, identifies it. */
+export function removeTest(examId, at) {
+  const data = read();
+  const exam = data.exams[examId];
+  if (!exam || !Array.isArray(exam.history)) return false;
+  const index = exam.history.findIndex((entry) => entry && entry.at === at);
+  if (index < 0) return false;
+  exam.history.splice(index, 1);
+  store.save(KEY, data);
+  return true;
 }
 
 function summarize(exam) {

@@ -5,7 +5,8 @@
  *   - a breakdown by textbook unit and lesson, or by exam domain and objective (a switch, as
  *     on the practice setup), with the weakest lesson or objective called out;
  *   - the list of tests by date, each with its time, score, and the lessons (or objectives)
- *     it covered.
+ *     it covered, a View button that shows the whole test again (for the latest tests, which
+ *     keep their questions), and the two-click minus that discards that one test.
  * It is labeled "Recent" because it lives in the browser's saved data, which a device can
  * clear, so students do not count on it lasting.
  * Retry rounds (only previously missed questions) are listed but left out of the averages
@@ -14,12 +15,14 @@
  * The log itself is written by the practice page through recordTestResult() in
  * assets/js/lib/progress.js.
  */
-import { h, mount, nextId } from '../lib/dom.js';
-import { getHistory, clearHistory } from '../lib/progress.js';
+import { h, mount, nextId, announce, plural } from '../lib/dom.js';
+import { getHistory, clearHistory, removeTest } from '../lib/progress.js';
 import { naturalCompare } from '../lib/taxonomy.js';
 import * as store from '../lib/storage.js';
 import { displayCode } from './tree-picker.js';
 import { segmented } from './segmented.js';
+import { discardButton } from './discard-button.js';
+import { reviewItem, gradeOf } from './question-review.js';
 
 const RECENT_TESTS = 5; // "Last 5" in the summary, and the overall trend
 const RECENT_PER_TOPIC = 3; // tests compared with earlier ones for a unit or lesson trend
@@ -170,9 +173,10 @@ function scoreRow({ code, title, correct, total, delta }) {
 
 /**
  * Draw the panel. `view` is 'unit' or 'objective': the outline the breakdown and the test rows
- * follow. `onView(next)` switches it; `onClear()` empties the log.
+ * follow. `onView(next)` switches it; `onClear()` empties the log; `onOpenTest(test)` shows one
+ * test in full; `onDiscardTest(test)` takes one test out of the log.
  */
-function renderBody(body, ctx, view, onView, onClear) {
+function renderBody(body, ctx, { view, onView, onClear, onOpenTest, onDiscardTest }) {
   const history = getHistory(ctx.exam.id);
   if (history.length === 0) {
     mount(body, h('p', { class: 'muted' }, 'No finished tests yet.'));
@@ -307,9 +311,16 @@ function renderBody(body, ctx, view, onView, onClear) {
       ? `${byTop ? outline.topNoun : outline.innerNoun}${parts.length > 1 ? 's' : ''} ${parts.map(([id]) => id).join(', ')}`
       : '';
     const scores = parts.map(([id, pair]) => `${id}: ${pair[0]} of ${pair[1]}`).join(', ');
+    const when = formatWhen(test.at);
+    // View: only tests that kept their questions (the latest ones, logged since 2026-11-13).
+    const viewButton = Array.isArray(test.questions) && test.questions.length
+      ? h('button', { type: 'button', class: 'btn btn-sm', 'data-at': test.at, 'aria-label': `View the test from ${when}`, onClick: () => onOpenTest(test) }, 'View')
+      : null;
+    const discard = discardButton({ what: `test from ${when}`, className: 'discard-btn' }, () => onDiscardTest(test));
     return h('li', { class: 'hist-test' },
       h('span', { class: 'hist-time' }, timeLabel(test.at)),
       h('strong', { class: 'hist-pct' }, `${pct(test.correct, test.total)}%`),
+      h('span', { class: 'hist-actions' }, viewButton, discard),
       h('div', { class: 'hist-detail small muted' },
         h('span', null, `${test.correct} of ${test.total}`),
         topics ? h('span', { title: scores }, topics) : null,
@@ -326,7 +337,7 @@ function renderBody(body, ctx, view, onView, onClear) {
     else days.push({ label, tests: [test] });
   }
   sections.push(h('section', { class: 'panel', 'aria-labelledby': 'hist-log' },
-    h('h3', { id: 'hist-log' }, history.length > LOG_LIMIT ? `Tests by date (last ${LOG_LIMIT} of ${history.length})` : 'Tests by date'),
+    h('h3', { id: 'hist-log', tabindex: '-1' }, history.length > LOG_LIMIT ? `Tests by date (last ${LOG_LIMIT} of ${history.length})` : 'Tests by date'),
     days.map((day) => h('div', { class: 'hist-day' },
       h('h4', null, day.label),
       h('ul', { class: 'hist-tests' }, day.tests.map(testRow)),
@@ -340,6 +351,42 @@ function renderBody(body, ctx, view, onView, onClear) {
   sections.push(h('div', { class: 'hist-foot' }, clear));
 
   mount(body, sections);
+}
+
+/**
+ * One past test in full, in place of the list: every question as the student saw it, tagged
+ * Right, Missed, or Not answered, with the right answer marked and the reading. Graded against
+ * the current answer key, like the results page. Questions taken off the site since are skipped.
+ */
+function renderTestView(body, ctx, test, onBack) {
+  const back = h('button', { type: 'button', class: 'btn btn-sm', onClick: onBack }, 'Back');
+  const cards = [];
+  let gone = 0;
+  test.questions.forEach((saved, i) => {
+    const question = saved && ctx.questionById.get(saved.id);
+    if (!question) {
+      gone += 1;
+      return;
+    }
+    const picked = Array.isArray(saved.picked) ? saved.picked : null;
+    cards.push(reviewItem(ctx, { number: i + 1, question, order: saved.order, picked, status: gradeOf(question, picked) }));
+  });
+  const skipped = Number.isFinite(test.planned) ? test.planned - test.total : 0;
+  mount(body,
+    h('div', { class: 'hist-past-head' }, back),
+    h('section', { class: 'panel', 'aria-labelledby': 'hist-past' },
+      h('div', { class: 'panel-title' },
+        h('h3', { id: 'hist-past', tabindex: '-1' }, formatWhen(test.at)),
+        h('strong', { class: 'hist-pct' }, `${pct(test.correct, test.total)}%`),
+      ),
+      h('p', { class: 'small muted hist-past-meta' },
+        `${test.correct} of ${test.total} correct`,
+        skipped > 0 ? `, ${skipped} not answered` : '',
+        test.retry ? ', a retry of missed questions' : ''),
+      gone ? h('p', { class: 'small muted' }, `${plural(gone, 'question')} from this test ${gone === 1 ? 'is' : 'are'} no longer on the site.`) : null,
+      h('ol', { class: 'missed-list' }, cards),
+    ),
+  );
 }
 
 /**
@@ -407,11 +454,41 @@ export function openHistoryPanel(ctx, opener, { view: startView = 'unit' } = {})
     const checked = body.querySelector('input[name="hist-view"]:checked');
     if (checked) checked.focus();
   };
-  const render = () => renderBody(body, ctx, view, switchView, () => {
-    clearHistory(ctx.exam.id);
-    render();
-    closeButton.focus(); // the Clear button is gone; keep focus inside the panel
+  const render = () => renderBody(body, ctx, {
+    view,
+    onView: switchView,
+    onClear: () => {
+      clearHistory(ctx.exam.id);
+      render();
+      closeButton.focus(); // the Clear button is gone; keep focus inside the panel
+    },
+    onOpenTest: (test) => openTest(test),
+    onDiscardTest: (test) => discardTest(test),
   });
+  // View: one test in full, in place of the list. Back returns to the list where it was, with
+  // focus on that test's View button.
+  const openTest = (test) => {
+    const scrollTop = body.scrollTop;
+    renderTestView(body, ctx, test, () => {
+      render();
+      body.scrollTop = scrollTop;
+      const button = [...body.querySelectorAll('button[data-at]')].find((b) => b.dataset.at === test.at);
+      (button || closeButton).focus({ preventScroll: true });
+    });
+    body.scrollTop = 0;
+    const heading = body.querySelector('#hist-past');
+    if (heading) heading.focus({ preventScroll: true });
+  };
+  // The two-click minus on a test row: take that test out of the log and draw the panel again.
+  const discardTest = (test) => {
+    removeTest(ctx.exam.id, test.at);
+    const scrollTop = body.scrollTop;
+    render();
+    body.scrollTop = scrollTop;
+    const heading = body.querySelector('#hist-log');
+    (heading || closeButton).focus({ preventScroll: true });
+    announce('Test discarded.');
+  };
 
   closeButton.addEventListener('click', () => close());
   backdrop.addEventListener('click', () => close());

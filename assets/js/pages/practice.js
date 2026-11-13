@@ -10,7 +10,7 @@
  *     starts a new round of only the missed ones, then a breakdown by lesson or objective.
  * An unfinished test is saved on this device and can be resumed.
  */
-import { bootExamPage, sourceTitle, queryFlag, pageUrl } from '../lib/boot.js';
+import { bootExamPage, queryFlag, pageUrl } from '../lib/boot.js';
 import { h, mount, append, icon, announce, isTypingTarget, numberWord, plural } from '../lib/dom.js';
 import { buildSelectionTree, itemIdsForLeaves, ancestorAtDepth, naturalCompare, tagChips, mostSpecificTags } from '../lib/taxonomy.js';
 import { sample, shuffle } from '../lib/random.js';
@@ -18,6 +18,7 @@ import * as store from '../lib/storage.js';
 import { createTreePicker, displayCode } from '../components/tree-picker.js';
 import { segmented } from '../components/segmented.js';
 import { discardButton } from '../components/discard-button.js';
+import { LETTERS, choiceMark, referenceBlock, renderExhibit, reviewItem } from '../components/question-review.js';
 import { openHistoryPanel, settleHistoryStep } from '../components/history-panel.js';
 import { recordAnswer, recordTestResult, getExamStats } from '../lib/progress.js';
 import { initThemeToggle } from '../lib/theme.js';
@@ -30,7 +31,6 @@ window.addEventListener('pageshow', (event) => {
   if (event.persisted) window.location.reload();
 });
 
-const LETTERS = 'ABCDEFGHIJ';
 const PRESETS = [10, 25, 50, 90];
 
 const ctx = await bootExamPage('practice');
@@ -288,20 +288,24 @@ function start(ctx) {
     if (!run.finished) {
       const resume = h('button', { type: 'button', class: 'btn btn-primary btn-sm' }, 'Resume');
       resume.addEventListener('click', () => renderQuestion());
-      const discard = h('button', { type: 'button', class: 'btn btn-sm btn-ghost' }, 'Discard');
-      discard.addEventListener('click', () => {
-        if (answeredCount > 0 && !window.confirm('Discard the test in progress?')) return;
+      // The two-click minus, as on the home card: the first click turns it red, a second click
+      // discards the unfinished test.
+      const discard = discardButton({ what: 'test in progress', className: 'discard-btn' }, () => {
         run = null;
         saveRun();
-        renderSetup({ focusHeading: true });
+        progressBanner.remove();
+        const heading = document.getElementById('setup-heading');
+        if (heading) heading.focus({ preventScroll: true });
+        announce('Test discarded.');
       });
-      return h('div', { class: 'notice', role: 'status', style: { marginBottom: '1rem' } },
+      const progressBanner = h('div', { class: 'notice', role: 'status', style: { marginBottom: '1rem' } },
         h('div', { class: 'row spread' },
           h('span', null, h('strong', null, 'Test in progress: '),
             `${answeredCount} of ${run.questionIds.length} answered`),
           h('span', { class: 'row' }, resume, discard),
         ),
       );
+      return progressBanner;
     }
     const correct = Object.values(run.answers).filter((a) => a.correct).length;
     const view = h('button', { type: 'button', class: 'btn btn-sm' }, 'Results');
@@ -589,6 +593,12 @@ function start(ctx) {
         lessons: tally.lessons,
         domains: tally.domains,
         objectives: tally.objectives,
+        // Every question with the order its choices were shown in and what the student picked
+        // (no pick when not answered), so Recent history can show the full test again.
+        // progress.js keeps these for the latest tests only.
+        questions: run.questionIds.map((id) => (run.answers[id]
+          ? { id, order: run.choiceOrder[id], picked: run.answers[id].selected }
+          : { id, order: run.choiceOrder[id] })),
       },
     });
   }
@@ -690,42 +700,20 @@ function start(ctx) {
     const change = h('button', { type: 'button', class: 'btn btn-ghost' }, 'Change topics');
     change.addEventListener('click', () => renderSetup({ focusHeading: true }));
 
-    // Each question exactly as the student saw it: same choice order, their pick marked right or
-    // wrong, the right answer marked, and the reading to review. In the full test each one is also
-    // tagged Right, Missed, or Not answered (a test ended early leaves some unanswered).
-    const reviewItem = (id, tagged) => {
-      const question = ctx.questionById.get(id);
+    // Each question exactly as the student saw it (components/question-review.js). In the full
+    // test each one is also tagged Right, Missed, or Not answered (a test ended early leaves
+    // some unanswered).
+    const reviewCard = (id, tagged) => {
       const answer = run.answers[id];
-      const choiceById = new Map(question.choices.map((choice) => [choice.id, choice]));
-      const order = (run.choiceOrder[id] || question.choices.map((c) => c.id)).filter((cid) => choiceById.has(cid));
-      const picked = new Set(answer ? answer.selected : []);
-      const answerSet = new Set(question.answer);
-      const isMulti = question.answer.length > 1;
-      const number = h('div', { class: 'missed-number' }, `Question ${run.questionIds.indexOf(id) + 1}`);
-      let tag = null;
-      if (tagged) {
-        if (!answer) tag = h('span', { class: 'chip' }, 'Not answered');
-        else if (answer.correct) tag = h('span', { class: 'chip chip-good' }, 'Right');
-        else tag = h('span', { class: 'chip chip-bad' }, 'Missed');
-      }
-      return h('li', { class: 'missed-item' },
-        tag ? h('div', { class: 'review-head' }, number, tag) : number,
-        h('p', { class: 'q-stem' }, question.stem),
-        renderExhibit(question.exhibit),
-        h('ul', { class: `choices review-choices${isMulti ? ' is-multi' : ''}`, 'aria-label': 'Answer choices' },
-          order.map((cid, i) => {
-            const isAnswer = answerSet.has(cid);
-            const wasPicked = picked.has(cid);
-            const state = isAnswer ? ' is-correct' : wasPicked ? ' is-wrong' : '';
-            return h('li', { class: `choice is-locked${state}` },
-              h('span', { class: 'choice-letter', 'aria-hidden': 'true' }, LETTERS[i]),
-              h('span', { class: 'choice-text' }, h('span', { class: 'visually-hidden' }, `${LETTERS[i]}. `), choiceById.get(cid).text),
-              h('span', { class: 'choice-mark' }, choiceMark(isAnswer, wasPicked)),
-            );
-          }),
-        ),
-        h('div', { class: 'missed-ref' }, referenceBlock(ctx, question)),
-      );
+      let status = null;
+      if (tagged) status = !answer ? 'none' : answer.correct ? 'right' : 'missed';
+      return reviewItem(ctx, {
+        number: run.questionIds.indexOf(id) + 1,
+        question: ctx.questionById.get(id),
+        order: run.choiceOrder[id],
+        picked: answer ? answer.selected : null,
+        status,
+      });
     };
 
     // Review: the missed questions first, or the full test with every question in order. The
@@ -737,7 +725,7 @@ function start(ctx) {
       const ids = all ? run.questionIds : missed;
       mount(reviewList,
         ids.length
-          ? h('ol', { class: 'missed-list' }, ids.map((id) => reviewItem(id, all)))
+          ? h('ol', { class: 'missed-list' }, ids.map((id) => reviewCard(id, all)))
           : h('p', { style: { margin: 0 } }, 'Nothing missed.'),
         missed.length && (all || missed.length > 1) ? h('div', { class: 'review-foot' }, retryButton('btn btn-primary btn-lg')) : null,
       );
@@ -802,47 +790,6 @@ function start(ctx) {
 /* -------------------------------------------------------------------- */
 /* Helpers                                                              */
 /* -------------------------------------------------------------------- */
-
-/**
- * Mark beside a graded choice. The icon shape (check or x) carries right/wrong without
- * relying on color; the hidden text says the same thing to screen readers.
- */
-function choiceMark(isAnswer, wasPicked) {
-  if (isAnswer) {
-    return [icon('check'), wasPicked ? 'Your answer' : 'Correct answer',
-      wasPicked ? h('span', { class: 'visually-hidden' }, ' (correct)') : null];
-  }
-  if (wasPicked) return [icon('x'), 'Your answer', h('span', { class: 'visually-hidden' }, ' (incorrect)')];
-  return null;
-}
-
-/** "Reading 3.2.4 Hard Disk Drives" (the class citation style) plus the quote from the book. */
-function referenceBlock(ctx, item) {
-  const ref = item.reference;
-  if (!ref || !ref.section) {
-    return h('p', { class: 'reference-missing' }, 'No reading reference yet.');
-  }
-  return h('div', null,
-    h('div', { class: 'reference-where', title: sourceTitle(ctx.exam, ref.source) },
-      h('strong', null, `Reading ${ref.section}`),
-      ref.title ? ` ${ref.title}` : '', ref.page ? ` (page ${ref.page})` : '',
-    ),
-    ref.quote
-      ? h('blockquote', { class: 'reference-quote' }, `“${ref.quote}”`)
-      : ctx.showDrafts ? h('p', { class: 'reference-missing' }, 'Quote not added yet.') : null,
-  );
-}
-
-function renderExhibit(exhibit) {
-  if (!exhibit) return null;
-  if (exhibit.type === 'image' && exhibit.src) {
-    return h('figure', { class: 'q-exhibit', style: { fontFamily: 'inherit' } },
-      h('img', { src: exhibit.src, alt: exhibit.alt || 'Exhibit' }),
-      exhibit.caption ? h('figcaption', { class: 'small muted' }, exhibit.caption) : null);
-  }
-  if (exhibit.text) return h('pre', { class: 'q-exhibit' }, exhibit.text);
-  return null;
-}
 
 function letterIndex(key) {
   if (!key || key.length !== 1) return -1;

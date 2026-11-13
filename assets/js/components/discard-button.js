@@ -38,7 +38,7 @@ export function discardButton({ what, verb = 'Discard', className }, onConfirm) 
   function arm() {
     armedAt = Date.now();
     button.classList.add('is-armed');
-    button.setAttribute('aria-label', `Confirm: ${name.toLowerCase()}`);
+    button.setAttribute('aria-label', `Confirm: ${action} ${what}`);
     button.title = `Click again to ${action}`;
     announce(`Press again to ${action} the ${what}.`);
     timer = window.setTimeout(disarm, CONFIRM_MS);
