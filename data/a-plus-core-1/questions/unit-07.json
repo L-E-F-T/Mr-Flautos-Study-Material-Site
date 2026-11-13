@@ -1,0 +1,825 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-07", "title": "Unit 7.0 Supporting Network Services", "reviewed": false },
+  "questions": [
+    {
+      "id": "c1-u07-q001",
+      "stem": "A county records office moved its shared folders to a new server running a current version of Windows, and now an old scanner that supports only SMB1 cannot save scans there. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "SMB1 can share printers on a network but cannot share folders" },
+        { "id": "b", "text": "Current Windows versions replaced SMB with CIFS, a newer protocol" },
+        { "id": "c", "text": "Current Windows versions share folders over NetBT instead of over SMB" },
+        { "id": "d", "text": "SMB1 has serious security flaws, so current Windows turns it off by default" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["7.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.1",
+        "title": "File/Print Servers",
+        "quote": "",
+        "find": "disabled by default on current Windows"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q1" }
+    },
+    {
+      "id": "c1-u07-q002",
+      "stem": "A regional bus company put a firewall between its office and its maintenance garage, and now office PCs cannot open shared folders on the garage's file server, which runs a current version of Windows. Which port should a technician allow through the firewall?",
+      "choices": [
+        { "id": "a", "text": "137-139" },
+        { "id": "b", "text": "443" },
+        { "id": "c", "text": "445" },
+        { "id": "d", "text": "3389" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["7.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.1",
+        "title": "File/Print Servers",
+        "quote": "",
+        "find": "SMB usually runs directly over"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 7.0 Harder Q23" }
+    },
+    {
+      "id": "c1-u07-q003",
+      "stem": "A home builder's office wants staff to open and save their contracts on a disk in a central server, which their PCs reach over the network. Which server role BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "File share" },
+        { "id": "b", "text": "Database server" },
+        { "id": "c", "text": "Web server" },
+        { "id": "d", "text": "Directory server" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.1",
+        "title": "File/Print Servers",
+        "quote": "",
+        "find": "A server disk configured to allow"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 7.0 Harder Q25" }
+    },
+    {
+      "id": "c1-u07-q004",
+      "stem": "At a courthouse, pages with private case details keep sitting uncollected at the networked copiers, so the court wants each job held until its sender releases it at the copier. Which server role BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Mailbox server" },
+        { "id": "b", "text": "AAA server" },
+        { "id": "c", "text": "File share" },
+        { "id": "d", "text": "Print server" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.1",
+        "title": "File/Print Servers",
+        "quote": "",
+        "find": "allows you to queue print jobs"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 7.0 Harder Q26" }
+    },
+    {
+      "id": "c1-u07-q005",
+      "stem": "An animal shelter is moving its adoption website from HTTP to HTTPS so visitors' browsers can confirm the site's identity and encrypt their form data. Which of the following must be installed on the shelter's web server?",
+      "choices": [
+        { "id": "a", "text": "A digital certificate from a trusted certificate authority" },
+        { "id": "b", "text": "A private key that is shared with every visitor's browser" },
+        { "id": "c", "text": "An AAA server that checks each visitor's password" },
+        { "id": "d", "text": "An SSH server that encrypts sessions on port 22" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["7.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.4",
+        "title": "Hypertext Transfer Protocol Secure",
+        "quote": "",
+        "find": "installed with a digital certificate issued"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q13" }
+    },
+    {
+      "id": "c1-u07-q006",
+      "stem": "Staff at a plumbing supply company can read new mail on their PCs, but every message they try to send stays in the Outbox. Which of the following protocols is MOST likely failing?",
+      "choices": [
+        { "id": "a", "text": "POP3" },
+        { "id": "b", "text": "IMAP" },
+        { "id": "c", "text": "SMTP" },
+        { "id": "d", "text": "SNMP" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["7.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.5",
+        "title": "Mail Servers",
+        "quote": "",
+        "find": "TCP/587 is used by mail clients"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q58" }
+    },
+    {
+      "id": "c1-u07-q007",
+      "stem": "A vendor emails a zookeeper while her laptop is turned off. Which server role keeps the message so her laptop can retrieve it once she turns it on?",
+      "choices": [
+        { "id": "a", "text": "SMTP server" },
+        { "id": "b", "text": "Database server" },
+        { "id": "c", "text": "Spam gateway" },
+        { "id": "d", "text": "Mailbox server" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.6",
+        "title": "Mailbox Servers",
+        "quote": "",
+        "find": "delivers the message to a mailbox"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q3" }
+    },
+    {
+      "id": "c1-u07-q008",
+      "stem": "A food truck owner reads one email account on a phone, a tablet, and a laptop, and all three must stay connected to it at the same time. Which of the following protocols should the mail app on each device use?",
+      "choices": [
+        { "id": "a", "text": "POP3" },
+        { "id": "b", "text": "SNMP" },
+        { "id": "c", "text": "SMTP" },
+        { "id": "d", "text": "IMAP" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["7.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.6",
+        "title": "Mailbox Servers",
+        "quote": "",
+        "find": "IMAP supports permanent connections to"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q11" }
+    },
+    {
+      "id": "c1-u07-q009",
+      "stem": "A conference center uses AAA so that staff laptops can join its wireless network only after each login is checked. In this setup, which device stores no passwords and only passes each login along?",
+      "choices": [
+        { "id": "a", "text": "The laptop" },
+        { "id": "b", "text": "The AAA server" },
+        { "id": "c", "text": "The access point" },
+        { "id": "d", "text": "The directory server" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.8",
+        "title": "Directory and Authentication Servers",
+        "quote": "",
+        "find": "do not have to store any"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q14" }
+    },
+    {
+      "id": "c1-u07-q010",
+      "stem": "Technicians at a ski resort manage the resort's network switches with Telnet. Which of the following is the BEST reason to replace Telnet with SSH?",
+      "choices": [
+        { "id": "a", "text": "Telnet cannot ask for a password before it lets anyone in" },
+        { "id": "b", "text": "Telnet uses UDP, so commands can be lost on the way to the switch" },
+        { "id": "c", "text": "Telnet opens a graphical desktop that uses too much bandwidth" },
+        { "id": "d", "text": "Telnet sends the password and everything else without encryption" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["7.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.9",
+        "title": "Remote Terminal Access Servers",
+        "quote": "",
+        "find": "the password and other communications"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q9" }
+    },
+    {
+      "id": "c1-u07-q011",
+      "stem": "A technician at a regional airport compares the logs from several servers and finds that the servers recorded the same event at times several minutes apart. Which of the following would BEST fix this problem?",
+      "choices": [
+        { "id": "a", "text": "Syslog" },
+        { "id": "b", "text": "SNMP" },
+        { "id": "c", "text": "NTP" },
+        { "id": "d", "text": "DNS" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.10",
+        "title": "Time Servers",
+        "quote": "",
+        "find": "log entries have accurate time stamps"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q8" }
+    },
+    {
+      "id": "c1-u07-q012",
+      "stem": "A chain of fitness clubs wants the event messages from the routers, switches, and Linux servers at all of its clubs gathered on one central server. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "A syslog server" },
+        { "id": "b", "text": "An NTP server" },
+        { "id": "c", "text": "A directory server" },
+        { "id": "d", "text": "A mailbox server" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.11",
+        "title": "Network Monitoring Servers",
+        "quote": "",
+        "find": "supporting software that facilitates log collection"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C64" }
+    },
+    {
+      "id": "c1-u07-q013",
+      "stem": "At the start of each class, 30 students in a school computer lab open the same online lesson, and the school's Internet connection slows down. Which of the following would BEST speed up these repeat visits and reduce the bandwidth they use?",
+      "choices": [
+        { "id": "a", "text": "Load balancer" },
+        { "id": "b", "text": "Content filter" },
+        { "id": "c", "text": "NAT" },
+        { "id": "d", "text": "Proxy server" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.3", "2.3.b"],
+      "units": ["7.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.1",
+        "title": "Proxy Servers",
+        "quote": "",
+        "find": "cache content to improve performance"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q21" }
+    },
+    {
+      "id": "c1-u07-q014",
+      "stem": "Recruiters at a staffing agency keep getting email with fake invoices attached, and some of the attachments contain malware. Which of the following would BEST stop these messages before they reach the recruiters' inboxes?",
+      "choices": [
+        { "id": "a", "text": "A content filter" },
+        { "id": "b", "text": "A firewall" },
+        { "id": "c", "text": "A spam gateway" },
+        { "id": "d", "text": "A DLP system" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.3", "2.3.b"],
+      "units": ["7.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.3",
+        "title": "Spam Gateways and Unified Threat Management",
+        "quote": "",
+        "find": "installed as a network server"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B9" }
+    },
+    {
+      "id": "c1-u07-q015",
+      "stem": "A credit union's only technician manages a separate firewall, intrusion prevention system (IPS), and antivirus scanner, each with its own settings and logs. Which of the following could replace all three?",
+      "choices": [
+        { "id": "a", "text": "A proxy server" },
+        { "id": "b", "text": "A content filter" },
+        { "id": "c", "text": "A DLP system" },
+        { "id": "d", "text": "A UTM appliance" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.3", "2.3.b"],
+      "units": ["7.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.3",
+        "title": "Spam Gateways and Unified Threat Management",
+        "quote": "",
+        "find": "combining the work of multiple security"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q20" }
+    },
+    {
+      "id": "c1-u07-q016",
+      "stem": "A fitness company streams live workout classes from four identical streaming media servers, and the service must stay available as more members log in at peak times. Which of the following would BEST meet this need?",
+      "choices": [
+        { "id": "a", "text": "A load balancer" },
+        { "id": "b", "text": "A proxy server" },
+        { "id": "c", "text": "A UTM appliance" },
+        { "id": "d", "text": "A firewall" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.3", "2.3.b"],
+      "units": ["7.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.4",
+        "title": "Load Balancers",
+        "quote": "",
+        "find": "distribute client requests across server nodes"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C31" }
+    },
+    {
+      "id": "c1-u07-q017",
+      "stem": "A pipeline company's 30 pumping stations span three states, and each station's pumps and valves are run by programmable logic controllers (PLCs). Which of the following should the company use so that software at its headquarters can gather data from and manage the equipment at every station?",
+      "choices": [
+        { "id": "a", "text": "An embedded system" },
+        { "id": "b", "text": "A data historian" },
+        { "id": "c", "text": "A SCADA system" },
+        { "id": "d", "text": "An IoT hub" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.3", "2.3.c"],
+      "units": ["7.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.6",
+        "title": "Embedded Systems and SCADA",
+        "quote": "",
+        "find": "run as software on ordinary computers"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q25" }
+    },
+    {
+      "id": "c1-u07-q018",
+      "stem": "A homeowner opens her garage door from a phone app, and the opener gets each command over Z-Wave from a small box plugged into her router. Which of the following BEST describes the garage door opener?",
+      "choices": [
+        { "id": "a", "text": "A smart device" },
+        { "id": "b", "text": "A hub" },
+        { "id": "c", "text": "A field device" },
+        { "id": "d", "text": "A control system" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.3", "2.3.d"],
+      "units": ["7.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.7",
+        "title": "Internet of Things Devices",
+        "quote": "",
+        "find": "IoT endpoints implement the function"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q24" }
+    },
+    {
+      "id": "c1-u07-q019",
+      "stem": "One PC in a pharmacy's back office cannot connect to the wired network, while every other PC in the pharmacy works normally. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Test the NIC and switch port with a loopback plug" },
+        { "id": "b", "text": "Check the in-wall cable run with a cable tester" },
+        { "id": "c", "text": "Reseat both patch cords and look over their connectors" },
+        { "id": "d", "text": "Update the driver for the PC's network adapter" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.1",
+        "title": "Troubleshoot Wired Connectivity",
+        "quote": "",
+        "find": "properly terminated and connected to"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q34" }
+    },
+    {
+      "id": "c1-u07-q020",
+      "stem": "The lights next to the network port on a veterinary receptionist's PC flickered on Friday but stay dark on Monday morning. Which of the following does this MOST likely indicate?",
+      "choices": [
+        { "id": "a", "text": "The PC's link is running at a lower speed" },
+        { "id": "b", "text": "The PC has no active link to the switch" },
+        { "id": "c", "text": "The PC's switch port is flapping" },
+        { "id": "d", "text": "The PC has received an APIPA address" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.1",
+        "title": "Troubleshoot Wired Connectivity",
+        "quote": "",
+        "find": "indicate whether the link is active"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C81" }
+    },
+    {
+      "id": "c1-u07-q021",
+      "stem": "A title company clerk's PC drops off the network for a few seconds many times an hour, and the switch log shows its port going down and up each time. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A duplex mismatch on the switch port" },
+        { "id": "b", "text": "A damaged patch cord at the PC" },
+        { "id": "c", "text": "A DHCP lease that keeps expiring" },
+        { "id": "d", "text": "A wrong VLAN ID on the switch port" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.1",
+        "title": "Troubleshoot Wired Connectivity",
+        "quote": "",
+        "find": "often caused by bad cabling"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A10" }
+    },
+    {
+      "id": "c1-u07-q022",
+      "stem": "After a technician replaced the switch at a fitness center, the front desk PC can still reach every server, but its wired transfer speeds have dropped sharply. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A duplex mismatch with the new switch" },
+        { "id": "b", "text": "An APIPA address on the network adapter" },
+        { "id": "c", "text": "A mistyped default gateway address" },
+        { "id": "d", "text": "A wrong VLAN ID on the new switch" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.2",
+        "title": "Troubleshoot Network Speed Issues",
+        "quote": "",
+        "find": "reduced by mismatched duplex settings"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C40" }
+    },
+    {
+      "id": "c1-u07-q023",
+      "stem": "A salesperson at a mattress store tells the help desk that her PC's network connection has felt slow all week. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Check her cable ends for untwisted pairs" },
+        { "id": "b", "text": "Install a newer driver for her network adapter" },
+        { "id": "c", "text": "Ask her which network tasks are affected" },
+        { "id": "d", "text": "Plug a different PC into her wall port" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.2",
+        "title": "Troubleshoot Network Speed Issues",
+        "quote": "",
+        "find": "establish exactly what network activity"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q50" }
+    },
+    {
+      "id": "c1-u07-q024",
+      "stem": "An office PC at a sawmill has slow wired network speeds only while the saws are running, and its cable runs right past the saws' large electric motors. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Crosstalk" },
+        { "id": "b", "text": "External interference" },
+        { "id": "c", "text": "Attenuation" },
+        { "id": "d", "text": "An outdated NIC driver" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.2",
+        "title": "Troubleshoot Network Speed Issues",
+        "quote": "",
+        "find": "External interference is typically caused by"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 7.0 Harder Q80" }
+    },
+    {
+      "id": "c1-u07-q025",
+      "stem": "While cabling a church's new office wing, a contractor left each wire pair untwisted for several inches where the cables are punched down at the patch panel. Which of the following problems does this MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Attenuation" },
+        { "id": "b", "text": "Crosstalk" },
+        { "id": "c", "text": "External interference" },
+        { "id": "d", "text": "Duplex mismatch" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.2",
+        "title": "Troubleshoot Network Speed Issues",
+        "quote": "",
+        "find": "Poorly installed cabling and connector termination"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q43" }
+    },
+    {
+      "id": "c1-u07-q026",
+      "stem": "One PC at a marina office has a slow wired connection, and a technician wants evidence that the cable run to it is at fault. Which of the following findings would BEST provide that evidence?",
+      "choices": [
+        { "id": "a", "text": "The PC's IP address starts with 169.254" },
+        { "id": "b", "text": "Every other PC on that switch is also slow" },
+        { "id": "c", "text": "The switch shows a high error rate on the PC's port" },
+        { "id": "d", "text": "The PC's link lights flicker during file copies" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.2",
+        "title": "Troubleshoot Network Speed Issues",
+        "quote": "",
+        "find": "view error rates from the switch"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q45" }
+    },
+    {
+      "id": "c1-u07-q027",
+      "stem": "A daycare director's PC is slow on the network, but a spare PC connected with the same cable and wall port runs at full speed. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Malware on the director's PC" },
+        { "id": "b", "text": "Crosstalk in the wall port's cable" },
+        { "id": "c", "text": "Congestion at the switch" },
+        { "id": "d", "text": "A bad port on the switch" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.2",
+        "title": "Troubleshoot Network Speed Issues",
+        "quote": "",
+        "find": "infected with malware or have faulty"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q43" }
+    },
+    {
+      "id": "c1-u07-q028",
+      "stem": "A librarian's laptop joins the library's Wi-Fi without any errors, but its file transfers are slow. Which of the following should a technician try FIRST?",
+      "choices": [
+        { "id": "a", "text": "Update the laptop's wireless driver" },
+        { "id": "b", "text": "Move the laptop nearer the access point" },
+        { "id": "c", "text": "Set the access point to another channel" },
+        { "id": "d", "text": "Reenter the Wi-Fi password" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.4",
+        "title": "Troubleshoot Wireless Issues",
+        "quote": "",
+        "find": "try moving the devices closer"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q27" }
+    },
+    {
+      "id": "c1-u07-q029",
+      "stem": "Since tall metal shelving went up in a farm supply store's back aisles, the price scanners there keep dropping off the Wi-Fi and reconnecting. Which of the following should a technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "The DHCP server's available leases" },
+        { "id": "b", "text": "The scanners' security settings" },
+        { "id": "c", "text": "The wireless signal strength" },
+        { "id": "d", "text": "The access point's switch port" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.4",
+        "title": "Troubleshoot Wireless Issues",
+        "quote": "",
+        "find": "will drop the connection entirely"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A59" }
+    },
+    {
+      "id": "c1-u07-q030",
+      "stem": "Since a coffee shop opened next door, the order tablets at a frozen yogurt shop keep losing their Wi-Fi connection for a few seconds at a time. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A hidden SSID on the access point" },
+        { "id": "b", "text": "The wrong security standard on the tablets" },
+        { "id": "c", "text": "An access point not set to compatibility mode" },
+        { "id": "d", "text": "Another network on the same channel" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.4",
+        "title": "Troubleshoot Wireless Issues",
+        "quote": "",
+        "find": "interference from another radio source"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B72" }
+    },
+    {
+      "id": "c1-u07-q031",
+      "stem": "A home health nurse's tablet joined her agency's Wi-Fi without trouble last month, but now every attempt to join it ends in an authentication failure. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The access point is hiding the network's SSID" },
+        { "id": "b", "text": "The tablet still has an old password saved" },
+        { "id": "c", "text": "The tablet has a duplicate IP address" },
+        { "id": "d", "text": "The tablet's DHCP lease has expired" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.4",
+        "title": "Troubleshoot Wireless Issues",
+        "quote": "",
+        "find": "entering the incorrect network password"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q37" }
+    },
+    {
+      "id": "c1-u07-q032",
+      "stem": "A speed test at a tax preparer's office shows fast download and upload rates but a steady ping of about 640 ms. Which of the following problems does the test show?",
+      "choices": [
+        { "id": "a", "text": "High jitter" },
+        { "id": "b", "text": "High latency" },
+        { "id": "c", "text": "Packet loss" },
+        { "id": "d", "text": "Low bandwidth" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.5",
+        "title": "Troubleshoot VoIP Issues",
+        "quote": "",
+        "find": "two-way latency is the time taken"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B80" }
+    },
+    {
+      "id": "c1-u07-q033",
+      "stem": "Before a clinic opens, a technician tests its new VoIP system and measures a steady one-way delay of about 250 ms. Which of the following should the technician conclude?",
+      "choices": [
+        { "id": "a", "text": "The delay is fine, since it is steady" },
+        { "id": "b", "text": "The delay is more than VoIP can handle well" },
+        { "id": "c", "text": "The calls will suffer from high jitter" },
+        { "id": "d", "text": "Buffering will hide the delay from callers" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.5",
+        "title": "Troubleshoot VoIP Issues",
+        "quote": "",
+        "find": "one-way latency of about 150 ms"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q30" }
+    },
+    {
+      "id": "c1-u07-q034",
+      "stem": "For weeks, a real estate office's VoIP calls have lagged even when no one else is online, and tests show Internet delay far above what its service agreement allows. Which of the following would BEST resolve this problem?",
+      "choices": [
+        { "id": "a", "text": "Turn on QoS in the router" },
+        { "id": "b", "text": "Change the office's DNS servers" },
+        { "id": "c", "text": "Replace the router's patch cord" },
+        { "id": "d", "text": "Report the problem to the ISP" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.5",
+        "title": "Troubleshoot VoIP Issues",
+        "quote": "",
+        "find": "contact your ISP to resolve"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q40" }
+    },
+    {
+      "id": "c1-u07-q035",
+      "stem": "Video calls between a school's two campuses freeze and skip every few seconds, though large file copies between the campuses run at full speed. Which of the following would BEST help a technician diagnose this problem?",
+      "choices": [
+        { "id": "a", "text": "Jitter readings" },
+        { "id": "b", "text": "Bandwidth readings" },
+        { "id": "c", "text": "Packet loss readings" },
+        { "id": "d", "text": "Cable tester results" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.5",
+        "title": "Troubleshoot VoIP Issues",
+        "quote": "",
+        "find": "the amount of variation in delay"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C72" }
+    },
+    {
+      "id": "c1-u07-q036",
+      "stem": "Calls on a tutoring center's VoIP phones break up whenever someone on the center's SOHO network downloads a large update. Which of the following should a technician set up on the router to BEST keep the calls clear?",
+      "choices": [
+        { "id": "a", "text": "A DHCP reservation for each VoIP phone" },
+        { "id": "b", "text": "A QoS setting that gives VoIP priority" },
+        { "id": "c", "text": "A separate VLAN for the VoIP phones" },
+        { "id": "d", "text": "A firewall rule that allows VoIP traffic" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.5",
+        "title": "Troubleshoot VoIP Issues",
+        "quote": "",
+        "find": "a QoS or bandwidth control feature"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q29" }
+    },
+    {
+      "id": "c1-u07-q037",
+      "stem": "A wired Windows PC at a tire shop reports limited connectivity. Which of the following does this MOST likely indicate?",
+      "choices": [
+        { "id": "a", "text": "It has not received a DHCP lease" },
+        { "id": "b", "text": "Its DNS server is not answering" },
+        { "id": "c", "text": "Its default gateway is offline" },
+        { "id": "d", "text": "Its switch port has a duplex mismatch" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.6",
+        "title": "Troubleshoot Limited Connectivity",
+        "quote": "",
+        "find": "limited connectivity message specifically means"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B52" }
+    },
+    {
+      "id": "c1-u07-q038",
+      "stem": "During a large trade show, a convention center's DHCP server stays up and the devices that joined in the morning still work, but most devices that join in the afternoon receive no IP address. Which of the following BEST explains why the server stopped handing out addresses?",
+      "choices": [
+        { "id": "a", "text": "It has run out of available leases" },
+        { "id": "b", "text": "It is set with a static IP address" },
+        { "id": "c", "text": "It holds reservations for the printers" },
+        { "id": "d", "text": "Its lease time is set too short" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.6",
+        "title": "Troubleshoot Limited Connectivity",
+        "quote": "",
+        "find": "run out of available leases"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q71" }
+    },
+    {
+      "id": "c1-u07-q039",
+      "stem": "The PC at an animal shelter's adoption desk can ping its default gateway but not any public IP address. Which of the following should a technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "The PC's DNS server settings" },
+        { "id": "b", "text": "The router's Internet status" },
+        { "id": "c", "text": "The switch port's duplex setting" },
+        { "id": "d", "text": "The PC's DHCP lease" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.6",
+        "title": "Troubleshoot Limited Connectivity",
+        "quote": "",
+        "find": "connection via a status update page"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C50" }
+    }
+  ]
+}

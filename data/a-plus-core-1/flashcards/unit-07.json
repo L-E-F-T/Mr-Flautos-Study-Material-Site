@@ -1,0 +1,206 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-07", "title": "Unit 7.0 Supporting Network Services", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "c1-u07-f001",
+      "term": "Fileshare",
+      "definition": "A server disk configured so clients can access it over the network; on Windows networks, files are shared with SMB.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.1"],
+      "reference": { "source": "certmaster", "section": "7.1.1", "title": "File/Print Servers" }
+    },
+    {
+      "id": "c1-u07-f002",
+      "term": "Print server",
+      "definition": "Centrally manages printers and print jobs across the network; it queues jobs and can hold one until the user releases it to a printer, so printouts are not left uncollected.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.1"],
+      "reference": { "source": "certmaster", "section": "7.1.1", "title": "File/Print Servers" }
+    },
+    {
+      "id": "c1-u07-f003",
+      "term": "Database server",
+      "definition": "Stores large amounts of structured and unstructured data that can be queried for reports and used for business decisions; relational (SQL) databases, the most popular type, use tables of rows and columns.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.2"],
+      "reference": { "source": "certmaster", "section": "7.1.2", "title": "Database Servers" }
+    },
+    {
+      "id": "c1-u07-f004",
+      "term": "Web server",
+      "definition": "Gives clients, usually web browsers, access to websites and web applications over HTTP or HTTPS, on the public Internet or on private intranets and extranets.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.3"],
+      "reference": { "source": "certmaster", "section": "7.1.3", "title": "Web Servers" }
+    },
+    {
+      "id": "c1-u07-f005",
+      "term": "Mail server",
+      "definition": "Processes email: SMTP servers deliver messages from one mail domain to another, and mailbox servers store them for the user's email client to retrieve with POP3 or IMAP.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.5", "7.1.6"],
+      "reference": { "source": "certmaster", "section": "7.1.5", "title": "Mail Servers" }
+    },
+    {
+      "id": "c1-u07-f006",
+      "term": "AAA (Authentication, Authorization, and Accounting)",
+      "definition": "A server that consolidates authentication for many access devices, such as switches, access points, and VPN gateways, which store no credentials and only pass them along; often run with RADIUS or TACACS+.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.8"],
+      "reference": { "source": "certmaster", "section": "7.1.8", "title": "Directory and Authentication Servers" }
+    },
+    {
+      "id": "c1-u07-f007",
+      "term": "NTP (Network Time Protocol)",
+      "definition": "Lets networked systems sync their clocks to a common source so log entries have accurate time stamps; the most accurate source, an atomic clock, is Stratum 0.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.10"],
+      "reference": { "source": "certmaster", "section": "7.1.10", "title": "Time Servers" }
+    },
+    {
+      "id": "c1-u07-f008",
+      "term": "Syslog",
+      "definition": "A standard protocol for log collection: routers, switches, and servers send their event messages to one log collector so the logs can be reviewed in one place.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["7.1.11"],
+      "reference": { "source": "certmaster", "section": "7.1.11", "title": "Network Monitoring Servers" }
+    },
+    {
+      "id": "c1-u07-f009",
+      "term": "Proxy server",
+      "definition": "Takes a client's whole request, checks it, and forwards it to the destination server, then checks the reply; it can also filter and cache content.",
+      "objectives": ["2.3", "2.3.b"],
+      "units": ["7.2.1"],
+      "reference": { "source": "certmaster", "section": "7.2.1", "title": "Proxy Servers" }
+    },
+    {
+      "id": "c1-u07-f010",
+      "term": "Spam gateway",
+      "definition": "A network server that uses SPF, DKIM, and DMARC to verify mail servers and filters out spoofed, malicious, or unwanted email before it reaches users' inboxes.",
+      "objectives": ["2.3", "2.3.b"],
+      "units": ["7.2.3"],
+      "reference": { "source": "certmaster", "section": "7.2.3", "title": "Spam Gateways and Unified Threat Management" }
+    },
+    {
+      "id": "c1-u07-f011",
+      "term": "UTM (Unified Threat Management)",
+      "definition": "One appliance that combines the work of multiple security functions, such as firewall, intrusion prevention, anti-malware, and spam and content filtering, with simpler configuration and reporting than separate devices.",
+      "objectives": ["2.3", "2.3.b"],
+      "units": ["7.2.3"],
+      "reference": { "source": "certmaster", "section": "7.2.3", "title": "Spam Gateways and Unified Threat Management" }
+    },
+    {
+      "id": "c1-u07-f012",
+      "term": "Load balancer",
+      "definition": "Spreads client requests across a farm or pool of servers that provide the same function, for high availability; it sits in front of the servers, and clients connect to its virtual server address.",
+      "objectives": ["2.3", "2.3.b"],
+      "units": ["7.2.4"],
+      "reference": { "source": "certmaster", "section": "7.2.4", "title": "Load Balancers" }
+    },
+    {
+      "id": "c1-u07-f013",
+      "term": "Legacy system",
+      "definition": "A system its vendor no longer supports (end-of-life), often kept because migrating it would be too complex or expensive; with no patches coming, isolate it from the rest of the network.",
+      "objectives": ["2.3", "2.3.c"],
+      "units": ["7.2.5"],
+      "reference": { "source": "certmaster", "section": "7.2.5", "title": "Legacy Systems" }
+    },
+    {
+      "id": "c1-u07-f014",
+      "term": "Embedded system",
+      "definition": "An electronic device designed to perform a specific, dedicated function, such as the microcontroller in an intravenous drip-rate meter, often built for a closed network with no connection to wider data networks.",
+      "objectives": ["2.3", "2.3.c"],
+      "units": ["7.2.6"],
+      "reference": { "source": "certmaster", "section": "7.2.6", "title": "Embedded Systems and SCADA" }
+    },
+    {
+      "id": "c1-u07-f015",
+      "term": "SCADA (Supervisory Control and Data Acquisition)",
+      "definition": "Software on ordinary computers that manages a large industrial control system (ICS) spread over many sites, gathering data from its plant equipment over WAN links.",
+      "objectives": ["2.3", "2.3.c"],
+      "units": ["7.2.6"],
+      "reference": { "source": "certmaster", "section": "7.2.6", "title": "Embedded Systems and SCADA" }
+    },
+    {
+      "id": "c1-u07-f016",
+      "term": "IoT (Internet of Things) device",
+      "definition": "A wearable, home appliance, vehicle, or other item equipped with sensors, software, and network connectivity, such as a smart thermostat or video doorbell; it usually needs a hub for wireless networking.",
+      "objectives": ["2.3", "2.3.d"],
+      "units": ["7.2.7"],
+      "reference": { "source": "certmaster", "section": "7.2.7", "title": "Internet of Things Devices" }
+    },
+    {
+      "id": "c1-u07-f017",
+      "term": "Port flapping",
+      "definition": "A NIC or switch interface that continually changes between up and down states; often caused by bad cabling, external interference, or a faulty NIC at the host end.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.1"],
+      "reference": { "source": "certmaster", "section": "7.3.1", "title": "Troubleshoot Wired Connectivity" }
+    },
+    {
+      "id": "c1-u07-f018",
+      "term": "Slow network speeds",
+      "definition": "Transfers that run slower than the link should; causes include mismatched duplex settings on the network adapter and switch port, interference, a driver problem, malware, or congestion.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.2"],
+      "reference": { "source": "certmaster", "section": "7.3.2", "title": "Troubleshoot Network Speed Issues" }
+    },
+    {
+      "id": "c1-u07-f019",
+      "term": "External interference",
+      "definition": "Interference from nearby power lines, fluorescent lighting, motors, or generators, or from a microwave oven near Wi-Fi, that slows or drops links; shielded cable reduces it on a cable run.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.2", "7.3.4"],
+      "reference": { "source": "certmaster", "section": "7.3.2", "title": "Troubleshoot Network Speed Issues" }
+    },
+    {
+      "id": "c1-u07-f020",
+      "term": "Intermittent wireless connectivity",
+      "definition": "A Wi-Fi connection that keeps dropping; first move the devices closer together, and if they are already in range, suspect interference and adjust the channel.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.4"],
+      "reference": { "source": "certmaster", "section": "7.3.4", "title": "Troubleshoot Wireless Issues" }
+    },
+    {
+      "id": "c1-u07-f021",
+      "term": "Authentication failures",
+      "definition": "Failing to join a wireless network, usually because the wrong network password was entered or the wrong security standard was selected; check the security settings on both devices.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.4"],
+      "reference": { "source": "certmaster", "section": "7.3.4", "title": "Troubleshoot Wireless Issues" }
+    },
+    {
+      "id": "c1-u07-f022",
+      "term": "Poor VoIP (Voice over Internet Protocol) quality",
+      "definition": "Dropouts, echo, or other glitches in voice calls carried over a data network; good call quality needs QoS, with switches, access points, and routers putting voice traffic ahead of bursty data.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.5"],
+      "reference": { "source": "certmaster", "section": "7.3.5", "title": "Troubleshoot VoIP Issues" }
+    },
+    {
+      "id": "c1-u07-f023",
+      "term": "High latency",
+      "definition": "A signal taking too long to reach the recipient, made worse by distance and router processing delays; VoIP allows only about 150 ms one way.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.5"],
+      "reference": { "source": "certmaster", "section": "7.3.5", "title": "Troubleshoot VoIP Issues" }
+    },
+    {
+      "id": "c1-u07-f024",
+      "term": "Jitter",
+      "definition": "The variation in delay over time, measured by sampling the time between arriving packets; usually caused by congestion on routers and switches, and VoIP buffering tolerates up to about 30 ms.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.5"],
+      "reference": { "source": "certmaster", "section": "7.3.5", "title": "Troubleshoot VoIP Issues" }
+    },
+    {
+      "id": "c1-u07-f025",
+      "term": "Limited connectivity",
+      "definition": "A Windows message: the host has a physical link but no DHCP lease, so it has a 169.254.x.y (APIPA) address; if many users get it, suspect the DHCP server.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["7.3.6"],
+      "reference": { "source": "certmaster", "section": "7.3.6", "title": "Troubleshoot Limited Connectivity" }
+    }
+  ]
+}

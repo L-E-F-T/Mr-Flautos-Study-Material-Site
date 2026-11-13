@@ -79,7 +79,7 @@
       "term": "Firewall",
       "definition": "Filters which hosts and protocols can pass, using rules called an access control list (ACL) that allow or block traffic by network address and protocol type.",
       "objectives": ["2.5", "2.5.e"],
-      "units": ["6.1.10"],
+      "units": ["6.1.10", "7.2.3"],
       "reference": { "source": "certmaster", "section": "6.1.10", "title": "Firewalls" }
     },
     {
@@ -143,7 +143,7 @@
       "term": "APIPA (Automatic Private IP Addressing)",
       "definition": "A 169.254 address a host gives itself at random when it is set to use DHCP but cannot contact a DHCP server; with it, the host cannot reach other networks.",
       "objectives": ["2.6", "2.6.a"],
-      "units": ["6.2.12"],
+      "units": ["6.2.12", "7.3.6"],
       "reference": { "source": "certmaster", "section": "6.2.12", "title": "Static Versus Dynamic Host Address Configuration" }
     },
     {
@@ -175,7 +175,7 @@
       "term": "FTP (File Transfer Protocol)",
       "definition": "Makes files available for download across a network; TCP port 20 for the data connection and TCP port 21 for the control connection.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6"],
+      "units": ["6.3.6", "7.1.1"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -183,7 +183,7 @@
       "term": "SSH (Secure Shell)",
       "definition": "Makes a secure connection to the command-line interface of a server; TCP port 22.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6", "6.3.2"],
+      "units": ["6.3.6", "6.3.2", "7.1.9"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -191,7 +191,7 @@
       "term": "Telnet",
       "definition": "Makes an unsecure connection to the command-line interface of a server; TCP port 23.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6"],
+      "units": ["6.3.6", "7.1.9"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -199,7 +199,7 @@
       "term": "SMTP (Simple Mail Transfer Protocol)",
       "definition": "Sends (transfers) email messages across a network; TCP port 25.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6", "6.3.1"],
+      "units": ["6.3.6", "6.3.1", "7.1.5"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -207,7 +207,7 @@
       "term": "HTTP (Hypertext Transfer Protocol)",
       "definition": "Delivers unsecure (unencrypted) websites and web services; TCP port 80.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6", "6.3.1"],
+      "units": ["6.3.6", "6.3.1", "7.1.3"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -215,7 +215,7 @@
       "term": "POP3 (Post Office Protocol 3)",
       "definition": "Retrieves email messages from a server mailbox; TCP port 110.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6"],
+      "units": ["6.3.6", "7.1.6"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -223,7 +223,7 @@
       "term": "NetBIOS (Network Basic Input/Output System)/NetBT",
       "definition": "NetBIOS over TCP/IP supports the networking features of legacy Windows versions; UDP and TCP ports 137 to 139.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6"],
+      "units": ["6.3.6", "7.1.1"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -231,7 +231,7 @@
       "term": "IMAP (Internet Mail Access Protocol)",
       "definition": "Reads and manages mail messages on a server mailbox; TCP port 143.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6"],
+      "units": ["6.3.6", "7.1.6"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -239,7 +239,7 @@
       "term": "LDAP (Lightweight Directory Access Protocol)",
       "definition": "Queries information about network users and resources; TCP port 389.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6"],
+      "units": ["6.3.6", "7.1.8"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -247,7 +247,7 @@
       "term": "HTTPS (Hypertext Transfer Protocol Secure)",
       "definition": "Delivers secure (encrypted) websites and services; TCP port 443.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6", "6.3.2"],
+      "units": ["6.3.6", "6.3.2", "7.1.4"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -255,7 +255,7 @@
       "term": "SMB/CIFS (Server Message Block/Common Internet File System)",
       "definition": "Provides Windows-compatible file and printer sharing services on a local network; TCP port 445.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6"],
+      "units": ["6.3.6", "7.1.1"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -263,7 +263,7 @@
       "term": "RDP (Remote Desktop Protocol)",
       "definition": "Makes a secure connection to the graphical desktop of a computer; TCP port 3389.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6"],
+      "units": ["6.3.6", "7.1.9"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -271,7 +271,7 @@
       "term": "DHCP (Dynamic Host Configuration Protocol)",
       "definition": "Lets a server give hosts their IP address, subnet mask, default gateway, and DNS servers automatically; the server listens on UDP port 67 and the client on UDP port 68.",
       "objectives": ["2.1", "2.1.a", "2.3", "2.3.a", "2.4", "2.4.b"],
-      "units": ["6.4.1", "6.3.6"],
+      "units": ["6.4.1", "6.3.6", "7.3.6"],
       "reference": { "source": "certmaster", "section": "6.4.1", "title": "DHCP Functions" }
     },
     {

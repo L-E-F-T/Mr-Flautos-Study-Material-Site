@@ -271,7 +271,7 @@
       "term": "Cable tester",
       "definition": "A pair of devices attached to each end of a cable that energize each wire in turn, with LEDs showing whether every wire conducts and reaches the same pin at both ends.",
       "objectives": ["2.8", "2.8.f"],
-      "units": ["5.3.8"],
+      "units": ["5.3.8", "7.3.1"],
       "reference": { "source": "certmaster", "section": "5.3.8", "title": "Copper Cabling Test Tools" }
     },
     {
@@ -287,7 +287,7 @@
       "term": "Loopback plug",
       "definition": "An adapter that plugs into a NIC or switch port to test it; a solid link LED shows that the port can send and receive.",
       "objectives": ["2.8", "2.8.g"],
-      "units": ["5.3.8"],
+      "units": ["5.3.8", "7.3.1"],
       "reference": { "source": "certmaster", "section": "5.3.8", "title": "Copper Cabling Test Tools" }
     },
     {
@@ -503,7 +503,7 @@
       "term": "Wi-Fi analyzer",
       "definition": "Hardware or software, such as an app on a laptop or phone, that measures the signal strength of nearby networks on each channel to plan channels and troubleshoot Wi-Fi.",
       "objectives": ["2.8", "2.8.c"],
-      "units": ["5.4.10"],
+      "units": ["5.4.10", "7.3.4"],
       "reference": { "source": "certmaster", "section": "5.4.10", "title": "Wi-Fi Analyzers" }
     },
     {
