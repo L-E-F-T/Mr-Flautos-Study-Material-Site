@@ -1,0 +1,1524 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-04", "title": "Unit 4.0 Troubleshooting PC Hardware", "reviewed": false },
+  "questions": [
+    {
+      "id": "c1-u04-q001",
+      "stem": "A technician is choosing motherboards for a new computer lab and wants a firmware setup program that staff can navigate with a mouse. Which type of firmware should the motherboards use?",
+      "choices": [
+        { "id": "a", "text": "BIOS" },
+        { "id": "b", "text": "POST" },
+        { "id": "c", "text": "CMOS" },
+        { "id": "d", "text": "UEFI" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.5", "3.5.d"],
+      "units": ["4.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.1",
+        "title": "BIOS and UEFI",
+        "quote": "",
+        "find": "graphical interface and have mouse support"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q9" }
+    },
+    {
+      "id": "c1-u04-q002",
+      "stem": "A technician must change a firmware setting on a PC whose only keyboard is a Bluetooth model that does not work until Windows loads. Which of the following is the BEST way to reach the UEFI boot options?",
+      "choices": [
+        { "id": "a", "text": "Set a supervisor password so setup opens at every startup" },
+        { "id": "b", "text": "Restart and press F2 while the maker's logo shows" },
+        { "id": "c", "text": "Hold Shift while selecting Restart on the Windows logon screen" },
+        { "id": "d", "text": "Press the Del key while the Windows logon screen is showing" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.5", "3.5.d"],
+      "units": ["4.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.1",
+        "title": "BIOS and UEFI",
+        "quote": "",
+        "find": "Shift-click the Restart button"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q8" }
+    },
+    {
+      "id": "c1-u04-q003",
+      "stem": "Each morning, a bakery's wall menu PC tries to start from the network and waits about a minute before it starts from its internal SSD. Which of the following should a technician do so the PC starts from the SSD right away?",
+      "choices": [
+        { "id": "a", "text": "Set the SSD as the startup drive in Disk Management" },
+        { "id": "b", "text": "Switch the firmware to legacy BIOS mode" },
+        { "id": "c", "text": "Turn on Secure Boot in the firmware setup" },
+        { "id": "d", "text": "Put the SSD first in the firmware's boot order" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.5", "3.5.d"],
+      "units": ["4.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.3",
+        "title": "Boot and Device Options",
+        "quote": "",
+        "find": "parameter is the boot option sequence"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A7" }
+    },
+    {
+      "id": "c1-u04-q004",
+      "stem": "A testing center must keep test takers from copying files to flash drives on its exam PCs. Which of the following firmware changes BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "Set supervisor passwords" },
+        { "id": "b", "text": "Disable USB ports" },
+        { "id": "c", "text": "Turn on Secure Boot" },
+        { "id": "d", "text": "Turn on TPM security" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.5", "3.5.d"],
+      "units": ["4.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.4",
+        "title": "USB Permissions",
+        "quote": "",
+        "find": "USB connections can pose security risks"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q13" }
+    },
+    {
+      "id": "c1-u04-q005",
+      "stem": "A small office's server sits in a warm closet, and its firmware setup program shows temperatures near the vendor's limit. Which of the following changes would BEST bring the temperatures down?",
+      "choices": [
+        { "id": "a", "text": "Raise the fan duty cycle percentage" },
+        { "id": "b", "text": "Switch the fan profile to Quiet" },
+        { "id": "c", "text": "Raise the temperature at which the fans start" },
+        { "id": "d", "text": "Flip the top fan so it blows air downward" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.5", "3.5.d"],
+      "units": ["4.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.5",
+        "title": "Fan Considerations",
+        "quote": "",
+        "find": "a higher percentage results in faster"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q11" }
+    },
+    {
+      "id": "c1-u04-q006",
+      "stem": "A hospital's IT policy says its new workstations must refuse to run any boot loader that is unsigned or has been altered by malware. Which of the following firmware settings BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "Secure Boot" },
+        { "id": "b", "text": "Boot device priority" },
+        { "id": "c", "text": "Boot password" },
+        { "id": "d", "text": "USB permissions" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.5", "3.5.d"],
+      "units": ["4.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.6",
+        "title": "Boot Passwords and Secure Boot",
+        "quote": "",
+        "find": "Secure boot is a UEFI feature"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q32" }
+    },
+    {
+      "id": "c1-u04-q007",
+      "stem": "A technician is preparing an office desktop for a clean install of Windows 11. Which of the following should the technician set in the firmware before installing?",
+      "choices": [
+        { "id": "a", "text": "Legacy BIOS mode with Secure Boot enabled" },
+        { "id": "b", "text": "UEFI mode with Secure Boot disabled" },
+        { "id": "c", "text": "UEFI mode with Secure Boot enabled" },
+        { "id": "d", "text": "Legacy BIOS mode with Secure Boot disabled" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.5", "3.5.d"],
+      "units": ["4.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.6",
+        "title": "Boot Passwords and Secure Boot",
+        "quote": "",
+        "find": "Many modern systems require UEFI"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A87" }
+    },
+    {
+      "id": "c1-u04-q008",
+      "stem": "Students keep changing firmware settings on a computer lab's PCs, but they still need to start the PCs and sign in each day. Which of the following should a technician set on each PC?",
+      "choices": [
+        { "id": "a", "text": "Secure Boot" },
+        { "id": "b", "text": "A BIOS password" },
+        { "id": "c", "text": "TPM security" },
+        { "id": "d", "text": "A user/system password" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.5", "3.5.d"],
+      "units": ["4.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.6",
+        "title": "Boot Passwords and Secure Boot",
+        "quote": "",
+        "find": "Restricts access to the system's"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q36" }
+    },
+    {
+      "id": "c1-u04-q009",
+      "stem": "An accounting firm is turning on BitLocker for its laptops and wants each drive's encryption key kept in tamper-resistant hardware instead of in a file. Which of the following should the technician configure on each laptop?",
+      "choices": [
+        { "id": "a", "text": "The TPM" },
+        { "id": "b", "text": "A boot password" },
+        { "id": "c", "text": "Secure Boot" },
+        { "id": "d", "text": "USB permissions" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.5", "3.5.f"],
+      "units": ["4.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.8",
+        "title": "Trusted Platform Modules",
+        "quote": "",
+        "find": "storing cryptographic keys in tamper-resistant hardware"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q3" }
+    },
+    {
+      "id": "c1-u04-q010",
+      "stem": "A technician is encrypting a desktop's data drive, and its keys must still work after the drive is moved to a different desktop next month. Which of the following should the technician use to store the keys?",
+      "choices": [
+        { "id": "a", "text": "CMOS" },
+        { "id": "b", "text": "HSM" },
+        { "id": "c", "text": "BitLocker" },
+        { "id": "d", "text": "TPM" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.5", "3.5.f"],
+      "units": ["4.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.8",
+        "title": "Trusted Platform Modules",
+        "quote": "",
+        "find": "a disk needs to be moved"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A83" }
+    },
+    {
+      "id": "c1-u04-q011",
+      "stem": "A receptionist's desktop PC shows no front-panel lights and no fan noise when its power button is pressed, but every other device at the front desk is working. Which of the following should the technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Test the power supply with a multimeter" },
+        { "id": "b", "text": "Have an electrician replace the wall socket" },
+        { "id": "c", "text": "Plug a known-good lamp into the wall socket" },
+        { "id": "d", "text": "Replace the power supply with a new unit" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.1",
+        "title": "Troubleshoot Power Issues",
+        "quote": "",
+        "find": "Test the wall socket"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q17" }
+    },
+    {
+      "id": "c1-u04-q012",
+      "stem": "After a custodian vacuums around a teacher's desk one night, the teacher's desktop PC shows no lights and no fan activity when it is turned on in the morning. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Remove the add-in cards and try again" },
+        { "id": "b", "text": "Test the PSU with a power supply tester" },
+        { "id": "c", "text": "Swap in a known good monitor" },
+        { "id": "d", "text": "Check the power cord connections and switches" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.1",
+        "title": "Troubleshoot Power Issues",
+        "quote": "",
+        "find": "Ensure the PSU is properly connected"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B44" }
+    },
+    {
+      "id": "c1-u04-q013",
+      "stem": "A technician replaced the power supply in a PC that showed no lights or fan activity, but the PC is still dark. Which of the following should the technician have tried before replacing the power supply?",
+      "choices": [
+        { "id": "a", "text": "Swap in a known good motherboard" },
+        { "id": "b", "text": "Open the old power supply to check its fuse" },
+        { "id": "c", "text": "Reseat the memory modules in their slots" },
+        { "id": "d", "text": "Swap in a known good power cable" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.1",
+        "title": "Troubleshoot Power Issues",
+        "quote": "",
+        "find": "Try another power cable"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q113" }
+    },
+    {
+      "id": "c1-u04-q014",
+      "stem": "After a thunderstorm, a print shop's desktop PC shows no lights and no fan activity, though the monitor and printer on the same power strip still work. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The power supply has failed" },
+        { "id": "b", "text": "The power strip has failed" },
+        { "id": "c", "text": "The RTC battery has run down" },
+        { "id": "d", "text": "The memory modules have failed" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.1",
+        "title": "Troubleshoot Power Issues",
+        "quote": "",
+        "find": "arise from a faulty PSU"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A70" }
+    },
+    {
+      "id": "c1-u04-q015",
+      "stem": "A desktop PC will not start, and a power supply tester shows that the 12 V output of its power supply is far below normal. Which of the following should a technician do?",
+      "choices": [
+        { "id": "a", "text": "Replace the power supply" },
+        { "id": "b", "text": "Open the power supply to repair it" },
+        { "id": "c", "text": "Reseat the 24-pin cable on the motherboard" },
+        { "id": "d", "text": "Replace the memory modules" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.1",
+        "title": "Troubleshoot Power Issues",
+        "quote": "",
+        "find": "a multimeter or power supply tester"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A61" }
+    },
+    {
+      "id": "c1-u04-q016",
+      "stem": "A desktop PC has been restarting on its own for a few weeks, and today it spins its fans when it is turned on, but the screen stays dark and it gives no beeps. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A faulty power supply" },
+        { "id": "b", "text": "A corrupted Windows installation" },
+        { "id": "c", "text": "A run-down RTC battery" },
+        { "id": "d", "text": "A malware infection" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.3",
+        "title": "Troubleshoot POST Issues",
+        "quote": "",
+        "find": "if the fans are receiving power"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B83" }
+    },
+    {
+      "id": "c1-u04-q017",
+      "stem": "When a florist switches on the shop's desktop PC, its fans spin and its front lights come on, but the screen stays dark and no beeps sound. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Reseat the adapter cards in their slots" },
+        { "id": "b", "text": "Check that the monitor is on and connected" },
+        { "id": "c", "text": "Check the motherboard's jumper settings" },
+        { "id": "d", "text": "Remove nonessential devices one at a time" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.3",
+        "title": "Troubleshoot POST Issues",
+        "quote": "",
+        "find": "likely either a display issue"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q122" }
+    },
+    {
+      "id": "c1-u04-q018",
+      "stem": "A lab PC beeps four times at startup and shows nothing, and the technician's beep code chart, which was made for another company's PCs, lists four beeps as a memory error. Which of the following should the technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Reset the firmware to its default settings" },
+        { "id": "b", "text": "Look up the code on the PC maker's website" },
+        { "id": "c", "text": "Replace the memory modules with known good ones" },
+        { "id": "d", "text": "Replace the power supply with a new one" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.3",
+        "title": "Troubleshoot POST Issues",
+        "quote": "",
+        "find": "meaning of the beep code"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q18" }
+    },
+    {
+      "id": "c1-u04-q019",
+      "stem": "After a technician installs a newer processor that fits the same socket, a desktop PC spins its fans but shows nothing on the screen and gives no beeps. Which of the following will MOST likely fix the problem?",
+      "choices": [
+        { "id": "a", "text": "Reset the boot order to its defaults" },
+        { "id": "b", "text": "Put the original CPU back in" },
+        { "id": "c", "text": "Update the system firmware" },
+        { "id": "d", "text": "Replace the RTC battery" },
+        { "id": "e", "text": "Update the video card driver" }
+      ],
+      "answer": ["b", "c"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.3",
+        "title": "Troubleshoot POST Issues",
+        "quote": "",
+        "find": "replace the CPU chip with a"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q89" }
+    },
+    {
+      "id": "c1-u04-q020",
+      "stem": "A computer lab PC that students used yesterday shows \"No operating system found\" when it is turned on this morning. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Update the system firmware" },
+        { "id": "b", "text": "Run chkdsk to scan the drive" },
+        { "id": "c", "text": "Check for removable media in the PC" },
+        { "id": "d", "text": "Reinstall the operating system" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.5",
+        "title": "Troubleshoot Boot Issues",
+        "quote": "",
+        "find": "verify that removable drives do not"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A11" }
+    },
+    {
+      "id": "c1-u04-q021",
+      "stem": "A desktop PC that was shipped to a branch office will not start, and its firmware setup does not list its SATA SSD. Which of the following should the technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Update the storage drivers in Windows" },
+        { "id": "b", "text": "Check the SSD's power and data connections" },
+        { "id": "c", "text": "Reinstall Windows on the SSD" },
+        { "id": "d", "text": "Install a new power supply" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.5",
+        "title": "Troubleshoot Boot Issues",
+        "quote": "",
+        "find": "Inspect data cables for damage"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C14" }
+    },
+    {
+      "id": "c1-u04-q022",
+      "stem": "After a power outage, a desktop PC shows \"Invalid drive specification\" at startup, though the firmware detects its drive and tries to start from it. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A damaged boot record on the drive" },
+        { "id": "b", "text": "A failed power supply in the PC" },
+        { "id": "c", "text": "A missing driver for the drive" },
+        { "id": "d", "text": "A wrong date and time in the firmware" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.7",
+        "title": "Troubleshoot Boot Sector Issues",
+        "quote": "",
+        "find": "suspect a problem with the device's"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q21" }
+    },
+    {
+      "id": "c1-u04-q023",
+      "stem": "After a malware infection, a technician finds that a desktop PC will not start because the master boot record on its hard drive is damaged. Which of the following could the technician do to fix the problem?",
+      "choices": [
+        { "id": "a", "text": "Put the hard disk first in the boot order" },
+        { "id": "b", "text": "Reset the firmware to its default settings" },
+        { "id": "c", "text": "Boot from the antivirus software's boot disk" },
+        { "id": "d", "text": "Use the repair options on the OS setup disk" },
+        { "id": "e", "text": "Run an antivirus scan from within Windows" }
+      ],
+      "answer": ["c", "d"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.7",
+        "title": "Troubleshoot Boot Sector Issues",
+        "quote": "",
+        "find": "If malware caused the issue"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q61" }
+    },
+    {
+      "id": "c1-u04-q024",
+      "stem": "A graphic designer's macOS workstation stops responding during a large export and does not recover. Which of the following is the designer MOST likely to see on the screen?",
+      "choices": [
+        { "id": "a", "text": "A \"Something has gone wrong\" message" },
+        { "id": "b", "text": "A blue screen with a QR code" },
+        { "id": "c", "text": "A kernel panic message" },
+        { "id": "d", "text": "A spinning pinwheel cursor" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.2.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.8",
+        "title": "Troubleshoot OS Errors and Crash Screens",
+        "quote": "",
+        "find": "macOS shows a spinning pinwheel"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q82" }
+    },
+    {
+      "id": "c1-u04-q025",
+      "stem": "The night manager at a bowling alley saw a blue screen on the front-desk PC, but the PC restarted itself and started normally before she could scan the QR code. Which of the following should a technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "The beep code at the next startup" },
+        { "id": "b", "text": "The System log, for BugCheck events" },
+        { "id": "c", "text": "The status lights on the front of the case" },
+        { "id": "d", "text": "The boot sector on the PC's drive" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.2.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.8",
+        "title": "Troubleshoot OS Errors and Crash Screens",
+        "quote": "",
+        "find": "logged in the System log"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q16" }
+    },
+    {
+      "id": "c1-u04-q026",
+      "stem": "While setting up a printer at a flower shop, a technician notices loud clicking from the shop's desktop PC, though the owner says the PC still works fine. Which of the following should the technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Back up the data on the PC's drive" },
+        { "id": "b", "text": "Defragment the PC's drive" },
+        { "id": "c", "text": "Reinstall the operating system" },
+        { "id": "d", "text": "Install a new drive in the PC" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.9",
+        "title": "Troubleshoot Drive Availability",
+        "quote": "",
+        "find": "important to back up data immediately"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A60" }
+    },
+    {
+      "id": "c1-u04-q027",
+      "stem": "Each week, chkdsk finds more bad blocks on the SSD in a tire shop's service-desk PC than it found the week before. Which of the following would MOST likely fix the problem?",
+      "choices": [
+        { "id": "a", "text": "Reformat the SSD" },
+        { "id": "b", "text": "Defragment the SSD" },
+        { "id": "c", "text": "Replace the SSD" },
+        { "id": "d", "text": "Reseat the SSD" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.9",
+        "title": "Troubleshoot Drive Availability",
+        "quote": "",
+        "find": "and replace the drive"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C84" }
+    },
+    {
+      "id": "c1-u04-q028",
+      "stem": "A loud grinding sound comes from a magazine editor's desktop PC each time it opens or saves a file, and the PC is quiet the rest of the time. Which of the following is MOST likely failing?",
+      "choices": [
+        { "id": "a", "text": "A solid-state drive" },
+        { "id": "b", "text": "A case fan" },
+        { "id": "c", "text": "A power supply fan" },
+        { "id": "d", "text": "A hard disk drive" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.9",
+        "title": "Troubleshoot Drive Availability",
+        "quote": "",
+        "find": "healthy HDD emits a low-level noise"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q37" }
+    },
+    {
+      "id": "c1-u04-q029",
+      "stem": "A file server in a recording studio's closet has started sounding a loud alarm, yet staff can still open every file on it. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "More disks have failed than the array can survive" },
+        { "id": "b", "text": "One disk in the RAID array has failed" },
+        { "id": "c", "text": "The RAID controller has failed" },
+        { "id": "d", "text": "The server's CMOS battery has run down" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.9", "4.2.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.9",
+        "title": "Troubleshoot Drive Availability",
+        "quote": "",
+        "find": "RAID controllers include audible alarms"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A27" }
+    },
+    {
+      "id": "c1-u04-q030",
+      "stem": "A paralegal's PC slows to a crawl whenever she has several large case files open at once, and the drive activity light then stays lit without a break. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The video card's driver is out of date" },
+        { "id": "b", "text": "The PC has too little system RAM" },
+        { "id": "c", "text": "The display resolution is set too high" },
+        { "id": "d", "text": "The power supply's output is unstable" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.9",
+        "title": "Troubleshoot Drive Availability",
+        "quote": "",
+        "find": "Continuous disk activity could indicate insufficient"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q54" }
+    },
+    {
+      "id": "c1-u04-q031",
+      "stem": "Some of last year's concert recordings on a band director's hard drive now show the error \"Cannot read from the source disk\" when she tries to open them, though the PC starts normally. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The drive's boot sector is corrupted" },
+        { "id": "b", "text": "The drive needs to be defragmented" },
+        { "id": "c", "text": "The drive is too slow for large recordings" },
+        { "id": "d", "text": "The drive has bad sectors" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.9",
+        "title": "Troubleshoot Drive Availability",
+        "quote": "",
+        "find": "Cannot read from the source disk"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q26" }
+    },
+    {
+      "id": "c1-u04-q032",
+      "stem": "After a technician adds a second hard drive to a surveyor's desktop, Windows still starts normally, but no new drive appears in File Explorer. Which of the following are the MOST likely causes?",
+      "choices": [
+        { "id": "a", "text": "The new drive needs to be defragmented" },
+        { "id": "b", "text": "The new drive has not been initialized and formatted" },
+        { "id": "c", "text": "The PC's CMOS battery is running low" },
+        { "id": "d", "text": "The new drive's data cable is loose" },
+        { "id": "e", "text": "The new drive is formatted but holds no files yet" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.9",
+        "title": "Troubleshoot Drive Availability",
+        "quote": "",
+        "find": "check if it has been initialized"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q50" }
+    },
+    {
+      "id": "c1-u04-q033",
+      "stem": "At startup, a school nurse's PC shows a warning from S.M.A.R.T., though Windows loads and her files open normally. Which of the following BEST describes what the warning means?",
+      "choices": [
+        { "id": "a", "text": "The PC's RTC battery is running down" },
+        { "id": "b", "text": "The drive is almost out of free space" },
+        { "id": "c", "text": "The drive's self-check has detected a failure" },
+        { "id": "d", "text": "The drive needs to be defragmented" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.11",
+        "title": "Troubleshoot Drive Reliability and Performance",
+        "quote": "",
+        "find": "alert the operating system if"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B47" }
+    },
+    {
+      "id": "c1-u04-q034",
+      "stem": "A court reporter asks for a new drive to be installed today because her transcript files have taken longer to open and save each week. Which of the following should the technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Install a new drive and copy her files to it" },
+        { "id": "b", "text": "Update the PC's system firmware" },
+        { "id": "c", "text": "Reinstall the program she uses for transcripts" },
+        { "id": "d", "text": "Test the current drive with the vendor's utility" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.11",
+        "title": "Troubleshoot Drive Reliability and Performance",
+        "quote": "",
+        "find": "run advanced diagnostic tests"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A14" }
+    },
+    {
+      "id": "c1-u04-q035",
+      "stem": "A drive test shows that the IOPS of a video server's SSD is far below the vendor's baseline. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The SSD is faulty" },
+        { "id": "b", "text": "The SSD needs to be defragmented" },
+        { "id": "c", "text": "The server needs more RAM" },
+        { "id": "d", "text": "The server's power supply is failing" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.11",
+        "title": "Troubleshoot Drive Reliability and Performance",
+        "quote": "",
+        "find": "If performance metrics are lower"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q58" }
+    },
+    {
+      "id": "c1-u04-q036",
+      "stem": "A grant writer's large spreadsheets now load and save slowly, though the hard drive itself still reads and writes as fast as it did when new. Which of the following should the technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Replace the hard drive with a new one" },
+        { "id": "b", "text": "Reseat the hard drive's data cable" },
+        { "id": "c", "text": "Check how much free space the drive has" },
+        { "id": "d", "text": "Reseat the PC's memory modules" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.11",
+        "title": "Troubleshoot Drive Reliability and Performance",
+        "quote": "",
+        "find": "metrics are similar to the benchmark"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q43" }
+    },
+    {
+      "id": "c1-u04-q037",
+      "stem": "Several manuscripts on a novelist's hard drive were corrupted by a power outage while she was saving them, and she has no backup copies. Which of the following gives a technician the BEST chance of getting the manuscripts back?",
+      "choices": [
+        { "id": "a", "text": "The PC's recovery disk" },
+        { "id": "b", "text": "A file recovery utility" },
+        { "id": "c", "text": "The chkdsk utility" },
+        { "id": "d", "text": "The repair options on the OS setup disk" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.11",
+        "title": "Troubleshoot Drive Reliability and Performance",
+        "quote": "",
+        "find": "you can attempt to recover data"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q32" }
+    },
+    {
+      "id": "c1-u04-q038",
+      "stem": "A technician has just put a new disk in place of the failed one in the RAID 5 array of a food bank's file server. Which of the following should the technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Run chkdsk on the RAID volume" },
+        { "id": "b", "text": "Format the volume so it can use the new disk" },
+        { "id": "c", "text": "Restore the files from the latest backup" },
+        { "id": "d", "text": "Rebuild the array onto the new disk" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.12",
+        "title": "Troubleshoot RAID Failure",
+        "quote": "",
+        "find": "The array can then be rebuilt"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C55" }
+    },
+    {
+      "id": "c1-u04-q039",
+      "stem": "During business hours, a technician will hot swap a failed disk in the RAID 5 array of a real estate office's file server. Which of the following should the technician warn the staff to expect?",
+      "choices": [
+        { "id": "a", "text": "Files on the server will be offline for a while" },
+        { "id": "b", "text": "The server must restart before it can use the new disk" },
+        { "id": "c", "text": "The server will respond slowly for a while" },
+        { "id": "d", "text": "Files will be read-only for the rest of the day" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.12",
+        "title": "Troubleshoot RAID Failure",
+        "quote": "",
+        "find": "rebuilding process will likely severely affect"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q52" }
+    },
+    {
+      "id": "c1-u04-q040",
+      "stem": "Staff at a marketing agency can still reach their file server over the network, but every file on its RAID volume became unavailable at the same moment. Which of the following should the technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Restore the files from the latest backup" },
+        { "id": "b", "text": "Install a replacement RAID controller" },
+        { "id": "c", "text": "Check the status of the RAID array" },
+        { "id": "d", "text": "Move the disks into a different server" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.12",
+        "title": "Troubleshoot RAID Failure",
+        "quote": "",
+        "find": "If the volume is not available"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B78" }
+    },
+    {
+      "id": "c1-u04-q041",
+      "stem": "A technician suspects that the RAID controller in a furniture store's inventory server has failed. Which of the following would BEST support this?",
+      "choices": [
+        { "id": "a", "text": "The RAID configuration utility will not open" },
+        { "id": "b", "text": "The RAID volume is listed as degraded" },
+        { "id": "c", "text": "One disk's status LED has turned red" },
+        { "id": "d", "text": "The server takes longer than usual to start" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.2", "5.2.a"],
+      "units": ["4.2.12"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.12",
+        "title": "Troubleshoot RAID Failure",
+        "quote": "",
+        "find": "the controller likely failed"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q55" }
+    },
+    {
+      "id": "c1-u04-q042",
+      "stem": "A wedding planner's PC freezes at random times with no error message, and a technician has already ruled out software problems, malware, and the power supply. Which of the following should the technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Look for physical symptoms of a fault" },
+        { "id": "b", "text": "Swap in a known good motherboard" },
+        { "id": "c", "text": "Run the vendor's diagnostic test programs" },
+        { "id": "d", "text": "Install a power supply with more wattage" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.1",
+        "title": "Troubleshoot Component Issues",
+        "quote": "",
+        "find": "Use diagnostic test programs provided"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C34" }
+    },
+    {
+      "id": "c1-u04-q043",
+      "stem": "A user reports that a desktop PC turns itself off every few days, but it has never done so while the technician was watching. Which of the following details would BEST help the technician track down the cause?",
+      "choices": [
+        { "id": "a", "text": "When the PC shuts off and what it is doing" },
+        { "id": "b", "text": "How long the PC takes to restart afterward" },
+        { "id": "c", "text": "How many years the PC has been in service" },
+        { "id": "d", "text": "How many times the PC has shut off so far" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.1",
+        "title": "Troubleshoot Component Issues",
+        "quote": "",
+        "find": "truly intermittent or follows a pattern."
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q97" }
+    },
+    {
+      "id": "c1-u04-q044",
+      "stem": "A pet groomer's booking app closes with an error every time it starts, while email, the web browser, and the spreadsheet software on the same PC all work normally. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Corrupted program files" },
+        { "id": "b", "text": "Corrupted operating system files" },
+        { "id": "c", "text": "Loose expansion cards" },
+        { "id": "d", "text": "Damaged motherboard components" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.1",
+        "title": "Troubleshoot Component Issues",
+        "quote": "",
+        "find": "software problems, disk/file corruption"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q121" }
+    },
+    {
+      "id": "c1-u04-q045",
+      "stem": "For months, a 3D artist's PC rendered scenes without trouble, but this week it has shut itself off a few minutes into every render and has run much more quietly than before. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The CPU fan has stopped working" },
+        { "id": "b", "text": "Dust is clogging the case vents" },
+        { "id": "c", "text": "The power supply is too small for renders" },
+        { "id": "d", "text": "A blanking plate is missing from the case" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.2",
+        "title": "Overheating",
+        "quote": "",
+        "find": "Overheating can cause crashes or reboots"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C78" }
+    },
+    {
+      "id": "c1-u04-q046",
+      "stem": "A lumberyard runs the same design software on two identical PCs, and the one in the unheated shed where boards are cut shuts itself off during long jobs while the office PC never does. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The shed is too cold for the PC to run well" },
+        { "id": "b", "text": "The shed PC's CPU cooler is too small" },
+        { "id": "c", "text": "The shed PC's power supply is too small" },
+        { "id": "d", "text": "Dust is clogging the shed PC's vents" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.2",
+        "title": "Overheating",
+        "quote": "",
+        "find": "not unusually warm or dusty"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B14" }
+    },
+    {
+      "id": "c1-u04-q047",
+      "stem": "After a technician removes and reinstalls the CPU cooler on a video editor's PC, which ran fine before, the PC shuts itself off partway through each long video export. Which of the following are the MOST likely causes?",
+      "choices": [
+        { "id": "a", "text": "The power supply is too small for the PC" },
+        { "id": "b", "text": "The RTC battery has run down" },
+        { "id": "c", "text": "The heat sink is not snug against the processor" },
+        { "id": "d", "text": "The old thermal paste was not replaced" },
+        { "id": "e", "text": "The CPU cooler is too small for the processor" }
+      ],
+      "answer": ["c", "d"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.2",
+        "title": "Overheating",
+        "quote": "",
+        "find": "properly fitted and snug against"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q66" }
+    },
+    {
+      "id": "c1-u04-q048",
+      "stem": "A dental office's front-desk PC turns itself off on most afternoons but has never done so in the morning. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A memory module is failing" },
+        { "id": "b", "text": "The power supply is failing" },
+        { "id": "c", "text": "Afternoon sun through a window is heating the PC" },
+        { "id": "d", "text": "An afternoon backup is filling up the PC's drive" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.2",
+        "title": "Overheating",
+        "quote": "",
+        "find": "radiator or in direct sunlight"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q104" }
+    },
+    {
+      "id": "c1-u04-q049",
+      "stem": "A teacher reports a burning smell coming from the back of a classroom PC. Which of the following should the technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Test the power supply with a multimeter" },
+        { "id": "b", "text": "Copy the teacher's files to a network share" },
+        { "id": "c", "text": "Shut down the system, then find the source" },
+        { "id": "d", "text": "Remove the add-in cards one at a time" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.2",
+        "title": "Overheating",
+        "quote": "",
+        "find": "Shut down the system immediately"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q94" }
+    },
+    {
+      "id": "c1-u04-q050",
+      "stem": "An older front-office PC has begun restarting at random, and inside its case a technician finds several capacitors with tops that bulge upward. Which of the following is MOST likely failing?",
+      "choices": [
+        { "id": "a", "text": "The motherboard" },
+        { "id": "b", "text": "The processor" },
+        { "id": "c", "text": "The hard drive" },
+        { "id": "d", "text": "The memory modules" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.3",
+        "title": "Physical Damage",
+        "quote": "",
+        "find": "Visible signs of damage include"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q107" }
+    },
+    {
+      "id": "c1-u04-q051",
+      "stem": "A dispatcher's PC has felt sluggish for weeks, though nothing on it has been changed and a malware scan came back clean. Which of the following should the technician do NEXT to find which part is slowing it down?",
+      "choices": [
+        { "id": "a", "text": "Replace the hard drive with an SSD" },
+        { "id": "b", "text": "Swap in known good parts one at a time" },
+        { "id": "c", "text": "Add more memory to speed up the PC" },
+        { "id": "d", "text": "Compare each part's test results to its baseline" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.4",
+        "title": "Troubleshoot Performance Issues",
+        "quote": "",
+        "find": "performance against known baselines"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q68" }
+    },
+    {
+      "id": "c1-u04-q052",
+      "stem": "A veterinarian's PC ran well with two matched memory modules, but since a technician added a third module, programs open more slowly than before. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The memory is no longer running in dual-channel mode" },
+        { "id": "b", "text": "The new module is not seated all the way in its slot" },
+        { "id": "c", "text": "The CPU cannot address that much memory" },
+        { "id": "d", "text": "The extra module is overloading the power supply" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.4",
+        "title": "Troubleshoot Performance Issues",
+        "quote": "",
+        "find": "memory upgrade might disable dual-channel mode"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q65" }
+    },
+    {
+      "id": "c1-u04-q053",
+      "stem": "A portrait photographer's PC edits the first photos in each large batch quickly, then slows to a crawl and runs normally again only after it sits idle for a while. Which of the following should the technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "The power supply's output voltages" },
+        { "id": "b", "text": "The video card's driver version" },
+        { "id": "c", "text": "The drive's level of fragmentation" },
+        { "id": "d", "text": "The temperature sensors and fan speeds" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.4",
+        "title": "Troubleshoot Performance Issues",
+        "quote": "",
+        "find": "Monitor temperature sensors and fan speeds"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q77" }
+    },
+    {
+      "id": "c1-u04-q054",
+      "stem": "Every Monday, a school lab PC that was unplugged over the weekend starts up with the wrong date and time in its firmware setup. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The NVRAM that stores the firmware settings has failed" },
+        { "id": "b", "text": "The RTC battery on the motherboard is failing" },
+        { "id": "c", "text": "The last firmware update did not install correctly" },
+        { "id": "d", "text": "The power supply is not providing stable voltages" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.5",
+        "title": "Troubleshoot Inaccurate System Date/Time",
+        "quote": "",
+        "find": "signal a failing RTC battery"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A56" }
+    },
+    {
+      "id": "c1-u04-q055",
+      "stem": "A tax office's PC browses the web and prints normally, but the server keeps rejecting the tax preparer's correct password, and several of the PC's nightly backups have been skipped. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The firmware's boot password was changed" },
+        { "id": "b", "text": "The system date and time are incorrect" },
+        { "id": "c", "text": "The network login script is faulty" },
+        { "id": "d", "text": "The backup drive is nearly full" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.1", "5.1.a"],
+      "units": ["4.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.5",
+        "title": "Troubleshoot Inaccurate System Date/Time",
+        "quote": "",
+        "find": "time settings can disrupt network"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q76" }
+    },
+    {
+      "id": "c1-u04-q056",
+      "stem": "After a technician replaces the DVI cable between a bus station ticket agent's PC and monitor with an HDMI cable, the monitor's power light is on, but the screen stays black even when keys are pressed. Which of the following should the technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Swap in a different HDMI cable" },
+        { "id": "b", "text": "Switch the monitor to its HDMI input" },
+        { "id": "c", "text": "Update the video card's driver" },
+        { "id": "d", "text": "Replace the monitor's power cord" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.6",
+        "title": "Troubleshoot Missing Video Issues",
+        "quote": "",
+        "find": "make sure the monitor is set"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A53" }
+    },
+    {
+      "id": "c1-u04-q057",
+      "stem": "While a receptionist types, the monitor at the reception desk loses its picture for a second or two several times a day, though the connectors at the PC and the monitor are snug. Which of the following should the technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Update the video card's driver" },
+        { "id": "b", "text": "Select a different input on the monitor" },
+        { "id": "c", "text": "Turn off the monitor's power-saving mode" },
+        { "id": "d", "text": "Try a different video cable" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.6",
+        "title": "Troubleshoot Missing Video Issues",
+        "quote": "",
+        "find": "by substituting with another cable"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 2.0 Q50" }
+    },
+    {
+      "id": "c1-u04-q058",
+      "stem": "A stock trader's new 4K monitor uses the HDMI cable that came with an old 1080p monitor, and it shows a steady, clear picture at 1920x1080 but goes blank when the PC is set to 4K. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The monitor's internal circuitry is failing" },
+        { "id": "b", "text": "The cable is loose at the monitor's port" },
+        { "id": "c", "text": "The monitor's input source is set wrong" },
+        { "id": "d", "text": "The cable is not rated for that resolution" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.6",
+        "title": "Troubleshoot Missing Video Issues",
+        "quote": "",
+        "find": "cable specification matches the application requirements"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q106" }
+    },
+    {
+      "id": "c1-u04-q059",
+      "stem": "Staff say a fire station's training-room projector gave a loud pop near the end of last week's session, and today its fans run but it shows no image. Which of the following should a technician do?",
+      "choices": [
+        { "id": "a", "text": "Lower the laptop's resolution, then restart it" },
+        { "id": "b", "text": "Let the projector cool, then install a new bulb" },
+        { "id": "c", "text": "Update the projector's firmware, then restart it" },
+        { "id": "d", "text": "Let the projector cool, then reseat the bulb" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.6",
+        "title": "Troubleshoot Missing Video Issues",
+        "quote": "",
+        "find": "may produce a popping sound"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q80" }
+    },
+    {
+      "id": "c1-u04-q060",
+      "stem": "An auditorium projector at a high school shuts itself off partway through long assemblies, but it starts again normally after it sits for a while. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "An incorrect input source setting" },
+        { "id": "b", "text": "A bulb near the end of its life" },
+        { "id": "c", "text": "Overheating from poor airflow" },
+        { "id": "d", "text": "A laptop that has gone into standby" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.6",
+        "title": "Troubleshoot Missing Video Issues",
+        "quote": "",
+        "find": "is typically caused by overheating"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B23" }
+    },
+    {
+      "id": "c1-u04-q061",
+      "stem": "Purple and green lines run across a bank teller's desktop monitor, and its colors shift without warning. Which of the following should a technician try FIRST?",
+      "choices": [
+        { "id": "a", "text": "Replace the monitor" },
+        { "id": "b", "text": "Replace the video cable" },
+        { "id": "c", "text": "Replace the graphics card" },
+        { "id": "d", "text": "Calibrate the monitor with a color profile" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "Try replacing the cable"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A18" }
+    },
+    {
+      "id": "c1-u04-q062",
+      "stem": "After a technician reinstalls the graphics driver on a librarian's desktop, everything on its 1920x1080 monitor looks soft and blurry. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The refresh rate was reset to a lower one" },
+        { "id": "b", "text": "The monitor's contrast is set too low" },
+        { "id": "c", "text": "The output resolution was reset to a lower one" },
+        { "id": "d", "text": "The color profile was reset to the default" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "a mismatch between the output resolution"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A76" }
+    },
+    {
+      "id": "c1-u04-q063",
+      "stem": "A travel agency's PC is already set to its new widescreen monitor's native resolution, but the picture sits in the center with thick black bars on every side. Which of the following would BEST fix this problem?",
+      "choices": [
+        { "id": "a", "text": "Run pixel cycling software on the screen" },
+        { "id": "b", "text": "Fit the image to the screen in the OSD" },
+        { "id": "c", "text": "Raise the brightness and contrast in the OSD" },
+        { "id": "d", "text": "Have the monitor's backlight replaced" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "fit the image to the screen"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C88" }
+    },
+    {
+      "id": "c1-u04-q064",
+      "stem": "A faint outline of a stock ticker can still be seen on a trader's OLED monitor after the ticker app is closed. Which of the following BEST describes this problem?",
+      "choices": [
+        { "id": "a", "text": "Dim image" },
+        { "id": "b", "text": "Display burn-in" },
+        { "id": "c", "text": "Fuzzy image" },
+        { "id": "d", "text": "Stuck pixels" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "when a static image is displayed"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C25" }
+    },
+    {
+      "id": "c1-u04-q065",
+      "stem": "A museum's exhibit kiosks sit on the same title page for hours when no visitors are using them, and staff want to keep a ghost of that page from forming. Which of the following should a technician do?",
+      "choices": [
+        { "id": "a", "text": "Start a screen saver after a few minutes of no use" },
+        { "id": "b", "text": "Turn off each display's eye-saving mode" },
+        { "id": "c", "text": "Turn on each display's auto-off feature" },
+        { "id": "d", "text": "Set each kiosk to the display's native resolution" },
+        { "id": "e", "text": "Update the video card driver on each kiosk" }
+      ],
+      "answer": ["a", "c"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "by using a screen saver"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q118" }
+    },
+    {
+      "id": "c1-u04-q066",
+      "stem": "While testing new monitors for a newsroom, a technician displays an all-white image and spots two tiny dots on one screen that stay black. Which of the following BEST describes this problem?",
+      "choices": [
+        { "id": "a", "text": "Dead pixels" },
+        { "id": "b", "text": "Display burn-in" },
+        { "id": "c", "text": "Backlight failure" },
+        { "id": "d", "text": "Stuck pixels" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "or dead (black) pixels can occur"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B70" }
+    },
+    {
+      "id": "c1-u04-q067",
+      "stem": "A designer asks a technician to repair three dead pixels on a desktop monitor bought last month. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Run pixel cycling software on the monitor" },
+        { "id": "b", "text": "Tap each pixel gently with a soft cloth" },
+        { "id": "c", "text": "Update the driver for the PC's video card" },
+        { "id": "d", "text": "Check whether the warranty covers a new monitor" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "Check your warranty for replacement options"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q110" }
+    },
+    {
+      "id": "c1-u04-q068",
+      "stem": "A title company's PC shows the same flickering picture on two different monitors, each connected with its own cable. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Eye-saving mode in Windows" },
+        { "id": "b", "text": "A failing backlight" },
+        { "id": "c", "text": "A loose power cord" },
+        { "id": "d", "text": "A failing video card" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "video card can also cause flashing."
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q98" }
+    },
+    {
+      "id": "c1-u04-q069",
+      "stem": "At an auto repair shop, the desktop monitor at the parts counter keeps flashing and shows bands and bright spots, and it looks the same on a different PC with a different cable. Which of the following should a technician do?",
+      "choices": [
+        { "id": "a", "text": "Have the display repaired or replaced" },
+        { "id": "b", "text": "Replace the video card in the PC" },
+        { "id": "c", "text": "Swap in a different video cable" },
+        { "id": "d", "text": "Update the PC's video card driver" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "If so, the display may need"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B68" }
+    },
+    {
+      "id": "c1-u04-q070",
+      "stem": "A comic artist scans her drawings, finishes them on her PC, and sends them to a print shop, but the printed pages never look the way they did on her monitor. Which of the following should a technician do?",
+      "choices": [
+        { "id": "a", "text": "Raise the monitor's brightness and contrast" },
+        { "id": "b", "text": "Install the latest driver for the video card" },
+        { "id": "c", "text": "Calibrate the monitor with a color profile" },
+        { "id": "d", "text": "Replace the video cable with a higher-quality one" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "crucial to calibrate the display"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q117" }
+    },
+    {
+      "id": "c1-u04-q071",
+      "stem": "A debate coach's laptop shows its slides on a classroom projector that has built-in speakers, but the video in the slides plays its sound only from the laptop's own speakers. Which of the following are the MOST likely causes?",
+      "choices": [
+        { "id": "a", "text": "The laptop's volume is muted" },
+        { "id": "b", "text": "The projector is set to the wrong input source" },
+        { "id": "c", "text": "The projector's bulb is starting to fail" },
+        { "id": "d", "text": "The laptop is connected with a VGA cable" },
+        { "id": "e", "text": "The OS has the wrong audio output selected" }
+      ],
+      "answer": ["d", "e"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "correct audio output is selected"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A57" }
+    },
+    {
+      "id": "c1-u04-q072",
+      "stem": "A gas station clerk can barely see anything on the register's monitor, even with its brightness at maximum and its automatic dimming features turned off. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Loose video cable" },
+        { "id": "b", "text": "Wrong input source" },
+        { "id": "c", "text": "Failed backlight" },
+        { "id": "d", "text": "Failing video card" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["4.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.7",
+        "title": "Troubleshoot Video Quality Issues",
+        "quote": "",
+        "find": "the backlight may have failed,"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q93" }
+    }
+  ]
+}

@@ -207,7 +207,7 @@
       "term": "RAID (Redundant Array of Independent Disks)",
       "definition": "The general way of combining several disks into one volume the OS sees as a single drive, for fault tolerance, speed, or both; its levels include 0, 1, 5, 6, and 10.",
       "objectives": ["3.4", "3.4.c"],
-      "units": ["3.2.5"],
+      "units": ["3.2.5", "4.2.12"],
       "reference": { "source": "certmaster", "section": "3.2.5", "title": "Redundant Array of Independent Disks" }
     },
     {
@@ -215,7 +215,7 @@
       "term": "RAID 0",
       "definition": "Striping without parity across at least two disks; it is faster, but if any disk fails, the whole volume is lost.",
       "objectives": ["3.4", "3.4.c"],
-      "units": ["3.2.6"],
+      "units": ["3.2.6", "4.2.12"],
       "reference": { "source": "certmaster", "section": "3.2.6", "title": "RAID 0 and RAID 1" }
     },
     {
@@ -439,7 +439,7 @@
       "term": "Power supply unit (PSU)",
       "definition": "The component that converts AC from the wall outlet into the low-voltage DC (3.3, 5, and 12 V) that PC parts use.",
       "objectives": ["3.6", "3.6.b"],
-      "units": ["3.1.1", "3.1.4"],
+      "units": ["3.1.1", "3.1.4", "4.2.1"],
       "reference": { "source": "certmaster", "section": "3.1.1", "title": "Power Supply Units" }
     },
     {

@@ -79,7 +79,7 @@
       "term": "OLED (Organic Light-Emitting Diode)",
       "definition": "A display where each pixel emits its own light, giving true blacks and excellent contrast and color; static images left on too long can cause burn-in.",
       "objectives": ["3.1", "3.1.a"],
-      "units": ["2.1.8"],
+      "units": ["2.1.8", "4.3.7"],
       "reference": { "source": "certmaster", "section": "2.1.8", "title": "Display Types" }
     },
     {
@@ -143,7 +143,7 @@
       "term": "HDMI (High-Definition Multimedia Interface)",
       "definition": "Carries high-definition video and audio through a single cable; the common connection for TVs, monitors, and gaming consoles.",
       "objectives": ["3.2", "3.2.c"],
-      "units": ["2.1.10"],
+      "units": ["2.1.10", "4.3.7"],
       "reference": { "source": "certmaster", "section": "2.1.10", "title": "HDMI and DisplayPort Video Cables" }
     },
     {
