@@ -1,0 +1,206 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-08", "title": "Unit 8.0 Summarizing Virtualization and Cloud Concepts", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "c1-u08-f001",
+      "term": "Sandbox",
+      "definition": "An isolated VM environment for analyzing malware such as viruses, worms, and Trojans; keeping the malware inside the guest OS stops it from infecting the researcher's computer or network.",
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Uses for Virtualization" }
+    },
+    {
+      "id": "c1-u08-f002",
+      "term": "Application virtualization",
+      "definition": "Lets clients access or stream applications, not whole desktops, from a server without installing them locally, so they always run the latest version; examples are Citrix Virtual Apps and Microsoft App-V.",
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Uses for Virtualization" }
+    },
+    {
+      "id": "c1-u08-f003",
+      "term": "Legacy software/OS",
+      "definition": "Older software that may not run on an upgraded computer's new OS; installing the old OS as a VM keeps that software usable.",
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Uses for Virtualization" }
+    },
+    {
+      "id": "c1-u08-f004",
+      "term": "Cross-platform virtualization",
+      "definition": "Running several different operating systems as VMs on one computer so the same application can be tried on each OS, and under different resource limits.",
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Uses for Virtualization" }
+    },
+    {
+      "id": "c1-u08-f005",
+      "term": "VDI (Virtual Desktop Infrastructure)",
+      "definition": "Uses VMs on a company server or in the cloud to provide corporate desktops to low-spec thin clients; all processing and data storage happen on the server, so a server or network failure leaves users with no local processing.",
+      "objectives": ["4.1", "4.1.c"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Uses for Virtualization" }
+    },
+    {
+      "id": "c1-u08-f006",
+      "term": "Containers",
+      "definition": "Virtualization with no hypervisor: a container holds just an application's processes and libraries, so it is lighter than a VM, and it runs through the host OS kernel, so Windows cannot run in a Linux container.",
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Uses for Virtualization" }
+    },
+    {
+      "id": "c1-u08-f007",
+      "term": "Hypervisor",
+      "definition": "The software that lets one computer run multiple OSs at once as virtual machines (guest OSs), emulating the CPU, memory, storage, and peripherals so each guest acts as if it had the system to itself.",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["8.1.1"],
+      "reference": { "source": "certmaster", "section": "8.1.1", "title": "Hypervisors" }
+    },
+    {
+      "id": "c1-u08-f008",
+      "term": "Type 1 hypervisor",
+      "definition": "A bare metal hypervisor installed directly on the hardware with no host OS, such as VMware ESXi or Microsoft Hyper-V; the hardware only has to meet the needs of the hypervisor and its guest OSs.",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["8.1.1"],
+      "reference": { "source": "certmaster", "section": "8.1.1", "title": "Hypervisors" }
+    },
+    {
+      "id": "c1-u08-f009",
+      "term": "Type 2 hypervisor",
+      "definition": "A host-based hypervisor installed on top of an existing host OS, such as VMware Workstation or Oracle VirtualBox; the computer needs enough resources to run the host OS and the guest OSs together.",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["8.1.1"],
+      "reference": { "source": "certmaster", "section": "8.1.1", "title": "Hypervisors" }
+    },
+    {
+      "id": "c1-u08-f010",
+      "term": "Private cloud",
+      "definition": "Cloud infrastructure owned and managed by one organization alone, typically run by one business unit for the others; it gives greater control over privacy and security, so it suits banking and government services.",
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.3"],
+      "reference": { "source": "certmaster", "section": "8.2.3", "title": "Common Cloud Deployment Models" }
+    },
+    {
+      "id": "c1-u08-f011",
+      "term": "Public cloud",
+      "definition": "A cloud that a cloud service provider (CSP) offers over the Internet to multiple tenants, often by subscription or pay-as-you-go, sometimes with free lower tiers; being shared, it carries performance and security risks.",
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.3"],
+      "reference": { "source": "certmaster", "section": "8.2.3", "title": "Common Cloud Deployment Models" }
+    },
+    {
+      "id": "c1-u08-f012",
+      "term": "Hybrid cloud",
+      "definition": "Combines public, private, and/or community cloud elements, such as a private cloud most of the year and a public cloud at peak times, or a public cloud for some functions while sensitive data stays on-premises.",
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.3"],
+      "reference": { "source": "certmaster", "section": "8.2.3", "title": "Common Cloud Deployment Models" }
+    },
+    {
+      "id": "c1-u08-f013",
+      "term": "Community cloud",
+      "definition": "A hosted private or fully private cloud whose costs several organizations share, pooling resources for common concerns such as standardization and security policies.",
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.3"],
+      "reference": { "source": "certmaster", "section": "8.2.3", "title": "Common Cloud Deployment Models" }
+    },
+    {
+      "id": "c1-u08-f014",
+      "term": "IaaS (Infrastructure as a Service)",
+      "definition": "Lets an organization set up and manage IT resources such as virtual servers, storage, networking, and load balancers from a cloud provider instead of buying and maintaining physical hardware; Amazon EC2 is an example.",
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.5"],
+      "reference": { "source": "certmaster", "section": "8.2.5", "title": "Common Cloud Service Models" }
+    },
+    {
+      "id": "c1-u08-f015",
+      "term": "SaaS (Software as a Service)",
+      "definition": "Delivers ready-to-use software applications over the Internet by subscription or pay-as-you-go, so businesses do not buy and install software locally; examples are Microsoft 365, Google Workspace, and cloud file storage.",
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.5", "8.2.7"],
+      "reference": { "source": "certmaster", "section": "8.2.5", "title": "Common Cloud Service Models" }
+    },
+    {
+      "id": "c1-u08-f016",
+      "term": "PaaS (Platform as a Service)",
+      "definition": "A cloud development environment: servers and storage like IaaS plus tools for building, testing, and deploying applications; it has no pre-built application, so developers create, secure, and manage their own software on it.",
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.5"],
+      "reference": { "source": "certmaster", "section": "8.2.5", "title": "Common Cloud Service Models" }
+    },
+    {
+      "id": "c1-u08-f017",
+      "term": "Shared resources",
+      "definition": "Pooling a cloud provider's datacenter hardware so that none of it is set aside for a single customer; virtualization hands out CPU, memory, disk, and network from the pool through software.",
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Cloud Characteristics" }
+    },
+    {
+      "id": "c1-u08-f018",
+      "term": "Dedicated resources",
+      "definition": "Datacenter hardware reserved for a single customer instead of pooled with other customers; the opposite of shared resources.",
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Cloud Characteristics" }
+    },
+    {
+      "id": "c1-u08-f019",
+      "term": "Metered utilization",
+      "definition": "Paying only for the cloud resources actually used, measured by storage, processing, bandwidth, or active users, including data ingress and egress; usage shows on a reporting dashboard.",
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Cloud Characteristics" }
+    },
+    {
+      "id": "c1-u08-f020",
+      "term": "Ingress",
+      "definition": "Data entering the cloud, such as files uploaded to it; under metered utilization, the provider can charge for it.",
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Cloud Characteristics" }
+    },
+    {
+      "id": "c1-u08-f021",
+      "term": "Egress",
+      "definition": "Data leaving the cloud, such as files downloaded from it; under metered utilization, the provider can charge for it.",
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Cloud Characteristics" }
+    },
+    {
+      "id": "c1-u08-f022",
+      "term": "Elasticity",
+      "definition": "The ability to handle changes in demand in real time without losing service or performance; resources are added automatically as demand rises and released to cut costs when it falls.",
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Cloud Characteristics" }
+    },
+    {
+      "id": "c1-u08-f023",
+      "term": "Availability",
+      "definition": "How much of the time a cloud service stays up; high availability means minimal downtime, such as Five Nines (99.999%), only 5 minutes and 15 seconds of downtime a year.",
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Cloud Characteristics" }
+    },
+    {
+      "id": "c1-u08-f024",
+      "term": "File synchronization",
+      "definition": "Cloud storage such as OneDrive, Dropbox, iCloud, or Google Drive automatically keeping files up to date across PCs, smartphones, and other devices, so several users can collaborate on the same document.",
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.7"],
+      "reference": { "source": "certmaster", "section": "8.2.7", "title": "Cloud File Storage" }
+    },
+    {
+      "id": "c1-u08-f025",
+      "term": "Multitenancy",
+      "definition": "One cloud service provider (CSP) serving several separate customers, called tenants, from the same cloud; this is how a public cloud works.",
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.3"],
+      "reference": { "source": "certmaster", "section": "8.2.3", "title": "Common Cloud Deployment Models" }
+    }
+  ]
+}

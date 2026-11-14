@@ -311,7 +311,7 @@
       "term": "Virtualization support",
       "definition": "CPU features such as Intel VT or AMD-V that help virtual machines perform better; they may need to be enabled in BIOS/UEFI setup.",
       "objectives": ["3.5", "3.5.e"],
-      "units": ["3.4.5"],
+      "units": ["3.4.5", "8.1.4"],
       "reference": { "source": "certmaster", "section": "3.4.5", "title": "CPU Features" }
     },
     {

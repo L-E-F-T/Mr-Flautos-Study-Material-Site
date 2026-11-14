@@ -1,0 +1,680 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-08", "title": "Unit 8.0 Summarizing Virtualization and Cloud Concepts", "reviewed": false },
+  "questions": [
+    {
+      "id": "c1-u08-q001",
+      "stem": "A technical writer needs Windows 11 and Windows Server running at the same time on her Linux laptop, and she must keep Linux as the laptop's operating system. Which of the following BEST meets these needs?",
+      "choices": [
+        { "id": "a", "text": "Type 2 hypervisor" },
+        { "id": "b", "text": "Linux container" },
+        { "id": "c", "text": "Type 1 hypervisor" },
+        { "id": "d", "text": "Application virtualization" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["8.1.1", "8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.1",
+        "title": "Hypervisors",
+        "quote": "",
+        "find": "on top of an existing host"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q1" }
+    },
+    {
+      "id": "c1-u08-q002",
+      "stem": "A food bank's new server will run only its donor database, email, and file server VMs and the virtualization software under them, with no host OS to pay for or patch. Which of the following should be installed on the server?",
+      "choices": [
+        { "id": "a", "text": "Type 2 hypervisor" },
+        { "id": "b", "text": "Container virtualization" },
+        { "id": "c", "text": "Application virtualization" },
+        { "id": "d", "text": "Type 1 hypervisor" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["8.1.1", "8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.1",
+        "title": "Hypervisors",
+        "quote": "",
+        "find": "installed directly onto the hardware"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B16" }
+    },
+    {
+      "id": "c1-u08-q003",
+      "stem": "A teacher copies a lab VM's files from her school PC to her home PC. Which of the following must the home PC have before the VM will start?",
+      "choices": [
+        { "id": "a", "text": "A virtual switch" },
+        { "id": "b", "text": "A hypervisor" },
+        { "id": "c", "text": "A storage area network" },
+        { "id": "d", "text": "A VM snapshot" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["8.1.1", "8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.1",
+        "title": "Hypervisors",
+        "quote": "",
+        "find": "It manages virtual machines"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A68" }
+    },
+    {
+      "id": "c1-u08-q004",
+      "stem": "An insurance company's developer wants to see how her new claims app runs on Windows 11 and on Ubuntu Linux, each limited to a small amount of memory and a single CPU core, using only her own workstation. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Sandboxing" },
+        { "id": "b", "text": "Cross-platform virtualization" },
+        { "id": "c", "text": "Legacy software support" },
+        { "id": "d", "text": "Application virtualization" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Uses for Virtualization",
+        "quote": "",
+        "find": "Test software applications under different OSs"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C39" }
+    },
+    {
+      "id": "c1-u08-q005",
+      "stem": "A school district wants teachers to always run the newest release of its grading program without installing it, while they keep using their laptops' own desktops. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Virtual desktop infrastructure" },
+        { "id": "b", "text": "Container virtualization" },
+        { "id": "c", "text": "Cross-platform virtualization" },
+        { "id": "d", "text": "Application virtualization" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Uses for Virtualization",
+        "quote": "",
+        "find": "always run the latest version"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q7" }
+    },
+    {
+      "id": "c1-u08-q006",
+      "stem": "A county clerk's office plans to move its file, print, and web server roles off three separate physical servers and into VMs on one new server. Which of the following is the BEST reason for this change?",
+      "choices": [
+        { "id": "a", "text": "Removing a single point of failure" },
+        { "id": "b", "text": "Running legacy software on a newer OS" },
+        { "id": "c", "text": "Making better use of the hardware" },
+        { "id": "d", "text": "Streaming apps to staff without installing them" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["8.1.2", "8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Uses for Virtualization",
+        "quote": "",
+        "find": "improved hardware utilization through server consolidation"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q2" }
+    },
+    {
+      "id": "c1-u08-q007",
+      "stem": "A hospital is replacing the desktop PCs at its nursing stations with thin clients that log on to virtual desktops hosted in its own data center. Which of the following BEST describes the work each thin client will do?",
+      "choices": [
+        { "id": "a", "text": "Showing the screen and sending keyboard and mouse input" },
+        { "id": "b", "text": "Running the apps and storing the patient data" },
+        { "id": "c", "text": "Hosting the desktop VM in a local hypervisor" },
+        { "id": "d", "text": "Keeping local backups of the nurses' files" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.1", "4.1.c"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Uses for Virtualization",
+        "quote": "",
+        "find": "thin client only needs to display"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A75" }
+    },
+    {
+      "id": "c1-u08-q008",
+      "stem": "A chain of veterinary clinics wants its receptionists to log on to Windows VMs that a cloud provider hosts and runs, so the clinics can retire their own servers. Which of the following BEST describes this setup?",
+      "choices": [
+        { "id": "a", "text": "Software as a Service (SaaS)" },
+        { "id": "b", "text": "On-premises VDI" },
+        { "id": "c", "text": "Application virtualization" },
+        { "id": "d", "text": "Desktop as a Service (DaaS)" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.1", "4.1.c"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Uses for Virtualization",
+        "quote": "",
+        "find": "Provisioning VDI as a cloud service"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q25" }
+    },
+    {
+      "id": "c1-u08-q009",
+      "stem": "A theme park's web team must run four copies of its ride wait-time app on one Linux server, keeping each copy isolated from the others without giving any copy its own guest OS. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "A virtual machine" },
+        { "id": "b", "text": "A sandbox" },
+        { "id": "c", "text": "A container" },
+        { "id": "d", "text": "A Type 2 hypervisor" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["8.1.2", "8.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Uses for Virtualization",
+        "quote": "",
+        "find": "isolating resources at the OS level"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C62" }
+    },
+    {
+      "id": "c1-u08-q010",
+      "stem": "A technician installs a hypervisor on a new desktop whose CPU supports AMD-V, but the hypervisor warns that the CPU's virtualization support is turned off. Which of the following should the technician change to turn it on?",
+      "choices": [
+        { "id": "a", "text": "The hypervisor settings" },
+        { "id": "b", "text": "The host OS settings" },
+        { "id": "c", "text": "The BIOS settings" },
+        { "id": "d", "text": "The VM settings" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.5", "3.5.e"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Virtualization Resource Requirements",
+        "quote": "",
+        "find": "enabled in the BIOS settings"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C70" }
+    },
+    {
+      "id": "c1-u08-q011",
+      "stem": "A trainer's Windows 11 PC has 8 GB of RAM and runs one Windows 11 VM well, but her new class needs two Windows 11 VMs running on it at once, each put back to a clean state after class. Which of the following should she do?",
+      "choices": [
+        { "id": "a", "text": "Turn off SLAT to save memory" },
+        { "id": "b", "text": "Add more memory to the PC" },
+        { "id": "c", "text": "Take a snapshot of each VM" },
+        { "id": "d", "text": "Stream Windows 11 with application virtualization" },
+        { "id": "e", "text": "Run Windows 11 in a Linux container" }
+      ],
+      "answer": ["b", "c"],
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["8.1.4", "8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Virtualization Resource Requirements",
+        "quote": "",
+        "find": "at least 8 GB of RAM"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A34" }
+    },
+    {
+      "id": "c1-u08-q012",
+      "stem": "An IT engineer at an electric utility will run 64-bit router, firewall, and server VMs at the same time on one PC to see how traffic flows between them before he changes the real equipment. Which of the following must the PC have?",
+      "choices": [
+        { "id": "a", "text": "A 32-bit hypervisor to host the 64-bit VMs" },
+        { "id": "b", "text": "RAM for the host OS plus each guest OS" },
+        { "id": "c", "text": "Saved snapshots of each VM's disk" },
+        { "id": "d", "text": "Disk space for each VM's image file" },
+        { "id": "e", "text": "A virtual network set up by the hypervisor" }
+      ],
+      "answer": ["b", "d", "e"],
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Virtualization Resource Requirements",
+        "quote": "",
+        "find": "create a virtual network allowing communication"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q6" }
+    },
+    {
+      "id": "c1-u08-q013",
+      "stem": "A support team keeps eight server VMs, each with several snapshots, on one PC to recreate customer setups, but the team starts only one VM at a time. Which of the following resources does this PC need MOST?",
+      "choices": [
+        { "id": "a", "text": "System memory" },
+        { "id": "b", "text": "CPU cores" },
+        { "id": "c", "text": "Disk space" },
+        { "id": "d", "text": "Network adapters" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Virtualization Resource Requirements",
+        "quote": "",
+        "find": "requires significant disk space"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C9" }
+    },
+    {
+      "id": "c1-u08-q014",
+      "stem": "A furniture maker runs the VMs for its sales, payroll, and design departments on one host, and its IT staff worry about VM escaping, where malware in one guest OS could reach the other VMs or the host. Which of the following would BEST protect against this threat?",
+      "choices": [
+        { "id": "a", "text": "Install antivirus software on the host" },
+        { "id": "b", "text": "Keep the hypervisor patched with updates" },
+        { "id": "c", "text": "Connect the host to a UPS" },
+        { "id": "d", "text": "Set up high availability for the VMs" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Virtualization Security Requirements",
+        "quote": "",
+        "find": "keep the hypervisor patched with updates"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q4" }
+    },
+    {
+      "id": "c1-u08-q015",
+      "stem": "A video production studio's cloud provider tracks the storage, processing time, and bandwidth the studio consumes each month and bills the studio for exactly that amount. Which of the following cloud characteristics does this describe?",
+      "choices": [
+        { "id": "a", "text": "Metered utilization" },
+        { "id": "b", "text": "Rapid elasticity" },
+        { "id": "c", "text": "High availability" },
+        { "id": "d", "text": "Shared resources" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Cloud Characteristics",
+        "quote": "",
+        "find": "pay only for what they use"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A58" }
+    },
+    {
+      "id": "c1-u08-q016",
+      "stem": "Traffic to a sneaker shop's website spikes within minutes of each new shoe release, and its cloud provider adds server capacity as traffic climbs, with no slowdown for shoppers. Which cloud characteristic BEST describes this?",
+      "choices": [
+        { "id": "a", "text": "High availability" },
+        { "id": "b", "text": "Metered utilization" },
+        { "id": "c", "text": "Shared resources" },
+        { "id": "d", "text": "Rapid elasticity" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Cloud Characteristics",
+        "quote": "",
+        "find": "handle real-time demand changes"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B25" }
+    },
+    {
+      "id": "c1-u08-q017",
+      "stem": "A public radio station wants the extra cloud servers that handle its yearly pledge drive to shut down on their own as pledges slow, so it stops paying for them. Which cloud characteristic BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Scalability" },
+        { "id": "b", "text": "Rapid elasticity" },
+        { "id": "c", "text": "High availability" },
+        { "id": "d", "text": "Shared resources" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Cloud Characteristics",
+        "quote": "",
+        "find": "reduce costs when demand is low"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C47" }
+    },
+    {
+      "id": "c1-u08-q018",
+      "stem": "A home security company's contract with its cloud provider allows the alarm monitoring service to be down for only about five minutes a year. Which cloud characteristic does this contract term guarantee?",
+      "choices": [
+        { "id": "a", "text": "Scalability" },
+        { "id": "b", "text": "High availability" },
+        { "id": "c", "text": "Rapid elasticity" },
+        { "id": "d", "text": "Metered utilization" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Cloud Characteristics",
+        "quote": "",
+        "find": "only 5 minutes and 15 seconds"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q34" }
+    },
+    {
+      "id": "c1-u08-q019",
+      "stem": "When the cloud server running a ride-share company's app fails, the provider moves the app to a standby server within seconds, so riders barely notice. Which cloud characteristic is this setup meant to provide?",
+      "choices": [
+        { "id": "a", "text": "High availability" },
+        { "id": "b", "text": "Rapid elasticity" },
+        { "id": "c", "text": "Shared resources" },
+        { "id": "d", "text": "Metered utilization" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Cloud Characteristics",
+        "quote": "",
+        "find": "High Availability: Minimal downtime"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C80" }
+    },
+    {
+      "id": "c1-u08-q020",
+      "stem": "A cloud provider runs virtual servers for a florist and many other customers on one physical host, and the provider's software gives each server part of that host's CPU and memory. Which cloud characteristic does this describe?",
+      "choices": [
+        { "id": "a", "text": "Dedicated resources" },
+        { "id": "b", "text": "Metered utilization" },
+        { "id": "c", "text": "High availability" },
+        { "id": "d", "text": "Shared resources" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Cloud Characteristics",
+        "quote": "",
+        "find": "Shared resource pooling means"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C65" }
+    },
+    {
+      "id": "c1-u08-q021",
+      "stem": "A roofing company hosts its website with a large cloud provider that sells the same hosting service to thousands of unrelated businesses. Which cloud deployment model is the company using?",
+      "choices": [
+        { "id": "a", "text": "Private cloud" },
+        { "id": "b", "text": "Community cloud" },
+        { "id": "c", "text": "Public cloud" },
+        { "id": "d", "text": "Hybrid cloud" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Common Cloud Deployment Models",
+        "quote": "",
+        "find": "Public (Multitenancy): Offered over the Internet"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B50" }
+    },
+    {
+      "id": "c1-u08-q022",
+      "stem": "A wedding photographer wants cloud storage for her client galleries that starts out free and moves to pay-as-you-go pricing as her business grows. Which cloud deployment model BEST fits her plan?",
+      "choices": [
+        { "id": "a", "text": "Public cloud" },
+        { "id": "b", "text": "Private cloud" },
+        { "id": "c", "text": "Hybrid cloud" },
+        { "id": "d", "text": "Community cloud" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Common Cloud Deployment Models",
+        "quote": "",
+        "find": "often includes subscription or pay-as-you-go options"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q28" }
+    },
+    {
+      "id": "c1-u08-q023",
+      "stem": "The IT division of a state's motor vehicle agency builds and runs a cloud that the agency's other divisions use, because driver records need strict access control. Which cloud deployment model BEST fits the agency?",
+      "choices": [
+        { "id": "a", "text": "Public cloud" },
+        { "id": "b", "text": "Private cloud" },
+        { "id": "c", "text": "Community cloud" },
+        { "id": "d", "text": "Hybrid cloud" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Common Cloud Deployment Models",
+        "quote": "",
+        "find": "business unit typically manages the cloud"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q35" }
+    },
+    {
+      "id": "c1-u08-q024",
+      "stem": "An accounting firm keeps clients' sensitive tax records on servers in its own office, but it sends invoices through a billing service that a cloud provider offers to any business. Which cloud deployment model is the firm using?",
+      "choices": [
+        { "id": "a", "text": "Public cloud" },
+        { "id": "b", "text": "Private cloud" },
+        { "id": "c", "text": "Community cloud" },
+        { "id": "d", "text": "Hybrid cloud" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Common Cloud Deployment Models",
+        "quote": "",
+        "find": "public cloud for some functions"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q21" }
+    },
+    {
+      "id": "c1-u08-q025",
+      "stem": "Three credit unions in neighboring states follow the same security policies, and they split the cost of one cloud that only the three of them can use. Which cloud deployment model are the credit unions using?",
+      "choices": [
+        { "id": "a", "text": "Private cloud" },
+        { "id": "b", "text": "Public cloud" },
+        { "id": "c", "text": "Community cloud" },
+        { "id": "d", "text": "Hybrid cloud" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Common Cloud Deployment Models",
+        "quote": "",
+        "find": "Several organizations share the costs"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C22" }
+    },
+    {
+      "id": "c1-u08-q026",
+      "stem": "A charter school stops buying and repairing its own servers and rents virtual servers from a cloud provider instead, but its IT staff still manage everything that runs on them. Which cloud service model is the school using?",
+      "choices": [
+        { "id": "a", "text": "Platform as a Service (PaaS)" },
+        { "id": "b", "text": "Infrastructure as a Service (IaaS)" },
+        { "id": "c", "text": "Software as a Service (SaaS)" },
+        { "id": "d", "text": "Desktop as a Service (DaaS)" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Common Cloud Service Models",
+        "quote": "",
+        "find": "provision and manage IT resources"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C6" }
+    },
+    {
+      "id": "c1-u08-q027",
+      "stem": "To spread shoppers across the web servers behind its new ordering site, a seafood supplier adds a load balancer and a virtual network to its cloud account. Which cloud service model does this describe?",
+      "choices": [
+        { "id": "a", "text": "IaaS" },
+        { "id": "b", "text": "PaaS" },
+        { "id": "c", "text": "SaaS" },
+        { "id": "d", "text": "DaaS" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Common Cloud Service Models",
+        "quote": "",
+        "find": "servers, storage, networking, and load balancers"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B18" }
+    },
+    {
+      "id": "c1-u08-q028",
+      "stem": "A regional grocery chain's programmers upload code they wrote to a cloud service that already runs the servers, PHP, and a MySQL database. Which cloud service model is the chain using?",
+      "choices": [
+        { "id": "a", "text": "Infrastructure as a Service (IaaS)" },
+        { "id": "b", "text": "Desktop as a Service (DaaS)" },
+        { "id": "c", "text": "Software as a Service (SaaS)" },
+        { "id": "d", "text": "Platform as a Service (PaaS)" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Common Cloud Service Models",
+        "quote": "",
+        "find": "This platform could be based on"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q23" }
+    },
+    {
+      "id": "c1-u08-q029",
+      "stem": "A web design firm is reviewing a cloud provider's offer for Platform as a Service (PaaS). Which of the following BEST describes what the firm would get?",
+      "choices": [
+        { "id": "a", "text": "Virtual servers, storage, and networks that the firm sets up and runs itself" },
+        { "id": "b", "text": "Ready-made applications delivered over the Internet, with nothing to install" },
+        { "id": "c", "text": "Servers and storage plus tools for building, testing, and deploying its own apps" },
+        { "id": "d", "text": "Virtual desktops that its staff can reach from any device, run by the provider" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Common Cloud Service Models",
+        "quote": "",
+        "find": "provides a development environment"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q11" }
+    },
+    {
+      "id": "c1-u08-q030",
+      "stem": "A dental practice stops buying and installing office apps on each of its PCs and instead pays a monthly subscription per user to use the apps over the Internet. Which cloud service model is the practice now using?",
+      "choices": [
+        { "id": "a", "text": "PaaS" },
+        { "id": "b", "text": "SaaS" },
+        { "id": "c", "text": "IaaS" },
+        { "id": "d", "text": "DaaS" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Common Cloud Service Models",
+        "quote": "",
+        "find": "purchase and install software locally"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B63" }
+    },
+    {
+      "id": "c1-u08-q031",
+      "stem": "Rather than have programmers build a crew-scheduling app with a cloud provider's development tools, a house-cleaning business picks a finished scheduling app that its staff sign in to online. Which cloud service model did the business choose?",
+      "choices": [
+        { "id": "a", "text": "Software as a Service (SaaS)" },
+        { "id": "b", "text": "Platform as a Service (PaaS)" },
+        { "id": "c", "text": "Infrastructure as a Service (IaaS)" },
+        { "id": "d", "text": "Desktop as a Service (DaaS)" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.2", "4.2.a"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Common Cloud Service Models",
+        "quote": "",
+        "find": "come with a pre-built application"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q26" }
+    },
+    {
+      "id": "c1-u08-q032",
+      "stem": "Three students work on one group report from their own laptops through a cloud storage service, which shows each student's changes and comments to the others. Which cloud characteristic makes this possible?",
+      "choices": [
+        { "id": "a", "text": "Shared resources" },
+        { "id": "b", "text": "High availability" },
+        { "id": "c", "text": "Rapid elasticity" },
+        { "id": "d", "text": "File synchronization" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.2", "4.2.b"],
+      "units": ["8.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.7",
+        "title": "Cloud File Storage",
+        "quote": "",
+        "find": "automated file syncing, allowing multiple users"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q30" }
+    }
+  ]
+}
