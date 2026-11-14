@@ -50,7 +50,10 @@ function start(ctx) {
   const savedSetup = store.load(setupKey, {}) || {};
   const keepLeaves = (ids, tree) => (Array.isArray(ids) ? ids.filter((id) => tree.leaves.has(id)) : []);
   const setup = {
-    mode: savedSetup.mode === 'objective' ? 'objective' : 'unit',
+    // Exam objective unless the student picked Textbook unit with the switch. Until 2026-11-13 the
+    // mode was saved whether or not it was picked, so only a mode marked as picked counts.
+    mode: savedSetup.modePicked === true && savedSetup.mode === 'unit' ? 'unit' : 'objective',
+    modePicked: savedSetup.modePicked === true,
     selected: {
       unit: new Set(keepLeaves(savedSetup.unit, trees.unit)),
       objective: new Set(keepLeaves(savedSetup.objective, trees.objective)),
@@ -60,6 +63,7 @@ function start(ctx) {
   };
   const saveSetup = () => store.save(setupKey, {
     mode: setup.mode,
+    modePicked: setup.modePicked,
     unit: [...setup.selected.unit],
     objective: [...setup.selected.objective],
     count: setup.count,
@@ -183,11 +187,13 @@ function start(ctx) {
       }
     });
 
+    // Exam objective first, as on the flashcards page.
     const modeToggle = segmented('Choose questions by', 'practice-mode', [
-      { value: 'unit', label: 'Textbook unit' },
       { value: 'objective', label: 'Exam objective' },
+      { value: 'unit', label: 'Textbook unit' },
     ], setup.mode, (value) => {
       setup.mode = value;
+      setup.modePicked = true;
       saveSetup();
       renderSetup();
       // The page was rebuilt; return focus to the toggle so arrow keys keep working.

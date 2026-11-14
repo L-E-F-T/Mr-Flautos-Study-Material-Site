@@ -248,8 +248,8 @@ function renderBody(body, ctx, { view, onView, onClear, onOpenTest, onDiscardTes
       : null;
 
     const viewSwitch = segmented('Show scores by', 'hist-view', [
-      { value: 'unit', label: VIEWS.unit.label },
       { value: 'objective', label: VIEWS.objective.label },
+      { value: 'unit', label: VIEWS.unit.label },
     ], view, onView);
 
     sections.push(h('section', { class: 'panel', 'aria-labelledby': 'hist-topics' },
@@ -397,7 +397,7 @@ function renderTestView(body, ctx, test, onBack) {
  * stay inside the panel. Escape, the Close button, a click outside, or the browser's
  * Back button (the Back gesture on a phone) closes it.
  */
-export function openHistoryPanel(ctx, opener, { view: startView = 'unit' } = {}) {
+export function openHistoryPanel(ctx, opener, { view: startView = 'objective' } = {}) {
   if (isOpen) return;
   isOpen = true;
 
@@ -445,7 +445,7 @@ export function openHistoryPanel(ctx, opener, { view: startView = 'unit' } = {})
   }
 
   const saved = store.load(viewKey(ctx.exam.id), null);
-  let view = isView(saved) ? saved : (isView(startView) ? startView : 'unit');
+  let view = isView(saved) ? saved : (isView(startView) ? startView : 'objective');
   const switchView = (next) => {
     view = next;
     store.save(viewKey(ctx.exam.id), next);
