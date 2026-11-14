@@ -335,7 +335,7 @@
       "term": "Dim image",
       "definition": "Raise brightness and contrast in the OSD and check power-saving or adaptive brightness modes; if the image is barely visible, the backlight may have failed.",
       "objectives": ["5.3", "5.3.a"],
-      "units": ["4.3.7"],
+      "units": ["4.3.7", "9.4.4"],
       "reference": { "source": "certmaster", "section": "4.3.7", "title": "Troubleshoot Video Quality Issues" }
     },
     {

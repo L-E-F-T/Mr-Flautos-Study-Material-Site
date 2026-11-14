@@ -7,7 +7,7 @@
       "term": "MiniUSB",
       "definition": "The small USB connector once used on smaller peripherals such as early digital cameras; it is rarely used now.",
       "objectives": ["3.2", "3.2.f"],
-      "units": ["2.1.4"],
+      "units": ["2.1.4", "9.1.2"],
       "reference": { "source": "certmaster", "section": "2.1.4", "title": "Universal Serial Bus Cables" }
     },
     {
@@ -23,7 +23,7 @@
       "term": "USB-C",
       "definition": "The compact, reversible USB connector introduced with USB 3.1; besides data and charging, it can carry video when the port supports DisplayPort or Thunderbolt.",
       "objectives": ["3.2", "3.2.c", "3.2.f"],
-      "units": ["2.1.4", "2.2.12"],
+      "units": ["2.1.4", "2.2.12", "9.1.2"],
       "reference": { "source": "certmaster", "section": "2.1.4", "title": "Universal Serial Bus Cables" }
     },
     {
@@ -95,7 +95,7 @@
       "term": "Touch screen/digitizer",
       "definition": "Lets a user interact directly with a display by touch or stylus; common in smartphones, tablets, and some laptops.",
       "objectives": ["3.1", "3.1.b"],
-      "units": ["2.1.9"],
+      "units": ["2.1.9", "9.4.4"],
       "reference": { "source": "certmaster", "section": "2.1.9", "title": "Display Components" }
     },
     {
@@ -103,7 +103,7 @@
       "term": "Inverter",
       "definition": "Converts DC power to AC for the backlight in older LCDs; modern displays with LED backlighting typically do not need one.",
       "objectives": ["3.1", "3.1.c"],
-      "units": ["2.1.9"],
+      "units": ["2.1.9", "9.4.4"],
       "reference": { "source": "certmaster", "section": "2.1.9", "title": "Display Components" }
     },
     {
@@ -167,7 +167,7 @@
       "term": "Lightning",
       "definition": "Apple's proprietary, reversible connector for iPhones and iPads; it needs an adapter cable to reach a PC's USB port and is being phased out for USB-C.",
       "objectives": ["3.2", "3.2.f"],
-      "units": ["2.1.12"],
+      "units": ["2.1.12", "9.1.2"],
       "reference": { "source": "certmaster", "section": "2.1.12", "title": "Lightning Interface" }
     },
     {

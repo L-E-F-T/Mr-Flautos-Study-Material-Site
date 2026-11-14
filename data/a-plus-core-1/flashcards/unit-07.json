@@ -159,7 +159,7 @@
       "term": "Intermittent wireless connectivity",
       "definition": "A Wi-Fi connection that keeps dropping; first move the devices closer together, and if they are already in range, suspect interference and adjust the channel.",
       "objectives": ["5.5", "5.5.a"],
-      "units": ["7.3.4"],
+      "units": ["7.3.4", "9.4.5"],
       "reference": { "source": "certmaster", "section": "7.3.4", "title": "Troubleshoot Wireless Issues" }
     },
     {

@@ -1,0 +1,1228 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-09", "title": "Unit 9.0 Supporting Mobile Devices", "reviewed": false },
+  "questions": [
+    {
+      "id": "c1-u09-q001",
+      "stem": "A courier collects each customer's signature on a small smartphone screen, but signatures written with a fingertip come out messy. Which of the following would BEST give customers more precise control on the touchscreen?",
+      "choices": [
+        { "id": "a", "text": "Stylus" },
+        { "id": "b", "text": "Track point" },
+        { "id": "c", "text": "Trackpad" },
+        { "id": "d", "text": "Drawing pad" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.2", "1.2.b"],
+      "units": ["9.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.1",
+        "title": "Mobile Device Accessories",
+        "quote": "",
+        "find": "pen or stylus rather than fingers"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B13" }
+    },
+    {
+      "id": "c1-u09-q002",
+      "stem": "A yearbook designer wants to sketch page art with a pen in her art app, but her laptop has no touchscreen. Which of the following should she connect to the laptop?",
+      "choices": [
+        { "id": "a", "text": "Drawing pad" },
+        { "id": "b", "text": "Trackpad" },
+        { "id": "c", "text": "Stylus" },
+        { "id": "d", "text": "Track point" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.2", "1.2.e"],
+      "units": ["9.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.1",
+        "title": "Mobile Device Accessories",
+        "quote": "",
+        "find": "Drawing pad also refers to"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A80" }
+    },
+    {
+      "id": "c1-u09-q003",
+      "stem": "A reporter who types stories on crowded trains wants to move the cursor without taking her hands away from the keys. Which of the following should her next laptop have?",
+      "choices": [
+        { "id": "a", "text": "Track point" },
+        { "id": "b", "text": "Digitizer" },
+        { "id": "c", "text": "Stylus" },
+        { "id": "d", "text": "Touchpad" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.2", "1.2.e"],
+      "units": ["9.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.1",
+        "title": "Mobile Device Accessories",
+        "quote": "",
+        "find": "track point is a little nub"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q8" }
+    },
+    {
+      "id": "c1-u09-q004",
+      "stem": "A flight attendant asks passengers to switch on airplane mode, but one passenger wants to keep listening to a downloaded audiobook through her wireless earbuds. Which of the following should the passenger do?",
+      "choices": [
+        { "id": "a", "text": "Turn on airplane mode, then turn Bluetooth back on" },
+        { "id": "b", "text": "Leave airplane mode off, and turn off only cellular data" },
+        { "id": "c", "text": "Turn on airplane mode, then turn cellular data back on" },
+        { "id": "d", "text": "Turn on airplane mode, then turn NFC back on" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.1", "9.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.5",
+        "title": "Wi-Fi Networking",
+        "quote": "",
+        "find": "some services can selectively be"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B45" }
+    },
+    {
+      "id": "c1-u09-q005",
+      "stem": "A dental hygienist is replacing her old Android phone, which charged through a MicroUSB port, with a new Android model released this year. Which of the following connectors will the new phone MOST likely have?",
+      "choices": [
+        { "id": "a", "text": "USB-C" },
+        { "id": "b", "text": "MicroUSB" },
+        { "id": "c", "text": "MiniUSB" },
+        { "id": "d", "text": "Lightning" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["9.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.2",
+        "title": "Mobile Device Wired Connection Methods",
+        "quote": "",
+        "find": "Modern Android and Apple smartphones"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C42" }
+    },
+    {
+      "id": "c1-u09-q006",
+      "stem": "A school principal carries her laptop to meetings, and at her desk she wants one connection that links it to two monitors, a printer, a keyboard, and the wired network. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "A smartphone dock" },
+        { "id": "b", "text": "A mobile hotspot" },
+        { "id": "c", "text": "A Bluetooth keyboard and mouse" },
+        { "id": "d", "text": "A docking station" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["9.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.3",
+        "title": "Port Replicators and Docking Stations",
+        "quote": "",
+        "find": "can function like a desktop machine"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B19" }
+    },
+    {
+      "id": "c1-u09-q007",
+      "stem": "A technician is setting up port replicators at the shared desks in a call center so agents can plug in their laptops when they arrive. Which of the following will each port replicator add to a laptop?",
+      "choices": [
+        { "id": "a", "text": "Media bays that can hold extra drives" },
+        { "id": "b", "text": "Connections for peripherals and a network cable" },
+        { "id": "c", "text": "Slots for full-size expansion cards" },
+        { "id": "d", "text": "Bluetooth links for wireless keyboards and mice" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.d"],
+      "units": ["9.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.3",
+        "title": "Port Replicators and Docking Stations",
+        "quote": "",
+        "find": "provides a full complement of ports"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A64" }
+    },
+    {
+      "id": "c1-u09-q008",
+      "stem": "Before a translator leaves for a month of work abroad, she asks a technician to set up her phone so she is not charged for cellular data but can still use Wi-Fi and take calls. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Turn off cellular data" },
+        { "id": "b", "text": "Remove the SIM card" },
+        { "id": "c", "text": "Turn on airplane mode" },
+        { "id": "d", "text": "Set a cellular data usage warning" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.5",
+        "title": "Wi-Fi Networking",
+        "quote": "",
+        "find": "disable the cellular data network while"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q3" }
+    },
+    {
+      "id": "c1-u09-q009",
+      "stem": "A customer bought a new phone and wants to keep using her phone number on the same carrier's network. Which of the following should a technician take out of the old phone and insert into the new one?",
+      "choices": [
+        { "id": "a", "text": "The memory card" },
+        { "id": "b", "text": "The SIM card" },
+        { "id": "c", "text": "The NFC chip" },
+        { "id": "d", "text": "The eSIM" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.7",
+        "title": "Cellular Data Networking",
+        "quote": "",
+        "find": "tied to the mobile device's phone"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q9" }
+    },
+    {
+      "id": "c1-u09-q010",
+      "stem": "A real estate agent wants her phone to carry a separate business number and data plan along with her personal number. Which of the following would let her do this?",
+      "choices": [
+        { "id": "a", "text": "MDM" },
+        { "id": "b", "text": "Hotspot" },
+        { "id": "c", "text": "Roaming" },
+        { "id": "d", "text": "eSIM" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.7",
+        "title": "Cellular Data Networking",
+        "quote": "",
+        "find": "multiple phone numbers or data plans"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A51" }
+    },
+    {
+      "id": "c1-u09-q011",
+      "stem": "A snowplow driver's tablet loses its connection to the city's dispatch app as soon as the plow leaves the garage's Wi-Fi, and no other Wi-Fi network reaches its route. Which of the following would keep the app online along the whole route?",
+      "choices": [
+        { "id": "a", "text": "5G" },
+        { "id": "b", "text": "GPS" },
+        { "id": "c", "text": "NFC" },
+        { "id": "d", "text": "Roaming" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.7",
+        "title": "Cellular Data Networking",
+        "quote": "",
+        "find": "via the device's cellular radio"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C21" }
+    },
+    {
+      "id": "c1-u09-q012",
+      "stem": "A film crew downloads large video files to its tablets over the cellular network while filming outdoors, and the crew wants a network rated for theoretical download speeds of up to 10 Gbps. Which of the following must the tablets support?",
+      "choices": [
+        { "id": "a", "text": "4G LTE" },
+        { "id": "b", "text": "5G" },
+        { "id": "c", "text": "eSIM" },
+        { "id": "d", "text": "3G" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.7",
+        "title": "Cellular Data Networking",
+        "quote": "",
+        "find": "offers download speeds up to 10"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q6" }
+    },
+    {
+      "id": "c1-u09-q013",
+      "stem": "A home inspector plugs his Android phone into his laptop with a USB cable so the laptop can use the phone's cellular data at a vacant house. Which of the following should he turn on in the phone's settings?",
+      "choices": [
+        { "id": "a", "text": "Mobile hotspot" },
+        { "id": "b", "text": "Tethering" },
+        { "id": "c", "text": "NFC" },
+        { "id": "d", "text": "Airplane mode" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["9.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.8",
+        "title": "Mobile Hotspots and Tethering",
+        "quote": "",
+        "find": "Tethering refers to connecting another device"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q1" }
+    },
+    {
+      "id": "c1-u09-q014",
+      "stem": "A land surveyor turns on her phone's hotspot so her laptop can join it and upload survey data from the field. Which of the following will the laptop MOST likely use to connect to the hotspot?",
+      "choices": [
+        { "id": "a", "text": "Its Bluetooth adapter" },
+        { "id": "b", "text": "Its cellular modem" },
+        { "id": "c", "text": "Its Wi-Fi adapter" },
+        { "id": "d", "text": "Its Ethernet port" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["9.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.8",
+        "title": "Mobile Hotspots and Tethering",
+        "quote": "",
+        "find": "any other Wi-Fi access points"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A40" }
+    },
+    {
+      "id": "c1-u09-q015",
+      "stem": "At a job fair, a recruiter's laptop joins the hotspot on her phone and shows a strong signal, but no websites will load. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The laptop has the wrong hotspot passphrase" },
+        { "id": "b", "text": "The phone's Bluetooth is turned off" },
+        { "id": "c", "text": "The phone is too far from the laptop" },
+        { "id": "d", "text": "The phone's cellular data is turned off" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.8",
+        "title": "Mobile Hotspots and Tethering",
+        "quote": "",
+        "find": "cellular data connection"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q6" }
+    },
+    {
+      "id": "c1-u09-q016",
+      "stem": "A technician at a credit union is setting up a new Bluetooth speaker for the conference room PC, which already has Bluetooth turned on. Which of the following must the technician do so the speaker shows up in the PC's list of nearby devices?",
+      "choices": [
+        { "id": "a", "text": "Put the speaker into pairing mode" },
+        { "id": "b", "text": "Enter the speaker's PIN code on the PC" },
+        { "id": "c", "text": "Change the PC's Bluetooth device name" },
+        { "id": "d", "text": "Turn on the PC's Wi-Fi adapter" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.3", "1.3.b"],
+      "units": ["9.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.9",
+        "title": "Bluetooth Wireless Connections",
+        "quote": "",
+        "find": "put into discoverable or pairing"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C18" }
+    },
+    {
+      "id": "c1-u09-q017",
+      "stem": "While pairing a new smartwatch with his phone over Bluetooth, a personal trainer sees the same six-digit number on both screens. Which of the following BEST describes this number?",
+      "choices": [
+        { "id": "a", "text": "The watch's Bluetooth device name" },
+        { "id": "b", "text": "A code that makes the watch discoverable" },
+        { "id": "c", "text": "A PIN that approves the connection" },
+        { "id": "d", "text": "The watch's screen lock passcode" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.3", "1.3.b"],
+      "units": ["9.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.9",
+        "title": "Bluetooth Wireless Connections",
+        "quote": "",
+        "find": "generate a passkey or PIN code"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A74" }
+    },
+    {
+      "id": "c1-u09-q018",
+      "stem": "A pharmacy technician has just finished pairing a pharmacist's phone with her office PC over Bluetooth. Which of the following should the technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Send a test file from the phone to the PC" },
+        { "id": "b", "text": "Put the PC into discoverable mode" },
+        { "id": "c", "text": "Turn on Bluetooth in the PC's settings" },
+        { "id": "d", "text": "Select the phone from the PC's device list" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.3", "1.3.b"],
+      "units": ["9.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.9",
+        "title": "Bluetooth Wireless Connections",
+        "quote": "",
+        "find": "connecting a device and a PC"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 9.1.9 (test connectivity)" }
+    },
+    {
+      "id": "c1-u09-q019",
+      "stem": "A farmers market vendor sets up a contactless point-of-sale reader so shoppers can pay by holding a phone with a wallet app near it. Which of the following must the shoppers' phones support?",
+      "choices": [
+        { "id": "a", "text": "Bluetooth" },
+        { "id": "b", "text": "Wi-Fi" },
+        { "id": "c", "text": "GPS" },
+        { "id": "d", "text": "NFC" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["9.1.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.10",
+        "title": "Near-Field Communication Wireless Connections",
+        "quote": "",
+        "find": "make payments via contactless point-of-sale"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A47" }
+    },
+    {
+      "id": "c1-u09-q020",
+      "stem": "A piano teacher is setting up his new iPhone and wants its contacts and calendar to stay the same as the ones on his laptop. Which of the following should a technician do?",
+      "choices": [
+        { "id": "a", "text": "Set up a Samsung Account on the iPhone" },
+        { "id": "b", "text": "Set the iPhone to sync over Wi-Fi only" },
+        { "id": "c", "text": "Set up an Apple ID on the iPhone" },
+        { "id": "d", "text": "Import his contacts into the iPhone from a vCard file" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.2",
+        "title": "Account Setup",
+        "quote": "",
+        "find": "synchronized between multiple devices"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q33" }
+    },
+    {
+      "id": "c1-u09-q021",
+      "stem": "A retired firefighter's ISP does not support autodiscovery and uses separate servers for incoming and outgoing mail, so a technician is typing the email settings into his new phone by hand. Which of the following could the technician enter as the incoming mail server?",
+      "choices": [
+        { "id": "a", "text": "The FQDN of the ISP's SMTP server" },
+        { "id": "b", "text": "The IP address of the ISP's IMAP server" },
+        { "id": "c", "text": "The email address for his ISP account" },
+        { "id": "d", "text": "The FQDN of the ISP's IMAP server" },
+        { "id": "e", "text": "The port number of the ISP's IMAP server" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.4",
+        "title": "Email Configuration Options",
+        "quote": "",
+        "find": "the FQDN or IP address"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q28" }
+    },
+    {
+      "id": "c1-u09-q022",
+      "stem": "A travel agent broke her Android phone, and she wants her photos, contacts, and saved passwords to appear on the replacement as soon as she signs in. Which of the following makes this possible?",
+      "choices": [
+        { "id": "a", "text": "USB transfer to a PC" },
+        { "id": "b", "text": "Android Auto" },
+        { "id": "c", "text": "Cloud synchronization" },
+        { "id": "d", "text": "Bluetooth tethering" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.5",
+        "title": "Synchronization Methods",
+        "quote": "",
+        "find": "syncs the data from the cloud"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q23" }
+    },
+    {
+      "id": "c1-u09-q023",
+      "stem": "A locksmith uses his phone's cellular data for maps and customer details between service calls, and he wants the phone to stop using cellular data once his plan's monthly allowance is used up, not just warn him. Which of the following should a technician configure?",
+      "choices": [
+        { "id": "a", "text": "Set a cellular data warning" },
+        { "id": "b", "text": "Turn off cellular data" },
+        { "id": "c", "text": "Set apps to sync over Wi-Fi only" },
+        { "id": "d", "text": "Set a cellular data cap" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.5",
+        "title": "Synchronization Methods",
+        "quote": "",
+        "find": "cap cellular data transfers"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C52" }
+    },
+    {
+      "id": "c1-u09-q024",
+      "stem": "A landscaping company lets its crew leaders read company email and use its scheduling app on their personal smartphones. Which of the following deployment models is the company using?",
+      "choices": [
+        { "id": "a", "text": "MAM" },
+        { "id": "b", "text": "Walled garden" },
+        { "id": "c", "text": "MDM" },
+        { "id": "d", "text": "BYOD" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.3", "1.3.d"],
+      "units": ["9.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.6",
+        "title": "Enterprise Mobility Management",
+        "quote": "",
+        "find": "bring your own device (BYOD)"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A37" }
+    },
+    {
+      "id": "c1-u09-q025",
+      "stem": "A chemist at a paint factory opens the camera app on her company-issued phone, and a message says the camera is disabled. Which of the following is MOST likely responsible?",
+      "choices": [
+        { "id": "a", "text": "Mobile device management" },
+        { "id": "b", "text": "Mobile application management" },
+        { "id": "c", "text": "Data loss prevention" },
+        { "id": "d", "text": "Airplane mode" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.3", "1.3.d"],
+      "units": ["9.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.6",
+        "title": "Enterprise Mobility Management",
+        "quote": "",
+        "find": "feature use (camera and microphone)"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C89" }
+    },
+    {
+      "id": "c1-u09-q026",
+      "stem": "A pest control company's IT administrator needs all 250 company phones to get the same screen lock passcode rules and Wi-Fi settings without setting up each phone by hand. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "MAM" },
+        { "id": "b", "text": "BYOD" },
+        { "id": "c", "text": "DLP" },
+        { "id": "d", "text": "MDM" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.3", "1.3.d"],
+      "units": ["9.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.6",
+        "title": "Enterprise Mobility Management",
+        "quote": "",
+        "find": "sets device configuration policies"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A88" }
+    },
+    {
+      "id": "c1-u09-q027",
+      "stem": "A sales rep left his company tablet in a taxi, and the IT team needs to erase everything on it before anyone can open the company's files. Which of the following should the IT team use?",
+      "choices": [
+        { "id": "a", "text": "MAM" },
+        { "id": "b", "text": "GPS" },
+        { "id": "c", "text": "DLP" },
+        { "id": "d", "text": "MDM" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.3", "1.3.d"],
+      "units": ["9.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.6",
+        "title": "Enterprise Mobility Management",
+        "quote": "",
+        "find": "resets and remote wipes"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q27" }
+    },
+    {
+      "id": "c1-u09-q028",
+      "stem": "A construction company's EMM delivers security policies and work apps to the phones it bought last year, but the 15 phones it bought this week have received neither. Which of the following is the MOST likely reason?",
+      "choices": [
+        { "id": "a", "text": "The new phones have location services turned off" },
+        { "id": "b", "text": "The EMM's DLP controls are blocking the new phones" },
+        { "id": "c", "text": "The new phones have not been enrolled in the EMM" },
+        { "id": "d", "text": "The new phones are not signed in to the app store" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.3", "1.3.d"],
+      "units": ["9.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.6",
+        "title": "Enterprise Mobility Management",
+        "quote": "",
+        "find": "device is enrolled with the MAM"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q26" }
+    },
+    {
+      "id": "c1-u09-q029",
+      "stem": "A park ranger's tablet must record the latitude and longitude of each trail marker she checks deep in a forest, far from any cell tower, Wi-Fi access point, or other wireless equipment. Which of the following must the tablet have?",
+      "choices": [
+        { "id": "a", "text": "A magnetometer" },
+        { "id": "b", "text": "A GPS sensor" },
+        { "id": "c", "text": "A cellular radio" },
+        { "id": "d", "text": "A Bluetooth radio" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.3", "1.3.c"],
+      "units": ["9.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.7",
+        "title": "Location Services",
+        "quote": "",
+        "find": "determining the device's latitude and longitude"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B26" }
+    },
+    {
+      "id": "c1-u09-q030",
+      "stem": "A dog walker's new mapping app cannot find her position, even though location services are on and her other apps can find it. Which of the following will MOST likely fix the problem?",
+      "choices": [
+        { "id": "a", "text": "Turn location services off and back on" },
+        { "id": "b", "text": "Allow the mapping app to use cellular data" },
+        { "id": "c", "text": "Turn on Bluetooth to find nearby beacons" },
+        { "id": "d", "text": "Allow the mapping app to use location services" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.3", "1.3.c"],
+      "units": ["9.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.7",
+        "title": "Location Services",
+        "quote": "",
+        "find": "granted specific permission to use"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q31" }
+    },
+    {
+      "id": "c1-u09-q031",
+      "stem": "A technician at a car dealership is replacing the worn-out removable battery pack in a salesperson's laptop. Which of the following should the technician do before releasing the catches that hold the old pack?",
+      "choices": [
+        { "id": "a", "text": "Turn the laptop off" },
+        { "id": "b", "text": "Put the laptop into sleep mode" },
+        { "id": "c", "text": "Lower the old pack's charge to 40%" },
+        { "id": "d", "text": "Unplug the AC adapter from the outlet" },
+        { "id": "e", "text": "Drain the old pack's charge completely" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["1.1", "1.1.a"],
+      "units": ["9.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.3.2",
+        "title": "Battery Replacement",
+        "quote": "",
+        "find": "turn the machine off and unplug"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q46" }
+    },
+    {
+      "id": "c1-u09-q032",
+      "stem": "A library in Ohio received donated laptops from an office in Spain, and each laptop's AC adapter is a fixed-input 220-240 V model. Which of the following will MOST likely happen when the adapters are plugged into the library's 120 V outlets?",
+      "choices": [
+        { "id": "a", "text": "The adapters will be damaged as soon as they are plugged in" },
+        { "id": "b", "text": "The adapters will switch to 120 V input on their own" },
+        { "id": "c", "text": "The adapters will not power the laptops, but nothing is damaged" },
+        { "id": "d", "text": "The adapters will power the laptops but charge them more slowly" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.6", "3.6.a"],
+      "units": ["9.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.3.2",
+        "title": "Battery Replacement",
+        "quote": "",
+        "find": "supply won't cause any damage"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q16" }
+    },
+    {
+      "id": "c1-u09-q033",
+      "stem": "A technician has four repair tickets for the same laptop model. Which of the following jobs can MOST likely be done by removing only the small screw-down panel on the laptop's underside?",
+      "choices": [
+        { "id": "a", "text": "Replace the webcam" },
+        { "id": "b", "text": "Add a memory module" },
+        { "id": "c", "text": "Clean under a sticky key" },
+        { "id": "d", "text": "Reapply the CPU's thermal paste" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.1", "1.1.c"],
+      "units": ["9.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.3.3",
+        "title": "RAM and Adapter Replacement",
+        "quote": "",
+        "find": "optical drive, memory modules, and"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B17" }
+    },
+    {
+      "id": "c1-u09-q034",
+      "stem": "A technician plans to replace the failed mSATA SSD in a florist's laptop with an M.2 SSD from the parts shelf. Which of the following BEST describes the problem with this plan?",
+      "choices": [
+        { "id": "a", "text": "M.2 cards do not work in mSATA slots" },
+        { "id": "b", "text": "M.2 cards are slower than mSATA cards" },
+        { "id": "c", "text": "M.2 cards are made only for desktop PCs" },
+        { "id": "d", "text": "M.2 cards cannot hold a system image" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.1", "1.1.d"],
+      "units": ["9.3.3", "9.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.3.3",
+        "title": "RAM and Adapter Replacement",
+        "quote": "",
+        "find": "none of which are compatible"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q40" }
+    },
+    {
+      "id": "c1-u09-q035",
+      "stem": "Ever since a technician replaced the screen on a court reporter's laptop, the laptop finds only one weak Wi-Fi network at her desk. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Airplane mode was left turned on after the repair" },
+        { "id": "b", "text": "The desk is too far from the access point" },
+        { "id": "c", "text": "Another nearby network is causing interference" },
+        { "id": "d", "text": "An antenna wire in the lid was left disconnected" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.1", "1.1.g"],
+      "units": ["9.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.3.3",
+        "title": "RAM and Adapter Replacement",
+        "quote": "",
+        "find": "usually routed around the screen"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C75" }
+    },
+    {
+      "id": "c1-u09-q036",
+      "stem": "A technician has put a dentist's new SSD in a USB disk enclosure and plugged it into her laptop, which must keep all of its programs and settings once the SSD replaces its hard drive. Which of the following should the technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Install a fresh OS and apps on the SSD" },
+        { "id": "b", "text": "Migrate an image of the hard drive onto the SSD" },
+        { "id": "c", "text": "Format the SSD and set it as the boot drive" },
+        { "id": "d", "text": "Swap the SSD into the laptop in place of the hard drive" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.1", "1.1.d"],
+      "units": ["9.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.3.4",
+        "title": "Disk Upgrades and Replacement",
+        "quote": "",
+        "find": "then migrate the image directly"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A41" }
+    },
+    {
+      "id": "c1-u09-q037",
+      "stem": "A technician tells a hotel manager that the front desk laptop's upgrade to an SSD will use the replacement approach. Which of the following should the manager expect?",
+      "choices": [
+        { "id": "a", "text": "An exact copy of the old drive, with its OS and apps" },
+        { "id": "b", "text": "The old hard drive kept in the laptop as a second drive" },
+        { "id": "c", "text": "A fresh OS and apps, with only the staff's files restored" },
+        { "id": "d", "text": "The staff's files left behind on the old hard drive" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.1", "1.1.d"],
+      "units": ["9.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.3.4",
+        "title": "Disk Upgrades and Replacement",
+        "quote": "",
+        "find": "only data is backed up"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q52" }
+    },
+    {
+      "id": "c1-u09-q038",
+      "stem": "A technician pulled a spare hard drive from the desktop parts shelf to replace a standard laptop's failed drive, but the spare is far too big for the laptop's drive bay. Which of the following does the laptop MOST likely need?",
+      "choices": [
+        { "id": "a", "text": "A 1.8-inch drive" },
+        { "id": "b", "text": "A 2.5-inch drive" },
+        { "id": "c", "text": "A 3.5-inch drive" },
+        { "id": "d", "text": "An M.2 2280 module" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.1", "1.1.d"],
+      "units": ["9.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.3.4",
+        "title": "Disk Upgrades and Replacement",
+        "quote": "",
+        "find": "Laptop HDDs are usually 2.5\""
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q45" }
+    },
+    {
+      "id": "c1-u09-q039",
+      "stem": "A credit union wants its tellers to sign in to their new laptops with biometric authentication instead of typed passwords. Which of the following components should the laptops include?",
+      "choices": [
+        { "id": "a", "text": "A fingerprint scanner" },
+        { "id": "b", "text": "An NFC scanner" },
+        { "id": "c", "text": "A camera privacy shade" },
+        { "id": "d", "text": "A Bluetooth radio" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.1", "1.1.f"],
+      "units": ["9.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.3.5",
+        "title": "Keyboard and Security Component Replacement",
+        "quote": "",
+        "find": "implemented as a fingerprint scanner"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B62" }
+    },
+    {
+      "id": "c1-u09-q040",
+      "stem": "A quarry foreman's rugged tablet has a removable battery, and it runs normally while plugged into a wall outlet but will not turn on at all once it is unplugged. Which of the following should a technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "Whether the battery is seated in its bay" },
+        { "id": "b", "text": "Whether the outlet powers a known good lamp" },
+        { "id": "c", "text": "Whether the AC adapter's LED is green" },
+        { "id": "d", "text": "Whether the battery meter needs calibrating" },
+        { "id": "e", "text": "Whether the battery contacts are dirty" }
+      ],
+      "answer": ["a", "e"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.1",
+        "title": "Power and Battery Issues",
+        "quote": "",
+        "find": "seated properly in its compartment"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q71" }
+    },
+    {
+      "id": "c1-u09-q041",
+      "stem": "Even after charging overnight, a flight instructor's laptop dies within seconds of being unplugged, though it runs normally on AC power and its battery is seated firmly with clean contacts. Which of the following should a technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Test the outlet with a known good lamp" },
+        { "id": "b", "text": "Swap in a known good battery" },
+        { "id": "c", "text": "Recalibrate the battery meter" },
+        { "id": "d", "text": "Replace the motherboard" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.1",
+        "title": "Power and Battery Issues",
+        "quote": "",
+        "find": "by using a known good battery"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q54" }
+    },
+    {
+      "id": "c1-u09-q042",
+      "stem": "An auctioneer's laptop runs on AC power but keeps reporting that it is plugged in and not charging, even after a technician tries a known good battery and then a known good AC adapter. Which of the following is MOST likely faulty?",
+      "choices": [
+        { "id": "a", "text": "The wall outlet" },
+        { "id": "b", "text": "The fuse in the adapter's plug" },
+        { "id": "c", "text": "The motherboard" },
+        { "id": "d", "text": "The processor" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.1",
+        "title": "Power and Battery Issues",
+        "quote": "",
+        "find": "wrong with the power circuitry"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B32" }
+    },
+    {
+      "id": "c1-u09-q043",
+      "stem": "A pastry chef's three-month-old laptop has shut down several times while its battery meter still showed 30 to 40 percent charge left. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Install a new battery" },
+        { "id": "b", "text": "Turn on power-saving mode" },
+        { "id": "c", "text": "Recalibrate the battery" },
+        { "id": "d", "text": "Check apps for battery drain" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.1",
+        "title": "Power and Battery Issues",
+        "quote": "",
+        "find": "might need to recalibrate your battery"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q53" }
+    },
+    {
+      "id": "c1-u09-q044",
+      "stem": "A city bus driver's month-old phone charges to 100 percent overnight but drops below 20 percent within three hours, and it has never been dropped or gotten wet. Which of the following should the technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "Data use by each app" },
+        { "id": "b", "text": "The charging port" },
+        { "id": "c", "text": "Battery use by each app" },
+        { "id": "d", "text": "Signs of a swollen battery" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.1",
+        "title": "Power and Battery Issues",
+        "quote": "",
+        "find": "an app to check battery utilization"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q72" }
+    },
+    {
+      "id": "c1-u09-q045",
+      "stem": "An event planner's Li-ion tablet now needs a charger by early afternoon, though identical tablets her coworkers got the same week still last all day. Which of the following could explain the difference?",
+      "choices": [
+        { "id": "a", "text": "Leaving it on the charger long after it is full" },
+        { "id": "b", "text": "Using the charger that came with the tablet" },
+        { "id": "c", "text": "Keeping its power-saving features turned off" },
+        { "id": "d", "text": "Recharging it each time it drops to about half" },
+        { "id": "e", "text": "Letting it run all the way down before charging" }
+      ],
+      "answer": ["a", "c", "e"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.1",
+        "title": "Power and Battery Issues",
+        "quote": "",
+        "find": "not be allowed to fully discharge"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q73" }
+    },
+    {
+      "id": "c1-u09-q046",
+      "stem": "A hair salon owner's tablet still works normally, but its screen has begun to lift away from the case along one edge, and the tablet now rocks when it is set on a flat counter. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Replace the screen and its adhesive" },
+        { "id": "b", "text": "Run the battery's calibration routine" },
+        { "id": "c", "text": "Power it off and contact the manufacturer" },
+        { "id": "d", "text": "Restore the tablet to factory settings" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.1",
+        "title": "Power and Battery Issues",
+        "quote": "",
+        "find": "discontinue use of the mobile device"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A12" }
+    },
+    {
+      "id": "c1-u09-q047",
+      "stem": "During her shifts inside a dark movie theater, an usher keeps her phone's screen at its dimmest, yet the phone often grows too hot to hold and warns that it must cool down. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The phone is being left in direct sunlight" },
+        { "id": "b", "text": "An app is keeping the processor working hard" },
+        { "id": "c", "text": "The screen's brightness is set too high" },
+        { "id": "d", "text": "The battery is running too low on charge" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.2",
+        "title": "Hardware Failure Issues",
+        "quote": "",
+        "find": "quite warm when used intensively"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C83" }
+    },
+    {
+      "id": "c1-u09-q048",
+      "stem": "A coastal research team needs tablets that are dust-proof for work on sandy beaches and protected when submerged deeper than 1 meter. Which of the following IP ratings meets both needs?",
+      "choices": [
+        { "id": "a", "text": "IP58" },
+        { "id": "b", "text": "IP67" },
+        { "id": "c", "text": "IP68" },
+        { "id": "d", "text": "IPX8" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.2",
+        "title": "Hardware Failure Issues",
+        "quote": "",
+        "find": "that are dust-protected and dust-proof"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q61" }
+    },
+    {
+      "id": "c1-u09-q049",
+      "stem": "A lifeguard's older phone slipped into the pool, and although it still turns on and seems to work after she dries it off, she suspects water got inside. Which of the following should she do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Charge the phone to test its battery" },
+        { "id": "b", "text": "Back up the phone's data before it fails" },
+        { "id": "c", "text": "Open the phone to dry its insides" },
+        { "id": "d", "text": "Power the phone off right away" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.2",
+        "title": "Hardware Failure Issues",
+        "quote": "",
+        "find": "immediately if you suspect liquid damage"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 9.4.2 (liquid damage)" }
+    },
+    {
+      "id": "c1-u09-q050",
+      "stem": "A dog walker's phone charges only while she holds the USB-C plug at an angle, and the plug feels loose in the phone even with a brand-new cable. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The charging cable is faulty" },
+        { "id": "b", "text": "The charger's wattage is too low" },
+        { "id": "c", "text": "The phone's port is damaged" },
+        { "id": "d", "text": "The phone's battery is in poor health" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.2",
+        "title": "Hardware Failure Issues",
+        "quote": "",
+        "find": "the connector may be loose"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B7" }
+    },
+    {
+      "id": "c1-u09-q051",
+      "stem": "A journalist's laptop starts up with its fan running and its power light on, but its built-in screen shows no image at all. Which of the following should the technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Replace the display panel" },
+        { "id": "b", "text": "Connect an external monitor" },
+        { "id": "c", "text": "Replace the digitizer" },
+        { "id": "d", "text": "Swap in a known good battery" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.4",
+        "title": "Screen and Calibration Issues",
+        "quote": "",
+        "find": "by using an external monitor"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q67" }
+    },
+    {
+      "id": "c1-u09-q052",
+      "stem": "A crossing guard's phone has not been dropped or gotten wet, but it has stopped responding to taps, even though new text messages still appear on its screen. Which of the following should she try FIRST?",
+      "choices": [
+        { "id": "a", "text": "Restart the phone" },
+        { "id": "b", "text": "Run the touch calibration utility" },
+        { "id": "c", "text": "Replace the phone's digitizer" },
+        { "id": "d", "text": "Remove apps to free up storage" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.4",
+        "title": "Screen and Calibration Issues",
+        "quote": "",
+        "find": "transitory software problem by restarting"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A82" }
+    },
+    {
+      "id": "c1-u09-q053",
+      "stem": "Right after an orchestra conductor had a glass screen guard applied to her tablet, many of her taps to turn pages in her sheet music stopped registering. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Run the touch screen's calibration utility" },
+        { "id": "b", "text": "Check the protector for bubbles or lifted edges" },
+        { "id": "c", "text": "Replace the digitizer under the screen glass" },
+        { "id": "d", "text": "Close apps that are using too much memory" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.4",
+        "title": "Screen and Calibration Issues",
+        "quote": "",
+        "find": "If a screen protector is fitted"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q65" }
+    },
+    {
+      "id": "c1-u09-q054",
+      "stem": "An interior decorator's touch-screen laptop came back from a repair shop with new screen glass, and its picture looks normal, but the screen no longer responds to her stylus or her fingertip. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The touch screen needs to be calibrated" },
+        { "id": "b", "text": "The stylus needs a new battery" },
+        { "id": "c", "text": "The touch screen driver is out of date" },
+        { "id": "d", "text": "The digitizer was not reconnected correctly" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.4",
+        "title": "Screen and Calibration Issues",
+        "quote": "",
+        "find": "device has just been serviced"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B69" }
+    },
+    {
+      "id": "c1-u09-q055",
+      "stem": "A mail carrier's smartwatch keeps time but no longer shows her texts and is missing from her phone's list of nearby devices, though the phone still gets texts and streams music to her wireless earbuds. Which of the following should a technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "The watch's NFC setting" },
+        { "id": "b", "text": "The watch's Bluetooth setting" },
+        { "id": "c", "text": "The phone's airplane mode setting" },
+        { "id": "d", "text": "The phone's cellular data setting" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.5", "9.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.5",
+        "title": "Connectivity Issues",
+        "quote": "",
+        "find": "Verify that the adapter is enabled"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C77" }
+    },
+    {
+      "id": "c1-u09-q056",
+      "stem": "Backstage at a concert venue, a tour manager's tablet lists no Wi-Fi networks at all, while every crew member's phone in the same room lists several. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The venue's Internet connection is down" },
+        { "id": "b", "text": "The venue's network uses a hidden SSID" },
+        { "id": "c", "text": "The tablet's cellular data plan is used up" },
+        { "id": "d", "text": "The tablet is set to airplane mode" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.5",
+        "title": "Connectivity Issues",
+        "quote": "",
+        "find": "airplane mode has not been enabled"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q62" }
+    },
+    {
+      "id": "c1-u09-q057",
+      "stem": "A guidance counselor's Bluetooth mouse has worked with her laptop for months, but today the pointer will not move, even though the laptop still lists the mouse as paired and her Bluetooth headset still works. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The mouse needs to be paired again" },
+        { "id": "b", "text": "The laptop's Bluetooth is turned off" },
+        { "id": "c", "text": "The mouse's battery is nearly dead" },
+        { "id": "d", "text": "The laptop has too many Bluetooth devices" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.5",
+        "title": "Connectivity Issues",
+        "quote": "",
+        "find": "probably needs a new battery"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q14" }
+    },
+    {
+      "id": "c1-u09-q058",
+      "stem": "A bird watcher's phone works normally on Wi-Fi, but every new app she tries to download fails to install. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The phone's SIM card has failed" },
+        { "id": "b", "text": "The phone's storage is nearly full" },
+        { "id": "c", "text": "The phone has too many apps open" },
+        { "id": "d", "text": "The phone's digitizer is damaged" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.6",
+        "title": "Malware Issues",
+        "quote": "",
+        "find": "not enough space left to install"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A73" }
+    }
+  ]
+}

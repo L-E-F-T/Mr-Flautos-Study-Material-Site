@@ -1,0 +1,414 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-09", "title": "Unit 9.0 Supporting Mobile Devices", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "c1-u09-f001",
+      "term": "Trackpad",
+      "definition": "A touch panel for pointer control; it can mean a laptop's built-in touchpad, but it often means a larger pad attached as a peripheral.",
+      "objectives": ["1.2", "1.2.e"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Mobile Device Accessories" }
+    },
+    {
+      "id": "c1-u09-f002",
+      "term": "Drawing pad",
+      "definition": "A large touch device attached as a peripheral, also called a graphics tablet, used mostly for sketching and painting in digital art apps; most work with a stylus.",
+      "objectives": ["1.2", "1.2.e"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Mobile Device Accessories" }
+    },
+    {
+      "id": "c1-u09-f003",
+      "term": "Track point",
+      "definition": "A small pressure-sensitive nub built into the keyboard of some laptops that moves the cursor; the harder you press it, the faster the cursor moves.",
+      "objectives": ["1.2", "1.2.e"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Mobile Device Accessories" }
+    },
+    {
+      "id": "c1-u09-f004",
+      "term": "Stylus",
+      "definition": "A touch pen used instead of fingers on drawing pads and some touchscreens; it gives more precise control for handwriting and drawing, which is called natural input.",
+      "objectives": ["1.2", "1.2.b"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Mobile Device Accessories" }
+    },
+    {
+      "id": "c1-u09-f005",
+      "term": "Microphone",
+      "definition": "Records audio and is used for voice calls; on a laptop it sits behind a small hole in the top bezel next to the camera, with connections separate from the camera's.",
+      "objectives": ["1.1", "1.1.i"],
+      "units": ["9.1.1", "9.3.5"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Mobile Device Accessories" }
+    },
+    {
+      "id": "c1-u09-f006",
+      "term": "Speakers",
+      "definition": "Produce audio output; on a phone or tablet they are usually on the bottom edge, and more powerful external ones connect by the audio jack, USB/Lightning, or Bluetooth.",
+      "objectives": ["1.2", "1.2.b"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Mobile Device Accessories" }
+    },
+    {
+      "id": "c1-u09-f007",
+      "term": "Camera/webcam",
+      "definition": "Used for video recording, web conferencing, and still pictures; a laptop's is typically built into the display assembly, so replacing it takes extensive disassembly.",
+      "objectives": ["1.1", "1.1.h", "1.2", "1.2.b"],
+      "units": ["9.1.1", "9.3.5"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Mobile Device Accessories" }
+    },
+    {
+      "id": "c1-u09-f008",
+      "term": "Headset",
+      "definition": "Earbuds or headphones with a built-in microphone; wired ones use the 3.5 mm audio jack or a USB or Lightning connector, and wireless ones use Bluetooth.",
+      "objectives": ["1.2", "1.2.b"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Mobile Device Accessories" }
+    },
+    {
+      "id": "c1-u09-f009",
+      "term": "USB (Universal Serial Bus)",
+      "definition": "A wired connection method: a modern laptop has a few Type A ports and one or more Type C ports, and phones and tablets use it for wired peripherals, charging, and tethering.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["9.1.2", "9.1.8"],
+      "reference": { "source": "certmaster", "section": "9.1.2", "title": "Mobile Device Wired Connection Methods" }
+    },
+    {
+      "id": "c1-u09-f010",
+      "term": "Port replicator",
+      "definition": "Attaches to a special connector on a laptop, or by USB, to add a full set of ports for a keyboard, monitor, mouse, and network, but normally adds no other functions.",
+      "objectives": ["1.2", "1.2.d"],
+      "units": ["9.1.3"],
+      "reference": { "source": "certmaster", "section": "9.1.3", "title": "Port Replicators and Docking Stations" }
+    },
+    {
+      "id": "c1-u09-f011",
+      "term": "Docking station",
+      "definition": "A sophisticated port replicator that may also support add-in cards or drives in a media bay, so a docked laptop can work like a desktop.",
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["9.1.3"],
+      "reference": { "source": "certmaster", "section": "9.1.3", "title": "Port Replicators and Docking Stations" }
+    },
+    {
+      "id": "c1-u09-f012",
+      "term": "Wi-Fi",
+      "definition": "The wireless radio in every laptop, smartphone, and tablet; a mobile device usually defaults to it when present, and turning cellular data off while leaving it on avoids data charges.",
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.5"],
+      "reference": { "source": "certmaster", "section": "9.1.5", "title": "Wi-Fi Networking" }
+    },
+    {
+      "id": "c1-u09-f013",
+      "term": "Wi-Fi antenna connector/placement",
+      "definition": "Usually two wires that run from the Wi-Fi chip around the edges of the display, in a laptop's lid, to pick up the strongest signal.",
+      "objectives": ["1.1", "1.1.g"],
+      "units": ["9.1.5", "9.3.3"],
+      "reference": { "source": "certmaster", "section": "9.1.5", "title": "Wi-Fi Networking" }
+    },
+    {
+      "id": "c1-u09-f014",
+      "term": "3G (3rd Generation)",
+      "definition": "The cellular data generation just before 4G (LTE); each later generation, 4G and then 5G, is faster.",
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.7"],
+      "reference": { "source": "certmaster", "section": "9.1.7", "title": "Cellular Data Networking" }
+    },
+    {
+      "id": "c1-u09-f015",
+      "term": "4G (4th Generation)",
+      "definition": "The cellular generation that introduced Long-Term Evolution (LTE) technology, with theoretical download speeds of up to 300 Mbps.",
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.7"],
+      "reference": { "source": "certmaster", "section": "9.1.7", "title": "Cellular Data Networking" }
+    },
+    {
+      "id": "c1-u09-f016",
+      "term": "5G (5th Generation)",
+      "definition": "The cellular generation that builds on the earlier ones, with theoretical download speeds of up to 10 Gbps.",
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.7"],
+      "reference": { "source": "certmaster", "section": "9.1.7", "title": "Cellular Data Networking" }
+    },
+    {
+      "id": "c1-u09-f017",
+      "term": "SIM (Subscriber Identity Module)",
+      "definition": "A small card that identifies the device on the mobile network; it is tied to the phone number and can usually be moved to a new phone.",
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.7"],
+      "reference": { "source": "certmaster", "section": "9.1.7", "title": "Cellular Data Networking" }
+    },
+    {
+      "id": "c1-u09-f018",
+      "term": "eSIM (embedded SIM)",
+      "definition": "A small chip inside the device that does a SIM card's job; it can be activated over the air, and many devices can store several profiles for different numbers or plans.",
+      "objectives": ["1.3", "1.3.a"],
+      "units": ["9.1.7"],
+      "reference": { "source": "certmaster", "section": "9.1.7", "title": "Cellular Data Networking" }
+    },
+    {
+      "id": "c1-u09-f019",
+      "term": "Tethering",
+      "definition": "Connecting another device, such as a laptop, to a mobile device so it can share the mobile's cellular data connection, using a USB cable, Bluetooth, or Wi-Fi.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["9.1.8"],
+      "reference": { "source": "certmaster", "section": "9.1.8", "title": "Mobile Hotspots and Tethering" }
+    },
+    {
+      "id": "c1-u09-f020",
+      "term": "Hotspot",
+      "definition": "Tethering over Wi-Fi: the mobile device is set up like an access point, with a network name, security type, and passphrase, for other devices to join.",
+      "objectives": ["1.2", "1.2.a", "1.3", "1.3.a"],
+      "units": ["9.1.8"],
+      "reference": { "source": "certmaster", "section": "9.1.8", "title": "Mobile Hotspots and Tethering" }
+    },
+    {
+      "id": "c1-u09-f021",
+      "term": "Bluetooth pairing",
+      "definition": "Connecting two Bluetooth devices: enable Bluetooth, put both in discoverable mode, select the other device from the list of nearby devices, enter or confirm the PIN code, then test by using it.",
+      "objectives": ["1.3", "1.3.b"],
+      "units": ["9.1.9"],
+      "reference": { "source": "certmaster", "section": "9.1.9", "title": "Bluetooth Wireless Connections" }
+    },
+    {
+      "id": "c1-u09-f022",
+      "term": "PIN (Personal Identification Number) code",
+      "definition": "The passkey the Bluetooth pairing system generates automatically when a connection request arrives; enter or confirm it on the destination device, then accept the connection.",
+      "objectives": ["1.3", "1.3.b"],
+      "units": ["9.1.9"],
+      "reference": { "source": "certmaster", "section": "9.1.9", "title": "Bluetooth Wireless Connections" }
+    },
+    {
+      "id": "c1-u09-f023",
+      "term": "Mobile device synchronization",
+      "definition": "Copying data such as contacts, calendar items, and mail back and forth between devices, or with a cloud service, so it stays up to date on each one.",
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.3", "9.2.5"],
+      "reference": { "source": "certmaster", "section": "9.2.3", "title": "Types of Data to Synchronize" }
+    },
+    {
+      "id": "c1-u09-f024",
+      "term": "Data cap",
+      "definition": "A monthly limit on how much data a plan allows, with fees for going over; connect to Wi-Fi before syncing large files such as media.",
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.3", "9.2.5"],
+      "reference": { "source": "certmaster", "section": "9.2.3", "title": "Types of Data to Synchronize" }
+    },
+    {
+      "id": "c1-u09-f025",
+      "term": "Contacts",
+      "definition": "Synced records with fields for name, address, email, and phone numbers; vCard is a widely supported standard format for them.",
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.3"],
+      "reference": { "source": "certmaster", "section": "9.2.3", "title": "Types of Data to Synchronize" }
+    },
+    {
+      "id": "c1-u09-f026",
+      "term": "Calendar",
+      "definition": "Synced records of appointments or tasks, with fields such as subject, date, location, and participants; items can move between services in the iCalendar (ICS) format.",
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.3"],
+      "reference": { "source": "certmaster", "section": "9.2.3", "title": "Types of Data to Synchronize" }
+    },
+    {
+      "id": "c1-u09-f027",
+      "term": "Mail",
+      "definition": "Email as a synced business app: most systems keep messages on the server and each device manages them; choose IMAP to use one account on several devices.",
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.4", "9.2.3"],
+      "reference": { "source": "certmaster", "section": "9.2.4", "title": "Email Configuration Options" }
+    },
+    {
+      "id": "c1-u09-f028",
+      "term": "Cloud storage",
+      "definition": "Online storage that comes with the owner's account, such as iCloud or Google Drive; with permission, the device can back up to it, and a new device syncs from it.",
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.5", "9.2.2"],
+      "reference": { "source": "certmaster", "section": "9.2.5", "title": "Synchronization Methods" }
+    },
+    {
+      "id": "c1-u09-f029",
+      "term": "BYOD (Bring Your Own Device)",
+      "definition": "A deployment model that lets employees use a personally owned device to access corporate accounts, apps, and data.",
+      "objectives": ["1.3", "1.3.d"],
+      "units": ["9.2.6"],
+      "reference": { "source": "certmaster", "section": "9.2.6", "title": "Enterprise Mobility Management" }
+    },
+    {
+      "id": "c1-u09-f030",
+      "term": "MDM (Mobile Device Management)",
+      "definition": "The part of an EMM suite that sets device policies for authentication, camera and microphone use, and connectivity, and can remotely wipe a device.",
+      "objectives": ["1.3", "1.3.d"],
+      "units": ["9.2.6"],
+      "reference": { "source": "certmaster", "section": "9.2.6", "title": "Enterprise Mobility Management" }
+    },
+    {
+      "id": "c1-u09-f031",
+      "term": "Corporate applications",
+      "definition": "Authorized work apps, such as corporate email and calendar, that run in an enterprise workspace and keep their data apart from personal apps.",
+      "objectives": ["1.3", "1.3.d"],
+      "units": ["9.2.6"],
+      "reference": { "source": "certmaster", "section": "9.2.6", "title": "Enterprise Mobility Management" }
+    },
+    {
+      "id": "c1-u09-f032",
+      "term": "Location services",
+      "definition": "The service a device runs to find its position from GPS satellites or from nearby radio sources; an app can use it only with the user's permission.",
+      "objectives": ["1.3", "1.3.c"],
+      "units": ["9.2.7"],
+      "reference": { "source": "certmaster", "section": "9.2.7", "title": "Location Services" }
+    },
+    {
+      "id": "c1-u09-f033",
+      "term": "GPS (Global Positioning System)",
+      "definition": "Works out a device's latitude and longitude from information received from orbiting satellites; it needs a sensor that not every mobile device is fitted with.",
+      "objectives": ["1.3", "1.3.c"],
+      "units": ["9.2.7"],
+      "reference": { "source": "certmaster", "section": "9.2.7", "title": "Location Services" }
+    },
+    {
+      "id": "c1-u09-f034",
+      "term": "Cellular location services",
+      "definition": "Finding where a device is from how close it is to nearby cell towers, rather than from GPS satellites.",
+      "objectives": ["1.3", "1.3.c"],
+      "units": ["9.2.7"],
+      "reference": { "source": "certmaster", "section": "9.2.7", "title": "Location Services" }
+    },
+    {
+      "id": "c1-u09-f035",
+      "term": "Laptop battery",
+      "definition": "A removable, rechargeable lithium-ion (Li-ion) pack, typically in 6-, 9-, or 12-cell versions; turn the laptop off and unplug it before removing one.",
+      "objectives": ["1.1", "1.1.a"],
+      "units": ["9.3.2"],
+      "reference": { "source": "certmaster", "section": "9.3.2", "title": "Battery Replacement" }
+    },
+    {
+      "id": "c1-u09-f036",
+      "term": "Wireless card",
+      "definition": "A Mini PCIe or M.2 adapter that gives a laptop Wi-Fi, Bluetooth, and/or cellular data; when replacing one, reconnect the antenna wires, and for a cellular adapter, insert the SIM card.",
+      "objectives": ["1.1", "1.1.e"],
+      "units": ["9.3.3"],
+      "reference": { "source": "certmaster", "section": "9.3.3", "title": "RAM and Adapter Replacement" }
+    },
+    {
+      "id": "c1-u09-f037",
+      "term": "Keyboard/keys",
+      "definition": "Almost always replaced with the same part, usually on a latched ribbon cable, and set to the correct input region; pry off one key cap with a flat blade.",
+      "objectives": ["1.1", "1.1.b"],
+      "units": ["9.3.5"],
+      "reference": { "source": "certmaster", "section": "9.3.5", "title": "Keyboard and Security Component Replacement" }
+    },
+    {
+      "id": "c1-u09-f038",
+      "term": "Biometrics",
+      "definition": "A sensor that records a template of a body feature unique to the user; on a laptop, usually a fingerprint scanner, though the camera can scan a face or an iris.",
+      "objectives": ["1.1", "1.1.f"],
+      "units": ["9.3.5"],
+      "reference": { "source": "certmaster", "section": "9.3.5", "title": "Keyboard and Security Component Replacement" }
+    },
+    {
+      "id": "c1-u09-f039",
+      "term": "Near-field scanner",
+      "definition": "A laptop's NFC sensor, used mainly to pair peripherals or connect to a smartphone; it may be part of the keyboard, touchpad, or fingerprint reader and must be connected to its antenna.",
+      "objectives": ["1.1", "1.1.f"],
+      "units": ["9.3.5"],
+      "reference": { "source": "certmaster", "section": "9.3.5", "title": "Keyboard and Security Component Replacement" }
+    },
+    {
+      "id": "c1-u09-f040",
+      "term": "Poor battery health",
+      "definition": "A battery that will not hold a charge has reached the end of its useful life; test with a known good battery, and if that fails too, suspect the motherboard's power circuitry.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.1"],
+      "reference": { "source": "certmaster", "section": "9.4.1", "title": "Power and Battery Issues" }
+    },
+    {
+      "id": "c1-u09-f041",
+      "term": "Improper charging",
+      "definition": "Using an incorrect charger or cable risks fire or even explosion, and a poor charging routine shortens battery life; use the manufacturer's or an approved charger.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.1"],
+      "reference": { "source": "certmaster", "section": "9.4.1", "title": "Power and Battery Issues" }
+    },
+    {
+      "id": "c1-u09-f042",
+      "term": "Swollen battery",
+      "definition": "A bulging battery, seen as a device that wobbles when laid flat or a deformed touchpad or keyboard; stop using it at once, since it is a fire hazard.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.1"],
+      "reference": { "source": "certmaster", "section": "9.4.1", "title": "Power and Battery Issues" }
+    },
+    {
+      "id": "c1-u09-f043",
+      "term": "Liquid damage",
+      "definition": "Water under the screen, graphics artifacts, or no image; power off at once even with no visible sign, dry it fully, and usually replace the battery.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.2"],
+      "reference": { "source": "certmaster", "section": "9.4.2", "title": "Hardware Failure Issues" }
+    },
+    {
+      "id": "c1-u09-f044",
+      "term": "Physically damaged ports",
+      "definition": "A connector that is loose or no longer fits, with no or intermittent data or poor charging; teach users to pull connectors straight out, never jiggling them.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.2"],
+      "reference": { "source": "certmaster", "section": "9.4.2", "title": "Hardware Failure Issues" }
+    },
+    {
+      "id": "c1-u09-f045",
+      "term": "Broken screen",
+      "definition": "Cracked or shattered glass, which a drop of over 1 m onto a hard surface will usually cause; repair likely needs warranty or professional service.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.4"],
+      "reference": { "source": "certmaster", "section": "9.4.4", "title": "Screen and Calibration Issues" }
+    },
+    {
+      "id": "c1-u09-f046",
+      "term": "Digitizer issues",
+      "definition": "A touch screen that ignores input or a stylus that stops working; check that the screen is clean and dry and the screen protector is flat, then restart the device.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.4"],
+      "reference": { "source": "certmaster", "section": "9.4.4", "title": "Screen and Calibration Issues" }
+    },
+    {
+      "id": "c1-u09-f047",
+      "term": "Cursor drift/touch calibration",
+      "definition": "A pointer that moves with no input or jumps while typing, which can happen if touchpad sensitivity is too high; update drivers, adjust input options, and recalibrate inaccurate touch where supported.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.4"],
+      "reference": { "source": "certmaster", "section": "9.4.4", "title": "Screen and Calibration Issues" }
+    },
+    {
+      "id": "c1-u09-f048",
+      "term": "Poor/no connectivity",
+      "definition": "A mobile device that cannot join or keep a Wi-Fi or Bluetooth link; first check that airplane mode is off and that the radio is enabled.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.5"],
+      "reference": { "source": "certmaster", "section": "9.4.5", "title": "Connectivity Issues" }
+    },
+    {
+      "id": "c1-u09-f049",
+      "term": "Malware",
+      "definition": "Malicious or rogue apps on a device; on a phone, signs include heavy power drain, high resource use, slowdowns, hitting the data limit unexpectedly, and blocked app installs.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.6"],
+      "reference": { "source": "certmaster", "section": "9.4.6", "title": "Malware Issues" }
+    },
+    {
+      "id": "c1-u09-f050",
+      "term": "Degraded performance",
+      "definition": "A mobile device that has grown slow to respond, which heavy background activity, such as malware, can cause.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.6"],
+      "reference": { "source": "certmaster", "section": "9.4.6", "title": "Malware Issues" }
+    },
+    {
+      "id": "c1-u09-f051",
+      "term": "Unable to install new applications",
+      "definition": "A device that cannot add new apps, which can happen when malware blocks them or when free space runs out.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.6"],
+      "reference": { "source": "certmaster", "section": "9.4.6", "title": "Malware Issues" }
+    }
+  ]
+}

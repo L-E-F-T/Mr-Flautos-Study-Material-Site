@@ -15,7 +15,7 @@
       "term": "SODIMM (Small Outline DIMM)",
       "definition": "The smaller memory module used in laptops and other compact computers, with lower capacities than a desktop DIMM.",
       "objectives": ["3.3", "3.3.a"],
-      "units": ["3.3.3"],
+      "units": ["3.3.3", "9.3.3"],
       "reference": { "source": "certmaster", "section": "3.3.3", "title": "Memory Modules" }
     },
     {
@@ -55,7 +55,7 @@
       "term": "RAM (Random-Access Memory)",
       "definition": "The system memory that running programs and open files load into; faster than SSDs and HDDs but volatile, so it holds data only while powered on.",
       "objectives": ["3.3"],
-      "units": ["3.3.1", "2.2.1", "2.2.3"],
+      "units": ["3.3.1", "2.2.1", "2.2.3", "9.3.3"],
       "reference": { "source": "certmaster", "section": "3.3.1", "title": "System RAM and Virtual Memory" }
     },
     {
@@ -119,7 +119,7 @@
       "term": "Hard disk drive (HDD)",
       "definition": "A drive that stores data on spinning metal or glass platters with a magnetic coating, using read/write heads on a moving actuator; most connect by SATA.",
       "objectives": ["3.4", "3.4.a"],
-      "units": ["3.2.4"],
+      "units": ["3.2.4", "9.3.4"],
       "reference": { "source": "certmaster", "section": "3.2.4", "title": "Hard Disk Drives" }
     },
     {
@@ -143,7 +143,7 @@
       "term": "2.5-inch drive form factor",
       "definition": "The smaller of the two main hard drive form factors, used in laptops and portable drives; an adapter caddy fits it in a 3.5-inch bay.",
       "objectives": ["3.4", "3.4.a"],
-      "units": ["3.2.4", "3.2.2"],
+      "units": ["3.2.4", "3.2.2", "9.3.4"],
       "reference": { "source": "certmaster", "section": "3.2.4", "title": "Hard Disk Drives" }
     },
     {
@@ -151,7 +151,7 @@
       "term": "Solid-state drive (SSD)",
       "definition": "An internal drive that stores data in flash memory with no moving parts, so it reads much faster than an HDD and better withstands shock.",
       "objectives": ["3.4", "3.4.b"],
-      "units": ["3.2.3"],
+      "units": ["3.2.3", "9.3.4"],
       "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
     },
     {
@@ -167,7 +167,7 @@
       "term": "SATA (Serial Advanced Technology Attachment)",
       "definition": "The drive interface used by most HDDs and by 2.5-inch SSDs; its 600 MBps limit can bottleneck fast SSDs.",
       "objectives": ["3.4", "3.4.b"],
-      "units": ["3.2.3", "3.2.4", "2.1.13", "2.2.4"],
+      "units": ["3.2.3", "3.2.4", "2.1.13", "2.2.4", "9.3.4"],
       "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
     },
     {
@@ -191,7 +191,7 @@
       "term": "M.2",
       "definition": "A small SSD form factor that lies flat on the motherboard, draws power from its slot with no cable, and can use SATA or NVMe.",
       "objectives": ["3.4", "3.4.b"],
-      "units": ["3.2.3", "2.2.4"],
+      "units": ["3.2.3", "2.2.4", "9.3.3", "9.3.4"],
       "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
     },
     {
@@ -199,7 +199,7 @@
       "term": "mSATA (mini-SATA)",
       "definition": "A small SATA-only SSD card that plugs into a combined data and power port on the motherboard.",
       "objectives": ["3.4", "3.4.b"],
-      "units": ["3.2.3"],
+      "units": ["3.2.3", "9.3.3", "9.3.4"],
       "reference": { "source": "certmaster", "section": "3.2.3", "title": "Solid-State Drives" }
     },
     {

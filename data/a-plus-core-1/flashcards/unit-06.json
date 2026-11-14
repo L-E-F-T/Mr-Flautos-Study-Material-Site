@@ -63,7 +63,7 @@
       "term": "Cellular (internet connection)",
       "definition": "Internet access through a cellular radio that connects to the closest base station, whose service area is called a cell; 4G (LTE) and 5G can also be fixed wireless broadband for homes and businesses.",
       "objectives": ["2.7", "2.7.a"],
-      "units": ["6.1.8"],
+      "units": ["6.1.8", "9.1.7"],
       "reference": { "source": "certmaster", "section": "6.1.8", "title": "Cellular Radio Internet Connections" }
     },
     {
@@ -199,7 +199,7 @@
       "term": "SMTP (Simple Mail Transfer Protocol)",
       "definition": "Sends (transfers) email messages across a network; TCP port 25.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6", "6.3.1", "7.1.5"],
+      "units": ["6.3.6", "6.3.1", "7.1.5", "9.2.4"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -215,7 +215,7 @@
       "term": "POP3 (Post Office Protocol 3)",
       "definition": "Retrieves email messages from a server mailbox; TCP port 110.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6", "7.1.6"],
+      "units": ["6.3.6", "7.1.6", "9.2.4"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -231,7 +231,7 @@
       "term": "IMAP (Internet Mail Access Protocol)",
       "definition": "Reads and manages mail messages on a server mailbox; TCP port 143.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6", "7.1.6"],
+      "units": ["6.3.6", "7.1.6", "9.2.4"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
