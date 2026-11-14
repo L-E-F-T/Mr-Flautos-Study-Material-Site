@@ -555,7 +555,8 @@ function renderGroupedTable({ ctx, groupBy, selected, query, onChange }) {
   };
 
   // A domain, objective, unit, or lesson with no cards yet: one greyed row labeled
-  // "Coming soon", so the outline is complete. Left out while searching.
+  // "Coming soon" ("Not on the exam" when the outline marks it so), so the outline is
+  // complete. Left out while searching.
   const soonRow = (node, level) => {
     const code = displayCode(node);
     return h('tr', { class: `group-row level-${level} is-soon` },
@@ -566,7 +567,7 @@ function renderGroupedTable({ ctx, groupBy, selected, query, onChange }) {
             h('span', { class: 'group-name', title: [code, node.title].filter(Boolean).join(' ') },
               code ? [h('span', { class: 'tree-id' }, code), ' '] : null,
               h('span', { class: 'tree-title' }, node.title)),
-            h('span', { class: 'chip' }, 'Coming soon')),
+            h('span', { class: 'chip' }, node.notOnExam ? 'Not on the exam' : 'Coming soon')),
         ),
       ),
     );

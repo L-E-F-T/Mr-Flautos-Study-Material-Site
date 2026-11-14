@@ -124,6 +124,7 @@ function validateExam(exam, content, { error, warn }) {
     if (unitIds.has(unit.id)) error(uWhere, `Duplicate id "${unit.id}".`);
     unitIds.add(unit.id);
     if (!nonEmptyString(unit.title)) error(uWhere, 'Unit title is required.');
+    if (unit.notOnExam !== undefined && typeof unit.notOnExam !== 'boolean') error(uWhere, '"notOnExam" must be true or false.');
     const major = String(unit.id || '').split('.')[0];
     for (const lesson of unit.subunits || []) {
       const lWhere = `${unitWhere} › ${lesson.id}`;
@@ -131,6 +132,7 @@ function validateExam(exam, content, { error, warn }) {
       if (unitIds.has(lesson.id)) error(lWhere, `Duplicate id "${lesson.id}".`);
       unitIds.add(lesson.id);
       if (!nonEmptyString(lesson.title)) error(lWhere, 'Lesson title is required.');
+      if (lesson.notOnExam !== undefined && typeof lesson.notOnExam !== 'boolean') error(lWhere, '"notOnExam" must be true or false.');
       for (const objectiveId of lesson.objectives || []) {
         if (!objectiveIds.has(objectiveId)) warn(lWhere, `Lists objective "${objectiveId}", which is not in objectives.json.`);
       }

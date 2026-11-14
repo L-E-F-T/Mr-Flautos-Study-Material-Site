@@ -35,27 +35,40 @@ export function objectiveTaxonomy(doc) {
   }));
 }
 
+/**
+ * A unit or lesson marked `notOnExam` (A+ Core 1 Unit 1.0) is labeled "Not on the exam" instead
+ * of "Coming soon" when it has no items. Lessons and sections inherit it from their unit.
+ */
 export function unitTaxonomy(doc) {
-  return (doc.units || []).map((unit) => ({
-    id: unit.id,
-    code: unit.id,
-    title: unit.title,
-    kind: 'unit',
-    children: (unit.subunits || []).map((lesson) => ({
-      id: lesson.id,
-      code: lesson.id,
-      title: lesson.title,
-      kind: 'lesson',
-      objectives: lesson.objectives || [],
-      children: (lesson.sections || []).map((section) => ({
-        id: section.id,
-        code: section.id,
-        title: section.title,
-        kind: 'section',
-        children: [],
-      })),
-    })),
-  }));
+  return (doc.units || []).map((unit) => {
+    const unitOff = unit.notOnExam === true;
+    return {
+      id: unit.id,
+      code: unit.id,
+      title: unit.title,
+      kind: 'unit',
+      notOnExam: unitOff,
+      children: (unit.subunits || []).map((lesson) => {
+        const lessonOff = unitOff || lesson.notOnExam === true;
+        return {
+          id: lesson.id,
+          code: lesson.id,
+          title: lesson.title,
+          kind: 'lesson',
+          notOnExam: lessonOff,
+          objectives: lesson.objectives || [],
+          children: (lesson.sections || []).map((section) => ({
+            id: section.id,
+            code: section.id,
+            title: section.title,
+            kind: 'section',
+            notOnExam: lessonOff,
+            children: [],
+          })),
+        };
+      }),
+    };
+  });
 }
 
 /** Map id → { node, parentId, depth } for a taxonomy (roots have depth 1). */
@@ -122,6 +135,7 @@ export function buildSelectionTree(taxonomyRoots, items, getTags, { maxDepth = I
       code: node.code,
       title: node.title,
       kind: node.kind,
+      notOnExam: node.notOnExam === true,
       depth,
       general: false,
       children: [],

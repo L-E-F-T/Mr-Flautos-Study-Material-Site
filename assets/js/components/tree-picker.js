@@ -2,7 +2,7 @@
  * Tree picker: nested checkboxes with item counts and expand/collapse.
  * Selection is a Set of LEAF ids; parent checkboxes show checked / mixed states.
  * A topic with no items yet is greyed out and labeled "Coming soon" (and does not open),
- * so students still see the whole outline.
+ * so students still see the whole outline; one marked not on the exam says that instead.
  */
 import { h, nextId } from '../lib/dom.js';
 import { leavesUnder } from '../lib/taxonomy.js';
@@ -70,7 +70,7 @@ export function createTreePicker({ tree, selected, onChange, itemNoun = 'item' }
       h('span', { class: 'tree-label', title: soon ? plainLabel : null },
         code ? [h('span', { class: 'tree-id' }, code), ' '] : null,
         soon ? h('span', { class: 'tree-title' }, node.title) : node.title),
-      soon ? h('span', { class: 'chip' }, 'Coming soon') : null,
+      soon ? h('span', { class: 'chip' }, node.notOnExam ? 'Not on the exam' : 'Coming soon') : null,
     );
     const noun = node.total === 1 ? itemNoun : `${itemNoun}s`;
     const count = soon ? null : h('span', { class: 'tree-count', title: `${node.total} ${noun}` }, String(node.total));

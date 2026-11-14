@@ -18,6 +18,10 @@
         "properties": {
           "id": { "type": "string", "pattern": "^\\d+\\.0$" },
           "title": { "type": "string" },
+          "notOnExam": {
+            "type": "boolean",
+            "description": "The unit is not on the exam (A+ Core 1 Unit 1.0). When it has no items, the pickers label it \"Not on the exam\" instead of \"Coming soon\". Its lessons inherit it."
+          },
           "subunits": {
             "type": "array",
             "items": {
@@ -26,6 +30,10 @@
               "properties": {
                 "id": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
                 "title": { "type": "string" },
+                "notOnExam": {
+                  "type": "boolean",
+                  "description": "This lesson alone is not on the exam (see the unit's notOnExam)."
+                },
                 "objectives": {
                   "type": "array",
                   "description": "From the lesson's \"Exam Objectives Covered\" box.",
