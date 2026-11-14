@@ -539,6 +539,21 @@ function renderGroupedTable({ ctx, groupBy, selected, query, onChange }) {
     );
   };
 
+  // The column headings label the term rows. With every group collapsed no terms show, so the
+  // headings would line up with nothing: they show only while some term rows are showing.
+  const thead = h('thead', null,
+    h('tr', null,
+      h('th', { class: 'col-check', scope: 'col' }, h('span', { class: 'visually-hidden' }, 'Select')),
+      h('th', { scope: 'col' }, 'Term'),
+      h('th', { scope: 'col' }, 'Objective'),
+      h('th', { scope: 'col', class: 'col-unit' }, 'Unit / lesson'),
+    ),
+  );
+  const syncHeader = () => {
+    thead.hidden = !tbodies.some((body) => !body.hidden
+      && [...body.children].some((row) => row.classList.contains('item-row') && !row.hidden));
+  };
+
   // A domain, objective, unit, or lesson with no cards yet: one greyed row labeled
   // "Coming soon", so the outline is complete. Left out while searching.
   const soonRow = (node, level) => {
@@ -599,6 +614,7 @@ function renderGroupedTable({ ctx, groupBy, selected, query, onChange }) {
         const open = childHeader.toggle.getAttribute('aria-expanded') !== 'true';
         setRowsHidden(rows, !open);
         setToggle(childHeader.toggle, open);
+        syncHeader();
       });
       childBodies.push(body);
       tbodies.push(body);
@@ -608,6 +624,7 @@ function renderGroupedTable({ ctx, groupBy, selected, query, onChange }) {
       for (const body of childBodies) body.hidden = !open;
       setRowsHidden([...rootBody.querySelectorAll('tr.item-row')], !open);
       setToggle(rootHeader.toggle, open);
+      syncHeader();
     };
     // Each domain or unit starts collapsed too, unless searching, so the table opens as a short list.
     showRoot(Boolean(needle));
@@ -616,17 +633,8 @@ function renderGroupedTable({ ctx, groupBy, selected, query, onChange }) {
     });
   }
 
-  const table = h('table', { class: 'fc-table' },
-    h('thead', null,
-      h('tr', null,
-        h('th', { class: 'col-check', scope: 'col' }, h('span', { class: 'visually-hidden' }, 'Select')),
-        h('th', { scope: 'col' }, 'Term'),
-        h('th', { scope: 'col' }, 'Objective'),
-        h('th', { scope: 'col', class: 'col-unit' }, 'Unit / lesson'),
-      ),
-    ),
-    tbodies,
-  );
+  const table = h('table', { class: 'fc-table' }, thead, tbodies);
+  syncHeader();
   refresh();
 
   return {
