@@ -490,9 +490,16 @@ label.inline { display: inline-flex; align-items: center; gap: 0.45rem; cursor: 
 }
 .group-row .group-inner { display: flex; align-items: center; gap: 0.45rem; }
 .group-row label { display: inline-flex; align-items: center; gap: 0.55rem; cursor: pointer; flex: 1; min-width: 0; }
-.group-row.level-0 th { background: var(--accent-soft); color: var(--text); }
+/* Group rows sit on the plain panel background, like the practice topic tree: the class color's
+   soft tint is for hover and selection only, so a tinted row looked picked. */
+.group-row.level-0 th { color: var(--text); }
 .group-row.level-1 th { padding-left: 1.6rem; font-weight: 600; }
-.group-row .group-count { color: var(--text-muted); font-weight: 600; font-size: 0.85rem; }
+/* The term count, in the same small pill as the practice tree's question count. */
+.group-row .group-count {
+  flex: none; min-width: 2.2em; text-align: center;
+  padding: 0 0.45rem; border-radius: 999px; background: var(--surface-2); color: var(--text-muted);
+  font-size: 0.78rem; font-weight: 700; font-variant-numeric: tabular-nums;
+}
 /* A domain, objective, unit, or lesson with no cards yet. max-width: 0 lets the name be cut
    short instead of stretching the table (the cell still spans the full table width). */
 .group-row.is-soon th { color: var(--text-faint); max-width: 0; }
@@ -753,6 +760,7 @@ details.disclosure[open] > summary { margin-bottom: 0.5rem; }
   .tree-row:not(.is-empty):hover { background: var(--accent-soft); }
   .tree-toggle:hover { background: var(--accent-soft); color: var(--accent-text); box-shadow: inset 0 0 0 1px var(--accent); }
   .fc-table tr.item-row:hover td { background: var(--accent-soft); }
+  .fc-table tr.group-row:not(.is-soon):hover th { background: var(--accent-soft); }
   .choice:not(.is-locked):hover { border-color: var(--accent); }
 }
 
