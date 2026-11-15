@@ -194,8 +194,11 @@ $items | Group-Object { $_.q.origin.basedOn } | Where-Object Count -gt 1 | ForEa
 #  - Choices with a natural order are never touched: a draft marked "keepOrder": true, or choices whose
 #    texts are the same apart from their numbers and units (RAID 0/1/5/10, 4/8/16 GB, 100 Mbps/1 Gbps,
 #    Cat 5e/6/6a, 802.11ac/ax, Wi-Fi 6/6E).
-#  - A single-answer key moves only while its letter is used more than a quarter of the time (rounded
-#    up), to the least-used letter, by swapping two choices.
+#  - A single-answer key moves only while its letter keys more than a quarter (rounded up) of its
+#    lesson's single-answer questions, then only while it keys more than a quarter of the pack's, to
+#    the least-used letter, by swapping two choices. The lesson pass comes first: a pass over the whole
+#    pack alone moves only keys near the start, so the last lesson kept the writers' habit (Network+
+#    lesson 5.7 had six "a" keys in a row), and a one-lesson test with shuffling off showed it.
 #  - A choose-two or choose-three item whose keys sit at the top (a and b) is rotated down.
 # Only letters change, never which text is the key.
 function Get-Template([string]$text) {
@@ -216,18 +219,31 @@ if (-not $NoSpread) {
   $letters = 'a', 'b', 'c', 'd'
   $single = @($items | Where-Object { @($_.q.answer).Count -eq 1 -and @($_.q.choices).Count -eq 4 })
   $count = @{ a = 0; b = 0; c = 0; d = 0 }
-  foreach ($it in $single) { $count[$it.q.answer[0]]++ }
+  $inLesson = @{}; $lessonSize = @{}
+  foreach ($it in $single) {
+    if (-not $inLesson.ContainsKey($it.lesson)) { $inLesson[$it.lesson] = @{ a = 0; b = 0; c = 0; d = 0 }; $lessonSize[$it.lesson] = 0 }
+    $count[$it.q.answer[0]]++; $inLesson[$it.lesson][$it.q.answer[0]]++; $lessonSize[$it.lesson]++
+  }
   $cap = [Math]::Ceiling($single.Count / 4)
   $rot = 0
-  foreach ($it in $single) {
-    $q = $it.q; $cur = $q.answer[0]
-    if ($count[$cur] -le $cap -or $it.keep -or (Test-Ordered $q.choices)) { continue }
-    $target = $letters | Where-Object { $count[$_] -lt $cap } | Sort-Object { $count[$_] }, { ([array]::IndexOf($letters, $_) - $rot + 4) % 4 } | Select-Object -First 1
-    if (-not $target) { continue }
-    $from = [array]::IndexOf($letters, $cur); $to = [array]::IndexOf($letters, $target)
-    $t = $q.choices[$from].text; $q.choices[$from].text = $q.choices[$to].text; $q.choices[$to].text = $t
-    $q.answer = @($target); $count[$cur]--; $count[$target]++; $rot = ($to + 1) % 4
-    $moved.Add("$($q.id): $cur -> $target")
+  # Pass 1 spreads the keys within each lesson; pass 2 across the pack, never past a lesson's quarter.
+  foreach ($pass in 1, 2) {
+    foreach ($it in $single) {
+      $q = $it.q; $cur = $q.answer[0]; $lc = $inLesson[$it.lesson]; $lcap = [Math]::Ceiling($lessonSize[$it.lesson] / 4)
+      if ($it.keep -or (Test-Ordered $q.choices)) { continue }
+      if ($pass -eq 1) {
+        if ($lc[$cur] -le $lcap) { continue }
+        $target = $letters | Where-Object { $lc[$_] -lt $lcap } | Sort-Object { $lc[$_] }, { $count[$_] }, { ([array]::IndexOf($letters, $_) - $rot + 4) % 4 } | Select-Object -First 1
+      } else {
+        if ($count[$cur] -le $cap) { continue }
+        $target = $letters | Where-Object { $count[$_] -lt $cap -and $lc[$_] -lt $lcap } | Sort-Object { $count[$_] }, { $lc[$_] }, { ([array]::IndexOf($letters, $_) - $rot + 4) % 4 } | Select-Object -First 1
+      }
+      if (-not $target) { continue }
+      $from = [array]::IndexOf($letters, $cur); $to = [array]::IndexOf($letters, $target)
+      $t = $q.choices[$from].text; $q.choices[$from].text = $q.choices[$to].text; $q.choices[$to].text = $t
+      $q.answer = @($target); $count[$cur]--; $count[$target]++; $lc[$cur]--; $lc[$target]++; $rot = ($to + 1) % 4
+      $moved.Add("$($q.id): $cur -> $target")
+    }
   }
   $j = 0
   foreach ($it in $items) {
@@ -340,6 +356,7 @@ if ($CardsOnly) { 'Questions: not built (-CardsOnly)' }
 else {
   "Questions: $($items.Count) (" + (($items | Group-Object lesson | ForEach-Object { "$($_.Name): $($_.Count)" }) -join ', ') + "); choose two or three: " + @($items | Where-Object { @($_.q.answer).Count -gt 1 }).Count
   "Single-answer keys: $spread; keys moved by the spread: $($moved.Count) (keys-moved.txt)"
+  "Single-answer keys by lesson: " + (($items | Where-Object { @($_.q.answer).Count -eq 1 } | Group-Object lesson | ForEach-Object { "$($_.Name) " + (($_.Group | Group-Object { $_.q.answer[0] } | Sort-Object Name | ForEach-Object { "$($_.Name)=$($_.Count)" }) -join ' ') }) -join '; ')
   "Question problems: $($problems.Count)"; $problems | ForEach-Object { "  $_" }
 }
 if (Test-Path -LiteralPath $cardFile) { "Flashcards: $($cards.Count); card problems: $($cardProblems.Count)"; $cardProblems | ForEach-Object { "  $_" } }
