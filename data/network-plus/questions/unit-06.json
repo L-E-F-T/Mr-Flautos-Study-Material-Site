@@ -1055,10 +1055,10 @@
       "units": ["6.3.2", "6.3.3"],
       "reference": {
         "source": "certmaster",
-        "section": "6.3.2",
-        "title": "IPv6 Interface Autoconfiguration and Testing",
+        "section": "6.3.3",
+        "title": "DHCPv6 Server Configuration",
         "quote": "",
-        "find": "server to perform stateful autoconfiguration"
+        "find": "used to supply options information"
       },
       "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q150" }
     },

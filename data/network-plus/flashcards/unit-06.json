@@ -21,7 +21,7 @@
     {
       "id": "n-u06-f003",
       "term": "SSH (Secure Shell)",
-      "definition": "Secure Shell; port 22, which SFTP (FTP over SSH) also uses.",
+      "definition": "The protocol that uses well-known port 22, which SFTP also uses.",
       "objectives": ["1.4", "1.4.a"],
       "units": ["6.1.6"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
@@ -109,7 +109,7 @@
     {
       "id": "n-u06-f014",
       "term": "SMB (Server Message Block)",
-      "definition": "Server Message Block running over TCP/IP; port 445.",
+      "definition": "The protocol that uses well-known port 445.",
       "objectives": ["1.4", "1.4.a"],
       "units": ["6.1.6"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
@@ -157,7 +157,7 @@
     {
       "id": "n-u06-f020",
       "term": "POP3 (Post Office Protocol version 3)",
-      "definition": "The Post Office Protocol, which uses well-known port 110.",
+      "definition": "The protocol that uses well-known port 110.",
       "objectives": ["1.4", "1.4.a"],
       "units": ["6.1.6"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
@@ -261,7 +261,7 @@
     {
       "id": "n-u06-f033",
       "term": "DHCP lease time",
-      "definition": "How long a client may keep a leased address; the client tries to renew at half the lease time, and a shorter lease returns addresses of inactive hosts to the pool sooner.",
+      "definition": "How long a client may keep a leased address; a shorter lease returns addresses of inactive hosts to the pool sooner.",
       "objectives": ["3.4", "3.4.a"],
       "units": ["6.2.3"],
       "reference": { "source": "certmaster", "section": "6.2.3", "title": "DHCP Options" }
@@ -341,7 +341,7 @@
     {
       "id": "n-u06-f043",
       "term": "DoT (DNS over TLS)",
-      "definition": "Encrypts a client's DNS queries with TLS; port 853.",
+      "definition": "Encrypts a client's DNS queries with TLS directly, not inside HTTPS.",
       "objectives": ["3.4", "3.4.b"],
       "units": ["6.5.10"],
       "reference": { "source": "certmaster", "section": "6.5.10", "title": "DNS Security" }
@@ -541,7 +541,7 @@
     {
       "id": "n-u06-f068",
       "term": "nslookup",
-      "definition": "A DNS troubleshooting command, nslookup -Option Host DNSServer, that queries the default DNS server unless a server is named at the end.",
+      "definition": "A DNS troubleshooting command that queries the default DNS server, or another DNS server you name at the end of the command.",
       "objectives": ["5.5", "5.5.a"],
       "units": ["6.6.3"],
       "reference": { "source": "certmaster", "section": "6.6.3", "title": "nslookup" }
@@ -549,7 +549,7 @@
     {
       "id": "n-u06-f069",
       "term": "dig (Domain Information Groper)",
-      "definition": "A command line tool for querying DNS servers that ships with BIND; it uses the default resolver unless a server is named after the @ symbol.",
+      "definition": "A command line tool for querying DNS servers; it uses the default resolver unless you name a server after the @ symbol.",
       "objectives": ["5.5", "5.5.a"],
       "units": ["6.6.4"],
       "reference": { "source": "certmaster", "section": "6.6.4", "title": "dig" }
