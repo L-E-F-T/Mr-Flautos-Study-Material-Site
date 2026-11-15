@@ -53,7 +53,7 @@
     {
       "id": "c1-u07-f007",
       "term": "NTP (Network Time Protocol)",
-      "definition": "Lets networked systems sync their clocks to a common source so log entries have accurate time stamps; the most accurate source, an atomic clock, is Stratum 0.",
+      "definition": "Lets networked systems sync their clocks to a common source so log entries have accurate time stamps.",
       "objectives": ["2.3", "2.3.a"],
       "units": ["7.1.10"],
       "reference": { "source": "certmaster", "section": "7.1.10", "title": "Time Servers" }
@@ -181,7 +181,7 @@
     {
       "id": "c1-u07-f023",
       "term": "High latency",
-      "definition": "A signal taking too long to reach the recipient, made worse by distance and router processing delays; VoIP allows only about 150 ms one way.",
+      "definition": "A signal taking too long to reach the recipient, made worse by distance and router processing delays.",
       "objectives": ["5.5", "5.5.a"],
       "units": ["7.3.5"],
       "reference": { "source": "certmaster", "section": "7.3.5", "title": "Troubleshoot VoIP Issues" }
@@ -189,7 +189,7 @@
     {
       "id": "c1-u07-f024",
       "term": "Jitter",
-      "definition": "The variation in delay over time, measured by sampling the time between arriving packets; usually caused by congestion on routers and switches, and VoIP buffering tolerates up to about 30 ms.",
+      "definition": "The variation in delay over time, measured by sampling the time between arriving packets; usually caused by congestion on routers and switches, and VoIP buffering tolerates some of it.",
       "objectives": ["5.5", "5.5.a"],
       "units": ["7.3.5"],
       "reference": { "source": "certmaster", "section": "7.3.5", "title": "Troubleshoot VoIP Issues" }

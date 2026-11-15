@@ -197,7 +197,7 @@
     {
       "id": "c1-u09-f025",
       "term": "Contacts",
-      "definition": "Synced records with fields for name, address, email, and phone numbers; vCard is a widely supported standard format for them.",
+      "definition": "Synced records with fields for name, address, email, and phone numbers.",
       "objectives": ["1.3", "1.3.e"],
       "units": ["9.2.3"],
       "reference": { "source": "certmaster", "section": "9.2.3", "title": "Types of Data to Synchronize" }
@@ -205,7 +205,7 @@
     {
       "id": "c1-u09-f026",
       "term": "Calendar",
-      "definition": "Synced records of appointments or tasks, with fields such as subject, date, location, and participants; items can move between services in the iCalendar (ICS) format.",
+      "definition": "Synced records of appointments or tasks, with fields such as subject, date, location, and participants.",
       "objectives": ["1.3", "1.3.e"],
       "units": ["9.2.3"],
       "reference": { "source": "certmaster", "section": "9.2.3", "title": "Types of Data to Synchronize" }
@@ -277,7 +277,7 @@
     {
       "id": "c1-u09-f035",
       "term": "Laptop battery",
-      "definition": "A removable, rechargeable lithium-ion (Li-ion) pack, typically in 6-, 9-, or 12-cell versions; turn the laptop off and unplug it before removing one.",
+      "definition": "A removable, rechargeable lithium-ion (Li-ion) pack; turn the laptop off and unplug it before removing one.",
       "objectives": ["1.1", "1.1.a"],
       "units": ["9.3.2"],
       "reference": { "source": "certmaster", "section": "9.3.2", "title": "Battery Replacement" }
@@ -357,7 +357,7 @@
     {
       "id": "c1-u09-f045",
       "term": "Broken screen",
-      "definition": "Cracked or shattered glass, which a drop of over 1 m onto a hard surface will usually cause; repair likely needs warranty or professional service.",
+      "definition": "Cracked or shattered glass, for example from a drop onto a hard surface; repair likely needs warranty or professional service.",
       "objectives": ["5.4", "5.4.a"],
       "units": ["9.4.4"],
       "reference": { "source": "certmaster", "section": "9.4.4", "title": "Screen and Calibration Issues" }

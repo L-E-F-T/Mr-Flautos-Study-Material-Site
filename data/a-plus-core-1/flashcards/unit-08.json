@@ -181,7 +181,7 @@
     {
       "id": "c1-u08-f023",
       "term": "Availability",
-      "definition": "How much of the time a cloud service stays up; high availability means minimal downtime, such as Five Nines (99.999%), only 5 minutes and 15 seconds of downtime a year.",
+      "definition": "How much of the time a cloud service stays up; high availability means minimal downtime.",
       "objectives": ["4.2", "4.2.b"],
       "units": ["8.2.1"],
       "reference": { "source": "certmaster", "section": "8.2.1", "title": "Cloud Characteristics" }

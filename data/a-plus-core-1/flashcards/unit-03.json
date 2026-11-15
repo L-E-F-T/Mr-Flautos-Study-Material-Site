@@ -107,14 +107,6 @@
       "reference": { "source": "certmaster", "section": "3.3.5", "title": "Multi-channel System Memory" }
     },
     {
-      "id": "c1-u03-f014",
-      "term": "Flex mode",
-      "definition": "A mode for mismatched module sizes that runs the matching amount in dual-channel and the leftover memory in single-channel.",
-      "objectives": ["3.3", "3.3.d"],
-      "units": ["3.3.5"],
-      "reference": { "source": "certmaster", "section": "3.3.5", "title": "Multi-channel System Memory" }
-    },
-    {
       "id": "c1-u03-f015",
       "term": "Hard disk drive (HDD)",
       "definition": "A drive that stores data on spinning metal or glass platters with a magnetic coating, using read/write heads on a moving actuator; most connect by SATA.",

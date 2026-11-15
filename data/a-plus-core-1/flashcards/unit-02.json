@@ -189,7 +189,7 @@
     {
       "id": "c1-u02-f024",
       "term": "PCI (Peripheral Component Interconnect)",
-      "definition": "The legacy parallel expansion bus, typically 32-bit at up to 133 MBps, that PCIe replaced; its cards cannot fit into PCIe slots.",
+      "definition": "The legacy parallel expansion bus that PCIe replaced; its cards cannot fit into PCIe slots.",
       "objectives": ["3.5", "3.5.b"],
       "units": ["2.2.6"],
       "reference": { "source": "certmaster", "section": "2.2.6", "title": "Peripheral Component Interconnect Interface" }
@@ -221,7 +221,7 @@
     {
       "id": "c1-u02-f028",
       "term": "Header (motherboard)",
-      "definition": "A motherboard connector for parts on the case panels, such as the power button, drive activity light, audio ports, and USB ports (9-pin for USB 2, 20-pin for USB 3).",
+      "definition": "A motherboard connector for parts on the case panels, such as the power button, drive activity light, audio ports, and USB ports.",
       "objectives": ["3.5", "3.5.b"],
       "units": ["2.2.10"],
       "reference": { "source": "certmaster", "section": "2.2.10", "title": "Motherboard Headers and Power Connectors" }
@@ -285,7 +285,7 @@
     {
       "id": "c1-u02-f036",
       "term": "Serial (RS-232)",
-      "definition": "A legacy interface that sends data one bit at a time at up to about 115 Kbps; Windows calls it a COM port, and network equipment may still use it for device management.",
+      "definition": "A legacy interface that sends data one bit at a time, usually through a 9-pin DB9 port on PCs; Windows calls it a COM port, and network equipment may still use it for device management.",
       "objectives": ["3.2", "3.2.b"],
       "units": ["2.3.3"],
       "reference": { "source": "certmaster", "section": "2.3.3", "title": "Serial Cables" }

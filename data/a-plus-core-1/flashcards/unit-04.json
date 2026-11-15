@@ -197,7 +197,7 @@
     {
       "id": "c1-u04-f025",
       "term": "RTC battery (Real-Time Clock)",
-      "definition": "The coin-cell lithium battery, usually a CR2032, that keeps the real-time clock running while the PC is off; often called the CMOS battery.",
+      "definition": "The coin-cell lithium battery that keeps the real-time clock running while the PC is off; often called the CMOS battery.",
       "objectives": ["5.1", "5.1.a"],
       "units": ["4.3.5"],
       "reference": { "source": "certmaster", "section": "4.3.5", "title": "Troubleshoot Inaccurate System Date/Time" }
@@ -224,14 +224,6 @@
       "definition": "Drive lights: none lit can mean the system or drive has no power, or a RAID array is missing or failed, and a red LED usually marks a failed disk.",
       "objectives": ["5.2", "5.2.a"],
       "units": ["4.2.9", "4.2.12"],
-      "reference": { "source": "certmaster", "section": "4.2.9", "title": "Troubleshoot Drive Availability" }
-    },
-    {
-      "id": "c1-u04-f029",
-      "term": "Disk thrashing",
-      "definition": "Nonstop drive activity, seen as constant drive LED activity; it could mean the system has too little RAM, causing excessive paging to the disk, or a faulty software process, malware, or a failing disk.",
-      "objectives": ["5.2", "5.2.a"],
-      "units": ["4.2.9"],
       "reference": { "source": "certmaster", "section": "4.2.9", "title": "Troubleshoot Drive Availability" }
     },
     {
@@ -296,14 +288,6 @@
       "definition": "No image because the monitor is set to the wrong port, such as an empty DVI port instead of the HDMI port in use; choose the input in the OSD.",
       "objectives": ["5.3", "5.3.a"],
       "units": ["4.3.6"],
-      "reference": { "source": "certmaster", "section": "4.3.6", "title": "Troubleshoot Missing Video Issues" }
-    },
-    {
-      "id": "c1-u04-f038",
-      "term": "OSD (On-Screen Display)",
-      "definition": "The monitor's own menus, worked by buttons on its case, for choosing the input source and adjusting brightness, color, contrast, and power saving.",
-      "objectives": ["5.3", "5.3.a"],
-      "units": ["4.3.6", "4.3.7"],
       "reference": { "source": "certmaster", "section": "4.3.6", "title": "Troubleshoot Missing Video Issues" }
     },
     {
