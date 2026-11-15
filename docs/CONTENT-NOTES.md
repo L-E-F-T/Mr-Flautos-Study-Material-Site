@@ -280,7 +280,7 @@ Judged against the sections of Units 1.0 to 7.0 and the `byUnit` chapters of Uni
 
 Exam-weighted facts in Unit 6.0 with no usable pool or practice exam item, and none of Mr. Flauto's items to fill them, so they are on flashcards only: the ports of SFTP (22, the SSH port), LDAP (389), SMB (445), LDAPS (636), and SIP (5060/5061), and SNMP's trap port, 162 (a wrong choice in n-u06-q030). SQL Server's port, 1433, has a question (n-u06-q032) but no card (the card failed the last check round). Every 1.4.a port pair has a question, a card, or both. DNSSEC's own record types have neither: Practice Tests 3 Q148 keys RRSIG, DNSKEY, and DS, but 6.5.10 names RRSIG and NSEC3 only in a figure's description and never names DNSKEY or DS.
 
-Unit 5.0: 5.3.a's "ACLs" (an ACL as a switching issue) has no question of its own; n-u05-q044 and q045 ask ACL rules as firewall facts (1.2.a), and the troubleshooting items on it (Practice Tests 5 Q95, 7 Q65) are other units'. Routing loops, split horizon, RIP's 15-hop limit, static NAT, port forwarding, and trunk and access ports have no exam evidence beyond wrong choices, so they have no question. show arp and show vlan (5.5.c) have cards but no question.
+Unit 5.0: 5.3.a's "ACLs" (an ACL as a switching issue) has no question of its own; n-u05-q044 and q045 ask ACL rules as firewall facts (1.2.a), and the troubleshooting items on it (Practice Tests 5 Q95, 7 Q65) are other units'. Routing loops, split horizon, RIP's 15-hop limit, static NAT, and port forwarding have no exam evidence beyond wrong choices, so they have no question. Trunk versus access ports is asked once, in n-u05-q058 (CertMaster 5.0 Q353). show arp and show vlan (5.5.c) have cards but no question.
 
 ### For later units
 

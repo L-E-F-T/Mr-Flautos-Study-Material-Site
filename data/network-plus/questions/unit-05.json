@@ -934,7 +934,7 @@
         "section": "5.4.1",
         "title": "Firewall Uses and Types",
         "quote": "",
-        "find": "specific type of data packet and"
+        "find": "source and/or destination IP address"
       },
       "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q238" }
     },
