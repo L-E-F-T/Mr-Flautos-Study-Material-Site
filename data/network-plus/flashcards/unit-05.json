@@ -175,7 +175,7 @@
       "term": "NAT (Network Address Translation)",
       "definition": "A service on a border device, such as a router, proxy server, or firewall, that converts between private LAN addresses and public ones; the static form maps them 1:1.",
       "objectives": ["2.1", "2.1.d"],
-      "units": ["5.3.2"],
+      "units": ["5.3.2", "4.3.2"],
       "reference": { "source": "certmaster", "section": "5.3.2", "title": "Network Address Translation Types" }
     },
     {
@@ -271,7 +271,7 @@
       "term": "Routing table",
       "definition": "A router's or host's list of available paths, each entry giving a destination, the interface to use, and the next hop.",
       "objectives": ["5.3", "5.3.b"],
-      "units": ["5.1.1", "5.1.7"],
+      "units": ["5.1.1", "5.1.7", "4.2.5"],
       "reference": { "source": "certmaster", "section": "5.1.1", "title": "Routing Tables and Path Selection" }
     },
     {

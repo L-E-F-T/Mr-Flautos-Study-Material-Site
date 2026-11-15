@@ -1,0 +1,1301 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-04", "title": "Unit 4.0 Configuring Network Addressing", "reviewed": false },
+  "questions": [
+    {
+      "id": "n-u04-q001",
+      "stem": "A router drops a packet because it has no route to the packet's destination network. Which of the following Network layer protocols does the router use to tell the sending host that the packet was undeliverable?",
+      "choices": [
+        { "id": "a", "text": "ICMP" },
+        { "id": "b", "text": "OSPF" },
+        { "id": "c", "text": "GRE" },
+        { "id": "d", "text": "ESP" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.1", "1.1.c"],
+      "units": ["4.1.1", "4.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.1",
+        "title": "IPv4 Datagram Header",
+        "quote": "",
+        "find": "is used for status messaging"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q30" }
+    },
+    {
+      "id": "n-u04-q002",
+      "stem": "A technician filters a packet capture to show only the IPv4 packets that carry no TCP or UDP header. Which of the following protocols could appear in the filtered capture?",
+      "choices": [
+        { "id": "a", "text": "DHCP" },
+        { "id": "b", "text": "ICMP" },
+        { "id": "c", "text": "DNS" },
+        { "id": "d", "text": "IGMP" },
+        { "id": "e", "text": "BGP" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["4.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.1",
+        "title": "IPv4 Datagram Header",
+        "quote": "",
+        "find": "protocols run directly on IP"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q113" }
+    },
+    {
+      "id": "n-u04-q003",
+      "stem": "A school's router connects a classroom subnet and an office subnet, and each subnet's hosts plug into their own basic switch. Which of the following statements about this network are true?",
+      "choices": [
+        { "id": "a", "text": "The classroom switch forwards frames by MAC address" },
+        { "id": "b", "text": "The switches, not the router's interfaces, divide the network into its subnets" },
+        { "id": "c", "text": "A broadcast from one classroom PC reaches all the other classroom PCs" },
+        { "id": "d", "text": "Two classroom PCs must send traffic to each other through the router" },
+        { "id": "e", "text": "The router forwards traffic between the two subnets at layer 3" }
+      ],
+      "answer": ["a", "c", "e"],
+      "objectives": ["1.1", "1.1.b", "1.1.c"],
+      "units": ["4.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.2",
+        "title": "Layer 2 vs Layer 3 Addressing and Forwarding",
+        "quote": "",
+        "find": "layer 2 is described as switching"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q44" }
+    },
+    {
+      "id": "n-u04-q004",
+      "stem": "A technician is installing a router between a company's sales subnet and its warehouse subnet. Which of the following statements about the router are true?",
+      "choices": [
+        { "id": "a", "text": "It learns its routes from the MAC addresses in the frames it receives" },
+        { "id": "b", "text": "It marks where one broadcast domain ends and another begins" },
+        { "id": "c", "text": "It sends a packet with no known route out of every interface" },
+        { "id": "d", "text": "It can join networks that use different layer 2 technologies" },
+        { "id": "e", "text": "It uses one IP address on all of its interfaces" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["1.1", "1.1.c"],
+      "units": ["4.1.4", "4.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.4",
+        "title": "Unicast and Broadcast Addressing",
+        "quote": "",
+        "find": "Broadcast domain boundaries are established"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q50" }
+    },
+    {
+      "id": "n-u04-q005",
+      "stem": "A server sends a software update as multicast traffic to the lab PCs that joined its group, but the switch floods the update out of every port. Which of the following would let the switch deliver the update only to the group's members?",
+      "choices": [
+        { "id": "a", "text": "ARP caching" },
+        { "id": "b", "text": "Multicast MAC addressing" },
+        { "id": "c", "text": "Anycast forwarding" },
+        { "id": "d", "text": "IGMP snooping" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.c"],
+      "units": ["4.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.1.5",
+        "title": "Multicast and Anycast Addressing",
+        "quote": "",
+        "find": "must be capable of IGMP snooping"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q226" }
+    },
+    {
+      "id": "n-u04-q006",
+      "stem": "An administrator is planning the address scheme for a college campus that was assigned 172.28.64.0/18. How many bits of each IPv4 address on this network are left for the host ID?",
+      "choices": [
+        { "id": "a", "text": "6 bits" },
+        { "id": "b", "text": "8 bits" },
+        { "id": "c", "text": "14 bits" },
+        { "id": "d", "text": "18 bits" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.2",
+        "title": "Network Masks",
+        "quote": "",
+        "find": "prefix is simply the number"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q5" }
+    },
+    {
+      "id": "n-u04-q007",
+      "stem": "A technician converts a laptop's IPv4 address and subnet mask to binary and ANDs the two values together. Which of the following does the result show?",
+      "choices": [
+        { "id": "a", "text": "The host ID of the laptop's address" },
+        { "id": "b", "text": "The default gateway of the laptop's subnet" },
+        { "id": "c", "text": "The broadcast address of the laptop's subnet" },
+        { "id": "d", "text": "The network ID of the laptop's subnet" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.2",
+        "title": "Network Masks",
+        "quote": "",
+        "find": "revealed by ANDing the mask to"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q102" }
+    },
+    {
+      "id": "n-u04-q008",
+      "stem": "A retail chain splits its 172.27.0.0/16 network into subnets, one for each store, and uses 6 bits of each address for the subnet ID. Which of the following shows how each address is now divided?",
+      "choices": [
+        { "id": "a", "text": "16-bit network ID, 6-bit subnet ID, 10-bit host ID" },
+        { "id": "b", "text": "13-bit network ID, 6-bit subnet ID, 13-bit host ID" },
+        { "id": "c", "text": "10-bit network ID, 6-bit subnet ID, 16-bit host ID" },
+        { "id": "d", "text": "16-bit network ID, 6-bit subnet ID, 16-bit host ID" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.3",
+        "title": "Subnet Masks",
+        "quote": "",
+        "find": "bits from the host portion of"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q228" }
+    },
+    {
+      "id": "n-u04-q009",
+      "stem": "A technician is giving a network printer a static IPv4 address on the 10.84.20.0/22 network. Which of the following subnet masks should the technician enter?",
+      "choices": [
+        { "id": "a", "text": "255.255.248.0" },
+        { "id": "b", "text": "255.255.252.0" },
+        { "id": "c", "text": "255.255.254.0" },
+        { "id": "d", "text": "255.255.255.252" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.3",
+        "title": "Subnet Masks",
+        "quote": "",
+        "find": "an IPv4 mask will always be"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q251" }
+    },
+    {
+      "id": "n-u04-q010",
+      "stem": "A school district's internal network uses the address block 10.96.0.0/11. Which of the following subnet masks is the same as this prefix?",
+      "choices": [
+        { "id": "a", "text": "255.192.0.0" },
+        { "id": "b", "text": "255.224.0.0" },
+        { "id": "c", "text": "255.240.0.0" },
+        { "id": "d", "text": "255.255.224.0" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.3",
+        "title": "Subnet Masks",
+        "quote": "",
+        "find": "you can work out the octets"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q78" }
+    },
+    {
+      "id": "n-u04-q011",
+      "stem": "While working out a subnet on paper, a technician writes its mask in binary as 11111111 11111111 11111111 11000000. Which of the following is this mask in dotted decimal notation?",
+      "choices": [
+        { "id": "a", "text": "255.255.255.128" },
+        { "id": "b", "text": "255.255.255.192" },
+        { "id": "c", "text": "255.255.255.224" },
+        { "id": "d", "text": "255.255.255.252" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.3",
+        "title": "Subnet Masks",
+        "quote": "",
+        "find": "converting masks between binary and decimal"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q245" }
+    },
+    {
+      "id": "n-u04-q012",
+      "stem": "A laptop at 10.30.7.85 is on a switched network with no router, and every host on that network uses the mask 255.255.255.240. Which of the following host addresses can the laptop reach?",
+      "choices": [
+        { "id": "a", "text": "10.30.7.69" },
+        { "id": "b", "text": "10.30.7.78" },
+        { "id": "c", "text": "10.30.7.93" },
+        { "id": "d", "text": "10.30.7.99" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.5",
+        "title": "Default Gateway",
+        "quote": "",
+        "find": "masked portions of the source and"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q226" }
+    },
+    {
+      "id": "n-u04-q013",
+      "stem": "A workstation at 10.20.40.15 copies a file to a server at 10.20.90.15, which is on a different subnet. Where will the workstation send the file's packets?",
+      "choices": [
+        { "id": "a", "text": "To its default gateway" },
+        { "id": "b", "text": "Directly to the server" },
+        { "id": "c", "text": "To its DNS server" },
+        { "id": "d", "text": "To its subnet's broadcast address" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.d"],
+      "units": ["4.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.5",
+        "title": "Default Gateway",
+        "quote": "",
+        "find": "the host forwards the packet to"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q118" }
+    },
+    {
+      "id": "n-u04-q014",
+      "stem": "An administrator assigns a large department the subnet 10.12.16.0 with the mask 255.255.248.0. Which of the following is the broadcast address of this subnet?",
+      "choices": [
+        { "id": "a", "text": "10.12.16.255" },
+        { "id": "b", "text": "10.12.19.255" },
+        { "id": "c", "text": "10.12.23.254" },
+        { "id": "d", "text": "10.12.23.255" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.2.6",
+        "title": "Broadcast Addresses",
+        "quote": "",
+        "find": "all the host bits are set"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q92" }
+    },
+    {
+      "id": "n-u04-q015",
+      "stem": "A technician is updating an older network diagram that labels each network by its address class. Which of the following classes should the diagram show for a file server at 188.43.120.6?",
+      "choices": [
+        { "id": "a", "text": "Class A" },
+        { "id": "b", "text": "Class B" },
+        { "id": "c", "text": "Class C" },
+        { "id": "d", "text": "Class D" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.7", "1.7.c"],
+      "units": ["4.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.1",
+        "title": "Classful Addressing",
+        "quote": "",
+        "find": "identify the address class from"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q236" }
+    },
+    {
+      "id": "n-u04-q016",
+      "stem": "A technician is configuring a router interface on a Class B network that has not been divided into subnets. Which of the following prefix lengths should the interface use?",
+      "choices": [
+        { "id": "a", "text": "/8" },
+        { "id": "b", "text": "/16" },
+        { "id": "c", "text": "/20" },
+        { "id": "d", "text": "/24" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.7", "1.7.c"],
+      "units": ["4.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.1",
+        "title": "Classful Addressing",
+        "quote": "",
+        "find": "Class B: 255.255.0.0 (/16)"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q45" }
+    },
+    {
+      "id": "n-u04-q017",
+      "stem": "A manufacturing company's network documentation says that every host on its private network uses the Class A mask. Which of the following should a technician assign to a new file server?",
+      "choices": [
+        { "id": "a", "text": "10.41.7.25/8" },
+        { "id": "b", "text": "10.41.7.25/16" },
+        { "id": "c", "text": "10.41.7.25/24" },
+        { "id": "d", "text": "10.41.7.25/28" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.7", "1.7.c"],
+      "units": ["4.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.1",
+        "title": "Classful Addressing",
+        "quote": "",
+        "find": "Class A: 255.0.0.0 (/8)"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q233" }
+    },
+    {
+      "id": "n-u04-q018",
+      "stem": "A server's management interface accepts connections only from RFC 1918 private addresses. Which of the following source addresses will the server refuse?",
+      "choices": [
+        { "id": "a", "text": "10.231.4.18" },
+        { "id": "b", "text": "172.31.240.5" },
+        { "id": "c", "text": "172.32.16.9" },
+        { "id": "d", "text": "192.168.250.33" },
+        { "id": "e", "text": "192.169.20.14" }
+      ],
+      "answer": ["c", "e"],
+      "objectives": ["1.7", "1.7.a"],
+      "units": ["4.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.2",
+        "title": "Public vs Private Addressing",
+        "quote": "",
+        "find": "addresses defined in RFC 1918"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q231" }
+    },
+    {
+      "id": "n-u04-q019",
+      "stem": "A technician needs a static address for a new IP camera on a company network that uses only RFC 1918 private addresses and the mask 255.255.0.0 on every subnet. Which of the following addresses could the camera use?",
+      "choices": [
+        { "id": "a", "text": "10.62.14.130" },
+        { "id": "b", "text": "11.20.9.6" },
+        { "id": "c", "text": "172.32.40.17" },
+        { "id": "d", "text": "231.18.6.2" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.7", "1.7.a"],
+      "units": ["4.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.2",
+        "title": "Public vs Private Addressing",
+        "quote": "",
+        "find": "10.0.0.0 to 10.255.255.255"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q250" }
+    },
+    {
+      "id": "n-u04-q020",
+      "stem": "A company has one public IPv4 address from its ISP, and its staff PCs will reach websites through a proxy server. Which of the following addressing setups should the company use?",
+      "choices": [
+        { "id": "a", "text": "Private addresses on the PCs and a public address on the proxy's external interface" },
+        { "id": "b", "text": "Public addresses on the PCs and a private address on the proxy's external interface" },
+        { "id": "c", "text": "Private addresses on the PCs and a private address on the proxy's external interface" },
+        { "id": "d", "text": "Public addresses on the PCs and a public address on the proxy's external interface" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.7", "1.7.a"],
+      "units": ["4.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.2",
+        "title": "Public vs Private Addressing",
+        "quote": "",
+        "find": "must be configured with a public"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q60" }
+    },
+    {
+      "id": "n-u04-q021",
+      "stem": "A network engineer is setting up a video server to send its stream to a group of receivers as multicast traffic. Which of the following address classes should the stream's destination address come from?",
+      "choices": [
+        { "id": "a", "text": "Class B" },
+        { "id": "b", "text": "Class C" },
+        { "id": "c", "text": "Class D" },
+        { "id": "d", "text": "Class E" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.7", "1.7.c"],
+      "units": ["4.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.3",
+        "title": "Other Reserved Address Ranges",
+        "quote": "",
+        "find": "are used for multicasting"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q249" }
+    },
+    {
+      "id": "n-u04-q022",
+      "stem": "A technician wants to check that TCP/IP is correctly installed on a user's Windows laptop without sending any traffic out of its network adapter. Which of the following could the technician ping?",
+      "choices": [
+        { "id": "a", "text": "0.0.0.0" },
+        { "id": "b", "text": "127.0.0.1" },
+        { "id": "c", "text": "169.254.0.1" },
+        { "id": "d", "text": "localhost" },
+        { "id": "e", "text": "The default gateway" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["1.7", "1.7.a"],
+      "units": ["4.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.3",
+        "title": "Other Reserved Address Ranges",
+        "quote": "",
+        "find": "The name localhost can be substituted"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q201" }
+    },
+    {
+      "id": "n-u04-q023",
+      "stem": "An administrator is reviewing the network IDs proposed for a company's new /24 subnets, which can use public or private addresses. Which of the following network IDs could the company use?",
+      "choices": [
+        { "id": "a", "text": "10.48.7.0" },
+        { "id": "b", "text": "172.18.256.0" },
+        { "id": "c", "text": "198.40.12.0" },
+        { "id": "d", "text": "224.20.6.0" },
+        { "id": "e", "text": "241.36.9.0" }
+      ],
+      "answer": ["a", "c"],
+      "objectives": ["1.7", "1.7.c"],
+      "units": ["4.3.4", "4.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.4",
+        "title": "IPv4 Address Scheme Design",
+        "quote": "",
+        "find": "must be from a valid public"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q84" }
+    },
+    {
+      "id": "n-u04-q024",
+      "stem": "A technician is checking the static IPv4 addresses that a new employee typed into four network devices. Which of the following is a valid host address?",
+      "choices": [
+        { "id": "a", "text": "226.81.5.40" },
+        { "id": "b", "text": "127.30.6.14" },
+        { "id": "c", "text": "249.7.12.30" },
+        { "id": "d", "text": "141.26.9.18" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.7", "1.7.c"],
+      "units": ["4.3.4", "4.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.4",
+        "title": "IPv4 Address Scheme Design",
+        "quote": "",
+        "find": "from a valid public or"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q253" }
+    },
+    {
+      "id": "n-u04-q025",
+      "stem": "A branch office has been given the subnet 10.60.8.0/21 for all of its devices. How many hosts can this subnet support?",
+      "choices": [
+        { "id": "a", "text": "1,022" },
+        { "id": "b", "text": "1,024" },
+        { "id": "c", "text": "2,046" },
+        { "id": "d", "text": "2,048" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.4",
+        "title": "IPv4 Address Scheme Design",
+        "quote": "",
+        "find": "hosts per subnet can be expressed"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q243" }
+    },
+    {
+      "id": "n-u04-q026",
+      "stem": "An administrator is dividing the Class B network 172.22.0.0/16 into equal subnets by adding 7 bits to the default mask. How many subnets will this create?",
+      "choices": [
+        { "id": "a", "text": "126" },
+        { "id": "b", "text": "128" },
+        { "id": "c", "text": "510" },
+        { "id": "d", "text": "512" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.4",
+        "title": "IPv4 Address Scheme Design",
+        "quote": "",
+        "find": "The exponent is the number of"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q240" }
+    },
+    {
+      "id": "n-u04-q027",
+      "stem": "A small company's Class C network, 192.168.50.0/24, must be split into 4 subnets of 62 hosts each, one for each floor. Which of the following masks should every subnet use?",
+      "choices": [
+        { "id": "a", "text": "255.255.255.128" },
+        { "id": "b", "text": "255.255.255.192" },
+        { "id": "c", "text": "255.255.255.224" },
+        { "id": "d", "text": "255.255.255.240" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.4",
+        "title": "IPv4 Address Scheme Design",
+        "quote": "",
+        "find": "how many subnets are required"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q62" }
+    },
+    {
+      "id": "n-u04-q028",
+      "stem": "A university plans to split its Class B network, 172.29.0.0/16, into 40 department subnets with room for 900 hosts on each. Which of the following designs meets this need?",
+      "choices": [
+        { "id": "a", "text": "5 subnet bits and the mask 255.255.248.0" },
+        { "id": "b", "text": "6 subnet bits and the mask 255.255.252.0" },
+        { "id": "c", "text": "7 subnet bits and the mask 255.255.254.0" },
+        { "id": "d", "text": "8 subnet bits and the mask 255.255.255.0" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.4",
+        "title": "IPv4 Address Scheme Design",
+        "quote": "",
+        "find": "up to the nearest power"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q242" }
+    },
+    {
+      "id": "n-u04-q029",
+      "stem": "A network team divides the Class B network 172.25.0.0/16 into subnets with the mask 255.255.224.0. Which of the following does this design provide?",
+      "choices": [
+        { "id": "a", "text": "4 subnets with 16,382 hosts each" },
+        { "id": "b", "text": "6 subnets with 8,192 hosts each" },
+        { "id": "c", "text": "8 subnets with 8,190 hosts each" },
+        { "id": "d", "text": "16 subnets with 4,094 hosts each" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.4",
+        "title": "IPv4 Address Scheme Design",
+        "quote": "",
+        "find": "hosts per subnet can be expressed"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q244" }
+    },
+    {
+      "id": "n-u04-q030",
+      "stem": "A technician is assigning static addresses to the devices on the subnet 172.16.9.224/28. Which of the following is the usable host range for this subnet?",
+      "choices": [
+        { "id": "a", "text": "172.16.9.225 to 172.16.9.230" },
+        { "id": "b", "text": "172.16.9.225 to 172.16.9.238" },
+        { "id": "c", "text": "172.16.9.225 to 172.16.9.239" },
+        { "id": "d", "text": "172.16.9.225 to 172.16.9.254" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.4",
+        "title": "IPv4 Address Scheme Design",
+        "quote": "",
+        "find": "deduct two binary digits from it"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q246" }
+    },
+    {
+      "id": "n-u04-q031",
+      "stem": "An administrator is subnetting one IP network for a 100-host office, a 25-host office, and several point-to-point WAN links, and wants each subnet to be only as large as it needs. Which of the following should the administrator use?",
+      "choices": [
+        { "id": "a", "text": "VLSM" },
+        { "id": "b", "text": "NAT" },
+        { "id": "c", "text": "Supernetting" },
+        { "id": "d", "text": "Classful addressing" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.3.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.6",
+        "title": "Variable Length Subnet Masks",
+        "quote": "",
+        "find": "VLSM allows different length netmasks"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q237" }
+    },
+    {
+      "id": "n-u04-q032",
+      "stem": "A technician is setting up a new Windows laptop for a teacher and needs to confirm that DHCP is enabled on its network adapter. Which of the following commands should the technician run?",
+      "choices": [
+        { "id": "a", "text": "ipconfig /all" },
+        { "id": "b", "text": "ifconfig" },
+        { "id": "c", "text": "ipconfig" },
+        { "id": "d", "text": "ipconfig /displaydns" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.1",
+        "title": "ipconfig",
+        "quote": "",
+        "find": "displays complete TCP/IP configuration parameters"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q202" }
+    },
+    {
+      "id": "n-u04-q033",
+      "stem": "A company's engineers use Linux workstations, and its sales staff use Windows laptops. Which of the following commands should a technician run to check the IPv4 address and subnet mask on a sales laptop?",
+      "choices": [
+        { "id": "a", "text": "ip addr" },
+        { "id": "b", "text": "ifconfig" },
+        { "id": "c", "text": "ipconfig" },
+        { "id": "d", "text": "ip link" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.1", "4.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.1",
+        "title": "ipconfig",
+        "quote": "",
+        "find": "On a Windows host, the ipconfig"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q195" }
+    },
+    {
+      "id": "n-u04-q034",
+      "stem": "A law office's replacement DHCP server hands out addresses on a different subnet, but one Windows PC still has the address it got from the old server. Which of the following commands should a technician run on the PC so that it gets an address from the replacement server?",
+      "choices": [
+        { "id": "a", "text": "ipconfig /flushdns" },
+        { "id": "b", "text": "ipconfig /release" },
+        { "id": "c", "text": "arp -d *" },
+        { "id": "d", "text": "ipconfig /renew" },
+        { "id": "e", "text": "ipconfig /registerdns" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.1",
+        "title": "ipconfig",
+        "quote": "",
+        "find": "releases the IP address obtained"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q98" }
+    },
+    {
+      "id": "n-u04-q035",
+      "stem": "A technician is documenting the network settings of a Linux file server. Which of the following commands will show the IPv4 address and netmask on its eth0 interface?",
+      "choices": [
+        { "id": "a", "text": "ifconfig" },
+        { "id": "b", "text": "ip link" },
+        { "id": "c", "text": "ipconfig" },
+        { "id": "d", "text": "arp -a" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.2",
+        "title": "ifconfig and ip",
+        "quote": "",
+        "find": "ifconfig can still safely be used"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q182" }
+    },
+    {
+      "id": "n-u04-q036",
+      "stem": "After a Linux web server restarts, users can no longer reach its website, and a technician suspects the server now has no IPv4 configuration. Which of the following commands should the technician run on the server to check?",
+      "choices": [
+        { "id": "a", "text": "ip link" },
+        { "id": "b", "text": "ip neigh" },
+        { "id": "c", "text": "ip addr" },
+        { "id": "d", "text": "ipconfig /all" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.2",
+        "title": "ifconfig and ip",
+        "quote": "",
+        "find": "is performed by running ip addr"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q264" }
+    },
+    {
+      "id": "n-u04-q037",
+      "stem": "A technician runs a command on a Windows laptop. Based on the output shown, which of the following commands did the technician run?",
+      "exhibit": { "type": "text", "text": "Interface: 10.60.4.25\nInternet Address  Type\n  Physical Address\n10.60.4.1         dynamic\n  44-8a-5b-0e-31-c2\n10.60.4.17        dynamic\n  a0-36-9f-5d-72-18\n10.60.4.40        dynamic\n  f4-39-09-2c-8e-a1\n10.60.4.255       static\n  ff-ff-ff-ff-ff-ff" },
+      "choices": [
+        { "id": "a", "text": "ipconfig /all" },
+        { "id": "b", "text": "ping" },
+        { "id": "c", "text": "ipconfig /displaydns" },
+        { "id": "d", "text": "arp -a" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.3",
+        "title": "arp",
+        "quote": "",
+        "find": "shows the ARP cache contents"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q69" }
+    },
+    {
+      "id": "n-u04-q038",
+      "stem": "A technician replaced the network cards in several printers on one subnet, but a Windows PC still maps each printer's IP address to its old MAC address. Which of the following commands should the technician run on the PC to fix the mappings for every printer at once?",
+      "choices": [
+        { "id": "a", "text": "arp -a" },
+        { "id": "b", "text": "ipconfig /flushdns" },
+        { "id": "c", "text": "arp -d 10.8.1.20" },
+        { "id": "d", "text": "arp -d *" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.3",
+        "title": "arp",
+        "quote": "",
+        "find": "all entries in the ARP cache"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q184" }
+    },
+    {
+      "id": "n-u04-q039",
+      "stem": "A technician needs to enter a lab server's IP address and MAC address into a Windows PC's ARP cache by hand. Which of the following commands should the technician use?",
+      "choices": [
+        { "id": "a", "text": "arp -a" },
+        { "id": "b", "text": "ipconfig /registerdns" },
+        { "id": "c", "text": "arp -d" },
+        { "id": "d", "text": "arp -s" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.3",
+        "title": "arp",
+        "quote": "",
+        "find": "an entry to the ARP cache"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q207" }
+    },
+    {
+      "id": "n-u04-q040",
+      "stem": "A network administrator is adding a firewall rule so that help desk staff can ping the servers in a data center. Which of the following protocols must the rule allow?",
+      "choices": [
+        { "id": "a", "text": "UDP" },
+        { "id": "b", "text": "ICMP" },
+        { "id": "c", "text": "IGMP" },
+        { "id": "d", "text": "TCP" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["4.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.4",
+        "title": "ping",
+        "quote": "",
+        "find": "size of ICMP request packets"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q106" }
+    },
+    {
+      "id": "n-u04-q041",
+      "stem": "A technician at a branch office runs a command on a staff workstation. Based on the output shown, which of the following commands did the technician run?",
+      "exhibit": { "type": "text", "text": "Reply from 192.0.2.45:\n  bytes=32 time=26ms\nReply from 192.0.2.45:\n  bytes=32 time=24ms\nReply from 192.0.2.45:\n  bytes=32 time=25ms\nReply from 192.0.2.45:\n  bytes=32 time=27ms\nSent = 4, Received = 4,\n  Lost = 0 (0% loss)\nMinimum = 24ms,\n  Maximum = 27ms" },
+      "choices": [
+        { "id": "a", "text": "ping" },
+        { "id": "b", "text": "ip -s link" },
+        { "id": "c", "text": "arp -a" },
+        { "id": "d", "text": "ipconfig" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.4",
+        "title": "ping",
+        "quote": "",
+        "find": "Reply from IPAddress"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q173" }
+    },
+    {
+      "id": "n-u04-q042",
+      "stem": "While walking through a building to test wireless coverage, a technician wants a Windows laptop to keep pinging an access point until the command is stopped. Which of the following switches should the technician add to the ping command?",
+      "choices": [
+        { "id": "a", "text": "-n" },
+        { "id": "b", "text": "-t" },
+        { "id": "c", "text": "-c" },
+        { "id": "d", "text": "-4" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.4",
+        "title": "ping",
+        "quote": "",
+        "find": "continues to ping the host until"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q183" }
+    },
+    {
+      "id": "n-u04-q043",
+      "stem": "From a Windows PC, a technician pings a print server on another subnet, and every attempt returns \"Destination host unreachable.\" Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The server cannot route its replies back to the PC" },
+        { "id": "b", "text": "The PC has an incorrect default gateway" },
+        { "id": "c", "text": "Congestion is delaying the server's replies" },
+        { "id": "d", "text": "The print service on the server has stopped" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.4",
+        "title": "ping",
+        "quote": "",
+        "find": "such as an incorrect default gateway"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q275" }
+    },
+    {
+      "id": "n-u04-q044",
+      "stem": "Email apps on all the teachers' PCs suddenly cannot connect to the school's mail server, but a ping from one of those PCs to the server gets replies. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The mail server's network adapter has failed" },
+        { "id": "b", "text": "The teachers' PCs have the wrong default gateway" },
+        { "id": "c", "text": "A service on the mail server has stopped" },
+        { "id": "d", "text": "A firewall is blocking pings to the mail server" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.4",
+        "title": "ping",
+        "quote": "",
+        "find": "not dependent on the target host"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 4.0 Q159" }
+    },
+    {
+      "id": "n-u04-q045",
+      "stem": "A school's network team is checking a spreadsheet of static IPv6 addresses before entering them on new servers. Which of the following are NOT valid IPv6 addresses?",
+      "choices": [
+        { "id": "a", "text": "2001:db8::7e2::4c1:9a" },
+        { "id": "b", "text": "2001:db8:0:5a:0:c41:e0:7" },
+        { "id": "c", "text": "2001:db8:4g2:0:2c:8e4:f:31" },
+        { "id": "d", "text": "2001:db8:a7::3f:0:c1e9" },
+        { "id": "e", "text": "2001:db8:e7:0:ab4:91:3f" }
+      ],
+      "answer": ["a", "c", "e"],
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.5.2",
+        "title": "IPv6 Address Format",
+        "quote": "",
+        "find": "contains eight 16-bit numbers"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q28" }
+    },
+    {
+      "id": "n-u04-q046",
+      "stem": "A technician is labeling a network diagram with the IPv6 address shown and wants to shorten it using canonical notation. Which of the following should the technician write on the diagram?",
+      "exhibit": { "type": "text", "text": "2001:0db8:0000:4c10:\n0000:0000:0000:0a2f" },
+      "choices": [
+        { "id": "a", "text": "2001:db8::4c10::a2f" },
+        { "id": "b", "text": "2001:db8:0:4c1::a2f" },
+        { "id": "c", "text": "2001:db8:0:4c10::a2f" },
+        { "id": "d", "text": "2001:db8:4c10::a2f" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.5.2",
+        "title": "IPv6 Address Format",
+        "quote": "",
+        "find": "one contiguous series of 0s"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q319" }
+    },
+    {
+      "id": "n-u04-q047",
+      "stem": "A new IP camera has the MAC address 3c-52-a1-07-9e-44 and uses EUI-64 to build its IPv6 interface ID. Which of the following link local addresses should a technician expect the camera to use?",
+      "choices": [
+        { "id": "a", "text": "fe80::3c52:a1ff:fe07:9e44" },
+        { "id": "b", "text": "fe80::3e52:a1ff:fe07:9e44" },
+        { "id": "c", "text": "fe80::3e52:fffe:a107:9e44" },
+        { "id": "d", "text": "fe80::7c52:a1ff:fe07:9e44" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.5.4",
+        "title": "IPv6 Unicast Addressing",
+        "quote": "",
+        "find": "are added in the middle"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q258" }
+    },
+    {
+      "id": "n-u04-q048",
+      "stem": "As a company adds IPv6, its help desk guide needs a section on the IPv6 equivalent of APIPA addresses such as 169.254.61.200. Which of the following address types should that section describe?",
+      "choices": [
+        { "id": "a", "text": "Global unicast address" },
+        { "id": "b", "text": "Unspecified address" },
+        { "id": "c", "text": "Link local address" },
+        { "id": "d", "text": "Loopback address" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.5.5",
+        "title": "IPv6 Link Local Addressing",
+        "quote": "",
+        "find": "The equivalent in IPv4 is"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q257" }
+    },
+    {
+      "id": "n-u04-q049",
+      "stem": "An administrator is planning the network for a new building that will run only IPv6. Which of the following traffic types will NOT be available to hosts on this network?",
+      "choices": [
+        { "id": "a", "text": "Multicast" },
+        { "id": "b", "text": "Unicast" },
+        { "id": "c", "text": "Anycast" },
+        { "id": "d", "text": "Broadcast" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.c"],
+      "units": ["4.5.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.5.6",
+        "title": "IPv6 Multicast and Anycast Addressing",
+        "quote": "",
+        "find": "Broadcast addresses are not implemented in"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q355" }
+    },
+    {
+      "id": "n-u04-q050",
+      "stem": "As part of an IPv6 rollout, an administrator sets up a company's web servers as dual stack hosts. Which of the following BEST describes how these servers will communicate?",
+      "choices": [
+        { "id": "a", "text": "They carry IPv6 packets inside IPv4 packets" },
+        { "id": "b", "text": "They share one IPv6 global unicast address" },
+        { "id": "c", "text": "They use a gateway that translates IPv6 to IPv4" },
+        { "id": "d", "text": "They run IPv4 and IPv6 at the same time" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.5.7",
+        "title": "IPv4 and IPv6 Transition Mechanisms",
+        "quote": "",
+        "find": "run both IPv4 and IPv6 simultaneously"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q260" }
+    },
+    {
+      "id": "n-u04-q051",
+      "stem": "A branch office's ISP provides only IPv4 service, but hosts at the branch must reach IPv6 servers by tunneling IPv6 packets inside IPv4 packets. Which of the following could an administrator use to do this?",
+      "choices": [
+        { "id": "a", "text": "NAT64" },
+        { "id": "b", "text": "Teredo" },
+        { "id": "c", "text": "Dual stack" },
+        { "id": "d", "text": "6to4" },
+        { "id": "e", "text": "EUI-64" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.5.7",
+        "title": "IPv4 and IPv6 Transition Mechanisms",
+        "quote": "",
+        "find": "In 6to4 automatic tunneling"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q254" }
+    },
+    {
+      "id": "n-u04-q052",
+      "stem": "One Linux PC in a newsroom cannot reach any other host on its subnet, while the rest of the newsroom's PCs work normally. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Check the PC's address settings with ip addr" },
+        { "id": "b", "text": "Check the switch's MAC address table" },
+        { "id": "c", "text": "Check another PC's ARP cache with ip neigh" },
+        { "id": "d", "text": "Check the router's routing table" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.6.1",
+        "title": "IP Configuration Issues",
+        "quote": "",
+        "find": "to verify the host configuration"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q72" }
+    },
+    {
+      "id": "n-u04-q053",
+      "stem": "A technician is checking four network printers that should all be on a hotel's 172.20.32.0/20 network, and each one uses the mask 255.255.240.0. Which of the following printer addresses is incorrect?",
+      "choices": [
+        { "id": "a", "text": "172.20.44.18" },
+        { "id": "b", "text": "172.20.35.140" },
+        { "id": "c", "text": "172.20.48.73" },
+        { "id": "d", "text": "172.20.47.201" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.3", "5.3.e"],
+      "units": ["4.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.6.1",
+        "title": "IP Configuration Issues",
+        "quote": "",
+        "find": "unique host address within that subnet"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 4.0 Q426" }
+    },
+    {
+      "id": "n-u04-q054",
+      "stem": "A Windows PC on the 10.38.24.0/21 network can reach the other hosts on that network, but it sends some of that traffic through the router instead of directly. Based on the output shown, which of the following is the MOST likely cause?",
+      "exhibit": { "type": "text", "text": "C:\\>ipconfig\nEthernet adapter LAN:\n  IPv4 Address:\n    10.38.25.140\n  Subnet Mask:\n    255.255.252.0\n  Default Gateway:\n    10.38.24.1" },
+      "choices": [
+        { "id": "a", "text": "The PC's subnet mask is incorrect" },
+        { "id": "b", "text": "The PC's IPv4 address is incorrect" },
+        { "id": "c", "text": "The PC's default gateway is incorrect" },
+        { "id": "d", "text": "Another host is using the PC's IPv4 address" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.f"],
+      "units": ["4.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.6.1",
+        "title": "IP Configuration Issues",
+        "quote": "",
+        "find": "a longer prefix than it should"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q99" }
+    },
+    {
+      "id": "n-u04-q055",
+      "stem": "When a car dealership's Windows file server starts up after a power outage, it displays a warning and stops using its address. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Another device has the same MAC address" },
+        { "id": "b", "text": "The server's ARP cache has a wrong entry" },
+        { "id": "c", "text": "Another device has the same IP address" },
+        { "id": "d", "text": "The server's subnet mask is set incorrectly" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.3", "5.3.e"],
+      "units": ["4.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.6.2",
+        "title": "Duplicate IP and MAC Address Issues",
+        "quote": "",
+        "find": "it will display a warning"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q97" }
+    },
+    {
+      "id": "n-u04-q056",
+      "stem": "After a technician types in the IP settings for a new network printer, a laptop that got its address from DHCP shows an IP address conflict warning. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Both devices were given the same static address" },
+        { "id": "b", "text": "The printer and the laptop have the same MAC address" },
+        { "id": "c", "text": "The DHCP server gave the laptop the wrong subnet mask" },
+        { "id": "d", "text": "The printer's static address is part of the DHCP scope" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.3", "5.3.e"],
+      "units": ["4.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.6.2",
+        "title": "Duplicate IP and MAC Address Issues",
+        "quote": "",
+        "find": "part of a DHCP scope"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q68" }
+    },
+    {
+      "id": "n-u04-q057",
+      "stem": "A technician sets the same locally administered MAC address on two Windows PCs by mistake, though each PC keeps its own IP address. Which of the following problems is this MOST likely to cause?",
+      "choices": [
+        { "id": "a", "text": "One PC receives traffic meant for the other" },
+        { "id": "b", "text": "Both PCs show an IP address conflict warning" },
+        { "id": "c", "text": "Each PC sends local traffic through the router" },
+        { "id": "d", "text": "Neither PC can ping its own loopback address" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3"],
+      "units": ["4.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.6.2",
+        "title": "Duplicate IP and MAC Address Issues",
+        "quote": "",
+        "find": "communications could be split between them"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q227" }
+    },
+    {
+      "id": "n-u04-q058",
+      "stem": "A Windows PC in a dental office can print to the office's network printer and open shared folders on the front desk PC, but it cannot reach any Internet host, even by IP address. Which of the following settings on that PC is MOST likely misconfigured?",
+      "choices": [
+        { "id": "a", "text": "The IP address" },
+        { "id": "b", "text": "The subnet mask" },
+        { "id": "c", "text": "The default gateway" },
+        { "id": "d", "text": "The DNS server address" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.3", "5.3.d"],
+      "units": ["4.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.6.3",
+        "title": "IP Forwarding Issues",
+        "quote": "",
+        "find": "an incorrect default gateway issue"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q104" }
+    },
+    {
+      "id": "n-u04-q059",
+      "stem": "A Windows PC at an animal shelter can ping hosts on its own subnet, 10.140.96.0/19, but cannot ping any remote IP address. Based on the output shown, which of the following should a technician fix?",
+      "exhibit": { "type": "text", "text": "C:\\>ipconfig\nEthernet adapter LAN:\n  IPv4 Address:\n    10.140.118.25\n  Subnet Mask:\n    255.255.224.0\n  Default Gateway:\n    10.140.128.1" },
+      "choices": [
+        { "id": "a", "text": "A duplicate IP address" },
+        { "id": "b", "text": "An incorrect default gateway" },
+        { "id": "c", "text": "An incorrect IP address" },
+        { "id": "d", "text": "An incorrect subnet mask" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.3", "5.3.d"],
+      "units": ["4.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.6.3",
+        "title": "IP Forwarding Issues",
+        "quote": "",
+        "find": "check the default gateway parameter"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q17" }
+    },
+    {
+      "id": "n-u04-q060",
+      "stem": "On an office network that uses 172.24.0.0/16 with the router at 172.24.0.1, one Windows PC has the address 172.24.8.20, mask 255.255.0.0, and gateway 172.24.0.1, but its pings to every other host time out. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The PC's IP address is set incorrectly" },
+        { "id": "b", "text": "The PC's subnet mask is set incorrectly" },
+        { "id": "c", "text": "The PC's default gateway is set incorrectly" },
+        { "id": "d", "text": "The PC's cable is faulty or not plugged in" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.3"],
+      "units": ["4.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.6.3",
+        "title": "IP Forwarding Issues",
+        "quote": "",
+        "find": "Data Link or Physical layer"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q76" }
+    },
+    {
+      "id": "n-u04-q061",
+      "stem": "After replacing the network adapter in a Linux web server, a technician runs ping 127.0.0.1 and gets a reply to every request. Which of the following has the technician verified?",
+      "choices": [
+        { "id": "a", "text": "The server's new network adapter is working" },
+        { "id": "b", "text": "The server can reach its default gateway" },
+        { "id": "c", "text": "The server can resolve host names through DNS" },
+        { "id": "d", "text": "The server's TCP/IP stack is installed and loaded" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.6.3",
+        "title": "IP Forwarding Issues",
+        "quote": "",
+        "find": "to verify TCP/IP is installed"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q31" }
+    }
+  ]
+}

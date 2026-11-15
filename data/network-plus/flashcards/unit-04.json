@@ -1,0 +1,358 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-04", "title": "Unit 4.0 Configuring Network Addressing", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "n-u04-f001",
+      "term": "Layer 2 - Data link",
+      "definition": "The OSI layer that delivers frames within one local segment by MAC address and has no concept of separate networks; forwarding at this layer is called switching.",
+      "objectives": ["1.1", "1.1.b"],
+      "units": ["4.1.2", "4.1.1", "4.2.1"],
+      "reference": { "source": "certmaster", "section": "4.1.2", "title": "Layer 2 vs Layer 3 Addressing and Forwarding" }
+    },
+    {
+      "id": "n-u04-f002",
+      "term": "Layer 3 - Network",
+      "definition": "The OSI layer where IP gives logical addressing and packets are forwarded between subnets, which is called routing; routers at this layer set the edges of broadcast domains.",
+      "objectives": ["1.1", "1.1.c"],
+      "units": ["4.1.2", "4.1.1", "4.1.4"],
+      "reference": { "source": "certmaster", "section": "4.1.2", "title": "Layer 2 vs Layer 3 Addressing and Forwarding" }
+    },
+    {
+      "id": "n-u04-f003",
+      "term": "ICMP (Internet Control Message Protocol)",
+      "definition": "Runs directly on IP to report errors and send status messages about packet delivery; ping sends its request packets to test connectivity.",
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["4.4.4", "4.1.1"],
+      "reference": { "source": "certmaster", "section": "4.4.4", "title": "ping" }
+    },
+    {
+      "id": "n-u04-f004",
+      "term": "GRE (Generic Routing Encapsulation)",
+      "definition": "Runs directly on IP to tunnel packets across an intermediate network through virtual point-to-point links, as some VPNs do; it can carry IPv4 and IPv6 over IPv4.",
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["4.1.1", "4.5.7"],
+      "reference": { "source": "certmaster", "section": "4.1.1", "title": "IPv4 Datagram Header" }
+    },
+    {
+      "id": "n-u04-f005",
+      "term": "Unicast",
+      "definition": "Traffic sent to a single recipient, using an address that identifies just that one network interface.",
+      "objectives": ["1.4", "1.4.c"],
+      "units": ["4.1.4", "4.5.4"],
+      "reference": { "source": "certmaster", "section": "4.1.4", "title": "Unicast and Broadcast Addressing" }
+    },
+    {
+      "id": "n-u04-f006",
+      "term": "Broadcast",
+      "definition": "Traffic sent to a subnet's last address (all host bits set to 1), so every host in the subnet receives it; routers normally do not forward it, and IPv6 has none.",
+      "objectives": ["1.4", "1.4.c"],
+      "units": ["4.1.4", "4.2.6", "4.5.3", "4.5.6"],
+      "reference": { "source": "certmaster", "section": "4.1.4", "title": "Unicast and Broadcast Addressing" }
+    },
+    {
+      "id": "n-u04-f007",
+      "term": "Multicast",
+      "definition": "Traffic from one host delivered only to the hosts that joined its group, using an address from a reserved range; IPv6 uses it in place of broadcast.",
+      "objectives": ["1.4", "1.4.c"],
+      "units": ["4.1.5", "4.5.6", "4.3.3"],
+      "reference": { "source": "certmaster", "section": "4.1.5", "title": "Multicast and Anycast Addressing" }
+    },
+    {
+      "id": "n-u04-f008",
+      "term": "Anycast",
+      "definition": "Traffic to a group of hosts that share one unicast address, which routers deliver to just the closest one; it has no address range of its own.",
+      "objectives": ["1.4", "1.4.c"],
+      "units": ["4.1.5", "4.5.6"],
+      "reference": { "source": "certmaster", "section": "4.1.5", "title": "Multicast and Anycast Addressing" }
+    },
+    {
+      "id": "n-u04-f009",
+      "term": "Public IP address",
+      "definition": "An IPv4 address that can reach other networks and hosts over the Internet, allocated through regional registries and ISPs, unlike the ranges set aside for private use.",
+      "objectives": ["1.7", "1.7.a"],
+      "units": ["4.3.2"],
+      "reference": { "source": "certmaster", "section": "4.3.2", "title": "Public vs Private Addressing" }
+    },
+    {
+      "id": "n-u04-f010",
+      "term": "RFC1918 (private IP addresses)",
+      "definition": "The address ranges that are not routable over the Internet and that any organization can use without applying: 10.0.0.0 to 10.255.255.255, 172.16.0.0 to 172.31.255.255, and 192.168.0.0 to 192.168.255.255.",
+      "objectives": ["1.7", "1.7.a"],
+      "units": ["4.3.2"],
+      "reference": { "source": "certmaster", "section": "4.3.2", "title": "Public vs Private Addressing" }
+    },
+    {
+      "id": "n-u04-f011",
+      "term": "Loopback/localhost",
+      "definition": "The reserved 127.0.0.0/8 range, typically 127.0.0.1, used to check that TCP/IP is installed on the computer itself; packets sent to it are not processed by a network adapter.",
+      "objectives": ["1.7", "1.7.a"],
+      "units": ["4.3.3"],
+      "reference": { "source": "certmaster", "section": "4.3.3", "title": "Other Reserved Address Ranges" }
+    },
+    {
+      "id": "n-u04-f012",
+      "term": "Subnetting",
+      "definition": "Dividing one IP network into smaller layer 3 broadcast domains with fewer hosts each, by moving bits from the host portion of the address into the mask.",
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.2.3", "4.2.4", "4.3.4"],
+      "reference": { "source": "certmaster", "section": "4.2.3", "title": "Subnet Masks" }
+    },
+    {
+      "id": "n-u04-f013",
+      "term": "VLSM (Variable Length Subnet Mask)",
+      "definition": "Gives the subnets inside one IP network different prefix lengths, so each fits its number of hosts instead of all being the same size; designs usually start with the largest.",
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.3.6"],
+      "reference": { "source": "certmaster", "section": "4.3.6", "title": "Variable Length Subnet Masks" }
+    },
+    {
+      "id": "n-u04-f014",
+      "term": "CIDR (Classless Inter-domain Routing)",
+      "definition": "Uses bits normally in the network ID to summarize several contiguous networks as one shorter prefix (supernetting), so outside routers need only one routing table entry.",
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.3.5"],
+      "reference": { "source": "certmaster", "section": "4.3.5", "title": "Classless Inter-Domain Routing" }
+    },
+    {
+      "id": "n-u04-f015",
+      "term": "Class A",
+      "definition": "The IPv4 address class whose first octet is 1 to 126, with a default mask of 255.0.0.0 (/8).",
+      "objectives": ["1.7", "1.7.c"],
+      "units": ["4.3.1"],
+      "reference": { "source": "certmaster", "section": "4.3.1", "title": "Classful Addressing" }
+    },
+    {
+      "id": "n-u04-f016",
+      "term": "Class B",
+      "definition": "The IPv4 address class whose first octet is 128 to 191, with a default mask of 255.255.0.0 (/16).",
+      "objectives": ["1.7", "1.7.c"],
+      "units": ["4.3.1"],
+      "reference": { "source": "certmaster", "section": "4.3.1", "title": "Classful Addressing" }
+    },
+    {
+      "id": "n-u04-f017",
+      "term": "Class C",
+      "definition": "The IPv4 address class whose first octet is 192 to 223, with a default mask of 255.255.255.0 (/24).",
+      "objectives": ["1.7", "1.7.c"],
+      "units": ["4.3.1"],
+      "reference": { "source": "certmaster", "section": "4.3.1", "title": "Classful Addressing" }
+    },
+    {
+      "id": "n-u04-f018",
+      "term": "Class D",
+      "definition": "The IPv4 address class from 224.0.0.0 through 239.255.255.255, used for multicasting.",
+      "objectives": ["1.7", "1.7.c"],
+      "units": ["4.3.3"],
+      "reference": { "source": "certmaster", "section": "4.3.3", "title": "Other Reserved Address Ranges" }
+    },
+    {
+      "id": "n-u04-f019",
+      "term": "Class E",
+      "definition": "The IPv4 address class from 240.0.0.0 through 255.255.255.255, reserved for experimental use and testing.",
+      "objectives": ["1.7", "1.7.c"],
+      "units": ["4.3.3"],
+      "reference": { "source": "certmaster", "section": "4.3.3", "title": "Other Reserved Address Ranges" }
+    },
+    {
+      "id": "n-u04-f020",
+      "term": "IPv6 (Internet Protocol version 6)",
+      "definition": "The 128-bit addressing scheme designed to mitigate IPv4 address exhaustion; an address is eight 16-bit blocks of hex, and :: can replace one run of zero blocks, only once in an address.",
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.1", "4.5.2"],
+      "reference": { "source": "certmaster", "section": "4.5.1", "title": "IPv4 vs IPv6" }
+    },
+    {
+      "id": "n-u04-f021",
+      "term": "Tunneling",
+      "definition": "Inserting IPv6 packets into IPv4 packets to carry them across an IPv4 network, as 6to4, Teredo, and GRE do; it has high overhead and is less efficient than dual stack.",
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.7"],
+      "reference": { "source": "certmaster", "section": "4.5.7", "title": "IPv4 and IPv6 Transition Mechanisms" }
+    },
+    {
+      "id": "n-u04-f022",
+      "term": "Dual stack",
+      "definition": "Hosts and routers run IPv4 and IPv6 at the same time, so they can communicate with devices that have either type of address; most try IPv6 first.",
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.7"],
+      "reference": { "source": "certmaster", "section": "4.5.7", "title": "IPv4 and IPv6 Transition Mechanisms" }
+    },
+    {
+      "id": "n-u04-f023",
+      "term": "NAT64",
+      "definition": "Lets an IPv6 host reach an IPv4 host through a gateway router that translates: the router strips a special prefix from the destination and forwards the packet with IPv4 headers.",
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.7"],
+      "reference": { "source": "certmaster", "section": "4.5.7", "title": "IPv4 and IPv6 Transition Mechanisms" }
+    },
+    {
+      "id": "n-u04-f024",
+      "term": "Incorrect default gateway",
+      "definition": "A host can reach hosts on its own subnet but not remote ones, because the router address it sends remote traffic to is wrong.",
+      "objectives": ["5.3", "5.3.d"],
+      "units": ["4.6.3", "4.4.4", "4.2.5"],
+      "reference": { "source": "certmaster", "section": "4.6.3", "title": "IP Forwarding Issues" }
+    },
+    {
+      "id": "n-u04-f025",
+      "term": "Incorrect IP address",
+      "definition": "A host whose address is not a valid host address in its neighbors' subnet, such as one from another subnet; it is unlikely to communicate on the network at all.",
+      "objectives": ["5.3", "5.3.e"],
+      "units": ["4.6.1"],
+      "reference": { "source": "certmaster", "section": "4.6.1", "title": "IP Configuration Issues" }
+    },
+    {
+      "id": "n-u04-f026",
+      "term": "Duplicate IP address",
+      "definition": "Two systems configured with the same address, from two static settings or a static one inside a DHCP scope; Windows detects it and shows a warning.",
+      "objectives": ["5.3", "5.3.e"],
+      "units": ["4.6.2"],
+      "reference": { "source": "certmaster", "section": "4.6.2", "title": "Duplicate IP and MAC Address Issues" }
+    },
+    {
+      "id": "n-u04-f027",
+      "term": "Incorrect subnet mask",
+      "definition": "A host's prefix is longer or shorter than its neighbors': too long, and it sends replies to local hosts through the router; too short, and it cannot reach a remote subnet it thinks is local.",
+      "objectives": ["5.3", "5.3.f"],
+      "units": ["4.6.1"],
+      "reference": { "source": "certmaster", "section": "4.6.1", "title": "IP Configuration Issues" }
+    },
+    {
+      "id": "n-u04-f028",
+      "term": "ping",
+      "definition": "Sends ICMP request packets to a host to test basic connectivity and round-trip time, on Windows and Linux; on Windows, -t keeps it sending until it is stopped.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.4", "4.6.3"],
+      "reference": { "source": "certmaster", "section": "4.4.4", "title": "ping" }
+    },
+    {
+      "id": "n-u04-f029",
+      "term": "ipconfig",
+      "definition": "The Windows command that shows each interface's IP address, subnet mask, and default gateway; /release gives up a DHCP address, and /renew renews the lease.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.1", "4.6.1"],
+      "reference": { "source": "certmaster", "section": "4.4.1", "title": "ipconfig" }
+    },
+    {
+      "id": "n-u04-f030",
+      "term": "ifconfig",
+      "definition": "The legacy Linux command, deprecated on most modern distributions, that can still safely be used to report each adapter's address settings.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.2", "4.6.1"],
+      "reference": { "source": "certmaster", "section": "4.4.2", "title": "ifconfig and ip" }
+    },
+    {
+      "id": "n-u04-f031",
+      "term": "ip (command)",
+      "definition": "The current Linux command that replaced the legacy tools; it reports and changes interface addresses and routes, but its changes are not persistent unless run from a startup script.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.2", "4.6.1"],
+      "reference": { "source": "certmaster", "section": "4.4.2", "title": "ifconfig and ip" }
+    },
+    {
+      "id": "n-u04-f032",
+      "term": "arp (command)",
+      "definition": "Views and edits the cache of IP-to-MAC mappings a host has recently learned: -a lists it, -s adds an entry, and -d deletes entries (-d * clears them all).",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.3", "4.6.2"],
+      "reference": { "source": "certmaster", "section": "4.4.3", "title": "arp" }
+    },
+    {
+      "id": "n-u04-f033",
+      "term": "Subnet mask (network mask)",
+      "definition": "The 32-bit value whose contiguous 1s mark the network ID bits of an IPv4 address, revealed by ANDing the two; it is written in dotted decimal or as a slash prefix that counts its 1s.",
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.2.2", "4.2.3"],
+      "reference": { "source": "certmaster", "section": "4.2.2", "title": "Network Masks" }
+    },
+    {
+      "id": "n-u04-f034",
+      "term": "Default gateway",
+      "definition": "The host setting that gives the address of a local router with a path to remote networks; the host sends it every packet bound for a different network or subnet.",
+      "objectives": ["5.3", "5.3.d"],
+      "units": ["4.2.5"],
+      "reference": { "source": "certmaster", "section": "4.2.5", "title": "Default Gateway" }
+    },
+    {
+      "id": "n-u04-f035",
+      "term": "Host ID (host number)",
+      "definition": "The part of an IPv4 address that identifies a single device within its network; it is the bits the mask sets to 0, so 32 minus the prefix length.",
+      "objectives": ["1.7", "1.7.b"],
+      "units": ["4.2.1", "4.2.2"],
+      "reference": { "source": "certmaster", "section": "4.2.1", "title": "IPv4 Address Format" }
+    },
+    {
+      "id": "n-u04-f036",
+      "term": "ARP (Address Resolution Protocol)",
+      "definition": "Finds the MAC address that goes with an IPv4 address on the local subnet using broadcast requests; for a remote destination, it finds the default gateway's MAC address.",
+      "objectives": ["1.4"],
+      "units": ["4.1.3", "4.4.3"],
+      "reference": { "source": "certmaster", "section": "4.1.3", "title": "Address Resolution Protocol" }
+    },
+    {
+      "id": "n-u04-f037",
+      "term": "IGMP (Internet Group Management Protocol)",
+      "definition": "Runs directly on IP, with no TCP or UDP, to configure multicast group memberships so hosts can join a group and receive its traffic.",
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["4.1.5", "4.1.1"],
+      "reference": { "source": "certmaster", "section": "4.1.5", "title": "Multicast and Anycast Addressing" }
+    },
+    {
+      "id": "n-u04-f038",
+      "term": "Duplicate MAC address",
+      "definition": "Two interfaces with the same hardware address both answer ARP queries, so traffic is split between them or reaches only one; it can be a sign of spoofing.",
+      "objectives": ["5.3"],
+      "units": ["4.6.2"],
+      "reference": { "source": "certmaster", "section": "4.6.2", "title": "Duplicate IP and MAC Address Issues" }
+    },
+    {
+      "id": "n-u04-f039",
+      "term": "Link local address (IPv6)",
+      "definition": "The fe80::/10 address that spans only a single subnet, since routers do not forward it; APIPA is the IPv4 equivalent, but a host always has one, even with a global address.",
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.5"],
+      "reference": { "source": "certmaster", "section": "4.5.5", "title": "IPv6 Link Local Addressing" }
+    },
+    {
+      "id": "n-u04-f040",
+      "term": "EUI-64 (Extended Unique Identifier-64)",
+      "definition": "Builds a 64-bit IPv6 interface ID from a 48-bit MAC address by inserting fffe in the middle and flipping the 7th bit (the U/L bit) of the first byte.",
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.4"],
+      "reference": { "source": "certmaster", "section": "4.5.4", "title": "IPv6 Unicast Addressing" }
+    },
+    {
+      "id": "n-u04-f041",
+      "term": "6to4",
+      "definition": "Automatic tunneling of IPv6 packets across an IPv4 network that needs no host configuration; its addresses use the 2002::/16 prefix.",
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.7"],
+      "reference": { "source": "certmaster", "section": "4.5.7", "title": "IPv4 and IPv6 Transition Mechanisms" }
+    },
+    {
+      "id": "n-u04-f042",
+      "term": "Teredo",
+      "definition": "The tunneling protocol Windows hosts use to carry IPv6 packets as UDP messages over IPv4; it needs compatible clients and servers.",
+      "objectives": ["1.8", "1.8.f"],
+      "units": ["4.5.7"],
+      "reference": { "source": "certmaster", "section": "4.5.7", "title": "IPv4 and IPv6 Transition Mechanisms" }
+    },
+    {
+      "id": "n-u04-f043",
+      "term": "IGMP snooping",
+      "definition": "A switch capability that delivers multicast frames only to the group's members; a switch without it floods them out of every port like a broadcast.",
+      "objectives": ["1.4", "1.4.c"],
+      "units": ["4.1.5"],
+      "reference": { "source": "certmaster", "section": "4.1.5", "title": "Multicast and Anycast Addressing" }
+    },
+    {
+      "id": "n-u04-f044",
+      "term": "IP (Internet Protocol)",
+      "definition": "The layer 3 protocol that provides logical network addressing and forwarding; its datagrams, or packets, carry payloads such as TCP segments, UDP datagrams, and ICMP messages.",
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["4.1.1"],
+      "reference": { "source": "certmaster", "section": "4.1.1", "title": "IPv4 Datagram Header" }
+    }
+  ]
+}
