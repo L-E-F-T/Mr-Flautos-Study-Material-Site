@@ -1,0 +1,558 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-06", "title": "Unit 6.0 Implementing Network Services", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "n-u06-f001",
+      "term": "FTP (File Transfer Protocol)",
+      "definition": "Transfers files using two ports: port 20 for data and port 21 for control.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f002",
+      "term": "SFTP (Secure File Transfer Protocol)",
+      "definition": "Runs FTP over an SSH connection to transfer files securely, so it uses SSH's port, 22.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f003",
+      "term": "SSH (Secure Shell)",
+      "definition": "Secure Shell; port 22, which SFTP (FTP over SSH) also uses.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f004",
+      "term": "Telnet",
+      "definition": "The protocol that uses well-known port 23.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f005",
+      "term": "SMTP (Simple Mail Transfer Protocol)",
+      "definition": "Sends (transfers) email messages; port 25.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f006",
+      "term": "DNS (Domain Name System)",
+      "definition": "The global hierarchy of name servers that resolves host and domain names to IP addresses; port 53.",
+      "objectives": ["1.4", "1.4.a", "3.4", "3.4.b"],
+      "units": ["6.5.2", "6.5.8"],
+      "reference": { "source": "certmaster", "section": "6.5.2", "title": "DNS Hierarchy" }
+    },
+    {
+      "id": "n-u06-f007",
+      "term": "DHCP (Dynamic Host Configuration Protocol)",
+      "definition": "Automatically gives a host joining the network an IP address, subnet mask, and options such as the default gateway and DNS servers; port 67 (server) and 68 (client).",
+      "objectives": ["1.4", "1.4.a", "3.4", "3.4.a"],
+      "units": ["6.2.1"],
+      "reference": { "source": "certmaster", "section": "6.2.1", "title": "DHCP Process" }
+    },
+    {
+      "id": "n-u06-f008",
+      "term": "TFTP (Trivial File Transfer Protocol)",
+      "definition": "A simplified (trivial) way to transfer files; port 69.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f009",
+      "term": "HTTP (Hypertext Transfer Protocol)",
+      "definition": "Delivers web pages (hypertext) to browsers; port 80.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6", "6.1.3", "6.1.1"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f010",
+      "term": "NTP (Network Time Protocol)",
+      "definition": "Synchronizes the clocks of hosts on a network; port 123.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6", "6.2.3"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f011",
+      "term": "SNMP (Simple Network Management Protocol)",
+      "definition": "Manages network devices; port 161, and port 162 for SNMP traps.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f012",
+      "term": "LDAP (Lightweight Directory Access Protocol)",
+      "definition": "Accesses directory service information; port 389.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f013",
+      "term": "HTTPS (Hypertext Transfer Protocol Secure)",
+      "definition": "Delivers web pages over a secure SSL/TLS connection; port 443.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6", "6.1.3"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f014",
+      "term": "SMB (Server Message Block)",
+      "definition": "Server Message Block running over TCP/IP; port 445.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f015",
+      "term": "Syslog",
+      "definition": "The protocol that uses well-known port 514.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f016",
+      "term": "SMTPS (Simple Mail Transfer Protocol Secure)",
+      "definition": "Sends (transfers) email messages over a secure connection; port 587.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f017",
+      "term": "LDAPS (Lightweight Directory Access Protocol over SSL)",
+      "definition": "Accesses directory service information over a secure connection; port 636.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f018",
+      "term": "RDP (Remote Desktop Protocol)",
+      "definition": "Gives remote access to another computer's graphical desktop; port 3389.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f019",
+      "term": "SIP (Session Initiation Protocol)",
+      "definition": "Sets up (initiates) communication sessions; port 5060, or 5061 for SIP-Secure.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f020",
+      "term": "POP3 (Post Office Protocol version 3)",
+      "definition": "The Post Office Protocol, which uses well-known port 110.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
+    },
+    {
+      "id": "n-u06-f021",
+      "term": "Port (port number)",
+      "definition": "The unique number assigned to each application protocol, so a host can direct incoming data to the right service or application.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.1"],
+      "reference": { "source": "certmaster", "section": "6.1.1", "title": "Transport Layer Ports and Connections" }
+    },
+    {
+      "id": "n-u06-f022",
+      "term": "Socket",
+      "definition": "A port number used together with an IP address, such as 192.168.1.254:80.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.1"],
+      "reference": { "source": "certmaster", "section": "6.1.1", "title": "Transport Layer Ports and Connections" }
+    },
+    {
+      "id": "n-u06-f023",
+      "term": "Well-known ports",
+      "definition": "Port numbers 0 through 1,023, kept for well-known server applications.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.1"],
+      "reference": { "source": "certmaster", "section": "6.1.1", "title": "Transport Layer Ports and Connections" }
+    },
+    {
+      "id": "n-u06-f024",
+      "term": "IANA (Internet Assigned Numbers Authority)",
+      "definition": "The organization that preassigns the well-known port numbers to server applications.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.1"],
+      "reference": { "source": "certmaster", "section": "6.1.1", "title": "Transport Layer Ports and Connections" }
+    },
+    {
+      "id": "n-u06-f025",
+      "term": "Ephemeral port",
+      "definition": "The port a client application assigns itself to track its requests, normally from the dynamic range 49,152 through 65,535; also called a client or source port.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.1"],
+      "reference": { "source": "certmaster", "section": "6.1.1", "title": "Transport Layer Ports and Connections" }
+    },
+    {
+      "id": "n-u06-f026",
+      "term": "TCP (Transmission Control Protocol)",
+      "definition": "The connection-oriented Transport layer protocol: it guarantees delivery with acknowledgments, resends missing data, and uses its Window field for flow control.",
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.2"],
+      "reference": { "source": "certmaster", "section": "6.1.2", "title": "Transmission Control Protocol" }
+    },
+    {
+      "id": "n-u06-f027",
+      "term": "UDP (User Datagram Protocol)",
+      "definition": "The connectionless Transport layer protocol, with no acknowledgments or flow control and an 8-byte header.",
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.4"],
+      "reference": { "source": "certmaster", "section": "6.1.4", "title": "User Datagram Protocol" }
+    },
+    {
+      "id": "n-u06-f028",
+      "term": "TCP three-way handshake",
+      "definition": "How TCP sets up a connection before sending data: the client sends SYN, the server replies SYN/ACK, and the client answers ACK.",
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.3"],
+      "reference": { "source": "certmaster", "section": "6.1.3", "title": "TCP Handshake and Teardown" }
+    },
+    {
+      "id": "n-u06-f029",
+      "term": "ACK (acknowledgment)",
+      "definition": "The TCP flag a receiver sends back to confirm that data arrived.",
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.2"],
+      "reference": { "source": "certmaster", "section": "6.1.2", "title": "Transmission Control Protocol" }
+    },
+    {
+      "id": "n-u06-f030",
+      "term": "MSS (maximum segment size)",
+      "definition": "A setting in the TCP header's Options field in which a host states how large the segments it receives should be.",
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.2"],
+      "reference": { "source": "certmaster", "section": "6.1.2", "title": "Transmission Control Protocol" }
+    },
+    {
+      "id": "n-u06-f031",
+      "term": "APIPA (Automatic Private IP Addressing)",
+      "definition": "The link local addressing a host falls back to when no DHCP server responds: an address from 169.254.1.1 to 169.254.254.254 that can reach only the local network.",
+      "objectives": ["1.7", "1.7.a"],
+      "units": ["6.3.1"],
+      "reference": { "source": "certmaster", "section": "6.3.1", "title": "Automatic Private IP Addressing" }
+    },
+    {
+      "id": "n-u06-f032",
+      "term": "DHCP scope",
+      "definition": "The range of addresses and options configured on a DHCP server for one subnet.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.2"],
+      "reference": { "source": "certmaster", "section": "6.2.2", "title": "DHCP Server Configuration" }
+    },
+    {
+      "id": "n-u06-f033",
+      "term": "DHCP lease time",
+      "definition": "How long a client may keep a leased address; the client tries to renew at half the lease time, and a shorter lease returns addresses of inactive hosts to the pool sooner.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.3"],
+      "reference": { "source": "certmaster", "section": "6.2.3", "title": "DHCP Options" }
+    },
+    {
+      "id": "n-u06-f034",
+      "term": "DHCP options",
+      "definition": "Settings a DHCP server supplies beyond the required IP address and subnet mask, such as the default gateway and DNS servers.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.3"],
+      "reference": { "source": "certmaster", "section": "6.2.3", "title": "DHCP Options" }
+    },
+    {
+      "id": "n-u06-f035",
+      "term": "DHCP reservation",
+      "definition": "A mapping of a MAC address to one IP address in the server's pool, so that host always gets the same address.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.4"],
+      "reference": { "source": "certmaster", "section": "6.2.4", "title": "DHCP Reservations and Exclusions" }
+    },
+    {
+      "id": "n-u06-f036",
+      "term": "DHCP exclusion",
+      "definition": "A range of addresses the DHCP server will not lease, set aside for hosts that are given static addresses.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.4"],
+      "reference": { "source": "certmaster", "section": "6.2.4", "title": "DHCP Reservations and Exclusions" }
+    },
+    {
+      "id": "n-u06-f037",
+      "term": "DHCP relay (IP helper)",
+      "definition": "A router function that forwards DHCP broadcasts as unicasts to a DHCP server on another subnet; UDP forwarding is the general version.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.4.1"],
+      "reference": { "source": "certmaster", "section": "6.4.1", "title": "DHCP Relay and IP Helper" }
+    },
+    {
+      "id": "n-u06-f038",
+      "term": "DORA process",
+      "definition": "The four DHCP lease messages in order: the client broadcasts DHCPDISCOVER, the server sends DHCPOFFER, the client broadcasts DHCPREQUEST, and the server confirms with DHCPACK.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.1"],
+      "reference": { "source": "certmaster", "section": "6.2.1", "title": "DHCP Process" }
+    },
+    {
+      "id": "n-u06-f039",
+      "term": "SLAAC (Stateless Address Autoconfiguration)",
+      "definition": "The stateless way an IPv6 host configures itself: it uses Neighbor Discovery (ND) messages and takes a network prefix from a router advertisement (RA).",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.3.2"],
+      "reference": { "source": "certmaster", "section": "6.3.2", "title": "IPv6 Interface Autoconfiguration and Testing" }
+    },
+    {
+      "id": "n-u06-f040",
+      "term": "DHCPv6 (Dynamic Host Configuration Protocol for IPv6)",
+      "definition": "The IPv6 version of DHCP: in stateful mode it leases addresses from a scope, and in either mode it can supply options such as DNS server addresses.",
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.3.3"],
+      "reference": { "source": "certmaster", "section": "6.3.3", "title": "DHCPv6 Server Configuration" }
+    },
+    {
+      "id": "n-u06-f041",
+      "term": "DNSSEC (Domain Name Security Extensions)",
+      "definition": "Protects DNS against spoofing and poisoning: a zone's authoritative server signs its resource records so other servers can validate the responses.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.10"],
+      "reference": { "source": "certmaster", "section": "6.5.10", "title": "DNS Security" }
+    },
+    {
+      "id": "n-u06-f042",
+      "term": "DoH (DNS over HTTPS)",
+      "definition": "Encrypts a client's DNS queries by carrying them inside HTTPS on port 443, which hides the fact that they are DNS queries.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.10"],
+      "reference": { "source": "certmaster", "section": "6.5.10", "title": "DNS Security" }
+    },
+    {
+      "id": "n-u06-f043",
+      "term": "DoT (DNS over TLS)",
+      "definition": "Encrypts a client's DNS queries with TLS; port 853.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.10"],
+      "reference": { "source": "certmaster", "section": "6.5.10", "title": "DNS Security" }
+    },
+    {
+      "id": "n-u06-f044",
+      "term": "A (Address) record",
+      "definition": "The host record that resolves a host name to an IPv4 address.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.5"],
+      "reference": { "source": "certmaster", "section": "6.5.5", "title": "Host Address and Canonical Name Records" }
+    },
+    {
+      "id": "n-u06-f045",
+      "term": "AAAA record",
+      "definition": "The host record that resolves a host name to an IPv6 address.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.5"],
+      "reference": { "source": "certmaster", "section": "6.5.5", "title": "Host Address and Canonical Name Records" }
+    },
+    {
+      "id": "n-u06-f046",
+      "term": "CNAME (Canonical name) record",
+      "definition": "An alias record: another name, such as www, for a host that already has an A or AAAA record.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.5"],
+      "reference": { "source": "certmaster", "section": "6.5.5", "title": "Host Address and Canonical Name Records" }
+    },
+    {
+      "id": "n-u06-f047",
+      "term": "MX (Mail exchange) record",
+      "definition": "Identifies an email server for the domain.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.6"],
+      "reference": { "source": "certmaster", "section": "6.5.6", "title": "Mail Exchange, Service, and Text Records" }
+    },
+    {
+      "id": "n-u06-f048",
+      "term": "TXT (Text) record",
+      "definition": "Holds free-form text that other network services need.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.6"],
+      "reference": { "source": "certmaster", "section": "6.5.6", "title": "Mail Exchange, Service, and Text Records" }
+    },
+    {
+      "id": "n-u06-f049",
+      "term": "NS (Nameserver) record",
+      "definition": "Identifies the authoritative name servers for a zone.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.4"],
+      "reference": { "source": "certmaster", "section": "6.5.4", "title": "Resource Record Types" }
+    },
+    {
+      "id": "n-u06-f050",
+      "term": "PTR (Pointer) record",
+      "definition": "Returns the host name for an IP address in a reverse lookup; it is stored in a reverse lookup zone.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.7"],
+      "reference": { "source": "certmaster", "section": "6.5.7", "title": "Pointer Records" }
+    },
+    {
+      "id": "n-u06-f051",
+      "term": "Forward lookup zone",
+      "definition": "A DNS zone of records such as A, AAAA, CNAME, and MX, in which looking up a name returns an IP address.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.7"],
+      "reference": { "source": "certmaster", "section": "6.5.7", "title": "Pointer Records" }
+    },
+    {
+      "id": "n-u06-f052",
+      "term": "Reverse lookup zone",
+      "definition": "A DNS zone of PTR records, in which looking up an IP address returns its host name.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.7"],
+      "reference": { "source": "certmaster", "section": "6.5.7", "title": "Pointer Records" }
+    },
+    {
+      "id": "n-u06-f053",
+      "term": "Authoritative name server",
+      "definition": "A name server that holds complete records for a domain and is named in the zone as one of its name servers.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.8"],
+      "reference": { "source": "certmaster", "section": "6.5.8", "title": "DNS Server Configuration" }
+    },
+    {
+      "id": "n-u06-f054",
+      "term": "Non-authoritative answer",
+      "definition": "A DNS reply taken from a cached record rather than straight from the zone records.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.8"],
+      "reference": { "source": "certmaster", "section": "6.5.8", "title": "DNS Server Configuration" }
+    },
+    {
+      "id": "n-u06-f055",
+      "term": "Primary DNS zone",
+      "definition": "A zone whose records are editable on the server that holds it.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.8"],
+      "reference": { "source": "certmaster", "section": "6.5.8", "title": "DNS Server Configuration" }
+    },
+    {
+      "id": "n-u06-f056",
+      "term": "Secondary DNS zone",
+      "definition": "A read-only copy of a zone, kept current by zone transfers from a primary name server.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.8"],
+      "reference": { "source": "certmaster", "section": "6.5.8", "title": "DNS Server Configuration" }
+    },
+    {
+      "id": "n-u06-f057",
+      "term": "Zone transfer",
+      "definition": "The replication that copies a zone from a primary name server to secondary name servers.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.8"],
+      "reference": { "source": "certmaster", "section": "6.5.8", "title": "DNS Server Configuration" }
+    },
+    {
+      "id": "n-u06-f058",
+      "term": "Recursive lookup",
+      "definition": "A query in which a server that is not authoritative queries other name servers itself until it finds the record or times out; a client's configured name servers accept these.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.3"],
+      "reference": { "source": "certmaster", "section": "6.5.3", "title": "Name Resolution Using DNS" }
+    },
+    {
+      "id": "n-u06-f059",
+      "term": "Iterative lookup",
+      "definition": "A query a server answers with either the record or the address of a lower-level authoritative name server, making no further queries itself; most queries between name servers work this way.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.3"],
+      "reference": { "source": "certmaster", "section": "6.5.3", "title": "Name Resolution Using DNS" }
+    },
+    {
+      "id": "n-u06-f060",
+      "term": "Stub resolver",
+      "definition": "The DNS client on a host that sends name queries to its local name server.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.3"],
+      "reference": { "source": "certmaster", "section": "6.5.3", "title": "Name Resolution Using DNS" }
+    },
+    {
+      "id": "n-u06-f061",
+      "term": "TLD (top-level domain)",
+      "definition": "The domain level just below the root, such as .com, .org, or .uk; it is the rightmost label of an FQDN, before the root.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.2"],
+      "reference": { "source": "certmaster", "section": "6.5.2", "title": "DNS Hierarchy" }
+    },
+    {
+      "id": "n-u06-f062",
+      "term": "Subdomain",
+      "definition": "A domain inside another domain: in an FQDN it sits between the host name and the domain name, such as corp in pc.corp.515support.com.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.1", "6.5.2"],
+      "reference": { "source": "certmaster", "section": "6.5.1", "title": "Host Names and Domain Names" }
+    },
+    {
+      "id": "n-u06-f063",
+      "term": "DDNS (Dynamic DNS)",
+      "definition": "Lets a client or DHCP server create and update host records on a name server automatically, instead of an administrator doing it by hand.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.5"],
+      "reference": { "source": "certmaster", "section": "6.5.5", "title": "Host Address and Canonical Name Records" }
+    },
+    {
+      "id": "n-u06-f064",
+      "term": "External DNS",
+      "definition": "Zones with the records Internet clients must reach, such as public web and email servers; internal DNS holds private network names for internal clients only.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.9"],
+      "reference": { "source": "certmaster", "section": "6.5.9", "title": "Internal vs External DNS" }
+    },
+    {
+      "id": "n-u06-f065",
+      "term": "Hosts file",
+      "definition": "A static list of host name to IP address mappings kept on the local host.",
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.6.2"],
+      "reference": { "source": "certmaster", "section": "6.6.2", "title": "Name Resolution Issues" }
+    },
+    {
+      "id": "n-u06-f066",
+      "term": "Address pool exhaustion (DHCP scope exhaustion)",
+      "definition": "No addresses are left in the DHCP scope, so new clients cannot get a lease and self-assign APIPA addresses; a shorter lease period helps prevent it.",
+      "objectives": ["5.3", "5.3.c"],
+      "units": ["6.4.2"],
+      "reference": { "source": "certmaster", "section": "6.4.2", "title": "DHCP Issues" }
+    },
+    {
+      "id": "n-u06-f067",
+      "term": "netstat",
+      "definition": "Shows the state of ports and connections on the local host; -r shows the routing table, -s per-protocol statistics, and -e Ethernet statistics on Windows.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.1.5"],
+      "reference": { "source": "certmaster", "section": "6.1.5", "title": "netstat" }
+    },
+    {
+      "id": "n-u06-f068",
+      "term": "nslookup",
+      "definition": "A DNS troubleshooting command, nslookup -Option Host DNSServer, that queries the default DNS server unless a server is named at the end.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.3"],
+      "reference": { "source": "certmaster", "section": "6.6.3", "title": "nslookup" }
+    },
+    {
+      "id": "n-u06-f069",
+      "term": "dig (Domain Information Groper)",
+      "definition": "A command line tool for querying DNS servers that ships with BIND; it uses the default resolver unless a server is named after the @ symbol.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.4"],
+      "reference": { "source": "certmaster", "section": "6.6.4", "title": "dig" }
+    }
+  ]
+}

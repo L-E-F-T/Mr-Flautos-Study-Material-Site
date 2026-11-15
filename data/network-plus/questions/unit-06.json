@@ -1,0 +1,2166 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-06", "title": "Unit 6.0 Implementing Network Services", "reviewed": false },
+  "questions": [
+    {
+      "id": "n-u06-q001",
+      "stem": "A new technician asks how a server with one IP address can run both a web service and an email service. Which of the following tells the server which service should receive each incoming packet?",
+      "choices": [
+        { "id": "a", "text": "The sequence number" },
+        { "id": "b", "text": "The destination MAC address" },
+        { "id": "c", "text": "The source IP address" },
+        { "id": "d", "text": "The destination port number" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.1",
+        "title": "Transport Layer Ports and Connections",
+        "quote": "",
+        "find": "unique identification number called a port"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q107" }
+    },
+    {
+      "id": "n-u06-q002",
+      "stem": "A firewall administrator wants to check the official list of well-known ports and the services they belong to, such as 443 for HTTPS. Which of the following organizations keeps that list?",
+      "choices": [
+        { "id": "a", "text": "A domain name registrar" },
+        { "id": "b", "text": "A Regional Internet Registry" },
+        { "id": "c", "text": "The Internet Engineering Task Force (IETF)" },
+        { "id": "d", "text": "The Internet Assigned Numbers Authority (IANA)" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.1",
+        "title": "Transport Layer Ports and Connections",
+        "quote": "",
+        "find": "Internet Assigned Numbers Authority (IANA)"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q108" }
+    },
+    {
+      "id": "n-u06-q003",
+      "stem": "A technician wants a port scan of a server to check only the well-known ports. Which of the following port ranges should the technician scan?",
+      "choices": [
+        { "id": "a", "text": "0 through 1,023" },
+        { "id": "b", "text": "0 through 49,151" },
+        { "id": "c", "text": "1,024 through 49,151" },
+        { "id": "d", "text": "49,152 through 65,535" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.1",
+        "title": "Transport Layer Ports and Connections",
+        "quote": "",
+        "find": "Port numbers 0 through 1,023"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q130" }
+    },
+    {
+      "id": "n-u06-q004",
+      "stem": "A laptop's web browser connects to a web server and picks an ephemeral port as its source port. Which of the following port ranges is designated for this kind of port?",
+      "choices": [
+        { "id": "a", "text": "0 through 1,023" },
+        { "id": "b", "text": "1,024 through 49,151" },
+        { "id": "c", "text": "1,024 through 65,535" },
+        { "id": "d", "text": "49,152 through 65,535" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.1",
+        "title": "Transport Layer Ports and Connections",
+        "quote": "",
+        "find": "remaining ports (up to 65,535)"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q126" }
+    },
+    {
+      "id": "n-u06-q005",
+      "stem": "A technician learns that each software process on a server is bound to a socket. Which of the following together form a socket?",
+      "choices": [
+        { "id": "a", "text": "A MAC address" },
+        { "id": "b", "text": "An IP address" },
+        { "id": "c", "text": "A process ID (PID)" },
+        { "id": "d", "text": "A sequence number" },
+        { "id": "e", "text": "A port number" }
+      ],
+      "answer": ["b", "e"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.1",
+        "title": "Transport Layer Ports and Connections",
+        "quote": "",
+        "find": "IP address to form a socket"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q29" }
+    },
+    {
+      "id": "n-u06-q006",
+      "stem": "A developer wants every packet an application sends to be acknowledged, and any lost packets resent, without writing that logic into the application. Which of the following protocols BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "User Datagram Protocol (UDP)" },
+        { "id": "b", "text": "Internet Protocol (IP)" },
+        { "id": "c", "text": "Transmission Control Protocol (TCP)" },
+        { "id": "d", "text": "Internet Control Message Protocol (ICMP)" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.2",
+        "title": "Transmission Control Protocol",
+        "quote": "",
+        "find": "Transport layer to provide connection-oriented"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q133" }
+    },
+    {
+      "id": "n-u06-q007",
+      "stem": "A host sends a TCP segment to a server and will resend it if no confirmation arrives in time. Which of the following flags in the server's reply shows that the segment was received?",
+      "choices": [
+        { "id": "a", "text": "SYN" },
+        { "id": "b", "text": "FIN" },
+        { "id": "c", "text": "RST" },
+        { "id": "d", "text": "ACK" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.2",
+        "title": "Transmission Control Protocol",
+        "quote": "",
+        "find": "using acknowledgments to ensure that delivery"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q122" }
+    },
+    {
+      "id": "n-u06-q008",
+      "stem": "Two hosts are opening a TCP connection across links that fragment large packets. Which of the following TCP header values lets each host tell the other to put less data in each packet?",
+      "choices": [
+        { "id": "a", "text": "Window" },
+        { "id": "b", "text": "Data length" },
+        { "id": "c", "text": "Urgent pointer" },
+        { "id": "d", "text": "Maximum segment size" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.2",
+        "title": "Transmission Control Protocol",
+        "quote": "",
+        "find": "the maximum segment size"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q111" }
+    },
+    {
+      "id": "n-u06-q009",
+      "stem": "A file server that is being overwhelmed with incoming data tells the sending host to slow its sending rate. Which of the following protocols provides this kind of flow control?",
+      "choices": [
+        { "id": "a", "text": "UDP" },
+        { "id": "b", "text": "TCP" },
+        { "id": "c", "text": "IP" },
+        { "id": "d", "text": "SNMP" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.2",
+        "title": "Transmission Control Protocol",
+        "quote": "",
+        "find": "TCP's flow control mechanism means"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q147" }
+    },
+    {
+      "id": "n-u06-q010",
+      "stem": "A technician uses a protocol analyzer to watch a laptop open a TCP connection to a web server. Which of the following shows the segments the technician should see, in order?",
+      "choices": [
+        { "id": "a", "text": "Client SYN, server ACK, client SYN/ACK" },
+        { "id": "b", "text": "Server SYN, client SYN/ACK, server ACK" },
+        { "id": "c", "text": "Client SYN, server SYN/ACK, client ACK" },
+        { "id": "d", "text": "Client SYN, server SYN/ACK, server ACK" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.3",
+        "title": "TCP Handshake and Teardown",
+        "quote": "",
+        "find": "responds with a SYN/ACK segment"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q149" }
+    },
+    {
+      "id": "n-u06-q011",
+      "stem": "A client has finished downloading a file and begins a normal teardown of its TCP connection with the server. Which of the following flags does the client set to signal that it wants to close the connection?",
+      "choices": [
+        { "id": "a", "text": "SYN" },
+        { "id": "b", "text": "RST" },
+        { "id": "c", "text": "ACK" },
+        { "id": "d", "text": "FIN" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.3",
+        "title": "TCP Handshake and Teardown",
+        "quote": "",
+        "find": "The client sends a FIN segment"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q148" }
+    },
+    {
+      "id": "n-u06-q012",
+      "stem": "A server is set to refuse new TCP connections from a test laptop. Which of the following segments will the server send back when the laptop sends a SYN?",
+      "choices": [
+        { "id": "a", "text": "SYN/ACK" },
+        { "id": "b", "text": "ACK" },
+        { "id": "c", "text": "FIN" },
+        { "id": "d", "text": "RST" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.3",
+        "title": "TCP Handshake and Teardown",
+        "quote": "",
+        "find": "might refuse connections using RST"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q77" }
+    },
+    {
+      "id": "n-u06-q013",
+      "stem": "A developer switches a new application from TCP to UDP to cut its overhead. Which of the following describe the application's traffic after the change?",
+      "choices": [
+        { "id": "a", "text": "Each piece of data is acknowledged by the receiver" },
+        { "id": "b", "text": "Data is sent without first setting up a connection" },
+        { "id": "c", "text": "Lost data is resent only if the application resends it" },
+        { "id": "d", "text": "The receiver can tell the sender to slow down" },
+        { "id": "e", "text": "Data can be sent as broadcast or multicast traffic" },
+        { "id": "f", "text": "Data can be sent as unicast traffic only" }
+      ],
+      "answer": ["b", "c", "e"],
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.4",
+        "title": "User Datagram Protocol",
+        "quote": "",
+        "find": "no acknowledgments or flow control"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q127" }
+    },
+    {
+      "id": "n-u06-q014",
+      "stem": "A company is choosing a Transport layer protocol for each of several new applications. Which of the following applications is the BEST fit for UDP?",
+      "choices": [
+        { "id": "a", "text": "A nightly backup copied to a file server" },
+        { "id": "b", "text": "A payroll update written to a database" },
+        { "id": "c", "text": "A video call between two branch offices" },
+        { "id": "d", "text": "An email message with a large attachment" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.b"],
+      "units": ["6.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.4",
+        "title": "User Datagram Protocol",
+        "quote": "",
+        "find": "such as voice or video"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q71" }
+    },
+    {
+      "id": "n-u06-q015",
+      "stem": "A user suspects that an unknown program on a Windows PC is talking to a server on the Internet. Which of the following commands should a technician run to list the PC's active TCP connections with their local and foreign addresses?",
+      "choices": [
+        { "id": "a", "text": "arp" },
+        { "id": "b", "text": "netstat" },
+        { "id": "c", "text": "ipconfig" },
+        { "id": "d", "text": "nslookup" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "netstat",
+        "quote": "",
+        "find": "the command outputs active TCP connections"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q174" }
+    },
+    {
+      "id": "n-u06-q016",
+      "stem": "A technician wants to see packets received, errors, and failed connections on a Windows server, broken down protocol by protocol. Which of the following commands should the technician run?",
+      "choices": [
+        { "id": "a", "text": "netstat -a" },
+        { "id": "b", "text": "netstat -e" },
+        { "id": "c", "text": "netstat -s" },
+        { "id": "d", "text": "netstat -n" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "netstat",
+        "quote": "",
+        "find": "reports per protocol statistics"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q197" }
+    },
+    {
+      "id": "n-u06-q017",
+      "stem": "A technician wants to see how many bytes, discards, and errors a Windows workstation's network interface has sent and received. Which of the following commands should the technician run?",
+      "choices": [
+        { "id": "a", "text": "ping -t" },
+        { "id": "b", "text": "netstat -e" },
+        { "id": "c", "text": "ipconfig /all" },
+        { "id": "d", "text": "arp -a" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "netstat",
+        "quote": "",
+        "find": "will report Ethernet statistics using"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q205" }
+    },
+    {
+      "id": "n-u06-q018",
+      "stem": "After installing a new service on a Windows server, a technician wants to confirm that the service's port is in the listening state. Which of the following commands should the technician run on the server?",
+      "choices": [
+        { "id": "a", "text": "netstat -n" },
+        { "id": "b", "text": "netstat" },
+        { "id": "c", "text": "netstat -o" },
+        { "id": "d", "text": "netstat -a" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "netstat",
+        "quote": "",
+        "find": "-a switch displays all open ports"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q42" }
+    },
+    {
+      "id": "n-u06-q019",
+      "stem": "A technician sees an unfamiliar connection on a Windows server and wants the process ID (PID) of the software that opened its port. Which of the following commands should the technician run?",
+      "choices": [
+        { "id": "a", "text": "netstat -b" },
+        { "id": "b", "text": "netstat -p" },
+        { "id": "c", "text": "netstat -o" },
+        { "id": "d", "text": "netstat -n" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "netstat",
+        "quote": "",
+        "find": "On Windows, -o shows"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q54" }
+    },
+    {
+      "id": "n-u06-q020",
+      "stem": "A company's file server must accept FTP from a partner's network and nothing else. Which of the following ports should the firewall allow from that network?",
+      "choices": [
+        { "id": "a", "text": "20" },
+        { "id": "b", "text": "21" },
+        { "id": "c", "text": "22" },
+        { "id": "d", "text": "69" },
+        { "id": "e", "text": "445" }
+      ],
+      "answer": ["a", "b"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "20 TCP ftp-data File Transfer"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q128" }
+    },
+    {
+      "id": "n-u06-q021",
+      "stem": "While watching network traffic, a technician sees a client send control messages to a server on one well-known port and then transfer data over a second well-known port. Which of the following protocols is MOST likely in use?",
+      "choices": [
+        { "id": "a", "text": "SNMP" },
+        { "id": "b", "text": "TFTP" },
+        { "id": "c", "text": "FTP" },
+        { "id": "d", "text": "SFTP" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "File Transfer Protocol—Control"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q77" }
+    },
+    {
+      "id": "n-u06-q022",
+      "stem": "A firewall log shows an outside address making hundreds of connection attempts to TCP port 22 on a company's web server. Which of the following services is that address MOST likely trying to reach?",
+      "choices": [
+        { "id": "a", "text": "FTP" },
+        { "id": "b", "text": "Telnet" },
+        { "id": "c", "text": "SMTP" },
+        { "id": "d", "text": "SSH" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "Secure Shell/FTP over SSH"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q55" }
+    },
+    {
+      "id": "n-u06-q023",
+      "stem": "A security scan finds that a branch office's router accepts connections on port 23. Which of the following services is MOST likely using this port?",
+      "choices": [
+        { "id": "a", "text": "SSH" },
+        { "id": "b", "text": "Telnet" },
+        { "id": "c", "text": "HTTPS" },
+        { "id": "d", "text": "SNMP" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "23 TCP telnet Telnet"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q25" }
+    },
+    {
+      "id": "n-u06-q024",
+      "stem": "A user's email app downloads messages with POP3 and sends new mail to the company's server with SMTP and no encryption. Which port must the server allow so the app can send mail?",
+      "choices": [
+        { "id": "a", "text": "25" },
+        { "id": "b", "text": "110" },
+        { "id": "c", "text": "143" },
+        { "id": "d", "text": "587" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "25 TCP smtp Simple Mail Transfer"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q104" }
+    },
+    {
+      "id": "n-u06-q025",
+      "stem": "Staff at a branch office must send mail from their mail apps with SMTPS and read webmail in a browser with HTTPS. Which of the following ports must the branch firewall allow?",
+      "choices": [
+        { "id": "a", "text": "25" },
+        { "id": "b", "text": "80" },
+        { "id": "c", "text": "443" },
+        { "id": "d", "text": "587" },
+        { "id": "e", "text": "995" }
+      ],
+      "answer": ["c", "d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "587 TCP smtps SMTP-Secure"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q115" }
+    },
+    {
+      "id": "n-u06-q026",
+      "stem": "A small office server runs DHCP, TFTP, and NTP services and nothing else. Which of the following ports should a port scan find open on the server?",
+      "choices": [
+        { "id": "a", "text": "53" },
+        { "id": "b", "text": "67" },
+        { "id": "c", "text": "68" },
+        { "id": "d", "text": "69" },
+        { "id": "e", "text": "123" }
+      ],
+      "answer": ["b", "d", "e"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "67 UDP bootps BOOTP/DHCP Server"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q124" }
+    },
+    {
+      "id": "n-u06-q027",
+      "stem": "A new public web server must accept HTTP and HTTPS connections on their default ports and nothing else. Which of the following ports should stay open on the server's firewall?",
+      "choices": [
+        { "id": "a", "text": "22" },
+        { "id": "b", "text": "80" },
+        { "id": "c", "text": "143" },
+        { "id": "d", "text": "443" },
+        { "id": "e", "text": "3389" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "HTTP-Secure (Secure Sockets Layer"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q60" }
+    },
+    {
+      "id": "n-u06-q028",
+      "stem": "Customers can open a store's website with http:// addresses, but every https:// address times out. Which port is the store's firewall MOST likely blocking?",
+      "choices": [
+        { "id": "a", "text": "80" },
+        { "id": "b", "text": "443" },
+        { "id": "c", "text": "445" },
+        { "id": "d", "text": "993" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "443 TCP https HTTP-Secure"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q110" }
+    },
+    {
+      "id": "n-u06-q029",
+      "stem": "The clocks on a company's IP security cameras keep showing the wrong time because the firewall blocks their NTP traffic. Which port should the administrator open on the firewall?",
+      "choices": [
+        { "id": "a", "text": "53" },
+        { "id": "b", "text": "110" },
+        { "id": "c", "text": "123" },
+        { "id": "d", "text": "143" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "Network Time Protocol/Simple NTP"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q15" }
+    },
+    {
+      "id": "n-u06-q030",
+      "stem": "A firewall in front of the branch routers must let in ordinary SNMP requests from the monitoring server, not SNMP traps. Which port should the rule allow?",
+      "choices": [
+        { "id": "a", "text": "123" },
+        { "id": "b", "text": "161" },
+        { "id": "c", "text": "162" },
+        { "id": "d", "text": "514" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "161 UDP snmp"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q58" }
+    },
+    {
+      "id": "n-u06-q031",
+      "stem": "An administrator is setting up a new central Syslog server for a company's routers and switches. Which port must be open on the Syslog server?",
+      "choices": [
+        { "id": "a", "text": "162" },
+        { "id": "b", "text": "445" },
+        { "id": "c", "text": "514" },
+        { "id": "d", "text": "587" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "514 UDP syslog Syslog"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q117" }
+    },
+    {
+      "id": "n-u06-q032",
+      "stem": "A company's web application stores its data in a Microsoft SQL Server database that uses its default port. Which port does the application connect to on the database server?",
+      "choices": [
+        { "id": "a", "text": "143" },
+        { "id": "b", "text": "389" },
+        { "id": "c", "text": "1433" },
+        { "id": "d", "text": "3389" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "Structured Query Language (SQL) Server"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q12" }
+    },
+    {
+      "id": "n-u06-q033",
+      "stem": "A help desk technician needs to use Remote Desktop to take over a user's Windows PC from another building. Which port must the firewall allow to the user's PC?",
+      "choices": [
+        { "id": "a", "text": "22" },
+        { "id": "b", "text": "23" },
+        { "id": "c", "text": "1433" },
+        { "id": "d", "text": "3389" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "3389 TCP rdp Remote Desktop Protocol"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q116" }
+    },
+    {
+      "id": "n-u06-q034",
+      "stem": "A technician setting up a dozen new laptops in a small office wants to stop typing an IP address and subnet mask into each one by hand. Which of the following protocols will give each laptop these settings automatically when it joins the network?",
+      "choices": [
+        { "id": "a", "text": "ARP" },
+        { "id": "b", "text": "DNS" },
+        { "id": "c", "text": "DHCP" },
+        { "id": "d", "text": "NTP" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.1",
+        "title": "DHCP Process",
+        "quote": "",
+        "find": "provides an automatic method for allocating"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q123" }
+    },
+    {
+      "id": "n-u06-q035",
+      "stem": "A technician capturing traffic on a subnet whose DHCP server is 192.168.5.10 sees a PC that just started up send a DHCPDISCOVER message. Which of the following destination addresses does that message use?",
+      "choices": [
+        { "id": "a", "text": "0.0.0.0" },
+        { "id": "b", "text": "192.168.5.10" },
+        { "id": "c", "text": "255.255.255.255" },
+        { "id": "d", "text": "ff02::1:2" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.1",
+        "title": "DHCP Process",
+        "quote": "",
+        "find": "it broadcasts a DHCPDISCOVER packet"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q21" }
+    },
+    {
+      "id": "n-u06-q036",
+      "stem": "A technician capturing traffic sees a new laptop send Discover and Request messages and get Offer and Acknowledge replies as it joins the network. Which of the following is the laptop doing?",
+      "choices": [
+        { "id": "a", "text": "Building its own IPv6 address with SLAAC" },
+        { "id": "b", "text": "Getting DNS options from a DHCPv6 server" },
+        { "id": "c", "text": "Opening a TCP connection with a handshake" },
+        { "id": "d", "text": "Leasing an IP address from a DHCP server" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.1", "6.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.1",
+        "title": "DHCP Process",
+        "quote": "",
+        "find": "is called the DORA process"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q113" }
+    },
+    {
+      "id": "n-u06-q037",
+      "stem": "A DHCP client receives a DHCPACK for 10.4.2.50, then broadcasts an ARP message for that address and gets a reply from another host. Which of the following will the client do next?",
+      "choices": [
+        { "id": "a", "text": "Wait for its T1 timer to renew the lease" },
+        { "id": "b", "text": "Start using the address and its options" },
+        { "id": "c", "text": "Assign itself a 169.254.x.x address" },
+        { "id": "d", "text": "Decline the address and request a new one" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.3", "5.3.e"],
+      "units": ["6.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.1",
+        "title": "DHCP Process",
+        "quote": "",
+        "find": "broadcasts an ARP message to check"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q107" }
+    },
+    {
+      "id": "n-u06-q038",
+      "stem": "A technician plans for a branch office's new DHCP scope to give each laptop a DNS suffix, a TFTP server address, an NTP server address, and a MAC address. Which of the following parts of the plan will NOT work?",
+      "choices": [
+        { "id": "a", "text": "The DNS suffix" },
+        { "id": "b", "text": "The TFTP server address" },
+        { "id": "c", "text": "The MAC address" },
+        { "id": "d", "text": "The NTP server address" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.1", "6.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.1",
+        "title": "DHCP Process",
+        "quote": "",
+        "find": "subnet mask, and optional parameters"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q106" }
+    },
+    {
+      "id": "n-u06-q039",
+      "stem": "An administrator is setting up the host firewall on a new DHCP server. Which of the following UDP ports must the firewall allow so the server can receive client requests?",
+      "choices": [
+        { "id": "a", "text": "53" },
+        { "id": "b", "text": "67" },
+        { "id": "c", "text": "68" },
+        { "id": "d", "text": "69" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.1",
+        "title": "DHCP Process",
+        "quote": "",
+        "find": "the server listening on port 67"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q93" }
+    },
+    {
+      "id": "n-u06-q040",
+      "stem": "While setting up a DHCP server for a new subnet, an administrator enters the start address, end address, and subnet mask of the addresses the server will lease to clients. Which of the following is the administrator creating?",
+      "choices": [
+        { "id": "a", "text": "A lease" },
+        { "id": "b", "text": "A reservation" },
+        { "id": "c", "text": "An exclusion range" },
+        { "id": "d", "text": "A scope" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.2",
+        "title": "DHCP Server Configuration",
+        "quote": "",
+        "find": "is referred to as a scope"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q128" }
+    },
+    {
+      "id": "n-u06-q041",
+      "stem": "An administrator is adding a second DHCP server to a factory subnet for fault tolerance, and the two servers have no failover mechanism. Which of the following should the administrator do so the servers never lease the same address to different clients?",
+      "choices": [
+        { "id": "a", "text": "Set a longer lease time on both servers" },
+        { "id": "b", "text": "Copy the same scope onto both servers" },
+        { "id": "c", "text": "Add a relay agent that forwards to both servers" },
+        { "id": "d", "text": "Split the scope into two non-overlapping ranges" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.2",
+        "title": "DHCP Server Configuration",
+        "quote": "",
+        "find": "split scopes or use a failover"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q129" }
+    },
+    {
+      "id": "n-u06-q042",
+      "stem": "Branch office clients stop getting leases each time the DHCP server restarts, until someone updates the IP helper address on the branch router. Which of the following should the administrator do to BEST fix this?",
+      "choices": [
+        { "id": "a", "text": "Shorten the lease time in the branch scope" },
+        { "id": "b", "text": "Give the DHCP server a static IP address" },
+        { "id": "c", "text": "Exclude the server's address from the branch scope" },
+        { "id": "d", "text": "Create a reservation for each branch client" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.2",
+        "title": "DHCP Server Configuration",
+        "quote": "",
+        "find": "must be allocated a static IP"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q90" }
+    },
+    {
+      "id": "n-u06-q043",
+      "stem": "Laptops on a new warehouse subnet get DHCP leases and can reach one another by IP address, but they cannot reach anything on other subnets. Which of the following scope options is MOST likely set wrong?",
+      "choices": [
+        { "id": "a", "text": "Lease time" },
+        { "id": "b", "text": "DNS servers" },
+        { "id": "c", "text": "DNS suffix" },
+        { "id": "d", "text": "Default gateway" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.a", "5.3", "5.3.d"],
+      "units": ["6.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.3",
+        "title": "DHCP Options",
+        "quote": "",
+        "find": "gateway (IP address of the router)"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q132" }
+    },
+    {
+      "id": "n-u06-q044",
+      "stem": "PCs in a computer lab get leases from a new DHCP scope, but their clocks drift, they cannot load startup files from the file transfer server, and they cannot reach other subnets. Which of the following settings are MOST likely missing from the scope?",
+      "choices": [
+        { "id": "a", "text": "NTP servers" },
+        { "id": "b", "text": "DNS suffix" },
+        { "id": "c", "text": "TFTP server" },
+        { "id": "d", "text": "DNS servers" },
+        { "id": "e", "text": "Default gateway" },
+        { "id": "f", "text": "Lease time" }
+      ],
+      "answer": ["a", "c", "e"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.3",
+        "title": "DHCP Options",
+        "quote": "",
+        "find": "time synchronization (NTP), file transfer"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q134" }
+    },
+    {
+      "id": "n-u06-q045",
+      "stem": "A client got a 48-hour lease from its DHCP server. Which of the following will the client MOST likely do 24 hours after it got the lease?",
+      "choices": [
+        { "id": "a", "text": "Try to rebind its lease with any DHCP server" },
+        { "id": "b", "text": "Release its address and start discovery again" },
+        { "id": "c", "text": "Broadcast an ARP message to check its address" },
+        { "id": "d", "text": "Try to renew its lease with the original server" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.3",
+        "title": "DHCP Options",
+        "quote": "",
+        "find": "The client can renew the lease"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q84" }
+    },
+    {
+      "id": "n-u06-q046",
+      "stem": "A library wants its DHCP server to take back the address of a visitor's laptop after the laptop stops using it, so the address can go to another visitor. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Automatic allocation" },
+        { "id": "b", "text": "Dynamic allocation" },
+        { "id": "c", "text": "Static allocation" },
+        { "id": "d", "text": "An exclusion range" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.4",
+        "title": "DHCP Reservations and Exclusions",
+        "quote": "",
+        "find": "the standard dynamic assignment method"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q136" }
+    },
+    {
+      "id": "n-u06-q047",
+      "stem": "An administrator manages a wireless access point by browsing to its IP address and wants the DHCP server to give the access point the same address every time it asks. Which of the following should the administrator set up on the DHCP server?",
+      "choices": [
+        { "id": "a", "text": "An exclusion range" },
+        { "id": "b", "text": "A reservation" },
+        { "id": "c", "text": "A longer lease time" },
+        { "id": "d", "text": "A split scope" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.2.4",
+        "title": "DHCP Reservations and Exclusions",
+        "quote": "",
+        "find": "it always provides the same IP"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q135" }
+    },
+    {
+      "id": "n-u06-q048",
+      "stem": "A technician connects a Windows laptop to a lab switch, and when no DHCP server answers, the laptop falls back to Automatic Private IP Addressing (APIPA). Which of the following address ranges will the laptop's new IPv4 address be in?",
+      "choices": [
+        { "id": "a", "text": "127.0.0.0/8" },
+        { "id": "b", "text": "169.254.0.0/16" },
+        { "id": "c", "text": "172.16.0.0/12" },
+        { "id": "d", "text": "192.168.0.0/16" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.7", "1.7.a"],
+      "units": ["6.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.1",
+        "title": "Automatic Private IP Addressing",
+        "quote": "",
+        "find": "the range 169.254.1.1 to 169.254.254.254"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q234" }
+    },
+    {
+      "id": "n-u06-q049",
+      "stem": "A help desk technician asks four users to read out the IPv4 address shown on their Windows PCs, which are all set to use DHCP. Which of the following addresses shows a PC that got no response from a DHCP server?",
+      "choices": [
+        { "id": "a", "text": "10.16.4.122" },
+        { "id": "b", "text": "169.254.97.30" },
+        { "id": "c", "text": "172.20.8.61" },
+        { "id": "d", "text": "192.168.40.15" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.7", "1.7.a"],
+      "units": ["6.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.1",
+        "title": "Automatic Private IP Addressing",
+        "quote": "",
+        "find": "the range 169.254.1.1 to 169.254.254.254"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q96" }
+    },
+    {
+      "id": "n-u06-q050",
+      "stem": "A school wants the IPv6 hosts in a new building to build their own addresses with no server tracking them, while a server still hands out DNS server addresses. Which of the following should the school use?",
+      "choices": [
+        { "id": "a", "text": "DHCP relay" },
+        { "id": "b", "text": "SLAAC" },
+        { "id": "c", "text": "Stateless DHCPv6" },
+        { "id": "d", "text": "Stateful DHCPv6" },
+        { "id": "e", "text": "APIPA" }
+      ],
+      "answer": ["b", "c"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.3.2", "6.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.2",
+        "title": "IPv6 Interface Autoconfiguration and Testing",
+        "quote": "",
+        "find": "server to perform stateful autoconfiguration"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q150" }
+    },
+    {
+      "id": "n-u06-q051",
+      "stem": "A laptop joins a new IPv6 subnet and needs the network prefix so it can build its own address. Which of the following messages gives it the prefix and autoconfiguration options?",
+      "choices": [
+        { "id": "a", "text": "Neighbor solicitation (NS)" },
+        { "id": "b", "text": "Router solicitation (RS)" },
+        { "id": "c", "text": "Neighbor advertisement (NA)" },
+        { "id": "d", "text": "Router advertisement (RA)" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.2",
+        "title": "IPv6 Interface Autoconfiguration and Testing",
+        "quote": "",
+        "find": "An RA contains information about"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q139" }
+    },
+    {
+      "id": "n-u06-q052",
+      "stem": "A newly connected laptop creates its own link local address, then sends Neighbor Discovery messages to check that no other host on the link is already using it. Which of the following autoconfiguration methods is the laptop using?",
+      "choices": [
+        { "id": "a", "text": "APIPA" },
+        { "id": "b", "text": "SLAAC" },
+        { "id": "c", "text": "DHCP" },
+        { "id": "d", "text": "DHCPv6" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.2",
+        "title": "IPv6 Interface Autoconfiguration and Testing",
+        "quote": "",
+        "find": "The host generates a link local"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q137" }
+    },
+    {
+      "id": "n-u06-q053",
+      "stem": "A college has one DHCP server in its data center, and the student subnets on the far side of a router have no DHCP server of their own. Which of the following can be set up so that DHCP broadcasts from those subnets reach the server?",
+      "choices": [
+        { "id": "a", "text": "DHCP reservation" },
+        { "id": "b", "text": "Router advertisement" },
+        { "id": "c", "text": "DHCP relay agent" },
+        { "id": "d", "text": "IP helper" },
+        { "id": "e", "text": "UDP forwarding" }
+      ],
+      "answer": ["c", "d", "e"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.1",
+        "title": "DHCP Relay and IP Helper",
+        "quote": "",
+        "find": "forwarding of DHCP traffic between subnets"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q145" }
+    },
+    {
+      "id": "n-u06-q054",
+      "stem": "An administrator enters the command ip helper-address 172.16.5.10 on the router interface that serves the guest subnet. Which of the following BEST describes the result?",
+      "choices": [
+        { "id": "a", "text": "DHCP broadcasts from guest clients are relayed to 172.16.5.10" },
+        { "id": "b", "text": "Guest clients are given 172.16.5.10 as their default gateway" },
+        { "id": "c", "text": "The DHCP server always leases 172.16.5.10 to one guest client" },
+        { "id": "d", "text": "The DHCP server never leases 172.16.5.10 to a guest client" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.1",
+        "title": "DHCP Relay and IP Helper",
+        "quote": "",
+        "find": "configured as a DHCP relay agent"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q215" }
+    },
+    {
+      "id": "n-u06-q055",
+      "stem": "Laptops that joined the guest subnet early today still work, but each laptop that joins now gets a 169.254.x.x address, and about 200 guests visit each day. Based on the scope settings shown, which of the following is the MOST likely cause?",
+      "exhibit": { "type": "text", "text": "Scope: 10.6.0.0/24\nStart: 10.6.0.50\nEnd: 10.6.0.99\nLease time: 8 days" },
+      "choices": [
+        { "id": "a", "text": "The scope has no free addresses left" },
+        { "id": "b", "text": "The DHCP server has gone offline" },
+        { "id": "c", "text": "The router is not relaying DHCP requests" },
+        { "id": "d", "text": "The scope is missing its gateway option" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.c"],
+      "units": ["6.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.2",
+        "title": "DHCP Issues",
+        "quote": "",
+        "find": "addresses available (DHCP scope exhaustion)"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q98" }
+    },
+    {
+      "id": "n-u06-q056",
+      "stem": "A hotel's only DHCP server has already leased every address in the scope for the conference room subnet when a speaker connects a Windows laptop there. Which of the following will the laptop MOST likely do for its IPv4 address?",
+      "choices": [
+        { "id": "a", "text": "Assign itself an address in 169.254.0.0/16" },
+        { "id": "b", "text": "Leave its address set to 0.0.0.0" },
+        { "id": "c", "text": "Lease an address from the exclusion range" },
+        { "id": "d", "text": "Build an address from a router advertisement" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.c"],
+      "units": ["6.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.2",
+        "title": "DHCP Issues",
+        "quote": "",
+        "find": "automatic IP address (APIPA) configuration"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q143" }
+    },
+    {
+      "id": "n-u06-q057",
+      "stem": "An office's DHCP scope uses only 40 of the 254 usable addresses in its subnet, and it ran out after 30 new staff joined who keep their laptops connected all day. Which of the following should the administrator do to BEST fix this?",
+      "choices": [
+        { "id": "a", "text": "Expand the scope to more of the subnet" },
+        { "id": "b", "text": "Shorten the lease time on the scope" },
+        { "id": "c", "text": "Create a reservation for each new laptop" },
+        { "id": "d", "text": "Add an exclusion range to the scope" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.c"],
+      "units": ["6.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.2",
+        "title": "DHCP Issues",
+        "quote": "",
+        "find": "Create a new scope with enough"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q214" }
+    },
+    {
+      "id": "n-u06-q058",
+      "stem": "One morning, a DHCP pool that always had plenty of free addresses suddenly has none left, although no new devices have joined the network. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A malicious attack against the DHCP server" },
+        { "id": "b", "text": "A lease period that is set too short" },
+        { "id": "c", "text": "A router that does not relay DHCP broadcasts" },
+        { "id": "d", "text": "Clients that renew halfway through their leases" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.c"],
+      "units": ["6.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.2",
+        "title": "DHCP Issues",
+        "quote": "",
+        "find": "a symptom of a malicious attack"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q183" }
+    },
+    {
+      "id": "n-u06-q059",
+      "stem": "After a router is replaced, PCs on two of a school's three subnets get 169.254.x.x addresses, while PCs on the DHCP server's own subnet still get leases. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The new router is not relaying DHCP requests" },
+        { "id": "b", "text": "The DHCP server has stopped answering requests" },
+        { "id": "c", "text": "The scopes have run out of addresses" },
+        { "id": "d", "text": "The scopes still list the old router as the gateway" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.2",
+        "title": "DHCP Issues",
+        "quote": "",
+        "find": "doesn't support BOOTP forwarding"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q194" }
+    },
+    {
+      "id": "n-u06-q060",
+      "stem": "A school's guest Wi-Fi scope gives each phone a 7-day lease, and on parent night new phones stop getting addresses even though most earlier visitors have gone home. Which of the following changes would BEST fix this?",
+      "choices": [
+        { "id": "a", "text": "Shorten the lease time to a few hours" },
+        { "id": "b", "text": "Lengthen the lease time to 30 days" },
+        { "id": "c", "text": "Create a reservation for each visitor's phone" },
+        { "id": "d", "text": "Add a DHCP relay agent for the guest subnet" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.2",
+        "title": "DHCP Issues",
+        "quote": "",
+        "find": "A shorter lease period can mitigate"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q144" }
+    },
+    {
+      "id": "n-u06-q061",
+      "stem": "A help desk ticket lists prn4.denver.northwind.com as the FQDN of a network printer. Which label in this FQDN is the subdomain?",
+      "choices": [
+        { "id": "a", "text": "prn4" },
+        { "id": "b", "text": "denver" },
+        { "id": "c", "text": "northwind" },
+        { "id": "d", "text": "com" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.1",
+        "title": "Host Names and Domain Names",
+        "quote": "",
+        "find": "subdomains between the host and domain"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q13" }
+    },
+    {
+      "id": "n-u06-q062",
+      "stem": "Which of the following FQDNs uses uk as its top-level domain (TLD)?",
+      "choices": [
+        { "id": "a", "text": "uk.tailspin.com" },
+        { "id": "b", "text": "shop.uk.tailspin.net" },
+        { "id": "c", "text": "shop.tailspin.co.uk" },
+        { "id": "d", "text": "shop.tailspin.uk.org" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.2",
+        "title": "DNS Hierarchy",
+        "quote": "",
+        "find": "least specific on the right"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q140" }
+    },
+    {
+      "id": "n-u06-q063",
+      "stem": "In a zone file, the web server's FQDN, www.harbor.net, is written with an extra period at the end. What does that final period stand for?",
+      "choices": [
+        { "id": "a", "text": "The top-level domain" },
+        { "id": "b", "text": "The root of the hierarchy" },
+        { "id": "c", "text": "The domain suffix" },
+        { "id": "d", "text": "The host's resource record" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.2", "6.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.2",
+        "title": "DNS Hierarchy",
+        "quote": "",
+        "find": "DNS hierarchy is the root"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q279" }
+    },
+    {
+      "id": "n-u06-q064",
+      "stem": "A company runs a DNS server whose only job is to take lookups from staff PCs and query other name servers until it finds each answer. Which of the following terms describes this server?",
+      "choices": [
+        { "id": "a", "text": "Recursive resolver" },
+        { "id": "b", "text": "Stub resolver" },
+        { "id": "c", "text": "Authoritative name server" },
+        { "id": "d", "text": "Secondary name server" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.3",
+        "title": "Name Resolution Using DNS",
+        "quote": "",
+        "find": "only perform recursive querying (a resolver)"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q125" }
+    },
+    {
+      "id": "n-u06-q065",
+      "stem": "A local name server sends an iterative query for www.contoso.com to the TLD server for .com, which does not hold that record. Which of the following BEST describes how the TLD server responds?",
+      "choices": [
+        { "id": "a", "text": "It replies with the address of contoso.com's authoritative name server" },
+        { "id": "b", "text": "It queries contoso.com's name server itself and replies with the record" },
+        { "id": "c", "text": "It passes the query to another DNS server and relays that server's reply" },
+        { "id": "d", "text": "It replies with an error, since it is not authoritative for contoso.com" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.3",
+        "title": "Name Resolution Using DNS",
+        "quote": "",
+        "find": "responds to a query with either"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q124" }
+    },
+    {
+      "id": "n-u06-q066",
+      "stem": "A home PC is set to use its ISP's resolver, which has no cached record for www.lakeview.org. Which of the following steps in this lookup use iterative queries?",
+      "choices": [
+        { "id": "a", "text": "The PC's stub resolver first checks its own local cache for www.lakeview.org" },
+        { "id": "b", "text": "The PC sends its query for www.lakeview.org to the resolver in its TCP/IP settings" },
+        { "id": "c", "text": "The resolver asks a root server for the address of the .org TLD server" },
+        { "id": "d", "text": "The resolver asks the .org TLD server for the address of lakeview.org's name server" },
+        { "id": "e", "text": "The resolver asks lakeview.org's name server for the www.lakeview.org record" }
+      ],
+      "answer": ["c", "d", "e"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.3",
+        "title": "Name Resolution Using DNS",
+        "quote": "",
+        "find": "performed as iterative lookups"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q92" }
+    },
+    {
+      "id": "n-u06-q067",
+      "stem": "A company is opening a small office, and its users must reach the office's file and print servers by host name instead of by IP address. Which type of server should a technician set up?",
+      "choices": [
+        { "id": "a", "text": "DHCP server" },
+        { "id": "b", "text": "LDAP server" },
+        { "id": "c", "text": "DNS server" },
+        { "id": "d", "text": "NTP server" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.4",
+        "title": "Resource Record Types",
+        "quote": "",
+        "find": "DNS name server to resolve"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q119" }
+    },
+    {
+      "id": "n-u06-q068",
+      "stem": "An administrator sets up a second DNS server, dns2.riverbend.com, to host the riverbend.com zone for redundancy. Which type of record identifies dns2 as one of the zone's authoritative servers?",
+      "choices": [
+        { "id": "a", "text": "SOA record" },
+        { "id": "b", "text": "SRV record" },
+        { "id": "c", "text": "CNAME record" },
+        { "id": "d", "text": "NS record" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.4",
+        "title": "Resource Record Types",
+        "quote": "",
+        "find": "records identify authoritative DNS name servers"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q87" }
+    },
+    {
+      "id": "n-u06-q069",
+      "stem": "While reviewing a DNS zone, a technician finds an A record and an AAAA record that both use the host name prt01. Which of the following BEST explains this?",
+      "choices": [
+        { "id": "a", "text": "prt01 has both an IPv4 address and an IPv6 address" },
+        { "id": "b", "text": "prt01 is load balanced with round robin DNS" },
+        { "id": "c", "text": "One of the records is an alias for the other" },
+        { "id": "d", "text": "One of the records is used for reverse lookups" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.5",
+        "title": "Host Address and Canonical Name Records",
+        "quote": "",
+        "find": "An AAAA record resolves a host"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q260" }
+    },
+    {
+      "id": "n-u06-q070",
+      "stem": "A lab network uses only IPv6, and its clients must be able to reach the lab's file server by name. Which type of DNS record must the lab's name server hold for the file server?",
+      "choices": [
+        { "id": "a", "text": "A record" },
+        { "id": "b", "text": "PTR record" },
+        { "id": "c", "text": "AAAA record" },
+        { "id": "d", "text": "CNAME record" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.5",
+        "title": "Host Address and Canonical Name Records",
+        "quote": "",
+        "find": "An AAAA record resolves a host"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q130" }
+    },
+    {
+      "id": "n-u06-q071",
+      "stem": "The hr site is moving to its own server, hr01, while intranet stays on web01. Based on the DNS records shown, which change should the administrator make?",
+      "exhibit": { "type": "text", "text": "Name     Type  Data\nweb01    A     10.4.2.20\nhr01     A     10.4.2.40\nintranet CNAME web01\nhr       CNAME web01" },
+      "choices": [
+        { "id": "a", "text": "Point the hr CNAME record to hr01" },
+        { "id": "b", "text": "Change web01's A record to hr01's address" },
+        { "id": "c", "text": "Add a second A record for web01 with hr01's address" },
+        { "id": "d", "text": "Add a PTR record that maps hr01's address to hr" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.5",
+        "title": "Host Address and Canonical Name Records",
+        "quote": "",
+        "find": "alias for an existing address record"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q297" }
+    },
+    {
+      "id": "n-u06-q072",
+      "stem": "A company's laptops get their IP addresses from DHCP, and their host records often go out of date. Which of the following lets the DHCP server or the laptops update those records automatically?",
+      "choices": [
+        { "id": "a", "text": "Round robin DNS" },
+        { "id": "b", "text": "Dynamic DNS" },
+        { "id": "c", "text": "DHCP reservation" },
+        { "id": "d", "text": "Zone transfer" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.5",
+        "title": "Host Address and Canonical Name Records",
+        "quote": "",
+        "find": "allows a client or DHCP server"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q137" }
+    },
+    {
+      "id": "n-u06-q073",
+      "stem": "A dental office's new mail server, mail.pinecrestdental.com, has a correct A record, but email sent to the office's addresses from other domains never arrives. Which DNS record is MOST likely missing?",
+      "choices": [
+        { "id": "a", "text": "TXT record" },
+        { "id": "b", "text": "SRV record" },
+        { "id": "c", "text": "CNAME record" },
+        { "id": "d", "text": "MX record" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.6",
+        "title": "Mail Exchange, Service, and Text Records",
+        "quote": "",
+        "find": "used to identify an email server"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q276" }
+    },
+    {
+      "id": "n-u06-q074",
+      "stem": "A company runs four mail servers for oakridge.org, listed in the MX records shown. Based on the preference (Pref) values, which server is preferred when all four servers are online?",
+      "exhibit": { "type": "text", "text": "oakridge.org MX records\nHost                Pref\nwest.oakridge.org   20\neast.oakridge.org   10\nsouth.oakridge.org  40\nnorth.oakridge.org  30" },
+      "choices": [
+        { "id": "a", "text": "west.oakridge.org" },
+        { "id": "b", "text": "east.oakridge.org" },
+        { "id": "c", "text": "south.oakridge.org" },
+        { "id": "d", "text": "north.oakridge.org" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.6",
+        "title": "Mail Exchange, Service, and Text Records",
+        "quote": "",
+        "find": "with the lowest numbered entry preferred"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q246" }
+    },
+    {
+      "id": "n-u06-q075",
+      "stem": "A nonprofit starts sending its newsletters through an outside email service, and receiving servers reject them because the service is not listed in the nonprofit's SPF record. Which type of DNS record should the administrator edit?",
+      "choices": [
+        { "id": "a", "text": "MX record" },
+        { "id": "b", "text": "PTR record" },
+        { "id": "c", "text": "TXT record" },
+        { "id": "d", "text": "SRV record" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.6",
+        "title": "Mail Exchange, Service, and Text Records",
+        "quote": "",
+        "find": "many TXT records, but most commonly"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q287" }
+    },
+    {
+      "id": "n-u06-q076",
+      "stem": "A security analyst has a log that lists only IP addresses and wants DNS to return the host name for each one. Which of the following record types answers these lookups?",
+      "choices": [
+        { "id": "a", "text": "A record" },
+        { "id": "b", "text": "PTR record" },
+        { "id": "c", "text": "CNAME record" },
+        { "id": "d", "text": "NS record" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.7",
+        "title": "Pointer Records",
+        "quote": "",
+        "find": "as a pointer (PTR) record"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q119" }
+    },
+    {
+      "id": "n-u06-q077",
+      "stem": "On a company's new DNS server, lookups of host names work, but lookups of IP addresses never return a host name. Which of the following was MOST likely never set up on the server?",
+      "choices": [
+        { "id": "a", "text": "A forward lookup zone" },
+        { "id": "b", "text": "A reverse lookup zone" },
+        { "id": "c", "text": "A secondary zone" },
+        { "id": "d", "text": "A root hints file" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.7",
+        "title": "Pointer Records",
+        "quote": "",
+        "find": "stored in a reverse lookup zone"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q147" }
+    },
+    {
+      "id": "n-u06-q078",
+      "stem": "A technician runs a reverse lookup on 172.16.40.12, the address of a file server. Which of the following names does the DNS query ask for?",
+      "choices": [
+        { "id": "a", "text": "172.16.40.12.in-addr.arpa" },
+        { "id": "b", "text": "40.16.172.12.in-addr.arpa" },
+        { "id": "c", "text": "12.40.16.172.ip6.arpa" },
+        { "id": "d", "text": "12.40.16.172.in-addr.arpa" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.7",
+        "title": "Pointer Records",
+        "quote": "",
+        "find": "containing the IP address 198.51.100.1"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q262" }
+    },
+    {
+      "id": "n-u06-q079",
+      "stem": "A technician is creating records in the forward lookup zone for a company's domain. Which of the following record types does NOT belong in this zone?",
+      "choices": [
+        { "id": "a", "text": "PTR record" },
+        { "id": "b", "text": "A record" },
+        { "id": "c", "text": "MX record" },
+        { "id": "d", "text": "TXT record" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.7",
+        "title": "Pointer Records",
+        "quote": "",
+        "find": "stored in a reverse lookup zone"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q31" }
+    },
+    {
+      "id": "n-u06-q080",
+      "stem": "A technician is adding a firewall rule so that clients at a branch office can send queries to the company's DNS server. Which of the following should the rule allow?",
+      "choices": [
+        { "id": "a", "text": "UDP port 53" },
+        { "id": "b", "text": "UDP port 67" },
+        { "id": "c", "text": "UDP port 123" },
+        { "id": "d", "text": "UDP port 161" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.5.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.8",
+        "title": "DNS Server Configuration",
+        "quote": "",
+        "find": "listen for queries on UDP port"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q259" }
+    },
+    {
+      "id": "n-u06-q081",
+      "stem": "A company is turning on DNSSEC for its zones, and its firewall already allows normal DNS lookups. Which of the following should the firewall also allow to the company's DNS servers?",
+      "choices": [
+        { "id": "a", "text": "TCP port 53" },
+        { "id": "b", "text": "TCP port 853" },
+        { "id": "c", "text": "TCP port 443" },
+        { "id": "d", "text": "UDP port 123" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.8",
+        "title": "DNS Server Configuration",
+        "quote": "",
+        "find": "required if IPv6 is deployed"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q352" }
+    },
+    {
+      "id": "n-u06-q082",
+      "stem": "A company's public DNS server holds the zone records for the company's domain and answers queries for that domain only. Which of the following BEST describes this server?",
+      "choices": [
+        { "id": "a", "text": "A recursive resolver" },
+        { "id": "b", "text": "A cache-only server" },
+        { "id": "c", "text": "An authoritative name server" },
+        { "id": "d", "text": "A conditional forwarder" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.8",
+        "title": "DNS Server Configuration",
+        "quote": "",
+        "find": "can be defined as authoritative"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q361" }
+    },
+    {
+      "id": "n-u06-q083",
+      "stem": "A PC gets an answer for www.contoso.com from the branch office DNS server, and the reply is marked non-authoritative. Which of the following BEST explains this?",
+      "choices": [
+        { "id": "a", "text": "The server answered from a cached record" },
+        { "id": "b", "text": "The server holds a read-only copy of the zone" },
+        { "id": "c", "text": "The record's TTL had already run out" },
+        { "id": "d", "text": "The server is a primary name server for the zone" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.8",
+        "title": "DNS Server Configuration",
+        "quote": "",
+        "find": "derives from a cached record"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q322" }
+    },
+    {
+      "id": "n-u06-q084",
+      "stem": "So that name resolution keeps working if one server fails, a company adds two secondary name servers for its domain. Which of the following keeps the records on these servers current with the primary name server?",
+      "choices": [
+        { "id": "a", "text": "Zone transfer" },
+        { "id": "b", "text": "Dynamic DNS" },
+        { "id": "c", "text": "Recursive query" },
+        { "id": "d", "text": "Conditional forwarding" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.8",
+        "title": "DNS Server Configuration",
+        "quote": "",
+        "find": "known as a zone transfer"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q146" }
+    },
+    {
+      "id": "n-u06-q085",
+      "stem": "An administrator tries to add a host record on one of the company's secondary name servers, but the server will not accept the change. Which of the following BEST explains why?",
+      "choices": [
+        { "id": "a", "text": "It is not authoritative for the zone" },
+        { "id": "b", "text": "It is configured as a cache-only server" },
+        { "id": "c", "text": "It holds a read-only copy of the zone" },
+        { "id": "d", "text": "It has recursive queries turned off" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.8",
+        "title": "DNS Server Configuration",
+        "quote": "",
+        "find": "server holds a read-only copy"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q249" }
+    },
+    {
+      "id": "n-u06-q086",
+      "stem": "A web server will move to a new IP address next week, and its A record has a TTL of one day. Which of the following should the administrator do FIRST so clients switch to the new address quickly after the move?",
+      "choices": [
+        { "id": "a", "text": "Lower the A record's TTL a few days before the move" },
+        { "id": "b", "text": "Raise the A record's TTL a few days before the move" },
+        { "id": "c", "text": "Add a second A record for the new address now" },
+        { "id": "d", "text": "Clear the DNS server's cache the day before the move" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["6.5.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.8",
+        "title": "DNS Server Configuration",
+        "quote": "",
+        "find": "record change involves reducing the TTL"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q344" }
+    },
+    {
+      "id": "n-u06-q087",
+      "stem": "A company's public zone, contoso.com, is on an external name server, and its internal zone, corp.contoso.com, is on internal servers. Which of the following queries should the external name server answer?",
+      "choices": [
+        { "id": "a", "text": "An Internet user's lookup of crm.corp.contoso.com" },
+        { "id": "b", "text": "A staff PC's lookup of the corp.contoso.com domain controllers" },
+        { "id": "c", "text": "An Internet user's recursive lookup of www.fabrikam.com" },
+        { "id": "d", "text": "An Internet user's lookup of www.contoso.com" },
+        { "id": "e", "text": "An outside mail server's MX lookup for contoso.com" }
+      ],
+      "answer": ["d", "e"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.9",
+        "title": "Internal vs External DNS",
+        "quote": "",
+        "find": "run web and email services"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q142" }
+    },
+    {
+      "id": "n-u06-q088",
+      "stem": "After an attack changed DNS answers so that users were sent to a malicious site, an administrator enables DNSSEC on the company's zones. Which of the following BEST describes how DNSSEC helps?",
+      "choices": [
+        { "id": "a", "text": "It signs records so responses can be validated" },
+        { "id": "b", "text": "It encrypts the queries clients send to resolvers" },
+        { "id": "c", "text": "It blocks recursive queries from outside clients" },
+        { "id": "d", "text": "It lets resolvers cache records for a longer time" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.10",
+        "title": "DNS Security",
+        "quote": "",
+        "find": "a validation process for DNS responses"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q254" }
+    },
+    {
+      "id": "n-u06-q089",
+      "stem": "An administrator needs clients' DNS queries to be encrypted, and the firewall will pass this traffic only on TCP port 853. Which of the following should the clients use?",
+      "choices": [
+        { "id": "a", "text": "DNS over HTTPS (DoH)" },
+        { "id": "b", "text": "DNS over TLS (DoT)" },
+        { "id": "c", "text": "DNS Security Extensions (DNSSEC)" },
+        { "id": "d", "text": "DNS over TCP port 53" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.10",
+        "title": "DNS Security",
+        "quote": "",
+        "find": "DoT works over TCP port"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q238" }
+    },
+    {
+      "id": "n-u06-q090",
+      "stem": "No websites will load at a print shop, and a technician must find out whether the fault is name resolution or the shop's Internet link. Which of the following would BEST tell the two apart?",
+      "choices": [
+        { "id": "a", "text": "Ping the loopback address, then the default gateway" },
+        { "id": "b", "text": "Ping a remote server by IP address, then by name" },
+        { "id": "c", "text": "Run ipconfig /all and read the listed DNS servers" },
+        { "id": "d", "text": "Run ipconfig /flushdns, then reload a website" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.1",
+        "title": "Client DNS Issues",
+        "quote": "",
+        "find": "A DNS issue is typically indicated"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q169" }
+    },
+    {
+      "id": "n-u06-q091",
+      "stem": "After a weekend power outage, no PC at a hotel can open websites by name, but staff can still reach a web server by typing its IP address. Which of the following should a technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "The DNS server that the PCs use" },
+        { "id": "b", "text": "The entries in each PC's HOSTS file" },
+        { "id": "c", "text": "The records in each PC's DNS cache" },
+        { "id": "d", "text": "The lease time set in the DHCP scope" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.1",
+        "title": "Client DNS Issues",
+        "quote": "",
+        "find": "If multiple clients are affected"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q29" }
+    },
+    {
+      "id": "n-u06-q092",
+      "stem": "At a pharmacy, one PC cannot resolve any names, but every other PC on the same network resolves names with no trouble. Which of the following should a technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "The entries in that PC's HOSTS file" },
+        { "id": "b", "text": "The DNS options in the DHCP scope" },
+        { "id": "c", "text": "The DNS server addresses set on that PC" },
+        { "id": "d", "text": "The records in the DNS server's zone" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.1",
+        "title": "Client DNS Issues",
+        "quote": "",
+        "find": "lie with that client's configuration"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q381" }
+    },
+    {
+      "id": "n-u06-q093",
+      "stem": "Every PC in an office can reach the other PCs by host name and can ping the file server at 10.1.1.20, but none can reach the server by its FQDN, files.corp.example. Which of the following is MOST likely failing?",
+      "choices": [
+        { "id": "a", "text": "DHCP" },
+        { "id": "b", "text": "ARP" },
+        { "id": "c", "text": "SLAAC" },
+        { "id": "d", "text": "DNS" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.1",
+        "title": "Client DNS Issues",
+        "quote": "",
+        "find": "name resolution on a local link"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q112" }
+    },
+    {
+      "id": "n-u06-q094",
+      "stem": "In a school's computer lab, PCs that get their settings from DHCP cannot resolve any names, but the one PC set by hand to use the school's resolver has no trouble. Which of the following should a technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "The lease time set in the DHCP scope" },
+        { "id": "b", "text": "The DNS servers option in the DHCP scope" },
+        { "id": "c", "text": "The DNS service on the school's resolver" },
+        { "id": "d", "text": "The DNS cache on each lab PC" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.1",
+        "title": "Client DNS Issues",
+        "quote": "",
+        "find": "scope options configuration on the DHCP"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q415" }
+    },
+    {
+      "id": "n-u06-q095",
+      "stem": "A sales rep's PC resolves most names with no trouble, but since the company's order site moved to a new IP address last night, the PC cannot open the site by name while other PCs can. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The PC is set to use the wrong DNS servers" },
+        { "id": "b", "text": "The site's name is missing from the PC's HOSTS file" },
+        { "id": "c", "text": "The PC has an outdated record in its cache" },
+        { "id": "d", "text": "The DNS server still has the site's old record" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.2",
+        "title": "Name Resolution Issues",
+        "quote": "",
+        "find": "whether clients have cached a record"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q389" }
+    },
+    {
+      "id": "n-u06-q096",
+      "stem": "A user cannot reach the company's time-clock server by name, but after a technician adds the server's correct name and IP address to the HOSTS file on the user's PC, pinging that name works. Which of the following is MOST likely at fault?",
+      "choices": [
+        { "id": "a", "text": "The DNS server the PC is using" },
+        { "id": "b", "text": "The network path to the server" },
+        { "id": "c", "text": "The DHCP lease on the user's PC" },
+        { "id": "d", "text": "The IP address set on the server" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.2",
+        "title": "Name Resolution Issues",
+        "quote": "",
+        "find": "it suggests a name resolution"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q380" }
+    },
+    {
+      "id": "n-u06-q097",
+      "stem": "While checking why a store's website will not load, a technician runs a command on a Windows PC. Based on the output shown, which of the following commands did the technician run?",
+      "exhibit": { "type": "text", "text": "Server:  dns2.isp.example\nAddress:  198.51.100.53\n\nNon-authoritative answer:\nName:    shop.example.com\nAddresses:  203.0.113.40\n          203.0.113.41" },
+      "choices": [
+        { "id": "a", "text": "netstat" },
+        { "id": "b", "text": "ipconfig /all" },
+        { "id": "c", "text": "nslookup" },
+        { "id": "d", "text": "ipconfig /displaydns" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.3",
+        "title": "nslookup",
+        "quote": "",
+        "find": "server used for each query"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q191" }
+    },
+    {
+      "id": "n-u06-q098",
+      "stem": "An administrator suspects that one of a company's DNS servers is returning outdated records and wants to query that server directly to see what it returns. Which of the following tools could the administrator use?",
+      "choices": [
+        { "id": "a", "text": "netstat" },
+        { "id": "b", "text": "nslookup" },
+        { "id": "c", "text": "ipconfig /displaydns" },
+        { "id": "d", "text": "dig" },
+        { "id": "e", "text": "ipconfig /registerdns" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.2",
+        "title": "Name Resolution Issues",
+        "quote": "",
+        "find": "Use the nslookup or dig utilities"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q170" }
+    },
+    {
+      "id": "n-u06-q099",
+      "stem": "Messages sent to a school's new domain, northfield.example, are not arriving, so a technician wants to see which servers are listed to accept the domain's email. Which of the following commands should the technician run?",
+      "choices": [
+        { "id": "a", "text": "nslookup -type=ns northfield.example" },
+        { "id": "b", "text": "nslookup -type=cname northfield.example" },
+        { "id": "c", "text": "nslookup -type=aaaa northfield.example" },
+        { "id": "d", "text": "nslookup -type=mx northfield.example" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.3",
+        "title": "nslookup",
+        "quote": "",
+        "find": "nslookup -type=mx 515support.com 8.8.8.8"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q384" }
+    },
+    {
+      "id": "n-u06-q100",
+      "stem": "A Windows PC uses 10.1.1.10 as its DNS server, but a technician wants to see what the DNS server at 10.1.1.12 returns for hr.corp.example. Which of the following commands will do this?",
+      "choices": [
+        { "id": "a", "text": "nslookup hr.corp.example 10.1.1.12" },
+        { "id": "b", "text": "nslookup hr.corp.example @10.1.1.12" },
+        { "id": "c", "text": "nslookup 10.1.1.12 hr.corp.example" },
+        { "id": "d", "text": "nslookup hr.corp.example" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.3",
+        "title": "nslookup",
+        "quote": "",
+        "find": "DNSServer is the IP address"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q282" }
+    },
+    {
+      "id": "n-u06-q101",
+      "stem": "A technician on a Linux host wants dig to send its query for portal.metro.example to the name server 192.0.2.53 instead of the default resolver. Which of the following commands should the technician use?",
+      "choices": [
+        { "id": "a", "text": "dig portal.metro.example 192.0.2.53" },
+        { "id": "b", "text": "dig 192.0.2.53 portal.metro.example" },
+        { "id": "c", "text": "dig @192.0.2.53 portal.metro.example" },
+        { "id": "d", "text": "dig portal.metro.example +192.0.2.53" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.4",
+        "title": "dig",
+        "quote": "",
+        "find": "be an FQDN or IP address"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q388" }
+    },
+    {
+      "id": "n-u06-q102",
+      "stem": "A technician on a Windows workstation with no added software needs to ask a DNS server what address it holds for a host. Which of the following tools should the technician use?",
+      "choices": [
+        { "id": "a", "text": "dig" },
+        { "id": "b", "text": "nslookup" },
+        { "id": "c", "text": "netstat" },
+        { "id": "d", "text": "ipconfig /displaydns" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.4", "6.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.4",
+        "title": "dig",
+        "quote": "",
+        "find": "use dig on Windows by downloading"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q403" }
+    }
+  ]
+}

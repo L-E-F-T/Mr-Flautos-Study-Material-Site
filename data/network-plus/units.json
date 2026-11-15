@@ -1,0 +1,737 @@
+{
+  "$schema": "../../schemas/units.schema.json",
+  "courseware": "Network+ CertMaster Learn 9.1",
+  "source": "Mapped from the Network+ CertMaster Learn 9.1 page printouts (Book\\bySubunit, printed 8/14/26 to 9/28/26) for Units 1.0 to 7.0, and from the chapter PDFs (Book\\byUnit) for Units 8.0 to 14.0. Lesson objectives come from each lesson's \"Exam Objectives Covered\" box (the chapter's \"Objectives Covered\" box for Units 8.0 to 14.0), plus every objective whose Lesson Index in B.1.3 names the lesson.",
+  "notes": "Only printed reading sections are listed, so section numbers skip where CertMaster has a video, lab, or activity, or a number it skips (2.4.7 is one). 0.0 Network+ CertMaster Perform (the course introduction), the exam pages B.1.2 and B.1.3, and each unit's last lesson, Additional Resources, are left out because they have no reading. Units 8.0 to 14.0 have their units and lessons from the chapter PDFs, with \"sections\": [] until Mr. Flauto prints those units. Each lesson's objectives are its \"Exam Objectives Covered\" box plus every objective whose B.1.3 Lesson Index names the lesson (Mr. Flauto's decision, 2026-11-14); lesson 13.1 prints no Objectives Covered box in its chapter, so its objectives come from the Lesson Index alone. No unit or lesson is marked notOnExam, because lesson 1.4 teaches objective 5.1 (the troubleshooting methodology).",
+  "units": [
+    {
+      "id": "1.0",
+      "title": "Explaining Network Topologies",
+      "subunits": [
+        {
+          "id": "1.1",
+          "title": "Networking Overview",
+          "objectives": ["1.2", "1.6"],
+          "sections": [
+            { "id": "1.1.1", "title": "Networking Concepts" },
+            { "id": "1.1.2", "title": "Network Types" },
+            { "id": "1.1.3", "title": "Network Topology" },
+            { "id": "1.1.4", "title": "Star Topology" },
+            { "id": "1.1.5", "title": "Mesh Topology" },
+            { "id": "1.1.6", "title": "Legacy Topologies" }
+          ]
+        },
+        {
+          "id": "1.2",
+          "title": "OSI Model Concepts",
+          "objectives": ["1.1", "1.8", "5.1"],
+          "sections": [
+            { "id": "1.2.1", "title": "Open Systems Interconnection Model" },
+            { "id": "1.2.2", "title": "Data Encapsulation and Decapsulation" },
+            { "id": "1.2.3", "title": "Layer 1 - Physical" },
+            { "id": "1.2.4", "title": "Layer 2 - Data Link" },
+            { "id": "1.2.5", "title": "Layer 3 - Network" },
+            { "id": "1.2.6", "title": "Layer 4 - Transport" },
+            { "id": "1.2.7", "title": "Upper Layers" },
+            { "id": "1.2.8", "title": "OSI Model Summary" }
+          ]
+        },
+        {
+          "id": "1.3",
+          "title": "SOHO Networks",
+          "objectives": ["1.1", "1.2"],
+          "sections": [
+            { "id": "1.3.1", "title": "SOHO Routers" },
+            { "id": "1.3.2", "title": "Physical Layer Functions" },
+            { "id": "1.3.3", "title": "Data Link Layer Functions" },
+            { "id": "1.3.4", "title": "Network Layer Functions" },
+            { "id": "1.3.5", "title": "Transport and Application Layer and Security Functions" },
+            { "id": "1.3.6", "title": "The Internet" },
+            { "id": "1.3.7", "title": "Binary and Hexadecimal" }
+          ]
+        },
+        {
+          "id": "1.4",
+          "title": "Troubleshooting Methodology",
+          "objectives": ["5.1"],
+          "sections": [
+            { "id": "1.4.1", "title": "Network Troubleshooting Methodology" },
+            { "id": "1.4.2", "title": "Identify the Problem" },
+            { "id": "1.4.3", "title": "Identify Problem Symptoms" },
+            { "id": "1.4.4", "title": "Establish a Theory of Probable Cause" },
+            { "id": "1.4.5", "title": "Test the Theory to Determine the Cause" },
+            { "id": "1.4.6", "title": "Establish a Plan of Action" },
+            { "id": "1.4.7", "title": "Implement the Solution" },
+            { "id": "1.4.8", "title": "Verify the Solution" },
+            { "id": "1.4.9", "title": "Document Findings, Actions, and Outcomes" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2.0",
+      "title": "Supporting Cabling and Physical Installations",
+      "subunits": [
+        {
+          "id": "2.1",
+          "title": "Ethernet",
+          "objectives": ["1.5", "2.2", "5.4"],
+          "sections": [
+            { "id": "2.1.1", "title": "Network Data Transmission" },
+            { "id": "2.1.2", "title": "Ethernet Standards" },
+            { "id": "2.1.3", "title": "Media Access Control and Collision Domains" },
+            { "id": "2.1.4", "title": "100BASE-TX Fast Ethernet Standards" },
+            { "id": "2.1.5", "title": "Gigabit Ethernet Standards" },
+            { "id": "2.1.6", "title": "Fiber Ethernet Standards" }
+          ]
+        },
+        {
+          "id": "2.2",
+          "title": "Copper Cables and Connectors",
+          "objectives": ["1.5", "5.2"],
+          "sections": [
+            { "id": "2.2.1", "title": "Unshielded Twisted Pair Cable" },
+            { "id": "2.2.2", "title": "Shielded and Screened Twisted Pair Cable" },
+            { "id": "2.2.3", "title": "Cat Cable Standards" },
+            { "id": "2.2.4", "title": "Twisted Pair Connector Types" },
+            { "id": "2.2.5", "title": "Plenum and Riser-Rated Cable" },
+            { "id": "2.2.6", "title": "Coaxial and Twinaxial Cable and Connectors" }
+          ]
+        },
+        {
+          "id": "2.3",
+          "title": "Wiring Implementation",
+          "objectives": ["1.5", "2.4"],
+          "sections": [
+            { "id": "2.3.1", "title": "Structured Cabling System" },
+            { "id": "2.3.2", "title": "T568A and T568B Termination Standards" },
+            { "id": "2.3.3", "title": "Patch Panels" },
+            { "id": "2.3.4", "title": "Structured Cable Installation" },
+            { "id": "2.3.5", "title": "Termination Tools and Techniques" }
+          ]
+        },
+        {
+          "id": "2.4",
+          "title": "Fiber Optic Cables and Connectors",
+          "objectives": ["1.5", "2.4", "5.2"],
+          "sections": [
+            { "id": "2.4.1", "title": "Fiber Optic Cable Considerations" },
+            { "id": "2.4.2", "title": "Single Mode Fiber and Multimode Fiber" },
+            { "id": "2.4.3", "title": "Fiber Optic Connector Types" },
+            { "id": "2.4.4", "title": "Fiber Optic Cable Installation" },
+            { "id": "2.4.5", "title": "Fiber Distribution Panels" },
+            { "id": "2.4.6", "title": "Multi-Fiber Push On Connectors" },
+            { "id": "2.4.8", "title": "Wavelength Division Multiplexing" }
+          ]
+        },
+        {
+          "id": "2.5",
+          "title": "Physical Installation Factors",
+          "objectives": ["2.4", "3.1"],
+          "sections": [
+            { "id": "2.5.1", "title": "Rack Systems" },
+            { "id": "2.5.2", "title": "Humidity and Temperature" },
+            { "id": "2.5.3", "title": "Power Management" },
+            { "id": "2.5.4", "title": "Fire Suppression" }
+          ]
+        },
+        {
+          "id": "2.6",
+          "title": "Cable Troubleshooting",
+          "objectives": ["1.5", "5.2", "5.5"],
+          "sections": [
+            { "id": "2.6.1", "title": "Specification and Limitations" },
+            { "id": "2.6.2", "title": "Cable Issues" },
+            { "id": "2.6.3", "title": "Cable Category Issues" },
+            { "id": "2.6.4", "title": "Cable Testers" },
+            { "id": "2.6.5", "title": "Wire Map Testers and Tone Generators" },
+            { "id": "2.6.6", "title": "Attenuation and Interference Issues" },
+            { "id": "2.6.7", "title": "Crosstalk Issues" },
+            { "id": "2.6.8", "title": "Fiber Optic Cable Testing Tools" },
+            { "id": "2.6.9", "title": "Cable Troubleshooting Strategies" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3.0",
+      "title": "Configuring Interfaces and Switches",
+      "subunits": [
+        {
+          "id": "3.1",
+          "title": "Network Interfaces",
+          "objectives": ["1.5", "4.3", "5.2"],
+          "sections": [
+            { "id": "3.1.1", "title": "Network Interface Cards" },
+            { "id": "3.1.2", "title": "Modular Transceivers" },
+            { "id": "3.1.3", "title": "Transceiver Mismatch Issues" },
+            { "id": "3.1.4", "title": "Transceiver Signal Strength Issues" },
+            { "id": "3.1.5", "title": "Ethernet Frame Format" },
+            { "id": "3.1.6", "title": "Media Access Control Address Format" }
+          ]
+        },
+        {
+          "id": "3.2",
+          "title": "Ethernet Switches",
+          "objectives": ["1.2", "2.2"],
+          "sections": [
+            { "id": "3.2.1", "title": "Hubs" },
+            { "id": "3.2.2", "title": "Bridges" },
+            { "id": "3.2.3", "title": "Switches" },
+            { "id": "3.2.4", "title": "Ethernet Switch Types" },
+            { "id": "3.2.5", "title": "Switch Interface Configuration" }
+          ]
+        },
+        {
+          "id": "3.3",
+          "title": "Switch Port Configuration",
+          "objectives": ["2.2", "5.2", "5.3"],
+          "sections": [
+            { "id": "3.3.1", "title": "Link Aggregation and NIC Teaming" },
+            { "id": "3.3.2", "title": "Maximum Transmission Unit" },
+            { "id": "3.3.3", "title": "Spanning Tree Protocol" },
+            { "id": "3.3.4", "title": "Spanning Tree Protocol Configuration" },
+            { "id": "3.3.5", "title": "Power Over Ethernet" }
+          ]
+        },
+        {
+          "id": "3.4",
+          "title": "Switch Troubleshooting",
+          "objectives": ["4.3", "5.2", "5.3", "5.5"],
+          "sections": [
+            { "id": "3.4.1", "title": "Hardware Failure Issues" },
+            { "id": "3.4.2", "title": "Port Status Indicators" },
+            { "id": "3.4.3", "title": "Switch Show Commands" },
+            { "id": "3.4.4", "title": "Interface Error Counters" },
+            { "id": "3.4.5", "title": "MAC Address Table" },
+            { "id": "3.4.6", "title": "Network Loop and Broadcast Storm Issues" },
+            { "id": "3.4.7", "title": "Power Over Ethernet Issues" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4.0",
+      "title": "Configuring Network Addressing",
+      "subunits": [
+        {
+          "id": "4.1",
+          "title": "Internet Protocol Basics",
+          "objectives": ["1.1", "1.4"],
+          "sections": [
+            { "id": "4.1.1", "title": "IPv4 Datagram Header" },
+            { "id": "4.1.2", "title": "Layer 2 vs Layer 3 Addressing and Forwarding" },
+            { "id": "4.1.3", "title": "Address Resolution Protocol" },
+            { "id": "4.1.4", "title": "Unicast and Broadcast Addressing" },
+            { "id": "4.1.5", "title": "Multicast and Anycast Addressing" }
+          ]
+        },
+        {
+          "id": "4.2",
+          "title": "IP Version 4 Addressing",
+          "objectives": ["1.7"],
+          "sections": [
+            { "id": "4.2.1", "title": "IPv4 Address Format" },
+            { "id": "4.2.2", "title": "Network Masks" },
+            { "id": "4.2.3", "title": "Subnet Masks" },
+            { "id": "4.2.4", "title": "Host Address Ranges" },
+            { "id": "4.2.5", "title": "Default Gateway" },
+            { "id": "4.2.6", "title": "Broadcast Addresses" },
+            { "id": "4.2.7", "title": "IP Interface Configuration in Windows" },
+            { "id": "4.2.8", "title": "IP Interface Configuration in Linux" }
+          ]
+        },
+        {
+          "id": "4.3",
+          "title": "IP Version 4 Subnetting",
+          "objectives": ["1.7"],
+          "sections": [
+            { "id": "4.3.1", "title": "Classful Addressing" },
+            { "id": "4.3.2", "title": "Public vs Private Addressing" },
+            { "id": "4.3.3", "title": "Other Reserved Address Ranges" },
+            { "id": "4.3.4", "title": "IPv4 Address Scheme Design" },
+            { "id": "4.3.5", "title": "Classless Inter-Domain Routing" },
+            { "id": "4.3.6", "title": "Variable Length Subnet Masks" }
+          ]
+        },
+        {
+          "id": "4.4",
+          "title": "IP Troubleshooting Tools",
+          "objectives": ["5.3", "5.5"],
+          "sections": [
+            { "id": "4.4.1", "title": "ipconfig" },
+            { "id": "4.4.2", "title": "ifconfig and ip" },
+            { "id": "4.4.3", "title": "arp" },
+            { "id": "4.4.4", "title": "ping" }
+          ]
+        },
+        {
+          "id": "4.5",
+          "title": "IP Version 6",
+          "objectives": ["1.4", "1.7", "1.8"],
+          "sections": [
+            { "id": "4.5.1", "title": "IPv4 vs IPv6" },
+            { "id": "4.5.2", "title": "IPv6 Address Format" },
+            { "id": "4.5.3", "title": "IPv6 Network Prefixes" },
+            { "id": "4.5.4", "title": "IPv6 Unicast Addressing" },
+            { "id": "4.5.5", "title": "IPv6 Link Local Addressing" },
+            { "id": "4.5.6", "title": "IPv6 Multicast and Anycast Addressing" },
+            { "id": "4.5.7", "title": "IPv4 and IPv6 Transition Mechanisms" },
+            { "id": "4.5.8", "title": "Common IPv6 Address Prefixes" }
+          ]
+        },
+        {
+          "id": "4.6",
+          "title": "IP Troubleshooting",
+          "objectives": ["5.3"],
+          "sections": [
+            { "id": "4.6.1", "title": "IP Configuration Issues" },
+            { "id": "4.6.2", "title": "Duplicate IP and MAC Address Issues" },
+            { "id": "4.6.3", "title": "IP Forwarding Issues" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5.0",
+      "title": "Configuring Routing and Advanced Switching",
+      "subunits": [
+        {
+          "id": "5.1",
+          "title": "Routing Technologies",
+          "objectives": ["1.2", "1.7", "2.1", "2.2", "5.5"],
+          "sections": [
+            { "id": "5.1.1", "title": "Routing Tables and Path Selection" },
+            { "id": "5.1.2", "title": "Static and Default Routes" },
+            { "id": "5.1.3", "title": "Routing Table Example" },
+            { "id": "5.1.4", "title": "Packet Forwarding" },
+            { "id": "5.1.5", "title": "Fragmentation" },
+            { "id": "5.1.6", "title": "Router Configuration" },
+            { "id": "5.1.7", "title": "Routing Table Tools" },
+            { "id": "5.1.8", "title": "tracert and traceroute" }
+          ]
+        },
+        {
+          "id": "5.2",
+          "title": "Dynamic Routing Technologies",
+          "objectives": ["2.1"],
+          "sections": [
+            { "id": "5.2.1", "title": "Dynamic Routing Protocols" },
+            { "id": "5.2.2", "title": "Routing Information Protocol" },
+            { "id": "5.2.3", "title": "Enhanced Interior Gateway Routing Protocol" },
+            { "id": "5.2.4", "title": "Open Shortest Path First" },
+            { "id": "5.2.5", "title": "Border Gateway Protocol" },
+            { "id": "5.2.6", "title": "Route Selection" }
+          ]
+        },
+        {
+          "id": "5.3",
+          "title": "Network Address Translation",
+          "objectives": ["2.1"],
+          "sections": [
+            { "id": "5.3.1", "title": "Edge Routers" },
+            { "id": "5.3.2", "title": "Network Address Translation Types" },
+            { "id": "5.3.3", "title": "Port Address Translation" }
+          ]
+        },
+        {
+          "id": "5.4",
+          "title": "Firewalls",
+          "objectives": ["1.2"],
+          "sections": [
+            { "id": "5.4.1", "title": "Firewall Uses and Types" },
+            { "id": "5.4.2", "title": "Firewall Selection and Placement" }
+          ]
+        },
+        {
+          "id": "5.5",
+          "title": "Enterprise Network Topologies",
+          "objectives": ["1.6"],
+          "sections": [
+            { "id": "5.5.1", "title": "Hybrid Topology" },
+            { "id": "5.5.2", "title": "Three-Tiered Network Hierarchy" }
+          ]
+        },
+        {
+          "id": "5.6",
+          "title": "Virtual LANs",
+          "objectives": ["2.1", "2.2", "5.5"],
+          "sections": [
+            { "id": "5.6.1", "title": "Virtual LANs and Subnets" },
+            { "id": "5.6.2", "title": "Virtual LAN IDs and Membership" },
+            { "id": "5.6.3", "title": "Trunking and IEEE 802.1Q" },
+            { "id": "5.6.4", "title": "Tagged and Untagged Ports" },
+            { "id": "5.6.5", "title": "Voice VLANs" },
+            { "id": "5.6.6", "title": "Default VLAN and Native VLAN" },
+            { "id": "5.6.7", "title": "VLAN Routing" }
+          ]
+        },
+        {
+          "id": "5.7",
+          "title": "Routing and VLAN Troubleshooting",
+          "objectives": ["5.3"],
+          "sections": [
+            { "id": "5.7.1", "title": "Routing Table Issues" },
+            { "id": "5.7.2", "title": "Default Route and Routing Loop Issues" },
+            { "id": "5.7.3", "title": "VLAN Assignment Issues" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6.0",
+      "title": "Implementing Network Services",
+      "subunits": [
+        {
+          "id": "6.1",
+          "title": "Transport and Application Layer Protocols",
+          "objectives": ["1.4", "5.5"],
+          "sections": [
+            { "id": "6.1.1", "title": "Transport Layer Ports and Connections" },
+            { "id": "6.1.2", "title": "Transmission Control Protocol" },
+            { "id": "6.1.3", "title": "TCP Handshake and Teardown" },
+            { "id": "6.1.4", "title": "User Datagram Protocol" },
+            { "id": "6.1.5", "title": "netstat" },
+            { "id": "6.1.6", "title": "Common TCP and UDP Ports" }
+          ]
+        },
+        {
+          "id": "6.2",
+          "title": "Dynamic Host Configuration Protocol",
+          "objectives": ["1.4", "3.4"],
+          "sections": [
+            { "id": "6.2.1", "title": "DHCP Process" },
+            { "id": "6.2.2", "title": "DHCP Server Configuration" },
+            { "id": "6.2.3", "title": "DHCP Options" },
+            { "id": "6.2.4", "title": "DHCP Reservations and Exclusions" }
+          ]
+        },
+        {
+          "id": "6.3",
+          "title": "APIPA and SLAAC",
+          "objectives": ["1.4", "1.7", "3.4"],
+          "sections": [
+            { "id": "6.3.1", "title": "Automatic Private IP Addressing" },
+            { "id": "6.3.2", "title": "IPv6 Interface Autoconfiguration and Testing" },
+            { "id": "6.3.3", "title": "DHCPv6 Server Configuration" }
+          ]
+        },
+        {
+          "id": "6.4",
+          "title": "DHCP Relay and Troubleshooting",
+          "objectives": ["3.4", "5.3", "5.5"],
+          "sections": [
+            { "id": "6.4.1", "title": "DHCP Relay and IP Helper" },
+            { "id": "6.4.2", "title": "DHCP Issues" }
+          ]
+        },
+        {
+          "id": "6.5",
+          "title": "Domain Name System",
+          "objectives": ["1.2", "1.4", "3.4", "5.5"],
+          "sections": [
+            { "id": "6.5.1", "title": "Host Names and Domain Names" },
+            { "id": "6.5.2", "title": "DNS Hierarchy" },
+            { "id": "6.5.3", "title": "Name Resolution Using DNS" },
+            { "id": "6.5.4", "title": "Resource Record Types" },
+            { "id": "6.5.5", "title": "Host Address and Canonical Name Records" },
+            { "id": "6.5.6", "title": "Mail Exchange, Service, and Text Records" },
+            { "id": "6.5.7", "title": "Pointer Records" },
+            { "id": "6.5.8", "title": "DNS Server Configuration" },
+            { "id": "6.5.9", "title": "Internal vs External DNS" },
+            { "id": "6.5.10", "title": "DNS Security" }
+          ]
+        },
+        {
+          "id": "6.6",
+          "title": "DNS Troubleshooting",
+          "objectives": ["1.4", "3.4", "5.5"],
+          "sections": [
+            { "id": "6.6.1", "title": "Client DNS Issues" },
+            { "id": "6.6.2", "title": "Name Resolution Issues" },
+            { "id": "6.6.3", "title": "nslookup" },
+            { "id": "6.6.4", "title": "dig" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7.0",
+      "title": "Explaining Application Services",
+      "subunits": [
+        {
+          "id": "7.1",
+          "title": "Application Security and Time Synchronization",
+          "objectives": ["1.4", "3.4"],
+          "sections": [
+            { "id": "7.1.1", "title": "Transport Layer Security" },
+            { "id": "7.1.2", "title": "Network Time Protocol" },
+            { "id": "7.1.3", "title": "Precision Time Protocol" }
+          ]
+        },
+        {
+          "id": "7.2",
+          "title": "Web, File, Print, and Database Services",
+          "objectives": ["1.2", "1.4", "5.5"],
+          "sections": [
+            { "id": "7.2.1", "title": "Hyper Text Transfer Protocol" },
+            { "id": "7.2.2", "title": "HTTP Secure" },
+            { "id": "7.2.3", "title": "File Transfer Protocol" },
+            { "id": "7.2.4", "title": "Secure File Transfer Protocol" },
+            { "id": "7.2.5", "title": "Server Message Block" },
+            { "id": "7.2.6", "title": "Network Attached Storage" },
+            { "id": "7.2.7", "title": "Database Services" }
+          ]
+        },
+        {
+          "id": "7.3",
+          "title": "Email and Voice Services",
+          "objectives": ["1.4", "5.2"],
+          "sections": [
+            { "id": "7.3.1", "title": "Simple Mail Transfer Protocol" },
+            { "id": "7.3.2", "title": "Internet Message Access Protocol" },
+            { "id": "7.3.3", "title": "Voice and Video Services" },
+            { "id": "7.3.4", "title": "VoIP Protocols" },
+            { "id": "7.3.5", "title": "VoIP Phones" }
+          ]
+        },
+        {
+          "id": "7.4",
+          "title": "Disaster Recovery and High Availability",
+          "objectives": ["1.2", "2.1", "3.3"],
+          "sections": [
+            { "id": "7.4.1", "title": "Disaster Recovery Concepts" },
+            { "id": "7.4.2", "title": "Disaster Recovery Metrics" },
+            { "id": "7.4.3", "title": "Disaster Recovery Sites" },
+            { "id": "7.4.4", "title": "Fault Tolerance and Redundancy" },
+            { "id": "7.4.5", "title": "Load Balancers" },
+            { "id": "7.4.6", "title": "High Availability Clusters" },
+            { "id": "7.4.7", "title": "First Hop Redundancy" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8.0",
+      "title": "Supporting Network Management",
+      "subunits": [
+        {
+          "id": "8.1",
+          "title": "Organizational Policies and Documentation",
+          "objectives": ["3.1"],
+          "sections": []
+        },
+        {
+          "id": "8.2",
+          "title": "Host Discovery and Monitoring",
+          "objectives": ["3.2", "5.5"],
+          "sections": []
+        },
+        {
+          "id": "8.3",
+          "title": "Simple Network Management Protocol",
+          "objectives": ["1.4", "3.2"],
+          "sections": []
+        },
+        {
+          "id": "8.4",
+          "title": "Event Management",
+          "objectives": ["1.4", "3.2"],
+          "sections": []
+        },
+        {
+          "id": "8.5",
+          "title": "Packet Capture and Analysis",
+          "objectives": ["3.2", "5.5"],
+          "sections": []
+        },
+        {
+          "id": "8.6",
+          "title": "Traffic Monitoring",
+          "objectives": ["1.2", "1.4", "3.2", "5.4", "5.5"],
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "9.0",
+      "title": "Explaining Network Security Concepts",
+      "subunits": [
+        {
+          "id": "9.1",
+          "title": "Security Concepts",
+          "objectives": ["4.1"],
+          "sections": []
+        },
+        {
+          "id": "9.2",
+          "title": "Network Threats and Attacks",
+          "objectives": ["4.1", "4.2"],
+          "sections": []
+        },
+        {
+          "id": "9.3",
+          "title": "Spoofing Attacks",
+          "objectives": ["4.1", "4.2", "5.5"],
+          "sections": []
+        },
+        {
+          "id": "9.4",
+          "title": "Rogue System Attacks",
+          "objectives": ["4.2", "5.5"],
+          "sections": []
+        },
+        {
+          "id": "9.5",
+          "title": "Social Engineering",
+          "objectives": ["4.2"],
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "10.0",
+      "title": "Applying Network Security Features",
+      "subunits": [
+        {
+          "id": "10.1",
+          "title": "Authentication",
+          "objectives": ["4.1", "4.3"],
+          "sections": []
+        },
+        {
+          "id": "10.2",
+          "title": "Authorization and Account Management",
+          "objectives": ["1.4", "4.1"],
+          "sections": []
+        },
+        {
+          "id": "10.3",
+          "title": "Network Hardening",
+          "objectives": ["4.1", "4.3", "5.5"],
+          "sections": []
+        },
+        {
+          "id": "10.4",
+          "title": "Switch Security",
+          "objectives": ["3.2", "4.3"],
+          "sections": []
+        },
+        {
+          "id": "10.5",
+          "title": "Network Security Rules",
+          "objectives": ["1.2", "4.3", "5.3"],
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "11.0",
+      "title": "Supporting Network Security Design",
+      "subunits": [
+        {
+          "id": "11.1",
+          "title": "Zone-based Security",
+          "objectives": ["1.2", "4.1", "4.3"],
+          "sections": []
+        },
+        {
+          "id": "11.2",
+          "title": "Internet of Things",
+          "objectives": ["4.1"],
+          "sections": []
+        },
+        {
+          "id": "11.3",
+          "title": "Physical Security",
+          "objectives": ["4.1"],
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "12.0",
+      "title": "Configuring Wireless Networks",
+      "subunits": [
+        {
+          "id": "12.1",
+          "title": "Wireless Concepts and Standards",
+          "objectives": ["1.5", "2.3"],
+          "sections": []
+        },
+        {
+          "id": "12.2",
+          "title": "Enterprise Wireless Network Design",
+          "objectives": ["1.2", "2.3", "3.1", "5.4"],
+          "sections": []
+        },
+        {
+          "id": "12.3",
+          "title": "Wireless Security",
+          "objectives": ["1.2", "2.3", "4.1", "4.2"],
+          "sections": []
+        },
+        {
+          "id": "12.4",
+          "title": "Wireless Troubleshooting",
+          "objectives": ["1.2", "4.2", "5.2", "5.4", "5.5"],
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "13.0",
+      "title": "Comparing Remote Access Methods",
+      "subunits": [
+        {
+          "id": "13.1",
+          "title": "WAN and Internet Connectivity",
+          "objectives": ["1.1", "1.5"],
+          "sections": []
+        },
+        {
+          "id": "13.2",
+          "title": "Virtual Private Networks",
+          "objectives": ["1.2", "1.4", "1.8", "3.5", "4.1"],
+          "sections": []
+        },
+        {
+          "id": "13.3",
+          "title": "Remote Management",
+          "objectives": ["1.4", "3.5", "5.5"],
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "14.0",
+      "title": "Summarizing Cloud Concepts",
+      "subunits": [
+        {
+          "id": "14.1",
+          "title": "Datacenter and Storage Networks",
+          "objectives": ["1.2", "1.5", "1.6"],
+          "sections": []
+        },
+        {
+          "id": "14.2",
+          "title": "Cloud Concepts",
+          "objectives": ["1.2", "1.3"],
+          "sections": []
+        },
+        {
+          "id": "14.3",
+          "title": "Cloud Networking",
+          "objectives": ["1.1", "1.2", "1.3"],
+          "sections": []
+        },
+        {
+          "id": "14.4",
+          "title": "Modern Network Environments",
+          "objectives": ["1.8"],
+          "sections": []
+        }
+      ]
+    }
+  ]
+}

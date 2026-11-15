@@ -31,8 +31,13 @@
       "family": "Network+",
       "code": "N10-009",
       "name": "CompTIA Network+",
-      "status": "planned",
-      "theme": "netplus"
+      "status": "live",
+      "theme": "netplus",
+      "dataPath": "data/network-plus",
+      "facts": { "maxQuestions": 90, "minutes": 90 },
+      "sources": {
+        "certmaster": { "title": "Network+ CertMaster Learn 9.1" }
+      }
     },
     {
       "id": "security-plus",

@@ -1,0 +1,971 @@
+{
+  "$schema": "../../schemas/objectives.schema.json",
+  "exam": "N10-009",
+  "title": "CompTIA Network+ (N10-009) Exam Objectives",
+  "source": "B.1.3 Exam Objectives for CompTIA Network+ N10-009, CertMaster's printing of the N10-009 objectives in Network+ CertMaster Learn 9.1; domain weights from B.1.2 Exam Details for CompTIA Network+ N10-009. Transcribed twice independently from B.1.3 and the two transcriptions compared, with every difference settled against the text.",
+  "notes": "Sub-objective ids (1.1.a, 1.1.b, ...) are assigned by this site in the order B.1.3 prints the bullets. \"details\" holds every deeper line, flattened as \"Parent > child\". B.1.3's own outline numbers (such as \"4.1 -\" and \"4.1.1 -\") and its Lesson Index column are left out. Wording, capitals, and spacing are as B.1.3 prints them, including the space after the second slash in \"Playbooks/templates/ reusable tasks\"; the only character changed is the stray dash in \"Bayonet Neill-Concelman (BNC)\", typed as a plain hyphen. Lines that B.1.3 prints at the same level as their heading are nested under that heading: in 3.2.a, \"v2c\" and \"v3\" under SNMP \"Versions\"; in 3.4.b, the seven record types (\"Address (A)\" to \"Pointer\") under DNS \"Record types\", and \"Forward\" and \"Reverse\" under DNS \"Zone types\". \"Authoritative vs. non-authoritative\", \"Primary vs. secondary\", and \"Recursive\" stay DNS lines beside \"Record types\" and \"Zone types\": Reading 6.5.7 names forward and reverse lookup as the two types of zones, and Readings 6.5.3, 6.5.8, and 6.5.9 teach the other three as DNS server and query concepts.",
+  "domains": [
+    {
+      "id": "1.0",
+      "title": "Networking Concepts",
+      "weight": 23,
+      "objectives": [
+        {
+          "id": "1.1",
+          "title": "Explain concepts related to the Open Systems Interconnection (OSI) reference model.",
+          "subobjectives": [
+            { "id": "1.1.a", "title": "Layer 1 - Physical" },
+            { "id": "1.1.b", "title": "Layer 2 - Data link" },
+            { "id": "1.1.c", "title": "Layer 3 - Network" },
+            { "id": "1.1.d", "title": "Layer 4 - Transport" },
+            { "id": "1.1.e", "title": "Layer 5 - Session" },
+            { "id": "1.1.f", "title": "Layer 6 - Presentation" },
+            { "id": "1.1.g", "title": "Layer 7 - Application" }
+          ]
+        },
+        {
+          "id": "1.2",
+          "title": "Compare and contrast networking appliances, applications, and functions.",
+          "subobjectives": [
+            {
+              "id": "1.2.a",
+              "title": "Physical and virtual appliances",
+              "details": [
+                "Router",
+                "Switch",
+                "Firewall",
+                "Intrusion detection system (IDS)/intrusion prevention system (IPS)",
+                "Load balancer",
+                "Proxy",
+                "Network-attached storage (NAS)",
+                "Storage area network (SAN)",
+                "Wireless",
+                "Wireless > Access point (AP)",
+                "Wireless > Controller"
+              ]
+            },
+            {
+              "id": "1.2.b",
+              "title": "Applications",
+              "details": ["Content delivery network (CDN)"]
+            },
+            {
+              "id": "1.2.c",
+              "title": "Functions",
+              "details": ["Virtual private network (VPN)", "Quality of service (QoS)", "Time to live (TTL)"]
+            }
+          ]
+        },
+        {
+          "id": "1.3",
+          "title": "Summarize cloud concepts and connectivity options.",
+          "subobjectives": [
+            { "id": "1.3.a", "title": "Network functions virtualization (NFV)" },
+            { "id": "1.3.b", "title": "Virtual private cloud (VPC)" },
+            { "id": "1.3.c", "title": "Network security groups" },
+            { "id": "1.3.d", "title": "Network security lists" },
+            {
+              "id": "1.3.e",
+              "title": "Cloud gateways",
+              "details": ["Internet gateway", "Network address translation (NAT) gateway"]
+            },
+            {
+              "id": "1.3.f",
+              "title": "Cloud connectivity options",
+              "details": ["VPN", "Direct Connect"]
+            },
+            {
+              "id": "1.3.g",
+              "title": "Deployment models",
+              "details": ["Public", "Private", "Hybrid"]
+            },
+            {
+              "id": "1.3.h",
+              "title": "Service models",
+              "details": [
+                "Software as a service (SaaS)",
+                "Infrastructure as a service (IaaS)",
+                "Platform as a service (PaaS)"
+              ]
+            },
+            { "id": "1.3.i", "title": "Scalability" },
+            { "id": "1.3.j", "title": "Elasticity" },
+            { "id": "1.3.k", "title": "Multitenancy" }
+          ]
+        },
+        {
+          "id": "1.4",
+          "title": "Explain common networking ports, protocols, services, and traffic types.",
+          "subobjectives": [
+            {
+              "id": "1.4.a",
+              "title": "Protocols and Ports",
+              "details": [
+                "File Transfer Protocol (FTP) - 20/21",
+                "Secure File Transfer Protocol (SFTP) - 22",
+                "Secure Shell (SSH) - 22",
+                "Telnet - 23",
+                "Simple Mail Transfer Protocol (SMTP) - 25",
+                "Domain Name System (DNS) - 53",
+                "Dynamic Host Configuration Protocol (DHCP) - 67/68",
+                "Trivial File Transfer Protocol (TFTP) - 69",
+                "Hypertext Transfer Protocol (HTTP) - 80",
+                "Network Time Protocol (NTP) - 123",
+                "Simple Network Management Protocol (SNMP) - 161/162",
+                "Lightweight Directory Access Protocol (LDAP) - 389",
+                "Hypertext Transfer Protocol Secure (HTTPS) - 443",
+                "Server Message Block (SMB) - 445",
+                "Syslog - 514",
+                "Simple Mail Transfer Protocol Secure (SMTPS) - 587",
+                "Lightweight Directory Access Protocol over SSL (LDAPS) - 636",
+                "Structured Query Language (SQL) Server - 1433",
+                "Remote Desktop Protocol (RDP) - 3389",
+                "Session Initiation Protocol (SIP) - 5060/5061"
+              ]
+            },
+            {
+              "id": "1.4.b",
+              "title": "Internet Protocol (IP) types",
+              "details": [
+                "Internet Control Message Protocol (ICMP)",
+                "Transmission Control Protocol (TCP)",
+                "User Datagram Protocol (UDP)",
+                "Generic Routing Encapsulation (GRE)",
+                "Internet Protocol Security (IPSec)",
+                "Internet Protocol Security (IPSec) > Authentication Header (AH)",
+                "Internet Protocol Security (IPSec) > Encapsulating Security Payload (ESP)",
+                "Internet Protocol Security (IPSec) > Internet Key Exchange (IKE)"
+              ]
+            },
+            {
+              "id": "1.4.c",
+              "title": "Traffic types",
+              "details": ["Unicast", "Multicast", "Anycast", "Broadcast"]
+            }
+          ]
+        },
+        {
+          "id": "1.5",
+          "title": "Compare and contrast transmission media and transceivers.",
+          "subobjectives": [
+            {
+              "id": "1.5.a",
+              "title": "Wireless",
+              "details": ["802.11 standards", "Cellular", "Satellite"]
+            },
+            {
+              "id": "1.5.b",
+              "title": "Wired",
+              "details": [
+                "802.3 standards",
+                "Single-mode vs. multimode fiber",
+                "Direct attach copper (DAC) cable",
+                "Direct attach copper (DAC) cable > Twinaxial cable",
+                "Coaxial cable",
+                "Cable speeds",
+                "Plenum vs. non-plenum cable"
+              ]
+            },
+            {
+              "id": "1.5.c",
+              "title": "Transceivers",
+              "details": [
+                "Protocol",
+                "Protocol > Ethernet",
+                "Protocol > Fibre Channel (FC)",
+                "Form factors",
+                "Form factors > Small form-factor pluggable (SFP)",
+                "Form factors > Quad small form-factor pluggable (QSFP)"
+              ]
+            },
+            {
+              "id": "1.5.d",
+              "title": "Connector types",
+              "details": [
+                "Subscriber connector (SC)",
+                "Local connector (LC)",
+                "Straight tip (ST)",
+                "Multi-fiber push on (MPO)",
+                "Registered jack (RJ)11",
+                "RJ45",
+                "F-type",
+                "Bayonet Neill-Concelman (BNC)"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1.6",
+          "title": "Compare and contrast network topologies, architectures, and types.",
+          "subobjectives": [
+            { "id": "1.6.a", "title": "Mesh" },
+            { "id": "1.6.b", "title": "Hybrid" },
+            { "id": "1.6.c", "title": "Star/hub and spoke" },
+            { "id": "1.6.d", "title": "Spine and leaf" },
+            { "id": "1.6.e", "title": "Point to point" },
+            {
+              "id": "1.6.f",
+              "title": "Three-tier hierarchical model",
+              "details": ["Core", "Distribution", "Access"]
+            },
+            { "id": "1.6.g", "title": "Collapsed core" },
+            {
+              "id": "1.6.h",
+              "title": "Traffic flows",
+              "details": ["North-south", "East-west"]
+            }
+          ]
+        },
+        {
+          "id": "1.7",
+          "title": "Given a scenario, use appropriate IPv4 network addressing.",
+          "subobjectives": [
+            {
+              "id": "1.7.a",
+              "title": "Public vs. private",
+              "details": ["Automatic private IP Addressing (APIPA)", "RFC1918", "Loopback/localhost"]
+            },
+            {
+              "id": "1.7.b",
+              "title": "Subnetting",
+              "details": ["Variable Length Subnet Mask (VLSM)", "Classless Inter-domain Routing (CIDR)"]
+            },
+            {
+              "id": "1.7.c",
+              "title": "IPv4 address classes",
+              "details": ["Class A", "Class B", "Class C", "Class D", "Class E"]
+            }
+          ]
+        },
+        {
+          "id": "1.8",
+          "title": "Summarize evolving use cases for modern network environments.",
+          "subobjectives": [
+            {
+              "id": "1.8.a",
+              "title": "Software-defined network (SDN) and software-defined wide area network (SD-WAN)",
+              "details": [
+                "Application aware",
+                "Zero-touch provisioning",
+                "Transport agnostic",
+                "Central policy management"
+              ]
+            },
+            {
+              "id": "1.8.b",
+              "title": "Virtual Extensible Local Area Network (VXLAN)",
+              "details": ["Data center interconnect (DCI)", "Layer 2 encapsulation"]
+            },
+            {
+              "id": "1.8.c",
+              "title": "Zero trust architecture (ZTA)",
+              "details": ["Policy-based authentication", "Authorization", "Least privilege access"]
+            },
+            { "id": "1.8.d", "title": "Secure Access Secure Edge (SASE)/Security Service Edge (SSE)" },
+            {
+              "id": "1.8.e",
+              "title": "Infrastructure as code (IaC)",
+              "details": [
+                "Automation",
+                "Automation > Playbooks/templates/ reusable tasks",
+                "Automation > Configuration drift/compliance",
+                "Automation > Upgrades",
+                "Automation > Dynamic inventories",
+                "Source control",
+                "Source control > Version control",
+                "Source control > Central repository",
+                "Source control > Conflict identification",
+                "Source control > Branching"
+              ]
+            },
+            {
+              "id": "1.8.f",
+              "title": "IPv6 addressing",
+              "details": [
+                "Mitigating address exhaustion",
+                "Compatibility requirements",
+                "Compatibility requirements > Tunneling",
+                "Compatibility requirements > Dual stack",
+                "Compatibility requirements > NAT64"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2.0",
+      "title": "Network Implementation",
+      "weight": 20,
+      "objectives": [
+        {
+          "id": "2.1",
+          "title": "Explain characteristics of routing technologies.",
+          "subobjectives": [
+            { "id": "2.1.a", "title": "Static routing" },
+            {
+              "id": "2.1.b",
+              "title": "Dynamic routing",
+              "details": [
+                "Border Gateway Protocol (BGP)",
+                "Enhanced Interior Gateway Routing Protocol (EIGRP)",
+                "Open Shortest Path First (OSPF)"
+              ]
+            },
+            {
+              "id": "2.1.c",
+              "title": "Route selection",
+              "details": ["Administrative distance", "Prefix length", "Metric"]
+            },
+            {
+              "id": "2.1.d",
+              "title": "Address translation",
+              "details": ["NAT", "Port address translation (PAT)"]
+            },
+            { "id": "2.1.e", "title": "First Hop Redundancy Protocol (FHRP)" },
+            { "id": "2.1.f", "title": "Virtual IP (VIP)" },
+            { "id": "2.1.g", "title": "Subinterfaces" }
+          ]
+        },
+        {
+          "id": "2.2",
+          "title": "Given a scenario, configure switching technologies and features.",
+          "subobjectives": [
+            {
+              "id": "2.2.a",
+              "title": "Virtual Local Area Network (VLAN)",
+              "details": ["VLAN database", "Switch Virtual Interface (SVI)"]
+            },
+            {
+              "id": "2.2.b",
+              "title": "Interface configuration",
+              "details": ["Native VLAN", "Voice VLAN", "802.1Q tagging", "Link aggregation", "Speed", "Duplex"]
+            },
+            { "id": "2.2.c", "title": "Spanning tree" },
+            {
+              "id": "2.2.d",
+              "title": "Maximum transmission unit (MTU)",
+              "details": ["Jumbo frames"]
+            }
+          ]
+        },
+        {
+          "id": "2.3",
+          "title": "Given a scenario, select and configure wireless devices and technologies.",
+          "subobjectives": [
+            {
+              "id": "2.3.a",
+              "title": "Channels",
+              "details": [
+                "Channel width",
+                "Non-overlapping channels",
+                "Regulatory impacts",
+                "Regulatory impacts > 802.11h"
+              ]
+            },
+            {
+              "id": "2.3.b",
+              "title": "Frequency options",
+              "details": ["2.4GHz", "5GHz", "6GHz", "Band steering"]
+            },
+            {
+              "id": "2.3.c",
+              "title": "Service set identifier (SSID)",
+              "details": ["Basic service set identifier (BSSID)", "Extended service set identifier (ESSID)"]
+            },
+            {
+              "id": "2.3.d",
+              "title": "Network types",
+              "details": ["Mesh networks", "Ad hoc", "Point to point", "Infrastructure"]
+            },
+            {
+              "id": "2.3.e",
+              "title": "Encryption",
+              "details": ["Wi-Fi Protected Access 2 (WPA2)", "WPA3"]
+            },
+            {
+              "id": "2.3.f",
+              "title": "Guest networks",
+              "details": ["Captive portals"]
+            },
+            {
+              "id": "2.3.g",
+              "title": "Authentication",
+              "details": ["Pre-shared key (PSK) vs. Enterprise"]
+            },
+            {
+              "id": "2.3.h",
+              "title": "Antennas",
+              "details": ["Omnidirectional vs. directional"]
+            },
+            { "id": "2.3.i", "title": "Autonomous vs. lightweight access point" }
+          ]
+        },
+        {
+          "id": "2.4",
+          "title": "Explain important factors of physical installations.",
+          "subobjectives": [
+            {
+              "id": "2.4.a",
+              "title": "Important installation implications",
+              "details": [
+                "Locations",
+                "Locations > Intermediate distribution frame (IDF)",
+                "Locations > Main distribution frame (MDF)",
+                "Rack size",
+                "Port-side exhaust/intake",
+                "Cabling",
+                "Cabling > Patch panel",
+                "Cabling > Fiber distribution panel",
+                "Lockable"
+              ]
+            },
+            {
+              "id": "2.4.b",
+              "title": "Power",
+              "details": [
+                "Uninterruptible power supply (UPS)",
+                "Power distribution unit (PDU)",
+                "Power load",
+                "Voltage"
+              ]
+            },
+            {
+              "id": "2.4.c",
+              "title": "Environmental factors",
+              "details": ["Humidity", "Fire suppression", "Temperature"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3.0",
+      "title": "Network Operations",
+      "weight": 19,
+      "objectives": [
+        {
+          "id": "3.1",
+          "title": "Explain the purpose of organizational processes and procedures.",
+          "subobjectives": [
+            {
+              "id": "3.1.a",
+              "title": "Documentation",
+              "details": [
+                "Physical vs. logical diagrams",
+                "Rack diagrams",
+                "Cable maps and diagrams",
+                "Network diagrams",
+                "Network diagrams > Layer 1",
+                "Network diagrams > Layer 2",
+                "Network diagrams > Layer 3",
+                "Asset inventory",
+                "Asset inventory > Hardware",
+                "Asset inventory > Software",
+                "Asset inventory > Licensing",
+                "Asset inventory > Warranty support",
+                "IP address management (IPAM)",
+                "Service-level agreement (SLA)",
+                "Wireless survey/heat map"
+              ]
+            },
+            {
+              "id": "3.1.b",
+              "title": "Life-cycle management",
+              "details": [
+                "End-of-life (EOL)",
+                "End-of-support (EOS)",
+                "Software management",
+                "Software management > Patches and bug fixes",
+                "Software management > Operating system (OS)",
+                "Software management > Firmware",
+                "Decommissioning"
+              ]
+            },
+            {
+              "id": "3.1.c",
+              "title": "Change management",
+              "details": ["Request process tracking/service request"]
+            },
+            {
+              "id": "3.1.d",
+              "title": "Configuration management",
+              "details": ["Production configuration", "Backup configuration", "Baseline/golden configuration"]
+            }
+          ]
+        },
+        {
+          "id": "3.2",
+          "title": "Given a scenario, use network monitoring technologies.",
+          "subobjectives": [
+            {
+              "id": "3.2.a",
+              "title": "Methods",
+              "details": [
+                "SNMP",
+                "SNMP > Traps",
+                "SNMP > Management information base (MIB)",
+                "SNMP > Versions",
+                "SNMP > Versions > v2c",
+                "SNMP > Versions > v3",
+                "SNMP > Community strings",
+                "SNMP > Authentication",
+                "Flow data",
+                "Packet capture",
+                "Baseline metrics",
+                "Baseline metrics > Anomaly alerting/notification",
+                "Log aggregation",
+                "Log aggregation > Syslog collector",
+                "Log aggregation > Security information and event management (SIEM)",
+                "Application programming Interface (API) integration",
+                "Port mirroring"
+              ]
+            },
+            {
+              "id": "3.2.b",
+              "title": "Solutions",
+              "details": [
+                "Network discovery",
+                "Network discovery > Ad hoc",
+                "Network discovery > Scheduled",
+                "Traffic analysis",
+                "Performance monitoring",
+                "Availability monitoring",
+                "Configuration monitoring"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "3.3",
+          "title": "Explain disaster recovery (DR) concepts.",
+          "subobjectives": [
+            {
+              "id": "3.3.a",
+              "title": "DR metrics",
+              "details": [
+                "Recovery point objective (RPO)",
+                "Recovery time objective (RTO)",
+                "Mean time to repair (MTTR)",
+                "Mean time between failures (MTBF)"
+              ]
+            },
+            {
+              "id": "3.3.b",
+              "title": "DR sites",
+              "details": ["Cold site", "Warm site", "Hot site"]
+            },
+            {
+              "id": "3.3.c",
+              "title": "High-availability approaches",
+              "details": ["Active-active", "Active-passive"]
+            },
+            {
+              "id": "3.3.d",
+              "title": "Testing",
+              "details": ["Tabletop exercises", "Validation tests"]
+            }
+          ]
+        },
+        {
+          "id": "3.4",
+          "title": "Given a scenario, implement IPv4 and IPv6 network services.",
+          "subobjectives": [
+            {
+              "id": "3.4.a",
+              "title": "Dynamic addressing",
+              "details": [
+                "DHCP",
+                "DHCP > Reservations",
+                "DHCP > Scope",
+                "DHCP > Lease time",
+                "DHCP > Options",
+                "DHCP > Relay/IP helper",
+                "DHCP > Exclusions",
+                "Stateless address autoconfiguration (SLAAC)"
+              ]
+            },
+            {
+              "id": "3.4.b",
+              "title": "Name resolution",
+              "details": [
+                "DNS",
+                "DNS > Domain Name Security Extensions (DNSSEC)",
+                "DNS > DNS over HTTPS (DoH) and DNS over TLS (DoT)",
+                "DNS > Record types",
+                "DNS > Record types > Address (A)",
+                "DNS > Record types > AAAA",
+                "DNS > Record types > Canonical name (CNAME)",
+                "DNS > Record types > Mail exchange (MX)",
+                "DNS > Record types > Text",
+                "DNS > Record types > Nameserver (NS)",
+                "DNS > Record types > Pointer",
+                "DNS > Zone types",
+                "DNS > Zone types > Forward",
+                "DNS > Zone types > Reverse",
+                "DNS > Authoritative vs. non-authoritative",
+                "DNS > Primary vs. secondary",
+                "DNS > Recursive",
+                "Hosts file"
+              ]
+            },
+            {
+              "id": "3.4.c",
+              "title": "Time protocols",
+              "details": ["NTP", "Precision Time Protocol (PTP)", "Network Time Security (NTS)"]
+            }
+          ]
+        },
+        {
+          "id": "3.5",
+          "title": "Compare and contrast network access and management methods.",
+          "subobjectives": [
+            { "id": "3.5.a", "title": "Site-to-site VPN" },
+            {
+              "id": "3.5.b",
+              "title": "Client-to-site VPN",
+              "details": ["Clientless", "Split tunnel vs. full tunnel"]
+            },
+            {
+              "id": "3.5.c",
+              "title": "Connection methods",
+              "details": ["SSH", "Graphical user interface (GUI)", "API", "Console"]
+            },
+            { "id": "3.5.d", "title": "Jump box/host" },
+            { "id": "3.5.e", "title": "In-band vs. out-of-band management" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4.0",
+      "title": "Network Security",
+      "weight": 14,
+      "objectives": [
+        {
+          "id": "4.1",
+          "title": "Explain the importance of basic network security concepts.",
+          "subobjectives": [
+            {
+              "id": "4.1.a",
+              "title": "Logical security",
+              "details": [
+                "Encryption",
+                "Encryption > Data in transit",
+                "Encryption > Data at rest",
+                "Certificates",
+                "Certificates > Public key infrastructure (PKI)",
+                "Certificates > Self-signed",
+                "Identity and access management (IAM)",
+                "Identity and access management (IAM) > Authentication",
+                "Identity and access management (IAM) > Authentication > Multifactor authentication (MFA)",
+                "Identity and access management (IAM) > Authentication > Single sign-on (SSO)",
+                "Identity and access management (IAM) > Authentication > Remote Authentication Dial-in User Service (RADIUS)",
+                "Identity and access management (IAM) > Authentication > LDAP",
+                "Identity and access management (IAM) > Authentication > Security Assertion Markup Language (SAML)",
+                "Identity and access management (IAM) > Authentication > Terminal Access Controller Access Control System Plus (TACACS+)",
+                "Identity and access management (IAM) > Authentication > Time-based authentication",
+                "Identity and access management (IAM) > Authorization",
+                "Identity and access management (IAM) > Authorization > Least privilege",
+                "Identity and access management (IAM) > Authorization > Role-based access control",
+                "Geofencing"
+              ]
+            },
+            {
+              "id": "4.1.b",
+              "title": "Physical security",
+              "details": ["Camera", "Locks"]
+            },
+            {
+              "id": "4.1.c",
+              "title": "Deception technologies",
+              "details": ["Honeypot", "Honeynet"]
+            },
+            {
+              "id": "4.1.d",
+              "title": "Common security terminology",
+              "details": [
+                "Risk",
+                "Vulnerability",
+                "Exploit",
+                "Threat",
+                "Confidentiality, Integrity, and Availability (CIA) triad"
+              ]
+            },
+            {
+              "id": "4.1.e",
+              "title": "Audits and regulatory compliance",
+              "details": [
+                "Data locality",
+                "Payment Card Industry Data Security Standards (PCI DSS)",
+                "General Data Protection Regulation (GDPR)"
+              ]
+            },
+            {
+              "id": "4.1.f",
+              "title": "Network segmentation enforcement",
+              "details": [
+                "Internet of Things (IoT) and Industrial Internet of Things (IIoT)",
+                "Supervisory control and data acquisition (SCADA), industrial control System (ICS), operational technology (OT)",
+                "Guest",
+                "Bring your own device (BYOD)"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "4.2",
+          "title": "Summarize various types of attacks and their impact to the network.",
+          "subobjectives": [
+            { "id": "4.2.a", "title": "Denial-of-service (DoS)/distributed denial-of-service (DDoS)" },
+            { "id": "4.2.b", "title": "VLAN hopping" },
+            { "id": "4.2.c", "title": "Media Access Control (MAC) flooding" },
+            { "id": "4.2.d", "title": "Address Resolution Protocol (ARP) poisoning" },
+            { "id": "4.2.e", "title": "ARP spoofing" },
+            { "id": "4.2.f", "title": "DNS poisoning" },
+            { "id": "4.2.g", "title": "DNS spoofing" },
+            {
+              "id": "4.2.h",
+              "title": "Rogue devices and services",
+              "details": ["DHCP", "AP"]
+            },
+            { "id": "4.2.i", "title": "Evil twin" },
+            { "id": "4.2.j", "title": "On-path attack" },
+            {
+              "id": "4.2.k",
+              "title": "Social engineering",
+              "details": ["Phishing", "Dumpster diving", "Shoulder surfing", "Tailgating"]
+            },
+            { "id": "4.2.l", "title": "Malware" }
+          ]
+        },
+        {
+          "id": "4.3",
+          "title": "Given a scenario, apply network security features, defense techniques, and solutions.",
+          "subobjectives": [
+            {
+              "id": "4.3.a",
+              "title": "Device hardening",
+              "details": ["Disable unused ports and services", "Change default passwords"]
+            },
+            {
+              "id": "4.3.b",
+              "title": "Network access control (NAC)",
+              "details": ["Port security", "802.1X", "MAC filtering"]
+            },
+            { "id": "4.3.c", "title": "Key management" },
+            {
+              "id": "4.3.d",
+              "title": "Security rules",
+              "details": ["Access control list (ACL)", "Uniform Resource Locator (URL) filtering", "Content filtering"]
+            },
+            {
+              "id": "4.3.e",
+              "title": "Zones",
+              "details": ["Trusted vs. untrusted", "Screened subnet"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5.0",
+      "title": "Network Troubleshooting",
+      "weight": 24,
+      "objectives": [
+        {
+          "id": "5.1",
+          "title": "Explain the troubleshooting methodology.",
+          "subobjectives": [
+            {
+              "id": "5.1.a",
+              "title": "Identify the problem",
+              "details": [
+                "Gather information",
+                "Question users",
+                "Identify symptoms",
+                "Determine if anything has changed",
+                "Duplicate the problem, if possible",
+                "Approach multiple problems individually"
+              ]
+            },
+            {
+              "id": "5.1.b",
+              "title": "Establish a theory of probable cause",
+              "details": [
+                "Question the obvious",
+                "Consider multiple approaches",
+                "Consider multiple approaches > Top-to-bottom/bottom-to-top OSI model",
+                "Consider multiple approaches > Divide and conquer"
+              ]
+            },
+            {
+              "id": "5.1.c",
+              "title": "Test the theory to determine the cause",
+              "details": [
+                "If theory is confirmed, determine next steps to resolve problem",
+                "If theory is not confirmed, establish a new theory or escalate"
+              ]
+            },
+            { "id": "5.1.d", "title": "Establish a plan of action to resolve the problem and identify potential effects" },
+            { "id": "5.1.e", "title": "Implement the solution or escalate as necessary" },
+            { "id": "5.1.f", "title": "Verify full system functionality and implement preventive measures if applicable" },
+            { "id": "5.1.g", "title": "Document findings, actions, outcomes, and lessons learned throughout the process" }
+          ]
+        },
+        {
+          "id": "5.2",
+          "title": "Given a scenario, troubleshoot common cabling and physical interface issues.",
+          "subobjectives": [
+            {
+              "id": "5.2.a",
+              "title": "Cable issues",
+              "details": [
+                "Incorrect cable",
+                "Incorrect cable > Single mode vs. multimode",
+                "Incorrect cable > Category 5/6/7/8",
+                "Incorrect cable > Shielded twisted pair (STP) vs. unshielded twisted pair (UTP)",
+                "Signal degradation",
+                "Signal degradation > Crosstalk",
+                "Signal degradation > Interference",
+                "Signal degradation > Attenuation",
+                "Improper termination",
+                "Transmitter (TX)/Receiver (RX) transposed"
+              ]
+            },
+            {
+              "id": "5.2.b",
+              "title": "Interface issues",
+              "details": [
+                "Increasing interface counters",
+                "Increasing interface counters > Cyclic redundancy check (CRC)",
+                "Increasing interface counters > Runts",
+                "Increasing interface counters > Giants",
+                "Increasing interface counters > Drops",
+                "Port status",
+                "Port status > Error disabled",
+                "Port status > Administratively down",
+                "Port status > Suspended"
+              ]
+            },
+            {
+              "id": "5.2.c",
+              "title": "Hardware issues",
+              "details": [
+                "Power over Ethernet (PoE)",
+                "Power over Ethernet (PoE) > Power budget exceeded",
+                "Power over Ethernet (PoE) > Incorrect standard",
+                "Transceivers",
+                "Transceivers > Mismatch",
+                "Transceivers > Signal strength"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5.3",
+          "title": "Given a scenario, troubleshoot common issues with network services.",
+          "subobjectives": [
+            {
+              "id": "5.3.a",
+              "title": "Switching issues",
+              "details": [
+                "STP",
+                "STP > Network loops",
+                "STP > Root bridge selection",
+                "STP > Port roles",
+                "STP > Port states",
+                "Incorrect VLAN assignment",
+                "ACLs"
+              ]
+            },
+            {
+              "id": "5.3.b",
+              "title": "Route selection",
+              "details": ["Routing table", "Default routes"]
+            },
+            { "id": "5.3.c", "title": "Address pool exhaustion" },
+            { "id": "5.3.d", "title": "Incorrect default gateway" },
+            {
+              "id": "5.3.e",
+              "title": "Incorrect IP address",
+              "details": ["Duplicate IP address"]
+            },
+            { "id": "5.3.f", "title": "Incorrect subnet mask" }
+          ]
+        },
+        {
+          "id": "5.4",
+          "title": "Given a scenario, troubleshoot common performance issues.",
+          "subobjectives": [
+            { "id": "5.4.a", "title": "Congestion/contention" },
+            { "id": "5.4.b", "title": "Bottlenecking" },
+            {
+              "id": "5.4.c",
+              "title": "Bandwidth",
+              "details": ["Throughput capacity"]
+            },
+            { "id": "5.4.d", "title": "Latency" },
+            { "id": "5.4.e", "title": "Packet loss" },
+            { "id": "5.4.f", "title": "Jitter" },
+            {
+              "id": "5.4.g",
+              "title": "Wireless",
+              "details": [
+                "Interference",
+                "Interference > Channel overlap",
+                "Signal degradation or loss",
+                "Insufficient wireless coverage",
+                "Client disassociation issues",
+                "Roaming misconfiguration"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5.5",
+          "title": "Given a scenario, use the appropriate tool or protocol to solve networking issues.",
+          "subobjectives": [
+            {
+              "id": "5.5.a",
+              "title": "Software tools",
+              "details": [
+                "Protocol analyzer",
+                "Command line",
+                "Command line > ping",
+                "Command line > traceroute/tracert",
+                "Command line > nslookup",
+                "Command line > tcpdump",
+                "Command line > dig",
+                "Command line > netstat",
+                "Command line > ip/ifconfig/ipconfig",
+                "Command line > arp",
+                "Nmap",
+                "Link Layer Discovery Protocol (LLDP)/Cisco Discovery Protocol (CDP)",
+                "Speed tester"
+              ]
+            },
+            {
+              "id": "5.5.b",
+              "title": "Hardware tools",
+              "details": ["Toner", "Cable tester", "Taps", "Wi-Fi analyzer", "Visual fault locator"]
+            },
+            {
+              "id": "5.5.c",
+              "title": "Basic networking device commands",
+              "details": [
+                "show mac-address-table",
+                "show route",
+                "show interface",
+                "show config",
+                "show arp",
+                "show vlan",
+                "show power"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
