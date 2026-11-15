@@ -1,0 +1,398 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-05", "title": "Unit 5.0 Configuring Routing and Advanced Switching", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "n-u05-f001",
+      "term": "Router",
+      "definition": "A device with links to more than one network that forwards packets between subnets and around an internetwork; hosts in different subnets must be separated by one.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.1.1", "5.1.6"],
+      "reference": { "source": "certmaster", "section": "5.1.1", "title": "Routing Tables and Path Selection" }
+    },
+    {
+      "id": "n-u05-f002",
+      "term": "Firewall",
+      "definition": "The general name for a device or host software that filters traffic by rules, blocking anything that does not conform to a rule.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.4.1"],
+      "reference": { "source": "certmaster", "section": "5.4.1", "title": "Firewall Uses and Types" }
+    },
+    {
+      "id": "n-u05-f003",
+      "term": "TTL (time to live)",
+      "definition": "The IP header field that each router lowers by at least 1, discarding the packet at 0 so it cannot circle the network forever; IPv6 has the same field.",
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["5.1.4"],
+      "reference": { "source": "certmaster", "section": "5.1.4", "title": "Packet Forwarding" }
+    },
+    {
+      "id": "n-u05-f004",
+      "term": "Mesh topology",
+      "definition": "Many-to-many links, with each node having multiple interfaces and cable paths to other nodes, which gives redundant paths.",
+      "objectives": ["1.6", "1.6.a"],
+      "units": ["5.5.1"],
+      "reference": { "source": "certmaster", "section": "5.5.1", "title": "Hybrid Topology" }
+    },
+    {
+      "id": "n-u05-f005",
+      "term": "Hybrid topology",
+      "definition": "Any mixture of point-to-point, star, and mesh topologies.",
+      "objectives": ["1.6", "1.6.b"],
+      "units": ["5.5.1"],
+      "reference": { "source": "certmaster", "section": "5.5.1", "title": "Hybrid Topology" }
+    },
+    {
+      "id": "n-u05-f006",
+      "term": "Star/hub and spoke topology",
+      "definition": "One-to-many links in which each node relies on a central forwarding device to reach the other nodes.",
+      "objectives": ["1.6", "1.6.c"],
+      "units": ["5.5.1"],
+      "reference": { "source": "certmaster", "section": "5.5.1", "title": "Hybrid Topology" }
+    },
+    {
+      "id": "n-u05-f007",
+      "term": "Point to point topology",
+      "definition": "A one-to-one link between two hosts only.",
+      "objectives": ["1.6", "1.6.e"],
+      "units": ["5.5.1"],
+      "reference": { "source": "certmaster", "section": "5.5.1", "title": "Hybrid Topology" }
+    },
+    {
+      "id": "n-u05-f008",
+      "term": "Three-tier hierarchical model",
+      "definition": "A design that breaks a large network into sections by function, with separate access, distribution, and core layers.",
+      "objectives": ["1.6", "1.6.f"],
+      "units": ["5.5.2"],
+      "reference": { "source": "certmaster", "section": "5.5.2", "title": "Three-Tiered Network Hierarchy" }
+    },
+    {
+      "id": "n-u05-f009",
+      "term": "Core layer",
+      "definition": "The highly available backbone at the top of the three-tier design, giving redundant paths for traffic.",
+      "objectives": ["1.6", "1.6.f"],
+      "units": ["5.5.2"],
+      "reference": { "source": "certmaster", "section": "5.5.2", "title": "Three-Tiered Network Hierarchy" }
+    },
+    {
+      "id": "n-u05-f010",
+      "term": "Distribution layer (aggregation layer)",
+      "definition": "The middle layer that gives fault-tolerant links between the access blocks and the core.",
+      "objectives": ["1.6", "1.6.f"],
+      "units": ["5.5.2"],
+      "reference": { "source": "certmaster", "section": "5.5.2", "title": "Three-Tiered Network Hierarchy" }
+    },
+    {
+      "id": "n-u05-f011",
+      "term": "Access layer (edge layer)",
+      "definition": "The bottom layer, where end user devices such as computers and smartphones connect to the network.",
+      "objectives": ["1.6", "1.6.f"],
+      "units": ["5.5.2"],
+      "reference": { "source": "certmaster", "section": "5.5.2", "title": "Three-Tiered Network Hierarchy" }
+    },
+    {
+      "id": "n-u05-f012",
+      "term": "Collapsed core",
+      "definition": "A two-tier design that combines the core and distribution layers.",
+      "objectives": ["1.6", "1.6.g"],
+      "units": ["5.5.2"],
+      "reference": { "source": "certmaster", "section": "5.5.2", "title": "Three-Tiered Network Hierarchy" }
+    },
+    {
+      "id": "n-u05-f013",
+      "term": "Static routing",
+      "definition": "Routes an administrator adds to the routing table by hand; they change only when edited, so they are hard to maintain if the topology changes often.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["5.1.2"],
+      "reference": { "source": "certmaster", "section": "5.1.2", "title": "Static and Default Routes" }
+    },
+    {
+      "id": "n-u05-f014",
+      "term": "Dynamic routing",
+      "definition": "Routers share route information with their neighbors through a protocol that uses an algorithm and metrics to choose among paths, instead of entries typed in by hand.",
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.1"],
+      "reference": { "source": "certmaster", "section": "5.2.1", "title": "Dynamic Routing Protocols" }
+    },
+    {
+      "id": "n-u05-f015",
+      "term": "BGP (Border Gateway Protocol)",
+      "definition": "The protocol that routes between autonomous systems on the Internet, mainly between ISPs.",
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.5"],
+      "reference": { "source": "certmaster", "section": "5.2.5", "title": "Border Gateway Protocol" }
+    },
+    {
+      "id": "n-u05-f016",
+      "term": "EIGRP (Enhanced Interior Gateway Routing Protocol)",
+      "definition": "A routing protocol whose default metric is built from bandwidth and delay, and which sends updates only when the topology changes.",
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.3"],
+      "reference": { "source": "certmaster", "section": "5.2.3", "title": "Enhanced Interior Gateway Routing Protocol" }
+    },
+    {
+      "id": "n-u05-f017",
+      "term": "OSPF (Open Shortest Path First)",
+      "definition": "The link state protocol that groups routers into areas joined by a backbone and finds least-cost paths from each area's topology database.",
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.4"],
+      "reference": { "source": "certmaster", "section": "5.2.4", "title": "Open Shortest Path First" }
+    },
+    {
+      "id": "n-u05-f018",
+      "term": "Route selection",
+      "definition": "The order a router follows when several routes match: prefix length first, then administrative distance, then metric.",
+      "objectives": ["2.1", "2.1.c", "5.3", "5.3.b"],
+      "units": ["5.2.6", "5.7.1"],
+      "reference": { "source": "certmaster", "section": "5.2.6", "title": "Route Selection" }
+    },
+    {
+      "id": "n-u05-f019",
+      "term": "Administrative distance (AD)",
+      "definition": "A value rating how trustworthy a route's source is, used to choose between routes with equal prefixes from different protocols; the lower value wins.",
+      "objectives": ["2.1", "2.1.c"],
+      "units": ["5.2.6"],
+      "reference": { "source": "certmaster", "section": "5.2.6", "title": "Route Selection" }
+    },
+    {
+      "id": "n-u05-f020",
+      "term": "Prefix length (longest prefix match)",
+      "definition": "The first factor in choosing among matching routes: the most specific entry, such as a /28 over a /24, is preferred.",
+      "objectives": ["2.1", "2.1.c"],
+      "units": ["5.2.6"],
+      "reference": { "source": "certmaster", "section": "5.2.6", "title": "Route Selection" }
+    },
+    {
+      "id": "n-u05-f021",
+      "term": "Metric",
+      "definition": "The cost a routing protocol calculates for each path, such as hop count; the lowest cost wins, but it cannot compare routes from different protocols.",
+      "objectives": ["2.1", "2.1.c"],
+      "units": ["5.2.1", "5.2.6"],
+      "reference": { "source": "certmaster", "section": "5.2.1", "title": "Dynamic Routing Protocols" }
+    },
+    {
+      "id": "n-u05-f022",
+      "term": "NAT (Network Address Translation)",
+      "definition": "A service on a border device, such as a router, proxy server, or firewall, that converts between private LAN addresses and public ones; the static form maps them 1:1.",
+      "objectives": ["2.1", "2.1.d"],
+      "units": ["5.3.2"],
+      "reference": { "source": "certmaster", "section": "5.3.2", "title": "Network Address Translation Types" }
+    },
+    {
+      "id": "n-u05-f023",
+      "term": "PAT (Port Address Translation)",
+      "definition": "Lets many private addresses share one public address by giving each connection its own port number.",
+      "objectives": ["2.1", "2.1.d"],
+      "units": ["5.3.3"],
+      "reference": { "source": "certmaster", "section": "5.3.3", "title": "Port Address Translation" }
+    },
+    {
+      "id": "n-u05-f024",
+      "term": "Subinterfaces",
+      "definition": "Logical interfaces made on one physical router interface, each with its own VLAN ID and IP address to act as that VLAN's default gateway.",
+      "objectives": ["2.1", "2.1.g"],
+      "units": ["5.6.7"],
+      "reference": { "source": "certmaster", "section": "5.6.7", "title": "VLAN Routing" }
+    },
+    {
+      "id": "n-u05-f025",
+      "term": "VLAN (Virtual Local Area Network)",
+      "definition": "A group of ports on a managed switch, set by an ID, that forms its own broadcast domain; traffic to another group must go through a router or layer 3 switch.",
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.1", "5.6.2"],
+      "reference": { "source": "certmaster", "section": "5.6.1", "title": "Virtual LANs and Subnets" }
+    },
+    {
+      "id": "n-u05-f026",
+      "term": "VLAN database",
+      "definition": "The record of every VLAN configured on a switch, which show vlan reports along with each VLAN's ports.",
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.2"],
+      "reference": { "source": "certmaster", "section": "5.6.2", "title": "Virtual LAN IDs and Membership" }
+    },
+    {
+      "id": "n-u05-f027",
+      "term": "SVI (Switch Virtual Interface)",
+      "definition": "The default gateway for one VLAN on a layer 3 switch, bound to the VLAN itself rather than to a physical port.",
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.7"],
+      "reference": { "source": "certmaster", "section": "5.6.7", "title": "VLAN Routing" }
+    },
+    {
+      "id": "n-u05-f028",
+      "term": "Native VLAN",
+      "definition": "The VLAN that a trunk port puts untagged frames into; it should be set the same on both ends of the trunk.",
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.6.6"],
+      "reference": { "source": "certmaster", "section": "5.6.6", "title": "Default VLAN and Native VLAN" }
+    },
+    {
+      "id": "n-u05-f029",
+      "term": "Voice VLAN",
+      "definition": "A separate VLAN for VoIP handsets so voice traffic can be given priority; the handset marks its voice frames with an 802.1Q tag.",
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.6.5"],
+      "reference": { "source": "certmaster", "section": "5.6.5", "title": "Voice VLANs" }
+    },
+    {
+      "id": "n-u05-f030",
+      "term": "802.1Q tagging",
+      "definition": "The IEEE standard that inserts a VLAN ID tag into each Ethernet frame sent over a trunk, so the receiving switch can forward it to the right VLAN.",
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.6.3"],
+      "reference": { "source": "certmaster", "section": "5.6.3", "title": "Trunking and IEEE 802.1Q" }
+    },
+    {
+      "id": "n-u05-f031",
+      "term": "MTU (maximum transmission unit)",
+      "definition": "The largest IP datagram one Data Link frame can carry; usually 1,500 bytes on Ethernet.",
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.1.5"],
+      "reference": { "source": "certmaster", "section": "5.1.5", "title": "Fragmentation" }
+    },
+    {
+      "id": "n-u05-f032",
+      "term": "Incorrect VLAN assignment",
+      "definition": "A host connected to a port in the wrong VLAN, so it cannot reach the hosts and default gateway of the VLAN it belongs in.",
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["5.7.3"],
+      "reference": { "source": "certmaster", "section": "5.7.3", "title": "VLAN Assignment Issues" }
+    },
+    {
+      "id": "n-u05-f033",
+      "term": "ACLs (access control lists)",
+      "definition": "Lists of rules on a firewall or router, each defining a type of packet and whether to accept or deny it.",
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["5.4.1", "5.3.2"],
+      "reference": { "source": "certmaster", "section": "5.4.1", "title": "Firewall Uses and Types" }
+    },
+    {
+      "id": "n-u05-f034",
+      "term": "Routing table",
+      "definition": "A router's or host's list of available paths, each entry giving a destination, the interface to use, and the next hop.",
+      "objectives": ["5.3", "5.3.b"],
+      "units": ["5.1.1", "5.1.7"],
+      "reference": { "source": "certmaster", "section": "5.1.1", "title": "Routing Tables and Path Selection" }
+    },
+    {
+      "id": "n-u05-f035",
+      "term": "Default route (gateway of last resort)",
+      "definition": "The special static route, 0.0.0.0/0 in IPv4, used for any destination that no other entry matches.",
+      "objectives": ["5.3", "5.3.b"],
+      "units": ["5.1.2"],
+      "reference": { "source": "certmaster", "section": "5.1.2", "title": "Static and Default Routes" }
+    },
+    {
+      "id": "n-u05-f036",
+      "term": "traceroute/tracert",
+      "definition": "Tests a path hop by hop, raising the probes' TTL by one each time, to find the node or link causing a problem; by default, Windows probes with ICMP, and Linux and routers with UDP.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": { "source": "certmaster", "section": "5.1.8", "title": "tracert and traceroute" }
+    },
+    {
+      "id": "n-u05-f037",
+      "term": "show route",
+      "definition": "The router command that displays its active routing table.",
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["5.1.7"],
+      "reference": { "source": "certmaster", "section": "5.1.7", "title": "Routing Table Tools" }
+    },
+    {
+      "id": "n-u05-f038",
+      "term": "show arp",
+      "definition": "The router command that lists its cache of IP addresses resolved to MAC addresses.",
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["5.1.7"],
+      "reference": { "source": "certmaster", "section": "5.1.7", "title": "Routing Table Tools" }
+    },
+    {
+      "id": "n-u05-f039",
+      "term": "show vlan",
+      "definition": "The switch command that reports each configured VLAN ID and the ports assigned to it.",
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["5.6.2"],
+      "reference": { "source": "certmaster", "section": "5.6.2", "title": "Virtual LAN IDs and Membership" }
+    },
+    {
+      "id": "n-u05-f040",
+      "term": "Port filtering",
+      "definition": "Accepting or denying packets by the source and destination port numbers in their TCP or UDP headers.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.4.1"],
+      "reference": { "source": "certmaster", "section": "5.4.1", "title": "Firewall Uses and Types" }
+    },
+    {
+      "id": "n-u05-f041",
+      "term": "Stateful inspection firewall",
+      "definition": "A firewall that tracks each session between two hosts in a state table, so it can spot attacks spread over many packets that a stateless packet filter misses.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.4.1"],
+      "reference": { "source": "certmaster", "section": "5.4.1", "title": "Firewall Uses and Types" }
+    },
+    {
+      "id": "n-u05-f042",
+      "term": "Convergence",
+      "definition": "The process by which routers running a dynamic routing protocol share changes until they all agree on the network topology.",
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.1"],
+      "reference": { "source": "certmaster", "section": "5.2.1", "title": "Dynamic Routing Protocols" }
+    },
+    {
+      "id": "n-u05-f043",
+      "term": "RIP (Routing Information Protocol)",
+      "definition": "The distance vector protocol whose only metric is hop count; it sends its entire database to its neighbors at regular intervals.",
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.2"],
+      "reference": { "source": "certmaster", "section": "5.2.2", "title": "Routing Information Protocol" }
+    },
+    {
+      "id": "n-u05-f044",
+      "term": "Distance vector protocol",
+      "definition": "The type of routing protocol that relies on neighboring routers to report paths to remote networks; RIP is one, and it counts hops.",
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.1", "5.2.4"],
+      "reference": { "source": "certmaster", "section": "5.2.1", "title": "Dynamic Routing Protocols" }
+    },
+    {
+      "id": "n-u05-f045",
+      "term": "Link state protocol",
+      "definition": "The type of routing protocol in which each router stores the complete network topology and calculates least-cost paths from it, not from neighbors' hop counts.",
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.4"],
+      "reference": { "source": "certmaster", "section": "5.2.4", "title": "Open Shortest Path First" }
+    },
+    {
+      "id": "n-u05-f046",
+      "term": "EGP (Exterior Gateway Protocol)",
+      "definition": "The category of routing protocol that advertises routes between autonomous systems, such as BGP; an IGP works within one.",
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.1"],
+      "reference": { "source": "certmaster", "section": "5.2.1", "title": "Dynamic Routing Protocols" }
+    },
+    {
+      "id": "n-u05-f047",
+      "term": "route (command)",
+      "definition": "The command that views and changes the routing table of Windows and Linux hosts; the ip command can do the same job on Linux.",
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["5.1.7"],
+      "reference": { "source": "certmaster", "section": "5.1.7", "title": "Routing Table Tools" }
+    },
+    {
+      "id": "n-u05-f048",
+      "term": "Layer 3 switch",
+      "definition": "A switch optimized for routing between VLANs, so it can do that job in place of a router.",
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.7", "5.5.2"],
+      "reference": { "source": "certmaster", "section": "5.6.7", "title": "VLAN Routing" }
+    },
+    {
+      "id": "n-u05-f049",
+      "term": "Default VLAN",
+      "definition": "VLAN 1, which every switch port is in until configured otherwise; it cannot be changed.",
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.6"],
+      "reference": { "source": "certmaster", "section": "5.6.6", "title": "Default VLAN and Native VLAN" }
+    }
+  ]
+}

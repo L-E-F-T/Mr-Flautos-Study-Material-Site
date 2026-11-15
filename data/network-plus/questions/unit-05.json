@@ -1,0 +1,1578 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-05", "title": "Unit 5.0 Configuring Routing and Advanced Switching", "reviewed": false },
+  "questions": [
+    {
+      "id": "n-u05-q001",
+      "stem": "An administrator enters a path to a branch office network by hand on a router that also learns paths from its neighbors. Which of the following holds all of these paths?",
+      "choices": [
+        { "id": "a", "text": "The ARP cache" },
+        { "id": "b", "text": "The VLAN database" },
+        { "id": "c", "text": "The routing protocol's database" },
+        { "id": "d", "text": "The routing table" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.1",
+        "title": "Routing Tables and Path Selection",
+        "quote": "",
+        "find": "is stored in the routing table."
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q51" }
+    },
+    {
+      "id": "n-u05-q002",
+      "stem": "A small office has staff PCs on 10.20.1.0/24 and lab PCs on 10.20.2.0/24, and each group is plugged into its own switch. Which of the following will let the staff PCs reach the lab PCs?",
+      "choices": [
+        { "id": "a", "text": "Join the two switches with a trunk link" },
+        { "id": "b", "text": "Join the two switches with a patch cable" },
+        { "id": "c", "text": "Connect each switch to a router interface" },
+        { "id": "d", "text": "Put every port on both switches in VLAN 1" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.6",
+        "title": "Router Configuration",
+        "quote": "",
+        "find": "in different subnets or IP networks"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q58" }
+    },
+    {
+      "id": "n-u05-q003",
+      "stem": "A network team plans to use only static routes on a small company's routers. Which of the following are true of this kind of route?",
+      "choices": [
+        { "id": "a", "text": "Each one changes only when an administrator edits it" },
+        { "id": "b", "text": "The router adds a static route for each active interface" },
+        { "id": "c", "text": "A default route is a special type of static route" },
+        { "id": "d", "text": "They find a new path on their own when the topology changes" },
+        { "id": "e", "text": "One set as non-persistent is removed when the router restarts" }
+      ],
+      "answer": ["a", "c", "e"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["5.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.2",
+        "title": "Static and Default Routes",
+        "quote": "",
+        "find": "only changes if edited by"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q88" }
+    },
+    {
+      "id": "n-u05-q004",
+      "stem": "A company's routers use only static routes, and its network team adds or moves WAN links almost every month. Which of the following is the MOST likely drawback of this design?",
+      "choices": [
+        { "id": "a", "text": "Routing updates will use up bandwidth on the WAN links" },
+        { "id": "b", "text": "Each router must keep a map of the whole network" },
+        { "id": "c", "text": "The routers will choose paths by hop count alone" },
+        { "id": "d", "text": "Each change must be made by hand on every affected router" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["5.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.2",
+        "title": "Static and Default Routes",
+        "quote": "",
+        "find": "but it can be problematic if"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q40" }
+    },
+    {
+      "id": "n-u05-q005",
+      "stem": "A technician is configuring a branch office router so that any IPv4 packet matching no other routing table entry goes to the head office router. Which of the following destinations should this route use?",
+      "choices": [
+        { "id": "a", "text": "0.0.0.0/32" },
+        { "id": "b", "text": "0.0.0.0/0" },
+        { "id": "c", "text": "224.0.0.0/4" },
+        { "id": "d", "text": "::/0" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["5.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.2",
+        "title": "Static and Default Routes",
+        "quote": "",
+        "find": "The destination address 0.0.0.0/0 (IPv4)"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q20" }
+    },
+    {
+      "id": "n-u05-q006",
+      "stem": "After a configuration mistake, two routers each use the other as the path to one subnet, so packets for that subnet bounce between them. Which of the following makes sure each of these packets is eventually discarded?",
+      "choices": [
+        { "id": "a", "text": "The split horizon rule" },
+        { "id": "b", "text": "The holddown timer" },
+        { "id": "c", "text": "The Time to Live (TTL) value" },
+        { "id": "d", "text": "The maximum transmission unit (MTU)" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["5.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.4",
+        "title": "Packet Forwarding",
+        "quote": "",
+        "find": "When the TTL is 0"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q86" }
+    },
+    {
+      "id": "n-u05-q007",
+      "stem": "A technician is reading IPv4 and IPv6 packet captures. Which of the following header fields does each router lower by at least 1 before it forwards a packet?",
+      "choices": [
+        { "id": "a", "text": "Time to Live" },
+        { "id": "b", "text": "Fragment Offset" },
+        { "id": "c", "text": "Hop Limit" },
+        { "id": "d", "text": "EtherType" },
+        { "id": "e", "text": "VLAN ID" }
+      ],
+      "answer": ["a", "c"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["5.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.4",
+        "title": "Packet Forwarding",
+        "quote": "",
+        "find": "Time to Live (TTL) header field"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q66" }
+    },
+    {
+      "id": "n-u05-q008",
+      "stem": "A technician sees that large IP datagrams are being fragmented as they cross a standard Ethernet network. Which of the following is the largest IP datagram that usually fits in one Ethernet frame?",
+      "choices": [
+        { "id": "a", "text": "1,500 bytes" },
+        { "id": "b", "text": "1,518 bytes" },
+        { "id": "c", "text": "9,216 bytes" },
+        { "id": "d", "text": "65,535 bytes" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.5",
+        "title": "Fragmentation",
+        "quote": "",
+        "find": "MTU of an Ethernet frame is"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q30" }
+    },
+    {
+      "id": "n-u05-q009",
+      "stem": "A company is moving from IPv4 to IPv6, and traffic to one branch office crosses a WAN link that cannot carry full-size Ethernet frames. Which of the following makes sure each IPv6 packet is small enough for every link it crosses?",
+      "choices": [
+        { "id": "a", "text": "Each router fragments any packet too large for its next link" },
+        { "id": "b", "text": "The receiving host reassembles packets that routers split" },
+        { "id": "c", "text": "The sending host uses path MTU discovery to size its packets" },
+        { "id": "d", "text": "Each switch raises its MTU to allow jumbo frames" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["5.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.5",
+        "title": "Fragmentation",
+        "quote": "",
+        "find": "the host performs path MTU discovery"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q10" }
+    },
+    {
+      "id": "n-u05-q010",
+      "stem": "A Linux web server must reach a lab subnet through a second router on its network, so an administrator needs to add a static route on the server. Which of the following commands can the administrator use?",
+      "choices": [
+        { "id": "a", "text": "route" },
+        { "id": "b", "text": "show ip route" },
+        { "id": "c", "text": "ip route" },
+        { "id": "d", "text": "traceroute" },
+        { "id": "e", "text": "route print" }
+      ],
+      "answer": ["a", "c"],
+      "objectives": ["2.1", "2.1.a"],
+      "units": ["5.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.7",
+        "title": "Routing Table Tools",
+        "quote": "",
+        "find": "route command is used to view"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q17" }
+    },
+    {
+      "id": "n-u05-q011",
+      "stem": "A Windows laptop with two network adapters is sending traffic for a partner's network out the wrong adapter. Which of the following commands would BEST show which adapter the laptop uses to reach each network?",
+      "choices": [
+        { "id": "a", "text": "ip route show" },
+        { "id": "b", "text": "arp -a" },
+        { "id": "c", "text": "ipconfig /all" },
+        { "id": "d", "text": "route print" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.7",
+        "title": "Routing Table Tools",
+        "quote": "",
+        "find": "routing table, run route print"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q104" }
+    },
+    {
+      "id": "n-u05-q012",
+      "stem": "A network administrator signs in to a branch router over SSH to confirm that it has learned a path to the head office's subnet. Which of the following commands should the administrator run?",
+      "choices": [
+        { "id": "a", "text": "show arp" },
+        { "id": "b", "text": "show ip route" },
+        { "id": "c", "text": "show vlan" },
+        { "id": "d", "text": "route print" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["5.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.7",
+        "title": "Routing Table Tools",
+        "quote": "",
+        "find": "similar show route command will output"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q234" }
+    },
+    {
+      "id": "n-u05-q013",
+      "stem": "A technician is documenting the routing table of a branch router. Based on the output shown, how did the router get its route to 10.4.2.0/24?",
+      "exhibit": { "type": "text", "text": "C   10.4.1.0/24  Gi0/0\nC   10.4.2.0/24  Gi0/1\nS   10.5.0.0/16  10.4.2.9\nO   10.6.8.0/24  10.4.2.9\nD   10.7.0.0/16  10.4.1.5\nS*  0.0.0.0/0    10.4.1.1" },
+      "choices": [
+        { "id": "a", "text": "An administrator entered it as a static route" },
+        { "id": "b", "text": "The router learned it from a neighbor through OSPF" },
+        { "id": "c", "text": "It is directly connected to a router interface" },
+        { "id": "d", "text": "The router learned it from a neighbor through EIGRP" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["5.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.7",
+        "title": "Routing Table Tools",
+        "quote": "",
+        "find": "letter code (C = connected,"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q71" }
+    },
+    {
+      "id": "n-u05-q014",
+      "stem": "Users at a branch office can reach their default gateway but not a web server several networks away. Which of the following tools would BEST show where along the path the traffic stops?",
+      "choices": [
+        { "id": "a", "text": "show arp" },
+        { "id": "b", "text": "ping" },
+        { "id": "c", "text": "route print" },
+        { "id": "d", "text": "traceroute" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.8",
+        "title": "tracert and traceroute",
+        "quote": "",
+        "find": "allows you to test the whole"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q176" }
+    },
+    {
+      "id": "n-u05-q015",
+      "stem": "A help desk technician copied this output from a Windows workstation into a ticket about slow access to a supplier's website. Based on the output shown, which of the following utilities did the technician run?",
+      "exhibit": { "type": "text", "text": "1  <1 ms  <1 ms  <1 ms\n   192.168.30.1\n2   6 ms   5 ms   6 ms\n   10.200.0.1\n3   *      *      *\n   Request timed out.\n4  14 ms  13 ms  15 ms\n   198.51.100.6\n5  15 ms  14 ms  14 ms\n   203.0.113.70" },
+      "choices": [
+        { "id": "a", "text": "ping" },
+        { "id": "b", "text": "route print" },
+        { "id": "c", "text": "ipconfig /all" },
+        { "id": "d", "text": "tracert" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.8",
+        "title": "tracert and traceroute",
+        "quote": "",
+        "find": "performed using the tracert command."
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q172" }
+    },
+    {
+      "id": "n-u05-q016",
+      "stem": "A technician checks the delay from an office PC to a partner's web server at 203.0.113.45. Based on the output shown, how long does the web server take, on average, to answer each probe?",
+      "exhibit": { "type": "text", "text": "1  <1 ms  <1 ms  <1 ms\n   10.12.0.1\n2   9 ms   8 ms  10 ms\n   198.51.100.17\n3  19 ms  22 ms  25 ms\n   198.51.100.90\n4  28 ms  35 ms  30 ms\n   203.0.113.45" },
+      "choices": [
+        { "id": "a", "text": "22 ms" },
+        { "id": "b", "text": "28 ms" },
+        { "id": "c", "text": "31 ms" },
+        { "id": "d", "text": "35 ms" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.8",
+        "title": "tracert and traceroute",
+        "quote": "",
+        "find": "taken to respond to each probe"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q210" }
+    },
+    {
+      "id": "n-u05-q017",
+      "stem": "An administrator runs traceroute with its default settings to map the path to a remote site. Which of the following does the command send as probes?",
+      "choices": [
+        { "id": "a", "text": "ICMP Echo Requests" },
+        { "id": "b", "text": "UDP datagrams" },
+        { "id": "c", "text": "ICMP Time Exceeded messages" },
+        { "id": "d", "text": "TCP segments" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.8",
+        "title": "tracert and traceroute",
+        "quote": "",
+        "find": "UDP probe messages by default."
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q212" }
+    },
+    {
+      "id": "n-u05-q018",
+      "stem": "A protocol analyzer on a Windows PC captures ICMP Echo Requests to one destination, three with a TTL of 1, then three with a TTL of 2, and so on. Which of the following commands was MOST likely run on the PC?",
+      "choices": [
+        { "id": "a", "text": "ping" },
+        { "id": "b", "text": "traceroute" },
+        { "id": "c", "text": "tracert" },
+        { "id": "d", "text": "arp -a" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.8",
+        "title": "tracert and traceroute",
+        "quote": "",
+        "find": "ICMP Echo Request probes by default."
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q168" }
+    },
+    {
+      "id": "n-u05-q019",
+      "stem": "A network engineer's checklist tells staff to type traceroute 203.0.113.80 when a partner's server cannot be reached. Which of the following devices will run this command as typed?",
+      "choices": [
+        { "id": "a", "text": "A Windows 11 laptop" },
+        { "id": "b", "text": "A Cisco edge router" },
+        { "id": "c", "text": "A Windows Server 2022 host" },
+        { "id": "d", "text": "An unmanaged switch" },
+        { "id": "e", "text": "A Linux file server" }
+      ],
+      "answer": ["b", "e"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.8",
+        "title": "tracert and traceroute",
+        "quote": "",
+        "find": "supported on Linux and router"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q73" }
+    },
+    {
+      "id": "n-u05-q020",
+      "stem": "A technician's traceroute shows asterisks for all three times at hop 4, but hops 5 and 6 respond normally. Which of the following is the MOST likely reason?",
+      "choices": [
+        { "id": "a", "text": "The router at hop 4 is down and cannot forward packets" },
+        { "id": "b", "text": "The router at hop 4 is set to drop expired probes silently" },
+        { "id": "c", "text": "The probes reached the destination, which replied Port Unreachable" },
+        { "id": "d", "text": "Hops 4 and 5 are passing the probes back and forth in a loop" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.8",
+        "title": "tracert and traceroute",
+        "quote": "",
+        "find": "drop packets with expired TTLs silently"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q16" }
+    },
+    {
+      "id": "n-u05-q021",
+      "stem": "A technician's tracert to a branch office file server pauses at every hop while the PC looks up a host name for that hop's address. Which of the following should the technician run to skip these lookups?",
+      "choices": [
+        { "id": "a", "text": "tracert -w 500 files.example.net" },
+        { "id": "b", "text": "tracert -h 20 files.example.net" },
+        { "id": "c", "text": "tracert -d files.example.net" },
+        { "id": "d", "text": "tracert -6 files.example.net" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.8",
+        "title": "tracert and traceroute",
+        "quote": "",
+        "find": "-d switch to suppress name resolution"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q33" }
+    },
+    {
+      "id": "n-u05-q022",
+      "stem": "After a fiber link between two of a hospital's routers is cut, the routers exchange updates until all of them agree on the changed network topology. Which of the following terms describes this process?",
+      "choices": [
+        { "id": "a", "text": "Steady state" },
+        { "id": "b", "text": "Convergence" },
+        { "id": "c", "text": "Route flapping" },
+        { "id": "d", "text": "Holddown timer" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.1",
+        "title": "Dynamic Routing Protocols",
+        "quote": "",
+        "find": "Convergence is the process whereby"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q14" }
+    },
+    {
+      "id": "n-u05-q023",
+      "stem": "Two companies each run their own autonomous system, and the companies' edge routers must exchange routes with each other. Which of the following routing protocols should the edge routers use?",
+      "choices": [
+        { "id": "a", "text": "Open Shortest Path First (OSPF)" },
+        { "id": "b", "text": "Enhanced IGRP (EIGRP)" },
+        { "id": "c", "text": "Routing Information Protocol (RIP)" },
+        { "id": "d", "text": "Border Gateway Protocol (BGP)" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.5",
+        "title": "Border Gateway Protocol",
+        "quote": "",
+        "find": "primarily used for routing"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q16" }
+    },
+    {
+      "id": "n-u05-q024",
+      "stem": "Router B tells Router A that a remote network is one hop away, so Router A adds the route with a metric of 2 and Router B as the next hop. Which of the following types of routing protocol BEST matches this behavior?",
+      "choices": [
+        { "id": "a", "text": "Exterior Gateway Protocol (EGP)" },
+        { "id": "b", "text": "Link state protocol" },
+        { "id": "c", "text": "Interior Gateway Protocol (IGP)" },
+        { "id": "d", "text": "Distance vector protocol" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.2",
+        "title": "Routing Information Protocol",
+        "quote": "",
+        "find": "increases the hop count by one"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q85" }
+    },
+    {
+      "id": "n-u05-q025",
+      "stem": "A technician notices that a small office's routers always send traffic over a two-hop path of slow links instead of a three-hop path of fast links. Which of the following protocols are the routers MOST likely running?",
+      "choices": [
+        { "id": "a", "text": "Open Shortest Path First (OSPF)" },
+        { "id": "b", "text": "Enhanced IGRP (EIGRP)" },
+        { "id": "c", "text": "Border Gateway Protocol (BGP)" },
+        { "id": "d", "text": "Routing Information Protocol (RIP)" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.2",
+        "title": "Routing Information Protocol",
+        "quote": "",
+        "find": "the lowest hop count (distance)"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q15" }
+    },
+    {
+      "id": "n-u05-q026",
+      "stem": "A network engineer is setting up EIGRP on the routers inside the company's autonomous system. Which of the following will be true once EIGRP is running?",
+      "choices": [
+        { "id": "a", "text": "Each router will send its entire routing database every 30 seconds" },
+        { "id": "b", "text": "Each router will send a neighbor one full update, then only changes" },
+        { "id": "c", "text": "Each router will exchange routes over TCP port 179" },
+        { "id": "d", "text": "Each router will treat a network 16 hops away as unreachable" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.3",
+        "title": "Enhanced Interior Gateway Routing Protocol",
+        "quote": "",
+        "find": "thereafter only sends updates"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q4" }
+    },
+    {
+      "id": "n-u05-q027",
+      "stem": "A company runs EIGRP in one part of its network and OSPF in another. Which of the following statements about these protocols are true?",
+      "choices": [
+        { "id": "a", "text": "Both protocols count the hops to a network as their only metric" },
+        { "id": "b", "text": "EIGRP's default metric is built from bandwidth and delay" },
+        { "id": "c", "text": "OSPF is suited to large networks with many redundant paths" },
+        { "id": "d", "text": "EIGRP organizes its routers into a hierarchy of areas" },
+        { "id": "e", "text": "OSPF is used mainly for routing between autonomous systems" }
+      ],
+      "answer": ["b", "c"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.3", "5.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.3",
+        "title": "Enhanced Interior Gateway Routing Protocol",
+        "quote": "",
+        "find": "default elements are bandwidth and delay"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q12" }
+    },
+    {
+      "id": "n-u05-q028",
+      "stem": "A company is replacing RIP with OSPF on its routers. Which of the following should the network team expect?",
+      "choices": [
+        { "id": "a", "text": "Each router will send its whole table every 30 seconds" },
+        { "id": "b", "text": "Each router will choose paths by hop count alone" },
+        { "id": "c", "text": "Each router will need more CPU and memory" },
+        { "id": "d", "text": "Each router will take longer to settle after a link fails" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.4",
+        "title": "Open Shortest Path First",
+        "quote": "",
+        "find": "require more CPU and memory"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q30" }
+    },
+    {
+      "id": "n-u05-q029",
+      "stem": "A network designer wants each router to keep a copy of the complete network topology and work out least-cost paths from it. Which of the following BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "Distance vector routing" },
+        { "id": "b", "text": "Static routing" },
+        { "id": "c", "text": "Steady state" },
+        { "id": "d", "text": "Link state routing" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.4",
+        "title": "Open Shortest Path First",
+        "quote": "",
+        "find": "link state algorithm allows a router"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q10" }
+    },
+    {
+      "id": "n-u05-q030",
+      "stem": "A school district runs OSPF with each of its four sites in its own area, and it is adding a fifth site as Area 50. Which of the following must Area 50's border router connect to so the new site can reach the other sites?",
+      "choices": [
+        { "id": "a", "text": "A new Area 0 of its own" },
+        { "id": "b", "text": "The area of the nearest site" },
+        { "id": "c", "text": "The areas of all four other sites" },
+        { "id": "d", "text": "The backbone area" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.4",
+        "title": "Open Shortest Path First",
+        "quote": "",
+        "find": "A backbone (always called Area 0)"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q168" }
+    },
+    {
+      "id": "n-u05-q031",
+      "stem": "A network team is about to start using BGP. Which of the following is true of BGP?",
+      "choices": [
+        { "id": "a", "text": "It puts stability ahead of fast convergence" },
+        { "id": "b", "text": "It sends its whole routing table every 30 seconds" },
+        { "id": "c", "text": "It learns every network inside each autonomous system" },
+        { "id": "d", "text": "It sends updates directly in IP packets, not over TCP" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.1", "2.1.b"],
+      "units": ["5.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.5",
+        "title": "Border Gateway Protocol",
+        "quote": "",
+        "find": "can be slow to converge"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q19" }
+    },
+    {
+      "id": "n-u05-q032",
+      "stem": "While a company replaces EIGRP with OSPF, a router learns the same networks from both protocols, and the network engineer wants it to use the OSPF routes. Which of the following should the engineer change?",
+      "choices": [
+        { "id": "a", "text": "The metric that OSPF gives each route" },
+        { "id": "b", "text": "The next hop address of each EIGRP route" },
+        { "id": "c", "text": "The hello messages that each protocol sends" },
+        { "id": "d", "text": "The administrative distance of the OSPF routes" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.1", "2.1.c"],
+      "units": ["5.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.6",
+        "title": "Route Selection",
+        "quote": "",
+        "find": "relative trustworthiness of the protocol"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q8" }
+    },
+    {
+      "id": "n-u05-q033",
+      "stem": "A router learns 192.0.2.0/24 from OSPF and from RIP, and a technician adds a static route to the same network with an administrative distance of 130. Which route will the router use to reach 192.0.2.0/24?",
+      "choices": [
+        { "id": "a", "text": "The static route" },
+        { "id": "b", "text": "The OSPF route" },
+        { "id": "c", "text": "The RIP route" },
+        { "id": "d", "text": "The route with the lowest metric" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.1", "2.1.c"],
+      "units": ["5.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.6",
+        "title": "Route Selection",
+        "quote": "",
+        "find": "static route with a high AD"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q137" }
+    },
+    {
+      "id": "n-u05-q034",
+      "stem": "Based on the routes shown, which route will the router use to forward a packet addressed to 10.20.13.40?",
+      "exhibit": { "type": "text", "text": "Source Network\nEIGRP  10.0.0.0/8\nOSPF   10.20.0.0/16\nRIP    10.20.13.0/24\nStatic 10.20.14.0/24" },
+      "choices": [
+        { "id": "a", "text": "The EIGRP route to 10.0.0.0/8" },
+        { "id": "b", "text": "The OSPF route to 10.20.0.0/16" },
+        { "id": "c", "text": "The RIP route to 10.20.13.0/24" },
+        { "id": "d", "text": "The static route to 10.20.14.0/24" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.1", "2.1.c"],
+      "units": ["5.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.6",
+        "title": "Route Selection",
+        "quote": "",
+        "find": "longer prefixes are preferred over shorter"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q37" }
+    },
+    {
+      "id": "n-u05-q035",
+      "stem": "OSPF on a branch router learns two routes to 172.16.48.0/22, one through each of its two neighbors. Which of the following decides which route the router uses?",
+      "choices": [
+        { "id": "a", "text": "The metric of each route" },
+        { "id": "b", "text": "The administrative distance of each route" },
+        { "id": "c", "text": "The prefix length of each route" },
+        { "id": "d", "text": "The next hop address of each route" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.1", "2.1.c"],
+      "units": ["5.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.2.6",
+        "title": "Route Selection",
+        "quote": "",
+        "find": "uses its metric to determine the"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q123" }
+    },
+    {
+      "id": "n-u05-q036",
+      "stem": "Staff at a branch office can still open each other's shared folders but cannot reach the Internet, and the ISP says its router for the office is working. Which of the following is the MOST likely source of the problem?",
+      "choices": [
+        { "id": "a", "text": "The provider edge (PE) router" },
+        { "id": "b", "text": "The customer edge (CE) router" },
+        { "id": "c", "text": "The office's workgroup switch" },
+        { "id": "d", "text": "One PC's network adapter" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.1",
+        "title": "Edge Routers",
+        "quote": "",
+        "find": "is referred to as the customer"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q106" }
+    },
+    {
+      "id": "n-u05-q037",
+      "stem": "While reviewing plans for a new branch office, a manager asks why the edge router will use NAT for the office's 80 PCs. Which of the following BEST explains the need for NAT?",
+      "choices": [
+        { "id": "a", "text": "The need to filter traffic from the Internet" },
+        { "id": "b", "text": "The short supply of public IPv6 addresses" },
+        { "id": "c", "text": "The short supply of public IPv4 addresses" },
+        { "id": "d", "text": "The need to repackage LAN frames for the WAN" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.1", "2.1.d"],
+      "units": ["5.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.2",
+        "title": "Network Address Translation Types",
+        "quote": "",
+        "find": "short supply for IPv4"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q190" }
+    },
+    {
+      "id": "n-u05-q038",
+      "stem": "A library needs a device between its private network and its ISP that replaces each PC's private IPv4 address with a public address on traffic to the Internet. Which of the following devices can perform this role?",
+      "choices": [
+        { "id": "a", "text": "A router" },
+        { "id": "b", "text": "A DNS server" },
+        { "id": "c", "text": "A layer 2 switch" },
+        { "id": "d", "text": "A proxy server" },
+        { "id": "e", "text": "A DHCP server" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["2.1", "2.1.d"],
+      "units": ["5.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.2",
+        "title": "Network Address Translation Types",
+        "quote": "",
+        "find": "a router, proxy server, or firewall"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q2" }
+    },
+    {
+      "id": "n-u05-q039",
+      "stem": "Two laptops at a coffee shop, 192.168.5.20 and 192.168.5.21, open the same website at the same time through the shop's PAT router, whose public address is 198.51.100.7. Which of the following could the web server see as the sources of the two connections?",
+      "choices": [
+        { "id": "a", "text": "198.51.100.7:50120" },
+        { "id": "b", "text": "198.51.100.8:50121" },
+        { "id": "c", "text": "192.168.5.20:50120" },
+        { "id": "d", "text": "198.51.100.7:50121" },
+        { "id": "e", "text": "192.168.5.21:50121" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["2.1", "2.1.d"],
+      "units": ["5.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.3.3",
+        "title": "Port Address Translation",
+        "quote": "",
+        "find": "allocating each new connection an ephemeral"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q34" }
+    },
+    {
+      "id": "n-u05-q040",
+      "stem": "A school's edge router already uses PAT, and the school also has a firewall just inside the router. Which of the following does the firewall do that PAT does NOT?",
+      "choices": [
+        { "id": "a", "text": "Allowing or blocking traffic according to rules" },
+        { "id": "b", "text": "Hiding each PC's private address from Internet hosts" },
+        { "id": "c", "text": "Letting many PCs share one public IPv4 address" },
+        { "id": "d", "text": "Repackaging LAN frames into the WAN frame format" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.1",
+        "title": "Firewall Uses and Types",
+        "quote": "",
+        "find": "basic function of a firewall"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q33" }
+    },
+    {
+      "id": "n-u05-q041",
+      "stem": "A packet filtering firewall must allow SSH to a branch router but block Telnet to the same router, and both protocols use TCP. Which of the following lets the firewall tell the two kinds of traffic apart?",
+      "choices": [
+        { "id": "a", "text": "The data inside each packet" },
+        { "id": "b", "text": "The protocol type" },
+        { "id": "c", "text": "The state of each session" },
+        { "id": "d", "text": "The destination port number" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.1",
+        "title": "Firewall Uses and Types",
+        "quote": "",
+        "find": "Accepting or denying a packet based"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q36" }
+    },
+    {
+      "id": "n-u05-q042",
+      "stem": "An attack spread over a series of packets got through a clinic's packet filtering firewall, so the clinic is installing a stateful inspection firewall. Which of the following capabilities will the new firewall add?",
+      "choices": [
+        { "id": "a", "text": "Blocking packets that come from one IP address" },
+        { "id": "b", "text": "Keeping track of each session between two hosts" },
+        { "id": "c", "text": "Allowing only packets that go to TCP port 443" },
+        { "id": "d", "text": "Judging each packet on its own, with no record of earlier packets" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.1",
+        "title": "Firewall Uses and Types",
+        "quote": "",
+        "find": "by maintaining stateful information"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q41" }
+    },
+    {
+      "id": "n-u05-q043",
+      "stem": "A sales manager's laptop often connects to public Wi-Fi at hotels and airports, far from the company's offices. Which of the following would filter the laptop's traffic no matter where it connects?",
+      "choices": [
+        { "id": "a", "text": "A network-based firewall" },
+        { "id": "b", "text": "An appliance firewall" },
+        { "id": "c", "text": "A host-based firewall" },
+        { "id": "d", "text": "A router firewall" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.4.1", "5.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.1",
+        "title": "Firewall Uses and Types",
+        "quote": "",
+        "find": "protect a single host only"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 5.0 slide 55" }
+    },
+    {
+      "id": "n-u05-q044",
+      "stem": "An administrator added the rule shown to block the guest subnet, 10.9.50.0/24, from the payroll server at 10.9.0.20, but staff on 10.9.30.0/24 are now blocked instead. Which part of the rule should the administrator change?",
+      "exhibit": { "type": "text", "text": "Source:      10.9.30.0/24\nDestination: 10.9.0.20\nPort:        TCP 8443\nAction:      deny" },
+      "choices": [
+        { "id": "a", "text": "The action" },
+        { "id": "b", "text": "The source address" },
+        { "id": "c", "text": "The destination address" },
+        { "id": "d", "text": "The port number" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.1",
+        "title": "Firewall Uses and Types",
+        "quote": "",
+        "find": "specific type of data packet and"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q238" }
+    },
+    {
+      "id": "n-u05-q045",
+      "stem": "Staff on 10.10.0.0/24 can open the intranet site at 10.50.0.8 on TCP port 443, but a new scheduling app on that server at TCP port 8080 will not load. Based on the ACL shown, which of the following changes will fix the problem?",
+      "exhibit": { "type": "text", "text": "Rule 1\nSource:      10.10.0.0/24\nDestination: 10.50.0.8\nPort:        TCP 443\nAction:      accept\n\nRule 2\nSource:      any\nDestination: 10.50.0.8\nPort:        TCP 3389\nAction:      deny" },
+      "choices": [
+        { "id": "a", "text": "Delete Rule 2, the deny rule for the server" },
+        { "id": "b", "text": "Change Rule 2's port from TCP 3389 to TCP 8080" },
+        { "id": "c", "text": "Add a rule that accepts TCP 8080 traffic to the server" },
+        { "id": "d", "text": "Change Rule 1's source to any address" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["5.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.4.1",
+        "title": "Firewall Uses and Types",
+        "quote": "",
+        "find": "conform to a rule is blocked"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 5.0 slide 59" }
+    },
+    {
+      "id": "n-u05-q046",
+      "stem": "A company's main routers are connected to each other in a full mesh, and every computer in each department is cabled to a switch that uplinks to one of those routers. Which of the following BEST describes this network's topology?",
+      "choices": [
+        { "id": "a", "text": "Mesh" },
+        { "id": "b", "text": "Point to point" },
+        { "id": "c", "text": "Hybrid" },
+        { "id": "d", "text": "Star" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.6", "1.6.b"],
+      "units": ["5.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.5.1",
+        "title": "Hybrid Topology",
+        "quote": "",
+        "find": "hybrid topology is anything that uses"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q259" }
+    },
+    {
+      "id": "n-u05-q047",
+      "stem": "A consultant is planning a corporate office network that follows the three-tiered hierarchical model. Which of the following names could the plan use for its three tiers?",
+      "choices": [
+        { "id": "a", "text": "Aggregation" },
+        { "id": "b", "text": "Transport" },
+        { "id": "c", "text": "Edge" },
+        { "id": "d", "text": "Workgroup" },
+        { "id": "e", "text": "Core" }
+      ],
+      "answer": ["a", "c", "e"],
+      "objectives": ["1.6", "1.6.f"],
+      "units": ["5.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.5.2",
+        "title": "Three-Tiered Network Hierarchy",
+        "quote": "",
+        "find": "The distribution or aggregation layer"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q1" }
+    },
+    {
+      "id": "n-u05-q048",
+      "stem": "One of the two core switches in a company's three-tiered network fails, but every department keeps working. Which of the following BEST explains why?",
+      "choices": [
+        { "id": "a", "text": "Client and server computers attach directly to the core" },
+        { "id": "b", "text": "Each distribution switch has links to both core switches" },
+        { "id": "c", "text": "Layer 3 switches cache each route after they find it" },
+        { "id": "d", "text": "Access switches have direct links to one another" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.6", "1.6.f"],
+      "units": ["5.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.5.2",
+        "title": "Three-Tiered Network Hierarchy",
+        "quote": "",
+        "find": "establish a full mesh topology with"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q252" }
+    },
+    {
+      "id": "n-u05-q049",
+      "stem": "An administrator is configuring the pair of layer 3 switches that aggregate the uplinks from a building's access switches. Which of the following tasks will these switches MOST likely handle?",
+      "choices": [
+        { "id": "a", "text": "Connecting end devices through wall ports and access points" },
+        { "id": "b", "text": "Routing traffic between branch offices across the WAN" },
+        { "id": "c", "text": "Translating private addresses into one public address" },
+        { "id": "d", "text": "Applying filtering and QoS policies between subnets" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.6", "1.6.f"],
+      "units": ["5.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.5.2",
+        "title": "Three-Tiered Network Hierarchy",
+        "quote": "",
+        "find": "traffic policies, such as routing boundaries"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q248" }
+    },
+    {
+      "id": "n-u05-q050",
+      "stem": "A network team is building the access layer for a company's new branch office. Which of the following should the team install at this layer?",
+      "choices": [
+        { "id": "a", "text": "Structured cabling, wall ports, and wireless access points" },
+        { "id": "b", "text": "Servers cabled straight to the core switches" },
+        { "id": "c", "text": "Direct cable links between every pair of access switches" },
+        { "id": "d", "text": "Edge routers that give the whole site Internet access" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.6", "1.6.f"],
+      "units": ["5.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.5.2",
+        "title": "Three-Tiered Network Hierarchy",
+        "quote": "",
+        "find": "implemented for each site using"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q264" }
+    },
+    {
+      "id": "n-u05-q051",
+      "stem": "A medium-sized company's access switches connect straight up to one full mesh of layer 3 switches, with no separate distribution layer. Which of the following designs does the company use?",
+      "choices": [
+        { "id": "a", "text": "Three-tiered hierarchy" },
+        { "id": "b", "text": "Star of stars" },
+        { "id": "c", "text": "Collapsed core" },
+        { "id": "d", "text": "Point to point" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.6", "1.6.g"],
+      "units": ["5.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.5.2",
+        "title": "Three-Tiered Network Hierarchy",
+        "quote": "",
+        "find": "collapsed core model, a monolithic core"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q226" }
+    },
+    {
+      "id": "n-u05-q052",
+      "stem": "A switch with no uplinks has ports 1 to 12 in VLAN 10 and ports 13 to 24 in VLAN 20. Which of the following ports will receive a broadcast sent by the host on port 5?",
+      "choices": [
+        { "id": "a", "text": "All 23 of the other ports" },
+        { "id": "b", "text": "The other ports in VLAN 10" },
+        { "id": "c", "text": "All 23 other ports, tagged for VLAN 10" },
+        { "id": "d", "text": "No ports, since VLANs stop broadcasts" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.1",
+        "title": "Virtual LANs and Subnets",
+        "quote": "",
+        "find": "VLAN is a separate broadcast domain"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q96" }
+    },
+    {
+      "id": "n-u05-q053",
+      "stem": "A clinic keeps its printers in VLAN 20 and its PCs in VLAN 10 on the same switch, and the PCs must be able to print. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Configure the printers' switch ports as trunks" },
+        { "id": "b", "text": "Route traffic between the two VLANs" },
+        { "id": "c", "text": "Give the printers addresses in the VLAN 10 subnet" },
+        { "id": "d", "text": "Add 802.1Q tags to the PCs' frames" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.2",
+        "title": "Virtual LAN IDs and Membership",
+        "quote": "",
+        "find": "must go through an IP router"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q28" }
+    },
+    {
+      "id": "n-u05-q054",
+      "stem": "A technician is setting up a desktop for a new accountant, and the desktop must be in the accounting VLAN, VLAN 30, as soon as it is plugged in. Which of the following is the BEST way to do this?",
+      "choices": [
+        { "id": "a", "text": "Set VLAN 30 on the desktop's network adapter" },
+        { "id": "b", "text": "Add VLAN 30 to the switch's VLAN database" },
+        { "id": "c", "text": "Configure the desktop's switch port as a trunk" },
+        { "id": "d", "text": "Assign VLAN 30 to the desktop's switch port" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.2",
+        "title": "Virtual LAN IDs and Membership",
+        "quote": "",
+        "find": "by configuring the port interface on"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q342" }
+    },
+    {
+      "id": "n-u05-q055",
+      "stem": "A factory's networked machines share switches with its office PCs, and an infected office PC must not be able to reach a machine directly. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Place the machines' switch ports in a separate VLAN" },
+        { "id": "b", "text": "Configure the machines' switch ports as trunk ports" },
+        { "id": "c", "text": "Add a voice VLAN to the machines' switch ports" },
+        { "id": "d", "text": "Translate the office PCs' traffic with PAT" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.2",
+        "title": "Virtual LAN IDs and Membership",
+        "quote": "",
+        "find": "each VLAN can represent a separate"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q362" }
+    },
+    {
+      "id": "n-u05-q056",
+      "stem": "Before creating VLAN 40 on a switch, a technician wants to make sure VLAN 40 is not already configured on it. Which of the following should the technician check?",
+      "choices": [
+        { "id": "a", "text": "The switch's routing table" },
+        { "id": "b", "text": "The 802.1Q tags on the trunk links" },
+        { "id": "c", "text": "The switch's VLAN database" },
+        { "id": "d", "text": "The native VLAN on each trunk" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.2",
+        "title": "Virtual LAN IDs and Membership",
+        "quote": "",
+        "find": "VLAN database is the list of"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q290" }
+    },
+    {
+      "id": "n-u05-q057",
+      "stem": "Switches from two different vendors must share VLANs 100 and 200 over one trunk link, so each frame needs a tag that identifies its VLAN. Which of the following standards defines this tag?",
+      "choices": [
+        { "id": "a", "text": "IEEE 802.1D" },
+        { "id": "b", "text": "IEEE 802.1Q" },
+        { "id": "c", "text": "IEEE 802.3" },
+        { "id": "d", "text": "IEEE 802.3ad" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.3",
+        "title": "Trunking and IEEE 802.1Q",
+        "quote": "",
+        "find": "tag inserted in the Ethernet"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q46" }
+    },
+    {
+      "id": "n-u05-q058",
+      "stem": "A school has one switch on each of its two floors, and each switch has computers in both VLAN 10 and VLAN 20. Which of the following should the administrator do so frames from both VLANs can cross the single cable between the switches?",
+      "choices": [
+        { "id": "a", "text": "Configure the ports on that cable as access ports" },
+        { "id": "b", "text": "Assign the ports on that cable to the default VLAN" },
+        { "id": "c", "text": "Configure an SVI for each VLAN on both switches" },
+        { "id": "d", "text": "Configure the ports on that cable as trunk ports" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.3",
+        "title": "Trunking and IEEE 802.1Q",
+        "quote": "",
+        "find": "frames designated for different VLANs"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q353" }
+    },
+    {
+      "id": "n-u05-q059",
+      "stem": "Calls on a hospital's VoIP handsets break up whenever staff PCs on the same switches download large files. Which of the following should the network team do?",
+      "choices": [
+        { "id": "a", "text": "Move the handsets into a voice VLAN" },
+        { "id": "b", "text": "Put the handsets on a new subnet in the same VLAN" },
+        { "id": "c", "text": "Move the handsets into the native VLAN" },
+        { "id": "d", "text": "Remove the 802.1Q tags from voice frames" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.6.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.5",
+        "title": "Voice VLANs",
+        "quote": "",
+        "find": "a dedicated VLAN for voice traffic"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q73" }
+    },
+    {
+      "id": "n-u05-q060",
+      "stem": "A PC on an access port in VLAN 40 still works after a new VoIP phone that uses VLAN 41 is placed between it and the wall jack, but the phone cannot make calls. Which of the following is the BEST fix?",
+      "choices": [
+        { "id": "a", "text": "Add VLAN 41 to the port as its voice VLAN" },
+        { "id": "b", "text": "Change the port to a trunk port" },
+        { "id": "c", "text": "Change the port's access VLAN to 41" },
+        { "id": "d", "text": "Set the port's native VLAN to 41" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.6.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.5",
+        "title": "Voice VLANs",
+        "quote": "",
+        "find": "most switches now support the concept"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q356" }
+    },
+    {
+      "id": "n-u05-q061",
+      "stem": "A VoIP phone with a built-in two-port switch sits between a desk PC and the wall jack. Which of the following describes the frames the phone sends to the access switch?",
+      "choices": [
+        { "id": "a", "text": "Voice frames tagged, PC frames untagged" },
+        { "id": "b", "text": "Voice frames untagged, PC frames tagged" },
+        { "id": "c", "text": "Voice and PC frames both tagged" },
+        { "id": "d", "text": "Voice and PC frames both untagged" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.6.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.5",
+        "title": "Voice VLANs",
+        "quote": "",
+        "find": "uses 802.1Q tagged frames"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q323" }
+    },
+    {
+      "id": "n-u05-q062",
+      "stem": "A technician is choosing the native VLAN for a new trunk between two switches. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Use the same native VLAN ID on both ends" },
+        { "id": "b", "text": "Keep the native VLAN ID set to 1" },
+        { "id": "c", "text": "Put every access port in the native VLAN" },
+        { "id": "d", "text": "Pick a native VLAN ID that no data VLAN uses" },
+        { "id": "e", "text": "Use the voice VLAN as the native VLAN" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.6.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.6",
+        "title": "Default VLAN and Native VLAN",
+        "quote": "",
+        "find": "The same native VID should be"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q20" }
+    },
+    {
+      "id": "n-u05-q063",
+      "stem": "Untagged frames from an old hub plugged into a switch's trunk port are being placed in VLAN 90, although the trunk also carries VLANs 30 and 40. Which of the following BEST explains why?",
+      "choices": [
+        { "id": "a", "text": "VLAN 90 is the switch's default VLAN" },
+        { "id": "b", "text": "VLAN 90 is the trunk port's voice VLAN" },
+        { "id": "c", "text": "VLAN 90 is the trunk port's access VLAN" },
+        { "id": "d", "text": "VLAN 90 is the trunk port's native VLAN" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["5.6.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.6",
+        "title": "Default VLAN and Native VLAN",
+        "quote": "",
+        "find": "it assigns the frame to the"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q364" }
+    },
+    {
+      "id": "n-u05-q064",
+      "stem": "A technician is preparing a new switch before it goes into service. Which of the following should the technician do with VLAN 1, the default VLAN?",
+      "choices": [
+        { "id": "a", "text": "Change its VLAN ID to an unused number" },
+        { "id": "b", "text": "Keep user data traffic off it" },
+        { "id": "c", "text": "Create it before the other VLANs" },
+        { "id": "d", "text": "Move unused ports out of it" },
+        { "id": "e", "text": "Put the VoIP phones in it" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.6",
+        "title": "Default VLAN and Native VLAN",
+        "quote": "",
+        "find": "avoid sending user data traffic"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q79" }
+    },
+    {
+      "id": "n-u05-q065",
+      "stem": "A router's only Ethernet port, G0, connects to a switch trunk, and the administrator configures G0.10, G0.20, and G0.30 to route between three VLANs. Which of the following BEST describes G0.20?",
+      "choices": [
+        { "id": "a", "text": "An interface bound to VLAN 20 that needs no physical port" },
+        { "id": "b", "text": "An interface on G0 with its own VLAN ID and IP address" },
+        { "id": "c", "text": "A separate physical port set aside for VLAN 20" },
+        { "id": "d", "text": "A second IP address on G0 that has no VLAN ID" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.1", "2.1.g"],
+      "units": ["5.6.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.7",
+        "title": "VLAN Routing",
+        "quote": "",
+        "find": "interface is configured with multiple subinterfaces"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q36" }
+    },
+    {
+      "id": "n-u05-q066",
+      "stem": "A school's 40 VLANs are routed by one router on a stick, and traffic between VLANs is slow because all of it crosses one trunk link. Which of the following devices would BEST replace the router on a stick?",
+      "choices": [
+        { "id": "a", "text": "A layer 2 switch" },
+        { "id": "b", "text": "An edge router" },
+        { "id": "c", "text": "A layer 3 switch" },
+        { "id": "d", "text": "A stateful firewall" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.7",
+        "title": "VLAN Routing",
+        "quote": "",
+        "find": "usually deploy layer 3 switches"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q4" }
+    },
+    {
+      "id": "n-u05-q067",
+      "stem": "Hosts plugged into VLAN 60 ports on a layer 3 switch can reach each other but not their default gateway, 172.16.60.1, after an engineer enters the lines shown. Which of the following commands did the engineer MOST likely leave out?",
+      "exhibit": { "type": "text", "text": "vlan 60\nname VLAN60\nip address 172.16.60.1\n           255.255.255.0" },
+      "choices": [
+        { "id": "a", "text": "interface VLAN60" },
+        { "id": "b", "text": "encapsulation dot1Q 60" },
+        { "id": "c", "text": "no switchport" },
+        { "id": "d", "text": "switchport access vlan 60" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.a"],
+      "units": ["5.6.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.7",
+        "title": "VLAN Routing",
+        "quote": "",
+        "find": "the SVI for VLAN 16"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q95" }
+    },
+    {
+      "id": "n-u05-q068",
+      "stem": "Users at a branch office cannot reach a server subnet that was added last week, and show ip route on the branch router does not list that subnet. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The route to the subnet has a high administrative distance" },
+        { "id": "b", "text": "The static route to the subnet was never configured" },
+        { "id": "c", "text": "A routing loop has formed between two of the routers" },
+        { "id": "d", "text": "A more specific route to the subnet is being preferred" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.3", "5.3.b"],
+      "units": ["5.7.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.7.1",
+        "title": "Routing Table Issues",
+        "quote": "",
+        "find": "required static routing entry has not"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q390" }
+    },
+    {
+      "id": "n-u05-q069",
+      "stem": "A warehouse router has stopped learning OSPF routes from the main office router, but the two routers can ping each other. Which of the following should the technician check NEXT?",
+      "choices": [
+        { "id": "a", "text": "The OSPF authentication settings on both routers" },
+        { "id": "b", "text": "The cabling to the warehouse router's WAN port" },
+        { "id": "c", "text": "The administrative distance of the OSPF routes" },
+        { "id": "d", "text": "The ARP cache on the warehouse router" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.b"],
+      "units": ["5.7.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.7.1",
+        "title": "Routing Table Issues",
+        "quote": "",
+        "find": "there is an authentication issue"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q395" }
+    },
+    {
+      "id": "n-u05-q070",
+      "stem": "One user's PC reaches hosts on its own subnet but no remote host, even by IP address, while other PCs on the subnet use the router at 10.40.8.1 with no problems. Based on that PC's routing table shown, which of the following is the MOST likely cause?",
+      "exhibit": { "type": "text", "text": "Destination   Gateway\n0.0.0.0/0     10.40.80.1\n127.0.0.0/8   On-link\n10.40.8.0/24  On-link\n10.40.8.23/32 On-link\n224.0.0.0/4   On-link" },
+      "choices": [
+        { "id": "a", "text": "The PC's default gateway address is wrong" },
+        { "id": "b", "text": "The PC has no default route in its table" },
+        { "id": "c", "text": "The PC has no DNS server address configured" },
+        { "id": "d", "text": "The router's interface on the subnet is down" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.d"],
+      "units": ["5.7.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.7.2",
+        "title": "Default Route and Routing Loop Issues",
+        "quote": "",
+        "find": "should contain an entry for 0.0.0.0/0"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q33" }
+    },
+    {
+      "id": "n-u05-q071",
+      "stem": "Every PC in a school's library can reach the library printer but nothing on other subnets, even by IP address, while the rest of the school works normally. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The router interface that serves the library is down" },
+        { "id": "b", "text": "The router that links the school to the Internet is down" },
+        { "id": "c", "text": "The library PCs have no DNS server address set" },
+        { "id": "d", "text": "A routing loop has formed between two core routers" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.d"],
+      "units": ["5.7.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.7.2",
+        "title": "Default Route and Routing Loop Issues",
+        "quote": "",
+        "find": "one of its interfaces is down"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q78" }
+    },
+    {
+      "id": "n-u05-q072",
+      "stem": "A branch router's table lists only its connected routes and the head office subnets it learns through OSPF, so branch users cannot reach Internet sites over the branch's own ISP link. Which of the following should the administrator add to the branch router?",
+      "choices": [
+        { "id": "a", "text": "A default route with the ISP's router as its next hop" },
+        { "id": "b", "text": "A default route with the head office router as its next hop" },
+        { "id": "c", "text": "A host route to the ISP router's IP address" },
+        { "id": "d", "text": "A static route to each head office subnet" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.b"],
+      "units": ["5.7.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.7.2",
+        "title": "Default Route and Routing Loop Issues",
+        "quote": "",
+        "find": "default route can also be configured"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q396" }
+    },
+    {
+      "id": "n-u05-q073",
+      "stem": "After a front desk PC is moved to a different wall jack, it can no longer reach any of the office PCs on the same switch, although its cable tests good. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The PC's switch port is assigned to another VLAN" },
+        { "id": "b", "text": "The PC has the wrong default gateway address" },
+        { "id": "c", "text": "The switch's trunk link to the router is down" },
+        { "id": "d", "text": "A routing loop has formed between two routers" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["5.7.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.7.3",
+        "title": "VLAN Assignment Issues",
+        "quote": "",
+        "find": "Hosts in the VLAN must use"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q69" }
+    },
+    {
+      "id": "n-u05-q074",
+      "stem": "To put three lab PCs in the staff VLAN, a technician gives them static IP settings for the staff subnet, but they cannot ping the staff default gateway that other staff PCs use. Which of the following should the technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "The VLAN assigned to the PCs' switch ports" },
+        { "id": "b", "text": "The patch panel labels for the PCs' wall jacks" },
+        { "id": "c", "text": "The DHCP relay setting for the staff VLAN" },
+        { "id": "d", "text": "The default route on the staff VLAN's router" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["5.7.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.7.3",
+        "title": "VLAN Assignment Issues",
+        "quote": "",
+        "find": "physically connected to the correct"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q380" }
+    }
+  ]
+}
