@@ -3,11 +3,13 @@
   Makes the blind copies the independent checkers work from, so no checker sees the key, the find
   phrase, the source item, or your reasoning. Run it after assemble.ps1.
 
-    powershell -ExecutionPolicy Bypass -File strip-for-check.ps1 -Scratch "<scratchpad>" -Unit 2.0
+    powershell -ExecutionPolicy Bypass -File strip-for-check.ps1 -Scratch "<scratchpad>" -Exam a-plus-core-1 -Unit 2.0
 
+  -Exam is required: a-plus-core-1 or network-plus (the exam's data folder; -Data overrides it).
   Reads packs\unit-NN.questions.json and packs\unit-NN.flashcards.json. Writes, under -Scratch\check:
-    questions-blind.json  For each question: id, stem, choices, how many to choose, the cited sections,
-                          and each objective and bullet with its title. No answer, find phrase, or origin.
+    questions-blind.json  For each question: id, stem, its exhibit if it has one, choices, how many to
+                          choose, the cited sections, and each objective and bullet with its title. No
+                          answer, find phrase, or origin.
     card-backs.json       For each card: id and back only. The checker names the term.
     card-terms.json       For each card: id, term, and cited section only. The checker writes the back.
   Optional -Only limits the copies to the ids given, for re-checking fixed items: -Only q005,q017,f012
@@ -17,10 +19,13 @@
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
   [Parameter(Mandatory = $true)][string]$Unit,
-  [string]$Data = 'C:\CompTIA Website\data\a-plus-core-1',
+  [ValidateSet('a-plus-core-1', 'network-plus')][string]$Exam,
+  [string]$Data,
   [string[]]$Only = @()
 )
 $ErrorActionPreference = 'Stop'
+if (-not $Exam) { throw 'strip-for-check.ps1 needs -Exam a-plus-core-1 or -Exam network-plus.' }
+if (-not $PSBoundParameters.ContainsKey('Data')) { $Data = Join-Path 'C:\CompTIA Website\data' $Exam }
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 function Read-Json([string]$path) { [IO.File]::ReadAllText($path, [Text.Encoding]::UTF8) | ConvertFrom-Json }
 $nn = ($Unit -split '\.')[0].PadLeft(2, '0')
@@ -34,14 +39,14 @@ $Only = @($Only | ForEach-Object { $_ -split '[,\s]+' } | Where-Object { $_ })  
 function Test-Wanted([string]$id) { if (-not $Only.Count) { return $true }; @($Only | Where-Object { $id.EndsWith("-$_") -or $id -eq $_ }).Count -gt 0 }
 $qs = @($qs | Where-Object { Test-Wanted $_.id })
 $blind = @($qs | ForEach-Object {
-  [ordered]@{
-    id = $_.id
-    stem = $_.stem
-    choose = @($_.answer).Count
-    choices = @($_.choices | ForEach-Object { [ordered]@{ id = $_.id; text = $_.text } })
-    sections = @($_.units)
-    tags = @($_.objectives | ForEach-Object { "$_ $($objTitle[$_])" })
-  }
+  $b = [ordered]@{ id = $_.id; stem = $_.stem }
+  # A text exhibit (a command's output) is part of the question, so the blind checker sees it.
+  if ($_.exhibit -and $_.exhibit.text) { $b.exhibit = $_.exhibit.text }
+  $b.choose = @($_.answer).Count
+  $b.choices = @($_.choices | ForEach-Object { [ordered]@{ id = $_.id; text = $_.text } })
+  $b.sections = @($_.units)
+  $b.tags = @($_.objectives | ForEach-Object { "$_ $($objTitle[$_])" })
+  $b
 })
 [IO.File]::WriteAllText((Join-Path $out 'questions-blind.json'), (ConvertTo-Json -InputObject $blind -Depth 6), $utf8)
 "questions-blind.json: $($blind.Count) questions"

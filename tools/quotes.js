@@ -20,7 +20,7 @@ const state = {
   fileHandle: null,
   fileName: '',
   pack: null,
-  modules: null, // directory handle of the CertMaster Modules folder (optional)
+  modules: null, // directory handle of the exam's reading folder (Book\bySubunit), optional
   onlyMissing: true,
   dirty: false,
 };
@@ -157,7 +157,7 @@ function render() {
   saveButton.addEventListener('click', save);
   const filter = h('input', { type: 'checkbox', checked: state.onlyMissing });
   filter.addEventListener('change', () => { state.onlyMissing = filter.checked; render(); });
-  const modulesButton = h('button', { type: 'button', class: 'btn btn-sm' }, state.modules ? `Readings: ${state.modules.name}` : 'Choose Modules folder');
+  const modulesButton = h('button', { type: 'button', class: 'btn btn-sm' }, state.modules ? `Readings: ${state.modules.name}` : 'Choose readings folder');
   modulesButton.addEventListener('click', pickModules);
   const other = h('button', { type: 'button', class: 'btn btn-sm btn-ghost' }, 'Other pack');
   other.addEventListener('click', () => {

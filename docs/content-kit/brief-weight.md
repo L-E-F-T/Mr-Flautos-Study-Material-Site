@@ -20,13 +20,13 @@ Each lens agent writes its result as JSON to its own file (`SP\rank-exam.json` f
 
 For each bullet, count and cite:
 
-1. **Messer keyed items.** Items in `SP\messer\messer-<<EXAM CODE>>.tsv` tagged with this bullet's objective whose answer turns on this bullet. Note which are performance-based (A1 to A5, B1 to B5, C1 to C5): a PBQ shows what the exam asks students to do.
-2. **Domain 5 links.** Messer items tagged 5.x (troubleshooting) that need this bullet's facts to answer: a RAID level's failure behavior, a power supply's rails, a memory symptom. Troubleshooting is the heaviest domain, so a fact it leans on is high yield even when its own objective is light.
+1. **Practice exam keyed items.** Items in the exam's practice exam index tagged with this bullet's objective whose answer turns on this bullet: `SP\messer\messer-<<EXAM CODE>>.tsv` (A+ Core 1, Messer) or `SP\practice\practice-<<EXAM CODE>>.tsv` (Network+). Note which Messer items are performance-based (A1 to A5, B1 to B5, C1 to C5): a PBQ shows what the exam asks students to do. The Network+ book has no PBQs, and its two full practice tests (Chapters 6 and 7) carry no objective: count the ones the plan file places on this bullet (from the Chapter 6 and 7 screen).
+2. **Domain 5 links.** Practice exam items tagged 5.x (troubleshooting) that need this bullet's facts to answer: a RAID level's failure behavior, a power supply's rails, a memory symptom. Troubleshooting is the heaviest domain, so a fact it leans on is high yield even when its own objective is light.
 3. **Distractor appearances.** Items where a term from this bullet is a wrong choice. Weak evidence: it shows the exam expects students to tell the terms apart.
 4. **The verb.** "Given a scenario" objectives are asked as install, choose, or diagnose scenarios and are the likeliest PBQs. "Compare and contrast" is asked as "pick the technology that meets this requirement". "Summarize" and "Explain" are recognition and short scenarios.
 5. **Domain weight** from `SP\examdetails.txt`.
 
-Return for each bullet: a score from 1 to 10, a tier (1 = certain to be asked, several ways; 2 = likely; 3 = possible), the counts with item labels, and one sentence of rationale. Also estimate how many items a 90-question form holds for the bullet (its share of the 270 Messer items, times 90).
+Return for each bullet: a score from 1 to 10, a tier (1 = certain to be asked, several ways; 2 = likely; 3 = possible), the counts with item labels, and one sentence of rationale. Also estimate how many items a 90-question form holds for the bullet: its share of the 270 Messer items, times 90 (A+ Core 1). For Network+, the book's two full practice tests (Chapters 6 and 7, 200 items) stand in for the 270 Messer items: the bullet's share of the Chapter 6 and 7 items that test it, times 90. Check each domain's total against its weight in `SP\examdetails.txt`. The domain chapters (1 to 5) drill every objective, so their counts show how a fact is asked, not how often: use them only to break a tie between bullets of the same domain.
 
 ## Lens B: course coverage (this lens informs)
 
@@ -40,9 +40,9 @@ For each bullet: how much of the reading teaches it (sections and rough length),
    - Tier 2: one question per distinct fact with a usable item.
    - Tier 3: only the facts the exam evidence actually keys. List the rest under "cut".
    - Every bullet the reading teaches with a usable item gets at least one question, so the site shows it.
-3. **Mr. Flauto's materials never add weight.** A fact that only his materials stress, with no exam evidence, is cut or kept at one question. His items are used only to cover an exam-weighted fact that no pool or Messer item covers (`"origin": { "kind": "teacher" }`).
+3. **Mr. Flauto's materials never add weight.** A fact that only his materials stress, with no exam evidence, is cut or kept at one question. His items are used only to cover an exam-weighted fact that no pool or practice exam item covers (`"origin": { "kind": "teacher" }`).
 4. **Count facts, not items, across the whole exam.** Items that test the same fact with the same answer become one question ("same as Qn"). A fact that another unit's pack already asks gets no new slot unless the scenario makes a student reason differently: list it under `cut` with that question's id. (Students build one test from several units, so a repeat shows up as the same question twice.)
-5. **Flashcards are not weighted.** Every term named in a bullet that this unit's reading teaches gets one card, unless an earlier unit already has a card for it.
+5. **Flashcards are not weighted.** The cards are the `card` rows of `SP\card-terms.tsv` (the guide's "Which terms get a card"). A bullet's tier never adds a card, and a term with no row gets none.
 
 Write the result to `SP\plan-counts.json`:
 

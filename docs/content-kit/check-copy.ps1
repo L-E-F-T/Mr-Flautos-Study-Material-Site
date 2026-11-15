@@ -4,7 +4,9 @@
   into data/ by hand with the Write and Edit tools, and a changed letter or word there is still valid
   content, so the content check would never notice it. Read-only.
 
-    powershell -NoProfile -ExecutionPolicy Bypass -File check-copy.ps1 -Scratch "<scratchpad>" -Unit 2.0
+    powershell -NoProfile -ExecutionPolicy Bypass -File check-copy.ps1 -Scratch "<scratchpad>" -Exam a-plus-core-1 -Unit 2.0
+
+  -Exam is required: a-plus-core-1 or network-plus (the exam's data folder; -Data overrides it).
 
   Compares data\...\questions\unit-NN.json with packs\unit-NN.questions.json, and the flashcard pack with
   packs\unit-NN.flashcards.json, line by line and case by case (line endings and a final newline are
@@ -13,9 +15,12 @@
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
   [Parameter(Mandatory = $true)][string]$Unit,
-  [string]$Data = 'C:\CompTIA Website\data\a-plus-core-1'
+  [ValidateSet('a-plus-core-1', 'network-plus')][string]$Exam,
+  [string]$Data
 )
 $ErrorActionPreference = 'Stop'
+if (-not $Exam) { throw 'check-copy.ps1 needs -Exam a-plus-core-1 or -Exam network-plus.' }
+if (-not $PSBoundParameters.ContainsKey('Data')) { $Data = Join-Path 'C:\CompTIA Website\data' $Exam }
 $nn = ($Unit -split '\.')[0].PadLeft(2, '0')
 function Get-Lines([string]$path) { @(([IO.File]::ReadAllText($path, [Text.Encoding]::UTF8) -replace "`r", '').TrimEnd("`n") -split "`n") }
 $bad = 0

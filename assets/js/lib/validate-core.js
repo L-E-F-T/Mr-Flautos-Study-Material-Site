@@ -10,7 +10,7 @@ import { objectiveTaxonomy, unitTaxonomy, indexTaxonomy, ancestorAtDepth, natura
 export const MAX_QUOTE_WORDS = 40;
 const EXAM_STATUSES = ['live', 'planned', 'hidden'];
 const ITEM_STATUSES = ['draft', 'published'];
-const ORIGIN_KINDS = ['original', 'certmaster-variation', 'messer-variation', 'teacher', 'other'];
+const ORIGIN_KINDS = ['original', 'certmaster-variation', 'messer-variation', 'practice-exam-variation', 'teacher', 'other'];
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const PRIVATE_DIR = /(^|\/)private\//;
 const ID = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
@@ -64,6 +64,9 @@ export async function validateAll(readJSON, { includePrivate = true } = {}) {
     }
   }
 
+  // Ids start with the exam's course code (c1-, n-), so no id is in two exams. An id another
+  // exam already uses means the wrong code was used (ids are permanent once published).
+  const idOwner = new Map();
   for (const exam of registry.exams.filter((e) => e.status === 'live' && nonEmptyString(e.dataPath))) {
     let content;
     try {
@@ -73,6 +76,13 @@ export async function validateAll(readJSON, { includePrivate = true } = {}) {
       continue;
     }
     report.exams.push(validateExam(exam, content, { error, warn }));
+    const items = [...itemsFromPacks(content.questionPacks, 'questions'), ...itemsFromPacks(content.flashcardPacks, 'flashcards')];
+    for (const item of items) {
+      if (!nonEmptyString(item.id)) continue;
+      const owner = idOwner.get(item.id);
+      if (!owner) idOwner.set(item.id, exam.id);
+      else if (owner !== exam.id) error(`${item._pack} › ${item.id}`, `Id already used in ${owner}. Ids start with this exam's course code (docs/CONTENT-GUIDE.md).`);
+    }
   }
 
   return report;

@@ -79,8 +79,8 @@
           "type": "object",
           "required": ["kind"],
           "properties": {
-            "kind": { "enum": ["original", "certmaster-variation", "messer-variation", "teacher", "other"] },
-            "basedOn": { "type": "string", "description": "e.g. \"CertMaster 3.0 Q31\" or \"Messer B44\"." },
+            "kind": { "enum": ["original", "certmaster-variation", "messer-variation", "practice-exam-variation", "teacher", "other"] },
+            "basedOn": { "type": "string", "description": "e.g. \"CertMaster 3.0 Q31\", \"Messer B44\", or \"Practice Tests 1 Q33\" (Network+'s practice exam book: chapter 1, question 33)." },
             "verbatim": { "type": "boolean", "description": "true = copied word for word. Only allowed in lab-only (private) packs." }
           }
         }

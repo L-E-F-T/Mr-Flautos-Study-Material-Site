@@ -4,12 +4,16 @@
   study guide with its key. They corroborate keys and show which terms he stresses. They never set
   weight (see docs/CONTENT-HANDOFF.md).
 
-    powershell -ExecutionPolicy Bypass -File extract-aids.ps1 -Scratch "<scratchpad>" -Unit 2
+    powershell -ExecutionPolicy Bypass -File extract-aids.ps1 -Scratch "<scratchpad>" -Exam a-plus-core-1 -Unit 2
+    powershell -ExecutionPolicy Bypass -File extract-aids.ps1 -Scratch "<scratchpad>" -Exam network-plus -Unit 6
+
+  -Exam is required and picks the course folder and the file-name prefix: a-plus-core-1 (Core 1, "A+")
+  or network-plus (CompTIANet+, "Net+"). -CourseDir and -Prefix override them.
 
   It reads only the top level of Slides, Activites (his spelling) or Activities, Blookets or Blooket,
-  and Study Guides, so it never opens
-  graded work in a subfolder (Tests, Assignments, Projects, "2.0 Take Home", Study Guides\Documents).
-  It also skips any file whose name looks like graded work.
+  and Study Guides, plus the one Study Guides folder named for the unit ("Net+ Unit 6.0 Review"), so it
+  never opens graded work in any other subfolder (Tests, Assignments, Projects, "2.0 Take Home",
+  Study Guides\Documents). It also skips any file or folder whose name looks like graded work.
 
   Writes, under -Scratch\aids:
     <deck>.txt              slide text, one "--- slide N ---" block per slide (review decks hold his practice items)
@@ -20,10 +24,18 @@
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
   [Parameter(Mandatory = $true)][int]$Unit,
-  [string]$CourseDir = (Join-Path $env:OneDriveCommercial 'Documents\CompTIAA+\Core 1'),
-  [string]$Prefix = 'A+'
+  [ValidateSet('a-plus-core-1', 'network-plus')][string]$Exam,
+  [string]$CourseDir,
+  [string]$Prefix
 )
 $ErrorActionPreference = 'Stop'
+if (-not $Exam) { throw 'extract-aids.ps1 needs -Exam a-plus-core-1 or -Exam network-plus.' }
+$presets = @{
+  'a-plus-core-1' = @{ CourseDir = 'CompTIAA+\Core 1'; Prefix = 'A+' }
+  'network-plus'  = @{ CourseDir = 'CompTIANet+'; Prefix = 'Net+' }
+}
+if (-not $PSBoundParameters.ContainsKey('CourseDir')) { $CourseDir = Join-Path $env:OneDriveCommercial "Documents\$($presets[$Exam].CourseDir)" }
+if (-not $PSBoundParameters.ContainsKey('Prefix')) { $Prefix = $presets[$Exam].Prefix }
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 $out = Join-Path $Scratch 'aids'
@@ -34,8 +46,9 @@ $graded = '(?i)\b(test|quiz|exam|assignment|project|virtual day|take home)s?\b'
 $p = [regex]::Escape($Prefix.TrimEnd('+')) + '\+?'
 
 function Test-NamesUnit([string]$name, [int]$u) {
-  # "A+ 2.1 Motherboards.pptx", "A+ Unit 6.0 Review.pptx", "A+ Units 2.0-3.0 Review.pptx"
-  if ($name -match "^$p $u\.\d+\s") { return $true }
+  # "A+ 2.1 Motherboards.pptx", "A+ 5.2.6-5.3.5 Networking Hardware.pptx", "Net+ 4.1.3 ARP Primer.pptx",
+  # "A+ Unit 6.0 Review.pptx", "A+ Units 2.0-3.0 Review.pptx"
+  if ($name -match "^$p $u\.\d+[\s.-]") { return $true }
   foreach ($m in [regex]::Matches($name, 'Units?\s+(\d+)\.0(?:\s*-\s*(\d+)\.0)?')) {
     $lo = [int]$m.Groups[1].Value; $hi = if ($m.Groups[2].Success) { [int]$m.Groups[2].Value } else { $lo }
     if ($u -ge $lo -and $u -le $hi) { return $true }
@@ -81,7 +94,18 @@ foreach ($folder in 'Activites', 'Activities', 'Blookets', 'Blooket') {
     "Blooket: $($f.Name)"; $found++
   }
 }
-foreach ($f in Get-TopFiles 'Study Guides' '*.pdf') {
+# A+ keeps its study guides at the top of Study Guides. Network+ gives each unit a folder of its own
+# ("Net+ Unit 6.0 Review", with the .tex source next to the PDFs): only that folder's PDFs are read.
+$guides = @(Get-TopFiles 'Study Guides' '*.pdf')
+$sgDir = Join-Path $CourseDir 'Study Guides'
+if (Test-Path -LiteralPath $sgDir) {
+  foreach ($d in Get-ChildItem -LiteralPath $sgDir -Directory) {
+    if ($d.Name -notmatch "^$p Units? \d+\.0(?:\s*-\s*\d+\.0)? Review$" -or -not (Test-NamesUnit $d.Name $Unit)) { continue }
+    if ($d.Name -match $graded) { "Skipped (looks like graded work): $($d.Name)"; continue }
+    $guides += @(Get-ChildItem -LiteralPath $d.FullName -Filter *.pdf -File | Where-Object { Test-NamesUnit $_.Name $Unit })
+  }
+}
+foreach ($f in $guides) {
   if ($f.Name -match $graded) { "Skipped (looks like graded work): $($f.Name)"; continue }
   & pdftotext -layout -enc UTF-8 $f.FullName (Join-Path $out ($f.BaseName + '.txt'))
   & pdftotext -enc UTF-8 $f.FullName (Join-Path $out ($f.BaseName + '.flow.txt'))

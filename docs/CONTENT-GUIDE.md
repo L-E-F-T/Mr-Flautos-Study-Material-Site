@@ -46,7 +46,7 @@ What that means for whoever writes content:
 The other exams are already listed in `data/exams.json` with `"status": "planned"`, so each shows on the home page as Coming soon. To build one:
 
 1. Make its folder, for example `data/a-plus-core-2/`, with the same layout as `data/a-plus-core-1/`.
-2. Write `objectives.json` from CompTIA's official exam objectives PDF for that exam code, word for word: domains with their weights, objectives, and bullets. Bullet ids (`1.1.a`, `1.1.b`, …) are assigned in the order CompTIA prints them. Use `data/a-plus-core-1/objectives.json` as the model and `schemas/objectives.schema.json` for the format. The Core 1 file was transcribed twice, independently, and the two copies compared; do the same.
+2. Write `objectives.json` from CompTIA's official exam objectives PDF for that exam code, word for word: domains with their weights, objectives, and bullets. Bullet ids (`1.1.a`, `1.1.b`, …) are assigned in the order CompTIA prints them. Use `data/a-plus-core-1/objectives.json` as the model and `schemas/objectives.schema.json` for the format. The Core 1 file was transcribed twice, independently, and the two copies compared; do the same. Keep every nested line, at any depth, in `details`: test A in "Which terms get a card" reads them.
 3. Write `units.json` from the courseware Mr. Flauto teaches from: units, lessons, and the reading sections that exist, with the section numbers and titles exactly as printed. Model: `data/a-plus-core-1/units.json`.
 4. Add an empty `questions/manifest.json` and `flashcards/manifest.json` (`{ "packs": [] }`).
 5. In `data/exams.json`, give the exam a `dataPath` and a `sources` entry naming the book, and change `status` to `"live"`. The content check only checks live exams, so do this as soon as the two outline files are in, then run the check.
@@ -95,6 +95,7 @@ A pack file looks like this:
 |---|---|
 | `id` | Unique across the exam. Pattern: `c1-u03-q007` (course, unit, number). Never reuse an id: students' saved progress points at it. |
 | `stem` | CompTIA voice, one or two short sentences, plain enough for a 10th grader. "BEST" / "MOST likely" phrasing. A negative stem only with NOT in capitals. No em dashes. |
+| `exhibit` | Optional, for a question about a command's output or a short configuration: `{ "type": "text", "text": "..." }`, shown under the stem in a fixed-width box, and referred to in the stem ("Based on the output shown, ..."). Written fresh for each question, consistent with the reading, and never copied from a source item's output. At most 12 lines of at most 25 characters each (a longer line wraps on a 320 px phone), lines separated by `\n`, no em dashes. |
 | `choices` | Single answer: exactly 4. Choose two or three: 5 (6 only when the source item had 6 or more). This count applies whatever the source item had. Parallel, similar length, distractors from the same unit. No "all/none of the above". |
 | `answer` | Choice ids. One id = single answer. Two or more = the site shows "Choose two." / "Choose three." automatically, so never write "(Select TWO.)" in the stem. |
 | `objectives` | The objective (`3.4`) plus the best-fitting bullet (`3.4.c`). Bullet ids are listed in `objectives.json`. If no bullet fits, tag the objective alone (the site lists it under "General"); if the question tests two bullets equally, tag both. Never borrow a bullet that does not fit. Unit 1 (troubleshooting methodology) has no exam objective, so it may be left empty. |
@@ -102,7 +103,7 @@ A pack file looks like this:
 | `reference` | Always required. `section` must exist in `units.json`. The site shows **Reading 3.2.6** RAID 0 and RAID 1, followed by the quote. |
 | `reference.quote` | The one or two sentences from the reading that answer the question, word for word, 40 words max. |
 | `reference.find` | Helper for the teacher only: a short phrase to Ctrl+F in that section's PDF to locate the quote. Never shown to students. Take it from one line of the reading: a phrase that crosses a page break, or a word hyphenated across two lines, is not found by Ctrl+F. |
-| `origin` | Where the idea came from: `certmaster-variation`, `messer-variation`, `original`, or `teacher`. `basedOn` names the item ("Messer B44", "CertMaster 3.0 Q41"), numbered as in "Numbering source items" below. |
+| `origin` | Where the idea came from: `certmaster-variation`, `messer-variation` (A+ Core 1's practice exams), `practice-exam-variation` (Network+'s practice exam book), `original`, or `teacher`. `basedOn` names the item ("CertMaster 3.0 Q41", "Messer B44", "Practice Tests 1 Q33"), numbered as in "Numbering source items" below. |
 | `status` | Leave out (published) or `"draft"` to hide it from students. Preview drafts with `?drafts=1` on the URL. |
 
 The site shuffles choices for every student (turn off per question with `"shuffleChoices": false`), but a student can switch shuffling off, so spread the keys evenly across a, b, c, and d within a pack. Where the choices have a natural order (sizes, voltages, RAID levels), keep that order and let the key fall where it falls.
@@ -124,15 +125,28 @@ What students see with a question: right or wrong immediately, the reading refer
 
 Students choose "Term first" or "Definition first", so one card covers both directions.
 
+### Which terms get a card
+
+Mr. Flauto's rule (2026-11-14): flashcards cover only what is testable, so a student never studies a term the exam does not use. Judge each term against the objectives that the unit's lessons list in `units.json`, as written in the exam's `objectives.json`. A term gets a card only if it passes one of these tests:
+
+- **A. Named.** The objective's title, one of its bullets, or a detail under a bullet (at any depth) names the term, or names the exact thing the card defines. Examples: SATA ("Communications interfaces > SATA"), Spindle speeds, Inaccurate system date/time, the 110-120 VAC input range.
+- **B. One kind of a named group.** The objective, bullet, or detail names a group (iterations, categories, standards, types, configurations, options, crash screens, adapters), and the term is one of the kinds the unit's reading lists for it: DDR4 ("Double Data Rate (DDR) iterations"), Cat 6 ("Copper > Categories"), 802.11ac ("802.11 standards"), LGA ("CPU socket types"), BSOD ("Proprietary crash screens"). A mode, part, feature, or step that the reading describes inside one kind is not itself a kind.
+- **C. Keyed by the practice exam.** The exam's keyed practice exam (A+ Core 1: Messer; Network+: the practice exam book) has an item tagged to one of those objectives whose question or correct answer names the term, or the exact thing the card defines. Example: the RTC battery (Messer A56's key). A term that appears only in a wrong choice or an explanation does not pass. In the Network+ book's Chapters 6 and 7, which carry no objective, the bullet the item asks about decides.
+
+Nothing else gets a card: not a term only the reading teaches, however true or clear; not a term only the CertMaster pool or Mr. Flauto's materials use; and not a part, tool, cause, or fix that a named symptom or task turns on (the fuser, the static eliminator, the OSD) unless it passes a test on its own. That fact goes on the back of the named card instead. The term must also be taught, not just named, by a section of the unit.
+
+Each unit writes its list in `card-terms.tsv` before any card is written (`docs/CONTENT-HANDOFF.md`, step 2), the card writer writes only that list, and an independent testable check applies these tests to every card (step 8). A card that fails is dropped, not argued.
+
 ### What makes a good flashcard
 
 Check every card against this before it goes in:
 
-- **The front is something the exam names**: a term, acronym, port, standard, connector, or component the student has to recognize. A bare measurement or detail from the reading (an RPM figure, a wattage) is not a term.
+- **The front passes "Which terms get a card"**, written the way the exam writes it: the words of the objective, bullet, or detail, with the reading's other name in parentheses if it has one ("110-120 VAC input (low-line voltage)"), and an acronym with its expansion ("SATA (Serial Advanced Technology Attachment)"). A bare measurement or detail from the reading (an RPM figure, a wattage) is not a term.
 - **The back is useful on its own.** It says what the thing is or does in one plain line a student could say out loud, without needing the reading open.
+- **The back stays on what is testable.** It gives what the term is or does and the fact that tells it apart from the other terms in its bullet. A number, part, menu path, brand, or file format the reading adds belongs on the back only when it is that telling fact or a practice exam item turns on it.
 - **It works both ways.** Cover the back: could a prepared student say it? Cover the front: does the back point to exactly one term?
-- **It is tied to an objective bullet.** Reading detail beyond the objectives is not card material.
-- **One card per term in an exam.** The same term is often named by bullets taught in different units (SATA, M.2, DHCP). Before writing a card, search the exam's flashcard packs for the term. If a card already exists, do not write a second one (the content check warns about repeats). Instead, the later unit adds its own section to that card's `units`, and changes nothing else on it, so the card also shows under the later lesson.
+- **It is tagged to the bullet that passes it:** the objective plus the bullet that names the term (test A) or its group (test B); for test C, the bullet the practice exam item asks about, or the objective alone when no bullet fits.
+- **Never two cards for one term in an exam.** The same term is often named by bullets taught in different units (SATA, M.2, DHCP). Before writing a card, search the exam's flashcard packs for the term. If a card already exists, do not write a second one (the content check warns about repeats). Instead, the later unit adds its own section to that card's `units`, and changes nothing else on it, so the card also shows under the later lesson.
 - **The back is true to the reading.** Every card is checked against the section it cites, not just for style: a back can read well and still be wrong.
 - Mr. Flauto signs off on a unit's cards when he reads the pack and marks it reviewed.
 
@@ -142,14 +156,15 @@ From Mr. Flauto's own unit-review rules:
 
 > A book item never appears as written. Keep the objective and the one distinction it tests; change the scenario, the wording, and the option text; keep the option count and whether it is select-one or select-two. Someone comparing the two should see a cousin, not a copy.
 
-- **The exam decides what is written and how much.** Each unit's questions are weighted by the CompTIA objectives and by evidence of what the exam asks (the objective's verb, the Messer practice exams, the troubleshooting items in Domain 5 that depend on the unit). How often the CertMaster pool or Mr. Flauto's materials repeat a fact does not set its weight.
+- **The exam decides what is written and how much.** Each unit's questions are weighted by the CompTIA objectives and by evidence of what the exam asks (the objective's verb, the exam's keyed practice exam, the troubleshooting items in Domain 5 that depend on the unit). How often the CertMaster pool or Mr. Flauto's materials repeat a fact does not set its weight.
 - **Questions read like the exam:** short scenarios ending in "Which of the following BEST…" or "MOST likely…", with real distractors from the same unit.
-- Every question is modeled on a CertMaster pool item or a Messer practice-exam item (`origin.basedOn`), never invented from nothing. Mr. Flauto's study-guide and review-deck items (`teacher`) are used only to cover an exam-weighted fact that no pool or Messer item covers, and his keys are checked against the reading like any other source.
-- **One question per fact.** The pool and the Messer book often test the same fact several times. When they do, write one question (two only when the scenarios make a student reason differently), so a short random test does not ask the same thing twice.
+- Every question is modeled on a CertMaster pool item or a practice-exam item (`origin.basedOn`), never invented from nothing. Mr. Flauto's study-guide and review-deck items (`teacher`) are used only to cover an exam-weighted fact that no pool or practice-exam item covers, and his keys are checked against the reading like any other source.
+- **Each exam's keyed practice exam.** A+ Core 1: the Professor Messer practice exams. Network+: the book *CompTIA Network+ Practice Tests, Exam N10-009* (third edition), which has the same role Messer has for A+ Core 1 (Mr. Flauto, 2026-11-14): the closest stand-in for the exam, and a source questions are modeled on alongside the CertMaster pool. Neither book is a source of truth. The CertMaster reading keys every answer, a book's key included, and every question cites only the reading. Students never see where a question came from.
+- **One question per fact.** The pool and the practice exam often test the same fact several times. When they do, write one question (two only when the scenarios make a student reason differently), so a short random test does not ask the same thing twice.
 - If the reading contradicts itself or is plainly wrong on a point, no question is keyed to that point until Mr. Flauto settles it.
 - The CertMaster pool export has **no answer key**. Every item is keyed against the reading. When the book and the reading disagree, the reading wins.
-- Pool items that say "Select all that apply" become a fixed "Choose two/three" with 5 options (the real exam always gives the count). On this site the option counts in the `choices` row above apply even where the rule quoted above says to keep the source's count.
-- **An item belongs to the unit whose reading answers it.** Some objectives are taught across several units (objective 3.5 is in lessons 2.2, 3.1, 3.4, and 4.1), so a Messer item or an objective bullet waits for the unit whose reading answers it. A Messer item is used once per exam.
+- Pool and practice exam items that say "Select all that apply" or "Choose all that apply" become a fixed "Choose two/three" with 5 options (the real exam always gives the count). The practice exam's key gives the true count. An item with four or more answers (18 in the Network+ practice exam, and CertMaster 4.0 Q224, "Select four") is used only if the one distinction it tests still works as a choose two or choose three; otherwise skip it. On this site the option counts in the `choices` row above apply even where the rule quoted above says to keep the source's count.
+- **An item belongs to the unit whose reading answers it.** Some objectives are taught across several units (objective 3.5 is in lessons 2.2, 3.1, 3.4, and 4.1), so a practice-exam item or an objective bullet waits for the unit whose reading answers it. A practice-exam item is used once per exam.
 
 ### Numbering source items
 
@@ -157,6 +172,7 @@ From Mr. Flauto's own unit-review rules:
 
 - **CertMaster pool files** have no item numbers. Number items by position: count the lines that read `answer`. The item with the first `answer` line in `3.0.txt` is "CertMaster 3.0 Q1"; the one with the 41st is "CertMaster 3.0 Q41". Do not count `Select Question` lines: some files have none before their first item.
 - **Messer items** keep the book's own labels: practice exam letter and question number ("Messer B44").
+- **Network+ practice exam items** are named by the book's title, then its chapter number, then the question number: "Practice Tests 1 Q33" is question 33 of Chapter 1. Chapters 1 to 5 follow the exam's five domains, and Chapters 6 and 7 are the book's two full practice tests, so "Practice Tests 6 Q12" is question 12 of the first practice test. The book numbers its questions through each chapter. Take the number from the kit's index (`practice-N10-009.tsv`), not the page: the PDF drops the hundreds digit of numbers over 99, so Q100 prints as "00.". Write it exactly that way, with no leading zeros: `assemble.ps1` rejects any other spelling, so one item can never be used twice under two names.
 - **Mr. Flauto's items** name the document and its own numbering: "Study Guide 3.0 Q56" (the unit study guide), "Review 2.0-3.0 slide 85" (a review deck).
 - **Public packs never contain copied items.** An item marked `"origin": { "verbatim": true }` outside a `private/` folder is an error, and GitHub will refuse to deploy.
 
@@ -167,7 +183,7 @@ Each question shows a short quote from the reading under the section name. Rules
 1. The sentence (or two) that actually answers the question, copied exactly.
 2. 40 words max. The check warns above that.
 3. The teacher adds quotes from his own copy of the reading. The fastest way is the **quote helper** at `http://localhost:8080/tools/quotes.html` (Chrome or Edge, with `serve.cmd` running):
-   - Open a pack (for example `data/a-plus-core-1/questions/unit-03.json`) and, once, click **Choose Modules folder** and pick the reading folder, `CompTIAA+\Book\bySubunit` in OneDrive `Documents`.
+   - Open a pack (for example `data/a-plus-core-1/questions/unit-03.json`) and, once, click **Choose readings folder** and pick the exam's reading folder in OneDrive `Documents`: `CompTIAA+\Book\bySubunit` or `CompTIANet+\Book\bySubunit`.
    - For each question it shows the stem, the correct answer, the reading section, and the `find` phrase. Click **Open 3.2.6 PDF**, press Ctrl+F, paste the phrase, then copy the sentence into the box. The word count turns red over 40.
    - **Save changes** writes straight back into the pack file.
 
