@@ -16,10 +16,10 @@
       "units": ["4.1.1", "4.4.4"],
       "reference": {
         "source": "certmaster",
-        "section": "4.1.1",
-        "title": "IPv4 Datagram Header",
+        "section": "4.4.4",
+        "title": "ping",
         "quote": "",
-        "find": "is used for status messaging"
+        "find": "is used to report errors"
       },
       "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q30" }
     },
@@ -31,7 +31,7 @@
         { "id": "b", "text": "ICMP" },
         { "id": "c", "text": "DNS" },
         { "id": "d", "text": "IGMP" },
-        { "id": "e", "text": "BGP" }
+        { "id": "e", "text": "SNMP" }
       ],
       "answer": ["b", "d"],
       "objectives": ["1.4", "1.4.b"],
@@ -996,7 +996,7 @@
         "section": "4.5.4",
         "title": "IPv6 Unicast Addressing",
         "quote": "",
-        "find": "are added in the middle"
+        "find": "and the 7th bit"
       },
       "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q258" }
     },
@@ -1262,7 +1262,7 @@
         { "id": "a", "text": "The PC's IP address is set incorrectly" },
         { "id": "b", "text": "The PC's subnet mask is set incorrectly" },
         { "id": "c", "text": "The PC's default gateway is set incorrectly" },
-        { "id": "d", "text": "The PC's cable is faulty or not plugged in" }
+        { "id": "d", "text": "The PC's cable or switch port is faulty" }
       ],
       "answer": ["d"],
       "objectives": ["5.3"],

@@ -108,8 +108,8 @@
     },
     {
       "id": "n-u04-f014",
-      "term": "CIDR (Classless Inter-domain Routing)",
-      "definition": "Uses bits normally in the network ID to summarize several contiguous networks as one shorter prefix (supernetting), so outside routers need only one routing table entry.",
+      "term": "CIDR (Classless Inter-domain Routing, also called supernetting)",
+      "definition": "Uses bits normally in the network ID to summarize several contiguous networks as one shorter prefix, so outside routers need only one routing table entry.",
       "objectives": ["1.7", "1.7.b"],
       "units": ["4.3.5"],
       "reference": { "source": "certmaster", "section": "4.3.5", "title": "Classless Inter-Domain Routing" }
