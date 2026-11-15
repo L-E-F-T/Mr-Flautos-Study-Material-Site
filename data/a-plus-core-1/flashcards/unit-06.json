@@ -199,7 +199,7 @@
       "term": "SMTP (Simple Mail Transfer Protocol)",
       "definition": "Sends (transfers) email messages across a network; TCP port 25.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6", "6.3.1", "7.1.5", "9.2.4"],
+      "units": ["6.3.6", "6.3.1", "7.1.5", "9.2.4", "10.1.13"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {
@@ -255,7 +255,7 @@
       "term": "SMB/CIFS (Server Message Block/Common Internet File System)",
       "definition": "Provides Windows-compatible file and printer sharing services on a local network; TCP port 445.",
       "objectives": ["2.1", "2.1.a"],
-      "units": ["6.3.6", "7.1.1"],
+      "units": ["6.3.6", "7.1.1", "10.1.13"],
       "reference": { "source": "certmaster", "section": "6.3.6", "title": "Well-Known Ports" }
     },
     {

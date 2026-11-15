@@ -1,0 +1,526 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-10", "title": "Unit 10.0 Supporting Print Devices", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "c1-u10-f001",
+      "term": "Printer unboxing",
+      "definition": "Lift a heavy printer with two people, remove all packing strips and supports before switching it on, and if it came from the cold, leave it off a few hours to prevent condensation.",
+      "objectives": ["3.7", "3.7.a"],
+      "units": ["10.1.1"],
+      "reference": { "source": "certmaster", "section": "10.1.1", "title": "Printer Unboxing and Setup Location" }
+    },
+    {
+      "id": "c1-u10-f002",
+      "term": "Printer set-up location",
+      "definition": "Near a power outlet and network port with no cables to trip on, on a stable flat surface out of direct sunlight, well ventilated, easy to reach, and access-controlled for confidential printing.",
+      "objectives": ["3.7", "3.7.a"],
+      "units": ["10.1.1"],
+      "reference": { "source": "certmaster", "section": "10.1.1", "title": "Printer Unboxing and Setup Location" }
+    },
+    {
+      "id": "c1-u10-f003",
+      "term": "Printer driver",
+      "definition": "The interface between the print device and the operating system, usually installed by Plug and Play; every client OS needs a suitable one, and a 64-bit OS needs a 64-bit driver.",
+      "objectives": ["3.7", "3.7.b"],
+      "units": ["10.1.5"],
+      "reference": { "source": "certmaster", "section": "10.1.5", "title": "Printer Drivers and Page Description Languages" }
+    },
+    {
+      "id": "c1-u10-f004",
+      "term": "PCL (Printer Control Language)",
+      "definition": "HP's page description language, tied more closely to specific printer models so output can vary by device, but usually faster than PostScript; often chosen for large volumes of office text.",
+      "objectives": ["3.7", "3.7.b"],
+      "units": ["10.1.5"],
+      "reference": { "source": "certmaster", "section": "10.1.5", "title": "Printer Drivers and Page Description Languages" }
+    },
+    {
+      "id": "c1-u10-f005",
+      "term": "PostScript",
+      "definition": "Adobe's device-independent page description language, giving consistent output across devices but usually slower than PCL; commonly used for graphic design and desktop publishing.",
+      "objectives": ["3.7", "3.7.b"],
+      "units": ["10.1.5"],
+      "reference": { "source": "certmaster", "section": "10.1.5", "title": "Printer Drivers and Page Description Languages" }
+    },
+    {
+      "id": "c1-u10-f006",
+      "term": "Firmware (printer)",
+      "definition": "Controls printing, scanning, and network connectivity on printers and multifunction devices; update it from the control panel or web interface to fix bugs and security flaws, after backing up settings and testing on one device.",
+      "objectives": ["3.7", "3.7.c"],
+      "units": ["10.1.2"],
+      "reference": { "source": "certmaster", "section": "10.1.2", "title": "Firmware Management in MFDs and Printers" }
+    },
+    {
+      "id": "c1-u10-f007",
+      "term": "Ethernet (printer connection)",
+      "definition": "A printer's wired link through its RJ45 port; it gets an IP address from DHCP or is set by hand, often at its control panel, and a DNS entry lets clients reach it by name.",
+      "objectives": ["3.7", "3.7.d"],
+      "units": ["10.1.3"],
+      "reference": { "source": "certmaster", "section": "10.1.3", "title": "Print Device Connectivity" }
+    },
+    {
+      "id": "c1-u10-f008",
+      "term": "Wireless (printer connection)",
+      "definition": "A printer's Bluetooth or Wi-Fi link; for Bluetooth, make the printer discoverable on its control panel, then add the device through the Bluetooth settings in Windows.",
+      "objectives": ["3.7", "3.7.d"],
+      "units": ["10.1.3"],
+      "reference": { "source": "certmaster", "section": "10.1.3", "title": "Print Device Connectivity" }
+    },
+    {
+      "id": "c1-u10-f009",
+      "term": "Public printer",
+      "definition": "A printer with no access controls, so any guest can use it; even guest printing today often adds network segmentation, user authentication, or a guest Wi-Fi network.",
+      "objectives": ["3.7", "3.7.e"],
+      "units": ["10.1.8"],
+      "reference": { "source": "certmaster", "section": "10.1.8", "title": "Printer Sharing" }
+    },
+    {
+      "id": "c1-u10-f010",
+      "term": "Printer share",
+      "definition": "A printer installed on one computer and shared from the Sharing tab of its Printer Properties, under a share name; users with permission connect from Network in File Explorer by right-clicking it and choosing Connect.",
+      "objectives": ["3.7", "3.7.e"],
+      "units": ["10.1.8"],
+      "reference": { "source": "certmaster", "section": "10.1.8", "title": "Printer Sharing" }
+    },
+    {
+      "id": "c1-u10-f011",
+      "term": "Duplex (print setting)",
+      "definition": "Printing on both sides of the paper, chosen on the Finishing tab of Printing Preferences; the printer component that does it automatically is installed or configured in Printer Properties.",
+      "objectives": ["3.7", "3.7.f"],
+      "units": ["10.1.7", "10.1.6"],
+      "reference": { "source": "certmaster", "section": "10.1.7", "title": "Printing Preferences" }
+    },
+    {
+      "id": "c1-u10-f012",
+      "term": "Orientation (print setting)",
+      "definition": "Whether pages print in portrait or landscape; set the default on the Finishing tab of Printing Preferences, or change it for one job with the Properties button in the application's Print dialog.",
+      "objectives": ["3.7", "3.7.f"],
+      "units": ["10.1.7"],
+      "reference": { "source": "certmaster", "section": "10.1.7", "title": "Printing Preferences" }
+    },
+    {
+      "id": "c1-u10-f013",
+      "term": "Tray settings",
+      "definition": "The default paper type set for each of the printer's paper trays, configured in the Printer Properties dialog along with hardware options such as a duplex unit or finisher.",
+      "objectives": ["3.7", "3.7.f"],
+      "units": ["10.1.6"],
+      "reference": { "source": "certmaster", "section": "10.1.6", "title": "Printer Properties" }
+    },
+    {
+      "id": "c1-u10-f014",
+      "term": "Quality (print setting)",
+      "definition": "Chosen on the Paper/Quality tab of Printing Preferences, where economy or draft mode saves ink or toner; the same tab sets the paper size and type.",
+      "objectives": ["3.7", "3.7.f"],
+      "units": ["10.1.7"],
+      "reference": { "source": "certmaster", "section": "10.1.7", "title": "Printing Preferences" }
+    },
+    {
+      "id": "c1-u10-f015",
+      "term": "User authentication (printer)",
+      "definition": "Lets only authorized accounts submit print jobs: set permissions on the Sharing and Security tabs of Printer Properties, or have the printer check users itself, locally or against a directory server.",
+      "objectives": ["3.7", "3.7.g"],
+      "units": ["10.1.11"],
+      "reference": { "source": "certmaster", "section": "10.1.11", "title": "Printer Security" }
+    },
+    {
+      "id": "c1-u10-f016",
+      "term": "Badging",
+      "definition": "A way to release a secured print job: the user presents an ID badge to the printer's smart card reader, instead of typing a PIN on the control panel.",
+      "objectives": ["3.7", "3.7.g"],
+      "units": ["10.1.11"],
+      "reference": { "source": "certmaster", "section": "10.1.11", "title": "Printer Security" }
+    },
+    {
+      "id": "c1-u10-f017",
+      "term": "Audit logs",
+      "definition": "Records of each print job, kept by the print server or printer, showing which users and devices printed what; they help track missing documents, and syslog can send a printer's logs to a central server.",
+      "objectives": ["3.7", "3.7.g"],
+      "units": ["10.1.11"],
+      "reference": { "source": "certmaster", "section": "10.1.11", "title": "Printer Security" }
+    },
+    {
+      "id": "c1-u10-f018",
+      "term": "Secured prints",
+      "definition": "The printer holds a job until the user authenticates at the device, by PIN or badge, reducing the risk of confidential pages being taken from the output tray.",
+      "objectives": ["3.7", "3.7.g"],
+      "units": ["10.1.11"],
+      "reference": { "source": "certmaster", "section": "10.1.11", "title": "Printer Security" }
+    },
+    {
+      "id": "c1-u10-f019",
+      "term": "Network scan services",
+      "definition": "Features of a networked multifunction device or scanner that direct scan output to a destination: an email attachment, a shared network folder (SMB), or a cloud storage service.",
+      "objectives": ["3.7", "3.7.h"],
+      "units": ["10.1.13"],
+      "reference": { "source": "certmaster", "section": "10.1.13", "title": "Scanner Configuration" }
+    },
+    {
+      "id": "c1-u10-f020",
+      "term": "Scan to email",
+      "definition": "A network scan service that sends the scan as an email attachment; the device needs the IP address of an SMTP server, which typically authenticates the user before sending.",
+      "objectives": ["3.7", "3.7.h"],
+      "units": ["10.1.13"],
+      "reference": { "source": "certmaster", "section": "10.1.13", "title": "Scanner Configuration" }
+    },
+    {
+      "id": "c1-u10-f021",
+      "term": "Scan to SMB (Server Message Block)",
+      "definition": "A network scan service that saves the scan to a shared network folder; the device needs the path to the file server and share, and users need write permission to the share.",
+      "objectives": ["3.7", "3.7.h"],
+      "units": ["10.1.13"],
+      "reference": { "source": "certmaster", "section": "10.1.13", "title": "Scanner Configuration" }
+    },
+    {
+      "id": "c1-u10-f022",
+      "term": "Scan to cloud",
+      "definition": "A network scan service that uploads the scan to a cloud storage service such as OneDrive or Dropbox; users sign in to their cloud accounts through the scan dialogs.",
+      "objectives": ["3.7", "3.7.h"],
+      "units": ["10.1.13"],
+      "reference": { "source": "certmaster", "section": "10.1.13", "title": "Scanner Configuration" }
+    },
+    {
+      "id": "c1-u10-f023",
+      "term": "ADF (Automatic Document Feeder)",
+      "definition": "A scanner type that passes the paper over a fixed scan head, which makes it efficient for scanning documents with many pages.",
+      "objectives": ["3.7", "3.7.i"],
+      "units": ["10.1.13"],
+      "reference": { "source": "certmaster", "section": "10.1.13", "title": "Scanner Configuration" }
+    },
+    {
+      "id": "c1-u10-f024",
+      "term": "Flatbed scanner",
+      "definition": "A scanner type that shines a bright light on an object placed on a glass surface and uses mirrors and a lens to create a bitmap file of it.",
+      "objectives": ["3.7", "3.7.i"],
+      "units": ["10.1.13"],
+      "reference": { "source": "certmaster", "section": "10.1.13", "title": "Scanner Configuration" }
+    },
+    {
+      "id": "c1-u10-f025",
+      "term": "Laser printer",
+      "definition": "A printer that uses a laser, a light-sensitive drum, toner, and a fuser; popular in offices for its low cost, quiet operation, speed, and high-quality output, in grayscale or color.",
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.2.1"],
+      "reference": { "source": "certmaster", "section": "10.2.1", "title": "Laser Printer Imaging Process" }
+    },
+    {
+      "id": "c1-u10-f026",
+      "term": "Toner cartridge",
+      "definition": "The laser printer's toner supply; the printer warns when toner is low, and to replace it, remove the new cartridge's packing strips, rock it gently to spread the toner, and install it right away.",
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.2.2"],
+      "reference": { "source": "certmaster", "section": "10.2.2", "title": "Laser Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f027",
+      "term": "Maintenance kit",
+      "definition": "A set of replacement laser printer parts, typically feed rollers, a transfer roller, and a fuser unit, installed when the printer's internal page count triggers a Maintenance Kit Replace message.",
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.2.2"],
+      "reference": { "source": "certmaster", "section": "10.2.2", "title": "Laser Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f028",
+      "term": "Calibration (laser printer)",
+      "definition": "Works out the right print density or color balance, basically how much toner to use; most printers do it automatically, but if output looks wrong, run it from the control panel or driver.",
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.2.2"],
+      "reference": { "source": "certmaster", "section": "10.2.2", "title": "Laser Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f029",
+      "term": "Cleaning (laser printer)",
+      "definition": "Unplug it and let it cool, then wipe away dust and toner with a soft cloth or toner-safe vacuum, never compressed air or a household vacuum, and clean rollers with 99% isopropyl alcohol.",
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.2.2"],
+      "reference": { "source": "certmaster", "section": "10.2.2", "title": "Laser Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f030",
+      "term": "Imaging drum",
+      "definition": "The light-sensitive drum, usually inside the toner cartridge, where the laser forms the page as an electrostatic image that attracts toner; echo images mean it is not being cleaned properly.",
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.2.1", "10.3.3"],
+      "reference": { "source": "certmaster", "section": "10.2.1", "title": "Laser Printer Imaging Process" }
+    },
+    {
+      "id": "c1-u10-f031",
+      "term": "Inkjet printer",
+      "definition": "A printer that sprays tiny ink droplets onto paper, often used for color photos; cheap to buy but costly to run, and slower and noisier than a laser printer.",
+      "objectives": ["3.8", "3.8.b"],
+      "units": ["10.2.3"],
+      "reference": { "source": "certmaster", "section": "10.2.3", "title": "Inkjet Printer Imaging Process" }
+    },
+    {
+      "id": "c1-u10-f032",
+      "term": "Ink cartridge",
+      "definition": "Holds an inkjet's ink, with sensors that detect the ink level; a color printer needs at least four reservoirs, for cyan, magenta, yellow, and black, and the driver prompts you to replace an empty one.",
+      "objectives": ["3.8", "3.8.b"],
+      "units": ["10.2.4"],
+      "reference": { "source": "certmaster", "section": "10.2.4", "title": "Inkjet Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f033",
+      "term": "Printhead (inkjet)",
+      "definition": "The inkjet part that sprays the ink, by heating it into a bubble that bursts (thermal) or with a piezoelectric element; most thermal heads are built into the ink cartridge.",
+      "objectives": ["3.8", "3.8.b"],
+      "units": ["10.2.3", "10.2.4"],
+      "reference": { "source": "certmaster", "section": "10.2.3", "title": "Inkjet Printer Imaging Process" }
+    },
+    {
+      "id": "c1-u10-f034",
+      "term": "Roller (inkjet)",
+      "definition": "An inkjet's paper rollers: a load roller moves the top sheet in, a separation roller keeps extra sheets out, and eject rollers send the page to the duplexing assembly or output bin.",
+      "objectives": ["3.8", "3.8.b"],
+      "units": ["10.2.4"],
+      "reference": { "source": "certmaster", "section": "10.2.4", "title": "Inkjet Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f035",
+      "term": "Feeder (inkjet)",
+      "definition": "The inkjet's paper feed, usually one input tray that is smaller than a laser printer's and needs restocking more often; a stepper motor advances each sheet as the print head makes its passes.",
+      "objectives": ["3.8", "3.8.b"],
+      "units": ["10.2.4"],
+      "reference": { "source": "certmaster", "section": "10.2.4", "title": "Inkjet Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f036",
+      "term": "Printhead cleaning (inkjet)",
+      "definition": "Fixes missing lines in inkjet output caused by a blocked or dirty nozzle: run the printer's cleaning cycle from its property sheet or control panel, then try inkjet cleaning products if needed.",
+      "objectives": ["3.8", "3.8.b"],
+      "units": ["10.2.4"],
+      "reference": { "source": "certmaster", "section": "10.2.4", "title": "Inkjet Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f037",
+      "term": "Printhead alignment (inkjet)",
+      "definition": "Calibrates an inkjet's print head when output is skewed, using the function on the printer's property sheet; it usually runs automatically when you replace the ink cartridges.",
+      "objectives": ["3.8", "3.8.b"],
+      "units": ["10.2.4"],
+      "reference": { "source": "certmaster", "section": "10.2.4", "title": "Inkjet Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f038",
+      "term": "Thermal printer",
+      "definition": "A printer that uses a heating element to create images; the common direct thermal type, which usually needs special thermal paper, prints barcodes, labels, and receipts, at speeds measured in inches per second.",
+      "objectives": ["3.8", "3.8.c"],
+      "units": ["10.2.5"],
+      "reference": { "source": "certmaster", "section": "10.2.5", "title": "Thermal Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f039",
+      "term": "Feed assembly (thermal printer)",
+      "definition": "In a thermal printer, a stepper motor turns a rubber-coated roller that friction-feeds the paper, in fanfold or roll form, through the print mechanism.",
+      "objectives": ["3.8", "3.8.c"],
+      "units": ["10.2.5"],
+      "reference": { "source": "certmaster", "section": "10.2.5", "title": "Thermal Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f040",
+      "term": "Special thermal paper",
+      "definition": "Paper containing chemicals that react and change color when heated by the printer's heating element, creating the image; most direct thermal printers require it.",
+      "objectives": ["3.8", "3.8.c"],
+      "units": ["10.2.5"],
+      "reference": { "source": "certmaster", "section": "10.2.5", "title": "Thermal Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f041",
+      "term": "Replacing paper (thermal printer)",
+      "definition": "Use the right size and type for the model, insert the roll with its shiny, heat-sensitive side facing out, and check that the print head holds the paper end when you close the case.",
+      "objectives": ["3.8", "3.8.c"],
+      "units": ["10.2.5"],
+      "reference": { "source": "certmaster", "section": "10.2.5", "title": "Thermal Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f042",
+      "term": "Heating element (thermal printer)",
+      "definition": "The part that heats the special paper so it changes color and forms the image; clean the print head with an isopropyl alcohol swab or a cleaning card to remove sticky residue.",
+      "objectives": ["3.8", "3.8.c"],
+      "units": ["10.2.5"],
+      "reference": { "source": "certmaster", "section": "10.2.5", "title": "Thermal Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f043",
+      "term": "Removing debris (thermal printer)",
+      "definition": "Tearing receipts across the serrated teeth makes paper dust and debris, so remove the buildup with a vacuum or soft brush, and clean off any stuck labels.",
+      "objectives": ["3.8", "3.8.c"],
+      "units": ["10.2.5"],
+      "reference": { "source": "certmaster", "section": "10.2.5", "title": "Thermal Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f044",
+      "term": "Impact printer",
+      "definition": "A printer that strikes an inked ribbon against the paper, such as a dot matrix printer with a column of pins in its print head; still used for invoices, pay slips, and multipart forms.",
+      "objectives": ["3.8", "3.8.d"],
+      "units": ["10.2.6"],
+      "reference": { "source": "certmaster", "section": "10.2.6", "title": "Impact Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f045",
+      "term": "Multipart paper",
+      "definition": "Layers of paper with carbon or carbonless coating between them, so an impact printer makes duplicate or triplicate copies in one pass; usually continuous, tractor-fed paper.",
+      "objectives": ["3.8", "3.8.d"],
+      "units": ["10.2.6"],
+      "reference": { "source": "certmaster", "section": "10.2.6", "title": "Impact Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f046",
+      "term": "Ribbon (impact printer)",
+      "definition": "The inked ribbon the print head strikes to mark the paper, usually in a cartridge that slots over the print head carriage; when print quality deteriorates, replace the holder and ribbon as one unit.",
+      "objectives": ["3.8", "3.8.d"],
+      "units": ["10.2.6"],
+      "reference": { "source": "certmaster", "section": "10.2.6", "title": "Impact Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f047",
+      "term": "Printhead (impact printer)",
+      "definition": "In a dot matrix printer, the part whose column of pins strikes the ribbon against the paper; replace it by following the manufacturer's instructions, and take care, since it can get very hot.",
+      "objectives": ["3.8", "3.8.d"],
+      "units": ["10.2.6"],
+      "reference": { "source": "certmaster", "section": "10.2.6", "title": "Impact Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f048",
+      "term": "Replacing paper (impact printer)",
+      "definition": "Loading an impact printer: set the lever to friction feed for plain paper or to tractor feed for tractor-fed paper, making sure the paper's holes engage the sprockets so it feeds cleanly.",
+      "objectives": ["3.8", "3.8.d"],
+      "units": ["10.2.6"],
+      "reference": { "source": "certmaster", "section": "10.2.6", "title": "Impact Printer Maintenance" }
+    },
+    {
+      "id": "c1-u10-f049",
+      "term": "Lines down the printed pages",
+      "definition": "On a laser printer, dirty feed rollers or a dirty or damaged drum; on an inkjet, a dirty print head or blocked nozzle, so run a cleaning cycle; on a dot matrix, a stuck pin.",
+      "objectives": ["5.6", "5.6.a"],
+      "units": ["10.3.3"],
+      "reference": { "source": "certmaster", "section": "10.3.3", "title": "Print Quality Issues" }
+    },
+    {
+      "id": "c1-u10-f050",
+      "term": "Garbled print",
+      "definition": "Many pages with a few characters, or blank pages, from a rendering fault; clear the queue and power cycle the printer, then update the driver and use a supported language like PCL or PostScript.",
+      "objectives": ["5.6", "5.6.b"],
+      "units": ["10.3.5"],
+      "reference": { "source": "certmaster", "section": "10.3.5", "title": "Print Job Issues" }
+    },
+    {
+      "id": "c1-u10-f051",
+      "term": "Paper jams",
+      "definition": "Paper stuck in the paper path, often from unsuitable, creased, or badly loaded media or faulty rollers; remove it gently without force, leave no torn pieces, and use the release levers in a laser printer's fuser.",
+      "objectives": ["5.6", "5.6.c", "3.8", "3.8.b"],
+      "units": ["10.3.2", "10.2.4"],
+      "reference": { "source": "certmaster", "section": "10.3.2", "title": "Print Feed Issues" }
+    },
+    {
+      "id": "c1-u10-f052",
+      "term": "Faded prints",
+      "definition": "On a laser printer, the toner cartridge likely needs replacing, unless a low-density (draft) option was selected; on a dot matrix, the platen gap between paper and print head may be too wide.",
+      "objectives": ["5.6", "5.6.d"],
+      "units": ["10.3.3"],
+      "reference": { "source": "certmaster", "section": "10.3.3", "title": "Print Quality Issues" }
+    },
+    {
+      "id": "c1-u10-f053",
+      "term": "Paper not feeding",
+      "definition": "No sheet feeds in at all: check the paper's size, weight, loading, and media guides, and that it is not creased, damp, or dirty; if the media is fine, change the pickup rollers.",
+      "objectives": ["5.6", "5.6.e"],
+      "units": ["10.3.2"],
+      "reference": { "source": "certmaster", "section": "10.3.2", "title": "Print Feed Issues" }
+    },
+    {
+      "id": "c1-u10-f054",
+      "term": "Multipage misfeed",
+      "definition": "Feed rollers pull in two or more sheets at once; fan the stack to separate the sheets, and if the media is fine, change the pickup rollers, which come in a laser's maintenance kit.",
+      "objectives": ["5.6", "5.6.f"],
+      "units": ["10.3.2"],
+      "reference": { "source": "certmaster", "section": "10.3.2", "title": "Print Feed Issues" }
+    },
+    {
+      "id": "c1-u10-f055",
+      "term": "Multiple prints pending in queue",
+      "definition": "A backed-up print queue, because the printer is offline, out of paper, or low on ink or toner, or one job hit an error; restart the stuck job, or delete it and try printing again.",
+      "objectives": ["5.6", "5.6.g"],
+      "units": ["10.3.5"],
+      "reference": { "source": "certmaster", "section": "10.3.5", "title": "Print Job Issues" }
+    },
+    {
+      "id": "c1-u10-f056",
+      "term": "Speckling on printed pages",
+      "definition": "Loose toner may be contaminating the paper in a laser printer; clean the printer's interior with an approved toner vacuum.",
+      "objectives": ["5.6", "5.6.h"],
+      "units": ["10.3.3"],
+      "reference": { "source": "certmaster", "section": "10.3.3", "title": "Print Quality Issues" }
+    },
+    {
+      "id": "c1-u10-f057",
+      "term": "Double/echo images on the print",
+      "definition": "The image prints a second time on the page because the laser printer's photosensitive drum is not being cleaned properly; if printing different images does not clear it, replace the drum/toner cartridge.",
+      "objectives": ["5.6", "5.6.i"],
+      "units": ["10.3.3"],
+      "reference": { "source": "certmaster", "section": "10.3.3", "title": "Print Quality Issues" }
+    },
+    {
+      "id": "c1-u10-f058",
+      "term": "Grinding noise (printer)",
+      "definition": "On a laser printer, the toner cartridge, fuser, or gears/rollers: reseat parts, check for jams and debris, then replace the cartridge or maintenance kit; on an inkjet, a carriage mechanism fault.",
+      "objectives": ["5.6", "5.6.j"],
+      "units": ["10.3.2"],
+      "reference": { "source": "certmaster", "section": "10.3.2", "title": "Print Feed Issues" }
+    },
+    {
+      "id": "c1-u10-f059",
+      "term": "Finishing issues",
+      "definition": "Problems with the finisher unit that staples pages or punches holes on laser printers and multifunction devices; make sure the printer settings select the finisher as an installed output option.",
+      "objectives": ["5.6", "5.6.k"],
+      "units": ["10.3.4"],
+      "reference": { "source": "certmaster", "section": "10.3.4", "title": "Finishing Issues" }
+    },
+    {
+      "id": "c1-u10-f060",
+      "term": "Staple jams",
+      "definition": "Too many sheets can bend a staple and leave it stuck in the punch mechanism; remove the staple cartridge and release the catch to take out the stuck staples.",
+      "objectives": ["5.6", "5.6.k"],
+      "units": ["10.3.4"],
+      "reference": { "source": "certmaster", "section": "10.3.4", "title": "Finishing Issues" }
+    },
+    {
+      "id": "c1-u10-f061",
+      "term": "Hole punch",
+      "definition": "When a finisher punches holes, exceeding its maximum sheet count can cause jams; send print jobs in batches within that count, which may vary with paper weight.",
+      "objectives": ["5.6", "5.6.k"],
+      "units": ["10.3.4"],
+      "reference": { "source": "certmaster", "section": "10.3.4", "title": "Finishing Issues" }
+    },
+    {
+      "id": "c1-u10-f062",
+      "term": "Incorrect page orientation",
+      "definition": "A job printed portrait when it needs landscape, or the reverse, which can also put staples or binding in the wrong place; set the correct orientation and paper size, then test the settings on a short document.",
+      "objectives": ["5.6", "5.6.l"],
+      "units": ["10.3.4", "10.1.7"],
+      "reference": { "source": "certmaster", "section": "10.3.4", "title": "Finishing Issues" }
+    },
+    {
+      "id": "c1-u10-f063",
+      "term": "Tray not recognized",
+      "definition": "Make sure the driver recognizes every installed tray and is updated, the tray is seated properly, and the right tray is selected in printer and driver settings; then power cycle the printer and computer.",
+      "objectives": ["5.6", "5.6.m"],
+      "units": ["10.3.5"],
+      "reference": { "source": "certmaster", "section": "10.3.5", "title": "Print Job Issues" }
+    },
+    {
+      "id": "c1-u10-f064",
+      "term": "Connectivity issues (printer)",
+      "definition": "The printer cannot be found or shows offline: check it is on and online, then print a test page from its control panel; if that works, check the cable, Wi-Fi network, and drivers.",
+      "objectives": ["5.6", "5.6.n"],
+      "units": ["10.3.1"],
+      "reference": { "source": "certmaster", "section": "10.3.1", "title": "Printer Connectivity Issues" }
+    },
+    {
+      "id": "c1-u10-f065",
+      "term": "Frozen print queue",
+      "definition": "New jobs cannot process; restart the Print Spooler service, clear the spooler cache by deleting the files in the spool folder while it is stopped, or delete a corrupt job.",
+      "objectives": ["5.6", "5.6.o"],
+      "units": ["10.3.5"],
+      "reference": { "source": "certmaster", "section": "10.3.5", "title": "Print Job Issues" }
+    }
+  ]
+}

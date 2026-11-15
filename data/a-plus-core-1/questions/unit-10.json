@@ -1,0 +1,1142 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-10", "title": "Unit 10.0 Supporting Print Devices", "reviewed": false },
+  "questions": [
+    {
+      "id": "c1-u10-q001",
+      "stem": "A technician has unpacked a new laser printer for a tree nursery's office, removed its packing strips, and set it on a sturdy table, but the printer spent the night in an unheated shed in January. Which of the following should the technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Leave it powered off for a few hours" },
+        { "id": "b", "text": "Turn it on and print a test page" },
+        { "id": "c", "text": "Move it near a sunny window to warm up" },
+        { "id": "d", "text": "Turn it on and update its firmware" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.7", "3.7.a"],
+      "units": ["10.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.1",
+        "title": "Printer Unboxing and Setup Location",
+        "quote": "",
+        "find": "powered off for a few hours"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q4" }
+    },
+    {
+      "id": "c1-u10-q002",
+      "stem": "A greeting card company's designers send each new card layout to several different printer models, and every printed copy must look the same no matter which printer produces it. Which of the following should the company's IT contractor select when installing the designers' printer drivers?",
+      "choices": [
+        { "id": "a", "text": "PCL" },
+        { "id": "b", "text": "XPS" },
+        { "id": "c", "text": "TrueType" },
+        { "id": "d", "text": "PostScript" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.7", "3.7.b"],
+      "units": ["10.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.5",
+        "title": "Printer Drivers and Page Description Languages",
+        "quote": "",
+        "find": "Adobe PostScript is device-independent and"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q16" }
+    },
+    {
+      "id": "c1-u10-q003",
+      "stem": "A technician is adding a network printer to a barbershop's new Windows PC, but that printer's model is missing from the list of models Windows offers. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Download the printer's driver from the vendor's website" },
+        { "id": "b", "text": "Update the printer's firmware from its control panel" },
+        { "id": "c", "text": "Restart the Print Spooler service on the PC" },
+        { "id": "d", "text": "Restart the PC so Plug and Play can find a driver" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.7", "3.7.b"],
+      "units": ["10.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.5",
+        "title": "Printer Drivers and Page Description Languages",
+        "quote": "",
+        "find": "download it from the printer"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q13" }
+    },
+    {
+      "id": "c1-u10-q004",
+      "stem": "A car rental agency's branch manager asks why the IT team keeps installing firmware updates on the branch's networked MFDs when the devices already print and scan without trouble. Which of the following is the BEST reason for these updates?",
+      "choices": [
+        { "id": "a", "text": "They fix bugs and patch security flaws" },
+        { "id": "b", "text": "They back up each device's settings" },
+        { "id": "c", "text": "They restore the factory default settings" },
+        { "id": "d", "text": "They install drivers on the client PCs" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.7", "3.7.c"],
+      "units": ["10.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.2",
+        "title": "Firmware Management in MFDs and Printers",
+        "quote": "",
+        "find": "Regular updates improve performance, fix bugs"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q10" }
+    },
+    {
+      "id": "c1-u10-q005",
+      "stem": "A self-storage company's new printer must join the office network, where all six staff PCs will print to it and check its toner levels in a web browser. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Connect it to a switch with an Ethernet cable" },
+        { "id": "b", "text": "Connect it to one staff PC by USB" },
+        { "id": "c", "text": "Pair it with one staff PC over Bluetooth" },
+        { "id": "d", "text": "Set up Wi-Fi Direct on the printer" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.7", "3.7.d"],
+      "units": ["10.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.3",
+        "title": "Print Device Connectivity",
+        "quote": "",
+        "find": "come with an Ethernet adapter"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q9" }
+    },
+    {
+      "id": "c1-u10-q006",
+      "stem": "A pottery studio's one printer connects only by USB to the front desk PC, and the studio's two other Windows PCs must also be able to print to it. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Move the printer's USB cable to each PC as needed" },
+        { "id": "b", "text": "Install the printer's driver on the other two PCs" },
+        { "id": "c", "text": "Turn on printer sharing on the front desk PC" },
+        { "id": "d", "text": "Update the printer's driver on the front desk PC" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.7", "3.7.e"],
+      "units": ["10.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.8",
+        "title": "Printer Sharing",
+        "quote": "",
+        "find": "any computer with an installed printer"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B29" }
+    },
+    {
+      "id": "c1-u10-q007",
+      "stem": "At a minor league baseball team's office, only the PCs running 32-bit Windows ask for a driver when they connect to the printer shared from the team's print server. Which of the following would BEST let those PCs get the right driver on their own?",
+      "choices": [
+        { "id": "a", "text": "Set the share to render print jobs on the clients" },
+        { "id": "b", "text": "Make it a public printer on the print server" },
+        { "id": "c", "text": "Add an x64 driver on the print server" },
+        { "id": "d", "text": "Add an x86 driver on the print server" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.7", "3.7.e"],
+      "units": ["10.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.8",
+        "title": "Printer Sharing",
+        "quote": "",
+        "find": "so clients can download and install"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q8" }
+    },
+    {
+      "id": "c1-u10-q008",
+      "stem": "A homeowners association's secretary is printing a newsletter and wants each sheet to carry one page on the front and the next page on the back. Which of the following print settings should the secretary change?",
+      "choices": [
+        { "id": "a", "text": "Duplex" },
+        { "id": "b", "text": "Orientation" },
+        { "id": "c", "text": "Pages per sheet" },
+        { "id": "d", "text": "Print quality" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.7", "3.7.f"],
+      "units": ["10.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.7",
+        "title": "Printing Preferences",
+        "quote": "",
+        "find": "on both sides of the paper"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A20" }
+    },
+    {
+      "id": "c1-u10-q009",
+      "stem": "A summer camp's head counselor loads bright green card stock into tray 2 for a batch of name tags, but the name tags keep printing on the plain white sheets from tray 1. Which of the following should the counselor change after selecting Properties in the application's Print dialog?",
+      "choices": [
+        { "id": "a", "text": "The duplex setting" },
+        { "id": "b", "text": "The paper source setting" },
+        { "id": "c", "text": "The orientation setting" },
+        { "id": "d", "text": "The economy mode setting" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.7", "3.7.f"],
+      "units": ["10.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.7",
+        "title": "Printing Preferences",
+        "quote": "",
+        "find": "size, source, and type"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B24" }
+    },
+    {
+      "id": "c1-u10-q010",
+      "stem": "A stylist at a bridal shop prints close-up photos of gowns on glossy photo paper for the shop's sample book, but the fine lace details come out grainy and soft. Which of the following settings should the stylist change?",
+      "choices": [
+        { "id": "a", "text": "Orientation" },
+        { "id": "b", "text": "Paper source" },
+        { "id": "c", "text": "Duplex" },
+        { "id": "d", "text": "Print quality" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.7", "3.7.f"],
+      "units": ["10.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.7",
+        "title": "Printing Preferences",
+        "quote": "",
+        "find": "The Paper/Quality tab lets you"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q12" }
+    },
+    {
+      "id": "c1-u10-q011",
+      "stem": "A property management company's leasing office PC has a printer attached by USB, and every job prints in color on one side of the page unless the user changes it. Which of the following should be used to make grayscale, two-sided printing the default for this printer?",
+      "choices": [
+        { "id": "a", "text": "Print queue" },
+        { "id": "b", "text": "Printing Preferences" },
+        { "id": "c", "text": "Print Spooler service" },
+        { "id": "d", "text": "Print monitors" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.7", "3.7.f"],
+      "units": ["10.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.7",
+        "title": "Printing Preferences",
+        "quote": "",
+        "find": "sets default print job options"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q6" }
+    },
+    {
+      "id": "c1-u10-q012",
+      "stem": "A private investigation firm's new rule says a report sent to the hallway printer must not print until the investigator who sent it is at the printer and types a code. Which of the following should the firm turn on?",
+      "choices": [
+        { "id": "a", "text": "Badging" },
+        { "id": "b", "text": "Audit logs" },
+        { "id": "c", "text": "Secured print" },
+        { "id": "d", "text": "Printer sharing" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.7", "3.7.g"],
+      "units": ["10.1.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.11",
+        "title": "Printer Security",
+        "quote": "",
+        "find": "Secured print holds a print job"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B46" }
+    },
+    {
+      "id": "c1-u10-q013",
+      "stem": "Employees at an aircraft parts maker keep forgetting the codes they must type at the printer to release their held print jobs. Which of the following would let them release jobs with the company ID cards they already carry instead?",
+      "choices": [
+        { "id": "a", "text": "Network authentication" },
+        { "id": "b", "text": "Badging" },
+        { "id": "c", "text": "Audit logs" },
+        { "id": "d", "text": "Local authentication" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.7", "3.7.g"],
+      "units": ["10.1.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.11",
+        "title": "Printer Security",
+        "quote": "",
+        "find": "has a smart card reader"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.11 (badging)" }
+    },
+    {
+      "id": "c1-u10-q014",
+      "stem": "A medical billing company found a printout of patient account details in its parking lot, and the compliance officer wants to know which user printed it and from which PC. Which of the following would provide this information?",
+      "choices": [
+        { "id": "a", "text": "Secured print" },
+        { "id": "b", "text": "Badging" },
+        { "id": "c", "text": "Printer permissions" },
+        { "id": "d", "text": "Audit logs" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.7", "3.7.g"],
+      "units": ["10.1.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.11",
+        "title": "Printer Security",
+        "quote": "",
+        "find": "creating an audit record of documents"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B59" }
+    },
+    {
+      "id": "c1-u10-q015",
+      "stem": "Visitors at a coworking space have been sending print jobs from laptops to the space's networked MFD, which only current members are supposed to use. Which of the following should be set up on the MFD?",
+      "choices": [
+        { "id": "a", "text": "User authentication" },
+        { "id": "b", "text": "Audit logs" },
+        { "id": "c", "text": "Firmware updates" },
+        { "id": "d", "text": "Syslog" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.7", "3.7.g"],
+      "units": ["10.1.11"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.11",
+        "title": "Printer Security",
+        "quote": "",
+        "find": "user authentication ensures that only authorized"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q11" }
+    },
+    {
+      "id": "c1-u10-q016",
+      "stem": "An estimator at a roofing company scanned a signed contract with the office MFD's scan to SMB option and is still waiting for it to arrive by email. Which of the following will hold the scanned file?",
+      "choices": [
+        { "id": "a", "text": "The estimator's OneDrive account" },
+        { "id": "b", "text": "A shared folder on a file server" },
+        { "id": "c", "text": "A memory card inside the MFD" },
+        { "id": "d", "text": "The print server's spool folder" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.7", "3.7.h"],
+      "units": ["10.1.13"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.13",
+        "title": "Scanner Configuration",
+        "quote": "",
+        "find": "saved to a shared network folder"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B85" }
+    },
+    {
+      "id": "c1-u10-q017",
+      "stem": "Coaches at a gymnastics academy want pages scanned on the academy's MFD to arrive as email attachments in each coach's inbox. Which of the following must be configured on the MFD?",
+      "choices": [
+        { "id": "a", "text": "The IP address of a print server" },
+        { "id": "b", "text": "Each user's cloud storage sign-in" },
+        { "id": "c", "text": "The IP address of an SMTP server" },
+        { "id": "d", "text": "The IP address of a syslog server" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.7", "3.7.h"],
+      "units": ["10.1.13"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.13",
+        "title": "Scanner Configuration",
+        "quote": "",
+        "find": "address of an SMTP server"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.13 (scan to email)" }
+    },
+    {
+      "id": "c1-u10-q018",
+      "stem": "A history professor wants pages scanned on the department's MFD to be saved straight into the professor's personal OneDrive account. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Scan to email" },
+        { "id": "b", "text": "Scan to SMB" },
+        { "id": "c", "text": "Cloud printing" },
+        { "id": "d", "text": "Scan to cloud" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.7", "3.7.h"],
+      "units": ["10.1.13"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.13",
+        "title": "Scanner Configuration",
+        "quote": "",
+        "find": "uploaded to a cloud storage"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.13 (scan to cloud)" }
+    },
+    {
+      "id": "c1-u10-q019",
+      "stem": "A rare book dealer wants to save clear images of the pages in an old bound cookbook as files on a PC, without taking the book apart. Which of the following should the dealer use?",
+      "choices": [
+        { "id": "a", "text": "Imaging drum" },
+        { "id": "b", "text": "OCR software" },
+        { "id": "c", "text": "Flatbed scanner" },
+        { "id": "d", "text": "Automatic document feeder" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.7", "3.7.i"],
+      "units": ["10.1.13"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.13",
+        "title": "Scanner Configuration",
+        "quote": "",
+        "find": "object placed on a glass surface"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A90" }
+    },
+    {
+      "id": "c1-u10-q020",
+      "stem": "Clerks at a scholarship foundation scan stacks of application forms, often 50 pages each, every day and want to load each whole form at once instead of scanning it page by page. Which of the following should the foundation's MFD have?",
+      "choices": [
+        { "id": "a", "text": "Flatbed scanner" },
+        { "id": "b", "text": "Automatic duplex unit" },
+        { "id": "c", "text": "Automatic document feeder" },
+        { "id": "d", "text": "Optical character recognition" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.7", "3.7.i"],
+      "units": ["10.1.13"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.13",
+        "title": "Scanner Configuration",
+        "quote": "",
+        "find": "Passes paper over a fixed"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.13 (ADF)" }
+    },
+    {
+      "id": "c1-u10-q021",
+      "stem": "A maintenance worker at a golf course's pro shop blew the loose toner out of the shop's laser printer with compressed air and spread toner dust across the room. Which of the following should the worker have done instead?",
+      "choices": [
+        { "id": "a", "text": "Cleaned it out with a household vacuum" },
+        { "id": "b", "text": "Run a cleaning card through the printer" },
+        { "id": "c", "text": "Wiped it out with a soft cloth" },
+        { "id": "d", "text": "Replaced the dust and ozone filters" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.2",
+        "title": "Laser Printer Maintenance",
+        "quote": "",
+        "find": "Wipe dust and toner away from"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B88" }
+    },
+    {
+      "id": "c1-u10-q022",
+      "stem": "Brochures from a bridal shop's color laser printer now come out much darker than the same brochures printed last month, though the pages show no streaks, smudges, or specks. Which of the following should the shop's manager do to fix the output?",
+      "choices": [
+        { "id": "a", "text": "Install a new maintenance kit" },
+        { "id": "b", "text": "Run the calibration routine" },
+        { "id": "c", "text": "Gently rock the toner cartridge" },
+        { "id": "d", "text": "Replace the dust and ozone filters" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.2",
+        "title": "Laser Printer Maintenance",
+        "quote": "",
+        "find": "invoke the calibration routine"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q36" }
+    },
+    {
+      "id": "c1-u10-q023",
+      "stem": "An IT support specialist is training a new staff member at a nursing home to clean the rubber feed rollers inside the office laser printer. Which of the following should the specialist tell the staff member to use?",
+      "choices": [
+        { "id": "a", "text": "A slightly damp cloth" },
+        { "id": "b", "text": "A toner-safe vacuum" },
+        { "id": "c", "text": "A can of compressed air" },
+        { "id": "d", "text": "A swab with isopropyl alcohol" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.2",
+        "title": "Laser Printer Maintenance",
+        "quote": "",
+        "find": "Use 99% Isopropyl Alcohol"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q37" }
+    },
+    {
+      "id": "c1-u10-q024",
+      "stem": "A laser printer in a police station's records office displays a \"Maintenance Kit Replace\" message after reaching its internal page count. Which of the following will a new maintenance kit MOST likely replace?",
+      "choices": [
+        { "id": "a", "text": "A toner cartridge and an imaging drum" },
+        { "id": "b", "text": "A fuser and a transfer roller" },
+        { "id": "c", "text": "A dust filter and an ozone filter" },
+        { "id": "d", "text": "A primary charge roller and a developer roller" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.2",
+        "title": "Laser Printer Maintenance",
+        "quote": "",
+        "find": "includes replacement feed rollers"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.2.2 (maintenance kit)" }
+    },
+    {
+      "id": "c1-u10-q025",
+      "stem": "After a preschool's inkjet printer was moved to a new classroom, every newsletter the preschool director prints on it comes out skewed. Which of the following should the director do to fix the output?",
+      "choices": [
+        { "id": "a", "text": "Clean the print heads" },
+        { "id": "b", "text": "Adjust the platen gap" },
+        { "id": "c", "text": "Align the print heads" },
+        { "id": "d", "text": "Clear a paper jam" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.8", "3.8.b"],
+      "units": ["10.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.4",
+        "title": "Inkjet Printer Maintenance",
+        "quote": "",
+        "find": "use the print head alignment function"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q22" }
+    },
+    {
+      "id": "c1-u10-q026",
+      "stem": "Exhibit cards printed on an art gallery's inkjet printer now come out with thin lines missing from the text, and a nozzle check page shows gaps in its pattern. Which of the following should the gallery's curator do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Apply an inkjet cleaning product" },
+        { "id": "b", "text": "Run the printer's cleaning cycle" },
+        { "id": "c", "text": "Wipe the print heads with a damp cloth" },
+        { "id": "d", "text": "Run the print head alignment function" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.8", "3.8.b"],
+      "units": ["10.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.4",
+        "title": "Inkjet Printer Maintenance",
+        "quote": "",
+        "find": "printer's cleaning cycle"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q30" }
+    },
+    {
+      "id": "c1-u10-q027",
+      "stem": "A cashier at an ice cream shop loaded the printer at the counter with plain paper, and now everything it prints comes out blank. Which of the following should the cashier load instead?",
+      "choices": [
+        { "id": "a", "text": "Premium inkjet paper" },
+        { "id": "b", "text": "Photo paper" },
+        { "id": "c", "text": "Thermal paper" },
+        { "id": "d", "text": "Multipart paper" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.8", "3.8.c"],
+      "units": ["10.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.5",
+        "title": "Thermal Printer Maintenance",
+        "quote": "",
+        "find": "require special thermal paper"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C32" }
+    },
+    {
+      "id": "c1-u10-q028",
+      "stem": "Shipping labels that were loaded the wrong way have left sticky residue on the print head of a seed company's thermal label printer. Which of the following should the company's order packer do to remove it?",
+      "choices": [
+        { "id": "a", "text": "Clean the print head with a soft brush" },
+        { "id": "b", "text": "Reload the label roll the correct way" },
+        { "id": "c", "text": "Run a cleaning cycle from the label software" },
+        { "id": "d", "text": "Swab the print head with isopropyl alcohol" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.8", "3.8.c"],
+      "units": ["10.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.5",
+        "title": "Thermal Printer Maintenance",
+        "quote": "",
+        "find": "isopropyl alcohol (IPA) to clean"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q25" }
+    },
+    {
+      "id": "c1-u10-q029",
+      "stem": "Customer bills printed on a water utility's dot matrix printer have become lighter and harder to read over several months, though no dots are missing from any character. Which of the following should the utility's billing clerk replace?",
+      "choices": [
+        { "id": "a", "text": "The print head" },
+        { "id": "b", "text": "The toner cartridge" },
+        { "id": "c", "text": "The thermal paper" },
+        { "id": "d", "text": "The ribbon cartridge" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.8", "3.8.d"],
+      "units": ["10.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.6",
+        "title": "Impact Printer Maintenance",
+        "quote": "",
+        "find": "replace the ribbon holder and contents"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C61" }
+    },
+    {
+      "id": "c1-u10-q030",
+      "stem": "A propane company prints each delivery ticket on its dot matrix printer as a multipart form, so the driver and the customer each get a copy from one pass. Which of the following types of paper should the company's office assistant load?",
+      "choices": [
+        { "id": "a", "text": "Glossy photo paper" },
+        { "id": "b", "text": "Tractor-fed paper" },
+        { "id": "c", "text": "Carbon paper" },
+        { "id": "d", "text": "Thermal paper" },
+        { "id": "e", "text": "Cardstock" }
+      ],
+      "answer": ["b", "c"],
+      "objectives": ["3.8", "3.8.d"],
+      "units": ["10.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.6",
+        "title": "Impact Printer Maintenance",
+        "quote": "",
+        "find": "plain, carbon, or tractor-fed paper"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q35" }
+    },
+    {
+      "id": "c1-u10-q031",
+      "stem": "A test page started from the control panel of a trampoline park's wireless laser printer does not print, and the waivers sent from the front desk PCs are still waiting in the print queue. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The printer has lost its Wi-Fi connection" },
+        { "id": "b", "text": "The printer has a hardware fault" },
+        { "id": "c", "text": "The PCs need the latest Windows updates" },
+        { "id": "d", "text": "The printer is not registered for cloud printing" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.6", "5.6.g", "5.6.n"],
+      "units": ["10.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.1",
+        "title": "Printer Connectivity Issues",
+        "quote": "",
+        "find": "using the printer's control panel"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B75" }
+    },
+    {
+      "id": "c1-u10-q032",
+      "stem": "A mortgage broker cleared a paper jam from the laser printer that connects to the broker's laptop by USB, and now Windows reports the printer as offline. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Download and install the newest printer firmware" },
+        { "id": "b", "text": "Uninstall and reinstall the driver on the laptop" },
+        { "id": "c", "text": "Clear every job from the laptop's print queue" },
+        { "id": "d", "text": "Check that the cartridge is seated and panels are closed" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.6", "5.6.n"],
+      "units": ["10.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.1",
+        "title": "Printer Connectivity Issues",
+        "quote": "",
+        "find": "Verify all components and cartridges"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q44" }
+    },
+    {
+      "id": "c1-u10-q033",
+      "stem": "The checkout PC at a bicycle shop lists the laser printer attached to it by USB as unavailable, yet the printer prints a test page started from its own control panel. Which of the following will MOST likely fix the problem?",
+      "choices": [
+        { "id": "a", "text": "Replace the cable with a known good one" },
+        { "id": "b", "text": "Reset the printer to its factory settings" },
+        { "id": "c", "text": "Join the printer to the correct Wi-Fi network" },
+        { "id": "d", "text": "Replace the toner cartridge with a new one" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.6", "5.6.n"],
+      "units": ["10.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.1",
+        "title": "Printer Connectivity Issues",
+        "quote": "",
+        "find": "Replace with a known good"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.3.1 (known good cable)" }
+    },
+    {
+      "id": "c1-u10-q034",
+      "stem": "Crew schedules at a moving company keep getting stuck partway through the office laser printer, and a technician has to clear a jam several times an hour. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The printer is almost out of toner" },
+        { "id": "b", "text": "The imaging drum is scratched" },
+        { "id": "c", "text": "The paper is the wrong weight" },
+        { "id": "d", "text": "The printer's firmware is out of date" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.6", "5.6.c"],
+      "units": ["10.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.2",
+        "title": "Print Feed Issues",
+        "quote": "",
+        "find": "jams often result from unsuitable media"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A46" }
+    },
+    {
+      "id": "c1-u10-q035",
+      "stem": "Each time a public aquarium's laser printer jams, a technician finds the sheet stuck to the drum before it reaches the fuser, even with fresh paper loaded correctly. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A worn fuser unit" },
+        { "id": "b", "text": "A dirty imaging drum" },
+        { "id": "c", "text": "A failing high-voltage power supply" },
+        { "id": "d", "text": "A faulty static eliminator" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.6", "5.6.c"],
+      "units": ["10.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.2",
+        "title": "Print Feed Issues",
+        "quote": "",
+        "find": "a faulty static eliminator may be"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q52" }
+    },
+    {
+      "id": "c1-u10-q036",
+      "stem": "After a technician correctly reloads a laundromat's laser printer and sets the media guides against the stack, the printer still will not pull in a single sheet. Which of the following should the technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Check that the tray supports this paper" },
+        { "id": "b", "text": "Check the fuser assembly for wear" },
+        { "id": "c", "text": "Check the imaging drum for scratches" },
+        { "id": "d", "text": "Check the high-voltage power supply" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.6", "5.6.e"],
+      "units": ["10.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.2",
+        "title": "Print Feed Issues",
+        "quote": "",
+        "find": "paper size and weight are compatible"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q53" }
+    },
+    {
+      "id": "c1-u10-q037",
+      "stem": "A property management company's laser printer keeps pulling two or three sheets through at once, even after a technician checked the paper and fanned the stack before loading it. Which of the following should the technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Install new pickup rollers from a maintenance kit" },
+        { "id": "b", "text": "Swap in a new toner cartridge" },
+        { "id": "c", "text": "Run the calibration utility from the control panel" },
+        { "id": "d", "text": "Replace the printer's static eliminator" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.6", "5.6.f"],
+      "units": ["10.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.2",
+        "title": "Print Feed Issues",
+        "quote": "",
+        "find": "try changing the pickup rollers"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q51" }
+    },
+    {
+      "id": "c1-u10-q038",
+      "stem": "A yoga studio's inkjet printer still prints class schedules, but it now makes a loud grinding noise every time it prints. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A worn-out fuser unit" },
+        { "id": "b", "text": "A fault in the carriage mechanism" },
+        { "id": "c", "text": "A print head that is out of alignment" },
+        { "id": "d", "text": "An ink cartridge that is nearly empty" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.6", "5.6.j"],
+      "units": ["10.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.2",
+        "title": "Print Feed Issues",
+        "quote": "",
+        "find": "a fault in the carriage mechanism"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q47" }
+    },
+    {
+      "id": "c1-u10-q039",
+      "stem": "While cleaning a security guard company's laser printer, a technician finds a deep scratch on the imaging drum. Which of the following will the scratch MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A faint image across the whole page" },
+        { "id": "b", "text": "Random black specks across each page" },
+        { "id": "c", "text": "Pages that come out completely blank" },
+        { "id": "d", "text": "A line down the length of every page" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.6", "5.6.a"],
+      "units": ["10.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.3",
+        "title": "Print Quality Issues",
+        "quote": "",
+        "find": "or a damaged/dirty photosensitive drum"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B57" }
+    },
+    {
+      "id": "c1-u10-q040",
+      "stem": "Flyers from a youth soccer league's inkjet printer now come out streaked, and the blue areas look patchy while the other colors look normal. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A print head that has jammed" },
+        { "id": "b", "text": "A print head that is clogged" },
+        { "id": "c", "text": "A print head with a stuck pin" },
+        { "id": "d", "text": "Color printing turned off in the driver" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.6", "5.6.a"],
+      "units": ["10.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.3",
+        "title": "Print Quality Issues",
+        "quote": "",
+        "find": "a completely blocked print head"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q29" }
+    },
+    {
+      "id": "c1-u10-q041",
+      "stem": "Invoices printed on a fabric store's laser printer have grown fainter every week, and the store manager confirms that no draft or economy mode is selected. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The toner cartridge is running out" },
+        { "id": "b", "text": "The fuser is wearing out" },
+        { "id": "c", "text": "The imaging drum is scratched" },
+        { "id": "d", "text": "The pickup rollers are worn" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.6", "5.6.d"],
+      "units": ["10.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.3",
+        "title": "Print Quality Issues",
+        "quote": "",
+        "find": "the toner cartridge needs replacing"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q54" }
+    },
+    {
+      "id": "c1-u10-q042",
+      "stem": "Reports printed on a dog kennel's laser printer now come out with tiny black specks scattered at random across each page. Which of the following will MOST likely fix this?",
+      "choices": [
+        { "id": "a", "text": "Replace the printer's fuser assembly" },
+        { "id": "b", "text": "Run the printer's calibration routine" },
+        { "id": "c", "text": "Clean the inside with a toner vacuum" },
+        { "id": "d", "text": "Replace the printer's pickup rollers" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.6", "5.6.h"],
+      "units": ["10.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.3",
+        "title": "Print Quality Issues",
+        "quote": "",
+        "find": "Clean the printer interior with"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.3.3 (speckling)" }
+    },
+    {
+      "id": "c1-u10-q043",
+      "stem": "Every page from a music store's laser printer shows a faint second copy of its text a short way below the original, and the ghost stays when a technician prints several different documents. Which of the following will MOST likely fix the problem?",
+      "choices": [
+        { "id": "a", "text": "Replace the drum/toner cartridge" },
+        { "id": "b", "text": "Gently shake the toner cartridge" },
+        { "id": "c", "text": "Replace the fuser assembly" },
+        { "id": "d", "text": "Replace the pickup rollers" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.6", "5.6.i"],
+      "units": ["10.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.3",
+        "title": "Print Quality Issues",
+        "quote": "",
+        "find": "issue persists, replace the drum/toner cartridge"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q45" }
+    },
+    {
+      "id": "c1-u10-q044",
+      "stem": "Menus printed on a catering company's laser printer smear when they are handled, and the toner rubs off on the caterers' fingers. Which of the following should a technician replace?",
+      "choices": [
+        { "id": "a", "text": "The toner cartridge" },
+        { "id": "b", "text": "The imaging drum" },
+        { "id": "c", "text": "The pickup rollers" },
+        { "id": "d", "text": "The fuser assembly" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.3",
+        "title": "Print Quality Issues",
+        "quote": "",
+        "find": "Smudging output indicates the fuser"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.3.3 (fuser)" }
+    },
+    {
+      "id": "c1-u10-q045",
+      "stem": "A sales associate at a jewelry store installs a new toner cartridge in the laser printer, and from then on every page it prints comes out completely blank. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The printer was not calibrated afterward" },
+        { "id": "b", "text": "The packing seals were not removed" },
+        { "id": "c", "text": "The pickup rollers are worn" },
+        { "id": "d", "text": "The cartridge was not rocked to spread the toner" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.3",
+        "title": "Print Quality Issues",
+        "quote": "",
+        "find": "the toner cartridge packing seals"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.3.3 (packing seals)" }
+    },
+    {
+      "id": "c1-u10-q046",
+      "stem": "A billing specialist at a chiropractor's office finds that every page from the laser printer comes out blank. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A stopped Print Spooler service" },
+        { "id": "b", "text": "A dirty primary charge roller" },
+        { "id": "c", "text": "A problem with the print driver" },
+        { "id": "d", "text": "A fuser that needs replacing" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.6"],
+      "units": ["10.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.3",
+        "title": "Print Quality Issues",
+        "quote": "",
+        "find": "an application or driver issue"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C57" }
+    },
+    {
+      "id": "c1-u10-q047",
+      "stem": "A community choir's director had a stapling unit added to the office MFD, but rehearsal handouts that should be stapled in the top corner still come out loose, and the new unit has never run. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The MFD is low on toner" },
+        { "id": "b", "text": "Duplex printing is turned off in the driver" },
+        { "id": "c", "text": "The finisher is not selected as an installed option" },
+        { "id": "d", "text": "Booklet printing is turned off in the driver" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.6", "5.6.k"],
+      "units": ["10.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.4",
+        "title": "Finishing Issues",
+        "quote": "",
+        "find": "Ensure printer settings are configured to"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B34" }
+    },
+    {
+      "id": "c1-u10-q048",
+      "stem": "A news producer at a TV station sends a 90-sheet script to the office MFD with finishing turned on, though the MFD's finisher can handle only 50 sheets per set. Which of the following problems will this MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Staple jams" },
+        { "id": "b", "text": "Multipage misfeeds" },
+        { "id": "c", "text": "Duplex unit jams" },
+        { "id": "d", "text": "Faded prints" },
+        { "id": "e", "text": "Hole punch jams" }
+      ],
+      "answer": ["a", "e"],
+      "objectives": ["5.6", "5.6.k"],
+      "units": ["10.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.4",
+        "title": "Finishing Issues",
+        "quote": "",
+        "find": "An excessive number of sheets can"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q59" }
+    },
+    {
+      "id": "c1-u10-q049",
+      "stem": "A volunteer at a historical society finds that stapled newsletters come out of the MFD with the staple along the bottom edge instead of in the top left corner. Which of the following BEST describes this problem?",
+      "choices": [
+        { "id": "a", "text": "Incorrect page orientation" },
+        { "id": "b", "text": "Staple jam" },
+        { "id": "c", "text": "Multipage misfeed" },
+        { "id": "d", "text": "Tray not recognized" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.6", "5.6.l"],
+      "units": ["10.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.4",
+        "title": "Finishing Issues",
+        "quote": "",
+        "find": "paper size and orientation for the"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q48" }
+    },
+    {
+      "id": "c1-u10-q050",
+      "stem": "After a veterinary clinic replaced its old printer with a laser printer that supports only PCL, every job from the front desk PCs prints as page after page of jumbled text. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The PCs use a PostScript driver" },
+        { "id": "b", "text": "The printer's firmware is out of date" },
+        { "id": "c", "text": "The PCs use a PCL driver" },
+        { "id": "d", "text": "The PCs' Print Spooler service is stopped" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.7", "3.7.b", "5.6", "5.6.b"],
+      "units": ["10.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.5",
+        "title": "Print Job Issues",
+        "quote": "",
+        "find": "ensure the printer uses a supported"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A8" }
+    },
+    {
+      "id": "c1-u10-q051",
+      "stem": "At a toy store, orders that a buyer prints from the inventory software still come out as pages of meaningless characters after the printer is power cycled, but a test page printed from Windows comes out fine. Which of the following should a technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Restart the Print Spooler service on the PC" },
+        { "id": "b", "text": "Print a different file from the same application" },
+        { "id": "c", "text": "Print a test page from the printer's control panel" },
+        { "id": "d", "text": "Update the firmware on the printer" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.6", "5.6.b"],
+      "units": ["10.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.5",
+        "title": "Print Job Issues",
+        "quote": "",
+        "find": "likely with a specific application"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A65" }
+    },
+    {
+      "id": "c1-u10-q052",
+      "stem": "Eight road repair maps are stuck in the print queue on a public works coordinator's PC while the printer reads Ready, and a technician finds that none of them can be restarted or deleted. Which of the following is the BEST next step?",
+      "choices": [
+        { "id": "a", "text": "Turn the printer off and back on" },
+        { "id": "b", "text": "Update the firmware on the printer" },
+        { "id": "c", "text": "Set the printer as the PC's default printer" },
+        { "id": "d", "text": "Stop and start the Print Spooler service" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.6", "5.6.g", "5.6.o"],
+      "units": ["10.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.5",
+        "title": "Print Job Issues",
+        "quote": "",
+        "find": "If you cannot delete a job"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A6" }
+    },
+    {
+      "id": "c1-u10-q053",
+      "stem": "A driving school's laser printer shows its newly added certificate tray on its own display, but instructors cannot choose that tray when they print from their PCs. Which of the following will MOST likely fix this?",
+      "choices": [
+        { "id": "a", "text": "Clear the spool folder on each PC" },
+        { "id": "b", "text": "Install an updated printer driver on each PC" },
+        { "id": "c", "text": "Reset the printer to its factory settings" },
+        { "id": "d", "text": "Update the printer's firmware" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.6", "5.6.m"],
+      "units": ["10.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.5",
+        "title": "Print Job Issues",
+        "quote": "",
+        "find": "configured to recognize all installed trays"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A62" }
+    },
+    {
+      "id": "c1-u10-q054",
+      "stem": "Right after a notary refills the lower paper tray of the office laser printer, the printer's display reports that the tray is missing. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Replace the pickup roller for that tray" },
+        { "id": "b", "text": "Restart the Print Spooler service on the PC" },
+        { "id": "c", "text": "Reseat the tray until it latches fully" },
+        { "id": "d", "text": "Run the printer's calibration utility" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.6", "5.6.m"],
+      "units": ["10.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.5",
+        "title": "Print Job Issues",
+        "quote": "",
+        "find": "Ensure the tray is properly seated"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q60" }
+    }
+  ]
+}

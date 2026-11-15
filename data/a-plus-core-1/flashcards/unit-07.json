@@ -15,7 +15,7 @@
       "term": "Print server",
       "definition": "Centrally manages printers and print jobs across the network; it queues jobs and can hold one until the user releases it to a printer, so printouts are not left uncollected.",
       "objectives": ["2.3", "2.3.a"],
-      "units": ["7.1.1"],
+      "units": ["7.1.1", "10.1.8"],
       "reference": { "source": "certmaster", "section": "7.1.1", "title": "File/Print Servers" }
     },
     {

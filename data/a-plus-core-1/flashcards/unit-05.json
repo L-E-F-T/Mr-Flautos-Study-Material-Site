@@ -511,7 +511,7 @@
       "term": "Bluetooth",
       "definition": "A wireless PAN technology that connects peripherals such as headphones, speakers, and wearables to PCs and phones; devices pair to authenticate and exchange data securely.",
       "objectives": ["2.2", "2.2.c"],
-      "units": ["5.4.12", "9.1.9"],
+      "units": ["5.4.12", "9.1.9", "10.1.3"],
       "reference": { "source": "certmaster", "section": "5.4.12", "title": "Bluetooth, RFID, and NFC" }
     },
     {
