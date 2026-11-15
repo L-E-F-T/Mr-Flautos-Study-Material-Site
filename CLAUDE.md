@@ -1,6 +1,6 @@
 # CompTIA Cert Prep (study site)
 
-Static study site for Mr. Flauto's CompTIA classes: flashcards and practice tests for A+ Core 1 first, then Core 2, Network+, Security+. Plain HTML, CSS, and JavaScript modules with JSON content. No build step, no dependencies.
+Static study site for Mr. Flauto's CompTIA classes: flashcards and practice tests for A+ Core 1 (finished), then Network+, then Core 2 and Security+. Plain HTML, CSS, and JavaScript modules with JSON content. No build step, no dependencies.
 
 Read `docs/PLAN.md` (plan, site layout, sign-in and scoreboard design) and `docs/CONTENT-GUIDE.md` (content format and rules) before changing anything substantial.
 
@@ -14,6 +14,7 @@ A chat that was not started with that prompt, and has not been asked for content
 ## Content
 
 - Which units are written, and the order of the rest, is in `docs/PLAN.md` section 6.
+- **Flashcards cover only what is testable** (Mr. Flauto, 2026-11-14: "The flashcards should really only focus what is testable. I dont want to confuse students."). The rule is rule 6 of `docs/CONTENT-HANDOFF.md`, with the guide's flashcard section. Any chat that edits the handoff, the guide, or the kit's briefs keeps it whole.
 - The first-pass placeholder packs were deleted on 2026-11-10. Never reuse a `ph-` id: decks and tests saved on students' devices may still point at one.
 
 ## Sign-in

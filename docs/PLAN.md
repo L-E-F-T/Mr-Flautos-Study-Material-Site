@@ -9,7 +9,7 @@ A study site for Mr. Flauto's CompTIA classes (A+ PC Tech 1, Networking+ 1, Comp
 - **Flashcards.** Pick terms from a table grouped by exam objective or by textbook unit, build a personal deck, flip, shuffle, and take cards out as you learn them.
 - **Practice test.** Pick units/lessons or domains/objectives/sub-objectives and a question count. Students never pick exact questions: they get a random draw from what they chose. Multiple choice only, with immediate right/wrong feedback. Instead of an explanation, each answer shows where the textbook covers it ("Reading 3.2.6 RAID 0 and RAID 1") and a quote from the book. At the end, the missed questions are listed with a button to retry them.
 
-Order: A+ Core 1 first, then Core 2, Network+, Security+. Hosting: GitHub Pages first, the school lab equipment later.
+Order: A+ Core 1 first (finished 2026-11-14), then Network+ (Units 6.0, 5.0, and 4.0 first; Mr. Flauto decides the rest), then Core 2 and Security+. Hosting: GitHub Pages first, the school lab equipment later.
 
 **Who does what.** Website chats build the site. Questions and flashcards are written in a separate content chat and dropped into `data/`. `docs/CONTENT-GUIDE.md` is the contract between the two, and `docs/CONTENT-HANDOFF.md` is the prompt that starts the content chat.
 
@@ -162,7 +162,7 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 2. Each unit was written in its own chat (started with `docs/CONTENT-HANDOFF.md`), which read `docs/CONTENT-NOTES.md` first and added to it before it ended, committed its unit on `main`, and asked before pushing.
 3. Unit 1.0 gets no pack, and the site labels it "Not on the exam" (`"notOnExam": true` in `units.json`, 2026-11-14). Its troubleshooting methodology is not tested directly: the 220-1201 objectives say "the methodology itself will not be tested", and CertMaster 1.2.1 says it is not tied to an exam objective. The exam uses it only inside Domain 5 scenarios ("which should the technician do FIRST?"), and those questions belong to the units that teach the hardware.
 4. You read each unit on the local site, add the book quotes with the quote helper, and mark the pack reviewed.
-5. Next is Network+ (N10-009), units 6.0, 5.0, then 4.0, and then you decide; Core 2 and Security+ after that, one exam at a time.
+5. Next is Network+ (N10-009), units 6.0, 5.0, then 4.0, and then you decide; Core 2 and Security+ after that, one exam at a time. The first Network+ chat also builds the exam's outline: `objectives.json` from B.1.3, transcribed twice and compared, and `units.json` for all 14 units (Units 8.0 to 14.0 get their sections once you print them). The handoff was rewritten for Network+ on 2026-11-14 after a six-part audit.
 
 **Hosting and more exams**
 
@@ -185,7 +185,11 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 9. **No sign-in and no scoreboard for now** (2026-11-10). The site is shared by link and kept out of search results. If sign-in is ever built: Google only, no Firebase.
 10. **No saved score on the home page** (2026-11-10). Scores live in the Recent history panel on the practice page; the home card only offers to resume.
 11. **Anything without content is labeled "Coming soon"** (2026-11-10), worked out from the data.
-12. **The exam leads, the reading keys, your materials support** (2026-11-10). What each unit covers, and how much, follows the CompTIA objectives and evidence of what the exam asks (Messer practice exams, Domain 5 links), and questions are written the way the exam presents them. The CertMaster reading decides every answer. Your study guides, slides, and Blookets corroborate the keys and fill gaps; they never set the weight.
+12. **The exam leads, the reading keys, your materials support** (2026-11-10). What each unit covers, and how much, follows the CompTIA objectives and evidence of what the exam asks (each exam's keyed practice exam: the Messer practice exams for A+ Core 1, the practice tests book for Network+; Domain 5 links), and questions are written the way the exam presents them. The CertMaster reading decides every answer. Your study guides, slides, and Blookets corroborate the keys and fill gaps; they never set the weight.
+13. **Flashcards cover only what is testable** (2026-11-14). A term gets a card only when the objectives name it, name a group it is one kind of, or a keyed practice-exam item's question or correct answer names it, and the unit's reading teaches it (`docs/CONTENT-HANDOFF.md` rule 6). Reading-only detail stays off the backs too. A fourth card check, the testable check, enforces it.
+14. **The re-check loop stops after three rounds** (2026-11-14). Whatever the third round still flags is dropped and listed in the unit's report; every changed question still gets a blind key check.
+15. **Network+ command-output questions carry a short text exhibit** (2026-11-14), written fresh for each question and never copied from a source.
+16. **A lesson's objectives, for Network+, are its "Exam Objectives Covered" box plus every objective CertMaster's Lesson Index (B.1.3) ties to it** (2026-11-14).
 
 ## 8. What I need from you
 
