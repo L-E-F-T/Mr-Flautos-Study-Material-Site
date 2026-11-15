@@ -20,6 +20,8 @@
     <blooket>.csv           copied as is
     <study guide>.txt       pdftotext -layout (keeps tables and columns)
     <study guide>.flow.txt  pdftotext without -layout (easier to read as prose)
+    <study guide>.tex       Network+: the study guide's source, copied as is (it marks every correct
+                            choice \CorrectChoice)
 #>
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
@@ -95,7 +97,8 @@ foreach ($folder in 'Activites', 'Activities', 'Blookets', 'Blooket') {
   }
 }
 # A+ keeps its study guides at the top of Study Guides. Network+ gives each unit a folder of its own
-# ("Net+ Unit 6.0 Review", with the .tex source next to the PDFs): only that folder's PDFs are read.
+# ("Net+ Unit 6.0 Review", with the .tex source next to the PDFs): only that folder's PDFs are read,
+# and its .tex source is copied.
 $guides = @(Get-TopFiles 'Study Guides' '*.pdf')
 $sgDir = Join-Path $CourseDir 'Study Guides'
 if (Test-Path -LiteralPath $sgDir) {
@@ -103,6 +106,11 @@ if (Test-Path -LiteralPath $sgDir) {
     if ($d.Name -notmatch "^$p Units? \d+\.0(?:\s*-\s*\d+\.0)? Review$" -or -not (Test-NamesUnit $d.Name $Unit)) { continue }
     if ($d.Name -match $graded) { "Skipped (looks like graded work): $($d.Name)"; continue }
     $guides += @(Get-ChildItem -LiteralPath $d.FullName -Filter *.pdf -File | Where-Object { Test-NamesUnit $_.Name $Unit })
+    # Its .tex source marks every correct choice \CorrectChoice: the key in a form an agent can read.
+    foreach ($t in @(Get-ChildItem -LiteralPath $d.FullName -Filter *.tex -File | Where-Object { Test-NamesUnit $_.Name $Unit })) {
+      if ($t.Name -match $graded) { "Skipped (looks like graded work): $($t.Name)"; continue }
+      Copy-Item -LiteralPath $t.FullName -Destination (Join-Path $out $t.Name) -Force; "Study guide source: $($t.Name)"; $found++
+    }
   }
 }
 foreach ($f in $guides) {

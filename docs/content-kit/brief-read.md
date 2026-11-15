@@ -13,6 +13,7 @@ You are mapping source items for Mr. Flauto's CompTIA study site, a high school 
 | The reading (CertMaster Learn), one file per section. Page breaks show as a line `<<<PAGE BREAK>>>`. | `SP\text\<section>.txt`, for example `SP\text\3.2.6.txt` |
 | The same text with page breaks as form feeds. Find phrases are checked against these. | `SP\text\<section>.raw.txt` |
 | Lesson overview pages (they list the lesson's exam objectives and teach nothing: never cite them) | `SP\text\<lesson>.txt`, for example `SP\text\3.1.txt` |
+| Not reading sections: never cite them, and never take a section number from them | `SP\text\0.0.txt` (course introduction); for Network+, `SP\text\B.1.2 ...txt` and `SP\text\B.1.3 ...txt` (exam details and objectives) and every `SP\text\8.*` to `SP\text\14.*` file (split from the chapter PDFs, not CertMaster printouts) |
 | Outline: units, lessons, the objectives each lesson lists, sections, titles | `C:\CompTIA Website\data\<<EXAM FOLDER>>\units.json` |
 | CompTIA objectives and bullets (`3.4.c`) | `C:\CompTIA Website\data\<<EXAM FOLDER>>\objectives.json` |
 | CertMaster question pools, numbered, NO answer key | `SP\pool\<file>.txt`, items headed `=== CertMaster 3.0 Q41 ===` |
@@ -20,6 +21,7 @@ You are mapping source items for Mr. Flauto's CompTIA study site, a high school 
 | Index of Messer items: label, PDF page, objective, topic | `SP\messer\messer-<<EXAM CODE>>.tsv` |
 | Network+: the practice exam book's items with the book's key and explanation | `SP\practice\<item>.txt`: Practice Tests 1 Q33 is `SP\practice\1-Q33.txt` |
 | Index of the Network+ practice exam: item, PDF page, objective (the heading it is printed under; `-` for the book's two full practice tests, Chapters 6 and 7), number of answers, number of choices, flags (`figure` = needs a picture, not usable; `exhibit` = prints a command's output, whose columns can come out of order in the text and can run onto the last choice: map it only if the text still settles it, otherwise `skip` with skipReason "exhibit"; `all-that-apply` = the stem says Choose all that apply, and `answers` is the book's key count), start of the stem | `SP\practice\practice-<<EXAM CODE>>.tsv` |
+| Network+: the chapters of Units 8.0 to 14.0, which have no printed sections yet (the chat writes them). They print no section numbers, and Lesson 8A is lesson 8.1 | `SP\chapters\Net+ 8.0.txt` to `SP\chapters\Net+ 14.0.txt` |
 
 ## This unit
 
@@ -39,7 +41,7 @@ You may write only your output file. Never edit anything else.
 
 1. **The reading decides the answer.** The pool has no key, and the practice exam (Messer, or the Network+ practice exam book) is a different book. Key every item from the reading section that answers it. Where the reading disagrees with the item, with the practice exam's key, or with Mr. Flauto's key, the reading wins: flag the disagreement and say exactly what each side says.
 2. **Known problems.** Key nothing to a point listed under "Known problems in the reading", and flag any item that depends on one. If you find a new contradiction or plain error in the reading, report it the same way.
-3. **An item belongs to the unit whose reading answers it.** An item is usable here only if one of this unit's sections settles the answer. If another unit's section settles it, give that section (`other-unit`). If no section anywhere settles it, say so (`no-reading`) and name the nearest section. Search all of `SP\text\` before you decide.
+3. **An item belongs to the unit whose reading answers it.** An item is usable here only if one of this unit's sections settles the answer. If another unit's section settles it, give that section (`other-unit`). If no section anywhere settles it, say so (`no-reading`) and name the nearest section. Search all of `SP\text\` and, for Network+, `SP\chapters\` before you decide. In Network+, the files `SP\text\8.*` to `SP\text\14.*` are excerpts split from the chapters, not CertMaster sections, and those units' whole chapters are in `SP\chapters\`: an item that Units 8.0 to 14.0 teach is `other-unit` with its unit and lesson, no section, and `notes` "not printed yet". Never cite one of those files as a section, and never call such an item `no-reading`.
 4. **Usable also means plain multiple choice.** Skip performance-based items (Messer A1 to A5, B1 to B5, C1 to C5) and anything that needs a picture (the Network+ practice exam index flags those `figure`).
 5. **Tag as specifically as you can:** the CompTIA objective plus its best-fitting bullet (`["3.4", "3.4.c"]`). If no bullet fits, tag the objective alone. Tag two bullets only when the item tests both equally. Never borrow a bullet that does not fit.
 6. **The find phrase** is 3 to 6 consecutive words copied from ONE line of `SP\text\<section>.raw.txt`, taken from the sentence that answers the item.
@@ -50,6 +52,19 @@ You may write only your output file. Never edit anything else.
 8. **One fact per item.** State in one plain sentence the single fact the item tests, so items that test the same fact with the same answer can be merged (`sameFactAs`).
 9. **"Select all that apply", "Select two", and "Select three"** items, and the practice exam's "Choose all that apply", "Choose two", and "Choose three": give every option the reading supports as correct. The index's `answers` column is the book's key count; go by it when the stem's wording disagrees.
 
+## Screening (Network+ practice exam candidates)
+
+When the chat gives you a screening share instead of items to map, do not key the items or find phrases: this unit's items are mapped in full afterwards. For each one, decide only where it belongs, by rules 2 to 4 above and from `units.json` (every unit's lessons and the objectives they list), `SP\text\`, and `SP\chapters\`. In place of the Return below, write one record per item, `{ "items": [ ... ] }`, to `<<OUTPUT FILE, for example SP\map\screen-1-Q104-Q153.json>>` with the Write tool, and reply with only the counts by status.
+
+| Field | Value |
+|---|---|
+| `item` | "Practice Tests 1 Q104" |
+| `status` | `this-unit`, `other-unit`, `no-reading`, or `skip` (a `figure` item) |
+| `unit`, `lesson` | The unit and lesson whose reading answers it ("6.0", "6.5") |
+| `section` | The section that answers it, where one is printed (none for Units 8.0 to 14.0 yet) |
+| `bullet` | The bullet the item asks about ("3.4.b"). For Chapters 6 and 7, which carry no objective, this is how the item is placed |
+| `why` | A few words ("not printed yet" for an item that Units 8.0 to 14.0 teach) |
+
 ## Return
 
 Write one record per item as JSON, `{ "items": [ ... ] }`, to `<<OUTPUT FILE, for example SP\map\pool-Q1-Q25.json>>` with the Write tool, and reply with only the counts by status. The fields:
@@ -59,6 +74,7 @@ Write one record per item as JSON, `{ "items": [ ... ] }`, to `<<OUTPUT FILE, fo
 | `item` | "CertMaster 2.0 Q14" |
 | `status` | `usable`, `other-unit`, `no-reading`, or `skip` |
 | `section` | The section that settles it (for `no-reading`, the nearest one) |
+| `unit`, `lesson` | For `other-unit` when that unit has no printed sections yet (Network+ Units 8.0 to 14.0): the unit and lesson whose chapter teaches it ("9.0", "9.2"), with `section` left empty |
 | `answerLetters`, `answerText` | The key from the reading, as the item's own letters and text |
 | `objective`, `bullets` | `"2.5"`, `["2.5.b"]` |
 | `findPhrase`, `findLine` | See rule 6 |
@@ -66,6 +82,7 @@ Write one record per item as JSON, `{ "items": [ ... ] }`, to `<<OUTPUT FILE, fo
 | `sameFactAs` | Other items in your share that test the same fact with the same answer |
 | `readingDisagrees`, `disagreeNote` | `true` and what each side says, or `false` and `""` |
 | `bookKey` | For a practice exam item (Messer or the Network+ book), the book's letter(s) |
+| `keyTerms` | For a practice exam item: each term it asks about or has as its correct answer (the guide's test C) that this unit's reading teaches, or `[]` |
 | `skipReason` | For `skip` and `no-reading`, a few words |
 | `confidence` | `high`, `medium`, or `low` |
 | `notes` | Anything Mr. Flauto should know |

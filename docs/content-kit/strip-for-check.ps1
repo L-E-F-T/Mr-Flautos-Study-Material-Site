@@ -9,7 +9,8 @@
   Reads packs\unit-NN.questions.json and packs\unit-NN.flashcards.json. Writes, under -Scratch\check:
     questions-blind.json  For each question: id, stem, its exhibit if it has one, choices, how many to
                           choose, the cited sections, and each objective and bullet with its title. No
-                          answer, find phrase, or origin.
+                          answer, find phrase, or origin. Not written while there is no question pack
+                          (after assemble.ps1 -CardsOnly).
     card-backs.json       For each card: id and back only. The checker names the term.
     card-terms.json       For each card: id, term, and cited section only. The checker writes the back.
   Optional -Only limits the copies to the ids given, for re-checking fixed items: -Only q005,q017,f012
@@ -34,7 +35,10 @@ foreach ($d in (Read-Json "$Data\objectives.json").domains) { foreach ($o in $d.
 $out = Join-Path $Scratch 'check'
 New-Item -ItemType Directory -Force $out | Out-Null
 
-$qs = (Read-Json "$Scratch\packs\unit-$nn.questions.json").questions
+$qFile = "$Scratch\packs\unit-$nn.questions.json"
+# After assemble.ps1 -CardsOnly there is no question pack yet: then only the card copies are made.
+$haveQuestions = Test-Path -LiteralPath $qFile
+$qs = if ($haveQuestions) { @((Read-Json $qFile).questions) } else { @() }
 $Only = @($Only | ForEach-Object { $_ -split '[,\s]+' } | Where-Object { $_ })  # -File passes "q005,q019" as one string
 function Test-Wanted([string]$id) { if (-not $Only.Count) { return $true }; @($Only | Where-Object { $id.EndsWith("-$_") -or $id -eq $_ }).Count -gt 0 }
 $qs = @($qs | Where-Object { Test-Wanted $_.id })
@@ -48,8 +52,10 @@ $blind = @($qs | ForEach-Object {
   $b.tags = @($_.objectives | ForEach-Object { "$_ $($objTitle[$_])" })
   $b
 })
-[IO.File]::WriteAllText((Join-Path $out 'questions-blind.json'), (ConvertTo-Json -InputObject $blind -Depth 6), $utf8)
-"questions-blind.json: $($blind.Count) questions"
+if ($haveQuestions) {
+  [IO.File]::WriteAllText((Join-Path $out 'questions-blind.json'), (ConvertTo-Json -InputObject $blind -Depth 6), $utf8)
+  "questions-blind.json: $($blind.Count) questions"
+} else { 'questions-blind.json: not written (no question pack yet: assemble.ps1 -CardsOnly)' }
 
 $cardFile = "$Scratch\packs\unit-$nn.flashcards.json"
 if (Test-Path -LiteralPath $cardFile) {

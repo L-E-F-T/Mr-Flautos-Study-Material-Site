@@ -178,7 +178,7 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 2. **Answer keys come from the reading.** The CertMaster pool export has no key.
 3. **Book quotes are added by you.** Each question carries the section and a search phrase; the quote helper opens that section's PDF beside the question. Quotes are capped at 40 words.
 4. **Citations match your papers:** "Reading 3.2.6", no product name.
-5. **"Select all that apply" becomes "Choose two/three."** The real exam always states the count.
+5. **"Select all that apply" becomes "Choose two/three."** The real exam always states the count. A practice-exam item whose key gives only one answer becomes a one-answer item, and one with four or more answers is used only if it still works as a choose two or three (2026-11-14).
 6. **Lab-only packs** (`private/` folders) hold anything that must never be public. Git ignores them and the deploy step strips them.
 7. **Content is written in a separate chat** and anything first-pass is flagged as placeholder until you approve a replacement.
 8. **The UI is labels only:** no emoji, no how-to text.
@@ -186,7 +186,7 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 10. **No saved score on the home page** (2026-11-10). Scores live in the Recent history panel on the practice page; the home card only offers to resume.
 11. **Anything without content is labeled "Coming soon"** (2026-11-10), worked out from the data.
 12. **The exam leads, the reading keys, your materials support** (2026-11-10). What each unit covers, and how much, follows the CompTIA objectives and evidence of what the exam asks (each exam's keyed practice exam: the Messer practice exams for A+ Core 1, the practice tests book for Network+; Domain 5 links), and questions are written the way the exam presents them. The CertMaster reading decides every answer. Your study guides, slides, and Blookets corroborate the keys and fill gaps; they never set the weight.
-13. **Flashcards cover only what is testable** (2026-11-14). A term gets a card only when the objectives name it, name a group it is one kind of, or a keyed practice-exam item's question or correct answer names it, and the unit's reading teaches it (`docs/CONTENT-HANDOFF.md` rule 6). Reading-only detail stays off the backs too. A fourth card check, the testable check, enforces it.
+13. **Flashcards cover only what is testable** (2026-11-14). A term gets a card only when the unit's reading teaches it and it passes one of three tests: the objectives name it; they name a group it is one kind of without listing the group's members; or a keyed practice-exam item asks about it or has it as its correct answer (never only a wrong choice, an explanation, or a mention in a scenario or command output). The full rule is `docs/CONTENT-HANDOFF.md` rule 6 and the guide's "Which terms get a card". Reading-only detail stays off the backs too. A fourth card check, the testable check, enforces it.
 14. **The re-check loop stops after three rounds** (2026-11-14). Whatever the third round still flags is dropped and listed in the unit's report; every changed question still gets a blind key check.
 15. **Network+ command-output questions carry a short text exhibit** (2026-11-14), written fresh for each question and never copied from a source.
 16. **A lesson's objectives, for Network+, are its "Exam Objectives Covered" box plus every objective CertMaster's Lesson Index (B.1.3) ties to it** (2026-11-14).

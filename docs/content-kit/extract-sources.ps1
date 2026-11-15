@@ -211,8 +211,9 @@ if ($zBook -and (Test-Path -LiteralPath $zBook)) {
     $sb.ToString()
   }
   # A stem that prints a command's output keeps the book's lines. Its columns may still come out of
-  # order: the index flags it "exhibit", with the PDF page to read instead.
-  $exhibitRx = '(?i)\boutput shown\b|\bshown here\b|\bthe following output\b'
+  # order: the index flags it "exhibit", with the PDF page to read instead. ". . . ." is the dotted
+  # leader of ipconfig /all output, which some stems print without saying "output shown".
+  $exhibitRx = '(?i)\boutput shown\b|\bshown here\b|\bthe following output\b|\. \. \. \.'
   $zItems = New-Object System.Collections.Generic.List[object]; $zByName = @{}
   $zOdd = New-Object System.Collections.Generic.List[string]
   $part = 'front'; $ch = 0; $obj = '-'; $n = 0; $cur = $null; $kch = 0; $kn = 0; $kcur = $null; $page = 1

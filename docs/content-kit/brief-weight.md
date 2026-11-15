@@ -10,6 +10,8 @@ Mr. Flauto's goal: **each unit's questions are weighted toward what actually app
 
 Every objective bullet that this unit's reading teaches: <<LIST OF BULLETS, each with its objective's verb ("Given a scenario", "Compare and contrast", "Summarize", "Explain")>>. Rank bullets, and within a bullet name the distinct facts that matter (for 3.4.c: "RAID 1 survives one disk failure", "RAID 0 has no redundancy", "RAID 5 usable capacity").
 
+For Network+, whose bullets are broad (3.4 has three bullets for all of DHCP, SLAAC, DNS, and the time protocols), rank each detail line under a bullet that this unit's reading teaches as its own row (`3.4.b` with topic "DNS > Record types", `1.4.a` with topic "Domain Name System (DNS) - 53"), each with its own tier. A fact under no detail line is tier 3 unless the exam evidence keys it.
+
 The mapping is done: `SP\<<PLAN FILE>>` has one line per source item with its section, key, bullet, fact, and status.
 
 **Facts the exam's packs already ask** on this unit's objectives, from earlier units (do not count them again): <<LIST, each with its question id, or "none">>.
@@ -21,7 +23,7 @@ Each lens agent writes its result as JSON to its own file (`SP\rank-exam.json` f
 For each bullet, count and cite:
 
 1. **Practice exam keyed items.** Items in the exam's practice exam index tagged with this bullet's objective whose answer turns on this bullet: `SP\messer\messer-<<EXAM CODE>>.tsv` (A+ Core 1, Messer) or `SP\practice\practice-<<EXAM CODE>>.tsv` (Network+). Note which Messer items are performance-based (A1 to A5, B1 to B5, C1 to C5): a PBQ shows what the exam asks students to do. The Network+ book has no PBQs, and its two full practice tests (Chapters 6 and 7) carry no objective: count the ones the plan file places on this bullet (from the Chapter 6 and 7 screen).
-2. **Domain 5 links.** Practice exam items tagged 5.x (troubleshooting) that need this bullet's facts to answer: a RAID level's failure behavior, a power supply's rails, a memory symptom. Troubleshooting is the heaviest domain, so a fact it leans on is high yield even when its own objective is light.
+2. **Domain 5 links.** Practice exam items tagged 5.x (troubleshooting) that need this bullet's facts to answer: a RAID level's failure behavior, a power supply's rails, a memory symptom (A+ Core 1); a DHCP scope with no addresses left, a wrong DNS server, an APIPA address (Network+). Network+ lessons often list a 5.x objective themselves: its items are this unit's own evidence where this unit's reading answers them. Troubleshooting is the heaviest domain, so a fact it leans on is high yield even when its own objective is light.
 3. **Distractor appearances.** Items where a term from this bullet is a wrong choice. Weak evidence: it shows the exam expects students to tell the terms apart.
 4. **The verb.** "Given a scenario" objectives are asked as install, choose, or diagnose scenarios and are the likeliest PBQs. "Compare and contrast" is asked as "pick the technology that meets this requirement". "Summarize" and "Explain" are recognition and short scenarios.
 5. **Domain weight** from `SP\examdetails.txt`.
