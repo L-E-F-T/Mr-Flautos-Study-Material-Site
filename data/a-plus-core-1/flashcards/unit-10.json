@@ -61,7 +61,7 @@
     {
       "id": "c1-u10-f008",
       "term": "Wireless (printer connection)",
-      "definition": "A printer's Bluetooth or Wi-Fi link; for Bluetooth, make the printer discoverable on its control panel, then add the device through the Bluetooth settings in Windows.",
+      "definition": "A printer's link over Wi-Fi or Bluetooth instead of a USB or Ethernet cable.",
       "objectives": ["3.7", "3.7.d"],
       "units": ["10.1.3"],
       "reference": { "source": "certmaster", "section": "10.1.3", "title": "Print Device Connectivity" }
