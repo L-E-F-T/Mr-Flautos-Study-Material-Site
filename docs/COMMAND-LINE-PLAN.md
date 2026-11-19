@@ -108,7 +108,7 @@ One shape, frozen in phase 0 as `schemas/command-pack.schema.json` with one exam
 - **`system`**: windows, linux, router, or switch. The prompt text is set in code.
 - **`accept`**: one to three answer groups. A group holds its lines, and may name the reading sections that teach them in `sections`, which only the kit reads. Lines are plain text the way the reading or the objectives print them. No patterns, no second spellings.
 - **`versions`**: one to three. Each has an id (`n-u04-v001`, never reused), one output for each answer group in the same order, and at most one `followUp`. An output is `text` (which may be empty where the real command prints nothing) or `exhibitOf`, which prints the exhibit of the version's own follow-up question.
-- **`alsoWorks`** (optional, on the command): lines a real system would run for this job that the reading does not teach, such as `ifconfig -a`. A typed line that matches one costs no try (section 6). The list starts empty and grows only from what the blind command check types. It is not in the schema or the example pack yet: 1a push 2 adds it to both.
+- **`alsoWorks`** (optional, on the command): lines a real system would run for this job that the reading does not teach, such as `ifconfig -a`. A typed line that matches one costs no try (section 6). The list starts empty and grows only from what the blind command check types. 1a push 2 added it to the schema and to the example command `n-u99-c001`.
 - **`followUp`** is `{ "question": "<id>" }`, a published question of the same exam. A follow-up written in place is refused by the content check until phase 3.
 - **Ids.** A command is `n-u04-c001`. No id is shared with a question, a card, or a version of any exam.
 - **No weight is stored.** The draw works it out from the partner question's source (the practice exam book's two full tests, Practice Tests 6 and 7, count 3, the rest of the book 2). With several partner questions the highest weight counts. A command with an `origin` of its own uses that source. Anything that is not the practice exam book counts 1.
@@ -162,7 +162,7 @@ One shape, frozen in phase 0 as `schemas/command-pack.schema.json` with one exam
 
 The label Not counted is a working label. He sees it in the phone trial and may rename it.
 
-The planner's working sketch and 373 passing test rows are in the planning notes (section 13). 148 rows were run on this PC. No Linux or device row has been run by anyone.
+The matcher is `assets/js/lib/command-match.js`, ported from the planner's sketch in 1a push 2. Its case table, `tools/command-cases.json`, holds 404 rows that the content check runs on every check, in the browser and on GitHub. 148 rows were run on this PC. No Linux or device row has been run by anyone.
 
 ## 7. The page
 
@@ -233,7 +233,7 @@ A session is one focused website chat.
 
 **Content cost**, counted from agent runs and not measured: 2.5 to 4 points of his weekly limit for the launch set, 3 to 5 with follow-ups. A unit run cost 10 to 14. Plan on 4 to 6 until the Unit 4.0 trial gives a real number.
 
-**Website cost in points is not known yet.** One measurement exists: the planning round (six agents, about 3 million tokens) took 11 points of the weekly limit and 22 points of the weekly limit for the model it ran on. A build session without agent rounds should cost far less. The first 1a session measures it, and the rest is priced from that. 1a push 1 was measured: 3 points of the weekly limit and 7 of the larger model's weekly limit, built by one agent inside the planning chat. No Opus 5.5 chat has been measured yet. 1a push 2 is the first.
+**Website cost in points is not known yet.** One measurement exists: the planning round (six agents, about 3 million tokens) took 11 points of the weekly limit and 22 points of the weekly limit for the model it ran on. A build session without agent rounds should cost far less. The first 1a session measures it, and the rest is priced from that. 1a push 1 was measured: 3 points of the weekly limit and 7 of the larger model's weekly limit, built by one agent inside the planning chat. 1a push 2, the first Opus 5.5 chat, cost under 1 point of the weekly limit (47% before and after) and 1 point of the 5-hour limit, with the context 39% full at the end.
 
 ## 11. Rules for the build
 
@@ -255,7 +255,7 @@ A session is one focused website chat.
 
 ## 13. Where the detailed notes are
 
-The planners' full notes, the matcher sketch, and the 373 test rows are kept outside the repository on this PC, in `.claude\projects\C--CompTIA-Website\command-line-plan\` under the user's home folder (`planners\site`, `planners\page`, `planners\matcher`, `planners\content`, `planners\out`). They hold file and line references for every change, and notes on the source materials, so they are not committed. Phase 1a ports the sketch to a module and turns the draft rows into the case table (section 14, 1a push 2).
+The planners' full notes, the matcher sketch, and the 373 test rows are kept outside the repository on this PC, in `.claude\projects\C--CompTIA-Website\command-line-plan\` under the user's home folder (`planners\site`, `planners\page`, `planners\matcher`, `planners\content`, `planners\out`). They hold file and line references for every change, and notes on the source materials, so they are not committed. 1a push 2 ported the sketch to `assets/js/lib/command-match.js` and turned the draft rows into the case table, `tools/command-cases.json`.
 
 ## 14. Where the build stands, and how a new chat continues
 
@@ -276,12 +276,13 @@ The planners' full notes, the matcher sketch, and the 373 test rows are kept out
 | Phase 0 | `d6021e6` | This plan, `schemas/command-pack.schema.json`, the example pack `tools/test-data/ready/network-plus/commands/unit-99.json`, `docs/COMMAND-LINE-CHECKLISTS.md` | Pushed 2026-11-19 | Counted with 1a push 1 |
 | 1a push 1 | `e28deb6` | `tools/serve.ps1 -DataOverlays`, the preview server `study-site-fixture` (ports 8091 to 8095), `tools/test-data/`, the page check and "every root page" in `pages.yml`, new exports in `assets/js/lib/content.js`, `commandUnits` in `schemas/exams.schema.json` | Pushed 2026-11-19. The GitHub run passed, including Check the pages. The published site was opened and loads as before. | 3 points of the weekly limit and 7 of the larger model's weekly limit, built by one agent inside the planning chat. No Opus 5.5 chat has been measured yet. |
 | Build state and rules | the commit named "Command line: build state and rules for the build chats" | This section, the reworked `docs/COMMAND-LINE-CHECKLISTS.md`, `alsoWorks` and Not counted (sections 4 and 6), the Command line section of `CLAUDE.md`, one-line pointers in `docs/PLAN.md`, `docs/CONTENT-GUIDE.md`, and `docs/CONTENT-HANDOFF.md` | Committed 2026-11-19, not pushed. It changes no page and no script. It goes out with the next `git push`: do not push it alone. | Planning chat |
+| 1a push 2 | `003fdac` | `assets/js/lib/command-match.js` (the matcher), `tools/command-cases.json` (404 rows), the case table hook and its line in `assets/js/lib/validate-core.js` and `tools/validate.js`, `alsoWorks` in `schemas/command-pack.schema.json` and on the example command (both copies, named in `tools/test-data/README.md`), the matcher rule in `CLAUDE.md` | Committed 2026-11-19, not pushed. Its `git push` also sends the build state commit above and the section 14 commit after it. | Under 1 point of the weekly limit (47% before and after) and 1 point of the 5-hour limit (11% to 12%). No weekly line for Opus 5.5 is shown: the only model line is Fable, 84% before and after. Context 39% full at the end. Built alone, no agents. |
 
 `commandUnits` is not in `data/exams.json`. That line is the launch switch and belongs to phase 1d.
 
 ### Next
 
-**1a push 2: the matcher and its test lines, alone.** Its steps are under "The pushes, one by one".
+**1a push 3: the command checks and the content check panel.** Its steps are under "The pushes, one by one". 1a push 2 is committed, not pushed: by rule 2 the chat first asks him for the word to `git push` it and does rule 8 for it, unless this section already shows it pushed.
 
 ### What the pushes so far settled beyond the plan
 
@@ -292,7 +293,22 @@ The planners' full notes, the matcher sketch, and the 373 test rows are kept out
 - The fixture server refuses test data on any port outside 8091 to 8095 and adds the header `X-Test-Data` to every answer that came from `tools/test-data`. It reads files fresh on every request. The five `exams.json` files there are copies of `data/exams.json`: make them again when it changes (`tools/test-data/README.md`).
 - On localhost every exam page logs two 404 notes for the optional `manifest.private.json` files. "No console errors" in a checklist means no script errors.
 - Several tracked files have CRLF line endings in the working folder. Keep each file's own line endings when editing. Git here has `core.autocrlf` set to true, so `git add` and `git diff` print a warning that LF will be replaced by CRLF for any file written with LF. The warning is harmless: do not change a file's line endings because of it.
-- The content check today reads "Ready to publish. 0 errors, 735 warnings."
+- The content check today reads "Ready to publish. 0 errors, 735 warnings." and, under it, "Case table: 404 of 404, matcher 1", the same on ports 8081 and 8091.
+- **The matcher's exports** (`assets/js/lib/command-match.js`, matcher 1). A later push calls only these:
+  - `MATCHER_VERSION` (1) and `SYSTEMS` (`['windows', 'linux', 'router', 'switch']`). `promptFor(system)` gives `C:\>`, `$`, `Router#`, or `Switch#`, and `systemName(system)` gives Windows, Linux, Router, or Switch (each gives an empty string for an unknown system).
+  - `VERDICTS[code]` is `{ verdict, label, counts, keepLine }`, frozen, and the only place a label is written. `wordsFor(result)` gives `{ label, tag }`.
+  - `cleanLine(raw, system)` gives the cleaned text. `readLine(text, system)` gives `{ system, first, name, toks, key }`. Two lines are the same line to the matcher when `readLine(cleanLine(line, system), system).key` is the same for both.
+  - `specFromItem(command)` gives `{ system, groups, given, alsoWorks }`. `groups[i]` holds the lines of `accept[i]`, so a result's `group` is the output to print. `given` is `givenTargets(task, every accepted line)`.
+  - `givenTargets(task, lines)` gives each given target once, written as the line writes it, without the `@`.
+  - `buildContext(specs)` gives `{ toolWords }`, a Set of the first word of every stored line (`alsoWorks` lines are not in it). Make it once for an exam, from every command's spec.
+  - `matchSpec(spec, raw, ctx)`, and `matchLine(command, raw, ctx)` for the page, give `{ verdict, code, counts, keepLine, typed, group, line, exact, word, runsOn }`. Every result has all ten fields, and a field that does not apply is `null`. `typed` is the cleaned line. `word` is the command word as typed for `not-recognized` and `not-in-tool` (cut at a slash on Windows, after a dropped `sudo` on Linux), and the command as read for `wrong-command`. `runsOn` is a list only on a wrong command that belongs to another system.
+  - `plainFormProblems(line, system)` gives a list of phrases, each to follow the line in a sentence ("is longer than 36 characters"), and an empty list when the line is plain. `isCommandLine(text)` gives true or false.
+- Not counted is tried right after Accepted, in this order: an `alsoWorks` line, then (router or switch only) a short form of an accepted line, then a short form of an `alsoWorks` line. The extra-period check tries all three.
+- `validate-core.js` runs the case table before it reads `data/exams.json`, so its line prints even when the registry cannot be read. It exports `CASE_TABLE_PATH` and `caseTableLine(report)`. `report.caseTable` is `{ rows, passed, matcher }`, or null when the table cannot be read. `formatReport` prints the line first. On the content check page it is a `p` with the classes `muted small` under the verdict, outside what proof 1a2.12 collects.
+- **The case table's shape.** Every set has `system`, `groups`, `given`, and `alsoWorks` (an empty list when it has none). A `cases` row has `s`, `t`, `x`, `why`, and `ev`, and may name `g` (null for no group), `line`, `exact`, `on`, `label`, `tag`, and `keep`: the hook checks each field a row names. An unknown field in the table, a set, or a row is an error. 385 cases, 12 `given` rows, and 7 `commandLines` rows. Evidence marks: run 148, doc 28, gk 9, notrun 7, rule 212.
+- Rows added beyond the plan's list: the fixture set `win-ping-also` shows that an `alsoWorks` line with a different address goes through the usual steps (against the stored line it is Right command, wrong details), and the words rows (`label`, `tag`, `keep`) cover every code.
+- Known gap, with no row: a help line with the slash against the name (`ipconfig/?`) is not caught by step 2, which looks at the line before the slash rule, so it reads Right command, wrong details and costs a try. Changing that is a matcher change with a row of its own (rule 6 of section 11).
+- `ipconfig /allcompartments` was run on this PC (exit code 0) before it went on the example command.
 
 ### Rules for every build chat
 
