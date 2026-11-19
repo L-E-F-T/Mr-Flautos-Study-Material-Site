@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Command pack (Command line tool)",
+  "description": "Commands for the typed command drill. One launch pack per unit (unit-04.json). The extra set is a pack of its own (unit-04-extra.json) marked \"set\": \"extra\". The shape is frozen in docs/COMMAND-LINE-PLAN.md section 4. The page ignores a field it does not know, and the content check warns about one.",
+  "type": "object",
+  "required": ["commands"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "pack": { "$ref": "#/definitions/packInfo" },
+    "commands": { "type": "array", "items": { "$ref": "#/definitions/command" } }
+  },
+  "definitions": {
+    "packInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "description": "Pack id, e.g. unit-04 (the extra set: unit-04-extra)." },
+        "title": { "type": "string", "description": "Unit title, e.g. Unit 4.0 Configuring Network Addressing." },
+        "set": { "enum": ["extra"], "description": "Only on a pack of extra commands, which students opt in to. A launch pack has no \"set\". The loader stamps it on each command of the pack." },
+        "reviewed": { "type": "boolean", "description": "Set true once the teacher has read the pack." },
+        "placeholder": { "type": "boolean", "description": "true = test content that must be deleted and replaced. The site shows a Test content banner and the content check keeps warning. Never set this on real content." },
+        "notes": { "type": "string" }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "required": ["source", "section"],
+      "properties": {
+        "source": { "type": "string", "description": "Key from the exam's \"sources\" in data/exams.json, e.g. certmaster." },
+        "section": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$", "description": "Reading section that teaches the command, e.g. 4.4.1." },
+        "title": { "type": "string", "description": "Section title, e.g. ipconfig." },
+        "page": { "type": "integer" },
+        "quote": { "type": "string", "description": "The one or two sentences from the reading (40 words max). May be empty." },
+        "find": { "type": "string", "description": "Teacher helper: three to six words to search for in the section to locate the quote. Never shown to students." }
+      }
+    },
+    "origin": {
+      "type": "object",
+      "required": ["kind"],
+      "description": "Present exactly when no id in \"typedFormOf\" is a question: a flashcard's command, a command Mr. Flauto names, or an extra command. It names the one source item the command is modeled on. A command that types a published question has no origin of its own.",
+      "properties": {
+        "kind": { "enum": ["original", "certmaster-variation", "messer-variation", "practice-exam-variation", "teacher", "other"] },
+        "basedOn": { "type": "string", "description": "e.g. \"CertMaster 5.0 Q59\" or \"Practice Tests 5 Q195\"." },
+        "verbatim": { "type": "boolean", "description": "true = copied word for word. Only allowed in lab-only (private) packs." }
+      }
+    },
+    "answerGroup": {
+      "type": "object",
+      "required": ["lines"],
+      "additionalProperties": false,
+      "properties": {
+        "lines": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "maxLength": 36 },
+          "description": "Right lines that print the same output, 36 characters at most. Plain text the way the reading or the objectives print them. No patterns and no second spellings: how a line may be typed is decided in code."
+        },
+        "sections": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+          "description": "Optional, read only by the content kit: the reading section that teaches these lines when it is not the command's own reference section."
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "oneOf": [{ "required": ["text"] }, { "required": ["exhibitOf"] }],
+      "description": "What one answer group prints in this version: a text, or the exhibit of the version's follow-up question. Never both.",
+      "properties": {
+        "text": {
+          "type": "string",
+          "pattern": "^[^\\n]{0,25}(\\n[^\\n]{0,25}){0,11}$",
+          "description": "Written fresh: at most 12 lines of at most 25 characters, lines separated by \\n, no tabs, no em dashes. Empty (\"\") where the real command prints nothing."
+        },
+        "exhibitOf": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*-u[0-9]{2}-q[0-9]{3}$",
+          "description": "Print the exhibit of this version's own follow-up question in place of a text. The same id as followUp.question."
+        }
+      }
+    },
+    "followUp": {
+      "type": "object",
+      "required": ["question"],
+      "additionalProperties": false,
+      "description": "A question about the output, asked under it whichever right line was typed. For now always a published question. One written in place is refused by the content check.",
+      "properties": {
+        "question": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*-u[0-9]{2}-q[0-9]{3}$",
+          "description": "Id of a published practice question of the same exam that reads this output, e.g. n-u04-q054."
+        }
+      }
+    },
+    "version": {
+      "type": "object",
+      "required": ["id", "outputs"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9]*-u[0-9]{2}-v[0-9]{3}$", "description": "Course code, unit, the letter v, a number: n-u04-v001. A saved drill remembers it. Never reuse one." },
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": { "$ref": "#/definitions/output" },
+          "description": "One output for each answer group, in the same order as \"accept\"."
+        },
+        "followUp": { "$ref": "#/definitions/followUp" }
+      }
+    },
+    "command": {
+      "type": "object",
+      "required": ["id", "system", "task", "accept", "versions", "units", "reference"],
+      "additionalProperties": false,
+      "anyOf": [{ "required": ["typedFormOf"] }, { "required": ["origin"] }],
+      "description": "One command: a task, the lines that answer it, and what each prints. It needs \"typedFormOf\", \"origin\", or both. No weight is stored: the draw works it out from the partner question's source.",
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9]*-u[0-9]{2}-c[0-9]{3}$", "description": "Course code, unit, the letter c, a number: n-u04-c001. Shared with no question, card, or version of any exam. Never reuse one." },
+        "status": { "enum": ["draft", "published"], "description": "Drafts are hidden from students (preview with ?drafts=1)." },
+        "typedFormOf": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9]*-u[0-9]{2}-[qf][0-9]{3}$" },
+          "description": "Always a list: the published questions, or the one flashcard, of this exam whose command line this command types. No question or card is the partner of two commands."
+        },
+        "origin": { "$ref": "#/definitions/origin" },
+        "system": { "enum": ["windows", "linux", "router", "switch"], "description": "The system the task names. The prompt text is set in code." },
+        "task": { "type": "string", "minLength": 1, "description": "One or two sentences that name the system and end by asking which command. It never holds an accepted line." },
+        "accept": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": { "$ref": "#/definitions/answerGroup" },
+          "description": "One to three answer groups. A group holds lines only. Each group prints its own output."
+        },
+        "versions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": { "$ref": "#/definitions/version" },
+          "description": "One to three versions of the output. The task and the accepted lines are the same in every version."
+        },
+        "objectives": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.[a-z][a-z0-9]*)?$" },
+          "description": "Objective (5.5) and/or sub-objective (5.5.a) ids."
+        },
+        "units": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.\\d+)?$" },
+          "description": "Unit (4.0), lesson (4.4), or section (4.4.1) ids."
+        },
+        "reference": { "$ref": "#/definitions/reference" }
+      }
+    }
+  }
+}
