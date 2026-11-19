@@ -6,6 +6,10 @@
  */
 import { loadRegistry, loadExamContent, itemsFromPacks, isPlaceholderPack } from './content.js';
 import { objectiveTaxonomy, unitTaxonomy, indexTaxonomy, ancestorAtDepth, naturalCompare } from './taxonomy.js';
+import {
+  MATCHER_VERSION, SYSTEMS, VERDICTS, buildContext, cleanLine, givenTargets, isCommandLine, matchSpec, plainFormProblems,
+  readLine, wordsFor,
+} from './command-match.js';
 
 export const MAX_QUOTE_WORDS = 40;
 const EXAM_STATUSES = ['live', 'planned', 'hidden'];
@@ -30,9 +34,12 @@ function checkDashes(warn, where, label, text) {
 
 /** Load and validate everything. readJSON follows the contract in content.js. */
 export async function validateAll(readJSON, { includePrivate = true } = {}) {
-  const report = { errors: [], warnings: [], exams: [] };
+  const report = { errors: [], warnings: [], exams: [], caseTable: null };
   const error = (where, message) => report.errors.push({ where, message });
   const warn = (where, message) => report.warnings.push({ where, message });
+
+  // The Command line matcher's test lines run first, on every check.
+  report.caseTable = await checkCaseTable(readJSON, error);
 
   let registry;
   try {
@@ -342,9 +349,233 @@ function validateExam(exam, content, { error, warn }) {
   };
 }
 
+/* ---------- Command line: the matcher's case table (tools/command-cases.json) ---------- */
+
+export const CASE_TABLE_PATH = 'tools/command-cases.json';
+const EVIDENCE = ['run', 'doc', 'rule', 'gk', 'notrun'];
+const CASE_TABLE_FIELDS = ['note', 'matcher', 'sets', 'cases', 'given', 'commandLines'];
+const CASE_SET_FIELDS = ['system', 'groups', 'given', 'alsoWorks'];
+const CASE_ROW_FIELDS = ['s', 't', 'x', 'g', 'line', 'exact', 'on', 'label', 'tag', 'keep', 'why', 'ev'];
+const GIVEN_ROW_FIELDS = ['task', 'lines', 'want', 'why', 'ev'];
+const COMMAND_LINE_ROW_FIELDS = ['t', 'want', 'why', 'ev'];
+const RESULT_FIELDS = ['verdict', 'code', 'counts', 'keepLine', 'typed', 'group', 'line', 'exact', 'word', 'runsOn'];
+
+const hasOwn = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
+const isPlainObject = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+const isStringList = (value) => Array.isArray(value) && value.every((v) => typeof v === 'string');
+
+/** A typed line as a message shows it: in quotes, with odd characters as \u escapes. */
+function showLine(text) {
+  const escaped = String(text).replace(/[^\x20-\x7E]/g, (ch) => `\\u${ch.charCodeAt(0).toString(16).toUpperCase().padStart(4, '0')}`);
+  return `"${escaped}"`;
+}
+
+/**
+ * Runs the case table: every row is typed through the matcher and must get what it says, and
+ * every fixture set's own lines must be plain and work on their own set. Each failure is an
+ * error, so it blocks publishing. Returns { rows, passed, matcher } for the report's line, or
+ * null when the table cannot be read.
+ */
+async function checkCaseTable(readJSON, error) {
+  const where = CASE_TABLE_PATH;
+  let table;
+  try {
+    table = await readJSON(CASE_TABLE_PATH);
+  } catch (e) {
+    error(where, e.message);
+    return null;
+  }
+  if (!isPlainObject(table)) {
+    error(where, 'Must be an object with "matcher", "sets", "cases", "given", and "commandLines".');
+    return null;
+  }
+  for (const key of Object.keys(table)) if (!CASE_TABLE_FIELDS.includes(key)) error(where, `Unknown field "${key}".`);
+  if (table.matcher !== MATCHER_VERSION) {
+    error(where, `"matcher" is ${JSON.stringify(table.matcher)}, but assets/js/lib/command-match.js is matcher ${MATCHER_VERSION}. Change the two together.`);
+  }
+
+  // The fixture sets. A broken set is reported, and every row that names it fails.
+  const sets = new Map();
+  if (!isPlainObject(table.sets)) error(where, '"sets" must be an object of fixture sets.');
+  else {
+    for (const [name, set] of Object.entries(table.sets)) {
+      const problems = caseSetProblems(set);
+      if (problems.length) error(`${where} › sets › ${name}`, `${problems.join('; ')}.`);
+      else sets.set(name, set);
+    }
+  }
+  const ctx = buildContext([...sets.values()]);
+  for (const [name, set] of sets) {
+    try {
+      checkCaseSet(`${where} › sets › ${name}`, set, ctx, error);
+    } catch (e) {
+      error(`${where} › sets › ${name}`, `The check stopped: ${e && e.message ? e.message : e}.`);
+    }
+  }
+
+  // The rows of the three lists. N in the report's line counts all of them.
+  let rows = 0;
+  let passed = 0;
+  const runList = (key, check, label) => {
+    const list = table[key];
+    if (!Array.isArray(list)) {
+      error(where, `"${key}" must be a list of rows.`);
+      return;
+    }
+    list.forEach((row, i) => {
+      rows += 1;
+      let problems;
+      try {
+        problems = check(row);
+      } catch (e) {
+        problems = [`the check stopped: ${e && e.message ? e.message : e}`];
+      }
+      if (problems.length) error(`${where} › ${key}[${i}]${isPlainObject(row) ? ` ${label(row)}` : ''}`, `${problems.join('; ')}.`);
+      else passed += 1;
+    });
+  };
+  runList('cases', (row) => caseRowProblems(row, sets, ctx), (row) => `[${row.s}] ${showLine(row.t)}`);
+  runList('given', givenRowProblems, (row) => showLine(row.task));
+  runList('commandLines', commandLineRowProblems, (row) => showLine(row.t));
+  return { rows, passed, matcher: MATCHER_VERSION };
+}
+
+function caseSetProblems(set) {
+  if (!isPlainObject(set)) return ['must be an object'];
+  const problems = [];
+  for (const key of Object.keys(set)) if (!CASE_SET_FIELDS.includes(key)) problems.push(`unknown field "${key}"`);
+  if (!SYSTEMS.includes(set.system)) problems.push(`"system" must be one of ${SYSTEMS.join(', ')}`);
+  if (!Array.isArray(set.groups) || set.groups.length === 0 || !set.groups.every((group) => isStringList(group) && group.length > 0)) {
+    problems.push('"groups" must be a list of answer groups, each a list of lines');
+  }
+  if (!isStringList(set.given)) problems.push('"given" must be a list of targets');
+  if (!isStringList(set.alsoWorks)) problems.push('"alsoWorks" must be a list of lines');
+  return problems;
+}
+
+// Each stored line is plain, accepted on its own set in its own group, and not the same line to
+// the matcher as another. Each alsoWorks line is plain, Not counted on its own set, and not the
+// same line to the matcher as a stored line or another alsoWorks line.
+function checkCaseSet(where, set, ctx, error) {
+  const seen = new Map();
+  const twinOf = (line) => {
+    const key = readLine(cleanLine(line, set.system), set.system).key;
+    if (seen.has(key)) return seen.get(key);
+    seen.set(key, line);
+    return null;
+  };
+  set.groups.forEach((lines, group) => {
+    for (const line of lines) {
+      for (const problem of plainFormProblems(line, set.system)) error(where, `Stored line "${line}" ${problem}.`);
+      const r = matchSpec(set, line, ctx);
+      if (r.code !== 'accepted' || r.group !== group || r.line !== line) {
+        error(where, `Stored line "${line}", typed as it is, gets ${r.code} (group ${r.group}, line ${JSON.stringify(r.line)}), not accepted in group ${group}.`);
+      }
+      const twin = twinOf(line);
+      if (twin !== null) error(where, `Stored line "${line}" is the same line to the matcher as "${twin}".`);
+    }
+  });
+  for (const line of set.alsoWorks) {
+    for (const problem of plainFormProblems(line, set.system)) error(where, `alsoWorks line "${line}" ${problem}.`);
+    const r = matchSpec(set, line, ctx);
+    if (r.code !== 'not-counted' || r.line !== line) error(where, `alsoWorks line "${line}", typed as it is, gets ${r.code}, not Not counted.`);
+    const twin = twinOf(line);
+    if (twin !== null) error(where, `alsoWorks line "${line}" is the same line to the matcher as "${twin}".`);
+  }
+}
+
+// Every row has only the fields its list knows, an evidence mark, and a why.
+function rowFieldProblems(row, fields) {
+  const problems = [];
+  for (const key of Object.keys(row)) if (!fields.includes(key)) problems.push(`unknown field "${key}"`);
+  if (!hasOwn(row, 'ev') || row.ev === '' || row.ev === null) problems.push('no evidence mark ("ev")');
+  else if (!EVIDENCE.includes(row.ev)) problems.push(`the evidence mark "${row.ev}" is not one of ${EVIDENCE.join(', ')}`);
+  if (typeof row.why !== 'string' || !row.why.trim()) problems.push('no "why"');
+  return problems;
+}
+
+// What the page relies on in every result: the same ten fields, the verdict, counts, and
+// keepLine of the code's row in VERDICTS, and runsOn on a wrong command only.
+function resultShapeProblems(r) {
+  if (!isPlainObject(r)) return ['the matcher gave no result'];
+  const problems = [];
+  const keys = Object.keys(r);
+  if (keys.length !== RESULT_FIELDS.length || !RESULT_FIELDS.every((key) => hasOwn(r, key))) {
+    problems.push(`the result has the fields ${keys.join(', ')}, not ${RESULT_FIELDS.join(', ')}`);
+  }
+  const entry = typeof r.code === 'string' && hasOwn(VERDICTS, r.code) ? VERDICTS[r.code] : null;
+  if (!entry) problems.push(`the result code ${r.code} is not in VERDICTS`);
+  else if (r.verdict !== entry.verdict || r.counts !== entry.counts || r.keepLine !== entry.keepLine) {
+    problems.push(`the result for ${r.code} does not match its row in VERDICTS`);
+  }
+  if (r.runsOn !== null && r.code !== 'wrong-command') problems.push(`runsOn is set on ${r.code}`);
+  return problems;
+}
+
+function caseRowProblems(row, sets, ctx) {
+  if (!isPlainObject(row)) return ['must be an object'];
+  const problems = rowFieldProblems(row, CASE_ROW_FIELDS);
+  if (typeof row.t !== 'string') problems.push('"t", the typed line, must be text');
+  if (typeof row.x !== 'string' || !hasOwn(VERDICTS, row.x)) problems.push(`"x" must be one of ${Object.keys(VERDICTS).join(', ')}`);
+  const set = typeof row.s === 'string' && sets.has(row.s) ? sets.get(row.s) : null;
+  if (!set) problems.push(`"s" names no fixture set that loaded (${JSON.stringify(row.s)})`);
+  if (!set || typeof row.t !== 'string') return problems;
+
+  const r = matchSpec(set, row.t, ctx);
+  problems.push(...resultShapeProblems(r));
+  if (r.code !== row.x) {
+    problems.push(`expected ${row.x} but got ${r.code}`);
+  } else {
+    const words = wordsFor(r);
+    if (hasOwn(row, 'g') && r.group !== row.g) problems.push(`expected group ${row.g} but got ${r.group}`);
+    if (hasOwn(row, 'line') && r.line !== row.line) problems.push(`expected the line ${JSON.stringify(row.line)} but got ${JSON.stringify(r.line)}`);
+    if (hasOwn(row, 'exact') && r.exact !== row.exact) problems.push(`expected exact ${row.exact} but got ${r.exact}`);
+    if (hasOwn(row, 'on')) {
+      const on = r.runsOn ? r.runsOn.join(',') : '';
+      if (on !== row.on) problems.push(`expected the systems "${row.on}" but got "${on}"`);
+    }
+    if (hasOwn(row, 'label') && words.label !== row.label) problems.push(`expected the label "${row.label}" but got "${words.label}"`);
+    if (hasOwn(row, 'tag') && words.tag !== row.tag) problems.push(`expected the tag "${row.tag}" but got "${words.tag}"`);
+    if (hasOwn(row, 'keep') && r.keepLine !== row.keep) problems.push(`expected keepLine ${row.keep} but got ${r.keepLine}`);
+  }
+  // Only a wrong command and the right command with wrong details use a try (plan section 6).
+  const counted = r.code === 'wrong-command' || r.code === 'wrong-details';
+  if (r.counts !== counted) problems.push(`counts is ${r.counts} for ${r.code}`);
+  return problems;
+}
+
+function givenRowProblems(row) {
+  if (!isPlainObject(row)) return ['must be an object'];
+  const problems = rowFieldProblems(row, GIVEN_ROW_FIELDS);
+  if (typeof row.task !== 'string') problems.push('"task" must be text');
+  if (!isStringList(row.lines)) problems.push('"lines" must be a list of lines');
+  if (!isStringList(row.want)) problems.push('"want" must be a list of targets');
+  if (typeof row.task === 'string' && isStringList(row.lines) && isStringList(row.want)) {
+    const got = givenTargets(row.task, row.lines);
+    const same = got.length === row.want.length && [...got].sort().join('\n') === [...row.want].sort().join('\n');
+    if (!same) problems.push(`expected [${row.want.join(', ')}] but got [${got.join(', ')}]`);
+  }
+  return problems;
+}
+
+function commandLineRowProblems(row) {
+  if (!isPlainObject(row)) return ['must be an object'];
+  const problems = rowFieldProblems(row, COMMAND_LINE_ROW_FIELDS);
+  if (typeof row.t !== 'string') problems.push('"t" must be text');
+  if (typeof row.want !== 'boolean') problems.push('"want" must be true or false');
+  else if (typeof row.t === 'string' && isCommandLine(row.t) !== row.want) problems.push(`expected ${row.want} but got ${!row.want}`);
+  return problems;
+}
+
+/** The case table's one line, the same in GitHub's log and on the content check page. */
+export function caseTableLine(report) {
+  const table = report && report.caseTable;
+  return table ? `Case table: ${table.passed} of ${table.rows}, matcher ${table.matcher}` : 'Case table: could not be read';
+}
+
 /** Plain-text summary for the CLI. */
 export function formatReport(report) {
-  const lines = [];
+  const lines = [caseTableLine(report)];
   for (const exam of report.exams) {
     const s = exam.stats;
     lines.push(`${exam.name} (${exam.code}): ${s.questions} questions (${s.multiAnswer} choose-two+), ${s.flashcards} flashcards, ${s.drafts} drafts, ${s.privateItems} lab-only, ${s.quotesMissing} questions missing a quote`);

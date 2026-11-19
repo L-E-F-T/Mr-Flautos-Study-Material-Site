@@ -29,6 +29,7 @@ A third tool, for Network+ only: a typed command drill. It is built one push at 
 - The plan is `docs/COMMAND-LINE-PLAN.md`. **Read its section 14 first:** it says where the build stands, what the next push is, and the rules for a build chat. `docs/COMMAND-LINE-CHECKLISTS.md` has the proofs for each push.
 - One push to a chat, working alone. Commit when the proofs pass. Never push to `main` without his word in that chat.
 - A build chat uses ports 8081 to 8085 and 8091 to 8095 only. It never starts, stops, or opens port 8080, and its content check is http://localhost:8081/tools/validate.html. For a build chat this replaces what the Run and test section says about port 8080.
+- Every change to the matcher (`assets/js/lib/command-match.js`) or its test lines (`tools/command-cases.json`) is run through the content check on port 8081 (the real packs) and port 8091 (the example pack), pushed alone, and its GitHub run is watched.
 - A website chat never writes commands, tasks, outputs, or questions. The content chat does, on his word, once phase 1c has given it the rules and the kit.
 
 ## Run and test

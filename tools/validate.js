@@ -3,7 +3,7 @@
  * Same checks as `node tools/validate-cli.mjs`, which GitHub Actions runs before deploying.
  */
 import { fetchJSON } from '../assets/js/lib/boot.js';
-import { validateAll } from '../assets/js/lib/validate-core.js';
+import { validateAll, caseTableLine } from '../assets/js/lib/validate-core.js';
 import { h, mount, plural } from '../assets/js/lib/dom.js';
 import { initThemeToggle } from '../assets/js/lib/theme.js';
 
@@ -95,6 +95,7 @@ function render(report) {
         ),
       ),
       verdict,
+      h('p', { class: 'muted small' }, caseTableLine(report)),
       report.errors.length ? h('section', { class: 'panel' }, h('h2', null, `Errors (${report.errors.length})`), list(report.errors, 'error')) : null,
       examSections,
       report.warnings.length

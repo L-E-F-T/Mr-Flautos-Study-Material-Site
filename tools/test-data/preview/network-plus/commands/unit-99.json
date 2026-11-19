@@ -17,6 +17,7 @@
         { "lines": ["ipconfig"] },
         { "lines": ["ipconfig /all"] }
       ],
+      "alsoWorks": ["ipconfig /allcompartments"],
       "versions": [
         {
           "id": "n-u99-v001",

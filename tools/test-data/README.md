@@ -22,7 +22,7 @@ Start the preview server named `study-site-fixture` (`.claude/launch.json`). It 
 
 - `*/exams.json` is a copy of `data/exams.json` with its `$schema` line pointing three folders up. Four copies add `"commandUnits": ["3.0", "4.0", "5.0", "6.0", "8.0"]` to the Network+ exam. The copy in `preview/` never has the field. When `data/exams.json` changes, make the five copies again.
 - `ready/network-plus/commands/unit-99.json` is the example pack: the frozen shape (`schemas/command-pack.schema.json`) in use. No real unit is 99.
-  - `n-u99-c001`, Windows. Right lines: `ipconfig`, `ipconfig /all`. Two versions. The first prints the exhibit of question `n-u04-q054` for `ipconfig` and asks that question.
+  - `n-u99-c001`, Windows. Right lines: `ipconfig`, `ipconfig /all`. `alsoWorks`: `ipconfig /allcompartments`, a real Windows line it does not accept, which reads Not counted (the rule that the list starts empty is for real packs). Two versions. The first prints the exhibit of question `n-u04-q054` for `ipconfig` and asks that question.
   - `n-u99-c002`, Router. Right line: `show arp`. One version. Its partner is a flashcard, so it has an `origin`.
 - `preview/network-plus/commands/unit-99.json` is the same file. Copy it again when the one in `ready/` changes.
 - `broken/network-plus/commands/manifest.json` is not valid JSON on purpose. An editor marks it red. Leave it that way.

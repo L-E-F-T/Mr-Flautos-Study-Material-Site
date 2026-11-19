@@ -137,6 +137,12 @@
           "items": { "$ref": "#/definitions/answerGroup" },
           "description": "One to three answer groups. A group holds lines only. Each group prints its own output."
         },
+        "alsoWorks": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "maxLength": 36 },
+          "description": "Optional: lines a real system would run for this job that the reading does not teach, such as ifconfig -a. A typed line that is one of them to the matcher costs no try, prints no output, and reads Not counted. In a real pack it starts empty and grows only from what the blind command check types. Never a second spelling of an accepted line."
+        },
         "versions": {
           "type": "array",
           "minItems": 1,
