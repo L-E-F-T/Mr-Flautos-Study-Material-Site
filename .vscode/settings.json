@@ -6,7 +6,8 @@
     { "fileMatch": ["/data/*/units.json"], "url": "./schemas/units.schema.json" },
     { "fileMatch": ["/data/*/*/manifest.json", "/data/*/*/manifest.private.json"], "url": "./schemas/manifest.schema.json" },
     { "fileMatch": ["/data/*/questions/*.json", "/data/*/questions/private/*.json", "!/data/*/questions/manifest*.json"], "url": "./schemas/question-pack.schema.json" },
-    { "fileMatch": ["/data/*/flashcards/*.json", "/data/*/flashcards/private/*.json", "!/data/*/flashcards/manifest*.json"], "url": "./schemas/flashcard-pack.schema.json" }
+    { "fileMatch": ["/data/*/flashcards/*.json", "/data/*/flashcards/private/*.json", "!/data/*/flashcards/manifest*.json"], "url": "./schemas/flashcard-pack.schema.json" },
+    { "fileMatch": ["/data/*/commands/*.json", "/data/*/commands/private/*.json", "!/data/*/commands/manifest*.json", "/tools/test-data/*/*/commands/*.json", "!/tools/test-data/*/*/commands/manifest*.json"], "url": "./schemas/command-pack.schema.json" }
   ],
   "files.encoding": "utf8",
   "files.insertFinalNewline": true,

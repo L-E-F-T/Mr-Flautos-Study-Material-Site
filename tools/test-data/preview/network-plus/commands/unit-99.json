@@ -1,0 +1,63 @@
+{
+  "$schema": "../../../../../schemas/command-pack.schema.json",
+  "pack": {
+    "id": "unit-99",
+    "title": "TEST DATA. Example command pack",
+    "placeholder": true,
+    "reviewed": false,
+    "notes": "Fake test data for the fixture server (tools/test-data/README.md). Not content. Never copy any of it into data/."
+  },
+  "commands": [
+    {
+      "id": "n-u99-c001",
+      "typedFormOf": ["n-u04-q033"],
+      "system": "windows",
+      "task": "TEST ITEM, not content. On this Windows PC, which test command is the answer?",
+      "accept": [
+        { "lines": ["ipconfig"] },
+        { "lines": ["ipconfig /all"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u99-v001",
+          "outputs": [
+            { "exhibitOf": "n-u04-q054" },
+            { "text": "TEST OUTPUT\nversion 1\nanswer group 2" }
+          ],
+          "followUp": { "question": "n-u04-q054" }
+        },
+        {
+          "id": "n-u99-v002",
+          "outputs": [
+            { "text": "TEST OUTPUT\nversion 2\nanswer group 1" },
+            { "text": "TEST OUTPUT\nversion 2\nanswer group 2" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.1"],
+      "reference": { "source": "certmaster", "section": "4.4.1", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    },
+    {
+      "id": "n-u99-c002",
+      "typedFormOf": ["n-u05-f038"],
+      "origin": { "kind": "other", "basedOn": "TEST ITEM, no source item" },
+      "system": "router",
+      "task": "TEST ITEM, not content. On this router, which test command is the answer?",
+      "accept": [
+        { "lines": ["show arp"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u99-v003",
+          "outputs": [
+            { "text": "TEST OUTPUT\nversion 1\nanswer group 1" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["5.1.7"],
+      "reference": { "source": "certmaster", "section": "5.1.7", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    }
+  ]
+}

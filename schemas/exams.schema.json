@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Exam registry (data/exams.json)",
-  "description": "Every exam the site knows about. Live exams appear on the home page with Flashcards and Practice test links.",
+  "description": "Every exam the site knows about. Live exams appear on the home page with Flashcards and Practice test links, and a Command line link when the exam has \"commandUnits\".",
   "type": "object",
   "required": ["exams"],
   "properties": {
@@ -24,7 +24,14 @@
           "name": { "type": "string" },
           "status": { "enum": ["live", "planned", "hidden"] },
           "theme": { "enum": ["aplus", "netplus", "secplus"], "description": "Course color theme." },
-          "dataPath": { "type": "string", "description": "Folder holding objectives.json, units.json, flashcards/ and questions/." },
+          "dataPath": { "type": "string", "description": "Folder holding objectives.json, units.json, flashcards/ and questions/, and commands/ once the exam has command packs." },
+          "commandUnits": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "type": "string", "pattern": "^\\d+\\.0$" },
+            "description": "Gives this exam the Command line tool and lists the units the tool shows, e.g. [\"3.0\", \"4.0\"]. Leave it out for an exam without the tool. It is the launch switch: only a website chat sets it, never a content chat."
+          },
           "blurb": { "type": "string" },
           "plannedNote": { "type": "string" },
           "facts": {

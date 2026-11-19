@@ -36,6 +36,24 @@ jobs:
             echo "::error::Items marked verbatim are in files that would be published (listed above). Rewrite them, or move them into a private/ folder."
             exit 1
           fi
+      # Every page in the project root is published (see Assemble site below). Each one must keep
+      # the do-not-list tag, set light or dark before the stylesheet loads, and have the skip link
+      # and the opened-from-a-folder notice. To try it before a push, run the same lines in
+      # Git Bash from the project folder.
+      - name: Check the pages
+        run: |
+          bad=0
+          miss() { echo "::error file=${1#./}::$2"; bad=1; }
+          for f in ./*.html; do
+            echo "Checking ${f#./}"
+            grep -q '<meta name="robots" content="noindex, nofollow">' "$f" || miss "$f" 'Missing the noindex tag.'
+            t=$(grep -n 'assets/js/theme-init.js' "$f" | head -1 | cut -d: -f1 || true)
+            s=$(grep -n 'rel="stylesheet"' "$f" | head -1 | cut -d: -f1 || true)
+            if [ -z "$t" ] || [ -z "$s" ] || [ "$t" -ge "$s" ]; then miss "$f" 'theme-init.js must load before the stylesheet.'; fi
+            grep -q 'class="skip-link"' "$f" || miss "$f" 'Missing the skip link.'
+            grep -q "location.protocol === 'file:'" "$f" || miss "$f" 'Missing the opened-from-a-folder notice.'
+          done
+          exit "$bad"
 
   deploy:
     name: Deploy
@@ -52,11 +70,13 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: actions/configure-pages@v5
-      # Publish only what students need. Docs, schemas, and teacher tools stay in the repo.
+      # Publish only what students need: every page in the project root, assets, and data.
+      # Docs, schemas, and teacher tools stay in the repo. Any page left in the project root
+      # is published, so never leave a test page there.
       - name: Assemble site
         run: |
           mkdir -p _site
-          cp -R index.html flashcards.html practice.html assets data _site/
+          cp -R ./*.html assets data _site/
           # Lab-only content never ships to the public site, even if it was committed by mistake.
           find _site/data -type d -name private -prune -exec rm -rf {} +
           find _site/data -name 'manifest.private.json' -delete

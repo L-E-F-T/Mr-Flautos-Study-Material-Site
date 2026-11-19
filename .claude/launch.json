@@ -12,6 +12,12 @@
       "runtimeExecutable": "powershell",
       "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "tools/serve.ps1", "-Port", "8081", "-AlsoPorts", "8082,8083,8084,8085"],
       "port": 8081
+    },
+    {
+      "name": "study-site-fixture",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "tools/serve.ps1", "-Port", "8091", "-AlsoPorts", "8092,8093,8094,8095", "-DataOverlays", "8091=tools/test-data/ready;8092=tools/test-data/soon;8093=tools/test-data/broken;8094=tools/test-data/preview;8095=tools/test-data/rehearsal"],
+      "port": 8091
     }
   ]
 }
