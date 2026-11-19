@@ -22,6 +22,15 @@ A chat that was not started with that prompt, and has not been asked for content
 - **No sign-in and no scoreboard.** Mr. Flauto dropped both for now (2026-11-10). Do not build or propose them unless he raises it. The site is shared by link, and every page has a `noindex` tag to stay out of search results.
 - Notes for if it comes back are in `docs/PLAN.md` section 5: school Google accounts in `thsnet.net` only, remember the device, **no Firebase**.
 
+## Command line tool (being built)
+
+A third tool, for Network+ only: a typed command drill. It is built one push at a time and stays hidden from students until a one-line switch (`commandUnits` in `data/exams.json`), which only Mr. Flauto's word turns on.
+
+- The plan is `docs/COMMAND-LINE-PLAN.md`. **Read its section 14 first:** it says where the build stands, what the next push is, and the rules for a build chat. `docs/COMMAND-LINE-CHECKLISTS.md` has the proofs for each push.
+- One push to a chat, working alone. Commit when the proofs pass. Never push to `main` without his word in that chat.
+- A build chat uses ports 8081 to 8085 and 8091 to 8095 only. It never starts, stops, or opens port 8080, and its content check is http://localhost:8081/tools/validate.html. For a build chat this replaces what the Run and test section says about port 8080.
+- A website chat never writes commands, tasks, outputs, or questions. The content chat does, on his word, once phase 1c has given it the rules and the kit.
+
 ## Run and test
 
 - Double-click `serve.cmd`, or start the preview server named `study-site` (`.claude/launch.json`). The site is at http://localhost:8080/.

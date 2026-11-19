@@ -2,6 +2,8 @@
 
 _Last updated 2026-11-10._
 
+_A third tool is being built: Command line, a typed command drill for Network+ only. It is hidden from students, and this plan does not describe it yet. See `docs/COMMAND-LINE-PLAN.md`, section 14 first._
+
 ## 1. What this is
 
 A study site for Mr. Flauto's CompTIA classes (A+ PC Tech 1, Networking+ 1, CompTIA Security+ 1). Two tools per exam:

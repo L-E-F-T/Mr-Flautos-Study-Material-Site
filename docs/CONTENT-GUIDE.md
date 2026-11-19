@@ -2,6 +2,8 @@
 
 This is the contract between the website and whoever writes the questions and flashcards. The website is built in one chat; **content is written in a separate chat** and dropped into `data/`. Everything here is enforced or reported by the content check (`tools/validate.html`; the same check runs on GitHub before every deploy).
 
+Commands for the Command line tool (`docs/COMMAND-LINE-PLAN.md`) are not in this guide yet. Their section is written in phase 1c of that plan. Until then nobody writes a command pack.
+
 ## Where content lives
 
 ```

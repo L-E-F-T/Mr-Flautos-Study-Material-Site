@@ -33,6 +33,7 @@ The site prepares students for the real CompTIA exam, so it mirrors **the exam**
   - `git grep -l "Which terms get a card" HEAD -- docs/CONTENT-GUIDE.md docs/content-kit/brief-write.md docs/content-kit/brief-review.md`: all three.
   - `git grep -l exhibit HEAD -- docs/content-kit/assemble.ps1 docs/content-kit/strip-for-check.ps1`: both.
   - `git grep -l -e "without listing its members" -e "## Screening" HEAD -- docs/CONTENT-GUIDE.md docs/content-kit/brief-read.md`: both.
+- **Command line.** If the prompt that started you asks for commands for the Command line tool and this file has no section named "A Command line pass", stop at once and tell me: the website part is not ready.
 - **One unit at a time.** If the prompt that started you names a commit that must come first, `git log --oneline -20` must show it. If it does not, another chat may still be working in this folder: stop and tell me.
 
 **Then pick your unit.** Your exam is the one the prompt that started you names; if it names none, it is the first exam under "Each exam" whose order still has a unit with no pack. Your unit is the first one in that exam's order that has no pack listed in `data/<exam folder>/questions/manifest.json`. If the exam has no data folder yet, your unit is the first in its order, and you build the exam's outline right after step 1 ("Part N"). If an earlier unit looks half done (its pack listed in one manifest but not the other, or a listed file missing), ask me before you touch it.
