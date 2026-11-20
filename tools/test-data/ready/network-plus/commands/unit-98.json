@@ -1,0 +1,159 @@
+{
+  "$schema": "../../../../../schemas/command-pack.schema.json",
+  "pack": {
+    "id": "unit-98",
+    "title": "TEST DATA. Page test commands",
+    "placeholder": true,
+    "reviewed": false,
+    "notes": "Fake test data for the Command line page (tools/test-data/README.md). Not content. Never copy any of it into data/."
+  },
+  "commands": [
+    {
+      "id": "n-u98-c001",
+      "typedFormOf": ["n-u04-f001"],
+      "origin": { "kind": "other", "basedOn": "Practice Tests 6 TEST" },
+      "system": "windows",
+      "task": "TEST ITEM, not content. On this Windows PC, which test command prints the twelve long test lines?",
+      "accept": [
+        { "lines": ["netstat -s"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u98-v001",
+          "outputs": [
+            { "text": "1234567890123456789012345\nTEST OUTPUT LINE 02 ABCDE\nTEST OUTPUT LINE 03 abcde\nTEST OUTPUT LINE 04 MMMMM\nTEST OUTPUT LINE 05 WWWWW\nTEST OUTPUT LINE 06 iiiii\nTEST OUTPUT LINE 07 .....\nTEST OUTPUT LINE 08 :::::\nTEST OUTPUT LINE 09 -----\nTEST OUTPUT LINE 10 /////\nTEST OUTPUT LINE 11 00000\nTEST OUTPUT LINE 12 ZZZZZ" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.2"],
+      "reference": { "source": "certmaster", "section": "4.4.2", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    },
+    {
+      "id": "n-u98-c002",
+      "typedFormOf": ["n-u05-f001"],
+      "origin": { "kind": "other", "basedOn": "Practice Tests 5 TEST" },
+      "system": "linux",
+      "task": "TEST ITEM, not content. On this Linux host, which test command prints a test output for its own answer group?",
+      "accept": [
+        { "lines": ["ip addr"] },
+        { "lines": ["ifconfig"] }
+      ],
+      "alsoWorks": ["ifconfig -a"],
+      "versions": [
+        {
+          "id": "n-u98-v002",
+          "outputs": [
+            { "text": "TEST OUTPUT\nanswer group 1\nfor the first line" },
+            { "text": "TEST OUTPUT\nanswer group 2\nfor the second line" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.b"],
+      "units": ["6.1.1"],
+      "reference": { "source": "certmaster", "section": "6.1.1", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    },
+    {
+      "id": "n-u98-c003",
+      "typedFormOf": ["n-u06-f001"],
+      "origin": { "kind": "other", "basedOn": "TEST SOURCE" },
+      "system": "windows",
+      "task": "TEST ITEM, not content. On this Windows PC, which test command checks the test host 192.0.2.20?",
+      "accept": [
+        { "lines": ["ping 192.0.2.20"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u98-v003",
+          "outputs": [
+            { "text": "TEST OUTPUT\ntest reply 192.0.2.20" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.2.1"],
+      "reference": { "source": "certmaster", "section": "6.2.1", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    },
+    {
+      "id": "n-u98-c004",
+      "origin": { "kind": "other", "basedOn": "TEST SOURCE 4" },
+      "system": "windows",
+      "task": "TEST ITEM, not content. On this Windows PC, which test command prints no test output?",
+      "accept": [
+        { "lines": ["arp -d *"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u98-v004",
+          "outputs": [
+            { "text": "" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.3"],
+      "reference": { "source": "certmaster", "section": "4.4.3", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    },
+    {
+      "id": "n-u98-c005",
+      "origin": { "kind": "other", "basedOn": "TEST SOURCE 5" },
+      "system": "switch",
+      "task": "TEST ITEM, not content. On this switch, which test command is the answer?",
+      "accept": [
+        { "lines": ["show vlan", "show vlan brief"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u98-v005",
+          "outputs": [
+            { "text": "TEST OUTPUT\nswitch test lines" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["5.2.1"],
+      "reference": { "source": "certmaster", "section": "5.2.1", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    },
+    {
+      "id": "n-u98-c006",
+      "origin": { "kind": "other", "basedOn": "TEST SOURCE 6" },
+      "system": "windows",
+      "task": "TEST ITEM, not content. On this Windows PC, which test command prints <b>TEST TAG</b> as plain text?",
+      "accept": [
+        { "lines": ["route print"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u98-v006",
+          "outputs": [
+            { "text": "TEST OUTPUT\n<b>TEST TAG</b>\nplain text, not bold" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.4"],
+      "reference": { "source": "certmaster", "section": "4.4.4", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    },
+    {
+      "id": "n-u98-c007",
+      "status": "draft",
+      "origin": { "kind": "other", "basedOn": "TEST SOURCE 7" },
+      "system": "windows",
+      "task": "TEST ITEM, not content. On this Windows PC, which draft test command is the answer?",
+      "accept": [
+        { "lines": ["netstat -e"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u98-v007",
+          "outputs": [
+            { "text": "TEST OUTPUT\ndraft command" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.3.1"],
+      "reference": { "source": "certmaster", "section": "6.3.1", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    }
+  ]
+}

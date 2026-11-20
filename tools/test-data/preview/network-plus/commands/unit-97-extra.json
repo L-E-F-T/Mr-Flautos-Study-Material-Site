@@ -1,0 +1,53 @@
+{
+  "$schema": "../../../../../schemas/command-pack.schema.json",
+  "pack": {
+    "id": "unit-97-extra",
+    "title": "TEST DATA. Example extra pack",
+    "set": "extra",
+    "placeholder": true,
+    "reviewed": false,
+    "notes": "Fake test data for the Extra commands control (tools/test-data/README.md). Not content. Never copy any of it into data/."
+  },
+  "commands": [
+    {
+      "id": "n-u97-c001",
+      "origin": { "kind": "other", "basedOn": "TEST EXTRA SOURCE 1" },
+      "system": "windows",
+      "task": "TEST ITEM, not content. On this Windows PC, which extra test command is the answer?",
+      "accept": [
+        { "lines": ["netstat -o"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u97-v001",
+          "outputs": [
+            { "text": "TEST OUTPUT\nextra command 1" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.2"],
+      "reference": { "source": "certmaster", "section": "4.4.2", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    },
+    {
+      "id": "n-u97-c002",
+      "origin": { "kind": "other", "basedOn": "TEST EXTRA SOURCE 2" },
+      "system": "windows",
+      "task": "TEST ITEM, not content. On this Windows PC, which second extra test command is the answer?",
+      "accept": [
+        { "lines": ["arp -a"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u97-v002",
+          "outputs": [
+            { "text": "TEST OUTPUT\nextra command 2" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.7"],
+      "reference": { "source": "certmaster", "section": "5.1.7", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    }
+  ]
+}

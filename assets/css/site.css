@@ -651,6 +651,59 @@ details.disclosure[open] > summary { margin-bottom: 0.5rem; }
 .missed-ref { margin-top: 0.8rem; }
 .review-foot { display: flex; justify-content: flex-end; margin-top: 1rem; }
 
+/* ---------- Command line ----------
+   The Command line page (assets/js/pages/commands.js). Every class here starts with cl-.
+   The terminal box follows light and dark mode, like the exhibit box. The prompt, the field,
+   echoed lines, and output share one 16px fixed-width size: a smaller field makes an iPhone zoom
+   the page, and 25 characters still fit a 320px phone (a 288px box leaves 262px for text), so the
+   box is not inside a panel. Nothing in the box is green: a miss that used a try is red with the
+   x icon, and everything else in it is plain. */
+.cl-cmd { margin-top: 1rem; }
+.cl-term { margin-top: 0.6rem; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+.cl-term-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+  min-height: 40px; padding: 0.2rem 0.3rem 0.2rem 0.75rem;
+  background: var(--surface-2); border-bottom: 1px solid var(--border);
+  color: var(--text-muted); font-size: 0.85rem; font-weight: 700;
+}
+.cl-term-body { padding: 0.6rem 0.75rem 0.7rem; font-family: var(--font-mono); font-size: 1rem; line-height: 1.5; }
+.cl-term-body:has(.cl-term-input) { cursor: text; }
+.cl-term-echo, .cl-term-out { margin: 0; font: inherit; white-space: pre-wrap; overflow-wrap: anywhere; }
+.cl-term-prompt { color: var(--text-muted); white-space: pre; }
+/* A miss that used a try: red, with the x icon and words. The other system's name beside it is plain. */
+.cl-term-miss {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.1rem 0.6rem; margin: 0.1rem 0 0.4rem;
+  font-family: var(--font-sans); font-size: 0.9rem; font-weight: 700; color: var(--bad);
+}
+.cl-term-miss-label { display: inline-flex; align-items: center; gap: 0.3rem; }
+.cl-term-tag { font-weight: 600; color: var(--text-muted); overflow-wrap: anywhere; }
+/* A result that used no try, the tries left, and Answer: plain, never red or green. */
+.cl-term-note {
+  margin: 0.1rem 0 0.4rem; padding-left: 0.5rem; border-left: 3px solid var(--border-strong);
+  font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; color: var(--text-muted); overflow-wrap: anywhere;
+}
+.cl-term-line { display: flex; align-items: center; }
+.cl-term-line .cl-term-prompt { flex: none; }
+/* Two classes on purpose: the base rule input[type="text"] outranks a single class. */
+.cl-term .cl-term-input {
+  flex: 1 1 0; min-width: 0; min-height: 40px; margin-left: 0.3rem; padding: 0 0.2rem;
+  border: 0; border-bottom: 2px solid var(--border-strong); border-radius: 0;
+  background: transparent; color: var(--text); font: inherit;
+}
+.cl-term .cl-term-input:focus-visible { outline-offset: 0; }
+/* "Answer:" and every right line, first in the result. */
+.cl-answer { margin: 0 0 0.6rem; font-weight: 700; overflow-wrap: anywhere; }
+.cl-answer code { font-size: 1rem; font-weight: 600; }
+@media (pointer: coarse) {
+  .cl-term-bar { min-height: 44px; }
+  .cl-term .cl-term-input { min-height: 44px; }
+}
+/* On a touch screen a new command scrolls its top line to the top of the screen, with the header
+   out of view. The command screen is at least as tall as the screen, so it always can. */
+@media (hover: none) and (pointer: coarse) {
+  .cl-screen { min-height: 100vh; }
+}
+
 /* ---------- Validator page ---------- */
 
 .report-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
