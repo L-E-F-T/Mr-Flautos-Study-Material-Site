@@ -2161,6 +2161,112 @@
         "find": "use dig on Windows by downloading"
       },
       "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q403" }
+    },
+    {
+      "id": "n-u06-q103",
+      "stem": "A help desk app looks up staff accounts in the company's directory with LDAP and no encryption. Which port must the firewall allow to the directory server?",
+      "choices": [
+        { "id": "a", "text": "636" },
+        { "id": "b", "text": "389" },
+        { "id": "c", "text": "445" },
+        { "id": "d", "text": "3389" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "Lightweight Directory Access Protocol"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 6.0 Q40" }
+    },
+    {
+      "id": "n-u06-q104",
+      "stem": "A company's VPN appliance must check user names against the directory server using LDAP over SSL (LDAPS). Which port must be open on the directory server?",
+      "choices": [
+        { "id": "a", "text": "636" },
+        { "id": "b", "text": "389" },
+        { "id": "c", "text": "443" },
+        { "id": "d", "text": "1433" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "LDAP-Secure"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 6.0 Q45" }
+    },
+    {
+      "id": "n-u06-q105",
+      "stem": "A company's new VoIP phones use SIP to set up calls through a cloud phone service. Which ports must the firewall allow for SIP?",
+      "choices": [
+        { "id": "a", "text": "20 and 21" },
+        { "id": "b", "text": "161 and 162" },
+        { "id": "c", "text": "5060 and 5061" },
+        { "id": "d", "text": "67 and 68" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["6.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.6",
+        "title": "Common TCP and UDP Ports",
+        "quote": "",
+        "find": "Session Initiation Protocol"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 6.0 Q48" }
+    },
+    {
+      "id": "n-u06-q106",
+      "stem": "A school's only DHCP server fails on a Friday evening, and its replacement will not arrive until the following Thursday. Which of the following will MOST likely happen to the PCs in the meantime?",
+      "choices": [
+        { "id": "a", "text": "Every PC loses access as soon as the server fails" },
+        { "id": "b", "text": "PCs lose access a few at a time" },
+        { "id": "c", "text": "PCs can reach servers by IP address but not by name" },
+        { "id": "d", "text": "PCs report duplicate IP address errors" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.2",
+        "title": "DHCP Issues",
+        "quote": "",
+        "find": "thereafter start to lose contact"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q113" }
+    },
+    {
+      "id": "n-u06-q107",
+      "stem": "From a staff PC, a technician can ping the clinic's DNS server at 10.8.0.10 and open a web page it hosts by IP address, but nslookup queries sent to 10.8.0.10 get no answer. Which of the following are the MOST likely causes?",
+      "choices": [
+        { "id": "a", "text": "The DNS service on the server is stopped" },
+        { "id": "b", "text": "The server's HOSTS file has no entries" },
+        { "id": "c", "text": "The PC's DNS cache holds an old record" },
+        { "id": "d", "text": "A firewall blocks DNS traffic to the server" },
+        { "id": "e", "text": "The PC is set to use a different DNS server" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.6.1", "6.5.8", "6.5.5", "6.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.1",
+        "title": "Client DNS Issues",
+        "quote": "",
+        "find": "lie with the server service"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q65" }
     }
   ]
 }

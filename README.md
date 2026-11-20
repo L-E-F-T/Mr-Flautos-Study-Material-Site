@@ -6,7 +6,7 @@ Live now: **A+ Core 1 (220-1201)** and **Network+ (N10-009)**. Planned: A+ Core 
 
 It works on phones and computers, in light or dark mode (the sun/moon button in the header).
 
-Content so far: all of A+ Core 1, Units 2.0 to 10.0 (474 questions, 429 flashcards); Unit 1.0 is not on the exam. Network+: Units 4.0, 5.0, and 6.0 (237 questions, 162 flashcards); its other units say "Coming soon". Core 2 and Security+ say "Coming soon" until their packs are written.
+Content so far: all of A+ Core 1, Units 2.0 to 10.0 (474 questions, 429 flashcards); Unit 1.0 is not on the exam. Network+: Units 4.0, 5.0, and 6.0 (242 questions, 162 flashcards); its other units say "Coming soon". Core 2 and Security+ say "Coming soon" until their packs are written.
 
 ## Test it on this computer
 
