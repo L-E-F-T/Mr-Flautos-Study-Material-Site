@@ -1,0 +1,194 @@
+{
+  "$schema": "../../../schemas/command-pack.schema.json",
+  "pack": { "id": "unit-05", "title": "Unit 5.0 Configuring Routing and Advanced Switching", "reviewed": false, "lastCommand": 7, "lastVersion": 7 },
+  "commands": [
+    {
+      "id": "n-u05-c001",
+      "typedFormOf": ["n-u05-q011"],
+      "system": "windows",
+      "task": "A technician is setting up a Windows PC for a new employee and wants to see every network the PC knows how to reach, with the gateway and local interface it uses for each one. Which command should the technician run?",
+      "accept": [
+        { "lines": ["route print", "netstat -r", "netstat -rn"], "sections": ["6.1.5"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u05-v001",
+          "outputs": [
+            { "text": "IPv4 Route Table\n=========================\nActive Routes:\n0.0.0.0           0.0.0.0\n  10.8.5.1  10.8.5.7   25\n10.8.5.0    255.255.255.0\n  On-link   10.8.5.7  281\n10.8.5.7  255.255.255.255\n  On-link   10.8.5.7  281" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.7",
+        "title": "Routing Table Tools",
+        "quote": "",
+        "find": "routing table, run route print"
+      }
+    },
+    {
+      "id": "n-u05-c002",
+      "typedFormOf": ["n-u05-q012"],
+      "system": "router",
+      "task": "A technician documenting a branch router needs a list of every IPv4 network it can reach right now, with a code that tells whether each one is directly connected, was entered by hand, or was learned from another router. Which command should the technician run?",
+      "accept": [
+        { "lines": ["show ip route", "show route"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u05-v002",
+          "outputs": [
+            { "exhibitOf": "n-u05-q013" }
+          ],
+          "followUp": { "question": "n-u05-q013" }
+        }
+      ],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["5.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.7",
+        "title": "Routing Table Tools",
+        "quote": "",
+        "find": "similar show route command will output"
+      }
+    },
+    {
+      "id": "n-u05-c003",
+      "typedFormOf": ["n-u05-q014"],
+      "system": "linux",
+      "task": "A Linux server can no longer reach a backup server at 10.9.40.12. Which command, using its default probes, will list each hop toward that address so a technician can find the last one that answers?",
+      "accept": [
+        { "lines": ["traceroute 10.9.40.12"] }
+      ],
+      "alsoWorks": ["traceroute -n 10.9.40.12"],
+      "versions": [
+        {
+          "id": "n-u05-v003",
+          "outputs": [
+            { "text": "traceroute to 10.9.40.12\n  (10.9.40.12), 30 hops\n  max, 60 byte packets\n 1  10.9.8.1 (10.9.8.1)\n    0.431 ms  0.392 ms\n    0.376 ms\n 2  10.9.0.1 (10.9.0.1)\n    1.874 ms  1.802 ms\n    1.765 ms\n 3  * * *\n 4  * * *\n 5  * * *" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.8",
+        "title": "tracert and traceroute",
+        "quote": "",
+        "find": "supported on Linux and router operating"
+      }
+    },
+    {
+      "id": "n-u05-c004",
+      "typedFormOf": ["n-u05-q015", "n-u05-q018"],
+      "system": "windows",
+      "task": "A technician at a Windows PC in the office needs to list every hop between the PC and a partner's web server at 203.0.113.45, with the time each hop takes to respond to each probe. Which command should the technician run?",
+      "accept": [
+        { "lines": ["tracert 203.0.113.45", "tracert -d 203.0.113.45"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u05-v004",
+          "outputs": [
+            { "exhibitOf": "n-u05-q016" }
+          ],
+          "followUp": { "question": "n-u05-q016" }
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.8",
+        "title": "tracert and traceroute",
+        "quote": "",
+        "find": "function is performed using the tracert"
+      }
+    },
+    {
+      "id": "n-u05-c005",
+      "typedFormOf": ["n-u05-q021"],
+      "system": "windows",
+      "task": "From a Windows PC, a technician wants tracert to list every hop to mail.example by IP address only, with no name lookup for any hop. Which command should the technician run?",
+      "accept": [
+        { "lines": ["tracert -d mail.example"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u05-v005",
+          "outputs": [
+            { "text": "Tracing route to\n  mail.example [10.2.4.9]\n1  <1 ms  <1 ms  <1 ms\n   10.30.0.1\n2   3 ms   2 ms   3 ms\n   10.255.0.2\n3   4 ms   4 ms   5 ms\n   10.2.0.1\n4   5 ms   4 ms   4 ms\n   10.2.4.9" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["5.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.8",
+        "title": "tracert and traceroute",
+        "quote": "",
+        "find": "switch to suppress name resolution"
+      }
+    },
+    {
+      "id": "n-u05-c006",
+      "typedFormOf": ["n-u05-f038"],
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q59" },
+      "system": "router",
+      "task": "A technician wants to confirm that a router has learned the MAC address of a new printer at 10.70.1.20. Which command will list every IP address the router has matched to a MAC address?",
+      "accept": [
+        { "lines": ["show arp", "show ip arp"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u05-v006",
+          "outputs": [
+            { "text": "Internet  10.70.1.1     -\n  00a3.d1e4.5b02  Gi0/1\nInternet  10.70.1.20    0\n  3c2a.f4b1.07c9  Gi0/1\nInternet  10.70.1.36   14\n  e4b9.7a0c.d215  Gi0/1\nInternet  172.20.0.1    6\n  5c26.0ae1.4f88  Gi0/0\nInternet  172.20.0.2    -\n  00a3.d1e4.5b01  Gi0/0" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["5.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.1.7",
+        "title": "Routing Table Tools",
+        "quote": "",
+        "find": "To view the cache"
+      }
+    },
+    {
+      "id": "n-u05-c007",
+      "typedFormOf": ["n-u05-f039"],
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q386" },
+      "system": "switch",
+      "task": "A technician is taking over a switch that has no documentation and needs to see how its ports are grouped into separate broadcast domains, with the ID, name, and member ports of each group. Which command should the technician run?",
+      "accept": [
+        { "lines": ["show vlan"] }
+      ],
+      "alsoWorks": ["show vlan brief"],
+      "versions": [
+        {
+          "id": "n-u05-v007",
+          "outputs": [
+            { "text": "VLAN Name         Status\n  Ports\n1    default      active\n  Gi0/8\n30   Staff        active\n  Gi0/1, Gi0/2, Gi0/3\n40   Cameras      active\n  Gi0/4, Gi0/5\n50   Guest        active\n  Gi0/6, Gi0/7" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["5.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "5.6.2",
+        "title": "Virtual LAN IDs and Membership",
+        "quote": "",
+        "find": "command reports the VLAN IDs configured"
+      }
+    }
+  ]
+}
