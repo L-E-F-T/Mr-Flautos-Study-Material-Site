@@ -20,9 +20,9 @@
  *   3 read     the line the way its system does (readLine).
  *   4 compare  stored lines are read the same way; equal keys mean accepted; the first group wins.
  *   5 free     Not counted: an alsoWorks line, or on a router or switch a short form of each word.
- *   6 name     a given address or host name typed wrong or left off; an extra period; another
- *              system's command; the right command with wrong details; a command the tool asks
- *              elsewhere; a real command with no item; anything else.
+ *   6 name     a given address or host name typed wrong or left off; an extra period; a switch
+ *              one letter off (Windows); another system's command; the right command with wrong
+ *              details; a command the tool asks elsewhere; a real command with no item; anything else.
  */
 
 /** tools/command-cases.json carries the same number. Change the two together. */
@@ -47,6 +47,7 @@ export const VERDICTS = freezeAll({
   'address-missing': { verdict: 'slip', label: 'Address missing', counts: false, keepLine: true },
   'name-missing':    { verdict: 'slip', label: 'Host name missing', counts: false, keepLine: true },
   'extra-period':    { verdict: 'slip', label: 'Extra period', counts: false, keepLine: true },
+  'switch-typo':     { verdict: 'slip', label: 'Misspelled switch', counts: false, keepLine: true },
   'not-counted':     { verdict: 'slip', label: 'Not counted', counts: false, keepLine: true },
   'not-in-tool':     { verdict: 'slip', label: 'Not in this tool', counts: false, keepLine: true },
   'not-recognized':  { verdict: 'slip', label: 'Not recognized', counts: false, keepLine: true },
@@ -99,6 +100,24 @@ const SHORT_WORD_MIN = 2;
 
 // Never given, even when the task prints them: there the address is the answer.
 const NEVER_GIVEN = ['127.0.0.1', 'localhost'];
+
+// The switches each Windows command has, as its row reads them, so that a real switch is never
+// taken for a misspelled one (the Misspelled switch slip, Mr. Flauto's word of 2026-11-20).
+// ipconfig, arp, ping, tracert, and netstat are from their /? on this PC; nslookup's options and
+// query types are from its documentation. A command with no list never gets the slip.
+const WINDOWS_SWITCHES = {
+  'ipconfig': ['all', 'allcompartments', 'release', 'release6', 'renew', 'renew6', 'flushdns', 'registerdns', 'displaydns',
+    'showclassid', 'setclassid', 'showclassid6', 'setclassid6'],
+  'arp': ['a', 'g', 'v', 'n', 'd', 's'],                                   // read in lower case: -N is n
+  'ping': ['t', 'a', 'n', 'l', 'f', 'i', 'v', 'r', 's', 'j', 'k', 'w', 'R', 'S', 'c', 'p', '4', '6'],
+  'tracert': ['d', 'h', 'j', 'w', 'R', 'S', '4', '6'],
+  'netstat': ['a', 'b', 'c', 'd', 'e', 'f', 'i', 'n', 'o', 'p', 'q', 'r', 's', 't', 'x', 'y'],   // the letters of one set
+  'nslookup': ['all', 'class', 'd2', 'nod2', 'debug', 'nodebug', 'defname', 'nodefname', 'domain', 'ignore', 'noignore',
+    'ixfrver', 'msxfr', 'nomsxfr', 'port', 'recurse', 'norecurse', 'retry', 'root', 'search', 'nosearch', 'srchlist',
+    'timeout', 'type', 'vc', 'novc'],                                       // querytype and its short forms read as type
+};
+const NSLOOKUP_TYPES = ['a', 'aaaa', 'a+aaaa', 'any', 'cname', 'gid', 'hinfo', 'mb', 'mg', 'minfo', 'mr', 'mx', 'ns', 'ptr',
+  'soa', 'srv', 'txt', 'uid', 'uinfo', 'wks'];
 
 /* ---------- small helpers ---------- */
 
@@ -448,6 +467,71 @@ function targetSlip(stored, typed, given) {
   return null;
 }
 
+// One character added, dropped, or changed, or two side by side swapped.
+function oneOff(a, b) {
+  if (a === b || Math.abs(a.length - b.length) > 1) return false;
+  let i = 0;
+  while (i < a.length && i < b.length && a.charAt(i) === b.charAt(i)) i++;
+  if (a.length === b.length) {
+    if (a.substring(i + 1) === b.substring(i + 1)) return true;
+    return a.charAt(i) === b.charAt(i + 1) && a.charAt(i + 1) === b.charAt(i) && a.substring(i + 2) === b.substring(i + 2);
+  }
+  return a.length > b.length ? a.substring(i + 1) === b.substring(i) : b.substring(i + 1) === a.substring(i);
+}
+
+// netstat reads its letters as one set (-on is -no): one letter added, dropped, or changed.
+function oneOffSet(a, b) {
+  const A = a.substring(1);
+  const B = b.substring(1);
+  let added = 0;
+  let dropped = 0;
+  for (let i = 0; i < B.length; i++) if (A.indexOf(B.charAt(i)) < 0) added++;
+  for (let i = 0; i < A.length; i++) if (B.indexOf(A.charAt(i)) < 0) dropped++;
+  return added + dropped > 0 && added <= 1 && dropped <= 1;
+}
+
+// True when a switch, as its command's row reads it, is one the command has.
+function realSwitch(name, value) {
+  if (value.charAt(0) !== '-' || value.charAt(1) === '-') return false;
+  const list = WINDOWS_SWITCHES[name];
+  let body = value.substring(1);
+  if (name === 'netstat') {
+    if (!/^[a-z]+$/.test(body)) return false;
+    for (let i = 0; i < body.length; i++) if (list.indexOf(body.charAt(i)) < 0) return false;
+    return true;
+  }
+  if (name === 'nslookup') {
+    const eq = body.indexOf('=');
+    const option = eq >= 0 ? body.substring(0, eq) : body;
+    if (list.indexOf(option) < 0) return false;
+    return option !== 'type' || eq < 0 || NSLOOKUP_TYPES.indexOf(body.substring(eq + 1)) >= 0;
+  }
+  if (name === 'ping' && body.indexOf(' ') >= 0) body = body.substring(0, body.indexOf(' '));   // a switch and its value
+  return list.indexOf(body) >= 0;
+}
+
+// The Misspelled switch slip, no try (Mr. Flauto's word of 2026-11-20): the line is an accepted
+// line, read the same way, except for one switch, which is one character off that line's switch
+// (one letter of the set for netstat) and is not a switch the command has. A different real
+// switch still costs a try (netstat -a when -o is asked). Windows only, where each switch list
+// and each row was run on this PC; no Linux or device line can be run here.
+function switchTypo(stored, typed, system) {
+  if (system !== 'windows') return null;
+  const T = typed.toks;
+  const name = T.length ? T[0].v : '';
+  if (!own(WINDOWS_SWITCHES, name)) return null;
+  for (const s of stored) {
+    const S = s.reading.toks;
+    if (S.length !== T.length || S[0].v !== name) continue;
+    let at = 0;
+    for (let i = 1; i < S.length && at >= 0; i++) if (S[i].v !== T[i].v) at = at ? -1 : i;
+    if (at <= 0 || S[at].k !== 's') continue;
+    const near = name === 'netstat' && T[at].k === 's' ? oneOffSet(S[at].v, T[at].v) : oneOff(T[at].v, S[at].v);
+    if (near && !realSwitch(name, T[at].v)) return { line: s.line };
+  }
+  return null;
+}
+
 function stripPeriods(text) {
   const out = [];
   for (const part of text.split(' ')) {
@@ -522,6 +606,9 @@ export function matchSpec(spec, raw, ctx) {
     const typed2 = readLine(noDots, system);
     if (findAccepted(stored, typed2) || notCounted(stored, also, typed2, system) || targetSlip(stored, typed2, given)) return result('extra-period', text);
   }
+
+  const typo = switchTypo(stored, typed, system);
+  if (typo) return result('switch-typo', text, { line: typo.line });
 
   const name = typed.name;
   const lookup = name.toLowerCase();

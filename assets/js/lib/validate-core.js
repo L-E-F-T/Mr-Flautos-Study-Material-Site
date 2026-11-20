@@ -767,6 +767,8 @@ function checkCommandLine(env) {
           if (SAME_SHAPE.includes(r.code)) error(where, `Stored line "${r.line}" has the shape of the wrong choice "${choice.text}" of ${q.id}.`);
           else if (r.code === 'not-counted' && !also.includes(r.line)) {
             error(where, `The wrong choice "${choice.text}" of ${q.id} reads ${notCounted}, as a short form of "${r.line}".`);
+          } else if (r.code === 'switch-typo') {
+            error(where, `The wrong choice "${choice.text}" of ${q.id} reads ${resultWords(r)}, one letter off "${r.line}", so it would cost no try.`);
           }
           if (alsoSpec) {
             const a = matchSpec(alsoSpec, choice.text, ctx);
