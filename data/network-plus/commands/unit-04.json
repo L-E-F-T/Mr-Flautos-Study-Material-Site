@@ -1,0 +1,257 @@
+{
+  "$schema": "../../../schemas/command-pack.schema.json",
+  "pack": { "id": "unit-04", "title": "Unit 4.0 Configuring Network Addressing", "reviewed": false, "lastCommand": 9, "lastVersion": 10 },
+  "commands": [
+    {
+      "id": "n-u04-c001",
+      "typedFormOf": ["n-u04-q033"],
+      "system": "windows",
+      "task": "A technician is troubleshooting a connection problem on a Windows PC and wants to see the IPv4 address, subnet mask, and default gateway of its network adapter. Which command should the technician run?",
+      "accept": [
+        { "lines": ["ipconfig"] },
+        { "lines": ["ipconfig /all"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u04-v001",
+          "outputs": [
+            { "exhibitOf": "n-u04-q054" },
+            { "text": "Ethernet adapter LAN:\n  Physical Address:\n    5C-26-0A-7B-31-D8\n  DHCP Enabled:\n    No\n  IPv4 Address:\n    10.38.25.140\n      (Preferred)\n  Subnet Mask:\n    255.255.252.0\n  Default Gateway:\n    10.38.24.1" }
+          ],
+          "followUp": { "question": "n-u04-q054" }
+        },
+        {
+          "id": "n-u04-v002",
+          "outputs": [
+            { "exhibitOf": "n-u04-q059" },
+            { "text": "Ethernet adapter LAN:\n  Physical Address:\n    A4-1F-72-C8-0E-53\n  DHCP Enabled:\n    No\n  IPv4 Address:\n    10.140.118.25\n      (Preferred)\n  Subnet Mask:\n    255.255.224.0\n  Default Gateway:\n    10.140.128.1" }
+          ],
+          "followUp": { "question": "n-u04-q059" }
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.1",
+        "title": "ipconfig",
+        "quote": "",
+        "find": "without any switches will display"
+      }
+    },
+    {
+      "id": "n-u04-c002",
+      "typedFormOf": ["n-u04-q032"],
+      "system": "windows",
+      "task": "To fill out a repair ticket for a Windows PC, a technician needs the complete TCP/IP settings of its network adapter, including the MAC address and the address of the DHCP server that gave the PC its IPv4 address. Which command should the technician run?",
+      "accept": [
+        { "lines": ["ipconfig /all"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u04-v003",
+          "outputs": [
+            { "text": "Ethernet adapter LAN:\n  Physical Address:\n    8C-16-45-D2-7A-09\n  DHCP Enabled:\n    Yes\n  IPv4 Address:\n    172.18.40.63\n      (Preferred)\n  Subnet Mask:\n    255.255.255.0\n  DHCP Server:\n    172.18.40.5" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.1",
+        "title": "ipconfig",
+        "quote": "",
+        "find": "configuration parameters for each interface"
+      }
+    },
+    {
+      "id": "n-u04-c003",
+      "typedFormOf": ["n-u04-q037"],
+      "system": "windows",
+      "task": "A Windows PC has two network adapters, each on a different subnet. Which command should a technician run on the PC to see the cache of IP addresses it has resolved to MAC addresses, for both adapters?",
+      "accept": [
+        { "lines": ["arp -a", "arp -g"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u04-v004",
+          "outputs": [
+            { "text": "Interface: 192.168.12.30\nInternet Address  Type\n  Physical Address\n192.168.12.1      dynamic\n  9c-5d-12-a7-3e-40\n192.168.12.255    static\n  ff-ff-ff-ff-ff-ff\nInterface: 10.70.8.15\nInternet Address  Type\n  Physical Address\n10.70.8.1         dynamic\n  70-4d-7b-1c-92-e6" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.3",
+        "title": "arp",
+        "quote": "",
+        "find": "shows the ARP cache"
+      }
+    },
+    {
+      "id": "n-u04-c004",
+      "typedFormOf": ["n-u04-q038"],
+      "system": "windows",
+      "task": "Several servers on a subnet traded IP addresses with each other, so a Windows PC on that subnet now has wrong IP-to-MAC address mappings in its cache. Which command should a technician run on the PC to delete every entry in that cache at once?",
+      "accept": [
+        { "lines": ["arp -d *"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u04-v005",
+          "outputs": [
+            { "text": "" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.3",
+        "title": "arp",
+        "quote": "",
+        "find": "deletes all entries"
+      }
+    },
+    {
+      "id": "n-u04-c005",
+      "typedFormOf": ["n-u04-q039"],
+      "system": "windows",
+      "task": "A technician wants a Windows PC to map a security camera's IP address, 10.32.7.18, to the camera's MAC address, B4-6D-83-2F-0A-91, without waiting for the PC to learn it. Which command will add this entry to the PC's ARP cache?",
+      "accept": [
+        { "lines": ["arp -s 10.32.7.18 b4-6d-83-2f-0a-91"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u04-v006",
+          "outputs": [
+            { "text": "" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.3",
+        "title": "arp",
+        "quote": "",
+        "find": "adds an entry"
+      }
+    },
+    {
+      "id": "n-u04-c006",
+      "typedFormOf": ["n-u04-q041"],
+      "system": "windows",
+      "task": "Students say a Windows PC in the school library is slow to open files from a server at 192.168.30.12. Which command will run a basic connectivity test from the PC to the server, with the default number of echo requests, and show the round-trip time of each reply?",
+      "accept": [
+        { "lines": ["ping 192.168.30.12"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u04-v007",
+          "outputs": [
+            { "text": "Pinging 192.168.30.12\n  with 32 bytes of data:\nReply from 192.168.30.12:\n  bytes=32 time=48ms\nReply from 192.168.30.12:\n  bytes=32 time=51ms\nReply from 192.168.30.12:\n  bytes=32 time=47ms\nReply from 192.168.30.12:\n  bytes=32 time=53ms\nSent = 4, Received = 4,\n  Lost = 0 (0% loss)" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.4",
+        "title": "ping",
+        "quote": "",
+        "find": "basic connectivity test is performed"
+      }
+    },
+    {
+      "id": "n-u04-c007",
+      "typedFormOf": ["n-u04-q042"],
+      "system": "windows",
+      "task": "A network printer at 172.19.4.30 may have a loose cable, so a technician wants a Windows PC to ping it over and over until the technician stops the command. Which command should the technician run?",
+      "accept": [
+        { "lines": ["ping -t 172.19.4.30"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u04-v008",
+          "outputs": [
+            { "text": "Reply from 172.19.4.30:\n  bytes=32 time=2ms\nReply from 172.19.4.30:\n  bytes=32 time=1ms\nReply from 172.19.4.30:\n  bytes=32 time=1ms\nReply from 172.19.4.30:\n  bytes=32 time=3ms\nReply from 172.19.4.30:\n  bytes=32 time=1ms\nReply from 172.19.4.30:\n  bytes=32 time=2ms" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.4",
+        "title": "ping",
+        "quote": "",
+        "find": "continues to ping the host"
+      }
+    },
+    {
+      "id": "n-u04-c008",
+      "typedFormOf": ["n-u04-q022"],
+      "system": "windows",
+      "task": "After a driver update, a Windows PC that runs IPv4 only cannot reach any host. Which command will test the PC's own TCP/IP software by pinging its default loopback address with the default number of echo requests?",
+      "accept": [
+        { "lines": ["ping 127.0.0.1"], "sections": ["4.4.4"] },
+        { "lines": ["ping localhost", "ping -4 localhost"], "sections": ["4.4.4"] }
+      ],
+      "alsoWorks": ["ping -a 127.0.0.1"],
+      "versions": [
+        {
+          "id": "n-u04-v009",
+          "outputs": [
+            { "text": "Pinging 127.0.0.1\n  with 32 bytes of data:\nReply from 127.0.0.1:\n  bytes=32 time<1ms\nReply from 127.0.0.1:\n  bytes=32 time<1ms\nReply from 127.0.0.1:\n  bytes=32 time<1ms\nReply from 127.0.0.1:\n  bytes=32 time<1ms\nSent = 4, Received = 4,\n  Lost = 0 (0% loss)" },
+            { "text": "Pinging PC-14 [127.0.0.1]\n  with 32 bytes of data:\nReply from 127.0.0.1:\n  bytes=32 time<1ms\nReply from 127.0.0.1:\n  bytes=32 time<1ms\nReply from 127.0.0.1:\n  bytes=32 time<1ms\nReply from 127.0.0.1:\n  bytes=32 time<1ms\nSent = 4, Received = 4,\n  Lost = 0 (0% loss)" }
+          ]
+        }
+      ],
+      "objectives": ["1.7", "1.7.a"],
+      "units": ["4.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.3.3",
+        "title": "Other Reserved Address Ranges",
+        "quote": "",
+        "find": "TCP/IP is correctly installed"
+      }
+    },
+    {
+      "id": "n-u04-c009",
+      "typedFormOf": ["n-u04-q035", "n-u04-q036", "n-u04-q052"],
+      "system": "linux",
+      "task": "After moving a Linux server to a new rack, a technician wants to confirm the IPv4 address and netmask of every network interface on the server. Which command should the technician run?",
+      "accept": [
+        { "lines": ["ip addr"] },
+        { "lines": ["ifconfig"] }
+      ],
+      "alsoWorks": ["ifconfig -a", "ip -4 addr", "ip -br addr"],
+      "versions": [
+        {
+          "id": "n-u04-v010",
+          "outputs": [
+            { "text": "1: lo: <LOOPBACK,UP,\n  LOWER_UP> mtu 65536\n  inet 127.0.0.1/8\n2: eth0: <BROADCAST,\n  MULTICAST,UP,LOWER_UP>\n  mtu 1500\n  inet 10.25.6.14/24\n    brd 10.25.6.255" },
+            { "text": "eth0: flags=4163<UP,\n  BROADCAST,RUNNING,\n  MULTICAST>  mtu 1500\n  inet 10.25.6.14\n    netmask 255.255.255.0\n    broadcast 10.25.6.255\n\nlo: flags=73<UP,LOOPBACK,\n  RUNNING>  mtu 65536\n  inet 127.0.0.1\n    netmask 255.0.0.0" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "4.4.2",
+        "title": "ifconfig and ip",
+        "quote": "",
+        "find": "show the current address configuration"
+      }
+    }
+  ]
+}
