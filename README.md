@@ -1,12 +1,12 @@
 # CompTIA Cert Prep
 
-A study site for Mr. Flauto's CompTIA classes: build-your-own **flashcard decks** and **practice tests** filtered by textbook unit/lesson or by exam objective, with instant feedback that points to the exact CertMaster reading section.
+A study site for Mr. Flauto's CompTIA classes: build-your-own **flashcard decks** and **practice tests** filtered by textbook unit/lesson or by exam objective, with instant feedback that points to the exact CertMaster reading section. Network+ also has **Command line**, a typed command drill: the student types the command a task asks for, and a right one prints its output.
 
 Live now: **A+ Core 1 (220-1201)** and **Network+ (N10-009)**. Planned: A+ Core 2 (220-1202), Security+ (SY0-701, then SY0-801).
 
 It works on phones and computers, in light or dark mode (the sun/moon button in the header).
 
-Content so far: all of A+ Core 1, Units 2.0 to 10.0 (474 questions, 429 flashcards); Unit 1.0 is not on the exam. Network+: Units 4.0, 5.0, and 6.0 (242 questions, 162 flashcards); its other units say "Coming soon". Core 2 and Security+ say "Coming soon" until their packs are written.
+Content so far: all of A+ Core 1, Units 2.0 to 10.0 (474 questions, 429 flashcards); Unit 1.0 is not on the exam. Network+: Units 4.0, 5.0, and 6.0 (242 questions, 162 flashcards, and 25 Command line commands with a command bank); its other units say "Coming soon". Core 2 and Security+ say "Coming soon" until their packs are written.
 
 ## Test it on this computer
 
@@ -20,7 +20,9 @@ Teacher pages while the server runs:
 
 - **Content check:** http://localhost:8080/tools/validate.html (errors, warnings, and coverage by objective and lesson)
 - **Quote helper:** http://localhost:8080/tools/quotes.html (add the line from the reading to each question; Chrome or Edge saves straight into the file)
-- **Draft preview:** add `?drafts=1` to any page URL to see questions marked `"status": "draft"`
+- **Draft preview:** add `?drafts=1` to any page URL to see questions and commands marked `"status": "draft"`
+- **Command line preview:** http://localhost:8080/commands.html?exam=network-plus&drafts=1 (with `?drafts=1` the tool also opens for an exam whose `commandUnits` in `data/exams.json` is not set yet)
+- **Test data:** the preview server `study-site-fixture` (`.claude/launch.json`) serves ports 8091 to 8095, each with the fake Command line data of one folder of `tools/test-data` (its README lists the ports)
 
 > Opening `index.html` by double-clicking it will not work: browsers block the site's scripts on `file://` pages. Always use `serve.cmd`.
 
@@ -34,7 +36,7 @@ Teacher pages while the server runs:
 | `assets/js/lib/` | Shared code: content loading, taxonomy trees, saved progress, light/dark toggle, validator rules, the command matcher |
 | `assets/js/theme-init.js` | Tiny script that sets light or dark before the page draws |
 | `data/exams.json` | Every exam and its status |
-| `data/a-plus-core-1/`, `data/network-plus/` | Each exam's objectives, units, and question and flashcard packs (Network+ will also have `commands/`, the Command line packs) |
+| `data/a-plus-core-1/`, `data/network-plus/` | Each exam's objectives, units, and question and flashcard packs (Network+ also has `commands/`: the Command line packs and the command bank) |
 | `schemas/` | Format definitions (VS Code uses them to flag mistakes as you type) |
 | `tools/` | Local server, content check (browser + command line) |
 | `docs/PLAN.md` | The plan: site layout, how it is built, sign-in and scoreboard design, roadmap, tools to install |
