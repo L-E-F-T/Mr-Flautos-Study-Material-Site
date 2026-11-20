@@ -195,7 +195,11 @@ kbd {
    Wide:   [CP Site name] [Exam name code] .......... [Flashcards][Practice test] [theme]
    Phone:  [CP] Exam name code
            [ Flashcards ][ Practice test ] [theme]
-   The first item is the home link (a house icon); header-actions holds the theme button. */
+   The first item is the home link (a house icon); header-actions holds the theme button.
+   An exam with the Command line tool has a third tab, and up to 740px its own layout
+   (the three-tab block under Responsive):
+           [CP] Exam name code                      [theme]
+           [ Flashcards ][ Practice test ][ Command line ] */
 
 .site-header {
   background: var(--surface);
@@ -383,8 +387,9 @@ label.inline { display: inline-flex; align-items: center; gap: 0.45rem; cursor: 
 .exam-card p { margin: 0; color: rgba(255, 255, 255, 0.9); font-size: 0.92rem; }
 /* Buttons sit at the bottom of the card; everything else stays at the top. Each unfinished
    deck or test gets a row first: its white Resume button, with a minus at the right end that
-   discards it. The last row is Flashcards and Practice test, which share the card width (one
-   fills it, two split it). */
+   discards it. Then comes the row of Flashcards and Practice test, which share the card width
+   (one fills it, two split it). An exam with the Command line tool has one more row under it,
+   with that button alone. */
 .exam-card .exam-actions { margin-top: auto; padding-top: 0.4rem; display: grid; gap: 0.5rem; }
 .exam-card .exam-buttons { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 0.5rem; }
 .exam-card .exam-buttons .btn { padding-left: 0.5rem; padding-right: 0.5rem; white-space: normal; text-align: center; }
@@ -789,7 +794,8 @@ details.disclosure[open] > summary { margin-bottom: 0.5rem; }
   .site-header.has-exam .header-main { flex-wrap: nowrap; gap: 0.6rem; }
 }
 
-/* Phones: two-row header on exam pages (title row, then tabs + theme button). */
+/* Phones: two-row header on exam pages (title row, then tabs + theme button). Pages with
+   three tabs use the block after this one. */
 @media (max-width: 600px) {
   .site-header.has-exam .header-inner { gap: 0.4rem 0.5rem; }
   .site-header.has-exam .header-main { flex: 1 1 100%; }
@@ -799,6 +805,27 @@ details.disclosure[open] > summary { margin-bottom: 0.5rem; }
     border-radius: var(--radius-sm); background: var(--surface-2);
   }
   .site-header.has-exam .mode-nav a[aria-current="page"] { background: var(--accent-soft); }
+}
+
+/* Three tabs (an exam with the Command line tool: <html data-tabs="3">, set by boot.js, and
+   written into commands.html). Up to 740px the tabs get a row of their own, under the home
+   link, the exam name, and the theme button. Columns are sized by their labels: Flashcards
+   never wraps, and the two-word labels wrap at their space on the narrowest phones (320px).
+   Above 740px the three tabs are pills in the one-row header. Pages with two tabs keep the
+   rules above. */
+@media (max-width: 740px) {
+  :root[data-tabs="3"] .site-header.has-exam .header-inner { gap: 0.4rem 0.5rem; }
+  :root[data-tabs="3"] .site-header.has-exam .header-main { flex: 1 1 0; }
+  :root[data-tabs="3"] .site-header.has-exam .mode-nav {
+    order: 1; flex: 1 1 100%; min-width: 0; margin-left: 0;
+    display: grid; gap: 0.35rem;
+    grid-template-columns: minmax(max-content, auto) minmax(0, auto) minmax(0, auto);
+  }
+  :root[data-tabs="3"] .site-header.has-exam .mode-nav a {
+    display: grid; place-items: center; min-height: 44px; padding: 0.3rem 0.5rem; text-align: center;
+    border-radius: var(--radius-sm); background: var(--surface-2); overflow-wrap: anywhere;
+  }
+  :root[data-tabs="3"] .site-header.has-exam .mode-nav a[aria-current="page"] { background: var(--accent-soft); }
 }
 
 @media (max-width: 560px) {

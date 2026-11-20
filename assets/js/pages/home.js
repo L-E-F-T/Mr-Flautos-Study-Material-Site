@@ -1,12 +1,14 @@
 /**
- * Home page: one card per exam from data/exams.json. Live exams link to their two study
- * modes, and offer to resume a deck or test the student left unfinished on this device. Each
- * Resume button has a minus at its right end that discards that deck or test: the first click
- * turns the minus red, and a second click on the red minus discards it.
+ * Home page: one card per exam from data/exams.json. Live exams link to their study modes
+ * (Flashcards and Practice test, and Command line on a row of its own for an exam that has
+ * that tool), and offer to resume a deck or test the student left unfinished on this device.
+ * Each Resume button has a minus at its right end that discards that deck or test: the first
+ * click turns the minus red, and a second click on the red minus discards it.
  * An exam that is not built yet, or a study mode with no content yet, is labeled "Coming soon".
+ * A tool an exam does not have is not shown at all.
  */
-import { fetchJSON, applySiteChrome, showFatal, pageUrl, includePrivatePacks } from '../lib/boot.js';
-import { loadRegistry, contentAvailable } from '../lib/content.js';
+import { fetchJSON, applySiteChrome, showFatal, pageUrl, includePrivatePacks, queryFlag } from '../lib/boot.js';
+import { loadRegistry, contentAvailable, commandState, assumedAvailable } from '../lib/content.js';
 import { h, mount, announce } from '../lib/dom.js';
 import * as store from '../lib/storage.js';
 import { initThemeToggle } from '../lib/theme.js';
@@ -41,8 +43,11 @@ function discard(examId, kind) {
   else store.save(deckKey(examId), { ...store.load(deckKey(examId), {}), deck: null });
 }
 
-/** `has` says which study modes have content: { flashcards, questions }. */
-function examCard(exam, has) {
+/**
+ * `has` says which study modes have content: { flashcards, questions }. `commands` says where
+ * the exam's Command line tool stands: 'none' (no button), 'soon' (Coming soon), or 'ready'.
+ */
+function examCard(exam, has, commands) {
   // A live exam with no packs at all looks the same as one that is not built yet.
   const live = exam.status === 'live' && (has.flashcards || has.questions);
   const saved = live ? unfinished(exam.id) : { deck: false, test: false };
@@ -52,7 +57,7 @@ function examCard(exam, has) {
   // does with nothing saved, and focus moves to the mode button that starts a new one.
   const afterDiscard = (kind, what) => {
     discard(exam.id, kind);
-    const fresh = examCard(exam, has);
+    const fresh = examCard(exam, has, commands);
     card.replaceWith(fresh);
     const next = fresh.querySelector(`[data-mode="${kind}"]`);
     if (next) next.focus();
@@ -74,6 +79,13 @@ function examCard(exam, has) {
   const mode = (label, kind, ready, href) => (ready
     ? h('a', { class: modeClass, href, 'data-mode': kind }, label)
     : h('span', { class: 'btn is-soon' }, label, h('small', null, 'Coming soon')));
+  // Command line, on a row of its own in the outline style, only on an exam that has the tool.
+  const drill = commands === 'ready' || commands === 'soon'
+    ? h('div', { class: 'exam-buttons' },
+        commands === 'ready'
+          ? h('a', { class: 'btn', href: pageUrl('commands.html', exam.id), 'data-mode': 'drill' }, 'Command line')
+          : h('span', { class: 'btn is-soon' }, 'Command line', h('small', null, 'Coming soon')))
+    : null;
 
   const card = h('article', { class: `exam-card${live ? '' : ' is-planned'}`, 'data-theme-key': exam.theme || '' },
     h('div', { class: 'row spread' },
@@ -90,6 +102,7 @@ function examCard(exam, has) {
             mode('Flashcards', 'deck', has.flashcards, pageUrl('flashcards.html', exam.id, open.deck ? { choose: '1' } : {})),
             mode('Practice test', 'test', has.questions, pageUrl('practice.html', exam.id)),
           ),
+          drill,
         )
       : null,
   );
@@ -103,17 +116,32 @@ try {
   const exams = registry.exams.filter((exam) => exam.status !== 'hidden');
   // Which study modes of each live exam have content (from the manifests, a small download).
   const everything = { flashcards: true, questions: true };
-  const available = new Map(await Promise.all(exams.map(async (exam) => {
-    if (exam.status !== 'live') return [exam.id, everything];
-    try {
-      return [exam.id, await contentAvailable(fetchJSON, exam, { includePrivate: includePrivatePacks() })];
-    } catch {
-      return [exam.id, everything]; // the exam's own pages will say what is wrong
-    }
-  })));
+  // Where each live exam's Command line tool stands, asked on its own: a commands manifest that
+  // cannot be read never changes the two buttons above, and the third button then follows the
+  // field in data/exams.json. Only an exam with that field is asked, or, with ?drafts=1, every
+  // live exam (the teacher's look before launch).
+  const preview = queryFlag('drafts');
+  const [available, commands] = await Promise.all([
+    Promise.all(exams.map(async (exam) => {
+      if (exam.status !== 'live') return [exam.id, everything];
+      try {
+        return [exam.id, await contentAvailable(fetchJSON, exam, { includePrivate: includePrivatePacks() })];
+      } catch {
+        return [exam.id, everything]; // the exam's own pages will say what is wrong
+      }
+    })),
+    Promise.all(exams.map(async (exam) => {
+      if (exam.status !== 'live') return [exam.id, 'none'];
+      try {
+        return [exam.id, await commandState(fetchJSON, exam, { includePrivate: includePrivatePacks(), preview })];
+      } catch {
+        return [exam.id, assumedAvailable(exam).commands];
+      }
+    })),
+  ]).then((lists) => lists.map((entries) => new Map(entries)));
 
   const list = document.getElementById('exam-list');
-  const render = () => mount(list, exams.map((exam) => examCard(exam, available.get(exam.id))));
+  const render = () => mount(list, exams.map((exam) => examCard(exam, available.get(exam.id), commands.get(exam.id))));
   render();
   list.removeAttribute('aria-busy');
 

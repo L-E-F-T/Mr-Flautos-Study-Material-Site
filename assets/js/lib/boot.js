@@ -1,10 +1,13 @@
 /**
- * Shared start-up for exam pages (flashcards.html, practice.html):
+ * Shared start-up for exam pages (flashcards.html, practice.html, commands.html):
  * reads ?exam=, loads that exam's content, applies its theme, fills the header,
  * and returns everything the page needs. Shows a readable error instead of a
  * blank page when something goes wrong.
+ * The Command line page serves only an exam that has that tool. For it, this file picks the
+ * exam, or sends the browser to the home page, before any pack loads. Every exam page shows
+ * the Command line tab only for an exam that has the tool.
  */
-import { loadRegistry, loadExamContent, liveExams, findExam, itemsFromPacks, isPlaceholderPack } from './content.js';
+import { loadRegistry, loadExamContent, liveExams, findExam, itemsFromPacks, isPlaceholderPack, commandUnits, commandState } from './content.js';
 import { objectiveTaxonomy, unitTaxonomy, indexTaxonomy } from './taxonomy.js';
 import { h, mount } from './dom.js';
 
@@ -70,9 +73,28 @@ export function showFatal(error) {
   console.error(error);
 }
 
+/** Each mode's name, for the browser tab title and the heading of an exam that is not built yet. */
+const MODE_NAMES = { flashcards: 'Flashcards', practice: 'Practice test', commands: 'Command line' };
+
 /**
- * Boot an exam page. `mode` is "flashcards" or "practice".
- * Resolves to a context object, or null after showing an error.
+ * Whether an exam has the Command line tool: "commandUnits" in data/exams.json, or, on the
+ * teacher's ?drafts=1 look before launch, a commands manifest that lists a pack. Only that look
+ * asks for a manifest, in a try of its own: a manifest that cannot be read means no tool.
+ */
+async function hasCommandLine(exam, preview) {
+  if (commandUnits(exam)) return true;
+  if (!preview) return false;
+  try {
+    return (await commandState(fetchJSON, exam, { includePrivate: includePrivatePacks(), preview: true })) === 'ready';
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Boot an exam page. `mode` is "flashcards", "practice", or "commands".
+ * Resolves to a context object, or null after showing an error or sending the browser
+ * to the home page.
  */
 export async function bootExamPage(mode) {
   try {
@@ -81,13 +103,48 @@ export async function bootExamPage(mode) {
 
     const requested = new URLSearchParams(window.location.search).get('exam');
     const live = liveExams(registry);
-    const exam = (requested && findExam(registry, requested)) || live[0];
-    if (!exam) throw new Error('No exams are published yet.');
+    const preview = queryFlag('drafts');
+    let exam;
+    let hasCommands;
+    if (mode === 'commands') {
+      // The Command line page serves only an exam that has the tool. An address that names an
+      // exam without it goes to the home page, so a student is never moved to another exam's
+      // page. No exam named, or an id no exam has, opens the first live exam that has the tool.
+      const named = requested ? findExam(registry, requested) : null;
+      exam = null;
+      if (named) {
+        if (await hasCommandLine(named, preview)) exam = named;
+      } else {
+        for (const candidate of live) {
+          if (await hasCommandLine(candidate, preview)) {
+            exam = candidate;
+            break;
+          }
+        }
+      }
+      if (!exam) {
+        window.location.replace(pageUrl('index.html'));
+        return null;
+      }
+      hasCommands = true;
+    } else {
+      exam = (requested && findExam(registry, requested)) || live[0];
+      if (!exam) throw new Error('No exams are published yet.');
+      hasCommands = await hasCommandLine(exam, preview);
+    }
 
     document.documentElement.dataset.examTheme = exam.theme || '';
     const siteTitle = (registry.site && registry.site.title) || 'Cert Prep';
-    const modeName = mode === 'flashcards' ? 'Flashcards' : 'Practice test';
+    const modeName = MODE_NAMES[mode] || MODE_NAMES.practice;
     document.title = `${modeName} · ${exam.name} (${exam.code}) · ${siteTitle}`;
+
+    // The Command line tab is in every exam page with the hidden attribute, so a script from
+    // before the tool leaves it hidden. It shows for an exam that has the tool, and then the
+    // header lays out three tabs (data-tabs="3" in site.css).
+    const commandTabs = document.querySelectorAll('.mode-nav [data-mode="commands"]');
+    for (const link of commandTabs) link.hidden = !hasCommands;
+    if (hasCommands && commandTabs.length > 0) document.documentElement.dataset.tabs = '3';
+    else delete document.documentElement.dataset.tabs;
 
     const titleBox = document.querySelector('[data-exam-title]');
     if (titleBox) {
@@ -121,7 +178,9 @@ export async function bootExamPage(mode) {
     }
 
     const content = await loadExamContent(fetchJSON, exam, { includePrivate: includePrivatePacks() });
-    showTestContentBanner([...content.flashcardPacks, ...content.questionPacks].some(isPlaceholderPack));
+    const placeholderContent = [...content.flashcardPacks, ...content.questionPacks].some(isPlaceholderPack);
+    // The Command line page draws the banner itself, once, when its command packs are counted too.
+    if (mode !== 'commands') showTestContentBanner(placeholderContent);
     const showDrafts = queryFlag('drafts');
     const keep = (item) => showDrafts || item.status !== 'draft';
 
@@ -135,6 +194,10 @@ export async function bootExamPage(mode) {
       registry,
       exam,
       showDrafts,
+      // Whether the exam has the Command line tool (its tab shows).
+      hasCommands,
+      // Whether a flashcard or question pack is marked "placeholder" (the Test content banner).
+      placeholderContent,
       objectives: content.objectives,
       units: content.units,
       objectiveRoots,
@@ -155,8 +218,11 @@ export async function bootExamPage(mode) {
 /**
  * A strip under the header for as long as any loaded pack is marked
  * "placeholder": true (first-pass test content that will be replaced).
+ * bootExamPage draws it on the flashcards and practice pages. On the Command line page it
+ * hands back ctx.placeholderContent instead, so the page can add its command packs to that
+ * answer and call this once.
  */
-function showTestContentBanner(show) {
+export function showTestContentBanner(show) {
   const existing = document.getElementById('test-content-banner');
   if (!show) {
     if (existing) existing.remove();
