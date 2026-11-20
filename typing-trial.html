@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en" data-exam-theme="netplus">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The bare typing page for the phone trial of the Command line tool (docs/COMMAND-LINE-PLAN.md,
+       section 14, 1b push 0). Nothing links to it, and the commit of 1b push 1 deletes it.
+       It uses site.css and no matcher and no data. The terminal box styles below are the ones the
+       Command line page will use, kept in this file because site.css has no cl- classes yet. -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>TEST PAGE · CompTIA Cert Prep</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <!-- Sets light or dark mode before anything is drawn. Keep it above the stylesheet. -->
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    /* The terminal box. It follows light and dark mode, like the exhibit box. The prompt, the
+       field, echoed lines, and output share one 16px fixed-width size: a smaller field makes an
+       iPhone zoom the page, and 25 characters still fit a 320px phone (288px column, 262px for text). */
+    .cl-term { border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+    .cl-term-bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+      min-height: 40px; padding: 0.2rem 0.3rem 0.2rem 0.75rem;
+      background: var(--surface-2); border-bottom: 1px solid var(--border);
+      color: var(--text-muted); font-size: 0.85rem; font-weight: 700;
+    }
+    .cl-term-body { padding: 0.6rem 0.75rem 0.7rem; font-family: var(--font-mono); font-size: 1rem; line-height: 1.5; }
+    .cl-term-body:has(.cl-term-input) { cursor: text; }
+    .cl-term-echo, .cl-term-out { margin: 0; font: inherit; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .cl-term-prompt { color: var(--text-muted); white-space: pre; }
+    .cl-term-line { display: flex; align-items: center; }
+    .cl-term-line .cl-term-prompt { flex: none; }
+    /* Two classes on purpose: the base rule input[type="text"] in site.css outranks a single class. */
+    .cl-term .cl-term-input {
+      flex: 1 1 0; min-width: 0; min-height: 40px; margin-left: 0.3rem; padding: 0 0.2rem;
+      border: 0; border-bottom: 2px solid var(--border-strong); border-radius: 0;
+      background: transparent; color: var(--text); font: inherit;
+    }
+    .cl-term .cl-term-input:focus-visible { outline-offset: 0; }
+    @media (pointer: coarse) {
+      .cl-term-bar { min-height: 44px; }
+      .cl-term .cl-term-input { min-height: 44px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#app">Skip to content</a>
+
+  <main id="app">
+    <div class="wrap">
+      <div class="page-head">
+        <h1>TEST PAGE</h1>
+      </div>
+      <form id="trial-form" novalidate autocomplete="off">
+        <div class="cl-term" role="group" aria-labelledby="trial-system">
+          <div class="cl-term-bar"><span id="trial-system">Windows</span></div>
+          <div class="cl-term-body" id="trial-body">
+            <div id="trial-log"></div>
+          </div>
+        </div>
+        <div class="quiz-actions">
+          <button type="submit" class="btn btn-primary btn-lg" id="trial-run">Run</button>
+          <button type="button" class="btn btn-primary btn-lg" id="trial-again" hidden>Again</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // Twelve made-up lines of exactly 25 characters, the widest output the page will print.
+      var OUTPUT = [
+        '1234567890123456789012345',
+        'TEST OUTPUT LINE 02 ABCDE',
+        'TEST OUTPUT LINE 03 abcde',
+        'TEST OUTPUT LINE 04 MMMMM',
+        'TEST OUTPUT LINE 05 WWWWW',
+        'TEST OUTPUT LINE 06 iiiii',
+        'TEST OUTPUT LINE 07 .....',
+        'TEST OUTPUT LINE 08 :::::',
+        'TEST OUTPUT LINE 09 -----',
+        'TEST OUTPUT LINE 10 /////',
+        'TEST OUTPUT LINE 11 00000',
+        'TEST OUTPUT LINE 12 ZZZZZ'
+      ];
+      var PROMPT = 'C:\\>';
+
+      var form = document.getElementById('trial-form');
+      var body = document.getElementById('trial-body');
+      var log = document.getElementById('trial-log');
+      var run = document.getElementById('trial-run');
+      var again = document.getElementById('trial-again');
+      if (!form || !body || !log || !run || !again) return;
+
+      var field = null;
+
+      function touchOnly() {
+        return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+      }
+
+      function promptText(hidden) {
+        var span = document.createElement('span');
+        span.className = 'cl-term-prompt';
+        if (hidden) span.setAttribute('aria-hidden', 'true');
+        span.textContent = PROMPT;
+        return span;
+      }
+
+      // A held Enter repeats the key: only the first press counts.
+      function ignoreRepeat(event) {
+        if (event.key === 'Enter' && event.repeat) event.preventDefault();
+      }
+
+      // The field the Command line page will use (checklist 1b2.5). Every value is written as text.
+      function makeField() {
+        var input = document.createElement('input');
+        var settings = {
+          type: 'text', id: 'trial-field', 'class': 'cl-term-input', 'aria-label': 'Command',
+          autocapitalize: 'none', autocorrect: 'off', autocomplete: 'off', spellcheck: 'false',
+          writingsuggestions: 'false', enterkeyhint: 'go', maxlength: '80'
+        };
+        Object.keys(settings).forEach(function (name) { input.setAttribute(name, settings[name]); });
+        input.addEventListener('keydown', ignoreRepeat);
+        return input;
+      }
+
+      // The prompt and a new field. With a keyboard the cursor goes in the field; on a touch
+      // screen nothing is focused, so no keyboard opens until a tap.
+      function showField() {
+        log.textContent = '';
+        var line = document.createElement('div');
+        line.className = 'cl-term-line';
+        field = makeField();
+        line.append(promptText(true), field);
+        body.append(line);
+        again.hidden = true;
+        run.hidden = false;
+        if (!touchOnly()) field.focus({ preventScroll: true });
+      }
+
+      // Prints the line exactly as the field held it, then the output, and the field goes away.
+      function runLine(typed) {
+        var echo = document.createElement('pre');
+        echo.className = 'cl-term-echo';
+        echo.append(promptText(false), document.createTextNode(typed));
+        var out = document.createElement('pre');
+        out.className = 'cl-term-out';
+        out.textContent = OUTPUT.join('\n');
+        field.parentNode.remove();
+        field = null;
+        log.append(echo, out);
+        run.hidden = true;
+        again.hidden = false;
+        again.focus({ preventScroll: true });
+      }
+
+      // A tap anywhere in the box puts the cursor in the field inside that tap, which is what an
+      // iPhone needs to open the keyboard. The title strip is outside the box body.
+      body.addEventListener('click', function (event) {
+        if (field && event.target !== field) field.focus();
+      });
+      // Run does not take the focus on a tap, so the keyboard does not close and reopen.
+      run.addEventListener('mousedown', function (event) { event.preventDefault(); });
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!field) return;
+        if (field.value === '') { field.focus(); return; }
+        runLine(field.value);
+      });
+      again.addEventListener('keydown', ignoreRepeat);
+      again.addEventListener('click', showField);
+
+      showField();
+    })();
+  </script>
+  <script>
+    if (location.protocol === 'file:') {
+      document.getElementById('app').innerHTML = '<div class="wrap error-box"><div class="notice notice-bad">This site has to be opened through a web server. Double-click <strong>serve.cmd</strong> in the project folder, then go to <strong>http://localhost:8080/</strong>.</div></div>';
+    }
+  </script>
+</body>
+</html>
