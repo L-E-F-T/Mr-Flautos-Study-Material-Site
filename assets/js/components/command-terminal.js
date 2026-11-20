@@ -5,9 +5,9 @@
  * Router#, Switch#) is the system's own text, set in code by promptFor in command-match.js.
  * Every class starts with cl- (site.css, Command line).
  */
-import { h, icon, plural } from '../lib/dom.js';
+import { h, icon, plural, append } from '../lib/dom.js';
 import { promptFor, systemName, wordsFor } from '../lib/command-match.js';
-import { MAX_TYPED } from '../lib/command-drill.js';
+import { MAX_TYPED, MAX_TRIES } from '../lib/command-drill.js';
 
 /** True on a phone or tablet with no mouse: there the keyboard stays closed until a tap. */
 export function touchOnly() {
@@ -71,6 +71,35 @@ export function missEntry(system, step, triesLeft) {
     missLine(step.result),
     triesLeft > 0 ? noteLine(`${plural(triesLeft, 'try', 'tries')} left`) : null,
   ];
+}
+
+/**
+ * The body of the box once a command has ended, from its graded answer (gradeAnswer in
+ * command-drill.js): each counted miss as it printed, then the right line as typed, or Answer and
+ * the answer line, then its output (nothing for an empty one) and the next prompt. A command left
+ * open (the drill ended first) reads as after Show answer. The review card uses it too, so a card
+ * shows what the screen showed. answer: the line shown as the answer. output: the text the line
+ * printed. Gives { body, printed }: printed is the line that printed the output.
+ */
+export function endedBody(system, graded, { answer, output }) {
+  const right = graded.state === 'right';
+  const body = h('div', { class: 'cl-term-body' });
+  let printed = null;
+  graded.steps.forEach((step, i) => {
+    if (step.result.code === 'accepted') {
+      printed = echoLine(system, step.typed);
+      append(body, printed);
+    } else {
+      append(body, missEntry(system, step, MAX_TRIES - i - 1));
+    }
+  });
+  if (!right) {
+    printed = echoLine(system, answer);
+    append(body, [noteLine('Answer'), printed]);
+  }
+  const shownLine = right ? graded.steps[graded.steps.length - 1].result.line : answer;
+  append(body, [outputBlock(output, shownLine), nextPrompt(system)]);
+  return { body, printed };
 }
 
 /** The box: a title strip with the system's name (and Show answer while the command is open), then the body. */

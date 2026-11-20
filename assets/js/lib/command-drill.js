@@ -154,11 +154,17 @@ export function keptChoiceOrder(question, saved) {
   return kept.concat(current.filter(function (id) { return kept.indexOf(id) < 0; }));
 }
 
-/** A saved pick of a follow-up, graded by the question's current key: 'right', 'missed', or 'none' (not checked). */
+/**
+ * A saved pick of a follow-up, graded by the question's current key: 'right', 'missed', or 'none'
+ * (not checked yet). picked is the list of choice ids checked, as on the practice page, or null.
+ * It is right when it holds exactly the question's answer.
+ */
 export function gradePick(question, picked) {
-  if (typeof picked !== 'string') return 'none';
+  if (!Array.isArray(picked)) return 'none';
   const answer = question && Array.isArray(question.answer) ? question.answer : [];
-  return answer.length === 1 && answer[0] === picked ? 'right' : 'missed';
+  const chosen = picked.filter(function (id, i) { return picked.indexOf(id) === i; });
+  const right = chosen.length === answer.length && chosen.every(function (id) { return answer.indexOf(id) >= 0; });
+  return answer.length > 0 && right ? 'right' : 'missed';
 }
 
 function choiceIds(question) {
