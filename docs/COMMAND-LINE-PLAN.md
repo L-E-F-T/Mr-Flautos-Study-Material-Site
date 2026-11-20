@@ -265,7 +265,9 @@ The planners' full notes, the matcher sketch, and the 373 test rows are kept out
 
 **The next chat starts with this prompt.** The chat that finished the push before starts it (rule 13), or he pastes it:
 
-> Continue the Command line build. Read docs/COMMAND-LINE-PLAN.md section 14, then do the push it names under Next. Work alone. Commit when the proofs pass, and stop before git push.
+> Continue the Command line build. Read docs/COMMAND-LINE-PLAN.md section 14, then do the push it names under Next. Work alone. Commit when the proofs pass, and push only as section 14 allows.
+
+(Until 2026-11-19 the prompt ended "and stop before git push". His word of 2026-11-19, below, lets each chat push its own push. Without that word, rule 12 holds: stop before `git push` and ask him.)
 
 **This section is the only place that says where the build stands.** A saved memory note or an older chat may be out of date. Trust this section and `git log`.
 
@@ -373,7 +375,7 @@ At 23:30 on 2026-11-19, in the 1b push 1 chat, he wrote: "Keep going, I want to 
 3. **A day apart, while the tool is hidden.** Until an exam has `commandUnits`, no student reaches the new code. So a push that imports what an earlier push exported, or a pack that needs code an earlier push added, waits 30 minutes after that push (three times the 10-minute script cache) instead of a day. The switch still waits a day after the last code push.
 4. **What waited on him.** 1c push 1 writes the rule sentences without waiting for his yes, and lists them for his read. The Unit 4.0 phone trial is not held: the content run goes straight on to Units 5.0 and 6.0. His looks (the Linux and device outputs, any Linux or device line for `alsoWorks`) and his quotes for the paired questions wait for his return and hold nothing back.
 5. **The content chat.** The chat that finishes 1c push 2 starts the content chat itself, on his word: `start_session` with a fresh context, in this folder with no worktree, on Opus 5.5, with the prompt in `docs/CONTENT-HANDOFF.md`, the line "This is a Command line pass for Network+ Unit 4.0, then Units 5.0 and 6.0.", and his words above, quoted. The content chat pushes its own packs on the same word, with the tool still off. If its run lists lines that need a test row or an `alsoWorks` entry, or anything the site must fix, it starts one website chat for them (the fix chat) after its packs are out.
-6. **The end.** The build stops when the command packs of Units 4.0 to 6.0 are published and the tool works at `commands.html?exam=network-plus&drafts=1` on the published site, still hidden from students. The switch (`commandUnits` in `data/exams.json`) waits for his word: CLAUDE.md says only his word turns it on, and he asked for a product he can test first. The last chat writes under Next what he should open and try, and what waits on him.
+6. **The end: the switch.** Asked whether the chain should also turn the tool on for students, he answered "switch it on" (2026-11-19, 23:38). That is his word for the switch. When the command packs of Units 4.0 to 6.0 are published and the tool works at `commands.html?exam=network-plus&drafts=1` on the published site, the last chat makes the switch of phase 1d (`commandUnits` in `data/exams.json`, the five test copies made again, the preview address in `README.md`, and the status lines of the docs) as a push of its own, outside class time, at least a day after the last code push. A chat that cannot wait that long sets a one-time scheduled task (the scheduled-tasks tool) that starts the switch chat at the right time, in this folder, with the prompt at the top of this section. The last chat writes under Next what he should open and try, and what waits on him.
 7. **Usage.** Each chat reads the meters at its start and its end (rule 3). Above 85% of the 5-hour limit, a chat waits for the reset before it starts a push or a long proof run. When the weekly limit passes 90%, the chain stops with a note under Next, so his other work keeps room for the rest of the week.
 
 ### Rules for every build chat
@@ -536,7 +538,7 @@ They are never committed and never copied into the repository, with the two exce
 - Start the content chat for Unit 4.0, and later for Units 5.0 and 6.0, with the handoff and one line that names the pass. (By his word of 2026-11-19 the chat that finishes 1c push 2 starts it.)
 - Look at the seven Linux and device outputs nobody can run, and at any Linux or device line proposed for `alsoWorks`.
 - Add quotes for the paired questions (27, and the four follow-up questions).
-- Give the word to switch the tool on.
+- Give the word to switch the tool on. (Given 2026-11-19: "switch it on". The last chat of the build makes the switch, a day after the last code push.)
 
 ### Still open, for him to settle when he sees them
 
