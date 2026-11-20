@@ -305,6 +305,30 @@ Files of the switch push: `data/exams.json` (`commandUnits`), the five copies of
 | 1d.14 | Launch on the published site, on his word, outside class time. | The run (plan section 14, rule 8) is green. The home card shows Command line on Network+ only, with no flag in the address. Network+ pages show three tabs. A+ Core 1 pages are unchanged. He opens it on a phone. |
 | 1d.15 | The docs say what students now have. | `README.md`, `docs/PLAN.md`, and the description line of `index.html` name the tool. `README.md` has the preview address and the fixture server. |
 
+## The command bank
+
+His words of 2026-11-20 (plan section 14): a Command bank toggle on the command screen, option a ("Correct with bank"), and every taught switch. One push, by one website chat. Files: `assets/js/lib/command-bank.js` (new), `assets/js/pages/commands.js`, `assets/js/components/command-review.js`, `assets/js/lib/validate-core.js`, `tools/validate.js`, `schemas/command-bank.schema.json` (new), the test bank `tools/test-data/ready/network-plus/commands/bank.json` (new) and `tools/test-data/README.md`, "The command bank" in `docs/CONTENT-GUIDE.md`, "A Command bank pass" in `docs/CONTENT-HANDOFF.md`, this list, and three phrases of `CLAUDE.md`. No shared code: no `site.css`, `content.js`, `boot.js`, `home.js`, or page shell, so class time and E9 and E10 do not apply. The update of section 14 of the plan is a commit of its own. The bank's words are the content chat's, in a Command bank pass after the push.
+
+Tested on the fixture ports (8091: the test bank, with no router entry; 8094: no bank), at 320 by 568 with touch, in light and dark.
+
+| # | Must be true | How to prove it |
+|---|---|---|
+| CB1 | The bank is worked out from the data. | Port 8094 (no bank): a command of each system shows Command bank greyed, with a Coming soon chip. Port 8091: the router command `n-u99-c002` shows Coming soon, and the Windows, Linux, and switch commands show the toggle, closed. |
+| CB2 | Opening it shows only the task's system. | On port 8091 a Windows command's bank lists the Windows entries of the test bank in file order, each with its command and words, the syntax line where it has one, its switches, and its reading (Reading 4.4.1 ipconfig). A Linux command's bank lists only the Linux entries. |
+| CB3 | Opening it marks the command and costs no try. | Open the bank, then type the right line: the strip reads Correct with bank, with the check icon, and the saved drill's answer holds `"bank": true`. One counted miss, the bank, then the right line: Correct with bank. A command whose bank was not opened reads Correct, or Correct on try 2. A missed command reads Incorrect, bank or not. |
+| CB4 | The bank never redraws the open command. | Keep a reference to the field, type part of a line, open and close the bank, then run a slip: the field on the page is the same node and still holds what was typed. |
+| CB5 | It survives a reload. | Open the bank on a command and reload: the bank is closed, the answer still holds `"bank": true`, and a right line reads Correct with bank. A drill saved before this push (no `bank`) resumes as before. |
+| CB6 | Results, review, and Retry missed. | In a drill of four (one right, one right with the bank, one missed, one right with the bank after a miss): 3 of 4 commands, 1 on the first try, 2 with bank. Missed (3) lists the missed command and the two with the bank, each with-bank card with its tag Right and a With bank chip. Retry missed brings back exactly those three. The Last drill banner reads 3 of 4 correct. |
+| CB7 | One spoken message. | After the right line with the bank, the announcer reads: Correct with bank. Output printed, N lines. |
+| CB8 | Phone width, light and dark. | At 320 by 568 with touch, with the Windows bank open (its longest switch `/allcompartments` and its 36-character syntax line), and on a review card with two chips: `document.documentElement.scrollWidth` is 320 or less. Screenshots in light and dark: nothing cut off. |
+| CB9 | Text from the bank is text. | The test words of `route print`'s switch hold `<b>`, and the page shows the characters. |
+| CB10 | The content check refuses and warns as the guide says. | On port 8081, in the console, run `validateAll` with a reader that returns a bank built in memory (never a file): a clean bank for the real packs adds no message but the bank's own reviewed warning; each planted fault of the guide's list adds exactly one message, at the bank's path, and nothing else changes. |
+| CB11 | The panel and the log show the bank. | Port 8091: the Command line panel has a Command bank disclosure with the test bank's entries under each system, and `formatReport` prints `  Command bank: 8 commands, 10 switches`. Port 8094: `  Command bank: none`, and the no-bank warning. |
+| CB12 | Old content unmoved. | Port 8081: the whole report, before and after, differs only by the no-bank warning and the line `  Command bank: none`. |
+| CB13 | The files are the list above. | `git show --stat` on the build commit. No shared code, nothing under `data/`, and `data/exams.json` unchanged. |
+| CB14 | The rules are in place, and rule 6 is whole. | The guide has "The command bank" and its rows in the tree and the Coming soon table; the handoff has "A Command bank pass", its bullet under Your unit, and its line in the intro. After the commit, the pass's `git grep -l command-bank HEAD -- ...` line lists its four files. `git diff` changes neither rule 6 of the handoff, the line near its top that points at it, nor the guide's flashcard section. |
+| CB15 | After the push. | The run is green. The published home and practice pages are as before, `commands.html?exam=network-plus` goes home, and with `&drafts=1` a drill opens with the Command bank reading Coming soon (no bank is published yet). No script errors. |
+
 ## Picks used where the planners' checks disagreed
 
 | Subject | Pick |

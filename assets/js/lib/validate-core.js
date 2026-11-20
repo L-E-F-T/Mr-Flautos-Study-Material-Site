@@ -10,9 +10,10 @@ import {
 import { objectiveTaxonomy, unitTaxonomy, indexTaxonomy, ancestorAtDepth, naturalCompare } from './taxonomy.js';
 import {
   MATCHER_VERSION, SYSTEMS, VERDICTS, buildContext, cleanLine, givenTargets, isCommandLine, matchSpec, plainFormProblems,
-  promptFor, readLine, specFromItem, wordsFor,
+  promptFor, readLine, specFromItem, systemName, wordsFor,
 } from './command-match.js';
 import { drawWeight, exhibitText, isExtra, outputText, partnerIds, partnerQuestions, quotePartner } from './command-items.js';
+import { bankEntries, bankPath, loadCommandBank, toolOf, unlistedSwitches, usedSwitches } from './command-bank.js';
 
 export const MAX_QUOTE_WORDS = 40;
 const EXAM_STATUSES = ['live', 'planned', 'hidden'];
@@ -108,7 +109,18 @@ export async function validateAll(readJSON, { includePrivate = true } = {}) {
     } catch (e) {
       commandsError = e;
     }
-    report.exams.push(validateExam(exam, content, { error, warn, commandPacks, commandsError }));
+    // The command bank (commands/bank.json), read only for an exam with the tool or command packs,
+    // in a try of its own, so an exam without the tool asks for nothing new.
+    let bank = null;
+    let bankError = null;
+    if (commandPacks.length > 0 || exam.commandUnits !== undefined) {
+      try {
+        bank = await loadCommandBank(readJSON, exam);
+      } catch (e) {
+        bankError = e;
+      }
+    }
+    report.exams.push(validateExam(exam, content, { error, warn, commandPacks, commandsError, bank, bankError }));
     const commands = commandsFromPacks(commandPacks);
     const versionItems = [];
     for (const command of commands) {
@@ -131,7 +143,7 @@ export async function validateAll(readJSON, { includePrivate = true } = {}) {
   return report;
 }
 
-function validateExam(exam, content, { error, warn, commandPacks = [], commandsError = null }) {
+function validateExam(exam, content, { error, warn, commandPacks = [], commandsError = null, bank = null, bankError = null }) {
   const base = exam.dataPath.replace(/\/+$/, '');
 
   /* ---------- objectives ---------- */
@@ -364,7 +376,7 @@ function validateExam(exam, content, { error, warn, commandPacks = [], commandsE
 
   /* ---------- Command line ---------- */
   const commandLine = checkCommandLine({
-    exam, base, commandPacks, commandsError, error, warn, checkTags, checkReference,
+    exam, base, commandPacks, commandsError, bank, bankError, error, warn, checkTags, checkReference,
     unitIds, unitIndex, questions, flashcards, questionIds, cardIds,
   });
 
@@ -473,7 +485,7 @@ function checkOutputText(where, what, text, { system, lines, givenLow, error, wa
  */
 function checkCommandLine(env) {
   const {
-    exam, base, commandPacks, commandsError, error, warn, checkTags, checkReference,
+    exam, base, commandPacks, commandsError, bank, bankError, error, warn, checkTags, checkReference,
     unitIds, unitIndex, questions, flashcards, questionIds, cardIds,
   } = env;
   const folder = `${base}/commands`;
@@ -544,6 +556,9 @@ function checkCommandLine(env) {
   const firstAnswers = new Map();
   const counts = { commands: commands.length, versions: 0, followUps: 0, extra: 0, drafts: 0, placeholder: 0, labOnly: 0 };
   const lines = [];
+  // Every stored line with its system, its command, and the targets its task gives: what the
+  // command bank is checked against.
+  const storedLines = [];
 
   for (const command of commands) {
     const label = nonEmptyString(command.id) ? command.id : '(no id)';
@@ -923,13 +938,19 @@ function checkCommandLine(env) {
       groups.forEach((list, g) => {
         const group = accept[g];
         const section = isPlainObject(group) && isStringList(group.sections) && group.sections.length ? group.sections.join(', ') : ownSection;
-        for (const line of list) lines.push({ system, line, id: label, group: g + 1, section, weight });
+        for (const line of list) {
+          lines.push({ system, line, id: label, group: g + 1, section, weight });
+          storedLines.push({ system, line, id: label, given: spec.given });
+        }
       });
       for (const line of also) lines.push({ system, line, id: label, group: null, section: ownSection, weight });
     }
   }
 
-  return { hasField, counts, lines, commands };
+  const bankReport = checkCommandBank({
+    bank, bankError, path: bankPath(exam), hasPacks: commandPacks.length > 0, stored: storedLines, unitIds, error, warn,
+  });
+  return { hasField, counts, lines, commands, bank: bankReport };
 }
 
 /** The Command line line formatReport prints under an exam that has the tool or command packs. */
@@ -942,6 +963,228 @@ function commandLineSummary(commandLine) {
   return `  Command line: ${count(n.commands, 'command', 'commands')} (${n.extra} extra), ${count(n.versions, 'version', 'versions')}, `
     + `${count(n.followUps, 'follow-up', 'follow-ups')}, ${count(n.drafts, 'draft', 'drafts')}, ${n.labOnly} lab-only`
     + (n.placeholder ? `, ${n.placeholder} placeholder` : '');
+}
+
+/** The command bank's line, printed under the Command line line. */
+function bankSummary(bank) {
+  return bank
+    ? `  Command bank: ${count(bank.counts.entries, 'command', 'commands')}, ${count(bank.counts.switches, 'switch', 'switches')}`
+    : '  Command bank: none';
+}
+
+/* ---------- Command line: the command bank (commands/bank.json, docs/CONTENT-GUIDE.md "The command bank") ---------- */
+
+const BANK_TOP_FIELDS = ['$schema', 'bank', 'entries'];
+const BANK_INFO_FIELDS = ['title', 'reviewed', 'placeholder', 'notes'];
+const BANK_ENTRY_FIELDS = ['system', 'command', 'does', 'syntax', 'section', 'switches'];
+const BANK_SWITCH_FIELDS = ['switch', 'does', 'section'];
+const BANK_MIN_WORDS = 3;
+const BANK_MAX_WORDS = 6;
+const BANK_MAX_SYNTAX = 36;
+const BANK_MAX_SWITCH = 24;
+const SECTION_ID = /^\d+\.\d+\.\d+$/;
+// What a typed line cannot hold: a tab, an en dash, or an em dash.
+const LINE_DASHES = /[\t\u2013\u2014]/;
+
+/** A switch as two switches of one entry are compared: trimmed, spaces folded, and in any case except on Linux. */
+function bankSwitchText(text, system) {
+  const folded = String(text).trim().replace(/\s+/g, ' ');
+  return system === 'linux' ? folded : folded.toLowerCase();
+}
+
+/**
+ * The command bank's checks, for an exam with the tool or command packs (the guide's "The command
+ * bank" lists them). stored is every stored line of the exam's command packs, as
+ * { system, line, id, given }. Returns what the panel and formatReport show,
+ * { path, counts: { entries, switches }, entries } with the entries as the page reads them
+ * (bankEntries), or null when the exam has no bank (a warning says so when it has command packs)
+ * or the bank cannot be read (an error says why).
+ */
+function checkCommandBank({ bank, bankError, path, hasPacks, stored, unitIds, error, warn }) {
+  if (bankError) {
+    error(path, bankError && bankError.message ? bankError.message : String(bankError));
+    return null;
+  }
+  if (!bank) {
+    if (hasPacks) warn(path, 'No command bank yet, so the Command bank reads Coming soon on every command.');
+    return null;
+  }
+  const data = bank.data;
+  if (!isPlainObject(data) || !Array.isArray(data.entries)) {
+    error(path, 'Must be an object with an "entries" list.');
+    return null;
+  }
+  for (const key of Object.keys(data)) if (!BANK_TOP_FIELDS.includes(key)) warn(path, `Unknown field "${key}".`);
+  if (data.bank !== undefined) {
+    if (!isPlainObject(data.bank)) error(path, '"bank" must be an object, such as { "title": "...", "reviewed": false }.');
+    else {
+      for (const key of Object.keys(data.bank)) if (!BANK_INFO_FIELDS.includes(key)) warn(path, `"bank" has an unknown field "${key}".`);
+      if (data.bank.placeholder === true) warn(path, 'PLACEHOLDER: test content, not approved. Never mark a real bank "placeholder".');
+      else if (data.bank.reviewed === false) warn(path, 'The bank is marked "reviewed": false. Read it through, then set it to true.');
+    }
+  }
+
+  // What no text in the bank may hold: a stored line of two or more words of its system and, in a
+  // syntax line, a value a task gives.
+  const answerLines = stored.filter((row) => row.line.trim().split(/\s+/).length >= 2);
+  const givenBySystem = new Map();
+  for (const row of stored) {
+    if (!givenBySystem.has(row.system)) givenBySystem.set(row.system, new Set());
+    for (const target of row.given) givenBySystem.get(row.system).add(target.toLowerCase());
+  }
+  // what: "The command" or "Switch -a". label: how a field is named in a message.
+  const checkWords = (where, what, label, text) => {
+    if (!nonEmptyString(text)) {
+      error(where, `${what} needs "does": what it does, in ${BANK_MIN_WORDS} to ${BANK_MAX_WORDS} words.`);
+      return;
+    }
+    const n = wordCount(text);
+    if (n < BANK_MIN_WORDS || n > BANK_MAX_WORDS) warn(where, `${label} has ${count(n, 'word', 'words')}. Keep it to ${BANK_MIN_WORDS} to ${BANK_MAX_WORDS}.`);
+    checkDashes(warn, where, label, text);
+  };
+  const checkAnswerLine = (where, system, label, text) => {
+    if (!nonEmptyString(text)) return;
+    const joined = ` ${taskWords(text).join(' ')} `;
+    const held = answerLines.find((row) => row.system === system && joined.includes(` ${taskWords(row.line).join(' ')} `));
+    if (held) error(where, `${label} holds the stored line "${held.line}" of ${held.id}. The bank never shows a task's answer line.`);
+  };
+  const sectionProblem = (section) => (typeof section === 'string' && SECTION_ID.test(section) && unitIds.has(section)
+    ? null : `section ${JSON.stringify(section)} is not a reading section in units.json, such as "4.4.3"`);
+
+  const owners = new Set();
+  const listed = [];
+  let switches = 0;
+  data.entries.forEach((entry, i) => {
+    if (!isPlainObject(entry)) {
+      error(`${path} › entry ${i + 1}`, 'Must be an object: { "system", "command", "does", "section", "switches" }.');
+      return;
+    }
+    const system = SYSTEMS.includes(entry.system) ? entry.system : null;
+    const where = `${path} › ${system ? `${system} ` : ''}${nonEmptyString(entry.command) ? entry.command : `entry ${i + 1}`}`;
+    for (const key of Object.keys(entry)) if (!BANK_ENTRY_FIELDS.includes(key)) warn(where, `Unknown field "${key}".`);
+
+    // Who the entry is: its system and its command. A fault here stops its other checks.
+    if (!system) {
+      error(where, `system must be one of ${SYSTEMS.join(', ')}.`);
+      return;
+    }
+    const command = entry.command;
+    if (!nonEmptyString(command)) {
+      error(where, 'command is required: the tool, such as ipconfig.');
+      return;
+    }
+    if (/\s/.test(command)) {
+      error(where, `command "${command}" must be one word, the tool. What follows it is a switch.`);
+      return;
+    }
+    const name = toolOf(command, system);
+    if (name !== command) {
+      error(where, `command "${command}" must be written as the tool's name, ${name}.`);
+      return;
+    }
+    if (owners.has(`${system} ${command}`)) {
+      error(where, `A second entry for ${systemName(system)} ${command}. Each tool has one entry on each system.`);
+      return;
+    }
+    owners.add(`${system} ${command}`);
+
+    checkWords(where, 'The command', '"does" of the command', entry.does);
+    checkAnswerLine(where, system, '"does" of the command', entry.does);
+    if (entry.section === undefined) error(where, 'section is required: the reading section that teaches the command.');
+    else {
+      const problem = sectionProblem(entry.section);
+      if (problem) error(where, `The ${problem}.`);
+    }
+
+    if (entry.syntax !== undefined) {
+      const syntax = entry.syntax;
+      if (!nonEmptyString(syntax)) error(where, 'syntax must be a line, or be left out.');
+      else {
+        const problems = [];
+        if (!syntax.startsWith(`${command} `)) problems.push(`does not start with ${command}`);
+        if (!/<[^<>\s][^<>]*>/.test(syntax)) problems.push('shows no value in angle brackets, such as <IP>');
+        if (syntax.length > BANK_MAX_SYNTAX) problems.push(`is longer than ${BANK_MAX_SYNTAX} characters`);
+        if (LINE_DASHES.test(syntax)) problems.push('has a tab or an en or em dash');
+        if (problems.length) error(where, `The syntax line "${syntax}" ${problems.join('; ')}.`);
+        checkAnswerLine(where, system, 'The syntax line', syntax);
+        const given = givenBySystem.get(system) || new Set();
+        const value = taskWords(syntax.replace(/(^| )@/g, '$1')).find((w) => given.has(w));
+        if (value) error(where, `The syntax line holds ${value}, which a task gives. Show each value in angle brackets.`);
+      }
+    }
+
+    const rows = [];
+    if (!Array.isArray(entry.switches)) error(where, 'switches must be a list: every switch the reading teaches, or an empty list.');
+    else {
+      const seen = new Set();
+      entry.switches.forEach((row, s) => {
+        const what = isPlainObject(row) && nonEmptyString(row.switch) ? `Switch ${row.switch}` : `Switch ${s + 1}`;
+        if (!isPlainObject(row)) {
+          error(where, `${what} must be { "switch": "...", "does": "..." }.`);
+          return;
+        }
+        for (const key of Object.keys(row)) if (!BANK_SWITCH_FIELDS.includes(key)) warn(where, `${what} has an unknown field "${key}".`);
+        if (!nonEmptyString(row.switch)) {
+          error(where, `${what} needs "switch", written as the reading prints it.`);
+          return;
+        }
+        switches += 1;
+        if (row.switch.length > BANK_MAX_SWITCH) error(where, `${what} is longer than ${BANK_MAX_SWITCH} characters.`);
+        if (LINE_DASHES.test(row.switch)) error(where, `${what} has a tab or an en or em dash.`);
+        const text = bankSwitchText(row.switch, system);
+        if (seen.has(text)) error(where, `${what} is listed twice.`);
+        seen.add(text);
+        checkWords(where, what, `"does" of switch ${row.switch}`, row.does);
+        checkAnswerLine(where, system, what, row.switch);
+        checkAnswerLine(where, system, `"does" of switch ${row.switch}`, row.does);
+        if (row.section !== undefined) {
+          const problem = sectionProblem(row.section);
+          if (problem) error(where, `${what}: ${problem}.`);
+        }
+        rows.push({ switch: row.switch });
+      });
+    }
+    listed.push({ system, command, where, switches: rows });
+  });
+
+  // Coverage: an entry for each tool a stored line starts with, every switch a stored line uses in
+  // its entry, and no entry for a tool the drill does not ask.
+  const tools = new Map();
+  for (const row of stored) {
+    const tool = toolOf(row.line, row.system);
+    if (!tool) continue;
+    const key = `${row.system} ${tool}`;
+    if (!tools.has(key)) tools.set(key, { system: row.system, tool, ids: [], rows: [] });
+    const found = tools.get(key);
+    if (!found.ids.includes(row.id)) found.ids.push(row.id);
+    found.rows.push(row);
+  }
+  for (const [key, found] of tools) {
+    const entry = listed.find((e) => `${e.system} ${e.command}` === key);
+    if (!entry) {
+      warn(path, `No entry for ${systemName(found.system)} ${found.tool}, which the stored lines of ${found.ids.join(', ')} start with.`);
+      continue;
+    }
+    // One warning for each switch the entry lacks, named as the stored line writes it: a letter of a
+    // word of single letters (-o of netstat -no) is written with that word's mark.
+    const missing = new Map();
+    for (const row of found.rows) {
+      for (const used of usedSwitches(row.line, row.system, row.given)) {
+        for (const gap of unlistedSwitches(entry, used.key, row.system)) {
+          const word = gap === used.key ? used.word : `${used.word.charAt(0)}${gap.substring(1)}`;
+          if (!missing.has(gap)) missing.set(gap, { word, line: row.line, id: row.id });
+        }
+      }
+    }
+    for (const gap of missing.values()) warn(entry.where, `Does not list ${gap.word}, which the stored line "${gap.line}" of ${gap.id} uses.`);
+  }
+  for (const entry of listed) {
+    if (!tools.has(`${entry.system} ${entry.command}`)) {
+      warn(entry.where, `No stored line of ${systemName(entry.system)} starts with ${entry.command}. The bank lists only the commands the drill asks.`);
+    }
+  }
+
+  return { path, counts: { entries: listed.length, switches }, entries: bankEntries(bank) };
 }
 
 /* ---------- Command line: the matcher's case table (tools/command-cases.json) ---------- */
@@ -1177,7 +1420,7 @@ export function formatReport(report) {
     if (s.placeholderItems) lines.push(`  PLACEHOLDER TEST CONTENT: ${s.placeholderItems} of those items in ${s.placeholderPacks} pack(s) are first-pass and must be replaced before students use the site.`);
     const empty = exam.coverage.byObjective.filter((row) => row.questions === 0).map((row) => row.id);
     if (empty.length) lines.push(`  Objectives with no questions yet: ${empty.sort(naturalCompare).join(', ')}`);
-    if (exam.commandLine) lines.push(commandLineSummary(exam.commandLine));
+    if (exam.commandLine) lines.push(commandLineSummary(exam.commandLine), bankSummary(exam.commandLine.bank));
   }
   lines.push('');
   for (const w of report.warnings) lines.push(`WARNING  ${w.where}: ${w.message}`);

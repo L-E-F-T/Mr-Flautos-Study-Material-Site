@@ -23,6 +23,7 @@ data/
       manifest.json
       unit-04.json                    the launch pack for a unit
       unit-04-extra.json              the extra set, only on Mr. Flauto's word
+      bank.json                       the command bank ("The command bank"), not listed in the manifest
 ```
 
 Add a pack: save the file next to `manifest.json` and add its name to `"packs"`. Remove a pack: take it out of the list and delete the file.
@@ -40,6 +41,7 @@ The site labels anything without content **Coming soon**, and it works that out 
 | An exam that has the Command line tool (`commandUnits` in `data/exams.json`) and no command pack listed | Its home card shows Command line as Coming soon, and the Command line page reads Coming soon |
 | A unit that `commandUnits` lists with no published command | A greyed-out unit row labeled Coming soon in Command line. It cannot be picked. When no listed unit has a published command, the whole page reads Coming soon |
 | The extra set, while no extra pack has a published command | The Extra commands row in Command line is greyed out, with a Coming soon chip |
+| A system with no entry in the command bank (or no bank yet) | The Command bank under that system's commands is greyed out, with a Coming soon chip |
 
 An exam without `commandUnits` shows no Command line at all: no button, no tab, and its `commands.html` address goes to the home page. Only a website chat sets that field.
 
@@ -269,6 +271,48 @@ A command may have two or three versions. Each has one output for every answer g
 - **The blind command check.** An agent that has not seen the accepted lines, the outputs, or the paired question reads only each task, its system, and the command sections of every written unit. It lists every line it would run, with the section and words that teach each one. Every line is run through the tool's own matcher: the try-a-line box in the Command line panel of the content check. A taught line the item refuses is added, or the task is narrowed. A line that works but is not taught goes in `alsoWorks` (above). An accepted line that no section teaches is removed.
 - **The other checks** are the output and style review, the blind key check of every follow-up against the output it will be shown with, the content check, and `check-copy.ps1`.
 - **Three rounds at most.** An item still flagged then is dropped, not argued.
+
+### The command bank
+
+Under an open command, a **Command bank** toggle lists every command the tool covers on that task's system: what each does, every switch the reading teaches for it, and a syntax line for a command that takes an address or a name. It stays closed until a student opens it. Opening it costs no try, but a right line after it reads Correct with bank, not Correct, the results count it as with bank, and Retry missed brings the command back (Mr. Flauto's choice, 2026-11-20). Where the bank has no entry for the task's system, the toggle reads Coming soon.
+
+The bank is one file per exam, `data/<exam folder>/commands/bank.json`, beside the command packs. It is not a pack and is not listed in the manifest: the site and the content check read it by its name. Its shape is `schemas/command-bank.schema.json`:
+
+```json
+{
+  "$schema": "../../../schemas/command-bank.schema.json",
+  "bank": { "title": "Network+ command bank", "reviewed": false },
+  "entries": [
+    {
+      "system": "windows",
+      "command": "arp",
+      "does": "(three to six words)",
+      "syntax": "arp -s <IP> <MAC>",
+      "section": "4.4.3",
+      "switches": [
+        { "switch": "-a", "does": "(three to six words)" },
+        { "switch": "-s", "does": "(three to six words)" }
+      ]
+    }
+  ]
+}
+```
+
+| Field | Rule |
+|---|---|
+| `system` | `windows`, `linux`, `router`, or `switch`. A student sees only the entries of the task's system, in the order of the file. |
+| `command` | The tool, written the way a stored line of that system starts with it: `ipconfig`, `ip`, `dig`. On a router or switch it is `show`. One entry for each tool on each system. |
+| `does` | What the command does, in 3 to 6 words. |
+| `syntax` | Only for a command that takes an address or a name: one line that starts with the command and shows where each value goes, in angle brackets (`arp -s <IP> <MAC>`), 36 characters at most. Left out for any other command. |
+| `section` | The command section that teaches the command. The site shows it as "Reading 4.4.3 arp", with the title from `units.json`. |
+| `switches` | Every switch the reading teaches for the command, each `{ "switch": "-a", "does": "..." }`, with a `section` of its own when a section other than the entry's teaches it. An empty list when the reading teaches none. |
+
+- **Which commands.** One entry for each tool that a stored line of the exam's command packs starts with, on each system it runs on, and no other: the bank shows what the drill asks. A later Command line pass that adds a tool adds its entry too.
+- **Which switches.** Every switch that a command section of a written unit ("The accepted lines") teaches for the command, whether or not a task asks for it, and nothing the reading does not teach. A switch is what follows the command's name: on Windows a slash or hyphen switch (`/all`, `-t`), on Linux a hyphen switch or the word that says what to show (`-n`, `addr`), and on a router or switch the words after `show` (`ip route`, `vlan`). A value the student types, such as an address or a name, is not a switch: the syntax line shows where it goes. Each switch is written the way the reading prints it.
+- **The words.** 3 to 6 for each command and each switch, in plain 10th-grade wording, true to the section, with no em dashes.
+- **Never an answer line.** No text in the bank holds a stored line of two or more words (`ipconfig /all`), and no syntax line holds an address or a name that a task gives. The student puts the line together. A one-word stored line, such as `netstat`, is the entry's own command, and that is shown.
+- **Reviewed.** The bank has `"reviewed": false` until Mr. Flauto reads it.
+- **The checks.** The content check refuses a bank that is not valid JSON or has no `entries` list; an entry with an unknown system, or a command that is not one word written as the tool's name; a second entry for one tool on one system; a switch with no text, or listed twice; a command or switch with no words; a section that `units.json` does not have; a syntax line that does not start with its command, shows no value in angle brackets, or is longer than 36 characters; a tab or an en or em dash in a command, switch, or syntax line; any text that holds a stored line of two or more words; and a syntax line that holds a value a task gives. It warns about words outside 3 to 6, an em dash in the words, an unknown field, `"reviewed": false`, a tool a stored line starts with that has no entry, a switch a stored line uses that its entry does not list, an entry whose command no stored line starts with, and an exam with command packs and no bank. It cannot see a taught switch that no task asks: the blind switch list of a Command bank pass (`docs/CONTENT-HANDOFF.md`) finds those.
 
 ## Where questions come from (the rule)
 

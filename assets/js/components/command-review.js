@@ -61,14 +61,18 @@ const TAGS = {
  *   question the follow-up question that was asked, or null
  *   order    the follow-up's choice ids in the order shown; picked: the ids checked, or null
  *   status   'right', 'missed', 'question' (only the question was missed), or 'none' (not answered)
+ *   withBank true when the command was right after the Command bank was opened: a plain With bank
+ *            chip beside the tag
  */
-export function reviewCard(ctx, { number, command, graded, output, question = null, order = null, picked = null, status }) {
+export function reviewCard(ctx, { number, command, graded, output, question = null, order = null, picked = null, status, withBank = false }) {
   const tag = TAGS[status] || TAGS.none;
   const { body } = endedBody(command.system, graded, { answer: firstLine(command), output });
+  const tagChip = h('span', { class: tag[0] }, tag[1]);
   return h('li', { class: 'missed-item cl-review' },
     h('div', { class: 'review-head' },
-      h('div', { class: 'missed-number' }, `Command ${number}`),
-      h('span', { class: tag[0] }, tag[1]),
+      // Beside two chips the number keeps its one line, and the chips stack when the card is narrow.
+      h('div', { class: 'missed-number', style: withBank ? { flexShrink: '0' } : null }, `Command ${number}`),
+      withBank ? h('span', { class: 'row', style: { justifyContent: 'flex-end' } }, tagChip, h('span', { class: 'chip' }, 'With bank')) : tagChip,
     ),
     h('p', { class: 'q-stem' }, command.task),
     terminalBox({ system: command.system, labelId: `review-sys-${number}`, body }),

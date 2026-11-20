@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Command bank (Command line tool)",
+  "description": "One file per exam, data/<exam folder>/commands/bank.json, beside the command packs and not listed in their manifest. For each system, every command the drill covers, what it does, and every switch the reading teaches for it. The command screen shows the entries of its task's system behind a Command bank toggle (assets/js/lib/command-bank.js). docs/CONTENT-GUIDE.md, \"The command bank\", has the rules. The page ignores a field it does not know, and the content check warns about one.",
+  "type": "object",
+  "required": ["entries"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "bank": { "$ref": "#/definitions/bankInfo" },
+    "entries": { "type": "array", "items": { "$ref": "#/definitions/entry" } }
+  },
+  "definitions": {
+    "bankInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string", "description": "e.g. Network+ command bank." },
+        "reviewed": { "type": "boolean", "description": "Set true once the teacher has read the bank." },
+        "placeholder": { "type": "boolean", "description": "true = test content (tools/test-data only). The site shows a Test content banner and the content check keeps warning. Never set this on real content." },
+        "notes": { "type": "string" }
+      }
+    },
+    "section": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "A reading section in the exam's units.json, e.g. 4.4.3."
+    },
+    "entry": {
+      "type": "object",
+      "required": ["system", "command", "does", "section", "switches"],
+      "additionalProperties": false,
+      "properties": {
+        "system": { "enum": ["windows", "linux", "router", "switch"], "description": "A student sees only the entries of the task's system." },
+        "command": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$", "maxLength": 20, "description": "The tool, as a stored line of this system starts with it: ipconfig, ip, dig. On a router or switch, show. One entry for each tool and system." },
+        "does": { "type": "string", "minLength": 1, "description": "What the command does, in 3 to 6 words." },
+        "syntax": { "type": "string", "minLength": 1, "maxLength": 36, "description": "Only for a command that takes an address or a name: one line that starts with the command and shows each value in angle brackets, e.g. arp -s <IP> <MAC>. Never a task's address or name." },
+        "section": { "$ref": "#/definitions/section" },
+        "switches": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/switch" },
+          "description": "Every switch the reading teaches for the command, whether or not a task asks for it. An empty list when it teaches none."
+        }
+      }
+    },
+    "switch": {
+      "type": "object",
+      "required": ["switch", "does"],
+      "additionalProperties": false,
+      "properties": {
+        "switch": { "type": "string", "minLength": 1, "maxLength": 24, "description": "As the reading prints it: /all, -t, -type=mx, addr; on a router or switch the words after show (ip route)." },
+        "does": { "type": "string", "minLength": 1, "description": "What the switch does, in 3 to 6 words." },
+        "section": { "$ref": "#/definitions/section", "description": "Only when a section other than the entry's teaches this switch." }
+      }
+    }
+  }
+}

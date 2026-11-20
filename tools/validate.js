@@ -186,7 +186,48 @@ function commandLinePanel(commandLine) {
           ),
         )
       : null,
+    bankTable(commandLine.bank),
     tryBox(commandLine.commands),
+  );
+}
+
+/**
+ * The command bank (commands/bank.json) as the content check shows it: a closed disclosure over a
+ * table with a row for each system, each entry's command and words, its syntax line, and each
+ * switch. Nothing when the exam has no bank (a warning says so).
+ */
+function bankTable(bank) {
+  if (!bank) return null;
+  const rows = [];
+  for (const system of SYSTEMS) {
+    const entries = bank.entries.filter((entry) => entry.system === system);
+    if (!entries.length) continue;
+    rows.push(h('tr', null, h('th', { scope: 'colgroup', colspan: '4' }, systemName(system))));
+    for (const entry of entries) {
+      rows.push(h('tr', null, h('td', null, h('code', null, entry.command)), h('td', null), h('td', null, entry.does), h('td', null, entry.section)));
+      if (entry.syntax) rows.push(h('tr', null, h('td', null), h('td', null, h('code', null, entry.syntax)), h('td', null, 'Syntax'), h('td', null)));
+      for (const row of entry.switches) {
+        rows.push(h('tr', null, h('td', null), h('td', null, h('code', null, row.switch)), h('td', null, row.does), h('td', null, row.section)));
+      }
+    }
+  }
+  const n = bank.counts;
+  return h('details', { class: 'disclosure' },
+    h('summary', null, h('span', { class: 'chev', 'aria-hidden': 'true' }),
+      `Command bank (${plural(n.entries, 'command')}, ${plural(n.switches, 'switch', 'switches')})`),
+    rows.length
+      ? h('div', { class: 'table-scroll' },
+          h('table', { class: 'breakdown' },
+            h('thead', null, h('tr', null,
+              h('th', { scope: 'col' }, 'Command'),
+              h('th', { scope: 'col' }, 'Switch'),
+              h('th', { scope: 'col' }, 'Words'),
+              h('th', { scope: 'col' }, 'Section'),
+            )),
+            h('tbody', null, rows),
+          ),
+        )
+      : null,
   );
 }
 

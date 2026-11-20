@@ -8,12 +8,16 @@
  *  2. Command: the task, then a terminal box for the system it names, with one live field. A
  *     right line prints the output of its answer group. A wrong command or the right command with
  *     wrong details uses one of two tries; a slip uses none (the matcher, command-match.js, says
- *     which). Two counted misses, or Show answer, print the answer and its output.
+ *     which). Two counted misses, or Show answer, print the answer and its output. Under Run, the
+ *     Command bank (commands/bank.json, command-bank.js) lists the commands of the task's system
+ *     with their switches, closed until opened. Opening it uses no try, but a right line after it
+ *     reads Correct with bank, and the command comes back in Retry missed.
  *  3. Question: when the version shown has a follow-up, that published practice question is asked
  *     under the output, whichever right line was typed, and after a missed command too. The
  *     command's reading waits until the question is checked.
- *  4. Results: commands right, right on the first try, questions right, and a review card for each
- *     command (Right, Missed, Question missed, or Not answered), with Retry missed.
+ *  4. Results: commands right, right on the first try, right with the bank, questions right, and a
+ *     review card for each command (Right, Missed, Question missed, or Not answered, and With bank),
+ *     with Retry missed.
  * The drill is saved on this device after every counted try, every end of a command, and every
  * checked question, and graded again from what was typed when the page loads, so a reload shows
  * the same thing. A version of the output is picked once per command and saved by its id. Nothing
@@ -38,6 +42,7 @@ import { segmented } from '../components/segmented.js';
 import { LETTERS, choiceMark, referenceBlock } from '../components/question-review.js';
 import { touchOnly, commandField, promptText, missEntry, noteLine, terminalBox, endedBody } from '../components/command-terminal.js';
 import { firstLine, commandFacts, reviewCard } from '../components/command-review.js';
+import { loadCommandBank, bankEntries, entriesFor, isPlaceholderBank } from '../lib/command-bank.js';
 import { initThemeToggle } from '../lib/theme.js';
 
 initThemeToggle();
@@ -52,6 +57,14 @@ const PRESETS = [5, 10];
 // A second Run, Show answer, Check, or Next this soon after the one before does nothing, so a held
 // Enter key cannot run a line twice or skip past an output.
 const GUARD_MS = 400;
+// The Command bank's layout, inline so that site.css (shared by every page) does not change: each
+// switch beside its words, the switch column as wide as the longest switch, at most 45% of the bank.
+const BANK_PANEL = { marginTop: '1rem' };
+// The toggle's row is about 44px tall, a full tap on a phone.
+const BANK_SUMMARY = { padding: '0.6rem 0' };
+const BANK_LIST = { listStyle: 'none', margin: '0', padding: '0' };
+const BANK_NEXT = { marginTop: '0.8rem', paddingTop: '0.8rem', borderTop: '1px solid var(--border)' };
+const BANK_ROWS = { display: 'grid', gridTemplateColumns: 'fit-content(45%) minmax(0, 1fr)', gap: '0.3rem 0.75rem', margin: '0.5rem 0 0' };
 
 const ctx = await bootExamPage('commands');
 if (ctx) await start(ctx);
@@ -60,17 +73,22 @@ async function start(ctx) {
   const app = document.getElementById('app');
   const examId = ctx.exam.id;
   let packs;
+  let bank = null;
   try {
     const state = await commandState(fetchJSON, ctx.exam, { includePrivate: includePrivatePacks(), preview: ctx.showDrafts });
     packs = state === 'ready' ? await loadCommandPacks(fetchJSON, ctx.exam, { includePrivate: includePrivatePacks() }) : [];
+    // The command bank, asked for only when there are commands to show it under. No file means
+    // no bank: every system's Command bank reads Coming soon.
+    bank = state === 'ready' ? await loadCommandBank(fetchJSON, ctx.exam) : null;
   } catch (error) {
-    // Names the manifest or pack that could not be read.
+    // Names the manifest, pack, or bank that could not be read.
     showFatal(error);
     return;
   }
   // The Test content banner, worked out once from every pack this page loaded: the flashcard and
-  // question packs (boot.js hands back its answer for them) and the command packs.
-  showTestContentBanner(ctx.placeholderContent || packs.some(isPlaceholderPack));
+  // question packs (boot.js hands back its answer for them), the command packs, and the bank.
+  showTestContentBanner(ctx.placeholderContent || packs.some(isPlaceholderPack) || isPlaceholderBank(bank));
+  const bankList = bankEntries(bank);
 
   const loaded = commandsFromPacks(packs);
   // What the matcher knows about the whole exam (a command the tool asks elsewhere reads Wrong
@@ -187,6 +205,8 @@ async function start(ctx) {
       if (!Array.isArray(answer.lines) || !answer.lines.every((line) => typeof line === 'string')) return null;
       const command = byId.get(id);
       const kept = { lines: answer.lines.map((line) => line.substring(0, MAX_TYPED)), shown: answer.shown === true };
+      // Saved once the Command bank was opened on this command. Anything but true is left out.
+      if (answer.bank === true) kept.bank = true;
       if (answer.version !== undefined) {
         if (!printableVersions(command, ctx.questionById).some((version) => version.id === answer.version)) return null;
         kept.version = answer.version;
@@ -222,7 +242,8 @@ async function start(ctx) {
    * version shown, the follow-up asked and how it was answered (gradePick), and its tag in the
    * review: 'right', 'missed', 'question' (the command was right and its question missed), or
    * 'none' (not answered: the drill ended first). A follow-up not checked yet leaves the tag to
-   * the command.
+   * the command. withBank: the command was right after the Command bank was opened on it
+   * (Correct with bank), whatever its tag.
    */
   function outcomeOf(drill, id) {
     const command = byId.get(id);
@@ -234,20 +255,23 @@ async function start(ctx) {
     let status = 'none';
     if (graded.state === 'missed') status = 'missed';
     else if (graded.state === 'right') status = pick === 'missed' ? 'question' : 'right';
-    return { command, answer, graded, version, question, pick, status };
+    const withBank = graded.state === 'right' && Boolean(answer) && answer.bank === true;
+    return { command, answer, graded, version, question, pick, status, withBank };
   }
 
   /**
-   * A drill's numbers: commands right and missed, right on the first try, follow-ups checked and
-   * right, and the commands Retry missed takes (Missed and Question missed), in drill order.
+   * A drill's numbers: commands right and missed, right on the first try (never with the bank),
+   * right with the bank, follow-ups checked and right, and the commands Retry missed takes
+   * (Missed, Question missed, and right with the bank), in drill order.
    */
   function tallyRun(drill) {
-    const tally = { right: 0, missed: 0, done: 0, firstTry: 0, questions: 0, questionsRight: 0, retryIds: [] };
+    const tally = { right: 0, missed: 0, done: 0, firstTry: 0, withBank: 0, questions: 0, questionsRight: 0, retryIds: [] };
     for (const id of drill.ids) {
       const outcome = outcomeOf(drill, id);
       if (outcome.graded.state === 'right') {
         tally.right += 1;
-        if (outcome.graded.tries === 1) tally.firstTry += 1;
+        if (outcome.withBank) tally.withBank += 1;
+        else if (outcome.graded.tries === 1) tally.firstTry += 1;
       } else if (outcome.graded.state === 'missed') {
         tally.missed += 1;
       }
@@ -255,7 +279,7 @@ async function start(ctx) {
         tally.questions += 1;
         if (outcome.pick === 'right') tally.questionsRight += 1;
       }
-      if (outcome.status === 'missed' || outcome.status === 'question') tally.retryIds.push(id);
+      if (outcome.status === 'missed' || outcome.status === 'question' || outcome.withBank) tally.retryIds.push(id);
     }
     tally.done = tally.right + tally.missed;
     return tally;
@@ -541,7 +565,7 @@ async function start(ctx) {
         terminalBox({ system, labelId: sysId, action: showAnswer, body }),
         h('div', { class: 'quiz-actions' }, runButton),
       );
-      append(article, form);
+      append(article, [form, bankBlock({ system, id, index, stale })]);
 
       // A tap anywhere in the box body puts the cursor in the field inside that tap, which is
       // what an iPhone needs to open its keyboard. The title strip is outside the body.
@@ -630,7 +654,10 @@ async function start(ctx) {
     const checked = Boolean(question) && Array.isArray(answer.fu.picked);
     const followUp = question ? followUpBlock({ index, question, fu: answer.fu, stale: () => stale() }) : null;
 
-    const head = right ? (graded.tries > 1 ? `Correct on try ${graded.tries}` : 'Correct') : 'Incorrect';
+    // Right after the Command bank was opened reads Correct with bank, on any try.
+    const head = right
+      ? (answer.bank === true ? 'Correct with bank' : graded.tries > 1 ? `Correct on try ${graded.tries}` : 'Correct')
+      : 'Incorrect';
     const feedbackHead = h('div', { class: 'feedback-head' }, icon(right ? 'check' : 'x'), head);
     const isLast = index >= total - 1;
     const next = h('button', { type: 'button', class: 'btn btn-primary btn-lg' }, isLast ? 'Results' : 'Next');
@@ -781,6 +808,56 @@ async function start(ctx) {
     return { element, stem };
   }
 
+  /**
+   * The Command bank under an open command (docs/CONTENT-GUIDE.md, "The command bank"): every bank
+   * entry of the task's system behind a toggle, closed until it is opened, like the flashcards
+   * page's Taken out panel. Opening it saves "bank": true in the command's answer (an answer may
+   * then hold no lines), so a right line after it reads Correct with bank and the command comes
+   * back in Retry missed. It uses no try and never redraws the screen, so the field keeps its node
+   * and what was typed. A system with no entry reads Coming soon.
+   */
+  function bankBlock({ system, id, index, stale }) {
+    const entries = entriesFor(bankList, system);
+    if (!entries.length) {
+      return h('div', { class: 'panel', style: BANK_PANEL },
+        h('div', { class: 'row' },
+          h('span', { class: 'faint', style: { fontWeight: '600' } }, 'Command bank'),
+          h('span', { class: 'chip' }, 'Coming soon'),
+        ),
+      );
+    }
+    const details = h('details', { class: 'panel disclosure', id: `bank-${index}`, style: BANK_PANEL },
+      h('summary', { style: BANK_SUMMARY }, h('span', { class: 'chev', 'aria-hidden': 'true' }), 'Command bank'),
+      h('ul', { style: BANK_LIST }, entries.map((entry, i) => bankEntry(entry, i))),
+    );
+    details.addEventListener('toggle', () => {
+      if (!details.open || stale()) return;
+      const answer = run.answers[id] || (run.answers[id] = { lines: [], shown: false });
+      if (answer.bank === true) return;
+      answer.bank = true;
+      saveRun();
+    });
+    return details;
+  }
+
+  /** One bank entry: the command and its words, its syntax line, each switch with its words, and its reading. */
+  function bankEntry(entry, i) {
+    const where = ctx.unitIndex.get(entry.section);
+    return h('li', { style: i ? BANK_NEXT : null },
+      h('p', { style: { margin: '0' } }, h('code', { style: { fontWeight: '700' } }, entry.command), entry.does ? ` ${entry.does}` : null),
+      entry.syntax ? h('p', { style: { margin: '0.3rem 0 0' } }, h('code', null, entry.syntax)) : null,
+      entry.switches.length
+        ? h('dl', { style: BANK_ROWS }, entry.switches.map((row) => [
+            h('dt', { style: { margin: '0', overflowWrap: 'anywhere' } }, h('code', null, row.switch)),
+            h('dd', { style: { margin: '0' } }, row.does, row.section ? h('span', { class: 'faint' }, ` Reading ${row.section}`) : null),
+          ]))
+        : null,
+      entry.section
+        ? h('p', { class: 'muted small', style: { margin: '0.4rem 0 0' } }, `Reading ${entry.section}`, where ? ` ${where.node.title}` : '')
+        : null,
+    );
+  }
+
   /** After a try that keeps the command open, the cursor stays in the field and the field in view. */
   function keepTyping(field) {
     field.focus({ preventScroll: true });
@@ -818,7 +895,7 @@ async function start(ctx) {
     if (graded.state === 'right') {
       const text = outputText(command, version, graded.group, ctx.questionById);
       const lines = text ? text.split('\n').length : 0;
-      const head = graded.tries > 1 ? `Correct on try ${graded.tries}.` : 'Correct.';
+      const head = answer.bank === true ? 'Correct with bank.' : graded.tries > 1 ? `Correct on try ${graded.tries}.` : 'Correct.';
       announce(lines ? `${head} Output printed, ${plural(lines, 'line')}.` : `${head} No output.`);
     } else {
       const last = graded.steps[graded.steps.length - 1];
@@ -880,8 +957,9 @@ async function start(ctx) {
     const skipped = total - tally.done;
     const retryIds = tally.retryIds;
 
-    // Retry missed: a new drill of the commands just missed (a missed question counts), in a new
-    // order. A command whose question was the only part missed shows the same version again.
+    // Retry missed: a new drill of the commands just missed (a missed question counts, and so does a
+    // command right with the bank), in a new order. A command whose question was the only part missed
+    // shows the same version again.
     const retryButton = (cls) => {
       const button = h('button', { type: 'button', class: cls }, 'Retry missed');
       button.addEventListener('click', () => startRun(shuffle([...retryIds]), { retry: true, before: run }));
@@ -900,8 +978,9 @@ async function start(ctx) {
     change.addEventListener('click', () => renderSetup({ focusHeading: true }));
 
     // Each command as the screen showed it when it ended (components/command-review.js), tagged
-    // Right, Missed, Question missed, or Not answered. A command not answered shows its answer and
-    // the output of its first version, as the practice review shows the key.
+    // Right, Missed, Question missed, or Not answered, with a With bank chip beside the tag of a
+    // command right with the bank. A command not answered shows its answer and the output of its
+    // first version, as the practice review shows the key.
     const card = (cid) => {
       const outcome = outcomeOf(run, cid);
       const version = outcome.version || printableVersions(outcome.command, ctx.questionById)[0];
@@ -915,6 +994,7 @@ async function start(ctx) {
         order: outcome.question ? outcome.answer.fu.order : null,
         picked: outcome.question ? outcome.answer.fu.picked : null,
         status: outcome.status,
+        withBank: outcome.withBank,
       });
     };
 
@@ -957,6 +1037,7 @@ async function start(ctx) {
             h('div', { class: 'score-detail' },
               h('div', null, h('strong', null, `${tally.right} of ${tally.done}`), tally.done === 1 ? ' command' : ' commands'),
               h('div', { class: 'small' }, `${tally.firstTry} on the first try`),
+              tally.withBank ? h('div', { class: 'small' }, `${tally.withBank} with bank`) : null,
               tally.questions ? h('div', { class: 'small' }, `${tally.questionsRight} of ${plural(tally.questions, 'question')}`) : null,
               run.retry ? h('div', { class: 'small' }, 'Retry of missed commands') : null,
               skipped > 0 ? h('div', { class: 'small' }, `${skipped} not answered`) : null,

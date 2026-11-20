@@ -1,0 +1,86 @@
+{
+  "$schema": "../../../../../schemas/command-bank.schema.json",
+  "bank": {
+    "title": "TEST DATA. Page test bank",
+    "placeholder": true,
+    "reviewed": false,
+    "notes": "Fake test data for the Command bank (tools/test-data/README.md). The tools and switches are the test packs' own lines; every word is TEST. Not content. Never copy any of it into data/."
+  },
+  "entries": [
+    {
+      "system": "windows",
+      "command": "ipconfig",
+      "does": "TEST WORDS FOR A COMMAND",
+      "section": "4.4.1",
+      "switches": [
+        { "switch": "/all", "does": "TEST WORDS FOR A SWITCH" },
+        { "switch": "/allcompartments", "does": "TEST WORDS, THE LONGEST SWITCH" }
+      ]
+    },
+    {
+      "system": "windows",
+      "command": "netstat",
+      "does": "TEST WORDS FOR A COMMAND",
+      "section": "6.1.5",
+      "switches": [
+        { "switch": "-s", "does": "TEST WORDS FOR A SWITCH" },
+        { "switch": "-e", "does": "TEST WORDS, ANOTHER SECTION", "section": "6.1.3" }
+      ]
+    },
+    {
+      "system": "windows",
+      "command": "ping",
+      "does": "TEST WORDS FOR A COMMAND",
+      "syntax": "ping <test address or host name 123>",
+      "section": "4.4.4",
+      "switches": [
+        { "switch": "-t", "does": "TEST WORDS FOR A SWITCH" }
+      ]
+    },
+    {
+      "system": "windows",
+      "command": "arp",
+      "does": "TEST WORDS FOR A COMMAND",
+      "syntax": "arp -d <TEST ADDRESS>",
+      "section": "4.4.3",
+      "switches": [
+        { "switch": "-d", "does": "TEST WORDS FOR A SWITCH" }
+      ]
+    },
+    {
+      "system": "windows",
+      "command": "route",
+      "does": "TEST WORDS FOR A COMMAND",
+      "section": "5.1.7",
+      "switches": [
+        { "switch": "print", "does": "TEST <b>TAG</b> WORDS" }
+      ]
+    },
+    {
+      "system": "linux",
+      "command": "ip",
+      "does": "TEST WORDS FOR A COMMAND",
+      "section": "4.4.2",
+      "switches": [
+        { "switch": "addr", "does": "TEST WORDS FOR A SWITCH" }
+      ]
+    },
+    {
+      "system": "linux",
+      "command": "ifconfig",
+      "does": "TEST WORDS, NO SWITCHES",
+      "section": "4.4.2",
+      "switches": []
+    },
+    {
+      "system": "switch",
+      "command": "show",
+      "does": "TEST WORDS FOR A COMMAND",
+      "section": "5.6.2",
+      "switches": [
+        { "switch": "vlan", "does": "TEST WORDS FOR A SWITCH" },
+        { "switch": "vlan brief", "does": "TEST WORDS FOR A SWITCH" }
+      ]
+    }
+  ]
+}
