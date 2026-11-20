@@ -26,7 +26,7 @@
  */
 
 /** tools/command-cases.json carries the same number. Change the two together. */
-export const MATCHER_VERSION = 1;
+export const MATCHER_VERSION = 2;
 
 export const SYSTEMS = ['windows', 'linux', 'router', 'switch'];
 
@@ -145,6 +145,27 @@ function targetOf(token) {
   return null;
 }
 
+// An IPv4 address of two or three parts, filled out the way Windows reads it: the last part fills
+// the bytes that are left (127.1 is 127.0.0.1, 127.256 is 127.0.1.0; run on this PC). Only decimal
+// parts with no leading zero: Windows reads a leading zero as octal (127.010 is 127.0.0.8, also
+// run), so such a part, and anything else, is returned as typed.
+function fullIPv4(token) {
+  if (!/^(0|[1-9]\d{0,9})(\.(0|[1-9]\d{0,9})){1,2}$/.test(token)) return token;
+  const parts = token.split('.');
+  const bytes = [];
+  for (let p = 0; p < parts.length - 1; p++) {
+    const n = Number(parts[p]);
+    if (n > 255) return token;
+    bytes.push(n);
+  }
+  const left = 4 - bytes.length;
+  let last = Number(parts[parts.length - 1]);
+  if (last >= Math.pow(256, left)) return token;
+  const tail = [];
+  for (let b = 0; b < left; b++) { tail.unshift(last % 256); last = Math.floor(last / 256); }
+  return bytes.concat(tail).join('.');
+}
+
 // A one-label host name typed where a dotted name was given.
 function looseName(token) {
   const body = token.charAt(0) === '@' ? token.substring(1) : token;
@@ -184,7 +205,11 @@ const WINDOWS_ROWS = {
   'tracert': function (rest) { return genericTokens(rest, '/-', false, true); },   // switch letters exact, host names any case
   'route': function (rest) { return genericTokens(rest, '/-', true, true); },
   'ping': function (rest) {
-    // Switch letters exact. Each switch, with its value, moves in front of the target.
+    // Switch letters exact. Each switch, with its value, moves in front of the target. What
+    // Windows reads as the same line is read the same (run on this PC): an address of two or
+    // three parts is filled out (fullIPv4); -n 4 is dropped, since four echo requests is the
+    // default, but not beside -t, because Windows takes the later of the two; and -4 is dropped
+    // when the target is an IPv4 address. Before a host name -4 picks the address family, so it stays.
     const switches = [];
     const others = [];
     for (let i = 0; i < rest.length; i++) {
@@ -192,9 +217,12 @@ const WINDOWS_ROWS = {
         const body = rest[i].substring(1);
         if (PING_VALUE_SWITCHES.indexOf(body) >= 0 && i + 1 < rest.length) { switches.push(sw('-' + body + ' ' + rest[i + 1])); i++; }
         else switches.push(sw('-' + body));
-      } else others.push(plain(rest[i], true));
+      } else others.push(plain(fullIPv4(rest[i]), true));
     }
-    return switches.concat(others);
+    const continuous = switches.some(function (s) { return s.v === '-t'; });
+    const toAddress = others.length === 1 && others[0].k === 't' && others[0].kind === 'ip4' && others[0].sig === '';
+    const kept = switches.filter(function (s) { return !(s.v === '-n 4' && !continuous) && !(s.v === '-4' && toAddress); });
+    return kept.concat(others);
   },
   'netstat': function (rest) {
     // Every word starts with / or -. The letters, in any case, are one set.
