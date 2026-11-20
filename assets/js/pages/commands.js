@@ -73,17 +73,26 @@ async function start(ctx) {
   const app = document.getElementById('app');
   const examId = ctx.exam.id;
   let packs;
-  let bank = null;
   try {
     const state = await commandState(fetchJSON, ctx.exam, { includePrivate: includePrivatePacks(), preview: ctx.showDrafts });
     packs = state === 'ready' ? await loadCommandPacks(fetchJSON, ctx.exam, { includePrivate: includePrivatePacks() }) : [];
-    // The command bank, asked for only when there are commands to show it under. No file means
-    // no bank: every system's Command bank reads Coming soon.
-    bank = state === 'ready' ? await loadCommandBank(fetchJSON, ctx.exam) : null;
   } catch (error) {
-    // Names the manifest, pack, or bank that could not be read.
+    // Names the manifest or pack that could not be read.
     showFatal(error);
     return;
+  }
+  // The command bank, asked for only when there are commands to show it under, in a try of its
+  // own: it is optional, so a bank that cannot be read never stops the drill. No file, or a read
+  // that fails (GitHub Pages can answer a missing file with 503 instead of 404), leaves every
+  // system's Command bank reading Coming soon. The content check refuses a bank that is not valid
+  // JSON, so a broken bank is never published.
+  let bank = null;
+  if (packs.length) {
+    try {
+      bank = await loadCommandBank(fetchJSON, ctx.exam);
+    } catch (error) {
+      console.warn(error);
+    }
   }
   // The Test content banner, worked out once from every pack this page loaded: the flashcard and
   // question packs (boot.js hands back its answer for them), the command packs, and the bank.
