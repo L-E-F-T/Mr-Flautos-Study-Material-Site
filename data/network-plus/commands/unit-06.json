@@ -1,0 +1,248 @@
+{
+  "$schema": "../../../schemas/command-pack.schema.json",
+  "pack": { "id": "unit-06", "title": "Unit 6.0 Implementing Network Services", "reviewed": false, "lastCommand": 9, "lastVersion": 9 },
+  "commands": [
+    {
+      "id": "n-u06-c001",
+      "typedFormOf": ["n-u06-q015"],
+      "system": "windows",
+      "task": "Before changing a firewall rule, a technician wants to list, just once, each active connection of a Windows PC with its local and foreign address and port, but not ports in the listening state or the program behind each connection. Which command should the technician run?",
+      "accept": [
+        { "lines": ["netstat"] },
+        { "lines": ["netstat -n"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u06-v001",
+          "outputs": [
+            { "text": "Active Connections\n\nProto  Local Address\n  Foreign Address\n  State\nTCP    10.12.6.30:51022\n  app3:https\n  ESTABLISHED\nTCP    10.12.6.30:51029\n  intra:http\n  ESTABLISHED" },
+            { "text": "Active Connections\n\nProto  Local Address\n  Foreign Address\n  State\nTCP    10.12.6.30:51022\n  203.0.113.61:443\n  ESTABLISHED\nTCP    10.12.6.30:51029\n  10.12.0.8:80\n  ESTABLISHED" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "netstat",
+        "quote": "",
+        "find": "used without switches, the command outputs"
+      }
+    },
+    {
+      "id": "n-u06-c002",
+      "typedFormOf": ["n-u06-q016"],
+      "system": "windows",
+      "task": "A Windows PC often fails to connect to a payroll app, so a technician wants a single netstat report, shown once, of the statistics for each protocol, including how many TCP connection attempts have failed. Which netstat command should the technician run?",
+      "accept": [
+        { "lines": ["netstat -s"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u06-v002",
+          "outputs": [
+            { "text": "IPv4 Statistics\n\nPackets Received = 528817\nReceived Header\n  Errors = 0\n\nTCP Statistics for IPv4\n\nActive Opens = 6120\nPassive Opens = 41\nFailed Connection\n  Attempts = 388" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "netstat",
+        "quote": "",
+        "find": "statistics, such as packets received"
+      }
+    },
+    {
+      "id": "n-u06-c003",
+      "typedFormOf": ["n-u06-q017"],
+      "system": "windows",
+      "task": "A Windows PC keeps losing its network connection, so a technician wants a single report, shown once, of the PC's Ethernet statistics: the bytes sent and received, with any discards and errors. Which command should the technician run?",
+      "accept": [
+        { "lines": ["netstat -e"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u06-v003",
+          "outputs": [
+            { "text": "Interface Statistics\n\n        Received     Sent\n\nBytes   48211907  5120334\nUnicast packets\n           60265    20481\nNon-unicast packets\n            1874      392\nDiscards       0        0\nErrors        23        0" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "netstat",
+        "quote": "",
+        "find": "The tool will report Ethernet statistics"
+      }
+    },
+    {
+      "id": "n-u06-c004",
+      "typedFormOf": ["n-u06-q018"],
+      "system": "windows",
+      "task": "For a security audit, a technician wants a netstat list, shown once, of every open port on a Windows PC, including active TCP and UDP connections and ports in the listening state, but not the program behind each port. Which netstat command should the technician run?",
+      "accept": [
+        { "lines": ["netstat -a"] },
+        { "lines": ["netstat -an"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u06-v004",
+          "outputs": [
+            { "text": "Active Connections\n\nProto  Local Address\n  Foreign Address  State\nTCP    0.0.0.0:8080\n  LAB-PC12:0  LISTENING\nTCP    172.16.9.40:50318\n  cdn5:https  ESTABLISHED\nUDP    0.0.0.0:5353\n  *:*" },
+            { "text": "Active Connections\n\nProto  Local Address\n  Foreign Address  State\nTCP    0.0.0.0:8080\n  0.0.0.0:0  LISTENING\nTCP    172.16.9.40:50318\n  198.51.100.75:443\n  ESTABLISHED\nUDP    0.0.0.0:5353\n  *:*" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "netstat",
+        "quote": "",
+        "find": "displays all open ports, including both"
+      }
+    },
+    {
+      "id": "n-u06-c005",
+      "typedFormOf": ["n-u06-q019"],
+      "system": "windows",
+      "task": "To match each active connection on a Windows PC to a program in Task Manager, a technician wants a netstat list, shown once, that ends each connection with its process ID (PID) but leaves out ports in the listening state. Which netstat command should the technician run?",
+      "accept": [
+        { "lines": ["netstat -o"] },
+        { "lines": ["netstat -no"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u06-v005",
+          "outputs": [
+            { "text": "Active Connections\n\nProto  Local Address\n  Foreign Address\n  State        PID\nTCP    10.8.2.14:50877\n  sync2:https\n  ESTABLISHED  6204\nTCP    10.8.2.14:50891\n  srv4:ssh\n  ESTABLISHED  9116" },
+            { "text": "Active Connections\n\nProto  Local Address\n  Foreign Address\n  State        PID\nTCP    10.8.2.14:50877\n  198.51.100.23:443\n  ESTABLISHED  6204\nTCP    10.8.2.14:50891\n  10.8.0.31:22\n  ESTABLISHED  9116" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.1.5",
+        "title": "netstat",
+        "quote": "",
+        "find": "number that has opened the port"
+      }
+    },
+    {
+      "id": "n-u06-c006",
+      "typedFormOf": ["n-u06-q097", "n-u06-q102"],
+      "system": "windows",
+      "task": "The DNS record for the company wiki, wiki.oak.example, was just changed, and a technician at a Windows PC with no added software wants to ask the PC's default DNS server for the wiki's new IP address. Which command should the technician run?",
+      "accept": [
+        { "lines": ["nslookup wiki.oak.example"] }
+      ],
+      "alsoWorks": ["nslookup -type=a wiki.oak.example"],
+      "versions": [
+        {
+          "id": "n-u06-v006",
+          "outputs": [
+            { "text": "Server:  dc1.oak.example\nAddress:  10.30.0.10\n\nName:    wiki.oak.example\nAddress:  10.30.6.25" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.3",
+        "title": "nslookup",
+        "quote": "",
+        "find": "the default DNS server is used"
+      }
+    },
+    {
+      "id": "n-u06-c007",
+      "typedFormOf": ["n-u06-q099"],
+      "system": "windows",
+      "task": "Before moving the email for a client's domain, elmgrove.example, to a new provider, a technician wants nslookup on a Windows PC with no added software to ask the PC's default DNS server for the domain's mail exchange (MX) records. Which nslookup command should the technician run?",
+      "accept": [
+        { "lines": ["nslookup -type=mx elmgrove.example"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u06-v007",
+          "outputs": [
+            { "text": "Server:  ns2.ash.example\nAddress:  172.22.0.2\n\nNon-authoritative answer:\nelmgrove.example\n  MX preference = 10,\n  mail exchanger =\n  mx1.elmgrove.example\nelmgrove.example\n  MX preference = 20,\n  mail exchanger =\n  mx2.elmgrove.example" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.3",
+        "title": "nslookup",
+        "quote": "",
+        "find": "For example, the following command queries"
+      }
+    },
+    {
+      "id": "n-u06-c008",
+      "typedFormOf": ["n-u06-q100"],
+      "system": "windows",
+      "task": "A branch office will soon switch to its ISP's DNS server at 192.0.2.80, so from a Windows PC with no added software, a technician wants nslookup to ask that server for the address of vpn.bay.example instead of using the PC's default DNS server. Which nslookup command should the technician run?",
+      "accept": [
+        { "lines": ["nslookup vpn.bay.example 192.0.2.80"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u06-v008",
+          "outputs": [
+            { "text": "Server:  ns.wave.example\nAddress:  192.0.2.80\n\nNon-authoritative answer:\nName:    vpn.bay.example\nAddress:  198.51.100.66" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.3",
+        "title": "nslookup",
+        "quote": "",
+        "find": "used to resolve the query"
+      }
+    },
+    {
+      "id": "n-u06-c009",
+      "typedFormOf": ["n-u06-q101"],
+      "system": "linux",
+      "task": "While a company moves its DNS records to a new name server at 10.40.0.53, a technician on a Linux server wants dig to look up the IPv4 address of docs.pine.example on the new name server, not the default resolver, and to print its full default output. Which dig command should the technician run?",
+      "accept": [
+        { "lines": ["dig @10.40.0.53 docs.pine.example"] }
+      ],
+      "alsoWorks": ["dig @10.40.0.53 docs.pine.example A"],
+      "versions": [
+        {
+          "id": "n-u06-v009",
+          "outputs": [
+            { "text": "; <<>> DiG 9.16.1 <<>>\n  @10.40.0.53\n  docs.pine.example\n; (1 server found)\n;; global options: +cmd\n;; Got answer:\n;; ANSWER SECTION:\ndocs.pine.example.  300\n  IN  A  10.40.2.15\n;; Query time: 2 msec\n;; SERVER: 10.40.0.53#53\n  (10.40.0.53)" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["6.6.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.4",
+        "title": "dig",
+        "quote": "",
+        "find": "example directs the resolve request"
+      }
+    }
+  ]
+}
