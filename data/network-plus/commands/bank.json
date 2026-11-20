@@ -1,0 +1,165 @@
+{
+  "$schema": "../../../schemas/command-bank.schema.json",
+  "bank": { "title": "Network+ command bank", "reviewed": false },
+  "entries": [
+    {
+      "system": "windows",
+      "command": "ipconfig",
+      "does": "Reports the IP configuration",
+      "section": "4.4.1",
+      "switches": [
+        { "switch": "/all", "does": "Shows complete configuration, including MAC address" },
+        { "switch": "/renew", "does": "Renews the DHCP lease" },
+        { "switch": "/release", "does": "Releases the address from DHCP" },
+        { "switch": "/displaydns", "does": "Displays the DNS resolver cache" },
+        { "switch": "/flushdns", "does": "Clears the DNS resolver cache" },
+        { "switch": "/registerdns", "does": "Registers the host with DNS" },
+        { "switch": "/release6", "does": "Releases the address from DHCPv6" },
+        { "switch": "/renew6", "does": "Renews the DHCPv6 lease" }
+      ]
+    },
+    {
+      "system": "windows",
+      "command": "arp",
+      "does": "Works with cached IP-to-MAC mappings",
+      "syntax": "arp -s <IP> <MAC>",
+      "section": "4.4.3",
+      "switches": [
+        { "switch": "-a", "does": "Shows the cache contents" },
+        { "switch": "-g", "does": "Same as -a: shows the cache" },
+        { "switch": "-s", "does": "Adds an entry to the cache" },
+        { "switch": "-d", "does": "Deletes one or all cache entries" }
+      ]
+    },
+    {
+      "system": "windows",
+      "command": "ping",
+      "does": "Tests basic connectivity to a host",
+      "syntax": "ping <IP or host name>",
+      "section": "4.4.4",
+      "switches": [
+        { "switch": "-4", "does": "Forces IPv4 for a host name" },
+        { "switch": "-6", "does": "Forces IPv6 for a host name" },
+        { "switch": "-t", "does": "Continues until interrupted with Ctrl+C" }
+      ]
+    },
+    {
+      "system": "windows",
+      "command": "route",
+      "does": "Views and modifies the routing table",
+      "section": "5.1.7",
+      "switches": [
+        { "switch": "print", "does": "Shows the routing table" }
+      ]
+    },
+    {
+      "system": "windows",
+      "command": "tracert",
+      "does": "Tests the whole path between nodes",
+      "syntax": "tracert <IP or host>",
+      "section": "5.1.8",
+      "switches": [
+        { "switch": "-d", "does": "Turns off name lookups" },
+        { "switch": "-h", "does": "Sets the maximum number of hops" },
+        { "switch": "-w", "does": "Sets a timeout in milliseconds" },
+        { "switch": "-6", "does": "Forces IPv6 instead of IPv4" }
+      ]
+    },
+    {
+      "system": "windows",
+      "command": "netstat",
+      "does": "Checks the state of local ports",
+      "section": "6.1.5",
+      "switches": [
+        { "switch": "-a", "does": "Shows all connections and listening ports" },
+        { "switch": "-n", "does": "Shows addresses and ports as numbers" },
+        { "switch": "-p", "does": "Filters by protocol type" },
+        { "switch": "-o", "does": "Shows the process ID (PID)" },
+        { "switch": "-b", "does": "Shows the process name" },
+        { "switch": "-s", "does": "Reports statistics for each protocol" },
+        { "switch": "-e", "does": "Reports Ethernet statistics" },
+        { "switch": "-r", "does": "Displays the routing table" }
+      ]
+    },
+    {
+      "system": "windows",
+      "command": "nslookup",
+      "does": "Troubleshoots DNS name resolution",
+      "syntax": "nslookup <host> <DNS server>",
+      "section": "6.6.3",
+      "switches": [
+        { "switch": "-type=mx", "does": "Queries mail (MX) records" },
+        { "switch": "-", "does": "Starts interactive mode for lookups" }
+      ]
+    },
+    {
+      "system": "linux",
+      "command": "ifconfig",
+      "does": "Reports interface configuration (legacy tool)",
+      "section": "4.4.2",
+      "switches": []
+    },
+    {
+      "system": "linux",
+      "command": "ip",
+      "does": "Manages routes and interface configuration",
+      "section": "4.4.2",
+      "switches": [
+        { "switch": "addr", "does": "Reports the current address configuration" },
+        { "switch": "addr show dev", "does": "Reports addresses for one interface" },
+        { "switch": "addr add|delete", "does": "Adds or deletes an address" },
+        { "switch": "link", "does": "Shows whether interfaces are up" },
+        { "switch": "-s link", "does": "Reports interface statistics" },
+        { "switch": "link set", "does": "Turns an interface up or down" },
+        { "switch": "neigh", "does": "Shows the local ARP cache", "section": "4.4.3" },
+        { "switch": "route show", "does": "Shows the routing table", "section": "5.1.7" },
+        { "switch": "route add", "does": "Adds to the routing table", "section": "5.1.7" }
+      ]
+    },
+    {
+      "system": "linux",
+      "command": "traceroute",
+      "does": "Tests the whole path between nodes",
+      "section": "5.1.8",
+      "switches": [
+        { "switch": "-I", "does": "Uses ICMP probes instead of UDP" },
+        { "switch": "-6", "does": "Tests paths on IPv6 networks" }
+      ]
+    },
+    {
+      "system": "linux",
+      "command": "dig",
+      "does": "Queries DNS servers",
+      "syntax": "dig @<DNS server> <host>",
+      "section": "6.6.4",
+      "switches": [
+        { "switch": "all", "does": "Displays all resource records" },
+        { "switch": "MX", "does": "Displays only Mail Exchange records" },
+        { "switch": "+nocomments", "does": "Reduces output by leaving out comments" },
+        { "switch": "+nostats", "does": "Reduces output by leaving out statistics" }
+      ]
+    },
+    {
+      "system": "router",
+      "command": "show",
+      "does": "Reports routing and ARP tables",
+      "section": "5.1.7",
+      "switches": [
+        { "switch": "route", "does": "Displays the active routing table" },
+        { "switch": "ip route", "does": "Same as route: displays routing table" },
+        { "switch": "ipv6 route", "does": "Displays the IPv6 routing table" },
+        { "switch": "arp", "does": "Lists the router's ARP cache" },
+        { "switch": "ip arp", "does": "Same as arp: lists the cache" }
+      ]
+    },
+    {
+      "system": "switch",
+      "command": "show",
+      "does": "Reports the switch's VLAN configuration",
+      "section": "5.6.2",
+      "switches": [
+        { "switch": "vlan", "does": "Lists VLAN IDs and assigned ports" }
+      ]
+    }
+  ]
+}
