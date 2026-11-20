@@ -11,6 +11,10 @@
   (data\network-plus, ids like n-u06-q001). -Data and -Course override the folder and the id prefix.
   -CardsOnly builds only the flashcard pack (spec.json and the question drafts are not read), to check
   cards early. -NoSpread leaves every key where the draft put it.
+  -CommandsOnly builds only the unit's command pack for the Command line tool (docs/CONTENT-HANDOFF.md,
+  "A Command line pass"), and nothing of the question and card code below runs:
+
+    powershell -ExecutionPolicy Bypass -File assemble.ps1 -Scratch "<scratchpad>" -Exam network-plus -Unit 4.0 -CommandsOnly
 
   Reads, under -Scratch:
     spec.json            { "lessons": { "2.1": [ { "slot": "q01" }, ... ], "2.2": [ ... ] } }
@@ -25,15 +29,35 @@
     card-terms.tsv       The unit's card list, if there is one: a card whose term is not a "card" row is reported.
     practice\practice-<exam>.tsv  From extract-sources.ps1 (Network+): a practice exam basedOn must be in it.
     text\<section>.raw.txt  From extract-sources.ps1, for the find-phrase check.
+  With -CommandsOnly, instead:
+    command-lines-<unit>.tsv  The line list (command-lines-4.0.tsv): one command for each item, in the order
+                         the items first appear, and every line the pack stores is a row of its item.
+    work\commands-<unit>.json  { "commands": [ { "slot": "U4-1", "typedFormOf", "origin" (only where no
+                           partner is a question), "system", "task", "accept", "alsoWorks", "versions",
+                           "objectives", "units", "reference" } ] }, with no ids (the kit sets them).
+    work\commands-<unit>-fixes*.json  The same shape. A later file (by name) wins, command by command.
+    text\<section>.raw.txt  The find-phrase check, and the words of each stored line.
 
   Writes, under -Scratch\packs:
     unit-NN.questions.json   The question pack, house layout, ids assigned.
     unit-NN.flashcards.json  The flashcard pack.
     unit-NN.lesson-X.Y.txt   That lesson's question blocks, ready to paste into the pack with Edit.
     keys-moved.txt           Every key the spread moved (the key text never changes, only its letter).
+  With -CommandsOnly, instead:
+    unit-NN.commands.json    The command pack, house layout. Ids stay with their commands: a command keeps
+                             the id of the command in the unit's pack in -Data that shares a partner (or,
+                             with no partner, its source item), a version keeps the id of that command's
+                             version with the same follow-up (or, with none, the same place), and a new one
+                             takes a number above "lastCommand" and "lastVersion" in the pack header, which
+                             keep the highest numbers ever used, so a dropped id is never used again. A kept
+                             command keeps Mr. Flauto's quote.
+    command-ids.tsv          id, slot, command or version N, partners or follow-up, kept or new.
+    stored-lines.tsv         system, line, id, slot, group (1 to 3, or also for alsoWorks), section.
 
   It also reads the exam's other packs in -Data, so a source item (a pool, Messer, or practice exam item)
-  or a flashcard term already used in another unit is reported.
+  or a flashcard term already used in another unit is reported. Command packs count too: a source item a
+  command is modeled on is used. The commands mode reads the unit's own question and card packs as well
+  (a command's partners and follow-ups are there), but not the unit's command pack, which it rebuilds.
 #>
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
@@ -42,11 +66,13 @@ param(
   [string]$Data,
   [string]$Course,
   [switch]$NoSpread,
-  [switch]$CardsOnly
+  [switch]$CardsOnly,
+  [switch]$CommandsOnly
 )
 $ErrorActionPreference = 'Stop'
 # A forgotten -Exam stops here, instead of giving c1- ids or checking against the A+ outline.
 if (-not $Exam) { throw 'assemble.ps1 needs -Exam a-plus-core-1 or -Exam network-plus.' }
+if ($CardsOnly -and $CommandsOnly) { throw 'assemble.ps1 takes -CardsOnly or -CommandsOnly, not both.' }
 # Each exam's data folder and id prefix (docs/CONTENT-GUIDE.md: c1- A+ Core 1, n- Network+).
 $presets = @{ 'a-plus-core-1' = @{ Data = 'a-plus-core-1'; Course = 'c1' }; 'network-plus' = @{ Data = 'network-plus'; Course = 'n' } }
 if (-not $PSBoundParameters.ContainsKey('Data')) { $Data = Join-Path 'C:\CompTIA Website\data' $presets[$Exam].Data }
@@ -54,6 +80,9 @@ if (-not $PSBoundParameters.ContainsKey('Course')) { $Course = $presets[$Exam].C
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 function Read-Json([string]$path) { [IO.File]::ReadAllText($path, [Text.Encoding]::UTF8) | ConvertFrom-Json }
 function Get-Norm([string]$s) { (($s -replace '[\u2010\u2011]', '-') -replace '\s+', ' ').Trim().ToLowerInvariant() }
+# The house layout's JSON text (the question and card writers below use them too).
+function ConvertTo-JsonString([string]$s) { '"' + (($s -replace '\\', '\\') -replace '"', '\"' -replace "`r", '\r' -replace "`n", '\n' -replace "`t", '\t') + '"' }
+function ConvertTo-JsonList($arr) { '[' + ((@($arr) | ForEach-Object { ConvertTo-JsonString $_ }) -join ', ') + ']' }
 
 $unitMajor = ($Unit -split '\.')[0]
 $nn = $unitMajor.PadLeft(2, '0')
@@ -86,18 +115,451 @@ foreach ($t in @(Get-ChildItem -LiteralPath "$Scratch\practice" -Filter 'practic
 }
 
 # ---- What the exam's other packs already use ---------------------------------------------------------
+# Command packs count too: no question is modeled on a source item a command used. A run skips the packs
+# it rebuilds: the unit's question and card packs, or with -CommandsOnly only the unit's command pack, so
+# the commands mode reads the unit's own question pack (a command's partners and follow-ups are there, and
+# a source item one of them uses counts as used).
 $usedSource = @{}; $usedTerm = @{}
-foreach ($kind in 'questions', 'flashcards') {
+$questionById = @{}; $cardIds = @{}; $partnerOwner = @{}; $followUpOwner = @{}
+foreach ($kind in 'questions', 'flashcards', 'commands') {
   $manifest = "$Data\$kind\manifest.json"
   if (-not (Test-Path -LiteralPath $manifest)) { continue }
   foreach ($p in (Read-Json $manifest).packs) {
-    if ($p -eq $packName) { continue }
+    if ($p -eq $packName -and (($kind -eq 'commands') -eq [bool]$CommandsOnly)) { continue }
     $f = "$Data\$kind\$p"
     if (-not (Test-Path -LiteralPath $f)) { continue }
     $pk = Read-Json $f
-    if ($kind -eq 'questions') { foreach ($q in $pk.questions) { if ($q.origin.basedOn) { $usedSource[$q.origin.basedOn] = $q.id } } }
-    else { foreach ($c in $pk.flashcards) { $usedTerm[(Get-Norm $c.term)] = $c.id } }
+    if ($kind -eq 'questions') { foreach ($q in $pk.questions) { if ($q.origin.basedOn) { $usedSource[$q.origin.basedOn] = $q.id }; if ($q.id) { $questionById[$q.id] = $q } } }
+    elseif ($kind -eq 'flashcards') { foreach ($c in $pk.flashcards) { $usedTerm[(Get-Norm $c.term)] = $c.id; if ($c.id) { $cardIds[$c.id] = $true } } }
+    else {
+      foreach ($c in $pk.commands) {
+        if ($c.origin.basedOn) { $usedSource[$c.origin.basedOn] = $c.id }
+        foreach ($t in @($c.typedFormOf)) { if ($t) { $partnerOwner[$t] = $c.id } }
+        foreach ($v in @($c.versions)) { if ($v.followUp.question) { $followUpOwner[$v.followUp.question] = "$($c.id) $($v.id)" } }
+      }
+    }
   }
+}
+
+# ---- Commands (-CommandsOnly) -----------------------------------------------------------------------
+# A Command line pass (docs/CONTENT-HANDOFF.md, "A Command line pass"; the rules are docs/CONTENT-GUIDE.md,
+# "A command"). The line list, command-lines-<unit>.tsv, plays the parts spec.json and card-terms.tsv play
+# for a unit: one command for each item, in the order the items first appear, and every line the pack
+# stores (an accepted line, or an alsoWorks line in the group "also") is a row of its item. The rest of a
+# command (how the matcher reads its lines, the partners' wrong choices) is the content check's, once the
+# pack is in data/. The question and card code below this block never runs in this mode.
+if ($CommandsOnly) {
+  $cp = New-Object System.Collections.Generic.List[string]
+  $systemWord = @{ windows = 'Windows'; linux = 'Linux'; router = 'router'; switch = 'switch' }
+  $promptOf = @{ windows = 'C:\>'; linux = '$'; router = 'Router#'; switch = 'Switch#' }
+  $dash = '[' + [char]0x2013 + [char]0x2014 + ']'
+  $listName = "command-lines-$Unit.tsv"
+
+  # An address or a host name, read as the matcher reads one (assets/js/lib/command-match.js): an IPv4
+  # address, a MAC address, or a dotted name with a letter in it.
+  function Test-Target([string]$t) {
+    $t = $t.ToLowerInvariant()
+    ($t -match '^\d{1,3}(\.\d{1,3}){3}$') -or ($t -match '^[0-9a-f]{2}([-:][0-9a-f]{2}){5}$') -or ($t -match '^[0-9a-f]{4}(\.[0-9a-f]{4}){2}$') -or (($t -match '^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$') -and ($t -match '[a-z]'))
+  }
+  # A task's words in lower case, without the punctuation at either end of each.
+  function Get-Words([string]$s) { @(($s -split '\s+') | ForEach-Object { (($_ -replace '^[("''\[{]+', '') -replace '[.,!?;:)\]}"'']+$', '').ToLowerInvariant() } | Where-Object { $_ }) }
+  # A row of the line list is the stored line word for word, where a word in angle brackets (<address>,
+  # @<server>) is an address or host name that the task prints.
+  function Test-Row([string]$row, [string]$line, [string[]]$words) {
+    $a = @($row -split ' ' | Where-Object { $_ }); $b = @($line -split ' ' | Where-Object { $_ })
+    if ($a.Count -ne $b.Count) { return $false }
+    for ($i = 0; $i -lt $a.Count; $i++) {
+      if ($a[$i] -match '^([^<]*)<[^>]+>$') {
+        $pre = $Matches[1]
+        if (-not $b[$i].StartsWith($pre, [StringComparison]::Ordinal)) { return $false }
+        $rest = $b[$i].Substring($pre.Length)
+        if ((-not (Test-Target $rest)) -or ($words -notcontains $rest.ToLowerInvariant())) { return $false }
+      } elseif (-not [string]::Equals($a[$i], $b[$i], [StringComparison]::Ordinal)) { return $false }
+    }
+    $true
+  }
+  $rawText = @{}
+  function Get-Raw([string]$sec) {
+    if (-not $rawText.ContainsKey($sec)) {
+      $path = "$Scratch\text\$sec.raw.txt"
+      $rawText[$sec] = if ($sec -and (Test-Path -LiteralPath $path)) { [IO.File]::ReadAllText($path, [Text.Encoding]::UTF8) } else { $null }
+    }
+    $rawText[$sec]
+  }
+  # True when the word is a word of one of the sections' text, in any case.
+  function Test-Taught([string]$word, [string[]]$secs) {
+    $re = '(?i)(^|[\s("''\[])' + [regex]::Escape($word) + '($|[\s)"''\].,;:])'
+    foreach ($s in $secs) { $t = Get-Raw $s; if ($t -and (($t -replace '[\u2010-\u2013\u2212]', '-') -match $re)) { return $true } }
+    $false
+  }
+
+  # The line list, by item.
+  $listFile = Join-Path $Scratch $listName
+  if (-not (Test-Path -LiteralPath $listFile)) { throw "assemble.ps1 -CommandsOnly needs $listFile, the line list (docs/CONTENT-HANDOFF.md, A Command line pass, step 2)." }
+  $columns = @((@([IO.File]::ReadAllLines($listFile, [Text.Encoding]::UTF8)) | Select-Object -First 1) -split "`t" | ForEach-Object { $_.Trim() })
+  $lacking = @('item', 'partners', 'system', 'line', 'group', 'followUp' | Where-Object { $columns -notcontains $_ })
+  if ($lacking.Count) { throw "$listName needs a first line that names its columns. It lacks: $($lacking -join ', ')." }
+  $itemOrder = New-Object System.Collections.Generic.List[string]
+  $itemRows = @{}
+  foreach ($r in @(Import-Csv -LiteralPath $listFile -Delimiter "`t" -Encoding UTF8)) {
+    $it = ([string]$r.item).Trim()
+    if (-not $it) { continue }
+    if (-not $itemRows.ContainsKey($it)) { $itemRows[$it] = New-Object System.Collections.Generic.List[object]; $itemOrder.Add($it) }
+    $itemRows[$it].Add($r)
+  }
+
+  # The drafts, then the fixes: a later file wins, command by command.
+  $cmdDraft = @{}
+  $draftFiles = @(Get-ChildItem -LiteralPath "$Scratch\work" -Filter "commands-$Unit.json" -File -ErrorAction SilentlyContinue) + @(Get-ChildItem -LiteralPath "$Scratch\work" -Filter "commands-$Unit-fixes*.json" -File -ErrorAction SilentlyContinue | Sort-Object Name)
+  foreach ($f in $draftFiles) { foreach ($c in @((Read-Json $f.FullName).commands)) { if ($c -and $c.slot) { $cmdDraft[[string]$c.slot] = $c } } }
+
+  # The unit's pack in -Data, if there is one: the ids, the highest numbers ever used, and his quotes.
+  $oldFile = "$Data\commands\$packName"
+  $old = New-Object System.Collections.Generic.List[object]
+  $lastC = 0; $lastV = 0
+  if (Test-Path -LiteralPath $oldFile) {
+    $ex = Read-Json $oldFile
+    if ($ex.pack.lastCommand -gt $lastC) { $lastC = [int]$ex.pack.lastCommand }
+    if ($ex.pack.lastVersion -gt $lastV) { $lastV = [int]$ex.pack.lastVersion }
+    foreach ($c in @($ex.commands)) {
+      if (-not $c -or -not $c.id) { continue }
+      if ($c.id -match '-c(\d+)$' -and [int]$Matches[1] -gt $lastC) { $lastC = [int]$Matches[1] }
+      $keys = @(@($c.typedFormOf) | Where-Object { $_ } | ForEach-Object { [string]$_ })
+      if ($c.origin.basedOn) { $keys += 'source:' + (Get-Norm $c.origin.basedOn) }
+      $vers = New-Object System.Collections.Generic.List[object]
+      foreach ($v in @($c.versions)) {
+        if (-not $v -or -not $v.id) { continue }
+        if ($v.id -match '-v(\d+)$' -and [int]$Matches[1] -gt $lastV) { $lastV = [int]$Matches[1] }
+        $vers.Add([pscustomobject]@{ id = [string]$v.id; followUp = [string]$v.followUp.question; taken = $false })
+      }
+      $old.Add([pscustomobject]@{ id = [string]$c.id; keys = $keys; versions = $vers; quote = [string]$c.reference.quote; section = [string]$c.reference.section; taken = '' })
+    }
+    # A trial pack may be re-assembled until the tool is switched on (docs/CONTENT-HANDOFF.md, rule 8).
+    $examsFile = Join-Path (Split-Path $Data -Parent) 'exams.json'
+    if (Test-Path -LiteralPath $examsFile) {
+      $entry = @((Read-Json $examsFile).exams | Where-Object { $_.id -eq $Exam })
+      if ($entry.Count -and @($entry[0].PSObject.Properties.Name) -contains 'commandUnits') {
+        $cp.Add("NOTE the tool is switched on for $Exam (commandUnits in exams.json): once $packName is on GitHub it is fixed, so never copy this build over it. Edit it item by item (docs/CONTENT-HANDOFF.md, rule 8)")
+      }
+    }
+  }
+
+  $built = New-Object System.Collections.Generic.List[object]
+  $runPartner = @{}; $runFollowUp = @{}; $runSource = @{}
+  foreach ($slot in $itemOrder) {
+    $src = $cmdDraft[$slot]
+    if (-not $src) { $cp.Add("${slot}: no draft"); continue }
+    $myRows = $itemRows[$slot].ToArray()   # (PowerShell 5.1 cannot take @() of a List of rows)
+    $partners = @(@($src.typedFormOf) | Where-Object { $_ } | ForEach-Object { [string]$_ })
+    $basedOn = [string]$src.origin.basedOn
+    $keys = @($partners)
+    if ($basedOn) { $keys += 'source:' + (Get-Norm $basedOn) }
+
+    # The id. No question or card is the partner of two commands, so a shared partner (or source item)
+    # names the command this one was.
+    $hits = @($old | Where-Object { $o = $_; @($o.keys | Where-Object { $keys -contains $_ }).Count -gt 0 })
+    $prev = $null
+    if ($hits.Count -gt 1) { $cp.Add("$slot shares partners or a source item with $(@($hits | ForEach-Object { $_.id }) -join ' and ') in ${packName}: a command keeps one id") }
+    if ($hits.Count) {
+      $prev = $hits[0]
+      if ($prev.taken) { $cp.Add("$slot and $($prev.taken) both match $($prev.id) in ${packName}: a command keeps one id"); $prev = $null }
+    }
+    if ($prev) { $prev.taken = $slot; $id = $prev.id; $state = 'kept' }
+    else { $lastC++; $id = '{0}-u{1}-c{2:D3}' -f $Course, $nn, $lastC; $state = 'new' }
+    $tag = "$id ($slot)"
+
+    $system = [string]$src.system
+    $task = ([string]$src.task).Trim()
+    $words = [string[]](Get-Words $task)
+    $rowSystem = @($myRows | ForEach-Object { ([string]$_.system).Trim() } | Where-Object { $_ } | Select-Object -Unique)
+    $rowPartners = @($myRows | ForEach-Object { ([string]$_.partners) -split '[\s,]+' } | Where-Object { $_ } | Sort-Object -Unique)
+    $rowFollow = @($myRows | ForEach-Object { ([string]$_.followUp) -split '[\s,]+' } | Where-Object { $_ } | Sort-Object -Unique)
+
+    # The system and the task (the guide, "The task").
+    if (@('windows', 'linux', 'router', 'switch') -cnotcontains $system) { $cp.Add("$tag system '$system' must be windows, linux, router, or switch") }
+    elseif ($rowSystem.Count -and $rowSystem -notcontains $system) { $cp.Add("$tag system is $system, and $listName says $($rowSystem -join ', ')") }
+    if (-not $task) { $cp.Add("$tag has no task") }
+    else {
+      if (-not $task.EndsWith('?')) { $cp.Add("$tag task must end with a question mark") }
+      $sentences = ([regex]::Matches($task, '[.?!](\s|$)')).Count
+      if ($sentences -gt 2) { $cp.Add("$tag task has $sentences sentences (2 at most)") }
+      if ($task -match $dash) { $cp.Add("$tag em or en dash in the task") }
+      if ($systemWord.ContainsKey($system) -and $task -notmatch ('\b' + $systemWord[$system] + '\b')) { $cp.Add("$tag task does not name its system in words ($($systemWord[$system]))") }
+      $sw = @($words | Where-Object { $_ -match '^[/-]+[a-z?]' })
+      if ($sw.Count) { $cp.Add("$tag task holds a switch ($($sw[0]))") }
+    }
+
+    # The answer groups and their lines (the guide, "The accepted lines").
+    $accept = @(@($src.accept) | Where-Object { $_ })
+    if ($accept.Count -lt 1 -or $accept.Count -gt 3) { $cp.Add("$tag has $($accept.Count) answer groups (1 to 3)") }
+    $groups = New-Object System.Collections.Generic.List[object]
+    $groupSecs = New-Object System.Collections.Generic.List[object]
+    $joined = ' ' + ($words -join ' ') + ' '
+    $ownSec = [string]$src.reference.section
+    $noText = @{}
+    for ($g = 0; $g -lt $accept.Count; $g++) {
+      $lines = [string[]]@(@($accept[$g].lines) | Where-Object { $null -ne $_ } | ForEach-Object { [string]$_ })
+      $gs = [string[]]@(@($accept[$g].sections) | Where-Object { $_ } | ForEach-Object { [string]$_ })
+      $groups.Add($lines); $groupSecs.Add($gs)
+      if (-not $lines.Count) { $cp.Add("$tag answer group $($g + 1) has no lines") }
+      foreach ($s in $gs) { if (-not $secTitle.ContainsKey($s)) { $cp.Add("$tag answer group $($g + 1) names unknown section '$s'") } }
+      # The words of each line: the line's own section, or the group's sections (another written unit's may teach it).
+      $secs = [string[]]@(@($gs | Where-Object { $secTitle.ContainsKey($_) }) + @($ownSec) | Where-Object { $_ } | Select-Object -Unique)
+      foreach ($s in $secs) { if ($null -eq (Get-Raw $s) -and -not $noText.ContainsKey($s)) { $noText[$s] = $true; $cp.Add("$tag no text file for section $s") } }
+      $readable = [string[]]@($secs | Where-Object { $null -ne (Get-Raw $_) })
+      foreach ($line in $lines) {
+        if ($line -cne ($line -replace '\s+', ' ').Trim()) { $cp.Add("$tag stored line ""$line"" is not trimmed to single spaces") }
+        if ($line.Length -gt 36) { $cp.Add("$tag stored line ""$line"" is longer than 36 characters") }
+        if ($system -ne 'linux' -and $line -cne $line.ToLowerInvariant()) { $cp.Add("$tag stored line ""$line"" must be lower case on Windows and on devices") }
+        if ($line -and $joined.Contains(' ' + $line.ToLowerInvariant() + ' ')) { $cp.Add("$tag task holds the stored line ""$line""") }
+        foreach ($word in @($line -split ' ' | Where-Object { $_ })) {
+          $body = $word.TrimStart('@'); $low = $body.ToLowerInvariant()
+          # The loopback answer is never printed in the task. Any other address or name always is.
+          if ($low -eq '127.0.0.1' -or $low -eq 'localhost') {
+            if ($words -contains $low) { $cp.Add("$tag task prints $low, which is the answer") }
+          } elseif (Test-Target $body) {
+            if ($words -notcontains $low) { $cp.Add("$tag task does not print $body, which stored line ""$line"" holds") }
+            continue
+          }
+          if ($readable.Count -and -not (Test-Taught $word $readable)) { $cp.Add("$tag NOTE stored line ""$line"": ""$word"" is not a word of the text of $($readable -join ' or '). Check that a command section teaches it, and name that section in the group's sections") }
+        }
+      }
+    }
+
+    # Every line the pack stores is a row of the item in the line list, in its group, and every row is stored.
+    $also = [string[]]@(@($src.alsoWorks) | Where-Object { $null -ne $_ } | ForEach-Object { [string]$_ })
+    $listed = @{}
+    foreach ($r in $myRows) {
+      $k = ([string]$r.group).Trim().ToLowerInvariant()
+      if (-not $listed.ContainsKey($k)) { $listed[$k] = New-Object System.Collections.Generic.List[string] }
+      $listed[$k].Add(([string]$r.line).Trim())
+    }
+    $groupKeys = @(for ($g = 1; $g -le $groups.Count; $g++) { [string]$g }) + @('also')
+    foreach ($k in @($groupKeys) + @($listed.Keys | Where-Object { $groupKeys -notcontains $_ } | Sort-Object)) {
+      $mine = @(if ($k -eq 'also') { $also } elseif ($groupKeys -contains $k) { $groups[[int]$k - 1] })
+      $theirs = @(if ($listed.ContainsKey($k)) { $listed[$k].ToArray() })
+      $what = if ($k -eq 'also') { 'alsoWorks line' } else { "group $k line" }
+      foreach ($line in $mine) { if (-not @($theirs | Where-Object { Test-Row $_ $line $words }).Count) { $cp.Add("$tag $what ""$line"" is not a row of $slot in $listName") } }
+      foreach ($row in $theirs) { if (-not @($mine | Where-Object { Test-Row $row $_ $words }).Count) { $cp.Add("$tag $listName row ""$row"" (group $k) is not stored") } }
+    }
+
+    # Partners: questions or cards of the exam, each the partner of one command.
+    if ((@($partners | Sort-Object -Unique) -join ' ') -ne ($rowPartners -join ' ')) { $cp.Add("$tag typedFormOf is [$($partners -join ' ')], and $listName says [$($rowPartners -join ' ')]") }
+    if (@($partners | Select-Object -Unique).Count -ne $partners.Count) { $cp.Add("$tag typedFormOf lists an id twice") }
+    foreach ($p in @($partners | Select-Object -Unique)) {
+      if (-not ($questionById.ContainsKey($p) -or $cardIds.ContainsKey($p))) { $cp.Add("$tag typedFormOf names $p, which is not a question or flashcard of the exam") }
+      if ($partnerOwner.ContainsKey($p)) { $cp.Add("$tag $p is already the partner of $($partnerOwner[$p]): no question or card is the partner of two commands") }
+      elseif ($runPartner.ContainsKey($p)) { $cp.Add("$tag $p is also the partner of $($runPartner[$p]): no question or card is the partner of two commands") }
+      else { $runPartner[$p] = $id }
+    }
+
+    # The origin: exactly when no partner is a question, and a source item nothing else uses.
+    $typesQuestion = @($partners | Where-Object { $questionById.ContainsKey($_) -or $_ -match '-q\d{3}$' }).Count -gt 0
+    $hasOrigin = $null -ne $src.origin
+    if ($hasOrigin -and $typesQuestion) { $cp.Add("$tag has an origin, but a partner is a question: a command that types a question is read through that question's source item") }
+    if (-not $hasOrigin -and -not $typesQuestion) { $cp.Add("$tag needs an origin: no partner is a question, so the command is modeled on a source item of its own") }
+    if ($hasOrigin) {
+      $okind = [string]$src.origin.kind
+      if (@('certmaster-variation', 'messer-variation', 'practice-exam-variation', 'teacher', 'original') -notcontains $okind) { $cp.Add("$tag origin.kind '$okind'") }
+      if (-not $basedOn) { $cp.Add("$tag origin has no basedOn") }
+      elseif ($okind -eq 'practice-exam-variation' -and $basedOn -cnotmatch '^Practice Tests [1-7] Q[1-9]\d*$') { $cp.Add("$tag basedOn '$basedOn' should read like 'Practice Tests 1 Q33'") }
+      elseif ($okind -eq 'practice-exam-variation' -and $practiceIndex.Count) {
+        if (-not $practiceIndex.ContainsKey($basedOn)) { $cp.Add("$tag $basedOn is not in the practice exam index") }
+        elseif ($practiceIndex[$basedOn].flags -match 'figure') { $cp.Add("$tag $basedOn needs a figure (not usable)") }
+      }
+      if ($basedOn) {
+        if ($usedSource.ContainsKey($basedOn)) { $cp.Add("$tag $basedOn is already used by $($usedSource[$basedOn])") }
+        $sk = Get-Norm $basedOn
+        if ($runSource.ContainsKey($sk)) { $cp.Add("$tag $basedOn is also the source of $($runSource[$sk])") } else { $runSource[$sk] = $id }
+      }
+    }
+
+    # Tags and the reference, as for a question.
+    $objs = @(@($src.objectives) | Where-Object { $_ } | ForEach-Object { [string]$_ })
+    $units = @(@($src.units) | Where-Object { $_ } | ForEach-Object { [string]$_ })
+    if (-not $objs.Count) { $cp.Add("$tag has no objectives") }
+    foreach ($o in $objs) { if (-not $objTitle.ContainsKey($o)) { $cp.Add("$tag unknown objective '$o'") } }
+    foreach ($s in $units) {
+      if (-not $secTitle.ContainsKey($s)) { $cp.Add("$tag unknown section '$s'") }
+      elseif (($s -split '\.')[0] -ne $unitMajor) { $cp.Add("$tag section '$s' is outside Unit $Unit (a command cites only its unit's sections; a group's sections may be another written unit's)") }
+    }
+    $title = [string]$src.reference.title
+    if ($units -notcontains $ownSec) { $cp.Add("$tag reference.section is not in units") }
+    if ($secTitle[$ownSec] -cne $title) { $cp.Add("$tag title should be '$($secTitle[$ownSec])'") }
+    $find = (([string]$src.reference.find) -replace '\s+', ' ').Trim()
+    $fw = @($find -split ' ' | Where-Object { $_ }).Count
+    if ($fw -lt 3 -or $fw -gt 6) { $cp.Add("$tag find phrase has $fw words (3 to 6)") }
+    if ($find -match '-$') { $cp.Add("$tag find phrase ends in a hyphen") }
+    $raw = Get-Raw $ownSec
+    if ($null -ne $raw) {
+      $fl = $raw -split "`r?`n|`f"
+      $want = Get-Norm $find
+      $fh = @(for ($i = 0; $i -lt $fl.Count; $i++) { if ((Get-Norm $fl[$i]).Contains($want)) { $i } })
+      if ($fh.Count -eq 0) { $cp.Add("$tag find phrase is not on any one line of ${ownSec}: [$find]") }
+      elseif ($fl[$fh[0]] -match '^\s*(\d+/\d+/\d+,|Copyright|https?://)|CertMaster Learn') { $cp.Add("$tag find phrase is in a page header or footer") }
+      elseif ((Get-Norm $fl[$fh[0]]).StartsWith($want) -and $fh[0] -gt 0 -and $fl[$fh[0] - 1].TrimEnd() -match '[A-Za-z]-$') { $cp.Add("$tag find phrase starts with the second half of a hyphenated word") }
+    } elseif ($ownSec -and -not $noText.ContainsKey($ownSec)) { $noText[$ownSec] = $true; $cp.Add("$tag no text file for section $ownSec") }
+    # A kept command keeps Mr. Flauto's quote, which is never blanked.
+    $quote = ''
+    if ($prev -and $prev.quote) {
+      if ($prev.section -eq $ownSec) { $quote = $prev.quote }
+      else { $cp.Add("$tag has Mr. Flauto's quote for $($prev.section) in ${packName}, and its section is now ${ownSec}: keep the section, or ask him (a quote is never blanked)") }
+    }
+
+    # The versions: one, or one for each follow-up the line list gives the item (only those of
+    # docs/COMMAND-LINE-PLAN.md section 3), each with one output for each answer group.
+    $vs = @(@($src.versions) | Where-Object { $_ })
+    $needV = [Math]::Max(1, $rowFollow.Count)
+    if ($vs.Count -ne $needV) {
+      $why = if ($rowFollow.Count) { "one for each follow-up $listName gives it" } else { "$listName gives it no follow-up" }
+      $cp.Add("$tag has $($vs.Count) versions, and needs $needV ($why)")
+    }
+    $vOut = New-Object System.Collections.Generic.List[object]
+    foreach ($v in $vs) {
+      $fu = [string]$v.followUp.question
+      $pv = $null
+      if ($prev) { $pv = @($prev.versions | Where-Object { -not $_.taken -and $_.followUp -eq $fu })[0] }
+      if ($pv) { $pv.taken = $true; $vid = $pv.id; $vstate = 'kept' }
+      else { $lastV++; $vid = '{0}-u{1}-v{2:D3}' -f $Course, $nn, $lastV; $vstate = 'new' }
+      $vtag = "$tag $vid"
+      $outs = @(@($v.outputs) | Where-Object { $null -ne $_ })
+      if ($outs.Count -ne $groups.Count) { $cp.Add("$vtag has $($outs.Count) outputs for $($groups.Count) answer groups (one for each)") }
+      $vo = New-Object System.Collections.Generic.List[object]
+      $printsExhibit = $false
+      for ($k = 0; $k -lt $outs.Count; $k++) {
+        $o = $outs[$k]; $names = @($o.PSObject.Properties.Name); $what = "$vtag output $($k + 1)"
+        $hasText = $names -contains 'text'; $hasEx = $names -contains 'exhibitOf'
+        if ($hasText -eq $hasEx) { $cp.Add("$what needs a text or an exhibitOf, and not both"); continue }
+        if ($hasEx) {
+          if ([string]$o.exhibitOf -ne $fu) { $cp.Add("$what prints the exhibit of $($o.exhibitOf), which is not this version's follow-up") } else { $printsExhibit = $true }
+          $vo.Add([ordered]@{ exhibitOf = [string]$o.exhibitOf }); continue
+        }
+        # The output rule (the guide, "Output"): the exhibit limits, and what the box has just printed.
+        $tl = @(([string]$o.text -replace "`r", '') -split "`n" | ForEach-Object { $_.TrimEnd() })
+        while ($tl.Count -and -not $tl[0]) { $tl = @($tl | Select-Object -Skip 1) }
+        while ($tl.Count -and -not $tl[-1]) { $tl = @($tl | Select-Object -SkipLast 1) }
+        $text = $tl -join "`n"
+        $vo.Add([ordered]@{ text = $text })
+        if ($tl.Count -gt 12) { $cp.Add("$what has $($tl.Count) lines (12 at most)") }
+        $long = @(for ($i = 0; $i -lt $tl.Count; $i++) { if ($tl[$i].Length -gt 25) { $i + 1 } })
+        if ($long.Count) { $cp.Add("$what line(s) $($long -join ', ') over 25 characters: they wrap on a 320 px phone") }
+        if ($text.Contains("`t")) { $cp.Add("$what has a tab") }
+        if ($text -match $dash) { $cp.Add("$what has an em or en dash") }
+        if ($promptOf.ContainsKey($system) -and $text.StartsWith($promptOf[$system], [StringComparison]::OrdinalIgnoreCase)) { $cp.Add("$what starts with the prompt: the box has just printed the prompt and the line") }
+        if ($k -lt $groups.Count -and @($groups[$k] | Where-Object { ($_ -split ' ')[0] -eq 'ping' }).Count -and $text -match 'TTL=') { $cp.Add("$what prints TTL=: a ping output prints no TTL value") }
+      }
+      # The follow-up (the guide, "The follow-up question"): a published question with a text exhibit.
+      if ($null -ne $v.followUp) {
+        if (-not $fu) { $cp.Add("$vtag followUp needs ""question"", the id of a published question (one written in place waits for phase 3)") }
+        else {
+          $fq = $questionById[$fu]
+          if (-not $fq) { $cp.Add("$vtag follow-up $fu is not a question of the exam") }
+          elseif (-not ($fq.exhibit.type -eq 'text' -and $fq.exhibit.text)) { $cp.Add("$vtag follow-up $fu has no text exhibit") }
+          elseif (-not $printsExhibit) { $cp.Add("$vtag no output prints the exhibit of its follow-up $fu (exhibitOf)") }
+          if ($partners -contains $fu) { $cp.Add("$vtag follow-up $fu is one of the command's partners") }
+          if ($rowFollow -notcontains $fu) { $cp.Add("$vtag follow-up $fu is not in the followUp column of $slot in $listName") }
+          if ($followUpOwner.ContainsKey($fu)) { $cp.Add("$vtag $fu already follows $($followUpOwner[$fu]): a question follows one output only") }
+          elseif ($runFollowUp.ContainsKey($fu)) { $cp.Add("$vtag $fu also follows $($runFollowUp[$fu]): a question follows one output only") }
+          else { $runFollowUp[$fu] = $vid }
+        }
+      }
+      $vOut.Add([pscustomobject]@{ id = $vid; state = $vstate; outputs = $vo; followUp = $fu })
+    }
+    foreach ($f in $rowFollow) { if (-not @($vs | Where-Object { [string]$_.followUp.question -eq $f }).Count) { $cp.Add("$tag $listName gives it the follow-up $f, and no version has it") } }
+
+    $built.Add([pscustomobject]@{
+      id = $id; slot = $slot; state = $state; partners = $partners
+      origin = $(if ($hasOrigin) { [ordered]@{ kind = [string]$src.origin.kind; basedOn = $basedOn } } else { $null })
+      system = $system; task = $task; groups = $groups; sections = $groupSecs; also = $also; versions = $vOut
+      objectives = $objs; units = $units; section = $ownSec; title = $title; quote = $quote; find = $find
+    })
+  }
+
+  # ---- Write the command pack in the house layout ----
+  function Format-Command($c) {
+    $acc = @(for ($g = 0; $g -lt $c.groups.Count; $g++) {
+      $s = '        { "lines": ' + (ConvertTo-JsonList $c.groups[$g])
+      if (@($c.sections[$g]).Count) { $s += ', "sections": ' + (ConvertTo-JsonList $c.sections[$g]) }
+      $s + ' }'
+    }) -join ",`n"
+    $ver = @(foreach ($v in $c.versions) {
+      $o = @(foreach ($x in $v.outputs) {
+        if ($x.Contains('exhibitOf')) { '            { "exhibitOf": ' + (ConvertTo-JsonString $x.exhibitOf) + ' }' }
+        else { '            { "text": ' + (ConvertTo-JsonString $x.text) + ' }' }
+      }) -join ",`n"
+      @(
+        '        {'
+        '          "id": ' + (ConvertTo-JsonString $v.id) + ','
+        '          "outputs": ['
+        $o
+        $(if ($v.followUp) { '          ],' } else { '          ]' })
+        if ($v.followUp) { '          "followUp": { "question": ' + (ConvertTo-JsonString $v.followUp) + ' }' }
+        '        }'
+      ) -join "`n"
+    }) -join ",`n"
+    @(
+      '    {'
+      '      "id": ' + (ConvertTo-JsonString $c.id) + ','
+      if (@($c.partners).Count) { '      "typedFormOf": ' + (ConvertTo-JsonList $c.partners) + ',' }
+      if ($c.origin) { '      "origin": { "kind": ' + (ConvertTo-JsonString $c.origin.kind) + ', "basedOn": ' + (ConvertTo-JsonString $c.origin.basedOn) + ' },' }
+      '      "system": ' + (ConvertTo-JsonString $c.system) + ','
+      '      "task": ' + (ConvertTo-JsonString $c.task) + ','
+      '      "accept": ['
+      $acc
+      '      ],'
+      if (@($c.also).Count) { '      "alsoWorks": ' + (ConvertTo-JsonList $c.also) + ',' }
+      '      "versions": ['
+      $ver
+      '      ],'
+      '      "objectives": ' + (ConvertTo-JsonList $c.objectives) + ','
+      '      "units": ' + (ConvertTo-JsonList $c.units) + ','
+      '      "reference": {'
+      '        "source": "certmaster",'
+      '        "section": ' + (ConvertTo-JsonString $c.section) + ','
+      '        "title": ' + (ConvertTo-JsonString $c.title) + ','
+      '        "quote": ' + (ConvertTo-JsonString $c.quote) + ','
+      '        "find": ' + (ConvertTo-JsonString $c.find)
+      '      }'
+      '    }'
+    ) -join "`n"
+  }
+  $packDir = Join-Path $Scratch 'packs'
+  New-Item -ItemType Directory -Force $packDir | Out-Null
+  $sorted = @($built | Sort-Object id)
+  $cFile = Join-Path $packDir "unit-$nn.commands.json"
+  $chead = "{`n  `"`$schema`": `"../../../schemas/command-pack.schema.json`",`n  `"pack`": { `"id`": `"unit-$nn`", `"title`": $(ConvertTo-JsonString $unitTitle), `"reviewed`": false, `"lastCommand`": $lastC, `"lastVersion`": $lastV },`n  `"commands`": [`n"
+  [IO.File]::WriteAllText($cFile, $chead + ((@($sorted | ForEach-Object { Format-Command $_ })) -join ",`n") + "`n  ]`n}`n", $utf8)
+  # The id list maps what checkers report back to the slots you fix. Ids never change on a rebuild.
+  $idRows = foreach ($c in $sorted) {
+    "$($c.id)`t$($c.slot)`tcommand`t$(@($c.partners) -join ' ')`t$($c.state)"
+    $vn = 0
+    foreach ($v in $c.versions) { $vn++; "$($v.id)`t$($c.slot)`tversion $vn`t$($v.followUp)`t$($v.state)" }
+  }
+  [IO.File]::WriteAllLines((Join-Path $packDir 'command-ids.tsv'), [string[]]@($idRows), $utf8)
+  # The stored-lines list: every line the pack stores, as the content check's Stored lines table lists them.
+  $lineRows = foreach ($c in $sorted) {
+    for ($g = 0; $g -lt $c.groups.Count; $g++) {
+      $sec = if (@($c.sections[$g]).Count) { @($c.sections[$g]) -join ' ' } else { $c.section }
+      foreach ($line in $c.groups[$g]) { "$($c.system)`t$line`t$($c.id)`t$($c.slot)`t$($g + 1)`t$sec" }
+    }
+    foreach ($line in $c.also) { "$($c.system)`t$line`t$($c.id)`t$($c.slot)`talso`t$($c.section)" }
+  }
+  [IO.File]::WriteAllLines((Join-Path $packDir 'stored-lines.tsv'), [string[]]@($lineRows), $utf8)
+  # Round trip: the file must parse and keep every command.
+  $check = Read-Json $cFile
+  if (@($check.commands).Count -ne $sorted.Count) { $cp.Add("the written pack has $(@($check.commands).Count) commands, expected $($sorted.Count)") }
+
+  $nv = 0; $nf = 0
+  foreach ($c in $sorted) { $nv += $c.versions.Count; $nf += @($c.versions | Where-Object { $_.followUp }).Count }
+  "$unitTitle"
+  "Commands: $($sorted.Count) ($(@($sorted | Where-Object { $_.state -eq 'kept' }).Count) kept their ids, $(@($sorted | Where-Object { $_.state -eq 'new' }).Count) new); versions: $nv, with a follow-up: $nf; lastCommand $lastC, lastVersion $lastV"
+  $unbuilt = @($cmdDraft.Keys | Where-Object { $itemOrder -notcontains $_ } | Sort-Object)
+  if ($unbuilt.Count) { "Drafts with no rows in $listName (not built): $($unbuilt -join ', ')" }
+  $retired = @(@($old | Where-Object { -not $_.taken } | ForEach-Object { $_.id }) + @($old | ForEach-Object { $_.versions } | Where-Object { -not $_.taken } | ForEach-Object { $_.id }))
+  if ($retired.Count) { "Ids in $packName that no command keeps (retired, never used again): $($retired -join ', ')" }
+  "Command problems: $($cp.Count)"; $cp | ForEach-Object { "  $_" }
+  "Written to $packDir"
+  return
 }
 
 # ---- Questions --------------------------------------------------------------------------------------
@@ -286,8 +748,6 @@ if (Test-Path -LiteralPath $cardFile) {
 }
 
 # ---- Write in the house layout ----------------------------------------------------------------------
-function ConvertTo-JsonString([string]$s) { '"' + (($s -replace '\\', '\\') -replace '"', '\"' -replace "`r", '\r' -replace "`n", '\n' -replace "`t", '\t') + '"' }
-function ConvertTo-JsonList($arr) { '[' + ((@($arr) | ForEach-Object { ConvertTo-JsonString $_ }) -join ', ') + ']' }
 function Format-Question($x) {
   $ch = ($x.choices | ForEach-Object { '        { "id": ' + (ConvertTo-JsonString $_.id) + ', "text": ' + (ConvertTo-JsonString $_.text) + ' }' }) -join ",`n"
   @(

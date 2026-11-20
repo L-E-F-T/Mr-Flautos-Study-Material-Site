@@ -11,22 +11,32 @@
   Compares data\...\questions\unit-NN.json with packs\unit-NN.questions.json, and the flashcard pack with
   packs\unit-NN.flashcards.json, line by line and case by case (line endings and a final newline are
   ignored). Prints "identical" for each, or every line that differs, and exits 1 if any differ.
+
+  -Only picks the pairs: questions, flashcards, commands, in any mix (-Only questions,flashcards is what
+  a run with no -Only compares). A Command line pass builds only its command pack, so it runs -Only
+  commands: data\...\commands\unit-NN.json against packs\unit-NN.commands.json (assemble.ps1 -CommandsOnly).
 #>
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
   [Parameter(Mandatory = $true)][string]$Unit,
   [ValidateSet('a-plus-core-1', 'network-plus')][string]$Exam,
-  [string]$Data
+  [string]$Data,
+  [string[]]$Only = @()
 )
 $ErrorActionPreference = 'Stop'
 if (-not $Exam) { throw 'check-copy.ps1 needs -Exam a-plus-core-1 or -Exam network-plus.' }
 if (-not $PSBoundParameters.ContainsKey('Data')) { $Data = Join-Path 'C:\CompTIA Website\data' $Exam }
 $nn = ($Unit -split '\.')[0].PadLeft(2, '0')
 function Get-Lines([string]$path) { @(([IO.File]::ReadAllText($path, [Text.Encoding]::UTF8) -replace "`r", '').TrimEnd("`n") -split "`n") }
-$bad = 0
-foreach ($pair in @(
+$pairs = @(
     @{ name = 'questions'; site = "$Data\questions\unit-$nn.json"; built = "$Scratch\packs\unit-$nn.questions.json" },
-    @{ name = 'flashcards'; site = "$Data\flashcards\unit-$nn.json"; built = "$Scratch\packs\unit-$nn.flashcards.json" })) {
+    @{ name = 'flashcards'; site = "$Data\flashcards\unit-$nn.json"; built = "$Scratch\packs\unit-$nn.flashcards.json" },
+    @{ name = 'commands'; site = "$Data\commands\unit-$nn.json"; built = "$Scratch\packs\unit-$nn.commands.json" })
+$Only = @($Only | ForEach-Object { $_ -split '[,\s]+' } | Where-Object { $_ })  # -File passes "a,b" as one string
+$names = if ($Only.Count) { $Only } else { @('questions', 'flashcards') }
+foreach ($name in $names) { if (@($pairs | ForEach-Object { $_.name }) -notcontains $name) { throw "check-copy.ps1 -Only takes questions, flashcards, or commands, not '$name'." } }
+$bad = 0
+foreach ($pair in @($pairs | Where-Object { $names -contains $_.name })) {
   if (-not (Test-Path -LiteralPath $pair.built)) { "$($pair.name): no assembled pack at $($pair.built)"; $bad++; continue }
   if (-not (Test-Path -LiteralPath $pair.site)) { "$($pair.name): not in the site yet ($($pair.site))"; $bad++; continue }
   $a = Get-Lines $pair.site; $b = Get-Lines $pair.built

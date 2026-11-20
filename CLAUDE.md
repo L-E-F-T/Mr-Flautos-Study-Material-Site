@@ -7,7 +7,7 @@ Read `docs/PLAN.md` (plan, site layout, sign-in and scoreboard design) and `docs
 ## Two kinds of chat work in this folder
 
 - **Website chats** build and fix the site. They do not write, extend, or "improve" questions or flashcards.
-- **The content chat** writes questions and flashcards under `data/`. Mr. Flauto starts it with the prompt in `docs/CONTENT-HANDOFF.md`. It does not change the site (`assets/`, the HTML pages, `tools/`, `schemas/`); if content needs a site change, it stops and tells him.
+- **The content chat** writes questions, flashcards, and the Command line tool's commands under `data/`. Mr. Flauto starts it with the prompt in `docs/CONTENT-HANDOFF.md` (a Command line pass is its section "A Command line pass"). It does not change the site (`assets/`, the HTML pages, `tools/`, `schemas/`); if content needs a site change, it stops and tells him.
 
 A chat that was not started with that prompt, and has not been asked for content, is a website chat.
 

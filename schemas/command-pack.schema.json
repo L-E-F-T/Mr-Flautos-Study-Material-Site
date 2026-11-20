@@ -20,6 +20,8 @@
         "set": { "enum": ["extra"], "description": "Only on a pack of extra commands, which students opt in to. A launch pack has no \"set\". The loader stamps it on each command of the pack." },
         "reviewed": { "type": "boolean", "description": "Set true once the teacher has read the pack." },
         "placeholder": { "type": "boolean", "description": "true = test content that must be deleted and replaced. The site shows a Test content banner and the content check keeps warning. Never set this on real content." },
+        "lastCommand": { "type": "integer", "minimum": 0, "description": "Kept by the content kit (assemble.ps1 -CommandsOnly): the highest command number this pack has ever used, 9 for n-u04-c009, so a dropped id is never used again when the pack is rebuilt. The page and the content check ignore it." },
+        "lastVersion": { "type": "integer", "minimum": 0, "description": "The same for version numbers (10 for n-u04-v010). The page and the content check ignore it." },
         "notes": { "type": "string" }
       }
     },
