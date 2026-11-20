@@ -17,7 +17,7 @@ The site prepares students for the real CompTIA exam. **Each unit's questions ar
 - **Bare recall** ("What is a thumb drive also called?") becomes a requirement or a scenario where the exam would ask it that way. If the exam would never ask it, say so instead of writing it.
 - **Distractors are real.** Every wrong choice is a real term or action from the same unit that a student could confuse with the key. Use Mr. Flauto's mix-ups where he lists them (<<PATH TO HIS STUDY GUIDE'S MIX-UPS OR CONFUSIONS SECTION, OR "none">>). No joke or throwaway choices.
 - **Choose two (or three)** exactly where the source item is multiple response, keyed with the choices the reading supports, and never for a single-answer source (Mr. Flauto's rule: keep whether it is select-one or select-two). The site adds "Choose two." itself.
-- Performance-based questions cannot be shown on this site, but a multiple-choice item can test the same decision a PBQ does: pick the level, part, or setting from requirements, or match a symptom to its cause. Prefer those decisions.
+- The site has no performance-based questions. The Command line tool asks for a command by typing (those items are written from `brief-commands.md`), and a multiple-choice item can test the same decision a PBQ does: pick the level, part, or setting from requirements, or match a symptom to its cause. Prefer those decisions.
 
 ## Rules for every question (Mr. Flauto's, binding)
 

@@ -2,14 +2,15 @@
 
 _Last updated 2026-11-10._
 
-_A third tool is being built: Command line, a typed command drill for Network+ only. It is hidden from students, and this plan does not describe it yet. See `docs/COMMAND-LINE-PLAN.md`, section 14 first._
+_A third tool is being built: Command line, a typed command drill for Network+ only. It stays hidden from students until it is switched on (`commandUnits` in `data/exams.json`). This plan describes it in brief. Its build plan is `docs/COMMAND-LINE-PLAN.md`, whose section 14 says where the build stands._
 
 ## 1. What this is
 
-A study site for Mr. Flauto's CompTIA classes (A+ PC Tech 1, Networking+ 1, CompTIA Security+ 1). Two tools per exam:
+A study site for Mr. Flauto's CompTIA classes (A+ PC Tech 1, Networking+ 1, CompTIA Security+ 1). Three tools, the third only on an exam that has it:
 
 - **Flashcards.** Pick terms from a table grouped by exam objective or by textbook unit, build a personal deck, flip, shuffle, and take cards out as you learn them.
 - **Practice test.** Pick units/lessons or domains/objectives/sub-objectives and a question count. Students never pick exact questions: they get a random draw from what they chose. Multiple choice only, with immediate right/wrong feedback. Instead of an explanation, each answer shows where the textbook covers it ("Reading 3.2.6 RAID 0 and RAID 1") and a quote from the book. At the end, the missed questions are listed with a button to retry them.
+- **Command line** (Network+ only, hidden until it is switched on). One exam-style task at a time, above a prompt for the system it names (Windows, Linux, Router, Switch). The student types the command: a right one prints example output and the reading, a wrong one costs one of two tries, and a slip that is not a recall mistake costs nothing. A few commands ask a question about the output. An exam has the tool only when its entry in `data/exams.json` has `commandUnits`.
 
 Order: A+ Core 1 first (finished 2026-11-14), then Network+ (Units 6.0, 5.0, and 4.0 first; Mr. Flauto decides the rest), then Core 2 and Security+. Hosting: GitHub Pages first, the school lab equipment later.
 
@@ -24,9 +25,9 @@ Order: A+ Core 1 first (finished 2026-11-14), then Network+ (Units 6.0, 5.0, and
 | Results: score, review of the missed questions or the full test (right, missed, not answered), "Retry missed" rounds, breakdown by lesson or objective | Built and tested |
 | Recent history: every finished test is logged on the device with the date and time it finished; a side panel shows recent scores, a breakdown by textbook unit and lesson or by exam domain and objective (a switch), and the tests by date with each one's time, a View button that shows the whole test again, and a two-click minus that discards that test | Built and tested |
 | Home: **Resume deck** and **Resume test** buttons when one is unfinished on the device, each with a minus that discards it (one click turns it red, a second click discards) | Built and tested |
-| "Coming soon" labels on anything without content (exam, study mode, unit, lesson, objective) | Built and tested |
+| "Coming soon" labels on anything without content (exam, study mode, unit, lesson, objective, and inside Command line a unit or the extra set with no commands) | Built and tested |
 | Light and dark mode toggle (follows the device until the student chooses) | Built and tested |
-| Phone layout: two-row header, docked Build/Start bar, finger-size targets, no sideways scrolling at 320 px | Built and tested |
+| Phone layout: two-row header (on a page with three tabs, the tabs have a row of their own up to 740 px wide), docked Build/Start bar, finger-size targets, no sideways scrolling at 320 px | Built and tested |
 | UI cleanup: no emoji, labels instead of instructions | Done |
 | A+ Core 1 outline: 27 objectives and 131 bullets (official v4.0), 10 units, 32 lessons, 223 reading sections | Done |
 | Network+ outline: 25 objectives and 135 bullets (N10-009, transcribed twice and compared), 14 units, 67 lessons, 206 reading sections in Units 1.0 to 7.0 (Units 8.0 to 14.0 get theirs once printed) | Done (2026-11-15) |
@@ -43,26 +44,29 @@ Order: A+ Core 1 first (finished 2026-11-14), then Network+ (Units 6.0, 5.0, and
 ```
 Home (index.html)                 the exams; exams not built yet show "Coming soon"
 ├─ Flashcards (flashcards.html)   1. choose terms   2. your deck
-└─ Practice test (practice.html)  1. topics and number of questions   2. questions   3. results
-                                  Recent history side panel (opens from 1 and 3)
+├─ Practice test (practice.html)  1. topics and number of questions   2. questions   3. results
+│                                 Recent history side panel (opens from 1 and 3)
+└─ Command line (commands.html)   1. units and number of commands   2. commands   3. results
+                                  only for an exam with commandUnits (Network+)
 
 Teacher tools (local only, never published)
 ├─ tools/validate.html            content check
 └─ tools/quotes.html              quote helper
 ```
 
-Each exam uses the same pages with `?exam=…` in the address, so adding Core 2, Network+, or Security+ adds no new pages.
+Each exam uses the same pages with `?exam=…` in the address, so adding Core 2, Network+, or Security+ adds no new pages. Command line serves only an exam that has `commandUnits`: for any other exam its address goes to the home page, and it has no tab and no button.
 
 ### Header
 
-- **Wide screens:** a home icon and the site name, the exam name and code, then the Flashcards / Practice test tabs and the light/dark button on the right.
+- **Wide screens:** a home icon and the site name, the exam name and code, then the Flashcards / Practice test tabs (and Command line, on an exam that has it) and the light/dark button on the right.
 - **Phones:** two rows. Row 1 is the home icon and the exam name. Row 2 is the two tabs, full width, with the light/dark button at the end.
+- **Pages with three tabs** keep two rows up to 740 px wide: row 1 is the home icon, the exam name, and the light/dark button, and row 2 is the three tabs. At 320 px Practice test and Command line wrap to two lines; from 360 px all three fit on one line. Pages with two tabs keep the header above.
 
 ### Each page, top to bottom
 
 | Page | Layout |
 |---|---|
-| Home | One card per exam, filled with that exam's class color, with Flashcards and Practice test buttons on live exams. When a deck or a test is unfinished on the device, **Resume deck** and **Resume test** sit above them, one row each, and go straight back in. A minus at the right end of each discards it: the first click turns the minus red, and a second click on the red minus discards, leaving the card as a new student sees it. No scores are shown here. |
+| Home | One card per exam, filled with that exam's class color, with Flashcards and Practice test buttons on live exams. An exam that has Command line gets a third button, Command line, on a row of its own (it reads Coming soon until the exam has a command pack). When a deck or a test is unfinished on the device, **Resume deck** and **Resume test** sit above them, one row each, and go straight back in. A minus at the right end of each discards it: the first click turns the minus red, and a second click on the red minus discards, leaving the card as a new student sees it. No scores are shown here. |
 | Flashcards: choose terms | Group-by switch (exam objective, the default, or textbook unit), search, then the term table with a checkbox per term and per group. A bar docked to the bottom of the screen shows the number selected and holds **Build deck**. |
 | Flashcards: your deck | Title and counts on one line, the card, four main buttons (Previous, Flip, Next, Take out), then the secondary ones (side shown first, Shuffle, Put all back, Choose cards), then the taken-out list. |
 | Practice: setup | **Recent history** button beside the title. Above the topics, a banner when there is one: **Test in progress** (Resume, and the two-click minus that discards it) or **Last test** (the score, **Results**, and the two-click minus that dismisses it; the test stays in Recent history). **Topics** (tree by exam objective, the default, or by textbook unit, with question counts; the page remembers the switch only once a student uses it) and **Questions** (how many). On wide screens they sit side by side; on phones Questions follows Topics and **Start** is docked to the bottom of the screen. |
@@ -74,7 +78,7 @@ Each exam uses the same pages with `?exam=…` in the address, so adding Core 2,
 
 - **Labels, not instructions.** No how-to paragraphs, tips, or welcome text. If a control needs explaining, rename the control.
 - **No emoji or symbol characters.** Right/wrong marks and arrows are drawn icons, so they look the same on every device.
-- **Anything without content says "Coming soon".** The site works this out from the data, so nobody types it: an exam whose status is not `live`, a study mode with no packs (on the home card), any unit, lesson, domain, or objective with no items (in both pickers), and any bullet with no questions (in the practice-test list by objective, the only list that shows bullets). Those rows are greyed out and cannot be picked. A unit marked `"notOnExam": true` in `units.json` (A+ Core 1 Unit 1.0) reads "Not on the exam" instead.
+- **Anything without content says "Coming soon".** The site works this out from the data, so nobody types it: an exam whose status is not `live`, a study mode with no packs (on the home card), any unit, lesson, domain, or objective with no items (in both pickers), and any bullet with no questions (in the practice-test list by objective, the only list that shows bullets). Those rows are greyed out and cannot be picked. A tool an exam does not have is not shown at all (Command line without `commandUnits` in `data/exams.json`), and inside Command line a unit with no commands and the Extra commands control read Coming soon until they have commands. A unit marked `"notOnExam": true` in `units.json` (A+ Core 1 Unit 1.0) reads "Not on the exam" instead.
 - Works at 320 px wide with no sideways scrolling, and with touch (targets sized for fingers).
 - Works in light and dark mode. The choice is remembered on the device; until a student chooses, the site follows the device setting.
 - **The class color is the highlight color.** Main buttons, checked boxes, the selected option, the picked answer, hover and focus highlights, and the exam cards on the home page all use it: A+ warm graphite `#55504A`, Network+ forest green `#15654A`, Security+ teal-navy `#0B4F6C` (from the class slide decks). In dark mode the fill is the same hue lifted slightly so white text on it stays readable. Green and red are reserved for right and wrong; the one exception is the two-click minus (home card, practice page banners), which turns red before it acts.
@@ -91,11 +95,12 @@ objectives.json   1.0 domain → 1.1 objective → 1.1.a bullet      (CompTIA, v
 units.json        3.0 unit   → 3.2 lesson    → 3.2.4 section     (CertMaster Learn, verbatim)
 questions/*.json  packs of questions, tagged with objective ids and reading-section ids
 flashcards/*.json packs of term/definition pairs, tagged the same way
+commands/*.json   packs of typed commands for Command line, tagged the same way (Network+)
 ```
 
 Items can be tagged at any level and the pickers roll tags up: a question tagged `3.2.6` appears under lesson 3.2 and unit 3.0. The counts beside every checkbox come from the tags, so the site always shows what exists and labels what does not yet "Coming soon".
 
-**Saved progress.** Decks, unfinished tests, the test history, and the light/dark choice are saved in each student's browser. Nothing leaves the device. Every checked answer and every finished test passes through one module (`assets/js/lib/progress.js`), which is where sign-in and a scoreboard would plug in.
+**Saved progress.** Decks, unfinished tests, the test history, Command line's setup and drill (the lines typed, the output version shown, and the answer to its question), and the light/dark choice are saved in each student's browser. Nothing leaves the device. Every checked practice-test answer and every finished test passes through one module (`assets/js/lib/progress.js`), which is where sign-in and a scoreboard would plug in. A Command line drill does not: it writes nothing to the test history.
 
 **Test history.** When a test ends, one entry is added to a log on the device: the date and time it finished, the score, and a tally per unit, lesson, exam domain, and objective (whichever way the topics were picked; tests logged before 2026-11-12 have no domain tally, so the panel adds up their objectives instead). The latest 30 tests also keep every question (its choice order and the student's pick) so **View** can show the whole test again; older tests keep only their totals, and tests logged before 2026-11-13 have no questions to view. The log keeps the latest 200 tests per exam. The Recent history panel (`assets/js/components/history-panel.js`) reads it; the two-click minus on a test takes that one test out, and **Clear history** empties it.
 
@@ -157,7 +162,8 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 
 1. Done: flashcards, practice tests, missed-question retry, light/dark toggle, phone layout, placeholder flag, UI cleanup, test history panel, resume buttons, "Coming soon" labels.
 2. Done (2026-11-10): Git and the GitHub CLI installed, repository created, Pages set to "GitHub Actions", first deploy passed.
-3. Later ideas: exam mode (90 questions in 90 minutes, weighted by domain, feedback at the end), a "practice this lesson" button on the weakest lesson in Recent history, add-to-Home-Screen and offline support, CSV import so items can be written in a spreadsheet.
+3. Being built since 2026-11-19: Command line, a typed command drill for Network+, hidden from students until it is switched on (`docs/COMMAND-LINE-PLAN.md`, section 14).
+4. Later ideas: exam mode (90 questions in 90 minutes, weighted by domain, feedback at the end), a "practice this lesson" button on the weakest lesson in Recent history, add-to-Home-Screen and offline support, CSV import so items can be written in a spreadsheet.
 
 **Content (separate chat)**
 
@@ -170,7 +176,7 @@ Open question for IT if this goes ahead: is `ths.org` an alias of `thsnet.net` i
 **Hosting and more exams**
 
 - Lab hosting: copy the folder to the lab server and serve it with IIS (Windows Server) or Caddy/nginx (Linux). Lab-only packs live only there.
-- Core 2, Network+, Security+: add a data folder per exam (objectives, units, packs) and switch its status to `live`. No code changes.
+- Core 2, Network+, Security+: add a data folder per exam (objectives, units, packs) and switch its status to `live`. No code changes. The same holds for Command line: an exam gets it once it has command packs and a website chat adds `commandUnits` to its entry in `data/exams.json`.
   - Security+: SY0-701 (your class) retires June 11, 2027. SY0-801 was expected to launch about November 17, 2026. Build SY0-701 first and add SY0-801 as a second entry when you switch.
   - Network+: N10-009 is current; N10-010 objectives are only in draft.
   - Core 2 (220-1202): Modules 11 to 22 of CertMaster Learn; domains weigh 28 / 28 / 23 / 21 %.

@@ -328,6 +328,50 @@ Unit 4.0: these are tier 3 with no question: GRE (its one keyed item, Practice T
 - **Unit 7.0:** IMAP passes test C (Practice Tests 1 Q131), but that item turns on what IMAP does, which 7.3.2 teaches, and 6.1.6 gives only its port: card IMAP in Unit 7.0 (lesson 7.3 lists 1.4). Round robin DNS has no card: Practice Tests 1 Q78 (placed in 7.4.5) has it only as a wrong choice.
 - **Unit 6.0 left these usable items unused on purpose** (the same fact as a question it kept, tier 3 with the bullet's questions kept, a choice the reading leaves open, or dropped in review). Do not map them again: 1 Q109, 1 Q112, 1 Q123, 1 Q125, 1 Q129, 1 Q132, 1 Q146, 3 Q116, 3 Q121, 3 Q126, 3 Q127, 3 Q129, 3 Q131, 3 Q133, 3 Q134, 3 Q149, 5 Q167, 5 Q178, 5 Q181, 5 Q198, 5 Q203, 5 Q231, 6 Q34, 7 Q10, 7 Q96, 7 Q100. Review dropped five of these in the last check round (3 Q116, 3 Q129, 3 Q149, 5 Q167, and 5 Q178). Two more were used on 2026-11-20, for facts the last check round had left without a question: 5 Q113 became n-u06-q106 (a DHCP server that goes offline) and 7 Q65 became n-u06-q107 (a DNS server that answers ping but not queries). It also left 358 of its pool's 402 usable items unused, four of them dropped in the last check round (CertMaster 6.0 Q80, Q143, Q166, and Q203); CertMaster 6.0 items are Unit 6.0's alone.
 
+### Command line
+
+The starting list for a Command line pass (the guide's "A command" has the rules), written by the website chat of the Command line build on 2026-11-20 from `docs/COMMAND-LINE-PLAN.md` (section 3 and Appendix A). The partner ids, the two cards, and the two source items below were checked against the packs that day. The lines are the ones the published items already ask: every task, output, and pack is still the content chat's to write. A pass that uses an entry says so here, as a unit does.
+
+- **The launch set: 25 commands**, 9 in Unit 4.0, 7 in Unit 5.0, and 9 in Unit 6.0. A command that is the typed form of a question has no `origin`: it is read through its partner's source item. Only the two card commands are modeled on a source item of their own (below).
+- **A second answer group that is a taught switch adding detail** is stored only when the blind check types it for that job (the guide, "The accepted lines").
+
+| Item | Lines to store, by answer group | System | Typed form of | Cites | Task must add | Flags |
+|---|---|---|---|---|---|---|
+| U4-1 ipconfig | group 1: `ipconfig`; group 2: `ipconfig /all` | Windows | n-u04-q033 | 4.4.1 | nothing | Reading 4.2.7 also teaches `netsh interface ip show config` for this job, but lesson 4.2 does not list objective 5.5, so 4.2.7 is not a command section. Follow-ups below |
+| U4-2 ipconfig /all | `ipconfig /all` | Windows | n-u04-q032 | 4.4.1 | nothing | must refuse plain `ipconfig` |
+| U4-3 arp -a | one group: `arp -a`, `arp -g` | Windows | n-u04-q037 | 4.4.3 | the job (the question's stem states none) | the best exam evidence of the 25: a full practice test item (Practice Tests 7 Q69) |
+| U4-4 arp -d * | `arp -d *` | Windows | n-u04-q038 | 4.4.3 | nothing | the output is empty; cannot be run on this PC |
+| U4-5 arp -s | `arp -s` with the task's IP address and MAC address | Windows | n-u04-q039 | 4.4.3 | both addresses; the MAC with hyphens; an IP address of 11 characters or fewer | the least fair of the 25: 32 to 36 characters where the question keys only the bare `arp -s`; no try is charged for the addresses; the output is empty; cannot be run on this PC; dropped if the phones show it is a typing test |
+| U4-6 ping | `ping` with the task's address | Windows | n-u04-q041 | 4.4.4 | a named system and a target address | `ping -t` is refused on this item |
+| U4-7 ping -t | `ping -t` with the task's address | Windows | n-u04-q042 | 4.4.4 | a target address | the output has no end: reply lines and no statistics |
+| U4-8 loopback ping | group 1: `ping 127.0.0.1`; group 2: `ping localhost` | Windows | n-u04-q022 | 4.3.3 (its question is tagged 1.7.a) | nothing printed: the target is the answer; the wording must limit the job to the default IPv4 loopback address | `ping localhost` answered from ::1 on this PC; 127.0.0.2 and ::1 work on a real PC and cost a try here |
+| U4-9 Linux address report | group 1: `ip addr`; group 2: `ifconfig` | Linux | n-u04-q036, n-u04-q035, n-u04-q052 | 4.4.2 (q052 cites 4.6.1) | nothing; it must not name one interface | three questions, one typed job; no one can run a Linux layout |
+| U5-1 route print | one group: `route print`, `netstat -r` | Windows | n-u05-q011 | 5.1.7 (`netstat -r` is taught in 6.1.5) | nothing | pool only; the two lines printed the same output on this PC; follow-up n-u05-q070 only on Mr. Flauto's word |
+| U5-2 show ip route | one group: `show ip route`, `show route` | Router | n-u05-q012 | 5.1.7 | nothing | `show route` is the objectives' spelling; device behavior unverified. Follow-up below |
+| U5-3 traceroute | `traceroute` with the task's address | Linux | n-u05-q014 | 5.1.8 | a named system and a target | the question's stem names no system |
+| U5-4 tracert | one group: `tracert` and `tracert -d`, with the task's address | Windows | n-u05-q015, n-u05-q018 | 5.1.8 | a target: 203.0.113.45, for the follow-up | two questions, one typed job; one group because the follow-up's exhibit prints addresses only, which both lines print. Follow-up below |
+| U5-5 tracert -d | `tracert -d` with the task's name | Windows | n-u05-q021 | 5.1.8 | a named system; the target in the task (the question has it only in its choices) | pool only; must refuse plain `tracert` |
+| U5-6 show arp | one group: `show arp`, `show ip arp` | Router | card n-u05-f038 | 5.1.7 | the whole scenario | modeled on CertMaster 5.0 Q59; needs a quote of its own; the reading shows no output for it |
+| U5-7 show vlan | `show vlan` | Switch | card n-u05-f039 | 5.6.2 | the whole scenario | modeled on CertMaster 5.0 Q386; needs a quote of its own; CertMaster 5.0 Q289 lists `show vlan brief` as a wrong choice, which a real switch accepts |
+| U6-1 netstat | `netstat` | Windows | n-u06-q015 | 6.1.5 | nothing | the blind check may add `netstat -n` |
+| U6-2 netstat -s | `netstat -s` | Windows | n-u06-q016 | 6.1.5 | nothing; it may name netstat | 116 real lines on this PC: the output is an excerpt |
+| U6-3 netstat -e | `netstat -e` | Windows | n-u06-q017 | 6.1.5 | nothing | never the Linux interface switch (Unit 6.0's known problem 4) |
+| U6-4 netstat -a | `netstat -a` | Windows | n-u06-q018 | 6.1.5 | nothing; it may name netstat | pool only; `netstat -an` may join as a second group |
+| U6-5 netstat -o | group 1: `netstat -o`; group 2: `netstat -ano` | Windows | n-u06-q019 | 6.1.5 (`netstat -ano` is the figure in 6.1.3) | nothing; it may name netstat | pool only |
+| U6-6 nslookup | `nslookup` with the task's name | Windows | n-u06-q097, n-u06-q102 | 6.6.3 (q102 cites 6.6.4) | a host name, and no added software, so that dig is fairly wrong | two questions, one typed job |
+| U6-7 nslookup -type=mx | `nslookup -type=mx` with the task's domain | Windows | n-u06-q099 | 6.6.3 | a named system | pool only; the question's line is 36 characters, so the task needs a shorter domain |
+| U6-8 nslookup with a server | `nslookup` with the task's name, then its server | Windows | n-u06-q100 | 6.6.3 | new names only | pool only; must refuse the reversed order |
+| U6-9 dig @server | `dig` with `@` and the task's server, then its name | Linux | n-u06-q101 | 6.6.4 | new, shorter names | pool only; the question's line is 36 characters; Linux unverified |
+
+- **Follow-ups at launch** (no other command has one):
+  - U4-1 `ipconfig`: two versions, one following n-u04-q054 and one following n-u04-q059, with different right answers. Group 1's output is the question's exhibit (`exhibitOf`): the tool drops its first line, `C:\>ipconfig`, so 7 lines print. Group 2's output (`ipconfig /all`) is written fresh with the same values.
+  - U5-2 `show ip route`: n-u05-q013, its exhibit as the output (6 lines).
+  - U5-4 `tracert`: n-u05-q016, its exhibit as the output (8 lines), so the task's target is 203.0.113.45.
+  - U5-1 `route print`: n-u05-q070, only on Mr. Flauto's word (its exhibit is a cut-down table).
+- **The card commands' source items:** U5-6 `show arp` is modeled on CertMaster 5.0 Q59, and U5-7 `show vlan` on CertMaster 5.0 Q386 (`"kind": "certmaster-variation"`). No Network+ question uses either, and neither is on a Do not map them again list.
+- **For Mr. Flauto to look at:** the seven outputs no one in the pipeline can run: `ip addr` and `ifconfig` (U4-9), `show ip route` (U5-2), `traceroute` (U5-3), `show arp` (U5-6), `show vlan` (U5-7), and `dig` (U6-9).
+- **Not launch commands:** `ipconfig /release` (CertMaster 4.0 Q238) and `ipconfig /renew` (CertMaster 6.0 Q203), the two halves of n-u04-q034's pair, are written only if Mr. Flauto names them. Neither can be run on this PC, and a question on CertMaster 6.0 Q203 was dropped in Unit 6.0's last check round. `netstat -r` as a command of its own is not one either: U5-1 accepts it.
+
 ## Other exams
 
 - **Security+:** `Certmaster Questions\4.0.txt` holds 23 Security+ items. It is not a copy of the A+ Core 1 Unit 4.0 pool, as earlier notes said. There is also a combined pool file, `1.0 + 2.0.txt`, whose items are named "CertMaster 1.0 + 2.0 Qn" by the numbering rule.

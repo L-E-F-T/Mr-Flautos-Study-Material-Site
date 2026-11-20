@@ -28,13 +28,13 @@ Teacher pages while the server runs:
 
 | Path | What it is |
 |---|---|
-| `index.html`, `flashcards.html`, `practice.html` | The three student pages |
+| `index.html`, `flashcards.html`, `practice.html`, `commands.html` | The four student pages (`commands.html` is Command line, only for an exam with `commandUnits` in `data/exams.json`) |
 | `assets/css/site.css` | All styles (course colors, light and dark mode, phone layout) |
-| `assets/js/pages/` | Page logic: home, flashcards, practice test |
-| `assets/js/lib/` | Shared code: content loading, taxonomy trees, saved progress, light/dark toggle, validator rules |
+| `assets/js/pages/` | Page logic: home, flashcards, practice test, command line |
+| `assets/js/lib/` | Shared code: content loading, taxonomy trees, saved progress, light/dark toggle, validator rules, the command matcher |
 | `assets/js/theme-init.js` | Tiny script that sets light or dark before the page draws |
 | `data/exams.json` | Every exam and its status |
-| `data/a-plus-core-1/` | Objectives, units, and the question and flashcard packs |
+| `data/a-plus-core-1/`, `data/network-plus/` | Each exam's objectives, units, and question and flashcard packs (Network+ will also have `commands/`, the Command line packs) |
 | `schemas/` | Format definitions (VS Code uses them to flag mistakes as you type) |
 | `tools/` | Local server, content check (browser + command line) |
 | `docs/PLAN.md` | The plan: site layout, how it is built, sign-in and scoreboard design, roadmap, tools to install |
