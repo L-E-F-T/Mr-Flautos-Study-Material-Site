@@ -1129,7 +1129,7 @@
     },
     {
       "id": "n-u04-q054",
-      "stem": "A Windows PC on the 10.38.24.0/21 network can reach the other hosts on that network, but it sends some of that traffic through the router instead of directly. Based on the output shown, which of the following is the MOST likely cause?",
+      "stem": "A Windows PC on the 10.38.24.0/21 network (mask 255.255.248.0) can reach the other hosts on that network, but it sends some of that traffic through the router instead of directly. Based on the output shown, which of the following is the MOST likely cause?",
       "exhibit": { "type": "text", "text": "C:\\>ipconfig\nEthernet adapter LAN:\n  IPv4 Address:\n    10.38.25.140\n  Subnet Mask:\n    255.255.252.0\n  Default Gateway:\n    10.38.24.1" },
       "choices": [
         { "id": "a", "text": "The PC's subnet mask is incorrect" },
@@ -1235,7 +1235,7 @@
     },
     {
       "id": "n-u04-q059",
-      "stem": "A Windows PC at an animal shelter can ping hosts on its own subnet, 10.140.96.0/19, but cannot ping any remote IP address. Based on the output shown, which of the following should a technician fix?",
+      "stem": "A Windows PC at an animal shelter can ping hosts on its own subnet, 10.140.96.0/19 (10.140.96.1 to 10.140.127.254), but cannot ping any remote IP address. Based on the output shown, which of the following should a technician fix?",
       "exhibit": { "type": "text", "text": "C:\\>ipconfig\nEthernet adapter LAN:\n  IPv4 Address:\n    10.140.118.25\n  Subnet Mask:\n    255.255.224.0\n  Default Gateway:\n    10.140.128.1" },
       "choices": [
         { "id": "a", "text": "A duplicate IP address" },
