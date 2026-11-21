@@ -1,0 +1,641 @@
+{
+  "$schema": "../../schemas/objectives.schema.json",
+  "exam": "SY0-701",
+  "title": "CompTIA Security+ (SY0-701) Exam Objectives",
+  "source": "CompTIA's SY0-701 Exam Objectives document (version 7.0), with the domain weights from the same document, transcribed twice independently and the two transcriptions compared, with every difference settled against the document.",
+  "notes": "Sub-objective ids (1.1.a, 1.1.b, ...) are assigned by this site in the order the document prints the bullets, reading each objective's columns one after another (the whole first column top to bottom, then the second, then the third). \"details\" holds every deeper line, flattened as \"Parent > child\", with each child listed right after its parent. A column that begins with dash or circle lines continues the last bullet (or dash line) of the column before it: in 1.4 the third column (Online Certificate Status Protocol (OCSP) to Wildcard) continues \"Certificates\"; in 2.1 the second column (Blackmail to War) continues \"Motivations\"; in 3.1 the second column's first line (Software-defined networking (SDN)) continues the list under \"Physical isolation\"; in 3.2 \"Protocol (EAP)\" at the top of the second column finishes \"Extensible Authentication\"; in 3.3 \"Private\" and \"Critical\" continue \"Data classifications\" and the third column (Encryption to Permission restrictions) continues \"Methods to secure data\"; in 4.6 \"Discretionary\" at the top of the second column continues \"Access controls\"; in 4.7 the third column (Single point of failure, Technical debt, Ongoing supportability) continues \"Other considerations\"; in 4.8 the third column (Legal hold to E-discovery) continues \"Digital forensics\"; in 5.1 \"Government entities\" and \"Centralized/decentralized\" at the top of the third column continue \"Types of governance structures\"; in 5.4 the third column (Data subject to Right to be forgotten) continues \"Privacy\". Wrapped lines are joined with one space, including \"Extensible Authentication Protocol (EAP)\" in 3.2, which wraps across two columns and is written as \"Port security > Extensible Authentication Protocol (EAP)\". In 3.1 the document prints \"Physical isolation\" as a dash line, \"Air-gapped\" one level deeper, then \"Logical segmentation\" as a circle line, and the second column opens with the circle line \"Software-defined networking (SDN)\"; all three are written under \"Physical isolation\" (\"Physical isolation > Air-gapped\", \"Physical isolation > Logical segmentation\", \"Physical isolation > Software-defined networking (SDN)\"). In 4.7 the line \"and access\" is printed with its own dash but is the end of \"Enabling/disabling services\", so it is joined as one detail, \"Enabling/disabling services and access\". Wording, capitals, and spacing are as the document prints them, including \"Humanand non-human-readable\" in 3.3 (the document has no space after \"Human\") and \"Universal Resource Locator (URL) scanning\" in 4.5; the stray leading spaces the document prints before a few lines in 4.1 and 4.4 are left out. No character was changed.",
+  "domains": [
+    {
+      "id": "1.0",
+      "title": "General Security Concepts",
+      "weight": 12,
+      "objectives": [
+        {
+          "id": "1.1",
+          "title": "Compare and contrast various types of security controls.",
+          "subobjectives": [
+            { "id": "1.1.a", "title": "Categories", "details": ["Technical", "Managerial", "Operational", "Physical"] },
+            { "id": "1.1.b", "title": "Control types", "details": ["Preventive", "Deterrent", "Detective", "Corrective", "Compensating", "Directive"] }
+          ]
+        },
+        {
+          "id": "1.2",
+          "title": "Summarize fundamental security concepts.",
+          "subobjectives": [
+            { "id": "1.2.a", "title": "Confidentiality, Integrity, and Availability (CIA)" },
+            { "id": "1.2.b", "title": "Non-repudiation" },
+            { "id": "1.2.c", "title": "Authentication, Authorization, and Accounting (AAA)", "details": ["Authenticating people", "Authenticating systems", "Authorization models"] },
+            { "id": "1.2.d", "title": "Gap analysis" },
+            { "id": "1.2.e", "title": "Zero Trust", "details": [
+              "Control Plane",
+              "Control Plane > Adaptive identity",
+              "Control Plane > Threat scope reduction",
+              "Control Plane > Policy-driven access control",
+              "Control Plane > Policy Administrator",
+              "Control Plane > Policy Engine",
+              "Data Plane",
+              "Data Plane > Implicit trust zones",
+              "Data Plane > Subject/System",
+              "Data Plane > Policy Enforcement Point"
+            ] },
+            { "id": "1.2.f", "title": "Physical security", "details": [
+              "Bollards",
+              "Access control vestibule",
+              "Fencing",
+              "Video surveillance",
+              "Security guard",
+              "Access badge",
+              "Lighting",
+              "Sensors",
+              "Sensors > Infrared",
+              "Sensors > Pressure",
+              "Sensors > Microwave",
+              "Sensors > Ultrasonic"
+            ] },
+            { "id": "1.2.g", "title": "Deception and disruption technology", "details": ["Honeypot", "Honeynet", "Honeyfile", "Honeytoken"] }
+          ]
+        },
+        {
+          "id": "1.3",
+          "title": "Explain the importance of change management processes and the impact to security.",
+          "subobjectives": [
+            { "id": "1.3.a", "title": "Business processes impacting security operation", "details": ["Approval process", "Ownership", "Stakeholders", "Impact analysis", "Test results", "Backout plan", "Maintenance window", "Standard operating procedure"] },
+            { "id": "1.3.b", "title": "Technical implications", "details": ["Allow lists/deny lists", "Restricted activities", "Downtime", "Service restart", "Application restart", "Legacy applications", "Dependencies"] },
+            { "id": "1.3.c", "title": "Documentation", "details": ["Updating diagrams", "Updating policies/procedures"] },
+            { "id": "1.3.d", "title": "Version control" }
+          ]
+        },
+        {
+          "id": "1.4",
+          "title": "Explain the importance of using appropriate cryptographic solutions.",
+          "subobjectives": [
+            { "id": "1.4.a", "title": "Public key infrastructure (PKI)", "details": ["Public key", "Private key", "Key escrow"] },
+            { "id": "1.4.b", "title": "Encryption", "details": [
+              "Level",
+              "Level > Full-disk",
+              "Level > Partition",
+              "Level > File",
+              "Level > Volume",
+              "Level > Database",
+              "Level > Record",
+              "Transport/communication",
+              "Asymmetric",
+              "Symmetric",
+              "Key exchange",
+              "Algorithms",
+              "Key length"
+            ] },
+            { "id": "1.4.c", "title": "Tools", "details": ["Trusted Platform Module (TPM)", "Hardware security module (HSM)", "Key management system", "Secure enclave"] },
+            { "id": "1.4.d", "title": "Obfuscation", "details": ["Steganography", "Tokenization", "Data masking"] },
+            { "id": "1.4.e", "title": "Hashing" },
+            { "id": "1.4.f", "title": "Salting" },
+            { "id": "1.4.g", "title": "Digital signatures" },
+            { "id": "1.4.h", "title": "Key stretching" },
+            { "id": "1.4.i", "title": "Blockchain" },
+            { "id": "1.4.j", "title": "Open public ledger" },
+            { "id": "1.4.k", "title": "Certificates", "details": [
+              "Certificate authorities",
+              "Certificate revocation lists (CRLs)",
+              "Online Certificate Status Protocol (OCSP)",
+              "Self-signed",
+              "Third-party",
+              "Root of trust",
+              "Certificate signing request (CSR) generation",
+              "Wildcard"
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2.0",
+      "title": "Threats, Vulnerabilities, and Mitigations",
+      "weight": 22,
+      "objectives": [
+        {
+          "id": "2.1",
+          "title": "Compare and contrast common threat actors and motivations.",
+          "subobjectives": [
+            { "id": "2.1.a", "title": "Threat actors", "details": ["Nation-state", "Unskilled attacker", "Hacktivist", "Insider threat", "Organized crime", "Shadow IT"] },
+            { "id": "2.1.b", "title": "Attributes of actors", "details": ["Internal/external", "Resources/funding", "Level of sophistication/capability"] },
+            { "id": "2.1.c", "title": "Motivations", "details": ["Data exfiltration", "Espionage", "Service disruption", "Blackmail", "Financial gain", "Philosophical/political beliefs", "Ethical", "Revenge", "Disruption/chaos", "War"] }
+          ]
+        },
+        {
+          "id": "2.2",
+          "title": "Explain common threat vectors and attack surfaces.",
+          "subobjectives": [
+            { "id": "2.2.a", "title": "Message-based", "details": ["Email", "Short Message Service (SMS)", "Instant messaging (IM)"] },
+            { "id": "2.2.b", "title": "Image-based" },
+            { "id": "2.2.c", "title": "File-based" },
+            { "id": "2.2.d", "title": "Voice call" },
+            { "id": "2.2.e", "title": "Removable device" },
+            { "id": "2.2.f", "title": "Vulnerable software", "details": ["Client-based vs. agentless"] },
+            { "id": "2.2.g", "title": "Unsupported systems and applications" },
+            { "id": "2.2.h", "title": "Unsecure networks", "details": ["Wireless", "Wired", "Bluetooth"] },
+            { "id": "2.2.i", "title": "Open service ports" },
+            { "id": "2.2.j", "title": "Default credentials" },
+            { "id": "2.2.k", "title": "Supply chain", "details": ["Managed service providers (MSPs)", "Vendors", "Suppliers"] },
+            { "id": "2.2.l", "title": "Human vectors/social engineering", "details": ["Phishing", "Vishing", "Smishing", "Misinformation/disinformation", "Impersonation", "Business email compromise", "Pretexting", "Watering hole", "Brand impersonation", "Typosquatting"] }
+          ]
+        },
+        {
+          "id": "2.3",
+          "title": "Explain various types of vulnerabilities.",
+          "subobjectives": [
+            { "id": "2.3.a", "title": "Application", "details": [
+              "Memory injection",
+              "Buffer overflow",
+              "Race conditions",
+              "Race conditions > Time-of-check (TOC)",
+              "Race conditions > Time-of-use (TOU)",
+              "Malicious update"
+            ] },
+            { "id": "2.3.b", "title": "Operating system (OS)-based" },
+            { "id": "2.3.c", "title": "Web-based", "details": ["Structured Query Language injection (SQLi)", "Cross-site scripting (XSS)"] },
+            { "id": "2.3.d", "title": "Hardware", "details": ["Firmware", "End-of-life", "Legacy"] },
+            { "id": "2.3.e", "title": "Virtualization", "details": ["Virtual machine (VM) escape", "Resource reuse"] },
+            { "id": "2.3.f", "title": "Cloud-specific" },
+            { "id": "2.3.g", "title": "Supply chain", "details": ["Service provider", "Hardware provider", "Software provider"] },
+            { "id": "2.3.h", "title": "Cryptographic" },
+            { "id": "2.3.i", "title": "Misconfiguration" },
+            { "id": "2.3.j", "title": "Mobile device", "details": ["Side loading", "Jailbreaking"] },
+            { "id": "2.3.k", "title": "Zero-day" }
+          ]
+        },
+        {
+          "id": "2.4",
+          "title": "Given a scenario, analyze indicators of malicious activity.",
+          "subobjectives": [
+            { "id": "2.4.a", "title": "Malware attacks", "details": ["Ransomware", "Trojan", "Worm", "Spyware", "Bloatware", "Virus", "Keylogger", "Logic bomb", "Rootkit"] },
+            { "id": "2.4.b", "title": "Physical attacks", "details": ["Brute force", "Radio frequency identification (RFID) cloning", "Environmental"] },
+            { "id": "2.4.c", "title": "Network attacks", "details": [
+              "Distributed denial-of-service (DDoS)",
+              "Distributed denial-of-service (DDoS) > Amplified",
+              "Distributed denial-of-service (DDoS) > Reflected",
+              "Domain Name System (DNS) attacks",
+              "Wireless",
+              "On-path",
+              "Credential replay",
+              "Malicious code"
+            ] },
+            { "id": "2.4.d", "title": "Application attacks", "details": ["Injection", "Buffer overflow", "Replay", "Privilege escalation", "Forgery", "Directory traversal"] },
+            { "id": "2.4.e", "title": "Cryptographic attacks", "details": ["Downgrade", "Collision", "Birthday"] },
+            { "id": "2.4.f", "title": "Password attacks", "details": ["Spraying", "Brute force"] },
+            { "id": "2.4.g", "title": "Indicators", "details": ["Account lockout", "Concurrent session usage", "Blocked content", "Impossible travel", "Resource consumption", "Resource inaccessibility", "Out-of-cycle logging", "Published/documented", "Missing logs"] }
+          ]
+        },
+        {
+          "id": "2.5",
+          "title": "Explain the purpose of mitigation techniques used to secure the enterprise.",
+          "subobjectives": [
+            { "id": "2.5.a", "title": "Segmentation" },
+            { "id": "2.5.b", "title": "Access control", "details": ["Access control list (ACL)", "Permissions"] },
+            { "id": "2.5.c", "title": "Application allow list" },
+            { "id": "2.5.d", "title": "Isolation" },
+            { "id": "2.5.e", "title": "Patching" },
+            { "id": "2.5.f", "title": "Encryption" },
+            { "id": "2.5.g", "title": "Monitoring" },
+            { "id": "2.5.h", "title": "Least privilege" },
+            { "id": "2.5.i", "title": "Configuration enforcement" },
+            { "id": "2.5.j", "title": "Decommissioning" },
+            { "id": "2.5.k", "title": "Hardening techniques", "details": ["Encryption", "Installation of endpoint protection", "Host-based firewall", "Host-based intrusion prevention system (HIPS)", "Disabling ports/protocols", "Default password changes", "Removal of unnecessary software"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3.0",
+      "title": "Security Architecture",
+      "weight": 18,
+      "objectives": [
+        {
+          "id": "3.1",
+          "title": "Compare and contrast security implications of different architecture models.",
+          "subobjectives": [
+            { "id": "3.1.a", "title": "Architecture and infrastructure concepts", "details": [
+              "Cloud",
+              "Cloud > Responsibility matrix",
+              "Cloud > Hybrid considerations",
+              "Cloud > Third-party vendors",
+              "Infrastructure as code (IaC)",
+              "Serverless",
+              "Microservices",
+              "Network infrastructure",
+              "Physical isolation",
+              "Physical isolation > Air-gapped",
+              "Physical isolation > Logical segmentation",
+              "Physical isolation > Software-defined networking (SDN)",
+              "On-premises",
+              "Centralized vs. decentralized",
+              "Containerization",
+              "Virtualization",
+              "IoT",
+              "Industrial control systems (ICS)/supervisory control and data acquisition (SCADA)",
+              "Real-time operating system (RTOS)",
+              "Embedded systems",
+              "High availability"
+            ] },
+            { "id": "3.1.b", "title": "Considerations", "details": ["Availability", "Resilience", "Cost", "Responsiveness", "Scalability", "Ease of deployment", "Risk transference", "Ease of recovery", "Patch availability", "Inability to patch", "Power", "Compute"] }
+          ]
+        },
+        {
+          "id": "3.2",
+          "title": "Given a scenario, apply security principles to secure enterprise infrastructure.",
+          "subobjectives": [
+            { "id": "3.2.a", "title": "Infrastructure considerations", "details": [
+              "Device placement",
+              "Security zones",
+              "Attack surface",
+              "Connectivity",
+              "Failure modes",
+              "Failure modes > Fail-open",
+              "Failure modes > Fail-closed",
+              "Device attribute",
+              "Device attribute > Active vs. passive",
+              "Device attribute > Inline vs. tap/monitor",
+              "Network appliances",
+              "Network appliances > Jump server",
+              "Network appliances > Proxy server",
+              "Network appliances > Intrusion prevention system (IPS)/intrusion detection system (IDS)",
+              "Network appliances > Load balancer",
+              "Network appliances > Sensors",
+              "Port security",
+              "Port security > 802.1X",
+              "Port security > Extensible Authentication Protocol (EAP)",
+              "Firewall types",
+              "Firewall types > Web application firewall (WAF)",
+              "Firewall types > Unified threat management (UTM)",
+              "Firewall types > Next-generation firewall (NGFW)",
+              "Firewall types > Layer 4/Layer 7"
+            ] },
+            { "id": "3.2.b", "title": "Secure communication/access", "details": [
+              "Virtual private network (VPN)",
+              "Remote access",
+              "Tunneling",
+              "Tunneling > Transport Layer Security (TLS)",
+              "Tunneling > Internet protocol security (IPSec)",
+              "Software-defined wide area network (SD-WAN)",
+              "Secure access service edge (SASE)"
+            ] },
+            { "id": "3.2.c", "title": "Selection of effective controls" }
+          ]
+        },
+        {
+          "id": "3.3",
+          "title": "Compare and contrast concepts and strategies to protect data.",
+          "subobjectives": [
+            { "id": "3.3.a", "title": "Data types", "details": ["Regulated", "Trade secret", "Intellectual property", "Legal information", "Financial information", "Humanand non-human-readable"] },
+            { "id": "3.3.b", "title": "Data classifications", "details": ["Sensitive", "Confidential", "Public", "Restricted", "Private", "Critical"] },
+            { "id": "3.3.c", "title": "General data considerations", "details": [
+              "Data states",
+              "Data states > Data at rest",
+              "Data states > Data in transit",
+              "Data states > Data in use",
+              "Data sovereignty",
+              "Geolocation"
+            ] },
+            { "id": "3.3.d", "title": "Methods to secure data", "details": ["Geographic restrictions", "Encryption", "Hashing", "Masking", "Tokenization", "Obfuscation", "Segmentation", "Permission restrictions"] }
+          ]
+        },
+        {
+          "id": "3.4",
+          "title": "Explain the importance of resilience and recovery in security architecture.",
+          "subobjectives": [
+            { "id": "3.4.a", "title": "High availability", "details": ["Load balancing vs. clustering"] },
+            { "id": "3.4.b", "title": "Site considerations", "details": ["Hot", "Cold", "Warm", "Geographic dispersion"] },
+            { "id": "3.4.c", "title": "Platform diversity" },
+            { "id": "3.4.d", "title": "Multi-cloud systems" },
+            { "id": "3.4.e", "title": "Continuity of operations" },
+            { "id": "3.4.f", "title": "Capacity planning", "details": ["People", "Technology", "Infrastructure"] },
+            { "id": "3.4.g", "title": "Testing", "details": ["Tabletop exercises", "Fail over", "Simulation", "Parallel processing"] },
+            { "id": "3.4.h", "title": "Backups", "details": ["Onsite/offsite", "Frequency", "Encryption", "Snapshots", "Recovery", "Replication", "Journaling"] },
+            { "id": "3.4.i", "title": "Power", "details": ["Generators", "Uninterruptible power supply (UPS)"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4.0",
+      "title": "Security Operations",
+      "weight": 28,
+      "objectives": [
+        {
+          "id": "4.1",
+          "title": "Given a scenario, apply common security techniques to computing resources.",
+          "subobjectives": [
+            { "id": "4.1.a", "title": "Secure baselines", "details": ["Establish", "Deploy", "Maintain"] },
+            { "id": "4.1.b", "title": "Hardening targets", "details": ["Mobile devices", "Workstations", "Switches", "Routers", "Cloud infrastructure", "Servers", "ICS/SCADA", "Embedded systems", "RTOS", "IoT devices"] },
+            { "id": "4.1.c", "title": "Wireless devices", "details": ["Installation considerations", "Installation considerations > Site surveys", "Installation considerations > Heat maps"] },
+            { "id": "4.1.d", "title": "Mobile solutions", "details": [
+              "Mobile device management (MDM)",
+              "Deployment models",
+              "Deployment models > Bring your own device (BYOD)",
+              "Deployment models > Corporate-owned, personally enabled (COPE)",
+              "Deployment models > Choose your own device (CYOD)",
+              "Connection methods",
+              "Connection methods > Cellular",
+              "Connection methods > Wi-Fi",
+              "Connection methods > Bluetooth"
+            ] },
+            { "id": "4.1.e", "title": "Wireless security settings", "details": ["Wi-Fi Protected Access 3 (WPA3)", "AAA/Remote Authentication Dial-In User Service (RADIUS)", "Cryptographic protocols", "Authentication protocols"] },
+            { "id": "4.1.f", "title": "Application security", "details": ["Input validation", "Secure cookies", "Static code analysis", "Code signing"] },
+            { "id": "4.1.g", "title": "Sandboxing" },
+            { "id": "4.1.h", "title": "Monitoring" }
+          ]
+        },
+        {
+          "id": "4.2",
+          "title": "Explain the security implications of proper hardware, software, and data asset management.",
+          "subobjectives": [
+            { "id": "4.2.a", "title": "Acquisition/procurement process" },
+            { "id": "4.2.b", "title": "Assignment/accounting", "details": ["Ownership", "Classification"] },
+            { "id": "4.2.c", "title": "Monitoring/asset tracking", "details": ["Inventory", "Enumeration"] },
+            { "id": "4.2.d", "title": "Disposal/decommissioning", "details": ["Sanitization", "Destruction", "Certification", "Data retention"] }
+          ]
+        },
+        {
+          "id": "4.3",
+          "title": "Explain various activities associated with vulnerability management.",
+          "subobjectives": [
+            { "id": "4.3.a", "title": "Identification methods", "details": [
+              "Vulnerability scan",
+              "Application security",
+              "Application security > Static analysis",
+              "Application security > Dynamic analysis",
+              "Application security > Package monitoring",
+              "Threat feed",
+              "Threat feed > Open-source intelligence (OSINT)",
+              "Threat feed > Proprietary/third-party",
+              "Threat feed > Information-sharing organization",
+              "Threat feed > Dark web",
+              "Penetration testing",
+              "Responsible disclosure program",
+              "Responsible disclosure program > Bug bounty program",
+              "System/process audit"
+            ] },
+            { "id": "4.3.b", "title": "Analysis", "details": [
+              "Confirmation",
+              "Confirmation > False positive",
+              "Confirmation > False negative",
+              "Prioritize",
+              "Common Vulnerability Scoring System (CVSS)",
+              "Common Vulnerability Enumeration (CVE)",
+              "Vulnerability classification",
+              "Exposure factor",
+              "Environmental variables",
+              "Industry/organizational impact",
+              "Risk tolerance"
+            ] },
+            { "id": "4.3.c", "title": "Vulnerability response and remediation", "details": ["Patching", "Insurance", "Segmentation", "Compensating controls", "Exceptions and exemptions"] },
+            { "id": "4.3.d", "title": "Validation of remediation", "details": ["Rescanning", "Audit", "Verification"] },
+            { "id": "4.3.e", "title": "Reporting" }
+          ]
+        },
+        {
+          "id": "4.4",
+          "title": "Explain security alerting and monitoring concepts and tools.",
+          "subobjectives": [
+            { "id": "4.4.a", "title": "Monitoring computing resources", "details": ["Systems", "Applications", "Infrastructure"] },
+            { "id": "4.4.b", "title": "Activities", "details": [
+              "Log aggregation",
+              "Alerting",
+              "Scanning",
+              "Reporting",
+              "Archiving",
+              "Alert response and remediation/validation",
+              "Alert response and remediation/validation > Quarantine",
+              "Alert response and remediation/validation > Alert tuning"
+            ] },
+            { "id": "4.4.c", "title": "Tools", "details": [
+              "Security Content Automation Protocol (SCAP)",
+              "Benchmarks",
+              "Agents/agentless",
+              "Security information and event management (SIEM)",
+              "Antivirus",
+              "Data loss prevention (DLP)",
+              "Simple Network Management Protocol (SNMP) traps",
+              "NetFlow",
+              "Vulnerability scanners"
+            ] }
+          ]
+        },
+        {
+          "id": "4.5",
+          "title": "Given a scenario, modify enterprise capabilities to enhance security.",
+          "subobjectives": [
+            { "id": "4.5.a", "title": "Firewall", "details": ["Rules", "Access lists", "Ports/protocols", "Screened subnets"] },
+            { "id": "4.5.b", "title": "IDS/IPS", "details": ["Trends", "Signatures"] },
+            { "id": "4.5.c", "title": "Web filter", "details": ["Agent-based", "Centralized proxy", "Universal Resource Locator (URL) scanning", "Content categorization", "Block rules", "Reputation"] },
+            { "id": "4.5.d", "title": "Operating system security", "details": ["Group Policy", "SELinux"] },
+            { "id": "4.5.e", "title": "Implementation of secure protocols", "details": ["Protocol selection", "Port selection", "Transport method"] },
+            { "id": "4.5.f", "title": "DNS filtering" },
+            { "id": "4.5.g", "title": "Email security", "details": [
+              "Domain-based Message Authentication Reporting and Conformance (DMARC)",
+              "DomainKeys Identified Mail (DKIM)",
+              "Sender Policy Framework (SPF)",
+              "Gateway"
+            ] },
+            { "id": "4.5.h", "title": "File integrity monitoring" },
+            { "id": "4.5.i", "title": "DLP" },
+            { "id": "4.5.j", "title": "Network access control (NAC)" },
+            { "id": "4.5.k", "title": "Endpoint detection and response (EDR)/extended detection and response (XDR)" },
+            { "id": "4.5.l", "title": "User behavior analytics" }
+          ]
+        },
+        {
+          "id": "4.6",
+          "title": "Given a scenario, implement and maintain identity and access management.",
+          "subobjectives": [
+            { "id": "4.6.a", "title": "Provisioning/de-provisioning user accounts" },
+            { "id": "4.6.b", "title": "Permission assignments and implications" },
+            { "id": "4.6.c", "title": "Identity proofing" },
+            { "id": "4.6.d", "title": "Federation" },
+            { "id": "4.6.e", "title": "Single sign-on (SSO)", "details": ["Lightweight Directory Access Protocol (LDAP)", "Open authorization (OAuth)", "Security Assertions Markup Language (SAML)"] },
+            { "id": "4.6.f", "title": "Interoperability" },
+            { "id": "4.6.g", "title": "Attestation" },
+            { "id": "4.6.h", "title": "Access controls", "details": ["Mandatory", "Discretionary", "Role-based", "Rule-based", "Attribute-based", "Time-of-day restrictions", "Least privilege"] },
+            { "id": "4.6.i", "title": "Multifactor authentication", "details": [
+              "Implementations",
+              "Implementations > Biometrics",
+              "Implementations > Hard/soft authentication tokens",
+              "Implementations > Security keys",
+              "Factors",
+              "Factors > Something you know",
+              "Factors > Something you have",
+              "Factors > Something you are",
+              "Factors > Somewhere you are"
+            ] },
+            { "id": "4.6.j", "title": "Password concepts", "details": [
+              "Password best practices",
+              "Password best practices > Length",
+              "Password best practices > Complexity",
+              "Password best practices > Reuse",
+              "Password best practices > Expiration",
+              "Password best practices > Age",
+              "Password managers",
+              "Passwordless"
+            ] },
+            { "id": "4.6.k", "title": "Privileged access management tools", "details": ["Just-in-time permissions", "Password vaulting", "Ephemeral credentials"] }
+          ]
+        },
+        {
+          "id": "4.7",
+          "title": "Explain the importance of automation and orchestration related to secure operations.",
+          "subobjectives": [
+            { "id": "4.7.a", "title": "Use cases of automation and scripting", "details": [
+              "User provisioning",
+              "Resource provisioning",
+              "Guard rails",
+              "Security groups",
+              "Ticket creation",
+              "Escalation",
+              "Enabling/disabling services and access",
+              "Continuous integration and testing",
+              "Integrations and Application programming interfaces (APIs)"
+            ] },
+            { "id": "4.7.b", "title": "Benefits", "details": [
+              "Efficiency/time saving",
+              "Enforcing baselines",
+              "Standard infrastructure configurations",
+              "Scaling in a secure manner",
+              "Employee retention",
+              "Reaction time",
+              "Workforce multiplier"
+            ] },
+            { "id": "4.7.c", "title": "Other considerations", "details": ["Complexity", "Cost", "Single point of failure", "Technical debt", "Ongoing supportability"] }
+          ]
+        },
+        {
+          "id": "4.8",
+          "title": "Explain appropriate incident response activities.",
+          "subobjectives": [
+            { "id": "4.8.a", "title": "Process", "details": ["Preparation", "Detection", "Analysis", "Containment", "Eradication", "Recovery", "Lessons learned"] },
+            { "id": "4.8.b", "title": "Training" },
+            { "id": "4.8.c", "title": "Testing", "details": ["Tabletop exercise", "Simulation"] },
+            { "id": "4.8.d", "title": "Root cause analysis" },
+            { "id": "4.8.e", "title": "Threat hunting" },
+            { "id": "4.8.f", "title": "Digital forensics", "details": ["Legal hold", "Chain of custody", "Acquisition", "Reporting", "Preservation", "E-discovery"] }
+          ]
+        },
+        {
+          "id": "4.9",
+          "title": "Given a scenario, use data sources to support an investigation.",
+          "subobjectives": [
+            { "id": "4.9.a", "title": "Log data", "details": ["Firewall logs", "Application logs", "Endpoint logs", "OS-specific security logs", "IPS/IDS logs", "Network logs", "Metadata"] },
+            { "id": "4.9.b", "title": "Data sources", "details": ["Vulnerability scans", "Automated reports", "Dashboards", "Packet captures"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5.0",
+      "title": "Security Program Management and Oversight",
+      "weight": 20,
+      "objectives": [
+        {
+          "id": "5.1",
+          "title": "Summarize elements of effective security governance.",
+          "subobjectives": [
+            { "id": "5.1.a", "title": "Guidelines" },
+            { "id": "5.1.b", "title": "Policies", "details": ["Acceptable use policy (AUP)", "Information security policies", "Business continuity", "Disaster recovery", "Incident response", "Software development lifecycle (SDLC)", "Change management"] },
+            { "id": "5.1.c", "title": "Standards", "details": ["Password", "Access control", "Physical security", "Encryption"] },
+            { "id": "5.1.d", "title": "Procedures", "details": ["Change management", "Onboarding/offboarding", "Playbooks"] },
+            { "id": "5.1.e", "title": "External considerations", "details": ["Regulatory", "Legal", "Industry", "Local/regional", "National", "Global"] },
+            { "id": "5.1.f", "title": "Monitoring and revision" },
+            { "id": "5.1.g", "title": "Types of governance structures", "details": ["Boards", "Committees", "Government entities", "Centralized/decentralized"] },
+            { "id": "5.1.h", "title": "Roles and responsibilities for systems and data", "details": ["Owners", "Controllers", "Processors", "Custodians/stewards"] }
+          ]
+        },
+        {
+          "id": "5.2",
+          "title": "Explain elements of the risk management process.",
+          "subobjectives": [
+            { "id": "5.2.a", "title": "Risk identification" },
+            { "id": "5.2.b", "title": "Risk assessment", "details": ["Ad hoc", "Recurring", "One-time", "Continuous"] },
+            { "id": "5.2.c", "title": "Risk analysis", "details": ["Qualitative", "Quantitative", "Single loss expectancy (SLE)", "Annualized loss expectancy (ALE)", "Annualized rate of occurrence (ARO)", "Probability", "Likelihood", "Exposure factor", "Impact"] },
+            { "id": "5.2.d", "title": "Risk register", "details": ["Key risk indicators", "Risk owners", "Risk threshold"] },
+            { "id": "5.2.e", "title": "Risk tolerance" },
+            { "id": "5.2.f", "title": "Risk appetite", "details": ["Expansionary", "Conservative", "Neutral"] },
+            { "id": "5.2.g", "title": "Risk management strategies", "details": ["Transfer", "Accept", "Accept > Exemption", "Accept > Exception", "Avoid", "Mitigate"] },
+            { "id": "5.2.h", "title": "Risk reporting" },
+            { "id": "5.2.i", "title": "Business impact analysis", "details": ["Recovery time objective (RTO)", "Recovery point objective (RPO)", "Mean time to repair (MTTR)", "Mean time between failures (MTBF)"] }
+          ]
+        },
+        {
+          "id": "5.3",
+          "title": "Explain the processes associated with third-party risk assessment and management.",
+          "subobjectives": [
+            { "id": "5.3.a", "title": "Vendor assessment", "details": ["Penetration testing", "Right-to-audit clause", "Evidence of internal audits", "Independent assessments", "Supply chain analysis"] },
+            { "id": "5.3.b", "title": "Vendor selection", "details": ["Due diligence", "Conflict of interest"] },
+            { "id": "5.3.c", "title": "Agreement types", "details": [
+              "Service-level agreement (SLA)",
+              "Memorandum of agreement (MOA)",
+              "Memorandum of understanding (MOU)",
+              "Master service agreement (MSA)",
+              "Work order (WO)/statement of work (SOW)",
+              "Non-disclosure agreement (NDA)",
+              "Business partners agreement (BPA)"
+            ] },
+            { "id": "5.3.d", "title": "Vendor monitoring" },
+            { "id": "5.3.e", "title": "Questionnaires" },
+            { "id": "5.3.f", "title": "Rules of engagement" }
+          ]
+        },
+        {
+          "id": "5.4",
+          "title": "Summarize elements of effective security compliance.",
+          "subobjectives": [
+            { "id": "5.4.a", "title": "Compliance reporting", "details": ["Internal", "External"] },
+            { "id": "5.4.b", "title": "Consequences of non-compliance", "details": ["Fines", "Sanctions", "Reputational damage", "Loss of license", "Contractual impacts"] },
+            { "id": "5.4.c", "title": "Compliance monitoring", "details": ["Due diligence/care", "Attestation and acknowledgement", "Internal and external", "Automation"] },
+            { "id": "5.4.d", "title": "Privacy", "details": [
+              "Legal implications",
+              "Legal implications > Local/regional",
+              "Legal implications > National",
+              "Legal implications > Global",
+              "Data subject",
+              "Controller vs. processor",
+              "Ownership",
+              "Data inventory and retention",
+              "Right to be forgotten"
+            ] }
+          ]
+        },
+        {
+          "id": "5.5",
+          "title": "Explain types and purposes of audits and assessments.",
+          "subobjectives": [
+            { "id": "5.5.a", "title": "Attestation" },
+            { "id": "5.5.b", "title": "Internal", "details": ["Compliance", "Audit committee", "Self-assessments"] },
+            { "id": "5.5.c", "title": "External", "details": ["Regulatory", "Examinations", "Assessment", "Independent third-party audit"] },
+            { "id": "5.5.d", "title": "Penetration testing", "details": [
+              "Physical",
+              "Offensive",
+              "Defensive",
+              "Integrated",
+              "Known environment",
+              "Partially known environment",
+              "Unknown environment",
+              "Reconnaissance",
+              "Reconnaissance > Passive",
+              "Reconnaissance > Active"
+            ] }
+          ]
+        },
+        {
+          "id": "5.6",
+          "title": "Given a scenario, implement security awareness practices.",
+          "subobjectives": [
+            { "id": "5.6.a", "title": "Phishing", "details": ["Campaigns", "Recognizing a phishing attempt", "Responding to reported suspicious messages"] },
+            { "id": "5.6.b", "title": "Anomalous behavior recognition", "details": ["Risky", "Unexpected", "Unintentional"] },
+            { "id": "5.6.c", "title": "User guidance and training", "details": ["Policy/handbooks", "Situational awareness", "Insider threat", "Password management", "Removable media and cables", "Social engineering", "Operational security", "Hybrid/remote work environments"] },
+            { "id": "5.6.d", "title": "Reporting and monitoring", "details": ["Initial", "Recurring"] },
+            { "id": "5.6.e", "title": "Development" },
+            { "id": "5.6.f", "title": "Execution" }
+          ]
+        }
+      ]
+    }
+  ]
+}

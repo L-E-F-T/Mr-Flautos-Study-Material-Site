@@ -2,11 +2,11 @@
 
 A study site for Mr. Flauto's CompTIA classes: build-your-own **flashcard decks** and **practice tests** filtered by textbook unit/lesson or by exam objective, with instant feedback that points to the exact CertMaster reading section. Network+ also has **Command line**, a typed command drill: the student types the command a task asks for, and a right one prints its output.
 
-Live now: **A+ Core 1 (220-1201)** and **Network+ (N10-009)**. Planned: A+ Core 2 (220-1202), Security+ (SY0-701, then SY0-801).
+Live now: **A+ Core 1 (220-1201)**, **Network+ (N10-009)**, and **Security+ (SY0-701)**. Planned: A+ Core 2 (220-1202), then Security+ SY0-801.
 
 It works on phones and computers, in light or dark mode (the sun/moon button in the header).
 
-Content so far: all of A+ Core 1, Units 2.0 to 10.0 (474 questions, 429 flashcards); Unit 1.0 is not on the exam. Network+: Units 3.0 to 6.0 (300 questions, 203 flashcards, and 25 Command line commands with a command bank); its other units say "Coming soon". Core 2 and Security+ say "Coming soon" until their packs are written.
+Content so far: all of A+ Core 1, Units 2.0 to 10.0 (474 questions, 429 flashcards); Unit 1.0 is not on the exam. Network+: Units 3.0 to 6.0 (300 questions, 203 flashcards, and 25 Command line commands with a command bank); its other units say "Coming soon". Security+: Unit 8.0 (44 questions, 64 flashcards), flagged for Mr. Flauto's revision; its other units say "Coming soon". Core 2 says "Coming soon" until its packs are written.
 
 ## Test it on this computer
 

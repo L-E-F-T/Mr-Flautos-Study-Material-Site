@@ -1,0 +1,685 @@
+{
+  "$schema": "../../schemas/units.schema.json",
+  "courseware": "Security+ CertMaster Learn 7.0",
+  "source": "Mapped from the Security+ CertMaster Learn 7.0 page printouts (Book\\bySubunit, printed 8/21/26 to 11/19/26), with each lesson's objectives from the \"Exam Objectives\" box on its lesson page.",
+  "notes": "Only printed reading sections are listed, so section numbers skip where CertMaster has a video, lab, or activity. Each unit's last page, Summary (numbered like one more lesson, such as 8.5 Summary), is left out because it is not a lesson. Each lesson's objectives are the SY0-701 objective numbers in the \"Exam Objectives\" box on its lesson page: where the box prints CertMaster's own numbered lines under an objective, only the objective number is kept, each objective is listed once, in the order the box first names it. Every lesson has a lesson page, so no objectives come from the chapters. Every lesson has section printouts. No unit or lesson is marked notOnExam.",
+  "units": [
+  {
+    "id": "1.0",
+    "title": "Summarize Fundamental Security Concepts",
+    "subunits": [
+    {
+      "id": "1.1",
+      "title": "Security Concepts",
+      "objectives": ["1.2"],
+      "sections": [
+        { "id": "1.1.1", "title": "Information Security" },
+        { "id": "1.1.2", "title": "Cybersecurity Framework" },
+        { "id": "1.1.3", "title": "Gap Analysis" },
+        { "id": "1.1.4", "title": "Access Control" }
+      ]
+    },
+    {
+      "id": "1.2",
+      "title": "Security Controls",
+      "objectives": ["1.1"],
+      "sections": [
+        { "id": "1.2.1", "title": "Security Control Categories" },
+        { "id": "1.2.2", "title": "Security Control Functional Types" },
+        { "id": "1.2.3", "title": "Information Security Roles and Responsibilities" },
+        { "id": "1.2.4", "title": "Information Security Competencies" },
+        { "id": "1.2.5", "title": "Information Security Business Units" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "2.0",
+    "title": "Compare Threat Types",
+    "subunits": [
+    {
+      "id": "2.1",
+      "title": "Threat Actors",
+      "objectives": ["2.1"],
+      "sections": [
+        { "id": "2.1.1", "title": "Vulnerability, Threat, and Risk" },
+        { "id": "2.1.2", "title": "Attributes of Threat Actors" },
+        { "id": "2.1.3", "title": "Motivations of Threat Actors" },
+        { "id": "2.1.4", "title": "Hackers and Hacktivists" },
+        { "id": "2.1.5", "title": "Nation-State Actors" },
+        { "id": "2.1.6", "title": "Organized Crime and Competitors" },
+        { "id": "2.1.7", "title": "Internal Threat Actors" }
+      ]
+    },
+    {
+      "id": "2.2",
+      "title": "Attack Surfaces",
+      "objectives": ["2.2"],
+      "sections": [
+        { "id": "2.2.1", "title": "Attack Surface and Threat Vectors" },
+        { "id": "2.2.2", "title": "Vulnerable Software Vectors" },
+        { "id": "2.2.3", "title": "Network Vectors" },
+        { "id": "2.2.4", "title": "Lure-Based Vectors" },
+        { "id": "2.2.5", "title": "Message-Based Vectors" },
+        { "id": "2.2.6", "title": "Supply Chain Attack Surface" }
+      ]
+    },
+    {
+      "id": "2.3",
+      "title": "Social Engineering",
+      "objectives": ["2.2"],
+      "sections": [
+        { "id": "2.3.1", "title": "Human Vectors" },
+        { "id": "2.3.2", "title": "Impersonation and Pretexting" },
+        { "id": "2.3.3", "title": "Phishing and Pharming" },
+        { "id": "2.3.4", "title": "Typosquatting" },
+        { "id": "2.3.5", "title": "Business Email Compromise" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "3.0",
+    "title": "Explain Cryptographic Solutions",
+    "subunits": [
+    {
+      "id": "3.1",
+      "title": "Cryptographic Algorithms",
+      "objectives": ["1.4"],
+      "sections": [
+        { "id": "3.1.1", "title": "Cryptographic Concepts" },
+        { "id": "3.1.2", "title": "Symmetric Encryption" },
+        { "id": "3.1.3", "title": "Key Length" },
+        { "id": "3.1.4", "title": "Asymmetric Encryption" },
+        { "id": "3.1.5", "title": "Hashing" },
+        { "id": "3.1.6", "title": "Digital Signatures" }
+      ]
+    },
+    {
+      "id": "3.2",
+      "title": "Public Key Infrastructure",
+      "objectives": ["1.4"],
+      "sections": [
+        { "id": "3.2.1", "title": "Certificate Authorities" },
+        { "id": "3.2.2", "title": "Digital Certificates" },
+        { "id": "3.2.3", "title": "Root of Trust" },
+        { "id": "3.2.4", "title": "Certificate Signing Requests" },
+        { "id": "3.2.5", "title": "Subject Name Attributes" },
+        { "id": "3.2.6", "title": "Certificate Revocation" },
+        { "id": "3.2.7", "title": "Key Management" },
+        { "id": "3.2.8", "title": "Cryptoprocessors and Secure Enclaves" },
+        { "id": "3.2.9", "title": "Key Escrow" }
+      ]
+    },
+    {
+      "id": "3.3",
+      "title": "Cryptographic Solutions",
+      "objectives": ["1.4", "3.3"],
+      "sections": [
+        { "id": "3.3.1", "title": "Encryption Supporting Confidentiality" },
+        { "id": "3.3.2", "title": "Disk and File Encryption" },
+        { "id": "3.3.3", "title": "Database Encryption" },
+        { "id": "3.3.4", "title": "Transport Encryption and Key Exchange" },
+        { "id": "3.3.5", "title": "Perfect Forward Secrecy" },
+        { "id": "3.3.6", "title": "Salting and Key Stretching" },
+        { "id": "3.3.7", "title": "Blockchain" },
+        { "id": "3.3.8", "title": "Obfuscation" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "4.0",
+    "title": "Implement Identity and Access Management",
+    "subunits": [
+    {
+      "id": "4.1",
+      "title": "Authentication",
+      "objectives": ["4.6"],
+      "sections": [
+        { "id": "4.1.1", "title": "Authentication Design" },
+        { "id": "4.1.2", "title": "Password Concepts" },
+        { "id": "4.1.3", "title": "Password Managers" },
+        { "id": "4.1.4", "title": "Multifactor Authentication" },
+        { "id": "4.1.5", "title": "Biometric Authentication" },
+        { "id": "4.1.6", "title": "Hard Authentication Tokens" },
+        { "id": "4.1.7", "title": "Soft Authentication Tokens" },
+        { "id": "4.1.8", "title": "Passwordless Authentication" }
+      ]
+    },
+    {
+      "id": "4.2",
+      "title": "Authorization",
+      "objectives": ["4.6"],
+      "sections": [
+        { "id": "4.2.1", "title": "Discretionary and Mandatory Access Control" },
+        { "id": "4.2.2", "title": "Role- and Attribute-Based Access Control" },
+        { "id": "4.2.3", "title": "Rule-Based Access Control" },
+        { "id": "4.2.4", "title": "Least Privilege Permission Assignments" },
+        { "id": "4.2.5", "title": "User Account Provisioning" },
+        { "id": "4.2.6", "title": "Account Attributes and Access Policies" },
+        { "id": "4.2.7", "title": "Account Restrictions" },
+        { "id": "4.2.8", "title": "Privileged Access Management" }
+      ]
+    },
+    {
+      "id": "4.3",
+      "title": "Identity Management",
+      "objectives": ["4.6"],
+      "sections": [
+        { "id": "4.3.1", "title": "Local, Network, and Remote Authentication" },
+        { "id": "4.3.2", "title": "Directory Services" },
+        { "id": "4.3.3", "title": "Single Sign-on Authentication" },
+        { "id": "4.3.4", "title": "Single Sign-on Authorization" },
+        { "id": "4.3.5", "title": "Federation" },
+        { "id": "4.3.6", "title": "Security Assertion Markup Language" },
+        { "id": "4.3.7", "title": "Open Authorization" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "5.0",
+    "title": "Secure Enterprise Network Architecture",
+    "subunits": [
+    {
+      "id": "5.1",
+      "title": "Enterprise Network Architecture",
+      "objectives": ["3.1", "3.2"],
+      "sections": [
+        { "id": "5.1.1", "title": "Architecture and Infrastructure Concepts" },
+        { "id": "5.1.2", "title": "Network Infrastructure" },
+        { "id": "5.1.3", "title": "Switching Infrastructure Considerations" },
+        { "id": "5.1.4", "title": "Routing Infrastructure Considerations" },
+        { "id": "5.1.5", "title": "Security Zones" },
+        { "id": "5.1.6", "title": "Attack Surface" },
+        { "id": "5.1.7", "title": "Port Security" },
+        { "id": "5.1.8", "title": "Physical Isolation" },
+        { "id": "5.1.9", "title": "Architecture Considerations" }
+      ]
+    },
+    {
+      "id": "5.2",
+      "title": "Network Security Appliances",
+      "objectives": ["3.1", "3.2"],
+      "sections": [
+        { "id": "5.2.1", "title": "Device Placement" },
+        { "id": "5.2.2", "title": "Device Attributes" },
+        { "id": "5.2.3", "title": "Firewalls" },
+        { "id": "5.2.4", "title": "Layer 4 and Layer 7 Firewalls" },
+        { "id": "5.2.5", "title": "Proxy Servers" },
+        { "id": "5.2.6", "title": "Intrusion Detection Systems" },
+        { "id": "5.2.7", "title": "Next-Generation Firewalls and Unified Threat Management" },
+        { "id": "5.2.8", "title": "Load Balancers" },
+        { "id": "5.2.9", "title": "Web Application Firewalls" }
+      ]
+    },
+    {
+      "id": "5.3",
+      "title": "Secure Communications",
+      "objectives": ["3.2"],
+      "sections": [
+        { "id": "5.3.1", "title": "Remote Access Architecture" },
+        { "id": "5.3.2", "title": "Transport Layer Security Tunneling" },
+        { "id": "5.3.3", "title": "Internet Protocol Security Tunneling" },
+        { "id": "5.3.4", "title": "Internet Key Exchange" },
+        { "id": "5.3.5", "title": "Remote Desktop" },
+        { "id": "5.3.6", "title": "Secure Shell" },
+        { "id": "5.3.7", "title": "Out-of-Band Management and Jump Servers" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "6.0",
+    "title": "Secure Cloud Network Architecture",
+    "subunits": [
+    {
+      "id": "6.1",
+      "title": "Cloud Infrastructure",
+      "objectives": ["3.1"],
+      "sections": [
+        { "id": "6.1.1", "title": "Cloud Deployment Models" },
+        { "id": "6.1.2", "title": "Cloud Service Models" },
+        { "id": "6.1.3", "title": "Responsibility Matrix" },
+        { "id": "6.1.4", "title": "Centralized and Decentralized Computing" },
+        { "id": "6.1.5", "title": "Resilient Architecture Concepts" },
+        { "id": "6.1.6", "title": "Application Virtualization and Container Virtualization" },
+        { "id": "6.1.7", "title": "Cloud Architecture" },
+        { "id": "6.1.8", "title": "Cloud Automation Technologies" },
+        { "id": "6.1.9", "title": "Software Defined Networking" },
+        { "id": "6.1.10", "title": "Cloud Architecture Features" },
+        { "id": "6.1.11", "title": "Cloud Security Considerations" }
+      ]
+    },
+    {
+      "id": "6.2",
+      "title": "Embedded Systems and Zero Trust Architecture",
+      "objectives": ["3.1", "1.2"],
+      "sections": [
+        { "id": "6.2.1", "title": "Embedded Systems" },
+        { "id": "6.2.2", "title": "Industrial Control Systems" },
+        { "id": "6.2.3", "title": "Internet of Things" },
+        { "id": "6.2.4", "title": "Deperimeterization and Zero Trust" },
+        { "id": "6.2.5", "title": "Zero Trust Security Concepts" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "7.0",
+    "title": "Explain Resiliency and Site Security Concepts",
+    "subunits": [
+    {
+      "id": "7.1",
+      "title": "Asset Management",
+      "objectives": ["3.4", "4.2"],
+      "sections": [
+        { "id": "7.1.1", "title": "Asset Tracking" },
+        { "id": "7.1.2", "title": "Asset Protection Concepts" },
+        { "id": "7.1.3", "title": "Data Backups" },
+        { "id": "7.1.4", "title": "Advanced Data Protection" },
+        { "id": "7.1.5", "title": "Secure Data Destruction" }
+      ]
+    },
+    {
+      "id": "7.2",
+      "title": "Redundancy Strategies",
+      "objectives": ["3.4", "1.2"],
+      "sections": [
+        { "id": "7.2.1", "title": "Continuity of Operations" },
+        { "id": "7.2.2", "title": "Capacity Planning Risks" },
+        { "id": "7.2.3", "title": "High Availability" },
+        { "id": "7.2.4", "title": "Clustering" },
+        { "id": "7.2.5", "title": "Power Redundancy" },
+        { "id": "7.2.6", "title": "Diversity and Defense in Depth" },
+        { "id": "7.2.7", "title": "Deception Technologies" },
+        { "id": "7.2.8", "title": "Testing Resiliency" }
+      ]
+    },
+    {
+      "id": "7.3",
+      "title": "Physical Security",
+      "objectives": ["1.2"],
+      "sections": [
+        { "id": "7.3.1", "title": "Physical Security Controls" },
+        { "id": "7.3.2", "title": "Site Layout, Fencing, and Lighting" },
+        { "id": "7.3.3", "title": "Gateways and Locks" },
+        { "id": "7.3.4", "title": "Security Guards and Cameras" },
+        { "id": "7.3.5", "title": "Alarm Systems and Sensors" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "8.0",
+    "title": "Explain Vulnerability Management",
+    "subunits": [
+    {
+      "id": "8.1",
+      "title": "Device and OS Vulnerabilities",
+      "objectives": ["2.3"],
+      "sections": [
+        { "id": "8.1.1", "title": "Operating System Vulnerabilities" },
+        { "id": "8.1.2", "title": "Vulnerability Types" },
+        { "id": "8.1.3", "title": "Zero-Day Vulnerabilities" },
+        { "id": "8.1.4", "title": "Misconfiguration Vulnerabilities" },
+        { "id": "8.1.5", "title": "Cryptographic Vulnerabilities" },
+        { "id": "8.1.6", "title": "Sideloading, Rooting, and Jailbreaking" }
+      ]
+    },
+    {
+      "id": "8.2",
+      "title": "Application and Cloud Vulnerabilities",
+      "objectives": ["2.3"],
+      "sections": [
+        { "id": "8.2.1", "title": "Application Vulnerabilities" },
+        { "id": "8.2.2", "title": "Evaluation Scope" },
+        { "id": "8.2.3", "title": "Web Application Attacks" },
+        { "id": "8.2.4", "title": "Cloud-based Application Attacks" },
+        { "id": "8.2.5", "title": "Supply Chain" }
+      ]
+    },
+    {
+      "id": "8.3",
+      "title": "Vulnerability Identification Methods",
+      "objectives": ["4.3"],
+      "sections": [
+        { "id": "8.3.1", "title": "Vulnerability Scanning" },
+        { "id": "8.3.2", "title": "Threat Feeds" },
+        { "id": "8.3.3", "title": "Deep and Dark Web" },
+        { "id": "8.3.4", "title": "Other Vulnerability Assessment Methods" }
+      ]
+    },
+    {
+      "id": "8.4",
+      "title": "Vulnerability Analysis and Remediation",
+      "objectives": ["4.3"],
+      "sections": [
+        { "id": "8.4.1", "title": "Common Vulnerabilities and Exposures" },
+        { "id": "8.4.2", "title": "False Positives, False Negatives, and Log Review" },
+        { "id": "8.4.3", "title": "Vulnerability Analysis" },
+        { "id": "8.4.4", "title": "Vulnerability Response and Remediation" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "9.0",
+    "title": "Evaluate Network Security Capabilities",
+    "subunits": [
+    {
+      "id": "9.1",
+      "title": "Network Security Baselines",
+      "objectives": ["4.1", "4.5"],
+      "sections": [
+        { "id": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" },
+        { "id": "9.1.2", "title": "Wireless Network Installation Considerations" },
+        { "id": "9.1.3", "title": "Wireless Encryption" },
+        { "id": "9.1.4", "title": "Wi-Fi Authentication Methods" },
+        { "id": "9.1.5", "title": "Network Access Control" }
+      ]
+    },
+    {
+      "id": "9.2",
+      "title": "Network Security Capability Enhancement",
+      "objectives": ["4.5"],
+      "sections": [
+        { "id": "9.2.1", "title": "Access Control Lists" },
+        { "id": "9.2.2", "title": "Intrusion Detection and Prevention Systems" },
+        { "id": "9.2.3", "title": "IDS and IPS Detection Methods" },
+        { "id": "9.2.4", "title": "Web Filtering" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "10.0",
+    "title": "Assess Endpoint Security Capabilities",
+    "subunits": [
+    {
+      "id": "10.1",
+      "title": "Implement Endpoint Security",
+      "objectives": ["2.5", "4.1", "4.5"],
+      "sections": [
+        { "id": "10.1.1", "title": "Endpoint Hardening" },
+        { "id": "10.1.2", "title": "Endpoint Protection" },
+        { "id": "10.1.3", "title": "Advanced Endpoint Protection" },
+        { "id": "10.1.4", "title": "Endpoint Configuration" },
+        { "id": "10.1.5", "title": "Hardening Techniques" },
+        { "id": "10.1.6", "title": "Hardening Specialized Devices" }
+      ]
+    },
+    {
+      "id": "10.2",
+      "title": "Mobile Device Hardening",
+      "objectives": ["4.1"],
+      "sections": [
+        { "id": "10.2.1", "title": "Mobile Hardening Techniques" },
+        { "id": "10.2.2", "title": "Full Device Encryption and External Media" },
+        { "id": "10.2.3", "title": "Location Services" },
+        { "id": "10.2.4", "title": "Cellular and GPS Connection Methods" },
+        { "id": "10.2.5", "title": "Wi-Fi and Tethering Connection Methods" },
+        { "id": "10.2.6", "title": "Bluetooth Connection Methods" },
+        { "id": "10.2.7", "title": "Near-Field Communications and Mobile Payment Services" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "11.0",
+    "title": "Enhance Application Security Capabilities",
+    "subunits": [
+    {
+      "id": "11.1",
+      "title": "Application Protocol Security Baselines",
+      "objectives": ["4.5"],
+      "sections": [
+        { "id": "11.1.1", "title": "Secure Protocols" },
+        { "id": "11.1.2", "title": "Transport Layer Security" },
+        { "id": "11.1.3", "title": "Secure Directory Services" },
+        { "id": "11.1.4", "title": "Simple Network Management Protocol Security" },
+        { "id": "11.1.5", "title": "File Transfer Services" },
+        { "id": "11.1.6", "title": "Email Services" },
+        { "id": "11.1.7", "title": "Email Security" },
+        { "id": "11.1.8", "title": "Email Data Loss Prevention" },
+        { "id": "11.1.9", "title": "DNS Filtering" }
+      ]
+    },
+    {
+      "id": "11.2",
+      "title": "Cloud and Web Application Security Concepts",
+      "objectives": ["4.1"],
+      "sections": [
+        { "id": "11.2.1", "title": "Secure Coding Techniques" },
+        { "id": "11.2.2", "title": "Application Protections" },
+        { "id": "11.2.3", "title": "Software Sandboxing" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "12.0",
+    "title": "Explain Incident Response and Monitoring Concepts",
+    "subunits": [
+    {
+      "id": "12.1",
+      "title": "Incident Response",
+      "objectives": ["4.8"],
+      "sections": [
+        { "id": "12.1.1", "title": "Incident Response Processes" },
+        { "id": "12.1.2", "title": "Preparation" },
+        { "id": "12.1.3", "title": "Detection" },
+        { "id": "12.1.4", "title": "Analysis" },
+        { "id": "12.1.5", "title": "Containment" },
+        { "id": "12.1.6", "title": "Eradication and Recovery" },
+        { "id": "12.1.7", "title": "Lessons Learned" },
+        { "id": "12.1.8", "title": "Testing and Training" },
+        { "id": "12.1.9", "title": "Threat Hunting" }
+      ]
+    },
+    {
+      "id": "12.2",
+      "title": "Digital Forensics",
+      "objectives": ["4.8"],
+      "sections": [
+        { "id": "12.2.1", "title": "Due Process and Legal Hold" },
+        { "id": "12.2.2", "title": "Acquisition" },
+        { "id": "12.2.3", "title": "System Memory Acquisition" },
+        { "id": "12.2.4", "title": "Disk Image Acquisition" },
+        { "id": "12.2.5", "title": "Preservation" },
+        { "id": "12.2.6", "title": "Reporting" }
+      ]
+    },
+    {
+      "id": "12.3",
+      "title": "Data Sources",
+      "objectives": ["4.9"],
+      "sections": [
+        { "id": "12.3.1", "title": "Data Sources, Dashboards, and Reports" },
+        { "id": "12.3.2", "title": "Log Data" },
+        { "id": "12.3.3", "title": "Host Operating System Logs" },
+        { "id": "12.3.4", "title": "Application and Endpoint Logs" },
+        { "id": "12.3.5", "title": "Network Data Sources" },
+        { "id": "12.3.6", "title": "Packet Captures" },
+        { "id": "12.3.7", "title": "Metadata" }
+      ]
+    },
+    {
+      "id": "12.4",
+      "title": "Alerting and Monitoring Tools",
+      "objectives": ["4.4"],
+      "sections": [
+        { "id": "12.4.1", "title": "Security Information and Event Management" },
+        { "id": "12.4.2", "title": "Alerting and Monitoring Activities" },
+        { "id": "12.4.3", "title": "Alert Tuning" },
+        { "id": "12.4.4", "title": "Monitoring Infrastructure" },
+        { "id": "12.4.5", "title": "Monitoring Systems and Applications" },
+        { "id": "12.4.6", "title": "Benchmarks" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "13.0",
+    "title": "Analyze Indicators of Malicious Activity",
+    "subunits": [
+    {
+      "id": "13.1",
+      "title": "Malware Attack Indicators",
+      "objectives": ["2.4"],
+      "sections": [
+        { "id": "13.1.1", "title": "Malware Classification" },
+        { "id": "13.1.2", "title": "Computer Viruses" },
+        { "id": "13.1.3", "title": "Computer Worms and Fileless Malware" },
+        { "id": "13.1.4", "title": "Spyware and Keyloggers" },
+        { "id": "13.1.5", "title": "Backdoors and Remote Access Trojans" },
+        { "id": "13.1.6", "title": "Rootkits" },
+        { "id": "13.1.7", "title": "Ransomware, Crypto-Malware, and Logic Bombs" },
+        { "id": "13.1.8", "title": "TTPs and IoCs" },
+        { "id": "13.1.9", "title": "Malicious Activity Indicators" }
+      ]
+    },
+    {
+      "id": "13.2",
+      "title": "Physical and Network Attack Indicators",
+      "objectives": ["2.4"],
+      "sections": [
+        { "id": "13.2.1", "title": "Physical Attacks" },
+        { "id": "13.2.2", "title": "Network Attacks" },
+        { "id": "13.2.3", "title": "Distributed Denial of Service Attacks" },
+        { "id": "13.2.4", "title": "On-Path Attacks" },
+        { "id": "13.2.5", "title": "Domain Name System Attacks" },
+        { "id": "13.2.6", "title": "Wireless Attacks" },
+        { "id": "13.2.7", "title": "Password Attacks" },
+        { "id": "13.2.8", "title": "Credential Replay Attacks" },
+        { "id": "13.2.9", "title": "Cryptographic Attacks" },
+        { "id": "13.2.10", "title": "Malicious Code Indicators" }
+      ]
+    },
+    {
+      "id": "13.3",
+      "title": "Application Attack Indicators",
+      "objectives": ["2.4"],
+      "sections": [
+        { "id": "13.3.1", "title": "Application Attacks" },
+        { "id": "13.3.2", "title": "Replay Attacks" },
+        { "id": "13.3.3", "title": "Forgery Attacks" },
+        { "id": "13.3.4", "title": "Injection Attacks" },
+        { "id": "13.3.5", "title": "Directory Traversal and Command Injection Attacks" },
+        { "id": "13.3.6", "title": "URL Analysis" },
+        { "id": "13.3.7", "title": "Web Server Logs" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "14.0",
+    "title": "Summarize Security Governance Concepts",
+    "subunits": [
+    {
+      "id": "14.1",
+      "title": "Policies, Standards, and Procedures",
+      "objectives": ["5.1"],
+      "sections": [
+        { "id": "14.1.1", "title": "Policies" },
+        { "id": "14.1.2", "title": "Procedures" },
+        { "id": "14.1.3", "title": "Standards" },
+        { "id": "14.1.4", "title": "Legal Environment" },
+        { "id": "14.1.5", "title": "Governance and Accountability" }
+      ]
+    },
+    {
+      "id": "14.2",
+      "title": "Change Management",
+      "objectives": ["1.3"],
+      "sections": [
+        { "id": "14.2.1", "title": "Change Management Programs" },
+        { "id": "14.2.2", "title": "Allowed and Blocked Changes" },
+        { "id": "14.2.3", "title": "Restarts, Dependencies, and Downtime" },
+        { "id": "14.2.4", "title": "Documentation and Version Control" }
+      ]
+    },
+    {
+      "id": "14.3",
+      "title": "Automation and Orchestration",
+      "objectives": ["4.7"],
+      "sections": [
+        { "id": "14.3.1", "title": "Automation and Scripting" },
+        { "id": "14.3.2", "title": "Automation and Orchestration Implementation" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "15.0",
+    "title": "Explain Risk Management Processes",
+    "subunits": [
+    {
+      "id": "15.1",
+      "title": "Risk Management Processes and Concepts",
+      "objectives": ["5.2"],
+      "sections": [
+        { "id": "15.1.1", "title": "Risk Identification and Assessment" },
+        { "id": "15.1.2", "title": "Risk Management Strategies" },
+        { "id": "15.1.3", "title": "Risk Management Processes" },
+        { "id": "15.1.4", "title": "Business Impact Analysis" }
+      ]
+    },
+    {
+      "id": "15.2",
+      "title": "Vendor Management Concepts",
+      "objectives": ["5.3"],
+      "sections": [
+        { "id": "15.2.1", "title": "Vendor Selection" },
+        { "id": "15.2.2", "title": "Vendor Assessment Methods" },
+        { "id": "15.2.3", "title": "Legal Agreements" }
+      ]
+    },
+    {
+      "id": "15.3",
+      "title": "Audits and Assessments",
+      "objectives": ["5.5"],
+      "sections": [
+        { "id": "15.3.1", "title": "Attestation and Assessments" },
+        { "id": "15.3.2", "title": "Penetration Testing" },
+        { "id": "15.3.3", "title": "Exercise Types" }
+      ]
+    }
+    ]
+  },
+  {
+    "id": "16.0",
+    "title": "Summarize Data Protection and Compliance Concepts",
+    "subunits": [
+    {
+      "id": "16.1",
+      "title": "Data Classification and Compliance",
+      "objectives": ["3.3", "5.4"],
+      "sections": [
+        { "id": "16.1.1", "title": "Data Types" },
+        { "id": "16.1.2", "title": "Data Classifications" },
+        { "id": "16.1.3", "title": "Data Sovereignty and Geographical Considerations" },
+        { "id": "16.1.4", "title": "Privacy Data" },
+        { "id": "16.1.5", "title": "Privacy Breaches and Data Breaches" },
+        { "id": "16.1.6", "title": "Compliance" },
+        { "id": "16.1.7", "title": "Monitoring and Reporting" },
+        { "id": "16.1.8", "title": "Data Protection" },
+        { "id": "16.1.9", "title": "Data Loss Prevention" }
+      ]
+    },
+    {
+      "id": "16.2",
+      "title": "Personnel Policies",
+      "objectives": ["5.6"],
+      "sections": [
+        { "id": "16.2.1", "title": "Conduct Policies" },
+        { "id": "16.2.2", "title": "User and Role-Based Training" },
+        { "id": "16.2.3", "title": "Training Topics and Techniques" },
+        { "id": "16.2.4", "title": "Security Awareness Training Lifecycle" }
+      ]
+    }
+    ]
+  }
+  ]
+}

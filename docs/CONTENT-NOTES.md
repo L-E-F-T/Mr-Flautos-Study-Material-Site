@@ -431,6 +431,57 @@ The starting list for a Command line pass (the guide's "A command" has the rules
   - **Later units:** every unit after 6.0 whose lessons list objective 5.5 (7.2, 8.2, 8.5, 8.6, 9.3, 9.4, 10.3, 12.4, 13.3 in `units.json`) needs its own Command line pass once its questions are written.
   - **More follow-ups** (Mr. Flauto, 2026-11-21: "I like the follow ups and would like more of them"). Ready from published questions, on his word: n-u05-q070 after `route print` (waiting since launch), and n-u03-q039 (a port administratively down) and n-u03-q047 (up/up near line rate, with output drops) as the second and third versions of `show interface` (n-u03-c001), once checked, with its task reworded to lead into one port. New follow-ups are phase 3 of `docs/COMMAND-LINE-PLAN.md` (Appendix D2 counts the unused source items: `ipconfig` about 17, `ping` about 10, a few for `tracert`, `traceroute`, `nslookup`, `dig`, and `netstat`), written under the rule above.
 
+## Security+ (SY0-701)
+
+Started 2026-11-21 by the Unit 8.0 chat, in the hands-off run Mr. Flauto asked for ("Pass off to sec+ lets start with 8.0 and move to 9.0 then stop"). Item names follow the guide's numbering rule ("Messer B15", "CertMaster 8.0 Q5"). Each entry gives the item's lesson and section, then the bullet it turns on: "A33 (9.1, 9.1.4, 4.1.e)". Messer prints each item's own objective, but an item goes to the unit whose reading answers it.
+
+**Needs revision.** Unit 8.0 was written hands-off on his word ("Add a flag that it needs revision though becuase I did this in a lazy manner"): both packs have `"reviewed": false` and the pack note "Needs revision: written hands-off; Mr. Flauto has not checked it yet."
+
+### What has been screened
+
+- Unit 8.0 mapped every Messer item tagged 2.3 or 4.3 (A1, a performance-based item, is skipped) and screened the 219 Messer items that are not performance-based and not tagged 2.3, 4.3, 4.1, or 4.5 for questions that turn on a bullet of any of those four objectives. 20 did (below); the other 199 touch none of the four. Unit 9.0 maps the Messer items tagged 4.1 and 4.5 (B2, A5, and C1 are performance-based) with the placements below, and has nothing else to screen.
+
+### Source items that another unit's reading answers
+
+- **Unit 9.0:** Messer A33 (9.1, 9.1.4, 4.1.e) and C56 (9.1, 9.1.3, 4.1.e); B54 and B83 (9.2, 9.2.1, 4.5.a); C8 (9.2, 9.2.3, 4.5.b).
+- **Unit 10.0:** Messer B6, B57, C24, and C77 (10.1, 10.1.5, 4.1.b).
+- **Unit 11.0:** Messer A86 (11.1, 11.1.8, 4.5.i).
+- **Unit 12.0:** Messer B44 (12.4, 12.4.3, 4.4.b), alert tuning. Unit 8.0's s-u08-q033 already asks its false-positive reasoning.
+- **Unit 13.0:** Messer C49 (13.3, 13.3.5, 2.3.c), directory traversal.
+- **Unit 15.0:** Messer A6 and C55 (15.3, 15.3.2, 4.3.a; Messer tags them 5.5), penetration test reconnaissance.
+- **Unit 5.0:** Messer C74 (5.2, 5.2.5, 4.5.c), a forward proxy.
+
+### Items no reading answers
+
+- CertMaster 8.0 Q9 (nearest 8.2.4): no section says an unsecured API is attacked by injection.
+- CertMaster 8.0 Q13 (nearest 8.2.3): a select-two item whose second answer no section settles.
+- Messer B46 (nearest 8.3.4; Messer tags it 5.4): no section says regular audits and vulnerability scans meet a card-data standard. 14.1.3 defines PCI DSS: check it when Unit 14.0 is written.
+
+### Known problems in the reading
+
+Unit 8.0 keyed nothing to these:
+
+- 8.2.1 counts a buffer overflow as a memory injection attack, while 8.2.3 sets overflow attacks apart from injection attacks.
+- Heartbleed is the Linux example of an OS vulnerability in 8.1.1 and a cryptographic vulnerability in 8.1.5.
+- 8.1.2 gives Meltdown and Spectre as firmware vulnerabilities, while the same paragraph ties them to the processors.
+- 8.2.1 calls CVE-2020-0796 a race condition elevation of privilege flaw; it is the SMBv3 remote code execution flaw. Dirty COW is the reading's other race condition example.
+- 8.4.1 says a CVE ID's year is the year the vulnerability was discovered and its number shows the order of discovery; the year is when the ID was assigned or made public. The format itself is right.
+
+### Disagreements between a source and the reading
+
+- None in Unit 8.0: Messer's key agrees with the reading on all 21 Messer items it mapped, and his Unit 8.0 study guide agrees with every usable item.
+- Objective 4.3 writes "Common Vulnerability Enumeration (CVE)"; reading 8.4.1 writes "Common Vulnerabilities and Exposures". The card's front carries both names.
+
+### Gaps
+
+- 4.3.d (Validation of remediation) and 4.3.e (Reporting) have no question: no pool or Messer item, and no exam evidence. His Study Guide 8.0 Q102 to Q104 cover them. They read Coming soon; their terms have cards.
+- Facts the exam evidence weighs that no item covers, so no question: known environment penetration testing (only a Messer wrong choice, in B15, C55, and C73; taught in 8.3.4 and again in 15.3.2), and SQL injection's cause and fix, input validation (Messer C9, tagged 4.1; taught in 11.2.1).
+
+### For later units
+
+- s-u08-q031 (from Messer B15) asks which penetration test environment fits a tester given full information, and is tagged 5.5.d. Unit 15.0 asks no second question on that fact unless its scenario makes a student reason differently.
+- Unit 8.0 carded the 2.3 and 4.3 terms its reading teaches: 64 cards. "Penetration testing (pen testing)" is a card under 4.3.a, so Unit 15.0 (5.5.d) adds its section to that card's `units` instead of writing a second card. Three cards were dropped after three review rounds (Malicious update, Service provider, System/process audit): a later pass may write them again.
+
 ## Other exams
 
 - **Security+:** `Certmaster Questions\4.0.txt` holds 23 Security+ items. It is not a copy of the A+ Core 1 Unit 4.0 pool, as earlier notes said. There is also a combined pool file, `1.0 + 2.0.txt`, whose items are named "CertMaster 1.0 + 2.0 Qn" by the numbering rule.

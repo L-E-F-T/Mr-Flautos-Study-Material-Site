@@ -1,0 +1,935 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-08", "title": "Unit 8.0 Explain Vulnerability Management", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet." },
+  "questions": [
+    {
+      "id": "s-u08-q001",
+      "stem": "A security team reviews the weaknesses attackers most often use against Microsoft Windows to install malware on large corporate networks. Which of the following is among the MOST common operating system vulnerabilities?",
+      "choices": [
+        { "id": "a", "text": "Resource reuse" },
+        { "id": "b", "text": "Buffer overflow" },
+        { "id": "c", "text": "Cross-site scripting" },
+        { "id": "d", "text": "Cryptojacking" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.3", "2.3.b"],
+      "units": ["8.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.1",
+        "title": "Operating System Vulnerabilities",
+        "quote": "",
+        "find": "vulnerabilities often include buffer overflows"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q3" }
+    },
+    {
+      "id": "s-u08-q002",
+      "stem": "A hospital still runs an imaging workstation on an operating system whose maker ended all updates last year. Which of the following BEST describes this system?",
+      "choices": [
+        { "id": "a", "text": "Misconfiguration" },
+        { "id": "b", "text": "Resource reuse" },
+        { "id": "c", "text": "End-of-life" },
+        { "id": "d", "text": "Zero-day" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.3", "2.3.d"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Vulnerability Types",
+        "quote": "",
+        "find": "no longer supports EOL systems"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A47" }
+    },
+    {
+      "id": "s-u08-q003",
+      "stem": "A warehouse still uses badge readers whose firmware has not received a security update in years. Which of the following is the BEST description of the security risk this creates?",
+      "choices": [
+        { "id": "a", "text": "Attackers can exploit newly found flaws" },
+        { "id": "b", "text": "Badge records will fill the reader's storage" },
+        { "id": "c", "text": "The readers will stop reading new badges" },
+        { "id": "d", "text": "The readers will use more building power" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.3", "2.3.d"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Vulnerability Types",
+        "quote": "",
+        "find": "vulnerable to newly discovered threats"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q4" }
+    },
+    {
+      "id": "s-u08-q004",
+      "stem": "A company runs a 20-year-old payroll program that its vendor still patches, but it does not work with modern databases and only long-time staff know how to use it. Which of the following BEST describes this system?",
+      "choices": [
+        { "id": "a", "text": "End-of-life system" },
+        { "id": "b", "text": "Legacy system" },
+        { "id": "c", "text": "Zero-day system" },
+        { "id": "d", "text": "Misconfigured system" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.3", "2.3.d"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Vulnerability Types",
+        "quote": "",
+        "find": "vendor may still fully support legacy"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 8.0 Q6" }
+    },
+    {
+      "id": "s-u08-q005",
+      "stem": "A manufacturer announces a hardware flaw in the network switches an organization uses. Which of the following should an administrator check FIRST to see whether the switches are affected?",
+      "choices": [
+        { "id": "a", "text": "Session cookies" },
+        { "id": "b", "text": "Firmware versions" },
+        { "id": "c", "text": "SQL query logs" },
+        { "id": "d", "text": "Script filters" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.3", "2.3.d"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Vulnerability Types",
+        "quote": "",
+        "find": "foundational software that controls hardware"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C81" }
+    },
+    {
+      "id": "s-u08-q006",
+      "stem": "A cloud provider learns of a hypervisor flaw that would let a customer in one virtual machine run code on the physical host. Which of the following BEST describes this vulnerability?",
+      "choices": [
+        { "id": "a", "text": "Resource reuse" },
+        { "id": "b", "text": "Side-channel attack" },
+        { "id": "c", "text": "Jailbreaking" },
+        { "id": "d", "text": "VM escape" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.3", "2.3.e"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Vulnerability Types",
+        "quote": "",
+        "find": "breaks out of this isolated environment"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B12" }
+    },
+    {
+      "id": "s-u08-q007",
+      "stem": "A researcher finds that attackers are already using a flaw in a popular PDF reader to steal data, and the vendor has not yet heard of the flaw or released a patch. Which of the following BEST describes this flaw?",
+      "choices": [
+        { "id": "a", "text": "Zero-day" },
+        { "id": "b", "text": "End-of-life" },
+        { "id": "c", "text": "Misconfiguration" },
+        { "id": "d", "text": "Resource reuse" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.3", "2.3.k"],
+      "units": ["8.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.3",
+        "title": "Zero-Day Vulnerabilities",
+        "quote": "",
+        "find": "previously unknown software or hardware flaws"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q5" }
+    },
+    {
+      "id": "s-u08-q008",
+      "stem": "An administrator deploys 30 new network printers with the vendor's settings, and a week later an outsider is printing to them from the internet. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Race condition" },
+        { "id": "b", "text": "VM escape" },
+        { "id": "c", "text": "Side loading" },
+        { "id": "d", "text": "Misconfiguration" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.3", "2.3.i"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Misconfiguration Vulnerabilities",
+        "quote": "",
+        "find": "common cause of security vulnerabilities"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A46" }
+    },
+    {
+      "id": "s-u08-q009",
+      "stem": "A team keeps its project files in a shared online repository that anyone on the internet can read without signing in. Which of the following vulnerabilities is MOST associated with this problem?",
+      "choices": [
+        { "id": "a", "text": "Buffer overflow" },
+        { "id": "b", "text": "Memory injection" },
+        { "id": "c", "text": "Open permissions" },
+        { "id": "d", "text": "Legacy software" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.3", "2.3.i"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Misconfiguration Vulnerabilities",
+        "quote": "",
+        "find": "such as improperly managed access permissions"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A61" }
+    },
+    {
+      "id": "s-u08-q010",
+      "stem": "During an audit, a security analyst finds a new wireless router at a branch office that still accepts the login printed in the vendor's setup guide. Which of the following weaknesses would an attacker try FIRST?",
+      "choices": [
+        { "id": "a", "text": "Unchanged default credentials" },
+        { "id": "b", "text": "Missing endpoint antivirus software" },
+        { "id": "c", "text": "A lack of redundant power supplies" },
+        { "id": "d", "text": "Use of an older Wi-Fi channel" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.3", "2.3.i"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Misconfiguration Vulnerabilities",
+        "quote": "",
+        "find": "include easily guessable default credentials"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q16" }
+    },
+    {
+      "id": "s-u08-q011",
+      "stem": "A developer learns that two different files can produce the same hash value under MD5 and SHA-1. Which of the following BEST describes this weakness?",
+      "choices": [
+        { "id": "a", "text": "Brute force attack" },
+        { "id": "b", "text": "Weak key use" },
+        { "id": "c", "text": "Collision attack" },
+        { "id": "d", "text": "Key reinstallation attack" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.3", "2.3.h"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Cryptographic Vulnerabilities",
+        "quote": "",
+        "find": "inputs produce the same hash output"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 8.0 Q22" }
+    },
+    {
+      "id": "s-u08-q012",
+      "stem": "A technician explains to new users what jailbreaking an iPhone allows. Which of the following describe jailbreaking?",
+      "choices": [
+        { "id": "a", "text": "It lets a virtual machine run code on its host" },
+        { "id": "b", "text": "It removes the limits Apple places on the device" },
+        { "id": "c", "text": "It lets the user customize the device's appearance and behavior" },
+        { "id": "d", "text": "It installs custom ROMs on the device" },
+        { "id": "e", "text": "It gives root access on an Android device" }
+      ],
+      "answer": ["b", "c"],
+      "objectives": ["2.3", "2.3.j"],
+      "units": ["8.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.6",
+        "title": "Sideloading, Rooting, and Jailbreaking",
+        "quote": "",
+        "find": "the device's appearance and behavior"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Review 8.0 slide 19" }
+    },
+    {
+      "id": "s-u08-q013",
+      "stem": "An employee with an Android phone downloads an app package from a vendor's website instead of getting it from Google Play, then installs it by hand. Which of the following BEST describes this practice?",
+      "choices": [
+        { "id": "a", "text": "Rooting" },
+        { "id": "b", "text": "Malicious update" },
+        { "id": "c", "text": "Resource reuse" },
+        { "id": "d", "text": "Side loading" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.3", "2.3.j"],
+      "units": ["8.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.6",
+        "title": "Sideloading, Rooting, and Jailbreaking",
+        "quote": "",
+        "find": "installing applications from sources other"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B33" }
+    },
+    {
+      "id": "s-u08-q014",
+      "stem": "Two scripts on a payroll server update the same account balance at the same moment, and the final balance is wrong. Which of the following BEST describes this issue?",
+      "choices": [
+        { "id": "a", "text": "Buffer overflow" },
+        { "id": "b", "text": "Malicious update" },
+        { "id": "c", "text": "Race condition" },
+        { "id": "d", "text": "Memory injection" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Application Vulnerabilities",
+        "quote": "",
+        "find": "flaws associated with the timing or"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A22" }
+    },
+    {
+      "id": "s-u08-q015",
+      "stem": "A security analyst finds that an attacker introduced malicious code into a payroll application's process while the application was still running. Which of the following vulnerabilities BEST describes this?",
+      "choices": [
+        { "id": "a", "text": "Race condition" },
+        { "id": "b", "text": "Memory injection" },
+        { "id": "c", "text": "Malicious update" },
+        { "id": "d", "text": "Sideloading" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Application Vulnerabilities",
+        "quote": "",
+        "find": "malicious code into a running application's"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 8.0 Hard Q62" }
+    },
+    {
+      "id": "s-u08-q016",
+      "stem": "After an attacker pastes a very long string into a web form's name field, the server writes past the end of its memory area and runs the attacker's commands. Which of the following attacks BEST describes this?",
+      "choices": [
+        { "id": "a", "text": "SQL injection" },
+        { "id": "b", "text": "Cross-site scripting" },
+        { "id": "c", "text": "Race condition" },
+        { "id": "d", "text": "Buffer overflow" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Application Vulnerabilities",
+        "quote": "",
+        "find": "attacker passes data that deliberately overfills"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A67" }
+    },
+    {
+      "id": "s-u08-q017",
+      "stem": "After a vendor's latest patch was installed on a PDF editor, an administrator discovered that it also installed a program that records keystrokes. Which of the following application vulnerabilities does this BEST describe?",
+      "choices": [
+        { "id": "a", "text": "Race condition" },
+        { "id": "b", "text": "Memory injection" },
+        { "id": "c", "text": "Malicious update" },
+        { "id": "d", "text": "Buffer overflow" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Application Vulnerabilities",
+        "quote": "",
+        "find": "update that appears legitimate but contains"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 8.0 Hard Q77" }
+    },
+    {
+      "id": "s-u08-q018",
+      "stem": "A specialist is performing a cryptographic analysis of a company's application. Which of the following tasks BEST fit this work?",
+      "choices": [
+        { "id": "a", "text": "Evaluating the strength of encryption keys" },
+        { "id": "b", "text": "Reading design specifications and architecture diagrams" },
+        { "id": "c", "text": "Searching the source code for missing input validation" },
+        { "id": "d", "text": "Checking how encryption keys are stored" },
+        { "id": "e", "text": "Confirming the system meets a regulation's requirements" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["2.3", "2.3.h"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Evaluation Scope",
+        "quote": "",
+        "find": "Assessing cryptographic mechanisms, including encryption algorithms"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q12" }
+    },
+    {
+      "id": "s-u08-q019",
+      "stem": "A company hires a firm that exploits several flaws in its customer portal and then delivers a report with fixes. Which of the following BEST separates this work from an attacker's use of the same flaws?",
+      "choices": [
+        { "id": "a", "text": "It uses special tools attackers cannot obtain" },
+        { "id": "b", "text": "Its work is authorized and aims to improve security" },
+        { "id": "c", "text": "It exploits only flaws that are already patched" },
+        { "id": "d", "text": "It targets the company's people, not its software" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Evaluation Scope",
+        "quote": "",
+        "find": "aim to uncover as many vulnerabilities"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q10" }
+    },
+    {
+      "id": "s-u08-q020",
+      "stem": "A shopper opens a product page on a store's website, and a script that an attacker posted in a review runs in the shopper's browser. Which of the following attacks BEST describes this?",
+      "choices": [
+        { "id": "a", "text": "Cross-site scripting" },
+        { "id": "b", "text": "SQL injection" },
+        { "id": "c", "text": "Buffer overflow" },
+        { "id": "d", "text": "Race condition" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.3", "2.3.c"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Web Application Attacks",
+        "quote": "",
+        "find": "XSS inserts a malicious script that"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 8.0 Q44" }
+    },
+    {
+      "id": "s-u08-q021",
+      "stem": "A web store's order lookup page passes typed text straight to its back-end database, and an attacker types extra database commands that the database runs. Which of the following attacks BEST describes this?",
+      "choices": [
+        { "id": "a", "text": "Cross-site scripting" },
+        { "id": "b", "text": "SQL injection" },
+        { "id": "c", "text": "Race condition" },
+        { "id": "d", "text": "Malicious update" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.3", "2.3.c"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Web Application Attacks",
+        "quote": "",
+        "find": "execute the attacker's own set of"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C85" }
+    },
+    {
+      "id": "s-u08-q022",
+      "stem": "On a customer lookup form, a user types a quote followed by OR 4=4, and the page lists every customer in the order table. Which of the following attacks BEST describes this?",
+      "choices": [
+        { "id": "a", "text": "Buffer overflow" },
+        { "id": "b", "text": "Race condition" },
+        { "id": "c", "text": "SQL injection" },
+        { "id": "d", "text": "Cross-site scripting" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.3", "2.3.c"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Web Application Attacks",
+        "quote": "",
+        "find": "logical statement 1=1 is always true"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A82" }
+    },
+    {
+      "id": "s-u08-q023",
+      "stem": "An IPS recorded the alert shown in the exhibit. Based on the output shown, which of the following attacks BEST describes this traffic?",
+      "exhibit": { "type": "text", "text": "IPS alert: web-app-attack\nSrc: 172.16.8.14\nDst: 10.20.5.31:80\nURL parameter:\nuser=' or 3=3#\nQuery run:\nSELECT * FROM members\nWHERE name='' or 3=3#" },
+      "choices": [
+        { "id": "a", "text": "Cross-site scripting" },
+        { "id": "b", "text": "Buffer overflow" },
+        { "id": "c", "text": "Malicious update" },
+        { "id": "d", "text": "SQL injection" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.3", "2.3.c"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Web Application Attacks",
+        "quote": "",
+        "find": "adding code to some input"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C25" }
+    },
+    {
+      "id": "s-u08-q024",
+      "stem": "A company is moving its customer portal to a cloud platform, and an analyst ranks the risks. Which of the following creates the HIGHEST risk that outsiders will read the customer data?",
+      "choices": [
+        { "id": "a", "text": "Storage access controls set up incorrectly" },
+        { "id": "b", "text": "Instances larger than the workload needs" },
+        { "id": "c", "text": "Application logs kept for a short time" },
+        { "id": "d", "text": "Session timeouts of 30 minutes, not 15" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.3", "2.3.f"],
+      "units": ["8.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.4",
+        "title": "Cloud-based Application Attacks",
+        "quote": "",
+        "find": "gain unauthorized access to sensitive data"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q8" }
+    },
+    {
+      "id": "s-u08-q025",
+      "stem": "A development team adds dependency analysis and SBOM tools to its build process. Which of the following will these tools BEST help the team do?",
+      "choices": [
+        { "id": "a", "text": "Identify outdated or vulnerable third-party libraries" },
+        { "id": "b", "text": "Measure how quickly the application runs under load" },
+        { "id": "c", "text": "List every component and dependency the software includes" },
+        { "id": "d", "text": "Find coding errors in the team's own source code" },
+        { "id": "e", "text": "Test the application with simulated attacks" }
+      ],
+      "answer": ["a", "c"],
+      "objectives": ["2.3", "2.3.g"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Supply Chain",
+        "quote": "",
+        "find": "detecting outdated or vulnerable components"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q15" }
+    },
+    {
+      "id": "s-u08-q026",
+      "stem": "A security analyst runs a vulnerability scan against the company's file servers. Which of the following would be a typical result in the scan report?",
+      "choices": [
+        { "id": "a", "text": "The source code of each installed application" },
+        { "id": "b", "text": "The passwords stored on each scanned host" },
+        { "id": "c", "text": "A recording of traffic between the hosts" },
+        { "id": "d", "text": "A list of security updates each host still needs" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "Vulnerability Scanning",
+        "quote": "",
+        "find": "patches, deviations from baseline configuration"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B74" }
+    },
+    {
+      "id": "s-u08-q027",
+      "stem": "A security analyst must find misconfigured applications and weak security settings on internal servers, and the scanner will be given a user account with login rights. Which of the following scans BEST fits this need?",
+      "choices": [
+        { "id": "a", "text": "A non-credentialed scan" },
+        { "id": "b", "text": "A credentialed scan" },
+        { "id": "c", "text": "A dynamic application scan" },
+        { "id": "d", "text": "A package monitoring scan" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "Vulnerability Scanning",
+        "quote": "",
+        "find": "more in-depth analysis, especially in detecting"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q17" }
+    },
+    {
+      "id": "s-u08-q028",
+      "stem": "A development team wants to check a new web application for flaws such as SQL injection using both static analysis and dynamic analysis. Which of the following activities would the team perform?",
+      "choices": [
+        { "id": "a", "text": "Tracking third-party libraries against the NVD" },
+        { "id": "b", "text": "Scanning perimeter routers for open ports" },
+        { "id": "c", "text": "Reviewing the source code without running the program" },
+        { "id": "d", "text": "Testing the application while it is running" },
+        { "id": "e", "text": "Comparing server settings to baseline templates" }
+      ],
+      "answer": ["c", "d"],
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "Vulnerability Scanning",
+        "quote": "",
+        "find": "application code without executing it"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q11" }
+    },
+    {
+      "id": "s-u08-q029",
+      "stem": "A researcher prepares for a security assessment by reading blogs, forums, and social media posts about newly discovered flaws in the target's software. Which of the following BEST describes this practice?",
+      "choices": [
+        { "id": "a", "text": "A partially known environment" },
+        { "id": "b", "text": "Active reconnaissance" },
+        { "id": "c", "text": "A proprietary threat feed" },
+        { "id": "d", "text": "OSINT" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.2",
+        "title": "Threat Feeds",
+        "quote": "",
+        "find": "describes collecting and analyzing publicly available"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B9" }
+    },
+    {
+      "id": "s-u08-q030",
+      "stem": "A company is about to put a new application server into production, and the security director wants to know whether an attacker could actually break into it. Which of the following would BEST answer that question?",
+      "choices": [
+        { "id": "a", "text": "A network vulnerability scan" },
+        { "id": "b", "text": "A package monitoring review" },
+        { "id": "c", "text": "A penetration test" },
+        { "id": "d", "text": "A threat feed subscription" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.4",
+        "title": "Other Vulnerability Assessment Methods",
+        "quote": "",
+        "find": "tests actively seek exploitable vulnerabilities, providing"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A90" }
+    },
+    {
+      "id": "s-u08-q031",
+      "stem": "A company wants a tester to act like a privileged insider, so it gives the tester complete information about its network. Which of the following types of tests is this?",
+      "choices": [
+        { "id": "a", "text": "A known environment test" },
+        { "id": "b", "text": "A partially known environment test" },
+        { "id": "c", "text": "An unknown environment test" },
+        { "id": "d", "text": "A bug bounty program" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.d"],
+      "units": ["8.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.4",
+        "title": "Other Vulnerability Assessment Methods",
+        "quote": "",
+        "find": "Known environment (previously known as"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B15" }
+    },
+    {
+      "id": "s-u08-q032",
+      "stem": "An auditor is asked to look past one product's code and review how the company's products are used, including suppliers, configuration, support, and monitoring. Which of the following audits BEST fits this request?",
+      "choices": [
+        { "id": "a", "text": "System/process audit" },
+        { "id": "b", "text": "Product audit" },
+        { "id": "c", "text": "Compliance audit" },
+        { "id": "d", "text": "Risk-based audit" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.4",
+        "title": "Other Vulnerability Assessment Methods",
+        "quote": "",
+        "find": "use and deployment of products, including"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 8.0 Q78" }
+    },
+    {
+      "id": "s-u08-q033",
+      "stem": "A vulnerability scan of a mail gateway lists flaws in a database engine, but the administrator confirmed that no database software is installed. Which of the following is the BEST way to handle this report?",
+      "choices": [
+        { "id": "a", "text": "Place the gateway in a protected network segment" },
+        { "id": "b", "text": "Install the database engine so it can be patched" },
+        { "id": "c", "text": "Rebuild the gateway from a clean image" },
+        { "id": "d", "text": "Dismiss the findings after researching them" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.2",
+        "title": "False Positives, False Negatives, and Log Review",
+        "quote": "",
+        "find": "false positive refers to an instance"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C13" }
+    },
+    {
+      "id": "s-u08-q034",
+      "stem": "A security engineer's monthly scan lists no findings for the web servers, but a vendor advisory published yesterday describes a serious flaw in that software, and no server has been updated. Which of the following BEST describes the scan result?",
+      "choices": [
+        { "id": "a", "text": "Zero-day vulnerability" },
+        { "id": "b", "text": "False positive" },
+        { "id": "c", "text": "False negative" },
+        { "id": "d", "text": "Compensating control" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.2",
+        "title": "False Positives, False Negatives, and Log Review",
+        "quote": "",
+        "find": "risk of false negatives, or potential"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A31" }
+    },
+    {
+      "id": "s-u08-q035",
+      "stem": "A security team sorts its scan findings into groups by the type of system affected, the nature of the flaw, and the potential impact. Which of the following terms BEST describes this activity?",
+      "choices": [
+        { "id": "a", "text": "Environmental variables" },
+        { "id": "b", "text": "Risk tolerance" },
+        { "id": "c", "text": "Exposure factor" },
+        { "id": "d", "text": "Vulnerability classification" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Vulnerability Analysis",
+        "quote": "",
+        "find": "aids in vulnerability classification, categorizing vulnerabilities"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Blooket 8.0 Q168" }
+    },
+    {
+      "id": "s-u08-q036",
+      "stem": "An assessment finds a critical vulnerability on a file server that is open to every device on the company network. Which of the following changes would MOST reduce the chance that the flaw is exploited?",
+      "choices": [
+        { "id": "a", "text": "Restricting which hosts can reach the server" },
+        { "id": "b", "text": "Scanning the server more often" },
+        { "id": "c", "text": "Subscribing to another threat feed" },
+        { "id": "d", "text": "Adding the server to an asset list" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Vulnerability Analysis",
+        "quote": "",
+        "find": "the accessibility of a vulnerable system"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q25" }
+    },
+    {
+      "id": "s-u08-q037",
+      "stem": "A risk manager needs to estimate how much value the company would lose if a vulnerability in its billing system were exploited. Which of the following would the manager use?",
+      "choices": [
+        { "id": "a", "text": "Risk tolerance" },
+        { "id": "b", "text": "Vulnerability classification" },
+        { "id": "c", "text": "Exposure factor" },
+        { "id": "d", "text": "Environmental variables" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Vulnerability Analysis",
+        "quote": "",
+        "find": "assess the potential impact or loss"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B45" }
+    },
+    {
+      "id": "s-u08-q038",
+      "stem": "A bank learns that attacks on banks are rising across its industry, and regulators fine banks that lose customer data. How should the bank adjust its vulnerability analysis?",
+      "choices": [
+        { "id": "a", "text": "Prioritize flaws that could lead to customer data breaches and fines" },
+        { "id": "b", "text": "Lower how often the analysis is performed" },
+        { "id": "c", "text": "Keep the current priorities until the next annual review" },
+        { "id": "d", "text": "Rank findings by the age of the affected software" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Vulnerability Analysis",
+        "quote": "",
+        "find": "ransomware attacks are rising within the"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q18" }
+    },
+    {
+      "id": "s-u08-q039",
+      "stem": "A small family-owned shop will leave a low-severity flaw unpatched for a month, but a hospital system never would. Which of the following concepts BEST describes this difference?",
+      "choices": [
+        { "id": "a", "text": "Exposure factor" },
+        { "id": "b", "text": "Risk tolerance" },
+        { "id": "c", "text": "Vulnerability classification" },
+        { "id": "d", "text": "False positive" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Vulnerability Analysis",
+        "quote": "",
+        "find": "risk an organization is willing to"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 8.0 Q98" }
+    },
+    {
+      "id": "s-u08-q040",
+      "stem": "Attackers stole customer records through a retailer's web application framework, which had been missing an available update for two months. Which of the following would have prevented this breach?",
+      "choices": [
+        { "id": "a", "text": "Cybersecurity insurance" },
+        { "id": "b", "text": "Patch management" },
+        { "id": "c", "text": "Network segmentation" },
+        { "id": "d", "text": "Full disk encryption" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.3", "4.3.c"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Vulnerability Response and Remediation",
+        "quote": "",
+        "find": "centralized patch management processes are essential"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C68" }
+    },
+    {
+      "id": "s-u08-q041",
+      "stem": "After a breach, company leaders want money to cover response costs, business interruption, and ransom demands. Which of the following remediation practices provides this, even though it does nothing to fix the flaw itself?",
+      "choices": [
+        { "id": "a", "text": "Patching" },
+        { "id": "b", "text": "Segmentation" },
+        { "id": "c", "text": "Compensating controls" },
+        { "id": "d", "text": "Cybersecurity insurance" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.3", "4.3.c"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Vulnerability Response and Remediation",
+        "quote": "",
+        "find": "insurance can provide financial protection in"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 8.0 Q106" }
+    },
+    {
+      "id": "s-u08-q042",
+      "stem": "A scan finds two database servers that are missing a critical patch, and testing the patch will take ten days. Which of the following would BEST reduce the risk in the meantime?",
+      "choices": [
+        { "id": "a", "text": "Move the servers behind a restricted network boundary" },
+        { "id": "b", "text": "Buy a cybersecurity insurance policy" },
+        { "id": "c", "text": "Approve an exemption for every database in the company" },
+        { "id": "d", "text": "Re-scan the servers each night until they are patched" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.3", "4.3.c"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Vulnerability Response and Remediation",
+        "quote": "",
+        "find": "dividing a network into separate segments"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A25" }
+    },
+    {
+      "id": "s-u08-q043",
+      "stem": "A vendor will not fix a flaw in a hospital's imaging system for six months, so the security team adds stricter log alerts and a smart card plus PIN to sign in. Which of the following BEST describes these measures?",
+      "choices": [
+        { "id": "a", "text": "Exceptions" },
+        { "id": "b", "text": "Verification checks" },
+        { "id": "c", "text": "Compensating controls" },
+        { "id": "d", "text": "Cybersecurity insurance" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.3", "4.3.c"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Vulnerability Response and Remediation",
+        "quote": "",
+        "find": "Compensating controls refer to measures put"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 8.0 Q100" }
+    },
+    {
+      "id": "s-u08-q044",
+      "stem": "Fixing a flaw in a critical lab machine would cost more than the machine is worth, so senior leadership accepts the risk, writes down why, and sets a date to review it. Which of the following is this?",
+      "choices": [
+        { "id": "a", "text": "A compensating control" },
+        { "id": "b", "text": "An exception or exemption" },
+        { "id": "c", "text": "A false negative" },
+        { "id": "d", "text": "A validation re-scan" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.3", "4.3.c"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Vulnerability Response and Remediation",
+        "quote": "",
+        "find": "Exceptions and exemptions describe scenarios where"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 8.0 Q101" }
+    }
+  ]
+}

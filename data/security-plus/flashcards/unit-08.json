@@ -1,0 +1,518 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-08", "title": "Unit 8.0 Explain Vulnerability Management", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet." },
+  "flashcards": [
+    {
+      "id": "s-u08-f001",
+      "term": "Application vulnerabilities",
+      "definition": "Flaws in one program's own code, logic, data handling, or login checks that an attacker can exploit.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["8.2.2"],
+      "reference": { "source": "certmaster", "section": "8.2.2", "title": "Evaluation Scope" }
+    },
+    {
+      "id": "s-u08-f002",
+      "term": "Memory injection",
+      "definition": "A flaw that lets an attacker put malicious code into a running program's memory, where it runs with that program's privileges, not automatically as an administrator.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Application Vulnerabilities" }
+    },
+    {
+      "id": "s-u08-f003",
+      "term": "Buffer overflow",
+      "definition": "An attack that passes more data than a reserved area of memory can hold, so the extra data spills over and lets the attacker run code.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Application Vulnerabilities" }
+    },
+    {
+      "id": "s-u08-f004",
+      "term": "Race conditions",
+      "definition": "A flaw where operations must run in the right order but the software does not enforce it, so an attacker can manipulate the timing. It is about timing, not too much data, and atomic operations help prevent it.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Application Vulnerabilities" }
+    },
+    {
+      "id": "s-u08-f005",
+      "term": "Time-of-check (TOC)",
+      "definition": "The moment a system checks a condition, such as an account balance, before it acts. The attacker's change has to land after this moment.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Application Vulnerabilities" }
+    },
+    {
+      "id": "s-u08-f006",
+      "term": "Time-of-use (TOU)",
+      "definition": "The moment a system acts on a condition it checked earlier, such as paying out money. If the state changed since the check, the action relies on outdated information.",
+      "objectives": ["2.3", "2.3.a"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Application Vulnerabilities" }
+    },
+    {
+      "id": "s-u08-f007",
+      "term": "Operating system (OS)-based vulnerabilities",
+      "definition": "Flaws in the core software that runs a computer or phone, such as Windows, macOS, Linux, Android, or iOS.",
+      "objectives": ["2.3", "2.3.b"],
+      "units": ["8.1.1"],
+      "reference": { "source": "certmaster", "section": "8.1.1", "title": "Operating System Vulnerabilities" }
+    },
+    {
+      "id": "s-u08-f008",
+      "term": "Web-based vulnerabilities",
+      "definition": "Flaws in applications that anyone on the Internet can reach, so attackers can exploit them remotely. They often come from poor input validation, which leads to SQL injection and cross-site scripting, or from misconfigured settings and outdated software.",
+      "objectives": ["2.3", "2.3.c"],
+      "units": ["8.2.3"],
+      "reference": { "source": "certmaster", "section": "8.2.3", "title": "Web Application Attacks" }
+    },
+    {
+      "id": "s-u08-f009",
+      "term": "Structured Query Language injection (SQLi)",
+      "definition": "An attack that adds the attacker's own commands to input a form accepts, so the app runs them against its database, such as ' or 1=1# to dump every user record. It abuses how queries are processed, not memory.",
+      "objectives": ["2.3", "2.3.c"],
+      "units": ["8.2.3"],
+      "reference": { "source": "certmaster", "section": "8.2.3", "title": "Web Application Attacks" }
+    },
+    {
+      "id": "s-u08-f010",
+      "term": "Cross-site scripting (XSS)",
+      "definition": "An attack that places a malicious script on a page that appears to come from a trusted site, so it runs in the victim's browser with that site's permissions.",
+      "objectives": ["2.3", "2.3.c"],
+      "units": ["8.2.3"],
+      "reference": { "source": "certmaster", "section": "8.2.3", "title": "Web Application Attacks" }
+    },
+    {
+      "id": "s-u08-f011",
+      "term": "Hardware vulnerabilities",
+      "definition": "Weaknesses in physical devices and components, such as peripherals, networking gear, and IoT devices, especially old or secondhand ones, where patches or fixes are unavailable or hard to apply.",
+      "objectives": ["2.3", "2.3.d"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Vulnerability Types" }
+    },
+    {
+      "id": "s-u08-f012",
+      "term": "Firmware vulnerabilities",
+      "definition": "Flaws in the foundational software that controls a device's hardware. They can survive a drive replacement or an OS reinstall.",
+      "objectives": ["2.3", "2.3.d"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Vulnerability Types" }
+    },
+    {
+      "id": "s-u08-f013",
+      "term": "End-of-life (EOL) systems",
+      "definition": "Products or versions the vendor has publicly declared no longer supported, so they get no updates or security patches.",
+      "objectives": ["2.3", "2.3.d"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Vulnerability Types" }
+    },
+    {
+      "id": "s-u08-f014",
+      "term": "Legacy systems",
+      "definition": "Outdated technology kept in use because replacing it is costly or risky, and often incompatible with newer systems. The vendor may still support it.",
+      "objectives": ["2.3", "2.3.d"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Vulnerability Types" }
+    },
+    {
+      "id": "s-u08-f015",
+      "term": "Virtualization vulnerabilities",
+      "definition": "Flaws that come from running several virtual machines on one physical host, such as breaking out of isolation, leftover data between machines, and weak hypervisor management.",
+      "objectives": ["2.3", "2.3.e"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Vulnerability Types" }
+    },
+    {
+      "id": "s-u08-f016",
+      "term": "Virtual machine (VM) escape",
+      "definition": "An attack where someone with access to one guest system breaks out of its isolation to reach the host or other guests on the same host.",
+      "objectives": ["2.3", "2.3.e"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Vulnerability Types" }
+    },
+    {
+      "id": "s-u08-f017",
+      "term": "Resource reuse",
+      "definition": "Sensitive data leaking between virtual machines because disk space or memory was not wiped before it was handed to a new one. Thorough wiping and encrypting the data reduce the risk.",
+      "objectives": ["2.3", "2.3.e"],
+      "units": ["8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.2", "title": "Vulnerability Types" }
+    },
+    {
+      "id": "s-u08-f018",
+      "term": "Cloud-specific vulnerabilities",
+      "definition": "Weaknesses that come from apps running on a provider's shared online platform, such as misconfigured storage buckets, confusion over who is responsible for what, side-channel attacks, and cryptojacking.",
+      "objectives": ["2.3", "2.3.f"],
+      "units": ["8.2.4"],
+      "reference": { "source": "certmaster", "section": "8.2.4", "title": "Cloud-based Application Attacks" }
+    },
+    {
+      "id": "s-u08-f019",
+      "term": "Supply chain vulnerabilities",
+      "definition": "Weaknesses introduced at any stage from coding to deployment by the outside providers a product depends on, whether they supply services, devices, or software components.",
+      "objectives": ["2.3", "2.3.g"],
+      "units": ["8.2.5"],
+      "reference": { "source": "certmaster", "section": "8.2.5", "title": "Supply Chain" }
+    },
+    {
+      "id": "s-u08-f020",
+      "term": "Hardware provider (hardware supplier)",
+      "definition": "The kind of outside provider that makes the physical devices software runs on. Risks are preinstalled firmware with known flaws, physical tampering, and outdated drivers, and for IoT it may supply the whole software stack.",
+      "objectives": ["2.3", "2.3.g"],
+      "units": ["8.2.5"],
+      "reference": { "source": "certmaster", "section": "8.2.5", "title": "Supply Chain" }
+    },
+    {
+      "id": "s-u08-f021",
+      "term": "Software provider",
+      "definition": "The kind of outside provider that makes the libraries, frameworks, and other third-party components built into a product. If those parts are vulnerable or outdated, the whole product is exposed.",
+      "objectives": ["2.3", "2.3.g"],
+      "units": ["8.2.5"],
+      "reference": { "source": "certmaster", "section": "8.2.5", "title": "Supply Chain" }
+    },
+    {
+      "id": "s-u08-f022",
+      "term": "Cryptographic vulnerabilities",
+      "definition": "Weaknesses in the algorithms, protocols, or key protection that secure data, such as weak keys, outdated hash functions open to collisions, or flawed cipher suites.",
+      "objectives": ["2.3", "2.3.h"],
+      "units": ["8.1.5"],
+      "reference": { "source": "certmaster", "section": "8.1.5", "title": "Cryptographic Vulnerabilities" }
+    },
+    {
+      "id": "s-u08-f023",
+      "term": "Misconfiguration",
+      "definition": "A setting error that leaves a system open, such as unchanged default credentials, unneeded services left on, or security turned off during troubleshooting and never turned back on. The fix is correct settings, not a patch.",
+      "objectives": ["2.3", "2.3.i"],
+      "units": ["8.1.4"],
+      "reference": { "source": "certmaster", "section": "8.1.4", "title": "Misconfiguration Vulnerabilities" }
+    },
+    {
+      "id": "s-u08-f024",
+      "term": "Mobile device vulnerabilities",
+      "definition": "Flaws in phones and tablets, including rooting, jailbreaking, sideloading, apps with excessive permissions, and loss or theft that exposes unencrypted data.",
+      "objectives": ["2.3", "2.3.j"],
+      "units": ["8.1.6"],
+      "reference": { "source": "certmaster", "section": "8.1.6", "title": "Sideloading, Rooting, and Jailbreaking" }
+    },
+    {
+      "id": "s-u08-f025",
+      "term": "Side loading",
+      "definition": "Installing apps from somewhere other than the platform's official app store. Those apps skip the store's vetting, and it is not the same as gaining elevated privileges.",
+      "objectives": ["2.3", "2.3.j"],
+      "units": ["8.1.6"],
+      "reference": { "source": "certmaster", "section": "8.1.6", "title": "Sideloading, Rooting, and Jailbreaking" }
+    },
+    {
+      "id": "s-u08-f026",
+      "term": "Jailbreaking",
+      "definition": "Removing the limits Apple puts on an iPhone or iPad to gain full access to system files and install unauthorized apps. The Android counterpart is rooting.",
+      "objectives": ["2.3", "2.3.j"],
+      "units": ["8.1.6"],
+      "reference": { "source": "certmaster", "section": "8.1.6", "title": "Sideloading, Rooting, and Jailbreaking" }
+    },
+    {
+      "id": "s-u08-f027",
+      "term": "Zero-day",
+      "definition": "A previously unknown flaw that attackers can exploit before the vendor knows about it or has a patch, so tools that rely on known signatures, like antivirus and firewalls, often miss it.",
+      "objectives": ["2.3", "2.3.k"],
+      "units": ["8.1.3"],
+      "reference": { "source": "certmaster", "section": "8.1.3", "title": "Zero-Day Vulnerabilities" }
+    },
+    {
+      "id": "s-u08-f028",
+      "term": "Vulnerability management",
+      "definition": "The ongoing process of identifying, classifying, remediating, and mitigating weaknesses in a system or network.",
+      "objectives": ["4.3"],
+      "units": ["8.3.1"],
+      "reference": { "source": "certmaster", "section": "8.3.1", "title": "Vulnerability Scanning" }
+    },
+    {
+      "id": "s-u08-f029",
+      "term": "Vulnerability scan",
+      "definition": "A systematic probe of hosts and devices with a tool, compared against a feed of known flaws. It reports missing patches and baseline deviations but does not exploit anything.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.1"],
+      "reference": { "source": "certmaster", "section": "8.3.1", "title": "Vulnerability Scanning" }
+    },
+    {
+      "id": "s-u08-f030",
+      "term": "Application security (application vulnerability scanning)",
+      "definition": "Specialized checking of individual software programs for flaws such as unvalidated input, broken access controls, and injection, usually handled apart from general network-wide scanning. It covers static analysis, dynamic analysis, and package monitoring.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.1"],
+      "reference": { "source": "certmaster", "section": "8.3.1", "title": "Vulnerability Scanning" }
+    },
+    {
+      "id": "s-u08-f031",
+      "term": "Static analysis (source code analysis)",
+      "definition": "Reviewing a program's code without running it to find flaws, such as input validation errors.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.1"],
+      "reference": { "source": "certmaster", "section": "8.3.1", "title": "Vulnerability Scanning" }
+    },
+    {
+      "id": "s-u08-f032",
+      "term": "Dynamic analysis",
+      "definition": "Testing a program while it is running to find issues such as unvalidated inputs, broken access controls, and injection flaws.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.1"],
+      "reference": { "source": "certmaster", "section": "8.3.1", "title": "Vulnerability Scanning" }
+    },
+    {
+      "id": "s-u08-f033",
+      "term": "Package monitoring",
+      "definition": "Tracking the third-party libraries and dependencies a program uses and comparing them with vulnerability databases and vendor advisories to catch outdated or known-vulnerable versions.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.1"],
+      "reference": { "source": "certmaster", "section": "8.3.1", "title": "Vulnerability Scanning" }
+    },
+    {
+      "id": "s-u08-f034",
+      "term": "Threat feed",
+      "definition": "A real-time, continuously updated stream of data on new vulnerabilities, exploits, and threat actors, gathered from many sources, that helps decide which flaws to fix first.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.2"],
+      "reference": { "source": "certmaster", "section": "8.3.2", "title": "Threat Feeds" }
+    },
+    {
+      "id": "s-u08-f035",
+      "term": "Open-source intelligence (OSINT)",
+      "definition": "Collecting and analyzing publicly available information, such as blogs, forums, and social media posts, to find threats and vulnerabilities and support decisions.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.2"],
+      "reference": { "source": "certmaster", "section": "8.3.2", "title": "Threat Feeds" }
+    },
+    {
+      "id": "s-u08-f036",
+      "term": "Proprietary/third-party threat feed",
+      "definition": "A paid subscription to a commercial threat intelligence platform, with deeper analysis and the most valuable research released to subscribers first.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.2"],
+      "reference": { "source": "certmaster", "section": "8.3.2", "title": "Threat Feeds" }
+    },
+    {
+      "id": "s-u08-f037",
+      "term": "Information-sharing organization",
+      "definition": "A collaborative group of businesses, governments, and schools whose members exchange data on emerging threats. Some serve particular industries.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.2"],
+      "reference": { "source": "certmaster", "section": "8.3.2", "title": "Threat Feeds" }
+    },
+    {
+      "id": "s-u08-f038",
+      "term": "Dark web",
+      "definition": "Sites, content, and services reachable only over an anonymizing overlay network, not just pages a search engine has not indexed. Investigators watch its forums and markets for stolen data and hacking tools.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.3"],
+      "reference": { "source": "certmaster", "section": "8.3.3", "title": "Deep and Dark Web" }
+    },
+    {
+      "id": "s-u08-f039",
+      "term": "Penetration testing (pen testing)",
+      "definition": "Authorized ethical hackers actively exploit weaknesses to show their real impact, finding chained flaws and design problems that automated scans miss. A scanner finds; this exploits.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.4"],
+      "reference": { "source": "certmaster", "section": "8.3.4", "title": "Other Vulnerability Assessment Methods" }
+    },
+    {
+      "id": "s-u08-f040",
+      "term": "Responsible disclosure program",
+      "definition": "An organization's guidelines for reporting security flaws privately so they can be fixed before anyone exploits them, often with recognition or rewards for verified reports.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.4"],
+      "reference": { "source": "certmaster", "section": "8.3.4", "title": "Other Vulnerability Assessment Methods" }
+    },
+    {
+      "id": "s-u08-f041",
+      "term": "Bug bounty program",
+      "definition": "A program that pays rewards to a global community of independent researchers for flaws they find and report. Unlike a hired testing team, there is no fixed team, time frame, or cost.",
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.4"],
+      "reference": { "source": "certmaster", "section": "8.3.4", "title": "Other Vulnerability Assessment Methods" }
+    },
+    {
+      "id": "s-u08-f042",
+      "term": "Analysis (vulnerability analysis)",
+      "definition": "The step that interprets scan findings by weighing ranking, sorting, exposure, organizational effect, and risk tolerance to decide what matters most.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": { "source": "certmaster", "section": "8.4.3", "title": "Vulnerability Analysis" }
+    },
+    {
+      "id": "s-u08-f043",
+      "term": "Confirmation",
+      "definition": "Showing that a scanner's finding is genuine by comparing it with other data, such as event logs showing a process failing repeatedly. It happens before any fix.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.2"],
+      "reference": { "source": "certmaster", "section": "8.4.2", "title": "False Positives, False Negatives, and Log Review" }
+    },
+    {
+      "id": "s-u08-f044",
+      "term": "False positive",
+      "definition": "A scan result that reports a weakness that is not actually there, wasting time on research. Too many lead people to ignore scans, and intrusive scans reduce them.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.2"],
+      "reference": { "source": "certmaster", "section": "8.4.2", "title": "False Positives, False Negatives, and Log Review" }
+    },
+    {
+      "id": "s-u08-f045",
+      "term": "False negative",
+      "definition": "A real weakness the scan failed to detect, giving a false sense of security. Repeat scans and scanners from different vendors help catch them.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.2"],
+      "reference": { "source": "certmaster", "section": "8.4.2", "title": "False Positives, False Negatives, and Log Review" }
+    },
+    {
+      "id": "s-u08-f046",
+      "term": "Prioritize",
+      "definition": "Ranking flaws for fixing by severity, ease of exploitation, and potential impact, so limited resources go to the biggest threats first.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": { "source": "certmaster", "section": "8.4.3", "title": "Vulnerability Analysis" }
+    },
+    {
+      "id": "s-u08-f047",
+      "term": "Common Vulnerability Scoring System (CVSS)",
+      "definition": "A standard method that rates how severe a flaw is with a numeric score, so teams can compare flaws and rank them.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.1"],
+      "reference": { "source": "certmaster", "section": "8.4.1", "title": "Common Vulnerabilities and Exposures" }
+    },
+    {
+      "id": "s-u08-f048",
+      "term": "Common Vulnerability Enumeration (CVE) (Common Vulnerabilities and Exposures)",
+      "definition": "A dictionary of publicly known flaws in published operating systems and applications. Each entry has a unique ID, a short description, and reference URLs. It names a flaw but does not score it.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.1"],
+      "reference": { "source": "certmaster", "section": "8.4.1", "title": "Common Vulnerabilities and Exposures" }
+    },
+    {
+      "id": "s-u08-f049",
+      "term": "Vulnerability classification",
+      "definition": "Sorting flaws into categories by traits such as the type of system or application affected, the nature of the flaw, or the potential impact, to clarify the scope of the organization's threats.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": { "source": "certmaster", "section": "8.4.3", "title": "Vulnerability Analysis" }
+    },
+    {
+      "id": "s-u08-f050",
+      "term": "Exposure factor (EF)",
+      "definition": "The extent to which an asset is susceptible to being compromised by a specific flaw, shaped by things like weak authentication or inadequate access control. It helps judge the potential loss.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": { "source": "certmaster", "section": "8.4.3", "title": "Vulnerability Analysis" }
+    },
+    {
+      "id": "s-u08-f051",
+      "term": "Environmental variables",
+      "definition": "Conditions in and around the organization that change how likely a flaw is to be exploited or how bad it would be: its IT infrastructure, the external threat landscape, the regulatory and compliance setting, and its day-to-day operations.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": { "source": "certmaster", "section": "8.4.3", "title": "Vulnerability Analysis" }
+    },
+    {
+      "id": "s-u08-f052",
+      "term": "Industry/organizational impact",
+      "definition": "The effect a flaw could have on the organization if exploited, such as financial loss, reputational damage, operational disruption, or regulatory penalties. Understanding it helps decide how to reduce the risk.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": { "source": "certmaster", "section": "8.4.3", "title": "Vulnerability Analysis" }
+    },
+    {
+      "id": "s-u08-f053",
+      "term": "Risk tolerance",
+      "definition": "How much potential harm an organization is willing to accept, which varies with its size, industry, regulations, and strategic goals, and keeps its fixing efforts in line with its overall strategy.",
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.3"],
+      "reference": { "source": "certmaster", "section": "8.4.3", "title": "Vulnerability Analysis" }
+    },
+    {
+      "id": "s-u08-f054",
+      "term": "Vulnerability response and remediation",
+      "definition": "The group of practices for handling a flaw once it is found: updating, buying coverage, dividing the network, adding other safeguards, and formally accepting what cannot be fixed.",
+      "objectives": ["4.3", "4.3.c"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
+    },
+    {
+      "id": "s-u08-f055",
+      "term": "Patching",
+      "definition": "Applying updates to software or systems to fix known flaws, managed centrally so it happens promptly and consistently. It is one of the most straightforward and effective fixes.",
+      "objectives": ["4.3", "4.3.c"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
+    },
+    {
+      "id": "s-u08-f056",
+      "term": "Insurance (cybersecurity insurance)",
+      "definition": "A purchased policy that moves the financial cost of a breach to another company, covering things like breach response, business interruption, and ransomware. It does not fix the flaw itself.",
+      "objectives": ["4.3", "4.3.c"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
+    },
+    {
+      "id": "s-u08-f057",
+      "term": "Segmentation",
+      "definition": "Dividing a network into separate parts so an attacker who gets into one is confined to it and cannot move laterally. It contains the damage but leaves the flaw in place.",
+      "objectives": ["4.3", "4.3.c"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
+    },
+    {
+      "id": "s-u08-f058",
+      "term": "Compensating controls",
+      "definition": "Measures that lower the danger of a flaw in another way when it cannot be removed right away, such as extra monitoring, secondary authentication, or stronger encryption.",
+      "objectives": ["4.3", "4.3.c"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
+    },
+    {
+      "id": "s-u08-f059",
+      "term": "Exceptions and exemptions",
+      "definition": "Cases where a flaw is left unfixed because of business needs, technical limits, or cost. Senior leadership accepts the risk, documents why, and sets a date to reassess.",
+      "objectives": ["4.3", "4.3.c"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
+    },
+    {
+      "id": "s-u08-f060",
+      "term": "Validation of remediation",
+      "definition": "The overall step that makes sure a fix was applied correctly, works as intended, and caused no new problems, and gives accountability. Its methods include repeating the scan, an examination of the process, and checking results.",
+      "objectives": ["4.3", "4.3.d"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
+    },
+    {
+      "id": "s-u08-f061",
+      "term": "Rescanning",
+      "definition": "Repeating the detection tool run after a fix to see whether the earlier findings still show up. If they do not, the fix probably worked.",
+      "objectives": ["4.3", "4.3.d"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
+    },
+    {
+      "id": "s-u08-f062",
+      "term": "Audit",
+      "definition": "An in-depth examination of the fix process that reviews the steps taken against policy and best practice and checks that records of findings, actions, and exceptions are updated. It reviews steps and records, not the system itself.",
+      "objectives": ["4.3", "4.3.d"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
+    },
+    {
+      "id": "s-u08-f063",
+      "term": "Verification",
+      "definition": "Checking the results of a completed fix with manual checks, automated tests, or a review of system logs or other records, to show it works and added no new problems.",
+      "objectives": ["4.3", "4.3.d"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
+    },
+    {
+      "id": "s-u08-f064",
+      "term": "Reporting (vulnerability reporting)",
+      "definition": "Producing a document that ranks flaws by severity and impact, describes the possible outcomes, recommends fixes, uses clear wording for technical and nontechnical readers, and arrives on time.",
+      "objectives": ["4.3", "4.3.e"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
+    }
+  ]
+}
