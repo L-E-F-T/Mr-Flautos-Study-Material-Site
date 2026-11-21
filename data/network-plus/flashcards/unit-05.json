@@ -239,7 +239,7 @@
       "term": "802.1Q tagging",
       "definition": "The IEEE standard that inserts a VLAN ID tag into each Ethernet frame sent over a trunk, so the receiving switch can forward it to the right VLAN.",
       "objectives": ["2.2", "2.2.b"],
-      "units": ["5.6.3"],
+      "units": ["5.6.3", "3.4.4"],
       "reference": { "source": "certmaster", "section": "5.6.3", "title": "Trunking and IEEE 802.1Q" }
     },
     {
@@ -247,7 +247,7 @@
       "term": "MTU (maximum transmission unit)",
       "definition": "The largest IP datagram one Data Link frame can carry; usually 1,500 bytes on Ethernet.",
       "objectives": ["2.2", "2.2.d"],
-      "units": ["5.1.5"],
+      "units": ["5.1.5", "3.3.2"],
       "reference": { "source": "certmaster", "section": "5.1.5", "title": "Fragmentation" }
     },
     {

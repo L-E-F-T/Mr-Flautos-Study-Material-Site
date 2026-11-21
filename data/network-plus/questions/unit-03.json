@@ -1,0 +1,1231 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-03", "title": "Unit 3.0 Configuring Interfaces and Switches", "reviewed": false },
+  "questions": [
+    {
+      "id": "n-u03-q001",
+      "stem": "A network engineer needs a 40 GbE uplink between two core switches, with one modular transceiver at each end. Which of the following transceiver form factors BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "SFP" },
+        { "id": "b", "text": "SFP+" },
+        { "id": "c", "text": "QSFP" },
+        { "id": "d", "text": "QSFP+" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.5", "1.5.c"],
+      "units": ["3.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.2",
+        "title": "Modular Transceivers",
+        "quote": "",
+        "find": "support 40 GbE by provisioning"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q28" }
+    },
+    {
+      "id": "n-u03-q002",
+      "stem": "A technician takes a spare transceiver from the company's Fibre Channel storage area network (SAN) and installs it in an Ethernet switch, but the link does not come up. Which of the following BEST explains this?",
+      "choices": [
+        { "id": "a", "text": "The transceiver was made by a different vendor than the switch" },
+        { "id": "b", "text": "The transceiver supports a different protocol than the switch" },
+        { "id": "c", "text": "The transceiver must be installed as one of a matched pair" },
+        { "id": "d", "text": "The transceiver cannot be hot-swapped into a running switch" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.5", "1.5.c"],
+      "units": ["3.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.2",
+        "title": "Modular Transceivers",
+        "quote": "",
+        "find": "not compatible with Ethernet switches"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q22" }
+    },
+    {
+      "id": "n-u03-q003",
+      "stem": "A technician links two switches over a new single mode fiber run, using single mode transceivers and a spare patch cord from the supply closet at each end. Which of the following would BEST explain heavy signal loss on this link?",
+      "choices": [
+        { "id": "a", "text": "The transceivers came from a different vendor than the switches" },
+        { "id": "b", "text": "The patch cords have an LC connector on each end" },
+        { "id": "c", "text": "The patch cords are made for multimode fiber" },
+        { "id": "d", "text": "The transceivers use laser diodes as their light source" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.3",
+        "title": "Transceiver Mismatch Issues",
+        "quote": "",
+        "find": "also for the fiber patch cords"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q1" }
+    },
+    {
+      "id": "n-u03-q004",
+      "stem": "A designer's worksheet for a new 6 km single mode fiber run lists 2.4 dB for the cable, 1.5 dB for two connectors, and 0.6 dB for two fusion splices, for a total of 4.5 dB. Which of the following does this 4.5 dB total describe?",
+      "choices": [
+        { "id": "a", "text": "The optical link budget" },
+        { "id": "b", "text": "The power budget" },
+        { "id": "c", "text": "The margin" },
+        { "id": "d", "text": "The receiver sensitivity" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.4",
+        "title": "Transceiver Signal Strength Issues",
+        "quote": "",
+        "find": "loss suffered by all components"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q69" }
+    },
+    {
+      "id": "n-u03-q005",
+      "stem": "A designer plans a new fiber link between a hospital and its clinic next door so that the link's power budget is 6 dB higher than its loss budget. Which of the following is this 6 dB margin meant to account for?",
+      "choices": [
+        { "id": "a", "text": "The gap between the transmit power and the receiver sensitivity" },
+        { "id": "b", "text": "The loss that bends, aging, repairs, and extreme temperatures can add" },
+        { "id": "c", "text": "The loss that the cable, connectors, and splices are expected to cause" },
+        { "id": "d", "text": "The loss over the length of the cable on its own" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.4",
+        "title": "Transceiver Signal Strength Issues",
+        "quote": "",
+        "find": "safety factor to account for"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q63" }
+    },
+    {
+      "id": "n-u03-q006",
+      "stem": "A technician wants to measure how much signal a newly installed fiber link between two wiring closets loses from end to end. Which of the following tools should the technician use?",
+      "choices": [
+        { "id": "a", "text": "A visual fault locator" },
+        { "id": "b", "text": "A wire map tester" },
+        { "id": "c", "text": "An optical power meter" },
+        { "id": "d", "text": "A loopback tool" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.b"],
+      "units": ["3.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.4",
+        "title": "Transceiver Signal Strength Issues",
+        "quote": "",
+        "find": "optical source and optical power meter"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q153" }
+    },
+    {
+      "id": "n-u03-q007",
+      "stem": "A technician is labeling each switch port with the MAC address of the device plugged into it. Which of the following is written in a valid MAC address format?",
+      "choices": [
+        { "id": "a", "text": "b4:2e:99:0f:6a" },
+        { "id": "b", "text": "172.30.18.204" },
+        { "id": "c", "text": "e8-6f-3g-a1-47-c2" },
+        { "id": "d", "text": "28d2.44a7.9c0e" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.1", "1.1.b"],
+      "units": ["3.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.6",
+        "title": "Media Access Control Address Format",
+        "quote": "",
+        "find": "three groups of four hex digits"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q43" }
+    },
+    {
+      "id": "n-u03-q008",
+      "stem": "A school moves a computer lab's desktop PCs from the main building to a new building that is on its own subnet behind a different router. Which of the following BEST describes what happens to each PC's MAC address?",
+      "choices": [
+        { "id": "a", "text": "It changes, because the new router assigns a new one" },
+        { "id": "b", "text": "It stays the same, because the manufacturer burned it in" },
+        { "id": "c", "text": "It stays the same, because the IEEE assigned it to the school" },
+        { "id": "d", "text": "It changes, because it is built from the PC's IP address" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.1", "1.1.b"],
+      "units": ["3.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.6",
+        "title": "Media Access Control Address Format",
+        "quote": "",
+        "find": "This is called the burned-in"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q81" }
+    },
+    {
+      "id": "n-u03-q009",
+      "stem": "A technician sees the CRC error count rising on a switch interface. Which of the following does the CRC value in each Ethernet frame let the switch do?",
+      "choices": [
+        { "id": "a", "text": "Detect a frame that was damaged in transit" },
+        { "id": "b", "text": "Identify the protocol carried in the frame's payload" },
+        { "id": "c", "text": "Synchronize its clock with the sending host" },
+        { "id": "d", "text": "Learn which port the frame's sender is connected to" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.1.5",
+        "title": "Ethernet Frame Format",
+        "quote": "",
+        "find": "performs the same calculation and"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q21" }
+    },
+    {
+      "id": "n-u03-q010",
+      "stem": "A technician needs one device that does the same job as a bridge, but for all 48 PCs on a floor, each on a port of its own. Which of the following devices BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "A hub" },
+        { "id": "b", "text": "A switch" },
+        { "id": "c", "text": "A patch panel" },
+        { "id": "d", "text": "A router" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.3",
+        "title": "Switches",
+        "quote": "",
+        "find": "performs the same sort of function"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q69" }
+    },
+    {
+      "id": "n-u03-q011",
+      "stem": "A technician must cut down on collisions in an office network built on hubs, but a broadcast from any PC must still reach every other PC. Which of the following devices could the technician add?",
+      "choices": [
+        { "id": "a", "text": "A repeater" },
+        { "id": "b", "text": "A switch" },
+        { "id": "c", "text": "A bridge" },
+        { "id": "d", "text": "A router" },
+        { "id": "e", "text": "A hub" }
+      ],
+      "answer": ["b", "c"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.3",
+        "title": "Switches",
+        "quote": "",
+        "find": "As with a bridge, traffic on"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q80" }
+    },
+    {
+      "id": "n-u03-q012",
+      "stem": "A small office's 12 PCs share two hubs that are cabled to each other. If a technician replaces both hubs with one 12-port switch, how many collision domains will the office network have?",
+      "choices": [
+        { "id": "a", "text": "1" },
+        { "id": "b", "text": "2" },
+        { "id": "c", "text": "12" },
+        { "id": "d", "text": "24" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.3",
+        "title": "Switches",
+        "quote": "",
+        "find": "Each switch port is a separate"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q49" }
+    },
+    {
+      "id": "n-u03-q013",
+      "stem": "A PC on port 3 of a switch sends a frame to a file server, and the switch forwards the frame out of port 9 only, where the server is connected. Which of the following did the switch use to choose port 9?",
+      "choices": [
+        { "id": "a", "text": "The EtherType value" },
+        { "id": "b", "text": "The source MAC address" },
+        { "id": "c", "text": "The destination IP address" },
+        { "id": "d", "text": "The destination MAC address" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.3",
+        "title": "Switches",
+        "quote": "",
+        "find": "reads the destination MAC address"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q64" }
+    },
+    {
+      "id": "n-u03-q014",
+      "stem": "While tracing cables in an old school building, a technician finds a hub that still connects six classroom PCs. Which of the following BEST describes what the hub does with each frame it receives?",
+      "choices": [
+        { "id": "a", "text": "It floods the frame only if the destination is unknown" },
+        { "id": "b", "text": "It sends the frame out of the destination's port only" },
+        { "id": "c", "text": "It repeats the frame out of every other port" },
+        { "id": "d", "text": "It forwards the frame by its destination IP address" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.1",
+        "title": "Hubs",
+        "quote": "",
+        "find": "acts like a multiport repeater"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q85" }
+    },
+    {
+      "id": "n-u03-q015",
+      "stem": "A bridge that links two parts of an older office network loses power and restarts. Which of the following BEST describes its MAC address table once traffic flows again?",
+      "choices": [
+        { "id": "a", "text": "It still holds the entries the bridge learned before it lost power" },
+        { "id": "b", "text": "It starts empty and fills as the bridge listens to each segment" },
+        { "id": "c", "text": "It stays empty until an administrator types in each host's address" },
+        { "id": "d", "text": "It fills from replies to a request the bridge broadcasts at startup" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.2",
+        "title": "Bridges",
+        "quote": "",
+        "find": "bridge listens to the connected segments"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q111" }
+    },
+    {
+      "id": "n-u03-q016",
+      "stem": "A dental office's new five-port switch worked as soon as it was plugged in, and it has no settings that anyone can change. Which of the following types of switch is it?",
+      "choices": [
+        { "id": "a", "text": "A modular switch" },
+        { "id": "b", "text": "A managed switch" },
+        { "id": "c", "text": "A stackable switch" },
+        { "id": "d", "text": "An unmanaged switch" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.4",
+        "title": "Ethernet Switch Types",
+        "quote": "",
+        "find": "run without any configuration"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q98" }
+    },
+    {
+      "id": "n-u03-q017",
+      "stem": "A branch office still uses one old hub, and a new security rule calls for an access control list (ACL) on every device that hosts plug into. Which of the following BEST explains why the hub cannot meet this rule?",
+      "choices": [
+        { "id": "a", "text": "A hub has no configuration options" },
+        { "id": "b", "text": "A hub forwards frames by IP address" },
+        { "id": "c", "text": "A hub gives each port its own collision domain" },
+        { "id": "d", "text": "A hub filters frames by MAC address only" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.1",
+        "title": "Hubs",
+        "quote": "",
+        "find": "no configuration options for a hub"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q119" }
+    },
+    {
+      "id": "n-u03-q018",
+      "stem": "An old label printer that supports only half duplex is plugged into a switch port set to half duplex, and the port shows a slowly rising collision count. Which of the following BEST describes these collisions?",
+      "choices": [
+        { "id": "a", "text": "They are normal on a half-duplex link" },
+        { "id": "b", "text": "They mean the port should not run half duplex" },
+        { "id": "c", "text": "They point to interference on the printer's cable" },
+        { "id": "d", "text": "They point to a loop in the switched network" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["3.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.3",
+        "title": "Switches",
+        "quote": "",
+        "find": "collisions can occur only if"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q55" }
+    },
+    {
+      "id": "n-u03-q019",
+      "stem": "An older lab instrument's network card cannot autonegotiate and runs only at 100 Mbps, half duplex. Which of the following BEST describes how a technician should set its switch port?",
+      "choices": [
+        { "id": "a", "text": "Hard code the port to the card's speed and duplex" },
+        { "id": "b", "text": "Leave the port set to autonegotiate" },
+        { "id": "c", "text": "Hard code the port to full duplex at the card's speed" },
+        { "id": "d", "text": "Hard code the port to its fastest speed" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["3.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.2.5",
+        "title": "Switch Interface Configuration",
+        "quote": "",
+        "find": "manually configure the speed and duplex"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q100" }
+    },
+    {
+      "id": "n-u03-q020",
+      "stem": "A network diagram labels the four cables between a file server and its switch as a NIC team at the server end and a bond at the switch end. Which of the following is another correct name for this configuration?",
+      "choices": [
+        { "id": "a", "text": "A failover server cluster" },
+        { "id": "b", "text": "A link aggregation group" },
+        { "id": "c", "text": "A stack of switches" },
+        { "id": "d", "text": "A spanning tree" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["3.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.1",
+        "title": "Link Aggregation and NIC Teaming",
+        "quote": "",
+        "find": "described as a link aggregation group"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q43" }
+    },
+    {
+      "id": "n-u03-q021",
+      "stem": "An administrator needs more bandwidth between two switches than one cable can carry, and the switches must stay connected if a cable is cut. Which of the following should the administrator configure?",
+      "choices": [
+        { "id": "a", "text": "Spanning Tree Protocol" },
+        { "id": "b", "text": "Jumbo frames" },
+        { "id": "c", "text": "Link aggregation" },
+        { "id": "d", "text": "Full duplex" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["3.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.1",
+        "title": "Link Aggregation and NIC Teaming",
+        "quote": "",
+        "find": "Link aggregation can also provide redundancy"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q207" }
+    },
+    {
+      "id": "n-u03-q022",
+      "stem": "An administrator configures LACP on four links between two switches, but no channel forms. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Both switches have their ports set to active" },
+        { "id": "b", "text": "Both switches have their ports set to passive" },
+        { "id": "c", "text": "The two switches use different channel group IDs" },
+        { "id": "d", "text": "One switch is set to active and the other to passive" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["3.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.1",
+        "title": "Link Aggregation and NIC Teaming",
+        "quote": "",
+        "find": "both sides are set to passive"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q153" }
+    },
+    {
+      "id": "n-u03-q023",
+      "stem": "A company connects its three switches in a triangle so traffic can take another path if one cable fails. Which of the following keeps frames from looping around the triangle endlessly?",
+      "choices": [
+        { "id": "a", "text": "The time to live (TTL) value in each frame" },
+        { "id": "b", "text": "Link Aggregation Control Protocol (LACP)" },
+        { "id": "c", "text": "Spanning Tree Protocol (STP)" },
+        { "id": "d", "text": "The MAC address table on each switch" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.2", "2.2.c"],
+      "units": ["3.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.3",
+        "title": "Spanning Tree Protocol",
+        "quote": "",
+        "find": "hierarchy and block loops"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q77" }
+    },
+    {
+      "id": "n-u03-q024",
+      "stem": "A technician connects two new switches that run spanning tree and leaves both with the same priority value. Which of the following will become the root bridge?",
+      "choices": [
+        { "id": "a", "text": "The switch with the lower IP address" },
+        { "id": "b", "text": "The switch with the lower MAC address" },
+        { "id": "c", "text": "The switch with the higher MAC address" },
+        { "id": "d", "text": "The switch with the faster uplink ports" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.3",
+        "title": "Spanning Tree Protocol",
+        "quote": "",
+        "find": "priority value and the MAC address"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q65" }
+    },
+    {
+      "id": "n-u03-q025",
+      "stem": "After an administrator adds a switch to a network with redundant links, spanning tree recalculates until the network is converged. Which of the following is then true of every port on every switch?",
+      "choices": [
+        { "id": "a", "text": "It is in the listening or the learning state" },
+        { "id": "b", "text": "It is in the learning or the forwarding state" },
+        { "id": "c", "text": "It is in the forwarding or the blocking state" },
+        { "id": "d", "text": "It is in the blocking or the listening state" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.2", "2.2.c"],
+      "units": ["3.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.4",
+        "title": "Spanning Tree Protocol Configuration",
+        "quote": "",
+        "find": "are in forwarding or blocking states"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q67" }
+    },
+    {
+      "id": "n-u03-q026",
+      "stem": "An old access switch on a low-bandwidth segment has been elected the spanning tree root, and network performance has dropped. Which of the following should the administrator do so the core switch becomes the root instead?",
+      "choices": [
+        { "id": "a", "text": "Raise the priority value on the core switch" },
+        { "id": "b", "text": "Configure the core switch's uplinks as root ports" },
+        { "id": "c", "text": "Restart the core switch so a new election is held" },
+        { "id": "d", "text": "Lower the priority value on the core switch" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.3.3", "3.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.3",
+        "title": "Spanning Tree Protocol",
+        "quote": "",
+        "find": "The switch with the lowest ID"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q175" }
+    },
+    {
+      "id": "n-u03-q027",
+      "stem": "While documenting a network's spanning tree, a technician finds that port Gi0/1 on one switch has the root port role. Which of the following BEST describes this port?",
+      "choices": [
+        { "id": "a", "text": "It forwards traffic up toward the root bridge" },
+        { "id": "b", "text": "It forwards traffic down through the network" },
+        { "id": "c", "text": "It is a port on the root bridge itself" },
+        { "id": "d", "text": "It is a port that would create a loop" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.3",
+        "title": "Spanning Tree Protocol",
+        "quote": "",
+        "find": "is identified as a root port"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q176" }
+    },
+    {
+      "id": "n-u03-q028",
+      "stem": "A port on a switch that runs Rapid STP (RSTP) shows the discarding state. Which of the following is one of the original 802.1D states that the discarding state replaced?",
+      "choices": [
+        { "id": "a", "text": "Blocking" },
+        { "id": "b", "text": "Learning" },
+        { "id": "c", "text": "Forwarding" },
+        { "id": "d", "text": "Suspended" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.4",
+        "title": "Spanning Tree Protocol Configuration",
+        "quote": "",
+        "find": "aggregated into a discarding state"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q177" }
+    },
+    {
+      "id": "n-u03-q029",
+      "stem": "A network team will enable jumbo frames for backups that travel from a file server to a backup server through two switches and a router. Which of the following must the team do?",
+      "choices": [
+        { "id": "a", "text": "Set a larger MTU on the two servers only" },
+        { "id": "b", "text": "Set a larger MTU on the two switches and the router only" },
+        { "id": "c", "text": "Set the same speed and duplex on every port along the path" },
+        { "id": "d", "text": "Set the same MTU on both servers, both switches, and the router" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["3.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.2",
+        "title": "Maximum Transmission Unit",
+        "quote": "",
+        "find": "device supports the same MTU"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q201" }
+    },
+    {
+      "id": "n-u03-q030",
+      "stem": "A video company's editors copy very large files to a file server, and the switches between them must handle the data 1,500 bytes at a time. Which of the following would let the switches move the same data with less processing?",
+      "choices": [
+        { "id": "a", "text": "Jumbo frames" },
+        { "id": "b", "text": "Link aggregation" },
+        { "id": "c", "text": "Full duplex" },
+        { "id": "d", "text": "Higher port speeds" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["3.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.2",
+        "title": "Maximum Transmission Unit",
+        "quote": "",
+        "find": "This reduces the number of frames"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 5.0 Q26" }
+    },
+    {
+      "id": "n-u03-q031",
+      "stem": "A store's switches support only 802.3at (PoE+). Which of the following new devices could NOT run on power from one of these switch ports?",
+      "choices": [
+        { "id": "a", "text": "A desk phone that needs 6 W" },
+        { "id": "b", "text": "A camera that needs 12 W" },
+        { "id": "c", "text": "An access point that needs 22 W" },
+        { "id": "d", "text": "A camera that needs 45 W" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.3.5",
+        "title": "Power Over Ethernet",
+        "quote": "",
+        "find": "up to about 25 W"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q171" }
+    },
+    {
+      "id": "n-u03-q032",
+      "stem": "A clinic's exam room PCs plug into one switch and its front desk PCs into another, and this morning only the exam room PCs lost access to the file server and the Internet. Which of the following has MOST likely failed?",
+      "choices": [
+        { "id": "a", "text": "The file server that every PC uses" },
+        { "id": "b", "text": "The router that both switches connect to" },
+        { "id": "c", "text": "The switch that serves the exam room PCs" },
+        { "id": "d", "text": "The network adapter in one exam room PC" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.1",
+        "title": "Hardware Failure Issues",
+        "quote": "",
+        "find": "identify the problem bridging"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q101" }
+    },
+    {
+      "id": "n-u03-q033",
+      "stem": "A technician runs show interface on the switch port that serves a newly built office's wall jack and sees a status of down/down. Which of the following is the MOST likely reason?",
+      "choices": [
+        { "id": "a", "text": "The port's link aggregation channel was not negotiated" },
+        { "id": "b", "text": "The port was disabled with the shutdown command" },
+        { "id": "c", "text": "Port security put the port in the error disabled state" },
+        { "id": "d", "text": "No host is attached at the other end" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "Switch Show Commands",
+        "quote": "",
+        "find": "typically because no host is attached"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q64" }
+    },
+    {
+      "id": "n-u03-q034",
+      "stem": "Right after a technician adds a second cable between two access switches, one port on the new link shows a solid amber LED while users report no problems. Which of the following BEST explains this LED?",
+      "choices": [
+        { "id": "a", "text": "The link is working normally with traffic" },
+        { "id": "b", "text": "The port has detected a fault on its link" },
+        { "id": "c", "text": "Spanning tree has blocked the port" },
+        { "id": "d", "text": "An administrator has shut the port down" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.2",
+        "title": "Port Status Indicators",
+        "quote": "",
+        "find": "blocked by the spanning tree algorithm"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q272" }
+    },
+    {
+      "id": "n-u03-q035",
+      "stem": "A print server's switch port shows up/up, yet its collision and late collision counts keep climbing. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A speed mismatch" },
+        { "id": "b", "text": "A duplex mismatch" },
+        { "id": "c", "text": "An MTU mismatch" },
+        { "id": "d", "text": "A network loop" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "Switch Show Commands",
+        "quote": "",
+        "find": "high packet loss and late collisions"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q5" }
+    },
+    {
+      "id": "n-u03-q036",
+      "stem": "The link lights on a call center desktop's network adapter and on its switch port are both off, though the desktop's cable passes a cable tester. Which of the following could cause this?",
+      "choices": [
+        { "id": "a", "text": "A duplex mismatch with the switch port" },
+        { "id": "b", "text": "Interference that causes CRC errors" },
+        { "id": "c", "text": "A speed mismatch with the switch port" },
+        { "id": "d", "text": "A switch port in the error disabled state" },
+        { "id": "e", "text": "A switch port that is administratively down" }
+      ],
+      "answer": ["c", "d", "e"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "Switch Show Commands",
+        "quote": "",
+        "find": "speed mismatch will cause the link"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q45" }
+    },
+    {
+      "id": "n-u03-q037",
+      "stem": "A technician installing a school's new switches and PCs leaves every switch port and network adapter on its default setting, autonegotiation. Which of the following problems will this help prevent?",
+      "choices": [
+        { "id": "a", "text": "An MTU mismatch" },
+        { "id": "b", "text": "A transceiver mismatch" },
+        { "id": "c", "text": "A network loop" },
+        { "id": "d", "text": "A speed mismatch" },
+        { "id": "e", "text": "A duplex mismatch" }
+      ],
+      "answer": ["d", "e"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "Switch Show Commands",
+        "quote": "",
+        "find": "autonegotiation of speed and duplex settings"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q47" }
+    },
+    {
+      "id": "n-u03-q038",
+      "stem": "A shipping station PC in a warehouse has no network link, and a technician finds its network adapter set by hand to 1 Gbps while its switch port is set by hand to 100 Mbps. Which of the following should the technician do to fix the link?",
+      "choices": [
+        { "id": "a", "text": "Bring the switch port up with the no shutdown command" },
+        { "id": "b", "text": "Set the adapter and the switch port to full duplex" },
+        { "id": "c", "text": "Add the PC's MAC address to the port security list" },
+        { "id": "d", "text": "Set the adapter and the switch port to autonegotiate" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "Switch Show Commands",
+        "quote": "",
+        "find": "Setting both to auto-negotiate will"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q66" }
+    },
+    {
+      "id": "n-u03-q039",
+      "stem": "A receptionist's PC cannot reach the network. Based on the output shown for its switch port, which of the following commands should the technician run on that interface to restore access?",
+      "exhibit": { "type": "text", "text": "GigabitEthernet0/9 is\n  administratively down,\n  line protocol is down" },
+      "choices": [
+        { "id": "a", "text": "speed auto" },
+        { "id": "b", "text": "shutdown" },
+        { "id": "c", "text": "no shutdown" },
+        { "id": "d", "text": "switchport mode access" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "Switch Show Commands",
+        "quote": "",
+        "find": "no shutdown to bring it up"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q252" }
+    },
+    {
+      "id": "n-u03-q040",
+      "stem": "One of the four uplink ports between a hospital's two core switches shows a status of up/down (suspended). Which of the following commands should the administrator run to investigate the cause?",
+      "choices": [
+        { "id": "a", "text": "show power inline" },
+        { "id": "b", "text": "show spanning-tree" },
+        { "id": "c", "text": "show mac address-table" },
+        { "id": "d", "text": "show etherchannel" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "Switch Show Commands",
+        "quote": "",
+        "find": "Use show etherchannel to investigate"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q240" }
+    },
+    {
+      "id": "n-u03-q041",
+      "stem": "During a weekly check, an administrator wants one command that shows whether a file server's switch port is up/up, what speed and duplex it is using, and how many errors it has logged. Which of the following commands BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "show interface" },
+        { "id": "b", "text": "show running-config" },
+        { "id": "c", "text": "show mac address-table" },
+        { "id": "d", "text": "show power inline" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "Switch Show Commands",
+        "quote": "",
+        "find": "report configuration details and traffic statistics"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q222" }
+    },
+    {
+      "id": "n-u03-q042",
+      "stem": "Since a contractor's weekend visit, a branch office switch has behaved differently, but the change log shows no new entries. Which of the following will BEST reveal whether the switch's configuration was changed?",
+      "choices": [
+        { "id": "a", "text": "Compare show startup-config with show running-config" },
+        { "id": "b", "text": "Restart the switch so it reloads its configuration" },
+        { "id": "c", "text": "Clear the MAC address table and let it refill" },
+        { "id": "d", "text": "Check each port's status LED for amber lights" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "Switch Show Commands",
+        "quote": "",
+        "find": "comparing the output may reveal"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q292" }
+    },
+    {
+      "id": "n-u03-q043",
+      "stem": "A network technician sees the CRC error count climbing on the switch port that connects a conference room PC. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A driver issue on the PC" },
+        { "id": "b", "text": "Heavy traffic on the switch port" },
+        { "id": "c", "text": "Interference on the PC's cable" },
+        { "id": "d", "text": "A speed mismatch with the PC" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.4",
+        "title": "Interface Error Counters",
+        "quote": "",
+        "find": "usually caused by interference"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q73" }
+    },
+    {
+      "id": "n-u03-q044",
+      "stem": "While checking interface counters, an administrator sees the runts count rising on the switch port for a payroll clerk's PC. Which of the following BEST describes the frames in this count?",
+      "choices": [
+        { "id": "a", "text": "Frames larger than 1,518 bytes" },
+        { "id": "b", "text": "Frames smaller than 64 bytes" },
+        { "id": "c", "text": "Frames damaged by interference on the cable" },
+        { "id": "d", "text": "Frames discarded because of high load" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.4",
+        "title": "Interface Error Counters",
+        "quote": "",
+        "find": "smaller than the minimum size"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q217" }
+    },
+    {
+      "id": "n-u03-q045",
+      "stem": "After removing an old hub so that a point-of-sale terminal plugs straight into its switch port, a technician sets both ends to full duplex, but the port's runt count keeps rising. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Interference on the terminal's cable" },
+        { "id": "b", "text": "An MTU mismatch with the switch port" },
+        { "id": "c", "text": "A port security violation by the terminal" },
+        { "id": "d", "text": "A driver issue on the terminal" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.4",
+        "title": "Interface Error Counters",
+        "quote": "",
+        "find": "driver issue on the transmitting host"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 3.0 Q84" }
+    },
+    {
+      "id": "n-u03-q046",
+      "stem": "An administrator sets up a new storage server to use jumbo frames, but its switch port is still set to accept only standard-size frames. Which of the following counters will MOST likely rise on that port?",
+      "choices": [
+        { "id": "a", "text": "Runts" },
+        { "id": "b", "text": "CRC errors" },
+        { "id": "c", "text": "Giants" },
+        { "id": "d", "text": "Collisions" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.4",
+        "title": "Interface Error Counters",
+        "quote": "",
+        "find": "configured to use jumbo frames"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q250" }
+    },
+    {
+      "id": "n-u03-q047",
+      "stem": "A technician checks the switch port that connects a company's backup server. Based on the output shown, which of the following is the MOST likely cause of the drops?",
+      "exhibit": { "type": "text", "text": "Gi1/0/8 is up/up\nSpeed: 1000 Mbps\nOutput rate: 974 Mbps\nCRC errors: 0\nRunts: 0\nGiants: 0\nOutput drops: 4381" },
+      "choices": [
+        { "id": "a", "text": "High load on the interface" },
+        { "id": "b", "text": "Interference on the cable" },
+        { "id": "c", "text": "A driver issue on the server" },
+        { "id": "d", "text": "Jumbo frames from the server" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.4",
+        "title": "Interface Error Counters",
+        "quote": "",
+        "find": "(giants), high load, or"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q282" }
+    },
+    {
+      "id": "n-u03-q048",
+      "stem": "A switch has flushed the MAC address table entry for an idle laptop on port 9, and a server on port 1 now sends the laptop a frame. Which of the following will the switch do with the frame?",
+      "choices": [
+        { "id": "a", "text": "Send it out every port, including port 1" },
+        { "id": "b", "text": "Send it out every port except port 1" },
+        { "id": "c", "text": "Send it out port 9 only" },
+        { "id": "d", "text": "Drop it until the laptop sends a frame" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.5",
+        "title": "MAC Address Table",
+        "quote": "",
+        "find": "except for the source port"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q288" }
+    },
+    {
+      "id": "n-u03-q049",
+      "stem": "A technician suspects that a user has connected several extra devices through the wall jack that leads to port Gi1/0/14 on an access switch. Which of the following commands would BEST list every device the switch has learned on that port?",
+      "choices": [
+        { "id": "a", "text": "show interface" },
+        { "id": "b", "text": "show startup-config" },
+        { "id": "c", "text": "show spanning-tree" },
+        { "id": "d", "text": "show mac address-table" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.5",
+        "title": "MAC Address Table",
+        "quote": "",
+        "find": "find the MAC address or addresses"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q214" }
+    },
+    {
+      "id": "n-u03-q050",
+      "stem": "A senior administrator warns a new technician never to turn off spanning tree on the switches that share redundant links. Which of the following problems does spanning tree prevent?",
+      "choices": [
+        { "id": "a", "text": "Duplex mismatches" },
+        { "id": "b", "text": "Network loops" },
+        { "id": "c", "text": "CRC errors" },
+        { "id": "d", "text": "Broadcast storms" },
+        { "id": "e", "text": "Giant frames" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.6",
+        "title": "Network Loop and Broadcast Storm Issues",
+        "quote": "",
+        "find": "spanning tree should shut down"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q63" }
+    },
+    {
+      "id": "n-u03-q051",
+      "stem": "Everyone on the third floor of a law firm suddenly loses access to network resources, and the floor's switches report link utilization near maximum capacity. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A broadcast storm" },
+        { "id": "b", "text": "An error disabled uplink" },
+        { "id": "c", "text": "An exceeded PoE budget" },
+        { "id": "d", "text": "Interference on a cable" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.6",
+        "title": "Network Loop and Broadcast Storm Issues",
+        "quote": "",
+        "find": "go to near maximum capacity"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q245" }
+    },
+    {
+      "id": "n-u03-q052",
+      "stem": "An access switch keeps seeing one PC's source MAC address on port 4, then on port 22, then on port 4 again, and it has started flooding unicast frames out of every port. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A port blocked by spanning tree" },
+        { "id": "b", "text": "A destination not yet in the table" },
+        { "id": "c", "text": "A loop in the switched network" },
+        { "id": "d", "text": "A duplex mismatch on an uplink" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.6",
+        "title": "Network Loop and Broadcast Storm Issues",
+        "quote": "",
+        "find": "associated with multiple ports"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q229" }
+    },
+    {
+      "id": "n-u03-q053",
+      "stem": "After a sales team moves to a new row of desks, spanning tree shuts down some of the ports on the team's access switch because of a loop. Which of the following should a technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Turn spanning tree off so the ports recover" },
+        { "id": "b", "text": "Look for a patch cable joining two wall ports" },
+        { "id": "c", "text": "Run no shutdown on each of the disabled ports" },
+        { "id": "d", "text": "Restart the access switch to reset the ports" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.6",
+        "title": "Network Loop and Broadcast Storm Issues",
+        "quote": "",
+        "find": "patch cable between two wall ports"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q262" }
+    },
+    {
+      "id": "n-u03-q054",
+      "stem": "Spanning tree runs on every switch in a city office building, but broadcast storms keep coming back on the segment that serves the permit office. Which of the following should a technician investigate?",
+      "choices": [
+        { "id": "a", "text": "Incompatible STP and RSTP versions on the switches" },
+        { "id": "b", "text": "A core switch that is not the root bridge" },
+        { "id": "c", "text": "A switch whose PoE power budget is exceeded" },
+        { "id": "d", "text": "An unmanaged desktop switch cabled into a loop" },
+        { "id": "e", "text": "Uplinks that are not set for jumbo frames" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.6",
+        "title": "Network Loop and Broadcast Storm Issues",
+        "quote": "",
+        "find": "Verify compatible versions of Spanning Tree"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q235" }
+    },
+    {
+      "id": "n-u03-q055",
+      "stem": "A factory's 100 Mbps switch links use only two of each cable's four wire pairs for data, and new PoE badge readers must take their power from the other two pairs. Which of the following must the switch ports and badge readers negotiate?",
+      "choices": [
+        { "id": "a", "text": "Alternative A" },
+        { "id": "b", "text": "Four-pair" },
+        { "id": "c", "text": "PoE++ Type 3" },
+        { "id": "d", "text": "Alternative B" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.4.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.7",
+        "title": "Power Over Ethernet Issues",
+        "quote": "",
+        "find": "over the 10/100 spare pairs"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q90" }
+    },
+    {
+      "id": "n-u03-q056",
+      "stem": "New PoE wireless access points will connect to an access switch over 1 Gbps links. Which of the following BEST describes how PoE affects these links?",
+      "choices": [
+        { "id": "a", "text": "They can keep that speed, because PoE can share the data pairs" },
+        { "id": "b", "text": "They must drop to 100 Mbps, because PoE uses only the spare pairs" },
+        { "id": "c", "text": "They must run half duplex, so that a pair is free to carry power" },
+        { "id": "d", "text": "They can keep that speed only if autonegotiation is off" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.4.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.7",
+        "title": "Power Over Ethernet Issues",
+        "quote": "",
+        "find": "is compatible with 10/100 and"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q50" }
+    },
+    {
+      "id": "n-u03-q057",
+      "stem": "A car dealership connects 12 new PoE cameras to the access switch that its VoIP phones already use, and now several of the phones reset at random times. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The new cameras support only the first PoE standard" },
+        { "id": "b", "text": "The switch's total PoE power budget is exceeded" },
+        { "id": "c", "text": "The phone cabling is Cat 5e rather than Cat 6A" },
+        { "id": "d", "text": "The switch's phone ports have a duplex mismatch" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.4.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.7",
+        "title": "Power Over Ethernet Issues",
+        "quote": "",
+        "find": "there might be intermittent resets"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q255" }
+    },
+    {
+      "id": "n-u03-q058",
+      "stem": "Before adding more PoE phones, a technician wants to see how many watts each port on an access switch is supplying and how many watts the switch has left. Which of the following commands BEST shows this?",
+      "choices": [
+        { "id": "a", "text": "show power inline" },
+        { "id": "b", "text": "show interface" },
+        { "id": "c", "text": "show mac address-table" },
+        { "id": "d", "text": "show running-config" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.7",
+        "title": "Power Over Ethernet Issues",
+        "quote": "",
+        "find": "use the show power inline command"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q164" }
+    }
+  ]
+}

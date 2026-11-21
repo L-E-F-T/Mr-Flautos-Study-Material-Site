@@ -1,0 +1,334 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-03", "title": "Unit 3.0 Configuring Interfaces and Switches", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "n-u03-f001",
+      "term": "Switch",
+      "definition": "Does a bridge's job for many more ports: each port is its own collision domain, and it sets up a point to point full-duplex link between any two nodes (microsegmentation).",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.3", "title": "Switches" }
+    },
+    {
+      "id": "n-u03-f002",
+      "term": "Hub",
+      "definition": "A multiport repeater that works only at the Physical layer: every port receives what any other port sends, so all ports share one collision domain; it has no configuration options.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.1"],
+      "reference": { "source": "certmaster", "section": "3.2.1", "title": "Hubs" }
+    },
+    {
+      "id": "n-u03-f003",
+      "term": "Bridge",
+      "definition": "A Data Link layer device that splits a network into separate collision domains but keeps one broadcast domain, forwarding frames by MAC address; a switch does the same job for many more ports.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.2", "3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.2", "title": "Bridges" }
+    },
+    {
+      "id": "n-u03-f004",
+      "term": "Collision domain",
+      "definition": "A shared media area in which only one node can communicate at a time; all hub ports are in the same one, a bridge creates separate ones, and each switch port is its own.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.2", "3.2.1", "3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.2", "title": "Bridges" }
+    },
+    {
+      "id": "n-u03-f005",
+      "term": "Broadcast domain",
+      "definition": "The single logical network whose nodes all process a frame sent to the all-1s MAC address (ff:ff:ff:ff:ff:ff); a bridge keeps all of its segments in one.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.2.2", "3.1.6"],
+      "reference": { "source": "certmaster", "section": "3.2.2", "title": "Bridges" }
+    },
+    {
+      "id": "n-u03-f006",
+      "term": "MAC address (Media Access Control address)",
+      "definition": "The unique 48-bit hardware address of each Ethernet port, written in hexadecimal, that switches read from a frame's destination field to forward it.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["3.1.6", "3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.1.6", "title": "Media Access Control Address Format" }
+    },
+    {
+      "id": "n-u03-f007",
+      "term": "SFP (small form-factor pluggable)",
+      "definition": "A hot-swappable transceiver form factor for a single Gigabit Ethernet link.",
+      "objectives": ["1.5", "1.5.c"],
+      "units": ["3.1.2"],
+      "reference": { "source": "certmaster", "section": "3.1.2", "title": "Modular Transceivers" }
+    },
+    {
+      "id": "n-u03-f008",
+      "term": "QSFP (quad small form-factor pluggable)",
+      "definition": "A transceiver form factor that carries four 1 Gbps links, typically aggregated into one 4 Gbps channel.",
+      "objectives": ["1.5", "1.5.c"],
+      "units": ["3.1.2"],
+      "reference": { "source": "certmaster", "section": "3.1.2", "title": "Modular Transceivers" }
+    },
+    {
+      "id": "n-u03-f009",
+      "term": "Fibre Channel (FC)",
+      "definition": "The storage area network (SAN) protocol that some transceivers support in place of Ethernet; those transceivers are not compatible with Ethernet switches.",
+      "objectives": ["1.5", "1.5.c"],
+      "units": ["3.1.2"],
+      "reference": { "source": "certmaster", "section": "3.1.2", "title": "Modular Transceivers" }
+    },
+    {
+      "id": "n-u03-f010",
+      "term": "Transceiver mismatch",
+      "definition": "A transceiver, cable, or patch cord made for a different fiber type or wavelength than the rest of the link, such as a single mode transceiver on multimode fiber; it can cause significant signal loss.",
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.1.3"],
+      "reference": { "source": "certmaster", "section": "3.1.3", "title": "Transceiver Mismatch Issues" }
+    },
+    {
+      "id": "n-u03-f011",
+      "term": "Transceiver signal strength",
+      "definition": "How much light reaches the receiver at the far end of a fiber link, measured in dBm; losses from bends, aging, added splices, or extreme temperatures can leave it too weak.",
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.1.4"],
+      "reference": { "source": "certmaster", "section": "3.1.4", "title": "Transceiver Signal Strength Issues" }
+    },
+    {
+      "id": "n-u03-f012",
+      "term": "Optical link budget (loss budget)",
+      "definition": "The sum, in dB, of what the cable's attenuation, each connector, and each splice take from the light along a fiber path; it must be smaller than transmit power minus receiver sensitivity.",
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.1.4"],
+      "reference": { "source": "certmaster", "section": "3.1.4", "title": "Transceiver Signal Strength Issues" }
+    },
+    {
+      "id": "n-u03-f013",
+      "term": "Optical power meter (fiber light meter)",
+      "definition": "The fiber testing tool that, with an optical source, measures attenuation, the loss of signal strength from one end of a fiber cable to the other.",
+      "objectives": ["5.5", "5.5.b"],
+      "units": ["3.1.4"],
+      "reference": { "source": "certmaster", "section": "3.1.4", "title": "Transceiver Signal Strength Issues" }
+    },
+    {
+      "id": "n-u03-f014",
+      "term": "Speed (interface setting)",
+      "definition": "The port setting for the link's data rate (10, 100, or 1000 Mbps), normally auto-negotiated; when it is set by hand, both ends must match.",
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["3.2.5"],
+      "reference": { "source": "certmaster", "section": "3.2.5", "title": "Switch Interface Configuration" }
+    },
+    {
+      "id": "n-u03-f015",
+      "term": "Duplex (interface setting)",
+      "definition": "The port setting for full or half operation (hub ports run half; a switch sets up full links), normally auto-negotiated; when it is set by hand, both ends must match.",
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["3.2.5", "3.2.1", "3.2.3"],
+      "reference": { "source": "certmaster", "section": "3.2.5", "title": "Switch Interface Configuration" }
+    },
+    {
+      "id": "n-u03-f016",
+      "term": "Autonegotiation",
+      "definition": "The default port setting that lets the two ends of a link work out speed and duplex between them; setting both ends to it generally fixes a mismatch caused by setting one end by hand.",
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3", "3.2.5"],
+      "reference": { "source": "certmaster", "section": "3.4.3", "title": "Switch Show Commands" }
+    },
+    {
+      "id": "n-u03-f017",
+      "term": "Speed mismatch",
+      "definition": "The two ends of a link set to different data rates, usually by a manual setting; the link fails, and the port shows down/down.",
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": { "source": "certmaster", "section": "3.4.3", "title": "Switch Show Commands" }
+    },
+    {
+      "id": "n-u03-f018",
+      "term": "Duplex mismatch",
+      "definition": "One end of a link set to full and the other to half, so the link stays up but slows down, with high packet loss and late collisions.",
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": { "source": "certmaster", "section": "3.4.3", "title": "Switch Show Commands" }
+    },
+    {
+      "id": "n-u03-f019",
+      "term": "Link aggregation (NIC teaming)",
+      "definition": "Combining two or more cabled links into one logical channel for more bandwidth and redundancy; LACP can detect configuration errors and recover when one link fails.",
+      "objectives": ["2.2", "2.2.b"],
+      "units": ["3.3.1"],
+      "reference": { "source": "certmaster", "section": "3.3.1", "title": "Link Aggregation and NIC Teaming" }
+    },
+    {
+      "id": "n-u03-f020",
+      "term": "STP (Spanning Tree Protocol)",
+      "definition": "The protocol that has bridges and switches organize themselves into a hierarchy under a root and block ports that would create loops, sharing its information in bridge protocol data units (BPDUs).",
+      "objectives": ["2.2", "2.2.c"],
+      "units": ["3.3.3"],
+      "reference": { "source": "certmaster", "section": "3.3.3", "title": "Spanning Tree Protocol" }
+    },
+    {
+      "id": "n-u03-f021",
+      "term": "Jumbo frames",
+      "definition": "Frames that carry a data payload larger than the standard 1,500-byte MTU, so fewer frames are sent; every host, switch, and router on the path must support them and use the same MTU.",
+      "objectives": ["2.2", "2.2.d"],
+      "units": ["3.3.2"],
+      "reference": { "source": "certmaster", "section": "3.3.2", "title": "Maximum Transmission Unit" }
+    },
+    {
+      "id": "n-u03-f022",
+      "term": "Root bridge selection",
+      "definition": "Choosing the switch with the lowest ID, made up of its priority value and MAC address, as the top of the spanning tree; an administrator should set the priority so a core switch wins.",
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.3.3", "3.3.4"],
+      "reference": { "source": "certmaster", "section": "3.3.3", "title": "Spanning Tree Protocol" }
+    },
+    {
+      "id": "n-u03-f023",
+      "term": "Port roles (STP)",
+      "definition": "The job spanning tree assigns each port: root port (forwards up toward the root), designated port (forwards down at the least cost), or non-designated (blocking) port, which would create a loop.",
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.3.3"],
+      "reference": { "source": "certmaster", "section": "3.3.3", "title": "Spanning Tree Protocol" }
+    },
+    {
+      "id": "n-u03-f024",
+      "term": "Port states (STP)",
+      "definition": "The five conditions a spanning tree port can be in: blocking, listening, learning (builds the MAC address table), forwarding, and disabled; only forwarding passes frames.",
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.3.4"],
+      "reference": { "source": "certmaster", "section": "3.3.4", "title": "Spanning Tree Protocol Configuration" }
+    },
+    {
+      "id": "n-u03-f025",
+      "term": "Network loops",
+      "definition": "A redundant path, such as a patch cable joining two ports on one switch, that lets flooded frames circle without end; spanning tree should shut down the port to break it.",
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.4.6"],
+      "reference": { "source": "certmaster", "section": "3.4.6", "title": "Network Loop and Broadcast Storm Issues" }
+    },
+    {
+      "id": "n-u03-f026",
+      "term": "Broadcast storm",
+      "definition": "The result of an unchecked loop: flooded traffic that pushes utilization near maximum and makes the switched segment unusable; spanning tree is meant to prevent it.",
+      "objectives": ["5.3", "5.3.a"],
+      "units": ["3.4.6"],
+      "reference": { "source": "certmaster", "section": "3.4.6", "title": "Network Loop and Broadcast Storm Issues" }
+    },
+    {
+      "id": "n-u03-f027",
+      "term": "PoE (Power over Ethernet)",
+      "definition": "Supplies electricity from a switch port over ordinary data cabling to a device such as a VoIP handset, IP camera, or wireless access point.",
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.3.5"],
+      "reference": { "source": "certmaster", "section": "3.3.5", "title": "Power Over Ethernet" }
+    },
+    {
+      "id": "n-u03-f028",
+      "term": "Power budget exceeded (PoE)",
+      "definition": "Connected devices needing more watts in total than a switch can supply across its ports, so some are not activated or reset intermittently; add a switch or use power injectors.",
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.4.7"],
+      "reference": { "source": "certmaster", "section": "3.4.7", "title": "Power Over Ethernet Issues" }
+    },
+    {
+      "id": "n-u03-f029",
+      "term": "Incorrect standard (PoE)",
+      "definition": "A powered device and switch port that cannot negotiate a compatible mode and power output, as can happen when a device that supports only the first version of PoE meets a port enabled for high-power PoE++ Type 4 devices.",
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.4.7"],
+      "reference": { "source": "certmaster", "section": "3.4.7", "title": "Power Over Ethernet Issues" }
+    },
+    {
+      "id": "n-u03-f030",
+      "term": "Alternative B (PoE)",
+      "definition": "The mode that delivers power over pairs 4/5 and 7/8, the pairs 10/100 Ethernet leaves spare; the other modes use pairs 1/2 and 3/6 or all four pairs.",
+      "objectives": ["5.2", "5.2.c"],
+      "units": ["3.4.7"],
+      "reference": { "source": "certmaster", "section": "3.4.7", "title": "Power Over Ethernet Issues" }
+    },
+    {
+      "id": "n-u03-f031",
+      "term": "Error disabled",
+      "definition": "A port shut off by the switch because of a fault, typically a spanning tree or port security violation, rather than by an administrator's command.",
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": { "source": "certmaster", "section": "3.4.3", "title": "Switch Show Commands" }
+    },
+    {
+      "id": "n-u03-f032",
+      "term": "Administratively down",
+      "definition": "A port disabled on purpose with the shutdown command; the no shutdown command brings it back up.",
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": { "source": "certmaster", "section": "3.4.3", "title": "Switch Show Commands" }
+    },
+    {
+      "id": "n-u03-f033",
+      "term": "Suspended (port status)",
+      "definition": "A link aggregation group port whose channel has not been negotiated, so it shows up/down; both sides need matching settings, and with LACP at least one side must be active.",
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.3"],
+      "reference": { "source": "certmaster", "section": "3.4.3", "title": "Switch Show Commands" }
+    },
+    {
+      "id": "n-u03-f034",
+      "term": "CRC (cyclic redundancy check)",
+      "definition": "A checksum calculated from a frame's contents and sent as its frame check sequence (FCS); a receiver that calculates a different value rejects the frame, and rising errors usually mean interference.",
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.4"],
+      "reference": { "source": "certmaster", "section": "3.4.4", "title": "Interface Error Counters" }
+    },
+    {
+      "id": "n-u03-f035",
+      "term": "Runts",
+      "definition": "Frames smaller than the 64-byte minimum, usually caused by collisions from a duplex mismatch or a legacy hub; otherwise, suspect a driver issue on the sending host.",
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.4"],
+      "reference": { "source": "certmaster", "section": "3.4.4", "title": "Interface Error Counters" }
+    },
+    {
+      "id": "n-u03-f036",
+      "term": "Giants",
+      "definition": "Frames larger than the 1,518-byte maximum, usually from jumbo frames reaching a port not set to receive them, or 802.1Q framing on only one end of a trunk.",
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.4"],
+      "reference": { "source": "certmaster", "section": "3.4.4", "title": "Interface Error Counters" }
+    },
+    {
+      "id": "n-u03-f037",
+      "term": "Drops (discards)",
+      "definition": "Incoming or outgoing frames an interface throws away, for reasons such as checksum errors, mismatched MTUs, frames too small or too large, high load, or permissions.",
+      "objectives": ["5.2", "5.2.b"],
+      "units": ["3.4.4"],
+      "reference": { "source": "certmaster", "section": "3.4.4", "title": "Interface Error Counters" }
+    },
+    {
+      "id": "n-u03-f038",
+      "term": "show mac-address-table",
+      "definition": "The switch command that lists the hardware addresses the switch has learned on each port, as stored in its CAM table.",
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.5"],
+      "reference": { "source": "certmaster", "section": "3.4.5", "title": "MAC Address Table" }
+    },
+    {
+      "id": "n-u03-f039",
+      "term": "show interface",
+      "definition": "The switch command that reports a port's line status (host on a good cable) and protocol status (Ethernet link established), plus its settings and its traffic and error counts.",
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.3"],
+      "reference": { "source": "certmaster", "section": "3.4.3", "title": "Switch Show Commands" }
+    },
+    {
+      "id": "n-u03-f040",
+      "term": "show config",
+      "definition": "The family of switch commands that display the switch's settings: the startup copy used at the next boot and the running copy, which can be compared to reveal an undocumented change.",
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.3"],
+      "reference": { "source": "certmaster", "section": "3.4.3", "title": "Switch Show Commands" }
+    },
+    {
+      "id": "n-u03-f041",
+      "term": "show power",
+      "definition": "The switch command that reports the PoE budget, the watts used and remaining, and what each port is supplying to its device.",
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.7"],
+      "reference": { "source": "certmaster", "section": "3.4.7", "title": "Power Over Ethernet Issues" }
+    }
+  ]
+}
