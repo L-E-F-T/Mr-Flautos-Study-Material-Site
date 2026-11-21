@@ -1,6 +1,6 @@
 # Content kit
 
-Tools for the content chats (one chat per unit, started with `docs/CONTENT-HANDOFF.md`, and the Command line pass, which writes the Command line tool's commands: "A Command line pass" below). The scripts read Mr. Flauto's sources and write only to the chat's scratchpad. They never write under `data/`: the chat copies finished packs in with the Write and Edit tools, then `check-copy.ps1` proves the copy is exact. Built and tested on A+ Core 1 Unit 3.0 (2026-11-10). Network+ (the `-Exam network-plus` presets and its practice exam book) added and tested on Mr. Flauto's files on 2026-11-14. Content chats do not edit this folder: if a script fails, they stop and report it.
+Tools for the content chats (one chat per unit, started with `docs/CONTENT-HANDOFF.md`, and the Command line pass, which writes the Command line tool's commands: "A Command line pass" below). The scripts read Mr. Flauto's sources and write only to the chat's scratchpad. They never write under `data/`: the chat copies finished packs in with the Write and Edit tools, then `check-copy.ps1` proves the copy is exact. Built and tested on A+ Core 1 Unit 3.0 (2026-11-10). Network+ (the `-Exam network-plus` presets and its practice exam book) added and tested on Mr. Flauto's files on 2026-11-14. Security+ (the `-Exam security-plus` presets, its Messer practice exams, and `assemble.ps1 -PackNote`) added and tested on his files on 2026-11-21. Content chats do not edit this folder: if a script fails, they stop and report it.
 
 Run a script with:
 
@@ -8,7 +8,7 @@ Run a script with:
 powershell -NoProfile -ExecutionPolicy Bypass -File "C:\CompTIA Website\docs\content-kit\<script>.ps1" -Scratch "<scratchpad>" -Exam <exam> ...
 ```
 
-- **Every script needs `-Exam`**: `a-plus-core-1` or `network-plus`. It picks the exam's folders, its data folder, and its id prefix (`c1-` or `n-`). A script run without it stops at once. `-Data` and `-Course` (`assemble.ps1`) and the source-folder parameters (`extract-sources.ps1`) override the preset.
+- **Every script needs `-Exam`**: `a-plus-core-1`, `network-plus`, or `security-plus`. It picks the exam's folders, its data folder, and its id prefix (`c1-`, `n-`, or `s-`). A script run without it stops at once. `-Data` and `-Course` (`assemble.ps1`) and the source-folder parameters (`extract-sources.ps1`) override the preset.
 - Through `-File`, a list argument arrives as one string: write `-Only q005,q019,f012` and the script splits it.
 - `-Unit` takes the unit number as `units.json` writes it for `assemble.ps1`, `strip-for-check.ps1`, and `check-copy.ps1` (`-Unit 2.0`), and a plain number for `extract-aids.ps1` (`-Unit 2`).
 - The PowerShell tool stops a command after 2 minutes unless the call sets a longer timeout. Give `extract-sources.ps1` a 10-minute timeout (600000 ms) or run it in the background. A timeout is not a script failure: run it again with the longer timeout.
@@ -17,12 +17,12 @@ powershell -NoProfile -ExecutionPolicy Bypass -File "C:\CompTIA Website\docs\con
 
 | Step | File | What it does |
 |---|---|---|
-| 1 | `extract-sources.ps1` | Reading sections (every unit's, so you can tell which unit answers an item), CertMaster pools (numbered), the exam's keyed practice exam with and without keys and its index by objective (A+ Core 1: Messer; Network+: the practice exam book), and the exam details, all as text. Once per chat, about 2 minutes. The 15 performance-based Messer items get no blind copy: they are not usable anyway. |
+| 1 | `extract-sources.ps1` | Reading sections (every unit's, so you can tell which unit answers an item), CertMaster pools (numbered), the exam's keyed practice exam with and without keys and its index by objective (A+ Core 1 and Security+: Messer; Network+: the practice exam book), and the exam details, all as text. Once per chat, about 2 minutes. The 15 performance-based Messer items get no blind copy: they are not usable anyway. |
 | 1 | `extract-aids.ps1 -Unit N` | Mr. Flauto's lesson decks, review decks, Blookets, and the unit study guide with its key, as text. Corroboration only. |
 | 3 | `brief-read.md` | Brief for the agents that map every source item: section, key from the reading, bullet, find phrase, fact, or why it is not usable here. |
 | 5 | `brief-weight.md` | Brief for the two ranking agents (exam evidence, course coverage) and the rules for turning their ranks into question counts. Exam evidence decides. |
 | 7 | `brief-write.md` | Brief for the agents that draft each lesson's questions (with a text exhibit where a question needs a command's output) and the unit's flashcards (only the `card` rows of `card-terms.tsv`). |
-| 8 | `assemble.ps1 -Unit N.0` | Builds the unit's question pack and flashcard pack from the drafts, checks every mechanical rule, spreads the answer keys, and writes the house layout, one paste-ready file per lesson, and the id maps. `-CardsOnly` builds only the flashcard pack, to check cards early. `-CommandsOnly` builds a command pack instead (a Command line pass, below). |
+| 8 | `assemble.ps1 -Unit N.0` | Builds the unit's question pack and flashcard pack from the drafts, checks every mechanical rule, spreads the answer keys, and writes the house layout, one paste-ready file per lesson, and the id maps. `-CardsOnly` builds only the flashcard pack, to check cards early. `-CommandsOnly` builds a command pack instead (a Command line pass, below). `-PackNote` writes a note into each pack header (Security+, below). |
 | 8 | `strip-for-check.ps1 -Unit N.0` | Blind copies for the checkers: questions (with their exhibits) without keys, card backs alone, card terms alone. `-Only` limits them to the ids being re-checked. |
 | 8 | `brief-review.md` | Brief for the independent checks (blind key check, exam-style review, four card checks, the fourth being the testable check) and the re-check loop, which stops after the third round. |
 | 9 | `check-copy.ps1 -Unit N.0` | Confirms the packs in `data/` are exact copies of the assembled packs the checkers saw. Read-only. `-Only commands` compares a command pack alone. |
@@ -35,7 +35,7 @@ Each brief has `<<...>>` blanks. The chat copies it to the scratchpad, fills the
 <scratchpad>\
   text\<section>.txt, <section>.raw.txt, _index.csv    extract-sources.ps1
   pool\<file>.txt                                       extract-sources.ps1
-  messer\<label>.txt, messer-<exam>.tsv                 extract-sources.ps1 (A+ Core 1)
+  messer\<label>.txt, messer-<exam>.tsv                 extract-sources.ps1 (A+ Core 1, Security+)
   messer-q\<label>.txt                                  extract-sources.ps1 (no key, for blind checks)
   practice\1-Q33.txt, practice-<exam>.tsv               extract-sources.ps1 (Network+)
   practice-q\1-Q33.txt                                  extract-sources.ps1 (no key, for blind checks)
@@ -161,7 +161,37 @@ Things to know about the practice exam:
 - **The book prints most question numbers over 99 without their hundreds digit** (Q100 as "00.", Q271 as "71."). The script numbers them correctly, so use the index's names, not the numbers on the page.
 - The domain chapters drill every objective, so how many items an objective has there shows how a fact is asked, not how often (`brief-weight.md`).
 
-`extract-aids.ps1 -Exam network-plus` reads the decks in `Slides`, the Blookets in `Activities` and `Blooket`, and the unit's own study guide folder, `Study Guides\Net+ Unit 6.0 Review` (its PDFs as text, and its `.tex` source copied as it is, which marks every correct choice `\CorrectChoice`). On 2026-11-15 that was 3 lesson decks, the study guide with its key, and its `.tex` for Unit 6.0, 12 files for Unit 4.0, and 8 for Unit 1.0. Decks kept in `Activities` (`Net+ Unit 1.0 Review_3.pptx`, `Net Unit 4.0 Subnetting Review.pptx`, `Net Subnetting Practice.pptx`) are not read: open them by hand. The Unit 1.0 KEY has no text layer (its `.txt` comes out empty): read its key from the `.tex`.
+`extract-aids.ps1 -Exam network-plus` reads the decks in `Slides`, the Blookets in `Activities` and `Blooket`, and the unit's own study guide folder, `Study Guides\Net+ Unit 6.0 Review` (its PDFs as text, and every `.tex` in it copied as it is: the source, which marks every correct choice `\CorrectChoice`, and, since 2026-11-21, its `preamble.tex`). On 2026-11-15 that was 3 lesson decks, the study guide with its key, and its `.tex` for Unit 6.0, 12 files for Unit 4.0, and 8 for Unit 1.0. Decks kept in `Activities` (`Net+ Unit 1.0 Review_3.pptx`, `Net Unit 4.0 Subnetting Review.pptx`, `Net Subnetting Practice.pptx`) are not read: open them by hand. The Unit 1.0 KEY has no text layer (its `.txt` comes out empty): read its key from the `.tex`.
+
+## Security+
+
+The sources play the same parts as A+ Core 1's. The CertMaster reading in `CompTIASec+\Book\bySubunit` keys every answer and is the only thing a question cites. Questions are modeled on the CertMaster pool and on the Messer SY0-701 practice exams, as for A+ Core 1 (`"kind": "messer-variation"`, items named like "Messer B44"). Mr. Flauto's study guide, decks, and Blookets corroborate and fill gaps. Units 8.0 and 9.0 are a hands-off run (`docs/CONTENT-HANDOFF.md`, "Each exam"), so every pack they build carries the "Needs revision" note:
+
+```powershell
+...\extract-sources.ps1 -Scratch "<scratchpad>" -Exam security-plus
+...\extract-aids.ps1 -Scratch "<scratchpad>" -Exam security-plus -Unit 8
+...\assemble.ps1 -Scratch "<scratchpad>" -Exam security-plus -Unit 8.0 -PackNote "Needs revision: written hands-off; Mr. Flauto has not checked it yet."
+...\strip-for-check.ps1 -Scratch "<scratchpad>" -Exam security-plus -Unit 8.0
+...\check-copy.ps1 -Scratch "<scratchpad>" -Exam security-plus -Unit 8.0
+```
+
+**`-PackNote`** writes `"notes"` after `"reviewed": false` in the `pack` header of every pack the run builds (with `-CardsOnly`, the flashcard pack). Give the same note to every `assemble.ps1` run of the unit, `-CardsOnly` runs included: `check-copy.ps1` compares the header line too, so a pack in `data/` without the note, or with other words, fails it. Tested on 2026-11-21 on a throwaway outline in a scratchpad: ids `s-u08-q001` and `s-u08-f001`, the note in both headers, `check-copy.ps1` identical, and line 3 reported once the note was taken out of the copy. The site never shows a pack's notes.
+
+What `extract-sources.ps1 -Exam security-plus` found on 2026-11-21 (about 100 seconds):
+
+- **Reading:** 349 PDFs in `Book\bySubunit`, Units 1.0 to 16.0, each written to `text\` under its number: the sections, and the unit and lesson opening pages (`8.0`, `8.1`). Each unit also ends with a `Summary` page numbered like one more lesson (`8.5 Summary`, `9.3 Summary`): it is not a lesson. Unit 8.0's lessons are 8.1 to 8.4, and Unit 9.0's are 9.1 and 9.2. A lesson's opening page lists its objectives under the heading "Exam Objectives" (the `byUnit` chapters call the box "Objectives Covered"): 8.1 and 8.2 list 2.3, 8.3 and 8.4 list 4.3, 9.1 lists 4.1 and 4.5, and 9.2 lists 4.5.
+- **Pools:** `1.0 + 2.0.txt` and `3.0.txt` to `16.0.txt`, 363 numbered items (Unit 8.0: 25, 6 of them select two; Unit 9.0: 17). Their multi-answer items say "(Select the two best options.)". The items of `1.0 + 2.0.txt` are named "CertMaster 1.0 + 2.0 Qn". `All.txt` is skipped, as for Network+.
+- **Messer:** 270 items, A1 to C90, every one with its objective, and all but the performance-based ones with the book's key. `messer\messer-SY0-701.tsv` has 275 lines (one per objective tag: A1 has five, B2 two). The 15 performance-based items (A1 to A5, B1 to B5, C1 to C5) print no "The Answer:" line and get no blind copy, so `messer-q\` has 255. Checked against the PDF pages: A6, B14, B44, and C86 are on their indexed pages, with the same key and objective.
+- **Exam details:** `examdetails.txt` is `pdftotext -layout` of `CompTIA Security+ SY0-701 Exam Objectives (7.0).pdf` at the top of `CompTIASec+`, CompTIA's objectives document (version 7.0, 24 pages) downloaded from comptia.org on Mr. Flauto's word on 2026-11-21. It prints the objectives with their bullets, the domain weights (12, 22, 18, 28, and 20 percent), and the exam details. For Part N, read the PDF itself (the Read tool, `pages` "1-12" and "13-24").
+
+What the Messer parser handles in this book, so its index is whole:
+
+- C25's answer starts "C25.A network IPS ...", with no space after the label.
+- Five objective lines differ from "SY0-701, Objective 4.5 - Firewalls": "Assorted topics in Objective 1.4 - ...", "Section 3.2 videos - ...", "Section 1.4 videos - ...", "Objective 4.9- Log Data", and B14's "Objective 1.2", whose topic is on the next line.
+- C86's objective line has the old exam code, "SY0-601, Objective 1.4 - Blockchain Technology" (its link is a 701 one). The index gives it 1.4.
+- After each exam's questions comes a list of short answers ("A14. A, E, and G"). It is skipped: only an answer block ends in an objective line.
+
+`extract-aids.ps1 -Exam security-plus` reads the decks in `Slides` named for the unit (`Sec+ 8.1 ...`, `Sec+ Unit 8.0 Review.pptx`), the Blookets in `Blookets` (any `.csv` at the top of `Activities` too, and none is there), and the unit's own study guide folder, `Study Guides\Sec+ Unit <N>.0 Review` (its PDFs as text, and every `.tex` in it copied as it is). On 2026-11-21 Unit 8.0 gave 12 files: the lesson decks for 8.1 to 8.4 and `Sec+ 8.1 Named Attacks Extra Depth.pptx`, `Sec+ Unit 8.0 Review.pptx`, `Sec+ 8.0 Review Blooket - Normal.csv` and `- Hard.csv`, the study guide and its KEY, and the guide's source, `unit8-review.tex` (122 `\CorrectChoice` marks: read the key there), with its `preamble.tex`. Unit 9.0 gave 1: `Sec+ 9.1 Network Security Baselines.pptx`. `Study Guides\1.0-2.0` is not read (its name has no `Sec+` prefix): open it by hand, as the handoff says.
 
 ## Known quirks on this PC
 

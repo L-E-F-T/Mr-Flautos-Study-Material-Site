@@ -6,9 +6,11 @@
 
     powershell -ExecutionPolicy Bypass -File extract-aids.ps1 -Scratch "<scratchpad>" -Exam a-plus-core-1 -Unit 2
     powershell -ExecutionPolicy Bypass -File extract-aids.ps1 -Scratch "<scratchpad>" -Exam network-plus -Unit 6
+    powershell -ExecutionPolicy Bypass -File extract-aids.ps1 -Scratch "<scratchpad>" -Exam security-plus -Unit 8
 
-  -Exam is required and picks the course folder and the file-name prefix: a-plus-core-1 (Core 1, "A+")
-  or network-plus (CompTIANet+, "Net+"). -CourseDir and -Prefix override them.
+  -Exam is required and picks the course folder and the file-name prefix: a-plus-core-1 (Core 1, "A+"),
+  network-plus (CompTIANet+, "Net+"), or security-plus (CompTIASec+, "Sec+"). -CourseDir and -Prefix
+  override them.
 
   It reads only the top level of Slides, Activites (his spelling) or Activities, Blookets or Blooket,
   and Study Guides, plus the one Study Guides folder named for the unit ("Net+ Unit 6.0 Review"), so it
@@ -20,21 +22,24 @@
     <blooket>.csv           copied as is
     <study guide>.txt       pdftotext -layout (keeps tables and columns)
     <study guide>.flow.txt  pdftotext without -layout (easier to read as prose)
-    <study guide>.tex       Network+: the study guide's source, copied as is (it marks every correct
-                            choice \CorrectChoice)
+    <study guide>.tex       Network+ and Security+: every .tex file in the unit's study guide folder,
+                            copied as is (the study guide's source marks every correct choice
+                            \CorrectChoice; Security+ names it like unit8-review.tex, beside its
+                            preamble.tex)
 #>
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
   [Parameter(Mandatory = $true)][int]$Unit,
-  [ValidateSet('a-plus-core-1', 'network-plus')][string]$Exam,
+  [ValidateSet('a-plus-core-1', 'network-plus', 'security-plus')][string]$Exam,
   [string]$CourseDir,
   [string]$Prefix
 )
 $ErrorActionPreference = 'Stop'
-if (-not $Exam) { throw 'extract-aids.ps1 needs -Exam a-plus-core-1 or -Exam network-plus.' }
+if (-not $Exam) { throw 'extract-aids.ps1 needs -Exam a-plus-core-1, -Exam network-plus, or -Exam security-plus.' }
 $presets = @{
   'a-plus-core-1' = @{ CourseDir = 'CompTIAA+\Core 1'; Prefix = 'A+' }
   'network-plus'  = @{ CourseDir = 'CompTIANet+'; Prefix = 'Net+' }
+  'security-plus' = @{ CourseDir = 'CompTIASec+'; Prefix = 'Sec+' }
 }
 if (-not $PSBoundParameters.ContainsKey('CourseDir')) { $CourseDir = Join-Path $env:OneDriveCommercial "Documents\$($presets[$Exam].CourseDir)" }
 if (-not $PSBoundParameters.ContainsKey('Prefix')) { $Prefix = $presets[$Exam].Prefix }
@@ -96,9 +101,10 @@ foreach ($folder in 'Activites', 'Activities', 'Blookets', 'Blooket') {
     "Blooket: $($f.Name)"; $found++
   }
 }
-# A+ keeps its study guides at the top of Study Guides. Network+ gives each unit a folder of its own
-# ("Net+ Unit 6.0 Review", with the .tex source next to the PDFs): only that folder's PDFs are read,
-# and its .tex source is copied.
+# A+ keeps its study guides at the top of Study Guides. Network+ and Security+ give each unit a folder of
+# its own ("Net+ Unit 6.0 Review", "Sec+ Unit 8.0 Review", with the .tex source next to the PDFs): only
+# that folder's PDFs are read, and every .tex file in it is copied (Security+'s source is unit8-review.tex,
+# a name that does not say "Unit 8.0").
 $guides = @(Get-TopFiles 'Study Guides' '*.pdf')
 $sgDir = Join-Path $CourseDir 'Study Guides'
 if (Test-Path -LiteralPath $sgDir) {
@@ -107,7 +113,7 @@ if (Test-Path -LiteralPath $sgDir) {
     if ($d.Name -match $graded) { "Skipped (looks like graded work): $($d.Name)"; continue }
     $guides += @(Get-ChildItem -LiteralPath $d.FullName -Filter *.pdf -File | Where-Object { Test-NamesUnit $_.Name $Unit })
     # Its .tex source marks every correct choice \CorrectChoice: the key in a form an agent can read.
-    foreach ($t in @(Get-ChildItem -LiteralPath $d.FullName -Filter *.tex -File | Where-Object { Test-NamesUnit $_.Name $Unit })) {
+    foreach ($t in @(Get-ChildItem -LiteralPath $d.FullName -Filter *.tex -File)) {
       if ($t.Name -match $graded) { "Skipped (looks like graded work): $($t.Name)"; continue }
       Copy-Item -LiteralPath $t.FullName -Destination (Join-Path $out $t.Name) -Force; "Study guide source: $($t.Name)"; $found++
     }

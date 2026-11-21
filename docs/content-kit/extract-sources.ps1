@@ -5,16 +5,17 @@
 
     powershell -ExecutionPolicy Bypass -File extract-sources.ps1 -Scratch "<scratchpad>" -Exam a-plus-core-1
     powershell -ExecutionPolicy Bypass -File extract-sources.ps1 -Scratch "<scratchpad>" -Exam network-plus
+    powershell -ExecutionPolicy Bypass -File extract-sources.ps1 -Scratch "<scratchpad>" -Exam security-plus
 
-  -Exam is required and picks one exam's folders and books: a-plus-core-1 or network-plus. To change
+  -Exam is required and picks one exam's folders and books: a-plus-core-1, network-plus, or security-plus. To change
   one setting, pass -CourseDir, -ModulesDir, -PoolDir, -MesserBook, -PracticeBook, -ExamCode, or
   -ExamDetails ('' turns that source off). -ModulesDir, -PoolDir, the books, and -ExamDetails are
   relative to -CourseDir; -PracticeBook is a file name or a wildcard pattern (the first match is read).
   A+ Core 1's section PDFs moved from Core 1\Modules to CompTIAA+\Book\bySubunit in November 2026.
 
   The reading is the source of truth: every item from every source is keyed from it. Questions are
-  modeled on the CertMaster pool and the exam's keyed practice exam (A+ Core 1: Messer; Network+: the
-  N10-009 practice tests book, -PracticeBook), whose items also show what the exam asks. A book's key
+  modeled on the CertMaster pool and the exam's keyed practice exam (A+ Core 1 and Security+: Messer;
+  Network+: the N10-009 practice tests book, -PracticeBook), whose items also show what the exam asks. A book's key
   is checked against the reading like any other (docs/CONTENT-GUIDE.md, "Where questions come from").
 
   Writes, under -Scratch:
@@ -39,10 +40,12 @@
                               command's output, whose columns may be out of order, so read that PDF
                               page; "all-that-apply"), and the start of the stem.
     examdetails.txt           The exam details PDF (domain weights, question types), if there is one.
+                              Security+: the SY0-701 Exam Objectives PDF, which prints the objectives,
+                              the domain weights, and the exam details.
 #>
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
-  [ValidateSet('a-plus-core-1', 'network-plus')][string]$Exam,
+  [ValidateSet('a-plus-core-1', 'network-plus', 'security-plus')][string]$Exam,
   [string]$CourseDir,
   [string]$ModulesDir,
   [string]$PoolDir,
@@ -52,7 +55,7 @@ param(
   [string]$ExamDetails
 )
 $ErrorActionPreference = 'Stop'
-if (-not $Exam) { throw 'extract-sources.ps1 needs -Exam a-plus-core-1 or -Exam network-plus.' }
+if (-not $Exam) { throw 'extract-sources.ps1 needs -Exam a-plus-core-1, -Exam network-plus, or -Exam security-plus.' }
 # Each exam's folders and books. CourseDir is under the OneDrive Documents folder; a parameter given on
 # the command line wins over its preset. The practice exam book is found by a pattern, so no author's
 # name is in this repository.
@@ -63,6 +66,10 @@ $presets = @{
   'network-plus' = @{ CourseDir = 'CompTIANet+'; ModulesDir = 'Book\bySubunit'; PoolDir = 'Certmaster Questions'
     MesserBook = ''; PracticeBook = 'CompTIA-Network-Practice-Tests*N10-009*.pdf'
     ExamCode = 'N10-009'; ExamDetails = 'Book\bySubunit\B.1.2 Exam Details for CompTIA Network+ N10-009.pdf' }
+  # The objectives PDF was downloaded from comptia.org on Mr. Flauto's word (2026-11-21), under CompTIA's name.
+  'security-plus' = @{ CourseDir = 'CompTIASec+'; ModulesDir = 'Book\bySubunit'; PoolDir = 'Certmaster Questions'
+    MesserBook = 'professor-messer-sy0-701-comptia-security-plus-practice-exams-v18.pdf'; PracticeBook = ''
+    ExamCode = 'SY0-701'; ExamDetails = 'CompTIA Security+ SY0-701 Exam Objectives (7.0).pdf' }
 }
 $preset = $presets[$Exam]
 foreach ($k in @($preset.Keys)) { if (-not $PSBoundParameters.ContainsKey($k)) { Set-Variable -Name $k -Value $preset[$k] } }
@@ -119,7 +126,8 @@ if (Test-Path -LiteralPath $pools) {
           $i++
         }
         $stemText = ($stem -join "`n").Trim()
-        if ($stemText -match 'Select (two|three|four|all that apply)') { $multi++ }
+        # Security+ writes "(Select the two best options.)".
+        if ($stemText -match 'Select (?:the )?(two|three|four|all that apply)') { $multi++ }
         [void]$sb.AppendLine("=== CertMaster $name Q$n ===")
         [void]$sb.AppendLine($stemText)
         foreach ($o in $opts) { [void]$sb.AppendLine($o) }
@@ -142,20 +150,34 @@ if ($book -and (Test-Path -LiteralPath $book)) {
   # Through a file: capturing pdftotext's standard output garbles the non-ASCII characters.
   & pdftotext -enc UTF-8 $book $rawFile
   $lines = [IO.File]::ReadAllLines($rawFile, [Text.Encoding]::UTF8)
-  $labelRx = '^([A-C]\d{1,2})\.\s+\S.{3,}'
-  $objRx = '^' + [regex]::Escape($ExamCode) + ',?\s*-?\s*(?:Objective|Section) (\d\.\d+) - (.+)$'
+  # SY0-701 prints one label with no space ("C25.A network IPS ..."): a capital letter may follow the dot.
+  $labelRx = '^([A-C]\d{1,2})\.(?:\s+|(?=[A-Z]))\S.{3,}'
+  # Most objective lines read "220-1201, Objective 1.2 - Topic". SY0-701 also prints "Assorted topics in
+  # Objective 1.4 - ...", "Section 3.2 videos - ...", "Objective 4.9- ...", and "Objective 1.2" with the
+  # topic on the next line. It prints one objective line, C86's, under the old exam code ("SY0-601,
+  # Objective 1.4 - Blockchain Technology"; its link is a 701 one), so SY0-601 counts there too.
+  $codeRx = if ($ExamCode -eq 'SY0-701') { 'SY0-[67]01' } else { [regex]::Escape($ExamCode) }
+  $objRx = '^' + $codeRx + ',?\s*-?\s*(?:Assorted topics in )?(?:Objective|Section) (\d\.\d+)(?: videos)?(?:\s*-\s*(.+))?$'
   # Option lines start with a checkbox glyph: "<glyph> A. text" becomes "A. text".
   function Clear-Line([string]$s) { ($s -replace "`f", '') -replace '^[^\w"(\[]+\s*([A-F])\.\s', '$1. ' }
   # The questions come first and the answers later, both under the same labels. Only an answer block
   # ends in an objective line, so the answer block is the one kept.
-  $page = 1; $cur = $null; $curPage = 0; $buf = $null
+  $page = 1; $cur = $null; $curPage = 0; $buf = $null; $topicNext = $false
   $blocks = @{}; $tsv = New-Object System.Collections.Generic.List[string]
   foreach ($x in $lines) {
     $page += ([regex]::Matches($x, "`f")).Count
     $y = Clear-Line $x
-    if ($y -match $labelRx) { $cur = $matches[1]; $curPage = $page; $buf = New-Object System.Collections.Generic.List[string] }
+    if ($y -match $labelRx) { $cur = $matches[1]; $curPage = $page; $buf = New-Object System.Collections.Generic.List[string]; $topicNext = $false }
     if ($cur) { $buf.Add($y) }
-    if ($cur -and $y -match $objRx) { $blocks[$cur] = ($buf -join "`n"); $tsv.Add("$cur`tp$curPage`t$($matches[1])`t$($matches[2])") }
+    if ($topicNext -and $y.Trim()) {
+      # The topic of an objective line that printed none ("SY0-701, Objective 1.2"), unless it is the link.
+      $topicNext = $false
+      if ($y -notmatch '^\s*https?://') { $tsv[$tsv.Count - 1] += $y.Trim(); $blocks[$cur] = ($buf -join "`n") }
+    }
+    elseif ($cur -and $y -match $objRx) {
+      $blocks[$cur] = ($buf -join "`n"); $tsv.Add("$cur`tp$curPage`t$($matches[1])`t$($matches[2])")
+      if (-not $matches[2]) { $topicNext = $true }
+    }
   }
   [IO.File]::WriteAllLines((Join-Path $mDir "messer-$ExamCode.tsv"), $tsv, $utf8)
   $noKey = @()

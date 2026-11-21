@@ -5,7 +5,8 @@
 
     powershell -ExecutionPolicy Bypass -File strip-for-check.ps1 -Scratch "<scratchpad>" -Exam a-plus-core-1 -Unit 2.0
 
-  -Exam is required: a-plus-core-1 or network-plus (the exam's data folder; -Data overrides it).
+  -Exam is required: a-plus-core-1, network-plus, or security-plus (the exam's data folder; -Data
+  overrides it).
   Reads packs\unit-NN.questions.json and packs\unit-NN.flashcards.json. Writes, under -Scratch\check:
     questions-blind.json  For each question: id, stem, its exhibit if it has one, choices, how many to
                           choose, the cited sections, and each objective and bullet with its title. No
@@ -32,12 +33,12 @@
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
   [Parameter(Mandatory = $true)][string]$Unit,
-  [ValidateSet('a-plus-core-1', 'network-plus')][string]$Exam,
+  [ValidateSet('a-plus-core-1', 'network-plus', 'security-plus')][string]$Exam,
   [string]$Data,
   [string[]]$Only = @()
 )
 $ErrorActionPreference = 'Stop'
-if (-not $Exam) { throw 'strip-for-check.ps1 needs -Exam a-plus-core-1 or -Exam network-plus.' }
+if (-not $Exam) { throw 'strip-for-check.ps1 needs -Exam a-plus-core-1, -Exam network-plus, or -Exam security-plus.' }
 if (-not $PSBoundParameters.ContainsKey('Data')) { $Data = Join-Path 'C:\CompTIA Website\data' $Exam }
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 function Read-Json([string]$path) { [IO.File]::ReadAllText($path, [Text.Encoding]::UTF8) | ConvertFrom-Json }

@@ -6,11 +6,16 @@
 
     powershell -ExecutionPolicy Bypass -File assemble.ps1 -Scratch "<scratchpad>" -Exam a-plus-core-1 -Unit 2.0
     powershell -ExecutionPolicy Bypass -File assemble.ps1 -Scratch "<scratchpad>" -Exam network-plus -Unit 6.0
+    powershell -ExecutionPolicy Bypass -File assemble.ps1 -Scratch "<scratchpad>" -Exam security-plus -Unit 8.0 -PackNote "Needs revision: ..."
 
-  -Exam is required: a-plus-core-1 (data\a-plus-core-1, ids like c1-u02-q001) or network-plus
-  (data\network-plus, ids like n-u06-q001). -Data and -Course override the folder and the id prefix.
+  -Exam is required: a-plus-core-1 (data\a-plus-core-1, ids like c1-u02-q001), network-plus
+  (data\network-plus, ids like n-u06-q001), or security-plus (data\security-plus, ids like s-u08-q001).
+  -Data and -Course override the folder and the id prefix.
   -CardsOnly builds only the flashcard pack (spec.json and the question drafts are not read), to check
   cards early. -NoSpread leaves every key where the draft put it.
+  -PackNote writes "notes" into the pack header of every pack the run builds, after "reviewed": false
+  (Security+ Units 8.0 and 9.0: the handoff's "Needs revision" note). check-copy.ps1 compares the header
+  line too, so the copy in data/ must carry the same note.
   -CommandsOnly builds only the unit's command pack for the Command line tool (docs/CONTENT-HANDOFF.md,
   "A Command line pass"), and nothing of the question and card code below runs:
 
@@ -62,19 +67,21 @@
 param(
   [Parameter(Mandatory = $true)][string]$Scratch,
   [Parameter(Mandatory = $true)][string]$Unit,
-  [ValidateSet('a-plus-core-1', 'network-plus')][string]$Exam,
+  [ValidateSet('a-plus-core-1', 'network-plus', 'security-plus')][string]$Exam,
   [string]$Data,
   [string]$Course,
+  [string]$PackNote,
   [switch]$NoSpread,
   [switch]$CardsOnly,
   [switch]$CommandsOnly
 )
 $ErrorActionPreference = 'Stop'
 # A forgotten -Exam stops here, instead of giving c1- ids or checking against the A+ outline.
-if (-not $Exam) { throw 'assemble.ps1 needs -Exam a-plus-core-1 or -Exam network-plus.' }
+if (-not $Exam) { throw 'assemble.ps1 needs -Exam a-plus-core-1, -Exam network-plus, or -Exam security-plus.' }
 if ($CardsOnly -and $CommandsOnly) { throw 'assemble.ps1 takes -CardsOnly or -CommandsOnly, not both.' }
-# Each exam's data folder and id prefix (docs/CONTENT-GUIDE.md: c1- A+ Core 1, n- Network+).
-$presets = @{ 'a-plus-core-1' = @{ Data = 'a-plus-core-1'; Course = 'c1' }; 'network-plus' = @{ Data = 'network-plus'; Course = 'n' } }
+# Each exam's data folder and id prefix (docs/CONTENT-GUIDE.md: c1- A+ Core 1, n- Network+, s- Security+).
+$presets = @{ 'a-plus-core-1' = @{ Data = 'a-plus-core-1'; Course = 'c1' }; 'network-plus' = @{ Data = 'network-plus'; Course = 'n' }
+  'security-plus' = @{ Data = 'security-plus'; Course = 's' } }
 if (-not $PSBoundParameters.ContainsKey('Data')) { $Data = Join-Path 'C:\CompTIA Website\data' $presets[$Exam].Data }
 if (-not $PSBoundParameters.ContainsKey('Course')) { $Course = $presets[$Exam].Course }
 $utf8 = New-Object System.Text.UTF8Encoding($false)
@@ -83,6 +90,9 @@ function Get-Norm([string]$s) { (($s -replace '[\u2010\u2011]', '-') -replace '\
 # The house layout's JSON text (the question and card writers below use them too).
 function ConvertTo-JsonString([string]$s) { '"' + (($s -replace '\\', '\\') -replace '"', '\"' -replace "`r", '\r' -replace "`n", '\n' -replace "`t", '\t') + '"' }
 function ConvertTo-JsonList($arr) { '[' + ((@($arr) | ForEach-Object { ConvertTo-JsonString $_ }) -join ', ') + ']' }
+# -PackNote: the "notes" field that follows "reviewed" (and, in a command pack, "lastVersion") in each pack header.
+if ($PSBoundParameters.ContainsKey('PackNote') -and -not $PackNote.Trim()) { throw 'assemble.ps1 -PackNote needs the text of the note.' }
+$noteField = if ($PackNote) { ", `"notes`": $(ConvertTo-JsonString $PackNote.Trim())" } else { '' }
 
 $unitMajor = ($Unit -split '\.')[0]
 $nn = $unitMajor.PadLeft(2, '0')
@@ -527,7 +537,7 @@ if ($CommandsOnly) {
   New-Item -ItemType Directory -Force $packDir | Out-Null
   $sorted = @($built | Sort-Object id)
   $cFile = Join-Path $packDir "unit-$nn.commands.json"
-  $chead = "{`n  `"`$schema`": `"../../../schemas/command-pack.schema.json`",`n  `"pack`": { `"id`": `"unit-$nn`", `"title`": $(ConvertTo-JsonString $unitTitle), `"reviewed`": false, `"lastCommand`": $lastC, `"lastVersion`": $lastV },`n  `"commands`": [`n"
+  $chead = "{`n  `"`$schema`": `"../../../schemas/command-pack.schema.json`",`n  `"pack`": { `"id`": `"unit-$nn`", `"title`": $(ConvertTo-JsonString $unitTitle), `"reviewed`": false, `"lastCommand`": $lastC, `"lastVersion`": $lastV$noteField },`n  `"commands`": [`n"
   [IO.File]::WriteAllText($cFile, $chead + ((@($sorted | ForEach-Object { Format-Command $_ })) -join ",`n") + "`n  ]`n}`n", $utf8)
   # The id list maps what checkers report back to the slots you fix. Ids never change on a rebuild.
   $idRows = foreach ($c in $sorted) {
@@ -786,7 +796,7 @@ function Format-Card($c) {
 }
 $packs = Join-Path $Scratch 'packs'
 New-Item -ItemType Directory -Force $packs | Out-Null
-$head = "{`n  `"`$schema`": `"../../../schemas/question-pack.schema.json`",`n  `"pack`": { `"id`": `"unit-$nn`", `"title`": $(ConvertTo-JsonString $unitTitle), `"reviewed`": false },`n  `"questions`": [`n"
+$head = "{`n  `"`$schema`": `"../../../schemas/question-pack.schema.json`",`n  `"pack`": { `"id`": `"unit-$nn`", `"title`": $(ConvertTo-JsonString $unitTitle), `"reviewed`": false$noteField },`n  `"questions`": [`n"
 $qFile = Join-Path $packs "unit-$nn.questions.json"
 if (-not $CardsOnly) {
   [IO.File]::WriteAllText($qFile, $head + (($items | ForEach-Object { Format-Question $_.q }) -join ",`n") + "`n  ]`n}`n", $utf8)
@@ -795,7 +805,7 @@ if (-not $CardsOnly) {
   }
 }
 if ($cards.Count) {
-  $fhead = "{`n  `"`$schema`": `"../../../schemas/flashcard-pack.schema.json`",`n  `"pack`": { `"id`": `"unit-$nn`", `"title`": $(ConvertTo-JsonString $unitTitle), `"reviewed`": false },`n  `"flashcards`": [`n"
+  $fhead = "{`n  `"`$schema`": `"../../../schemas/flashcard-pack.schema.json`",`n  `"pack`": { `"id`": `"unit-$nn`", `"title`": $(ConvertTo-JsonString $unitTitle), `"reviewed`": false$noteField },`n  `"flashcards`": [`n"
   [IO.File]::WriteAllText((Join-Path $packs "unit-$nn.flashcards.json"), $fhead + (($cards | ForEach-Object { Format-Card $_ }) -join ",`n") + "`n  ]`n}`n", $utf8)
 }
 if (-not $CardsOnly) {

@@ -138,7 +138,7 @@ Unit 6.0 has its study guide and the 6.1 to 6.3 lesson decks: no review deck, no
 | The reading | Sections: `CompTIASec+\Book\bySubunit\`. Whole chapters: `CompTIASec+\Book\byUnit\Sec+ 1.0.pdf` to `Sec+ 16.0.pdf` |
 | Question pools | `CompTIASec+\Certmaster Questions\1.0 + 2.0.txt`, `3.0.txt` to `16.0.txt`, and `All.txt` |
 | Messer practice exams | `CompTIASec+\professor-messer-sy0-701-comptia-security-plus-practice-exams-v18.pdf` |
-| Objectives and weights | The CompTIA SY0-701 Exam Objectives PDF at the top of `CompTIASec+`, downloaded from comptia.org on his word (2026-11-21) |
+| Objectives and weights | The CompTIA SY0-701 Exam Objectives PDF at the top of `CompTIASec+`, `CompTIA Security+ SY0-701 Exam Objectives (7.0).pdf`, downloaded from comptia.org on his word (2026-11-21). `extract-sources.ps1` writes it to `examdetails.txt`. |
 | My study guide with key (Units 1.0-2.0) | `CompTIASec+\Study Guides\1.0-2.0\`: `Sec+ Units 1.0-2.0 Review - Study Guide.pdf`, `Sec+ 1.0-2.0 Review - Questions.pdf` and its KEY. `extract-aids.ps1` does not read this folder, so read these by hand. |
 | My decks | `CompTIASec+\Slides\` (lesson decks, `Sec+ Units 1.0-6.0 Review.pptx`, `Sec+ Unit 7.0 Review.pptx`); `CompTIASec+\Activities\Sec+ Units 1.0-2.0 Review Deck Activity.pptx` |
 | My Blookets | `CompTIASec+\Blookets\` (Units 4.0 to 7.0) |
