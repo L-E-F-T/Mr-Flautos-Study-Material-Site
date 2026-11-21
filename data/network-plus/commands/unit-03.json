@@ -1,0 +1,112 @@
+{
+  "$schema": "../../../schemas/command-pack.schema.json",
+  "pack": { "id": "unit-03", "title": "Unit 3.0 Configuring Interfaces and Switches", "reviewed": false, "lastCommand": 4, "lastVersion": 4 },
+  "commands": [
+    {
+      "id": "n-u03-c001",
+      "typedFormOf": ["n-u03-q041"],
+      "system": "switch",
+      "task": "A technician is checking a switch in a wiring closet. Which command reports the line status, protocol status, settings, and traffic and error counts of every port?",
+      "accept": [
+        { "lines": ["show interface"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u03-v001",
+          "outputs": [
+            { "text": "FastEthernet0/1 is up,\n  line protocol is up\n  address 00a1.2b3c.4d5e\n  BW 100000 Kbit\n  Full-duplex, 100Mb/s\n  4180 packets input\n  0 input errors, 0 CRC\n  0 frame, 0 overrun\n  3925 packets output\n  0 output errors,\n  0 collisions,\n  0 interface resets" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "Switch Show Commands",
+        "quote": "",
+        "find": "report configuration details and traffic statistics"
+      }
+    },
+    {
+      "id": "n-u03-c002",
+      "typedFormOf": ["n-u03-q042"],
+      "system": "switch",
+      "task": "Before a planned restart, a technician wants to read the saved copy of a switch's settings, the one it will load when it boots. Which command should the technician run?",
+      "accept": [
+        { "lines": ["show startup-config"] }
+      ],
+      "alsoWorks": ["show configuration"],
+      "versions": [
+        {
+          "id": "n-u03-v002",
+          "outputs": [
+            { "text": "Using 1862 out of 65536\n  bytes\n!\nversion 15.0\n!\nhostname Closet-SW2\n!\ninterface FastEthernet0/1\n switchport mode access\n!\ninterface FastEthernet0/2\n!" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.3",
+        "title": "Switch Show Commands",
+        "quote": "",
+        "find": "configured on next boot"
+      }
+    },
+    {
+      "id": "n-u03-c003",
+      "typedFormOf": ["n-u03-q049"],
+      "system": "switch",
+      "task": "To trace each computer to the switch port it is plugged into, a technician needs a list of the devices the switch has learned, with the VLAN and port of each. Which command should the technician run?",
+      "accept": [
+        { "lines": ["show mac address-table", "show mac-address-table"] }
+      ],
+      "alsoWorks": ["show mac address-table dynamic", "show mac-address-table dynamic"],
+      "versions": [
+        {
+          "id": "n-u03-v003",
+          "outputs": [
+            { "text": "Vlan  Mac Address\n  Type     Ports\n10  0014.22aa.01b3\n  DYNAMIC  Gi0/2\n10  3c52.82d1.7f40\n  DYNAMIC  Gi0/5\n20  7c05.07e2.9a1c\n  DYNAMIC  Gi0/5\n30  a4bb.6d03.52e8\n  DYNAMIC  Gi0/11" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.5",
+        "title": "MAC Address Table",
+        "quote": "",
+        "find": "find the MAC address or addresses"
+      }
+    },
+    {
+      "id": "n-u03-c004",
+      "typedFormOf": ["n-u03-q058"],
+      "system": "switch",
+      "task": "Since three wireless access points were plugged into a switch, its phones have been restarting at random. Which command reports how many watts the switch can supply to its devices and how many watts they are using?",
+      "accept": [
+        { "lines": ["show power inline", "show power"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u03-v004",
+          "outputs": [
+            { "text": "Available: 380.0 watts\nUsed: 372.4 watts\nRemaining: 7.6 watts\nInterface Admin Oper\n  Watts Device Class Max\nGi0/3   auto   on\n  6.1 IP-Phone 2 7.0\nGi0/6   auto   on\n  6.8 IP-Cam 2 7.0\nGi0/9   auto   on\n  5.4 IP-Phone 2 7.0" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.c"],
+      "units": ["3.4.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "3.4.7",
+        "title": "Power Over Ethernet Issues",
+        "quote": "",
+        "find": "the power budget and power consumption"
+      }
+    }
+  ]
+}

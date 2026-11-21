@@ -155,10 +155,19 @@
     {
       "system": "switch",
       "command": "show",
-      "does": "Reports the switch's VLAN configuration",
-      "section": "5.6.2",
+      "does": "Displays current switch settings and status",
+      "section": "3.4.3",
       "switches": [
-        { "switch": "vlan", "does": "Lists VLAN IDs and assigned ports" }
+        { "switch": "config", "does": "Displays the switch's settings" },
+        { "switch": "startup-config", "does": "Shows settings loaded on next boot" },
+        { "switch": "running-config", "does": "Shows settings now in use" },
+        { "switch": "interface", "does": "Reports port status and traffic statistics" },
+        { "switch": "etherchannel", "does": "Investigates link aggregation group problems" },
+        { "switch": "mac address-table", "does": "Finds MAC addresses learned on ports", "section": "3.4.5" },
+        { "switch": "mac-address-table", "does": "Same as mac address-table: lists addresses", "section": "3.4.5" },
+        { "switch": "power inline", "does": "Reports PoE power budget and use", "section": "3.4.7" },
+        { "switch": "power", "does": "Same as power inline: reports budget", "section": "3.4.7" },
+        { "switch": "vlan", "does": "Lists VLAN IDs and assigned ports", "section": "5.6.2" }
       ]
     }
   ]
