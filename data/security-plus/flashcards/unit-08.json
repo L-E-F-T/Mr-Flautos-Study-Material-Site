@@ -231,7 +231,7 @@
       "term": "Vulnerability scan",
       "definition": "A systematic probe of hosts and devices with a tool, compared against a feed of known flaws. It reports missing patches and baseline deviations but does not exploit anything.",
       "objectives": ["4.3", "4.3.a"],
-      "units": ["8.3.1"],
+      "units": ["8.3.1", "12.3.4", "12.4.5"],
       "reference": { "source": "certmaster", "section": "8.3.1", "title": "Vulnerability Scanning" }
     },
     {

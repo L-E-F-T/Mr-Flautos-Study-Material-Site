@@ -1,0 +1,874 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-12", "title": "Unit 12.0 Explain Incident Response and Monitoring Concepts", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet. WIP: written without class materials; needs a pass once they are made." },
+  "questions": [
+    {
+      "id": "s-u12-q001",
+      "stem": "A security manager at a county courthouse is writing a policy that lists the phases of the incident response process from first to last. Which of the following shows the phases in the correct order?",
+      "choices": [
+        { "id": "a", "text": "Preparation, analysis, detection, containment, eradication, recovery, lessons learned" },
+        { "id": "b", "text": "Preparation, analysis, detection, eradication, containment, recovery, lessons learned" },
+        { "id": "c", "text": "Preparation, detection, analysis, eradication, containment, recovery, lessons learned" },
+        { "id": "d", "text": "Preparation, detection, analysis, containment, eradication, recovery, lessons learned" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.1",
+        "title": "Incident Response Processes",
+        "quote": "",
+        "find": "lifecycle is a seven-step process"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q15" }
+    },
+    {
+      "id": "s-u12-q002",
+      "stem": "At a garden supply company, the CIRT is cutting malware-infected order servers off the network as part of the containment phase. Which phase of the incident response lifecycle did the team complete just before this one?",
+      "choices": [
+        { "id": "a", "text": "Analysis" },
+        { "id": "b", "text": "Detection" },
+        { "id": "c", "text": "Preparation" },
+        { "id": "d", "text": "Eradication" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.1",
+        "title": "Incident Response Processes",
+        "quote": "",
+        "find": "whether an incident has taken place"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q6" }
+    },
+    {
+      "id": "s-u12-q003",
+      "stem": "As a worm spreads across a boarding school's dormitory network, a new responder asks what goal the CIRT is working toward in the containment phase. Which of the following BEST describes that goal?",
+      "choices": [
+        { "id": "a", "text": "Limit how far the incident reaches and how much harm it does" },
+        { "id": "b", "text": "Remove the cause and install patches to restore a secure state" },
+        { "id": "c", "text": "Discover indicators of threat actor activity on the network" },
+        { "id": "d", "text": "Put the systems back into the business processes they support" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.1",
+        "title": "Incident Response Processes",
+        "quote": "",
+        "find": "limits the scope and magnitude"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q1" }
+    },
+    {
+      "id": "s-u12-q004",
+      "stem": "Two weeks after a ransomware attack on a public radio station, the CIRT meets for the final phase of the incident response lifecycle. Which of the following should be the main focus of this meeting?",
+      "choices": [
+        { "id": "a", "text": "Restoring the station's files from backup and testing them" },
+        { "id": "b", "text": "Removing the ransomware and installing missing patches" },
+        { "id": "c", "text": "Deciding which staff members to discipline for mistakes" },
+        { "id": "d", "text": "Finding procedures or systems that could be improved" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.1",
+        "title": "Incident Response Processes",
+        "quote": "",
+        "find": "analyzes the incident and responses"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q7" }
+    },
+    {
+      "id": "s-u12-q005",
+      "stem": "During a breach at an online bookstore, a stock clerk heard about the attack from one of the responders and posted the details on social media before the company had made any statement. Which of the following should the bookstore have set up during preparation to BEST prevent this?",
+      "choices": [
+        { "id": "a", "text": "Case management tools that log incident details for responders" },
+        { "id": "b", "text": "A senior executive who can authorize serious response actions" },
+        { "id": "c", "text": "Playbooks that guide analysts through specific threat scenarios" },
+        { "id": "d", "text": "A communication plan that controls who receives incident details" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.2",
+        "title": "Preparation",
+        "quote": "",
+        "find": "prevent the unintentional release of information"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q2" }
+    },
+    {
+      "id": "s-u12-q006",
+      "stem": "A new kind of malware that no security vendor has seen yet has infected a pool supply company's file server. Which of the following would MOST likely reveal the infection?",
+      "choices": [
+        { "id": "a", "text": "IDS alerts that match known attack patterns" },
+        { "id": "b", "text": "Antivirus scans with the latest definitions" },
+        { "id": "c", "text": "Firewall alerts on blocked inbound ports" },
+        { "id": "d", "text": "Network traffic far above the baseline" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.3",
+        "title": "Detection",
+        "quote": "",
+        "find": "deviations from baseline system metrics"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q3" }
+    },
+    {
+      "id": "s-u12-q007",
+      "stem": "A customer calls an electric cooperative to report a payment on her online account that she did not make, and the report goes to a first responder on the CIRT. Which of the following should the responder determine FIRST?",
+      "choices": [
+        { "id": "a", "text": "Whether a genuine incident has taken place" },
+        { "id": "b", "text": "Which countermeasures can contain the attacker" },
+        { "id": "c", "text": "How the attacker was able to get into the account" },
+        { "id": "d", "text": "Which backup should be used to restore the system" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.4",
+        "title": "Analysis",
+        "quote": "",
+        "find": "determine whether a genuine incident"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q9" }
+    },
+    {
+      "id": "s-u12-q008",
+      "stem": "After alerts from a state park system's reservation server are confirmed as a true positive, a CIRT member identifies the type of incident and the camper records it affects so the case can be given a priority level. In which phase of the incident response lifecycle is the CIRT member working?",
+      "choices": [
+        { "id": "a", "text": "Detection" },
+        { "id": "b", "text": "Analysis" },
+        { "id": "c", "text": "Containment" },
+        { "id": "d", "text": "Lessons learned" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.4",
+        "title": "Analysis",
+        "quote": "",
+        "find": "establishes incident category and impact"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q19" }
+    },
+    {
+      "id": "s-u12-q009",
+      "stem": "A bicycle maker's SIEM raises an alert that a payroll clerk's PC ran an unknown script and then connected to an address in another country. Which of the following would BEST help the CIRT decide what the alert means?",
+      "choices": [
+        { "id": "a", "text": "Running a root cause analysis with the Five Whys model" },
+        { "id": "b", "text": "Placing the PC's files and logs under a legal hold" },
+        { "id": "c", "text": "Analyzing it with threat intelligence and a playbook" },
+        { "id": "d", "text": "Tuning the alert rule to reduce false positives" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.4",
+        "title": "Analysis",
+        "quote": "",
+        "find": "incident analysis depends on threat intelligence"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q4" }
+    },
+    {
+      "id": "s-u12-q010",
+      "stem": "Malware has infected the checkout terminals at one of a grocery chain's stores, so an analyst adds firewall rules that stop those terminals from communicating with any other system. Which of the following incident response phases is the analyst carrying out?",
+      "choices": [
+        { "id": "a", "text": "Eradication" },
+        { "id": "b", "text": "Containment" },
+        { "id": "c", "text": "Detection" },
+        { "id": "d", "text": "Analysis" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.5",
+        "title": "Containment",
+        "quote": "",
+        "find": "prevent infected hosts from communicating"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A38" }
+    },
+    {
+      "id": "s-u12-q011",
+      "stem": "Attackers have been breaking into an engineering firm's laptops through a flaw in a remote access app that staff use, and the incident response team has started the containment phase. Which of the following should the team do during this phase?",
+      "choices": [
+        { "id": "a", "text": "Delete the tools the attackers installed through the app" },
+        { "id": "b", "text": "Restore the laptops from backups and return them to staff" },
+        { "id": "c", "text": "Block the app from running on any of the laptops" },
+        { "id": "d", "text": "Hold a meeting to review how the team handled the attack" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.5",
+        "title": "Containment",
+        "quote": "",
+        "find": "prevented from executing on most hosts"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C70" }
+    },
+    {
+      "id": "s-u12-q012",
+      "stem": "An intruder has been signing in to a receptionist's account at a dental practice with a stolen password. Which of the following BEST describe the containment phase of the response?",
+      "choices": [
+        { "id": "a", "text": "Deciding whether the odd sign-ins are a genuine incident" },
+        { "id": "b", "text": "Keeping the intruder from reaching more patient records" },
+        { "id": "c", "text": "Removing the intruder's tools and unauthorized changes" },
+        { "id": "d", "text": "Temporarily disabling the receptionist's user account" },
+        { "id": "e", "text": "Learning why the receptionist's account was easy to break into" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.5", "12.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.5",
+        "title": "Containment",
+        "quote": "",
+        "find": "disabling a user account"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q10" }
+    },
+    {
+      "id": "s-u12-q013",
+      "stem": "An analyst confirms that malware on a travel agent's desktop is deleting files on the agency's shared drive, and the office manager wants the files restored right away. Which of the following should the analyst do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Restore the deleted files from last night's backup" },
+        { "id": "b", "text": "Disable the switch port the desktop connects to" },
+        { "id": "c", "text": "Remove the malware from the desktop with antimalware software" },
+        { "id": "d", "text": "Reinstall the desktop's operating system from a clean image" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.5",
+        "title": "Containment",
+        "quote": "",
+        "find": "or disabling its switch port"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q5" }
+    },
+    {
+      "id": "s-u12-q014",
+      "stem": "An aerospace parts maker's incident response team wants to contain new malware on several engineering servers but keep studying the attacker's methods without revealing that the attack was detected. Which of the following would BEST meet these goals?",
+      "choices": [
+        { "id": "a", "text": "Pull the servers' network cables to cut off all of their traffic" },
+        { "id": "b", "text": "Copy the malware to a sandbox, then delete it from all of the servers" },
+        { "id": "c", "text": "Move the servers to a honeynet segment that returns filtered output" },
+        { "id": "d", "text": "Rebuild the servers from clean backups and return them to service" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.5",
+        "title": "Containment",
+        "quote": "",
+        "find": "segment as a sinkhole or honeynet"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q11" }
+    },
+    {
+      "id": "s-u12-q015",
+      "stem": "A cinema chain's CIRT has blocked the attackers' addresses at the firewall, moved the infected payroll PCs onto an isolated VLAN, and confirmed that the incident is contained. Which phase of the incident response process should the team start NEXT?",
+      "choices": [
+        { "id": "a", "text": "Recovery" },
+        { "id": "b", "text": "Lessons learned" },
+        { "id": "c", "text": "Eradication" },
+        { "id": "d", "text": "Analysis" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.6",
+        "title": "Eradication and Recovery",
+        "quote": "",
+        "find": "After an incident has been contained"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B79" }
+    },
+    {
+      "id": "s-u12-q016",
+      "stem": "After the attackers' tools were removed from a catering company's ordering servers, the web team reconnects the servers and reopens online ordering to customers. In which phase of incident response is the web team working?",
+      "choices": [
+        { "id": "a", "text": "Containment" },
+        { "id": "b", "text": "Recovery" },
+        { "id": "c", "text": "Eradication" },
+        { "id": "d", "text": "Lessons learned" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.6",
+        "title": "Eradication and Recovery",
+        "quote": "",
+        "find": "ensures restoration of capabilities and services"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A45" }
+    },
+    {
+      "id": "s-u12-q017",
+      "stem": "After attackers broke into an aquarium's ticketing server, the incident response team is now in the recovery phase. Which of the following tasks belongs to this phase?",
+      "choices": [
+        { "id": "a", "text": "Remove the backdoor the attackers left on the server" },
+        { "id": "b", "text": "Disconnect the server from the network to limit the damage" },
+        { "id": "c", "text": "Restore the server's data from backup and put it back in service" },
+        { "id": "d", "text": "Review the team's response to find procedures to improve" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.1",
+        "title": "Incident Response Processes",
+        "quote": "",
+        "find": "the restoration of data from backup"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C23" }
+    },
+    {
+      "id": "s-u12-q018",
+      "stem": "After a breach at a tire store chain is contained, the review team works back through the attack and finds that the attackers got in through an old vendor account that still had full admin rights. Which of the following BEST describes this effort?",
+      "choices": [
+        { "id": "a", "text": "Threat hunting" },
+        { "id": "b", "text": "Triage" },
+        { "id": "c", "text": "E-discovery" },
+        { "id": "d", "text": "Root cause analysis" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.8", "4.8.d"],
+      "units": ["12.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.7",
+        "title": "Lessons Learned",
+        "quote": "",
+        "find": "root cause analysis or the effort"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A9" }
+    },
+    {
+      "id": "s-u12-q019",
+      "stem": "A regional bus company's CIRT must test how it would respond to a phishing attack at the lowest possible cost, with responders only explaining what they would do and no computer systems used. Which of the following should the team hold?",
+      "choices": [
+        { "id": "a", "text": "Tabletop exercise" },
+        { "id": "b", "text": "Walkthrough" },
+        { "id": "c", "text": "Simulation" },
+        { "id": "d", "text": "Lessons learned meeting" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.8", "4.8.c"],
+      "units": ["12.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.8",
+        "title": "Testing and Training",
+        "quote": "",
+        "find": "least costly type of testing"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 12.1.8 (tabletop exercise)" }
+    },
+    {
+      "id": "s-u12-q020",
+      "stem": "Analysts at a staffing agency load a feed of known attacker TTPs into the SIEM and search a year of the agency's own logs for matches, even though nothing has set off an alert. Which of the following BEST describes this activity?",
+      "choices": [
+        { "id": "a", "text": "Alert tuning" },
+        { "id": "b", "text": "Threat hunting" },
+        { "id": "c", "text": "Root cause analysis" },
+        { "id": "d", "text": "Vulnerability scanning" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.8", "4.8.e"],
+      "units": ["12.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.1.9",
+        "title": "Threat Hunting",
+        "quote": "",
+        "find": "to proactively discover whether"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q12" }
+    },
+    {
+      "id": "s-u12-q021",
+      "stem": "A furniture maker's IT staff copied files from the PC of an employee accused of fraud, but they followed no set procedure and kept no record of how they collected the files. Which of the following is the MOST likely result of these mistakes if the case goes to trial?",
+      "choices": [
+        { "id": "a", "text": "E-discovery may be needed to rebuild the missing records" },
+        { "id": "b", "text": "The files may be placed under a legal hold" },
+        { "id": "c", "text": "Non-repudiation may stop the employee from denying the fraud" },
+        { "id": "d", "text": "The files may not be accepted as evidence" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.2.1",
+        "title": "Due Process and Legal Hold",
+        "quote": "",
+        "find": "ensure the admissibility of digital evidence"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q22" }
+    },
+    {
+      "id": "s-u12-q022",
+      "stem": "After a customer sues a home builder over a leaking roof, the builder's lawyers tell IT to stop the nightly job that deletes old project emails and logs until the case ends. Which of the following BEST describes this requirement?",
+      "choices": [
+        { "id": "a", "text": "E-discovery" },
+        { "id": "b", "text": "Legal hold" },
+        { "id": "c", "text": "Data retention" },
+        { "id": "d", "text": "Due process" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.2.1",
+        "title": "Due Process and Legal Hold",
+        "quote": "",
+        "find": "a court case must be preserved"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C63" }
+    },
+    {
+      "id": "s-u12-q023",
+      "stem": "A forensic investigator is called to an eye clinic whose billing server is still running after an intrusion. Following the order of volatility, which of the following should the investigator collect FIRST?",
+      "choices": [
+        { "id": "a", "text": "The server's logs on a remote log host" },
+        { "id": "b", "text": "The files on the server's SSD" },
+        { "id": "c", "text": "The data in the server's RAM" },
+        { "id": "d", "text": "The server's backup tapes in storage" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.2.2",
+        "title": "Acquisition",
+        "quote": "",
+        "find": "Contents of nonpersistent system memory (RAM)"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q23" }
+    },
+    {
+      "id": "s-u12-q024",
+      "stem": "A security analyst captures a system memory dump from a malware-infected laptop at a travel agency. Which of the following can the analyst MOST likely find by analyzing the dump?",
+      "choices": [
+        { "id": "a", "text": "Logs kept on the agency's remote log server" },
+        { "id": "b", "text": "Deleted files that remain in the drive's free space" },
+        { "id": "c", "text": "Data hidden in the slack space of the laptop's drive" },
+        { "id": "d", "text": "Processes that were running on the laptop" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.2.3",
+        "title": "System Memory Acquisition",
+        "quote": "",
+        "find": "identify the processes that are running"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q24" }
+    },
+    {
+      "id": "s-u12-q025",
+      "stem": "After a break-in, an investigator uses live acquisition to copy the drive of a 24-hour pharmacy's order server so it can keep filling prescriptions. Which of the following is a risk of this method?",
+      "choices": [
+        { "id": "a", "text": "Malware may detect the shutdown and use anti-forensics to hide" },
+        { "id": "b", "text": "Threat actors may be alerted and have time to use anti-forensics" },
+        { "id": "c", "text": "Cutting power at the wall socket may corrupt data on the drive" },
+        { "id": "d", "text": "Memory contents are lost as soon as power is removed from the host" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.2.4",
+        "title": "Disk Image Acquisition",
+        "quote": "",
+        "find": "alert the threat actor and allow"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q25" }
+    },
+    {
+      "id": "s-u12-q026",
+      "stem": "A forensic examiner finishes imaging the drive from a city clerk's PC in a stolen funds investigation, and the trial may be a year away. Which of the following should the examiner do now so the image file can later be shown to be unchanged?",
+      "choices": [
+        { "id": "a", "text": "Seal the original drive in a tamper-evident bag" },
+        { "id": "b", "text": "Encrypt the image file with a strong key" },
+        { "id": "c", "text": "Record a hash value of the image file" },
+        { "id": "d", "text": "Attach the original drive to a write blocker" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.2.5",
+        "title": "Preservation",
+        "quote": "",
+        "find": "The hashes prove that no"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B64" }
+    },
+    {
+      "id": "s-u12-q027",
+      "stem": "A university's investigator images a staff laptop's drive in a case about leaked exam answers and records the output shown. Based on the output, which of the following can the investigator prove?",
+      "exhibit": { "type": "text", "text": "Source drive MD5:\n3f9a0c71e2b84d56\na0e7c13b9d24f86e\nImage file MD5:\n3f9a0c71e2b84d56\na0e7c13b9d24f86e\nResult: match" },
+      "choices": [
+        { "id": "a", "text": "The image is an unaltered copy of the drive" },
+        { "id": "b", "text": "The image cannot be opened without a decryption key" },
+        { "id": "c", "text": "The drive held no known malware when it was imaged" },
+        { "id": "d", "text": "Each person who handled the drive has been recorded" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.2.5",
+        "title": "Preservation",
+        "quote": "",
+        "find": "The hashes prove that no"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q21" }
+    },
+    {
+      "id": "s-u12-q028",
+      "stem": "A toy company's investigators seize a designer's laptop in a case about leaked product plans, and several people will handle it before trial. Which of the following should they use to show who had the laptop, when, and where it was kept?",
+      "choices": [
+        { "id": "a", "text": "A chain of custody form" },
+        { "id": "b", "text": "A legal hold notice" },
+        { "id": "c", "text": "A tamper-evident bag" },
+        { "id": "d", "text": "A digital forensics report" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.2.5",
+        "title": "Preservation",
+        "quote": "",
+        "find": "documentation records where, when, and who"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B58" }
+    },
+    {
+      "id": "s-u12-q029",
+      "stem": "For a patent lawsuit, a forensic examination copied 6 TB of data from a medical device maker's servers, and the maker's lawyers must remove duplicate files and share only the files that matter to the case with the other side. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "E-discovery" },
+        { "id": "b", "text": "Legal hold" },
+        { "id": "c", "text": "Chain of custody" },
+        { "id": "d", "text": "SIEM" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.2.6",
+        "title": "Reporting",
+        "quote": "",
+        "find": "filtering the relevant evidence produced from"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 12.2.6 (e-discovery)" }
+    },
+    {
+      "id": "s-u12-q030",
+      "stem": "Analysts at a regional airport must sign in to the firewalls, the IDS sensors, the antivirus console, and each server one at a time to piece together what happened during an incident. Which of the following would BEST let them aggregate and correlate all of this data in one place?",
+      "choices": [
+        { "id": "a", "text": "Security Content Automation Protocol (SCAP)" },
+        { "id": "b", "text": "Endpoint detection and response (EDR)" },
+        { "id": "c", "text": "Simple Network Management Protocol (SNMP)" },
+        { "id": "d", "text": "Security information and event management (SIEM)" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.4", "4.4.c"],
+      "units": ["12.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.3.1",
+        "title": "Data Sources, Dashboards, and Reports",
+        "quote": "",
+        "find": "correlate multiple data sources"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 12.0 Q20" }
+    },
+    {
+      "id": "s-u12-q031",
+      "stem": "The IT technician for a landscaping company wants to find every failed sign-in to the office's Windows server and every attempt to use administrator rights on it. Which of the following logs should the technician review?",
+      "choices": [
+        { "id": "a", "text": "The server's System log" },
+        { "id": "b", "text": "The server's Security log" },
+        { "id": "c", "text": "The server's Application log" },
+        { "id": "d", "text": "The firewall's traffic log" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.3.3",
+        "title": "Host Operating System Logs",
+        "quote": "",
+        "find": "such as a failed login"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 12.3.3 (OS-specific security logs)" }
+    },
+    {
+      "id": "s-u12-q032",
+      "stem": "A help desk technician at a solar panel installer exports the log entries shown from a sales manager's laptop. Which of the following MOST likely recorded these entries?",
+      "exhibit": { "type": "text", "text": "Detection history\n08:14 Trojan.FakeInvoice\n  C:\\Temp\\invoice-88.exe\n  Action: Quarantined\n10:41 Adware.PopMax\n  C:\\Users\\jl\\fonts.exe\n  Action: Quarantined\n11:15 Spyware.KeyLog\n  C:\\Users\\jl\\kbd64.dll\n  Action: Quarantined" },
+      "choices": [
+        { "id": "a", "text": "Vulnerability scanner" },
+        { "id": "b", "text": "Data loss prevention" },
+        { "id": "c", "text": "Antivirus software" },
+        { "id": "d", "text": "Host-based firewall" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.3.4",
+        "title": "Application and Endpoint Logs",
+        "quote": "",
+        "find": "logging detection and quarantine of malware"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B32" }
+    },
+    {
+      "id": "s-u12-q033",
+      "stem": "Malware on a veterinary clinic's front desk PC came from a USB drive that a visitor left in the lobby, and the malware never sent any traffic across the clinic's network. Which of the following data sources would MOST likely hold evidence of what the malware did on the PC?",
+      "choices": [
+        { "id": "a", "text": "Vulnerability scans" },
+        { "id": "b", "text": "Firewall logs" },
+        { "id": "c", "text": "Packet captures" },
+        { "id": "d", "text": "Endpoint logs" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.3.4",
+        "title": "Application and Endpoint Logs",
+        "quote": "",
+        "find": "events monitored by security software"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 12.3.4 (endpoint logs)" }
+    },
+    {
+      "id": "s-u12-q034",
+      "stem": "A worm spread through a known software flaw to several of a hardware store chain's servers, and an analyst needs to know which other servers are still missing the patch for that flaw. Which of the following data sources in the SIEM would BEST show this?",
+      "choices": [
+        { "id": "a", "text": "IPS/IDS logs" },
+        { "id": "b", "text": "Vulnerability scans" },
+        { "id": "c", "text": "Packet captures" },
+        { "id": "d", "text": "OS-specific security logs" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.9", "4.9.b"],
+      "units": ["12.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.3.4",
+        "title": "Application and Endpoint Logs",
+        "quote": "",
+        "find": "Vulnerabilities can include missing patches"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 12.3.4 (vulnerability scan logs)" }
+    },
+    {
+      "id": "s-u12-q035",
+      "stem": "A security analyst at a charter bus company is reviewing the firewall log entry shown. Which of the following BEST describes this event?",
+      "exhibit": { "type": "text", "text": "2026-04-18 01:52:36 UTC\nrule 14 DROP in=WAN\nproto=TCP\nsrc=198.51.100.62:50731\ndst=10.8.2.40:3389" },
+      "choices": [
+        { "id": "a", "text": "The firewall blocked an internal server from reaching an outside host" },
+        { "id": "b", "text": "The firewall allowed an outside host to reach an internal server" },
+        { "id": "c", "text": "The firewall blocked an outside host from reaching an internal server" },
+        { "id": "d", "text": "The firewall allowed an internal server to reach an outside host" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.3.5",
+        "title": "Network Data Sources",
+        "quote": "",
+        "find": "the packet was accepted or dropped"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 12.3.5 (firewall logs)" }
+    },
+    {
+      "id": "s-u12-q036",
+      "stem": "An analyst at an online florist reviews the IPS alert shown for a request sent to the florist's web server. Which of the following does the alert reveal?",
+      "exhibit": { "type": "text", "text": "14:22:09 IPS ALERT\nRule: XSS script in URL\nSource: 203.0.113.58\nSource port: 60142\nDestination: 192.0.2.30\nDestination port: 8080\nRequest:\nGET /search?q=\n<script>grab()</script>" },
+      "choices": [
+        { "id": "a", "text": "The request came from 203.0.113.58" },
+        { "id": "b", "text": "The request came from 192.0.2.30" },
+        { "id": "c", "text": "The search request carried an embedded script" },
+        { "id": "d", "text": "The search request carried a database command" },
+        { "id": "e", "text": "The search request overflowed the server's buffer" }
+      ],
+      "answer": ["a", "c"],
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.3.5",
+        "title": "Network Data Sources",
+        "quote": "",
+        "find": "pattern is matched to a rule"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A80" }
+    },
+    {
+      "id": "s-u12-q037",
+      "stem": "A regional newspaper patched a newly published flaw in its mail server software last night, and its analyst wants to know whether anyone tried to exploit the flaw before the patch and from which addresses. Which of the following data sources would BEST show this?",
+      "choices": [
+        { "id": "a", "text": "IPS/IDS logs" },
+        { "id": "b", "text": "Vulnerability scans" },
+        { "id": "c", "text": "Firewall logs" },
+        { "id": "d", "text": "Network logs" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.3.5",
+        "title": "Network Data Sources",
+        "quote": "",
+        "find": "when a traffic pattern is matched"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C22" }
+    },
+    {
+      "id": "s-u12-q038",
+      "stem": "A brewery disabled a departing brewer's account at 5:00 PM on June 12, 2026, and an investigator then checked the properties of the recipe file shown. Which of the following shows that someone changed the file after the account was disabled?",
+      "exhibit": { "type": "text", "text": "Name: ipa-recipes.docx\nAuthor: R. Haddad\nCreated:\n  Mar 2, 2026 9:15 AM\nModified:\n  Jun 12, 2026 9:47 PM\nAccessed:\n  Jun 15, 2026 8:03 AM" },
+      "choices": [
+        { "id": "a", "text": "The Modified time" },
+        { "id": "b", "text": "The Accessed time" },
+        { "id": "c", "text": "The Created time" },
+        { "id": "d", "text": "The Author field" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.3.7",
+        "title": "Metadata",
+        "quote": "",
+        "find": "tracks when a file was created"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B86" }
+    },
+    {
+      "id": "s-u12-q039",
+      "stem": "Every Monday, a gym chain's SIEM fills the analysts' dashboards with dozens of port scan warnings caused by the company's own weekly vulnerability scan, and the analysts dismiss each one. Which of the following would BEST keep these warnings from coming back?",
+      "choices": [
+        { "id": "a", "text": "Alert tuning" },
+        { "id": "b", "text": "Alert validation" },
+        { "id": "c", "text": "Threat hunting" },
+        { "id": "d", "text": "Log aggregation" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.4", "4.4.b"],
+      "units": ["12.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.4.3",
+        "title": "Alert Tuning",
+        "quote": "",
+        "find": "Alert tuning is necessary to reduce"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B44" }
+    },
+    {
+      "id": "s-u12-q040",
+      "stem": "A community college's routers send NetFlow records to a collector, and analysts have just found malware on the enrollment server. Which of the following can the analysts learn from these records?",
+      "choices": [
+        { "id": "a", "text": "Which files the malware changed on the server's drive" },
+        { "id": "b", "text": "Which campus hosts the server exchanged traffic with" },
+        { "id": "c", "text": "What data was inside each packet the server sent" },
+        { "id": "d", "text": "Which user account was signed in when the malware ran" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.4", "4.4.c"],
+      "units": ["12.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.4.4",
+        "title": "Monitoring Infrastructure",
+        "quote": "",
+        "find": "show a map of network connections"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B76" }
+    },
+    {
+      "id": "s-u12-q041",
+      "stem": "An energy company runs vulnerability scanners from three different vendors and wants all three to check its servers against the same configuration baseline. Which of the following would BEST make this possible?",
+      "choices": [
+        { "id": "a", "text": "Common Vulnerability Scoring System (CVSS)" },
+        { "id": "b", "text": "Simple Network Management Protocol (SNMP)" },
+        { "id": "c", "text": "Security Content Automation Protocol (SCAP)" },
+        { "id": "d", "text": "Common Vulnerabilities and Exposures (CVE)" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.4", "4.4.c"],
+      "units": ["12.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "12.4.6",
+        "title": "Benchmarks",
+        "quote": "",
+        "find": "allows compatible scanners to determine"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A76" }
+    }
+  ]
+}

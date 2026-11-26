@@ -6,7 +6,7 @@ Live now: **A+ Core 1 (220-1201)**, **Network+ (N10-009)**, and **Security+ (SY0
 
 It works on phones and computers, in light or dark mode (the sun/moon button in the header).
 
-Content so far: all of A+ Core 1, Units 2.0 to 10.0 (489 questions, 429 flashcards); Unit 1.0 is not on the exam. Network+: Units 3.0 to 8.0 (572 questions, 311 flashcards, and 29 Command line commands with a command bank, 7 of them with help off; Units 7.0 and 8.0 wait for class content); its other units say "Coming soon". Security+: Units 8.0 to 11.0 (115 questions, 167 flashcards), flagged for Mr. Flauto's revision (Units 9.0 to 11.0 also wait for class content); its other units say "Coming soon". Core 2 says "Coming soon" until its packs are written.
+Content so far: all of A+ Core 1, Units 2.0 to 10.0 (489 questions, 429 flashcards); Unit 1.0 is not on the exam. Network+: Units 3.0 to 8.0 (572 questions, 311 flashcards, and 29 Command line commands with a command bank, 7 of them with help off; Units 7.0 and 8.0 wait for class content); its other units say "Coming soon". Security+: Units 8.0 to 12.0 (156 questions, 218 flashcards), flagged for Mr. Flauto's revision (Units 9.0 to 12.0 also wait for class content); its other units say "Coming soon". Core 2 says "Coming soon" until its packs are written.
 
 ## Test it on this computer
 

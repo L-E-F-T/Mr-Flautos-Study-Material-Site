@@ -1,0 +1,414 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-12", "title": "Unit 12.0 Explain Incident Response and Monitoring Concepts", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet. WIP: written without class materials; needs a pass once they are made." },
+  "flashcards": [
+    {
+      "id": "s-u12-f001",
+      "term": "Monitoring computing resources",
+      "definition": "Keeping day-to-day watch on network appliances, hosts, and applications and services with managerial reports and dashboards, which confirm the network stays secure and catch issues that never raise an alert or alarm.",
+      "objectives": ["4.4", "4.4.a"],
+      "units": ["12.4.4", "12.4.5"],
+      "reference": { "source": "certmaster", "section": "12.4.4", "title": "Monitoring Infrastructure" }
+    },
+    {
+      "id": "s-u12-f002",
+      "term": "Systems (monitoring computing resources)",
+      "definition": "Watching individual hosts such as servers, which can report their health with SNMP traps and keep logs that serve as an audit trail and, if reviewed regularly, warn of intrusion attempts.",
+      "objectives": ["4.4", "4.4.a"],
+      "units": ["12.4.5"],
+      "reference": { "source": "certmaster", "section": "12.4.5", "title": "Monitoring Systems and Applications" }
+    },
+    {
+      "id": "s-u12-f003",
+      "term": "Applications (monitoring computing resources)",
+      "definition": "Watching software and services with a basic heartbeat test that each is still responding, plus their number of sessions and requests, bandwidth use, CPU and memory use, and error or security alert conditions.",
+      "objectives": ["4.4", "4.4.a"],
+      "units": ["12.4.5"],
+      "reference": { "source": "certmaster", "section": "12.4.5", "title": "Monitoring Systems and Applications" }
+    },
+    {
+      "id": "s-u12-f004",
+      "term": "Infrastructure (monitoring computing resources)",
+      "definition": "Collecting data about network appliances such as switches, routers, access points, and firewalls, rather than about their traffic, possibly over SNMP: CPU and memory load, temperature, link use and errors, and a heartbeat message showing each is available.",
+      "objectives": ["4.4", "4.4.a"],
+      "units": ["12.4.4"],
+      "reference": { "source": "certmaster", "section": "12.4.4", "title": "Monitoring Infrastructure" }
+    },
+    {
+      "id": "s-u12-f005",
+      "term": "Log aggregation",
+      "definition": "Normalizing the data a SIEM gathers from different sources, as a step apart from gathering it, so it is consistent and searchable: each source gets a parser that maps its content to standard fields, and time zone differences go onto a single timeline.",
+      "objectives": ["4.4", "4.4.b"],
+      "units": ["12.4.1"],
+      "reference": { "source": "certmaster", "section": "12.4.1", "title": "Security Information and Event Management" }
+    },
+    {
+      "id": "s-u12-f006",
+      "term": "Alerting",
+      "definition": "A SIEM activity that runs correlation rules on the collected data and checks it against a threat intelligence feed to pick out events to investigate as potential incidents.",
+      "objectives": ["4.4", "4.4.b"],
+      "units": ["12.4.2"],
+      "reference": { "source": "certmaster", "section": "12.4.2", "title": "Alerting and Monitoring Activities" }
+    },
+    {
+      "id": "s-u12-f007",
+      "term": "Reporting (SIEM reporting)",
+      "definition": "A SIEM activity that serves as a managerial control, exporting summary statistics and graphs tailored to each audience: high-level for executives, detailed for managers, or whatever a regulator requires.",
+      "objectives": ["4.4", "4.4.b"],
+      "units": ["12.4.2"],
+      "reference": { "source": "certmaster", "section": "12.4.2", "title": "Alerting and Monitoring Activities" }
+    },
+    {
+      "id": "s-u12-f008",
+      "term": "Archiving",
+      "definition": "Keeping historical log and network traffic data for a set period under a SIEM retention policy, for later incident and threat hunting, forensic evidence, and compliance, with log rotation moving outdated data to long-term storage so the SIEM does not slow down.",
+      "objectives": ["4.4", "4.4.b"],
+      "units": ["12.4.2"],
+      "reference": { "source": "certmaster", "section": "12.4.2", "title": "Alerting and Monitoring Activities" }
+    },
+    {
+      "id": "s-u12-f009",
+      "term": "Alert response and remediation/validation",
+      "definition": "Handling each event a SIEM flags, where two steps need particular attention: deciding whether it is a true positive to treat as an incident, and isolating the source of its indicators; a playbook often guides this, and the SIEM can automate some or all of it.",
+      "objectives": ["4.4", "4.4.b"],
+      "units": ["12.4.2"],
+      "reference": { "source": "certmaster", "section": "12.4.2", "title": "Alerting and Monitoring Activities" }
+    },
+    {
+      "id": "s-u12-f010",
+      "term": "Quarantine",
+      "definition": "The alert response step that isolates the source of the indicators, such as a network address, host computer, or file, which may be a one-click action through a SIEM's integration with a firewall or endpoint protection product.",
+      "objectives": ["4.4", "4.4.b"],
+      "units": ["12.4.2"],
+      "reference": { "source": "certmaster", "section": "12.4.2", "title": "Alerting and Monitoring Activities" }
+    },
+    {
+      "id": "s-u12-f011",
+      "term": "Alert tuning",
+      "definition": "Adjusting SIEM rules, for example by adding correlation factors or muting a noisy rule to log-only, to reduce false positives, which waste analysts' time and can make them miss one high-impact event; cutting rules, though, raises the risk of false negatives.",
+      "objectives": ["4.4", "4.4.b"],
+      "units": ["12.4.3"],
+      "reference": { "source": "certmaster", "section": "12.4.3", "title": "Alert Tuning" }
+    },
+    {
+      "id": "s-u12-f012",
+      "term": "Security Content Automation Protocol (SCAP)",
+      "definition": "A standard that lets compatible scanners determine whether a computer meets a configuration baseline, with machine-readable checklists of best-practice settings in place of guides written in prose.",
+      "objectives": ["4.4", "4.4.c"],
+      "units": ["12.4.6"],
+      "reference": { "source": "certmaster", "section": "12.4.6", "title": "Benchmarks" }
+    },
+    {
+      "id": "s-u12-f013",
+      "term": "Benchmarks",
+      "definition": "Established best-practice settings for security controls and applications, listed in a template, that a vulnerability or compliance scan compares a system's own configuration against, whether a regulator requires it or the organization chooses to follow these outside standards.",
+      "objectives": ["4.4", "4.4.c"],
+      "units": ["12.4.6"],
+      "reference": { "source": "certmaster", "section": "12.4.6", "title": "Benchmarks" }
+    },
+    {
+      "id": "s-u12-f014",
+      "term": "Agents/agentless (SIEM collection)",
+      "definition": "Two of the ways a central server can take in event data: a service installed on each computer that processes its logs before sending them, or nothing installed, with devices such as switches, routers, and firewalls pushing their logs to the server.",
+      "objectives": ["4.4", "4.4.c"],
+      "units": ["12.4.1"],
+      "reference": { "source": "certmaster", "section": "12.4.1", "title": "Security Information and Event Management" }
+    },
+    {
+      "id": "s-u12-f015",
+      "term": "Security information and event management (SIEM)",
+      "definition": "Software that collects and correlates data from network sensors and from appliance, host, and application logs, and provides alerting, reporting, and archiving from one interface, often called a single pane of glass.",
+      "objectives": ["4.4", "4.4.c"],
+      "units": ["12.4.1", "12.4.2"],
+      "reference": { "source": "certmaster", "section": "12.4.1", "title": "Security Information and Event Management" }
+    },
+    {
+      "id": "s-u12-f016",
+      "term": "Antivirus",
+      "definition": "Scanning software most hosts should run, which detects malware by signature regardless of type and usually blocks it automatically; many such suites add behavior analytics and AI to catch what signatures miss.",
+      "objectives": ["4.4", "4.4.c"],
+      "units": ["12.4.5"],
+      "reference": { "source": "certmaster", "section": "12.4.5", "title": "Monitoring Systems and Applications" }
+    },
+    {
+      "id": "s-u12-f017",
+      "term": "Simple Network Management Protocol (SNMP) traps",
+      "definition": "A message that reports a notable event on a device, such as a port failure, chassis overheating, power failure, or excessive CPU use, sent when a threshold set for that value is crossed, giving alerts and alarms for hardware issues.",
+      "objectives": ["4.4", "4.4.c"],
+      "units": ["12.4.4"],
+      "reference": { "source": "certmaster", "section": "12.4.4", "title": "Monitoring Infrastructure" }
+    },
+    {
+      "id": "s-u12-f018",
+      "term": "NetFlow",
+      "definition": "Recording metadata and statistics about network traffic instead of every frame, grouping packets with the same source and destination addresses, ports, and protocol, so tools can map connections between hosts.",
+      "objectives": ["4.4", "4.4.c"],
+      "units": ["12.4.4"],
+      "reference": { "source": "certmaster", "section": "12.4.4", "title": "Monitoring Infrastructure" }
+    },
+    {
+      "id": "s-u12-f019",
+      "term": "Process (incident response lifecycle)",
+      "definition": "The seven steps for managing each incident, in order: preparation, detection, analysis, containment, eradication, recovery, and lessons learned, whose outputs feed a new round of preparation.",
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.1"],
+      "reference": { "source": "certmaster", "section": "12.1.1", "title": "Incident Response Processes" }
+    },
+    {
+      "id": "s-u12-f020",
+      "term": "Preparation (incident response process)",
+      "definition": "The first phase of handling incidents, before detection: making systems resilient by hardening them, writing policies and procedures, setting up confidential communication lines, and providing staff and tools, ending in a formal plan of procedures, contacts, and resources.",
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.2", "12.1.1"],
+      "reference": { "source": "certmaster", "section": "12.1.2", "title": "Preparation" }
+    },
+    {
+      "id": "s-u12-f021",
+      "term": "Detection (incident response process)",
+      "definition": "The second phase of handling incidents, after preparation and before analysis: finding indicators of threat actor activity, whether from events and alerts matched to known threat behavior, deviations from baseline metrics, threat hunting, or reports from employees, customers, or outside parties.",
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.3", "12.1.1"],
+      "reference": { "source": "certmaster", "section": "12.1.3", "title": "Detection" }
+    },
+    {
+      "id": "s-u12-f022",
+      "term": "Analysis (incident response process)",
+      "definition": "The third phase of handling incidents, between detection and containment: the first responder investigates the indicators to decide whether they show a genuine incident or a false positive, then performs triage to set its category, impact, and priority.",
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.4", "12.1.1"],
+      "reference": { "source": "certmaster", "section": "12.1.4", "title": "Analysis" }
+    },
+    {
+      "id": "s-u12-f023",
+      "term": "Containment (incident response process)",
+      "definition": "The fourth phase of handling incidents, between analysis and eradication: isolating affected parts, such as by pulling a host's network plug or disabling a user account, or segmenting them off with VLANs, subnets, and firewall ACLs.",
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.5", "12.1.1"],
+      "reference": { "source": "certmaster", "section": "12.1.5", "title": "Containment" }
+    },
+    {
+      "id": "s-u12-f024",
+      "term": "Eradication (incident response process)",
+      "definition": "The fifth phase of handling incidents, between containment and recovery: removing the cause, such as malware, backdoors, intrusion tools, compromised accounts, and unauthorized configuration changes, and bringing systems to a secure state with secure settings and patches.",
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.6", "12.1.1"],
+      "reference": { "source": "certmaster", "section": "12.1.6", "title": "Eradication and Recovery" }
+    },
+    {
+      "id": "s-u12-f025",
+      "term": "Recovery (incident response process)",
+      "definition": "The sixth phase of handling incidents, between eradication and lessons learned: putting the cleaned system back to work for the business, which may involve restoring data from backup and security testing, then watching it closely so the same attack cannot happen again.",
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.6", "12.1.1"],
+      "reference": { "source": "certmaster", "section": "12.1.6", "title": "Eradication and Recovery" }
+    },
+    {
+      "id": "s-u12-f026",
+      "term": "Lessons learned (incident response process)",
+      "definition": "The last phase of handling incidents, after recovery, whose outputs feed a new round of preparation: a blame-free meeting, including staff who were not involved, reviews the incident for its root cause and better procedures, and an after-action report follows.",
+      "objectives": ["4.8", "4.8.a"],
+      "units": ["12.1.7", "12.1.1"],
+      "reference": { "source": "certmaster", "section": "12.1.7", "title": "Lessons Learned" }
+    },
+    {
+      "id": "s-u12-f027",
+      "term": "Training (incident response training)",
+      "definition": "Teaching staff, across departments, the procedures for spotting and reporting incidents so they react swiftly, and building teamwork and communication skills so people hold up under the stress of a real incident.",
+      "objectives": ["4.8", "4.8.b"],
+      "units": ["12.1.8"],
+      "reference": { "source": "certmaster", "section": "12.1.8", "title": "Testing and Training" }
+    },
+    {
+      "id": "s-u12-f028",
+      "term": "Testing (incident response testing)",
+      "definition": "Practicing on specific incident scenarios through tabletop exercises, walkthroughs, or simulations, so staff do not use the procedures and tools for the first time during a real incident and any weak spots in them come to light.",
+      "objectives": ["4.8", "4.8.c"],
+      "units": ["12.1.8"],
+      "reference": { "source": "certmaster", "section": "12.1.8", "title": "Testing and Training" }
+    },
+    {
+      "id": "s-u12-f029",
+      "term": "Tabletop exercise",
+      "definition": "The least costly kind of incident response test: a facilitator presents a scenario, and responders explain what they would do to identify, contain, and eradicate the threat, without using any computer systems.",
+      "objectives": ["4.8", "4.8.c"],
+      "units": ["12.1.8"],
+      "reference": { "source": "certmaster", "section": "12.1.8", "title": "Testing and Training" }
+    },
+    {
+      "id": "s-u12-f030",
+      "term": "Simulation",
+      "definition": "A team-based incident response test in which a red team attempts an intrusion, a blue team operates the response and recovery controls, and a white team moderates and evaluates, which takes considerable investment and planning.",
+      "objectives": ["4.8", "4.8.c"],
+      "units": ["12.1.8"],
+      "reference": { "source": "certmaster", "section": "12.1.8", "title": "Testing and Training" }
+    },
+    {
+      "id": "s-u12-f031",
+      "term": "Root cause analysis",
+      "definition": "The effort, during lessons learned, to work out how an incident was able to occur.",
+      "objectives": ["4.8", "4.8.d"],
+      "units": ["12.1.7"],
+      "reference": { "source": "certmaster", "section": "12.1.7", "title": "Lessons Learned" }
+    },
+    {
+      "id": "s-u12-f032",
+      "term": "Threat hunting",
+      "definition": "A proactive search, guided by intelligence on attackers, for evidence that their tactics, techniques, and procedures are already in the network, instead of waiting for an alert, usually working from a hypothesis about a possible attack.",
+      "objectives": ["4.8", "4.8.e"],
+      "units": ["12.1.9"],
+      "reference": { "source": "certmaster", "section": "12.1.9", "title": "Threat Hunting" }
+    },
+    {
+      "id": "s-u12-f033",
+      "term": "Digital forensics",
+      "definition": "Collecting evidence from computer systems to a standard a court of law will accept, with documentation showing it was gathered and analyzed without tampering or bias; due process, a set of procedural safeguards to ensure fairness, is central to it.",
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.1"],
+      "reference": { "source": "certmaster", "section": "12.2.1", "title": "Due Process and Legal Hold" }
+    },
+    {
+      "id": "s-u12-f034",
+      "term": "Legal hold",
+      "definition": "The requirement that any information that may be relevant to a court case be kept, set by regulators, industry best practice, or a litigation notice, so the company must usually suspend its routine deletion of electronic and paper records and logs.",
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.1"],
+      "reference": { "source": "certmaster", "section": "12.2.1", "title": "Due Process and Legal Hold" }
+    },
+    {
+      "id": "s-u12-f035",
+      "term": "Chain of custody",
+      "definition": "The documentation for each piece of evidence recording where, when, and by whom it was collected, everyone who handled it afterward, and where it was stored, which protects against claims at trial that it was tampered with or changed.",
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.5"],
+      "reference": { "source": "certmaster", "section": "12.2.5", "title": "Preservation" }
+    },
+    {
+      "id": "s-u12-f036",
+      "term": "Acquisition (forensic acquisition)",
+      "definition": "Obtaining a clean copy of data from a device seized as evidence, usually by making an image with a tool, capturing evidence from the most volatile, such as CPU registers and RAM, to the least, such as archival media and printed documents.",
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.2"],
+      "reference": { "source": "certmaster", "section": "12.2.2", "title": "Acquisition" }
+    },
+    {
+      "id": "s-u12-f037",
+      "term": "Reporting (digital forensics reporting)",
+      "definition": "Summarizing the significant contents of the evidence and the investigator's conclusions, guided by ethics: no bias, conclusions only from the direct evidence, methods others can repeat, and evidence left unchanged, since defense counsel may use any lapse to have the findings dismissed.",
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.6"],
+      "reference": { "source": "certmaster", "section": "12.2.6", "title": "Reporting" }
+    },
+    {
+      "id": "s-u12-f038",
+      "term": "Preservation (evidence preservation)",
+      "definition": "Keeping seized data from being changed and on a valid timeline, through tightly controlled access, video of the whole capture, a write blocker that stops writes to the source disk, and hashes of the disk and its image that must match to prove nothing was modified.",
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.5"],
+      "reference": { "source": "certmaster", "section": "12.2.5", "title": "Preservation" }
+    },
+    {
+      "id": "s-u12-f039",
+      "term": "E-discovery",
+      "definition": "Filtering the relevant evidence out of all the electronically stored information (ESI) a forensic examination gathers and storing it in a database in a format usable at trial, with tools that de-duplicate, search, and tag files and share the same evidence with both sides.",
+      "objectives": ["4.8", "4.8.f"],
+      "units": ["12.2.6"],
+      "reference": { "source": "certmaster", "section": "12.2.6", "title": "Reporting" }
+    },
+    {
+      "id": "s-u12-f040",
+      "term": "Log data",
+      "definition": "Records of events that processes on network appliances and hosts write to a file or database, each with a message, such as a failed sign-in, and metadata giving its source and time; a critical resource for investigating security incidents.",
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.2"],
+      "reference": { "source": "certmaster", "section": "12.3.2", "title": "Log Data" }
+    },
+    {
+      "id": "s-u12-f041",
+      "term": "Firewall logs",
+      "definition": "Audit events an allow or block rule can be set to generate when triggered, recording the time, interface, traffic direction, whether the packet was accepted or dropped, and source and destination addresses and ports.",
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.5"],
+      "reference": { "source": "certmaster", "section": "12.3.5", "title": "Network Data Sources" }
+    },
+    {
+      "id": "s-u12-f042",
+      "term": "Application logs",
+      "definition": "Records managed by a program or service rather than by the OS, written either in a standard format or to the program's own folders in whatever format its developer chose.",
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.4"],
+      "reference": { "source": "certmaster", "section": "12.3.4", "title": "Application and Endpoint Logs" }
+    },
+    {
+      "id": "s-u12-f043",
+      "term": "Endpoint logs",
+      "definition": "Events recorded by a host's security software, such as its firewall, intrusion detection, or antivirus, rather than by its OS; summaries show threat levels like how much malware was found.",
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.4"],
+      "reference": { "source": "certmaster", "section": "12.3.4", "title": "Application and Endpoint Logs" }
+    },
+    {
+      "id": "s-u12-f044",
+      "term": "OS-specific security logs",
+      "definition": "Audit events recorded by Windows, Linux, or macOS itself, each classed as success or fail, such as users signing in and out, requests for administrative privileges, and, where auditing is turned on, file access being allowed or denied.",
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.3"],
+      "reference": { "source": "certmaster", "section": "12.3.3", "title": "Host Operating System Logs" }
+    },
+    {
+      "id": "s-u12-f045",
+      "term": "IPS/IDS logs",
+      "definition": "Events recorded whenever a traffic pattern matches a detection rule, often only for high-impact rules because of the volume, plus any shuns, resets, or redirects when the system can also block traffic.",
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.5"],
+      "reference": { "source": "certmaster", "section": "12.3.5", "title": "Network Data Sources" }
+    },
+    {
+      "id": "s-u12-f046",
+      "term": "Network logs",
+      "definition": "Records kept by appliances such as routers, switches, firewalls, and access points of their own operation and status plus the traffic and access passing through them, which can reveal an endpoint using many MAC addresses or disassociation events that point to a wireless attack.",
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.5"],
+      "reference": { "source": "certmaster", "section": "12.3.5", "title": "Network Data Sources" }
+    },
+    {
+      "id": "s-u12-f047",
+      "term": "Metadata",
+      "definition": "The properties of data as it is created, stored, or sent, such as when a file was created, accessed, and modified, web request and response headers, and the addresses and servers in an email's header; it helps establish when and where a breach occurred.",
+      "objectives": ["4.9", "4.9.a"],
+      "units": ["12.3.7"],
+      "reference": { "source": "certmaster", "section": "12.3.7", "title": "Metadata" }
+    },
+    {
+      "id": "s-u12-f048",
+      "term": "Data sources (investigation data sources)",
+      "definition": "Anything that can be analyzed for indicators in an incident response or forensics case, such as system memory, file systems, network traffic, and logs; a SIEM can aggregate and correlate them.",
+      "objectives": ["4.9", "4.9.b"],
+      "units": ["12.3.1"],
+      "reference": { "source": "certmaster", "section": "12.3.1", "title": "Data Sources, Dashboards, and Reports" }
+    },
+    {
+      "id": "s-u12-f049",
+      "term": "Automated reports",
+      "definition": "Preconfigured or custom reports that a SIEM generates on its own, from alerts and alarms that can open incident cases to status reports on threat levels and incident counts, which investigators draw on as a data source.",
+      "objectives": ["4.9", "4.9.b"],
+      "units": ["12.3.1"],
+      "reference": { "source": "certmaster", "section": "12.3.1", "title": "Data Sources, Dashboards, and Reports" }
+    },
+    {
+      "id": "s-u12-f050",
+      "term": "Dashboards",
+      "definition": "A console to work from day to day that summarizes the underlying data for one task, such as an incident handler's view of their assigned events with graphs and tables of key metrics, or a manager's view of overall status.",
+      "objectives": ["4.9", "4.9.b"],
+      "units": ["12.3.1"],
+      "reference": { "source": "certmaster", "section": "12.3.1", "title": "Data Sources, Dashboards, and Reports" }
+    },
+    {
+      "id": "s-u12-f051",
+      "term": "Packet captures",
+      "definition": "Recorded network traffic that an analyzer can decode frame by frame, showing the header fields at each layer plus the payload contents, to find manipulated traffic, data exfiltration, or malware files; sensors usually record only traffic that triggered a firewall or IDS rule.",
+      "objectives": ["4.9", "4.9.b"],
+      "units": ["12.3.6"],
+      "reference": { "source": "certmaster", "section": "12.3.6", "title": "Packet Captures" }
+    }
+  ]
+}
