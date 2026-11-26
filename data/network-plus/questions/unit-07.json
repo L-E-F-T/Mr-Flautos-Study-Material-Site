@@ -1,6 +1,6 @@
 {
   "$schema": "../../../schemas/question-pack.schema.json",
-  "pack": { "id": "unit-07", "title": "Unit 7.0 Explaining Application Services", "reviewed": false },
+  "pack": { "id": "unit-07", "title": "Unit 7.0 Explaining Application Services", "reviewed": false, "notes": "WIP: written without class materials; needs a pass once they are made." },
   "questions": [
     {
       "id": "n-u07-q001",
@@ -803,6 +803,575 @@
         "find": "Layer 7 switch (content switch)"
       },
       "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q78" }
+    },
+    {
+      "id": "n-u07-q039",
+      "stem": "After months in storage, a spare directory server is turned back on, and it can ping the company's other directory servers but cannot copy directory updates from them. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The server is in the wrong VLAN" },
+        { "id": "b", "text": "The server's IP address is already in use" },
+        { "id": "c", "text": "The server's clock shows the wrong time" },
+        { "id": "d", "text": "The server's time source is a stratum 2 server" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["7.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.2",
+        "title": "Network Time Protocol",
+        "quote": "",
+        "find": "security mechanisms will often fail"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q111" }
+    },
+    {
+      "id": "n-u07-q040",
+      "stem": "A county's time server has a direct link to a GPS clock, and the county's routers and switches get their time from it over the network. At which stratum is the county's time server operating?",
+      "choices": [
+        { "id": "a", "text": "Stratum 1" },
+        { "id": "b", "text": "Stratum 2" },
+        { "id": "c", "text": "Stratum 3" },
+        { "id": "d", "text": "Stratum 4" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["7.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.2",
+        "title": "Network Time Protocol",
+        "quote": "",
+        "find": "Top-level NTP servers (stratum 1)"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q21" }
+    },
+    {
+      "id": "n-u07-q041",
+      "stem": "A clinic's workstations are set to get the time from an application server whose own clock is correct, but they cannot synchronize with it. Which of the following is the MOST likely reason?",
+      "choices": [
+        { "id": "a", "text": "The server is operating at stratum 2" },
+        { "id": "b", "text": "The server gets the time from a public NTP pool" },
+        { "id": "c", "text": "The workstations support only SNTP" },
+        { "id": "d", "text": "The server's time service supports only SNTP" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["7.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.2",
+        "title": "Network Time Protocol",
+        "quote": "",
+        "find": "cannot act as a time source"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q26" }
+    },
+    {
+      "id": "n-u07-q042",
+      "stem": "Soon after a school adds a NAS appliance to its network, teachers find that both their shared files and the online grading app, which runs on another server, are slow to open. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The NAS's clock has drifted away from the school's time server" },
+        { "id": "b", "text": "The NAS shares the available bandwidth with all other traffic" },
+        { "id": "c", "text": "The NAS encrypts its file shares, which slows every transfer" },
+        { "id": "d", "text": "The NAS has no load balancer to spread out client requests" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["7.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.6",
+        "title": "Network Attached Storage",
+        "quote": "",
+        "find": "shares bandwidth with other network applications"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q102" }
+    },
+    {
+      "id": "n-u07-q043",
+      "stem": "A technician captures the HTTPS traffic between a laptop and a bank's website and cannot read any of the web pages inside the packets. Which of the following protocols encrypted the pages?",
+      "choices": [
+        { "id": "a", "text": "SSH" },
+        { "id": "b", "text": "DTLS" },
+        { "id": "c", "text": "TLS" },
+        { "id": "d", "text": "NTS" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.2",
+        "title": "HTTP Secure",
+        "quote": "",
+        "find": "is referred to as HTTP Secure"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q63" }
+    },
+    {
+      "id": "n-u07-q044",
+      "stem": "A user wants to see which certificate authority (CA) issued the certificate for a credit union's website. Which of the following should the user select in the web browser?",
+      "choices": [
+        { "id": "a", "text": "The padlock icon in the address bar" },
+        { "id": "b", "text": "The browser's list of trusted CAs" },
+        { "id": "c", "text": "The browser's TLS version settings" },
+        { "id": "d", "text": "The site's saved cookies" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.2",
+        "title": "HTTP Secure",
+        "quote": "",
+        "find": "The padlock icon allows inspection"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q88" }
+    },
+    {
+      "id": "n-u07-q045",
+      "stem": "A technician at a branch office can log in to a vendor's FTP server, but every download fails because the branch firewall drops the data connection that the server opens back to the technician's laptop. Which of the following should the technician do to fix this?",
+      "choices": [
+        { "id": "a", "text": "Use active mode for the FTP transfers" },
+        { "id": "b", "text": "Open TCP port 21 on the branch firewall" },
+        { "id": "c", "text": "Use FTPS instead of plain FTP" },
+        { "id": "d", "text": "Use passive mode for the FTP transfers" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.3",
+        "title": "File Transfer Protocol",
+        "quote": "",
+        "find": "Active FTP poses a configuration problem"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q101" }
+    },
+    {
+      "id": "n-u07-q046",
+      "stem": "A technician plans to use TFTP to copy a 6 GB virtual machine image from one server to another, but a senior technician says TFTP is a poor choice for a file this large. Which of the following BEST explains why?",
+      "choices": [
+        { "id": "a", "text": "Its encryption slows down the transfer of large files" },
+        { "id": "b", "text": "It uses UDP, so it cannot guarantee that the data arrives" },
+        { "id": "c", "text": "Its idle control connection can be timed out by a firewall" },
+        { "id": "d", "text": "It needs an SSH server that supports secure file transfers" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.3",
+        "title": "File Transfer Protocol",
+        "quote": "",
+        "find": "does not provide the guaranteed delivery"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q55" }
+    },
+    {
+      "id": "n-u07-q047",
+      "stem": "A hospital's security policy says that any protocol used to transfer files to its servers must encrypt each user's password at login. Which of the following protocols meet this requirement?",
+      "choices": [
+        { "id": "a", "text": "FTP" },
+        { "id": "b", "text": "FTPS" },
+        { "id": "c", "text": "HTTP" },
+        { "id": "d", "text": "SFTP" },
+        { "id": "e", "text": "TFTP" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.4", "7.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.4",
+        "title": "Secure File Transfer Protocol",
+        "quote": "",
+        "find": "FTP by encrypting the authentication"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q141" }
+    },
+    {
+      "id": "n-u07-q048",
+      "stem": "An administrator is closing the NetBIOS ports on a company's Windows file servers because no legacy NetBIOS clients remain on the network. Which port will the servers MOST likely use for SMB after the change?",
+      "choices": [
+        { "id": "a", "text": "21" },
+        { "id": "b", "text": "137" },
+        { "id": "c", "text": "139" },
+        { "id": "d", "text": "445" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.5",
+        "title": "Server Message Block",
+        "quote": "",
+        "find": "run directly over TCP port 445"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q119" }
+    },
+    {
+      "id": "n-u07-q049",
+      "stem": "A company's firewall log shows its mail server opening connections to other mail servers on the internet to relay outgoing messages. Which destination port do these connections MOST likely use?",
+      "choices": [
+        { "id": "a", "text": "25" },
+        { "id": "b", "text": "465" },
+        { "id": "c", "text": "587" },
+        { "id": "d", "text": "993" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.1",
+        "title": "Simple Mail Transfer Protocol",
+        "quote": "",
+        "find": "message relay between SMTP servers"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q180" }
+    },
+    {
+      "id": "n-u07-q050",
+      "stem": "Employees at a travel agency can open, organize, and delete the messages in their mailboxes on the agency's mail server, but messages they send to other domains never leave that server. Which of the following protocols should the administrator troubleshoot?",
+      "choices": [
+        { "id": "a", "text": "IMAP" },
+        { "id": "b", "text": "SMTP" },
+        { "id": "c", "text": "MAPI" },
+        { "id": "d", "text": "SMB" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.3.1", "7.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.1",
+        "title": "Simple Mail Transfer Protocol",
+        "quote": "",
+        "find": "specifies how email is delivered"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q144" }
+    },
+    {
+      "id": "n-u07-q051",
+      "stem": "A real estate agent sends an email just as the recipient's mail server goes offline for two weeks. Which of the following BEST describes what the agent's SMTP server will do with the message?",
+      "choices": [
+        { "id": "a", "text": "Hold the message and keep retrying until that server is back online" },
+        { "id": "b", "text": "Return a non-delivery report to the agent after the first failed attempt" },
+        { "id": "c", "text": "Delete the message without telling the agent it was not delivered" },
+        { "id": "d", "text": "Retry for a while, then return a non-delivery report to the agent" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.1",
+        "title": "Simple Mail Transfer Protocol",
+        "quote": "",
+        "find": "returning a non-delivery report"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q176" }
+    },
+    {
+      "id": "n-u07-q052",
+      "stem": "A hotel's new VoIP phone system must find the person being called, set up each call, and end the call when either side hangs up. Which of the following protocols performs these tasks?",
+      "choices": [
+        { "id": "a", "text": "RTP" },
+        { "id": "b", "text": "RTCP" },
+        { "id": "c", "text": "SIP" },
+        { "id": "d", "text": "TLS" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.4",
+        "title": "VoIP Protocols",
+        "quote": "",
+        "find": "most widely used session control protocols"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q163" }
+    },
+    {
+      "id": "n-u07-q053",
+      "stem": "A university's course registration website puts a layer 4 switch in front of its web servers to spread client connections across them. Which of the following does the switch use to decide which server receives each connection?",
+      "choices": [
+        { "id": "a", "text": "MAC addresses in each Ethernet frame" },
+        { "id": "b", "text": "The URL that each client requests" },
+        { "id": "c", "text": "IP addresses and TCP/UDP header values" },
+        { "id": "d", "text": "Header values in each HTTP request" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["7.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.5",
+        "title": "Load Balancers",
+        "quote": "",
+        "find": "forwarding decisions on IP address"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q215" }
+    },
+    {
+      "id": "n-u07-q054",
+      "stem": "A hotel is replacing one of the two Cisco routers that act as its guest subnet's redundant default gateway with a router from another vendor. Which of the following should the network team configure on both routers after the change?",
+      "choices": [
+        { "id": "a", "text": "HSRP" },
+        { "id": "b", "text": "GLBP" },
+        { "id": "c", "text": "VRRP" },
+        { "id": "d", "text": "NIC teaming" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.1", "2.1.e"],
+      "units": ["7.4.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.7",
+        "title": "First Hop Redundancy",
+        "quote": "",
+        "find": "The open standard protocol"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q249" }
+    },
+    {
+      "id": "n-u07-q055",
+      "stem": "A charity's recovery point objective (RPO) for its donor database is four hours, so it backs up the database every four hours. If the database fails one hour after a backup and stays offline for nine hours, how much data must the charity reconstruct or accept as lost?",
+      "choices": [
+        { "id": "a", "text": "No data, because that backup is restored" },
+        { "id": "b", "text": "One hour of data, written since that backup" },
+        { "id": "c", "text": "Four hours of data, the length of the RPO" },
+        { "id": "d", "text": "Nine hours of data, the length of the outage" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["7.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.2",
+        "title": "Disaster Recovery Metrics",
+        "quote": "",
+        "find": "from the latest good backup status"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q272" }
+    },
+    {
+      "id": "n-u07-q056",
+      "stem": "A firewall's data sheet lists an MTTF for its cooling fans but an MTBF for the firewall as a whole. Which of the following BEST explains the difference?",
+      "choices": [
+        { "id": "a", "text": "A failed fan is replaced, but the firewall can be repaired" },
+        { "id": "b", "text": "A failed fan can be repaired, but the firewall is replaced" },
+        { "id": "c", "text": "A fan is rated by repair time, but the firewall by run time" },
+        { "id": "d", "text": "A fan is rated by longest life, but the firewall by average life" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["7.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.4",
+        "title": "Fault Tolerance and Redundancy",
+        "quote": "",
+        "find": "which could be repaired by"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q187" }
+    },
+    {
+      "id": "n-u07-q057",
+      "stem": "During a disaster recovery audit, a grocery chain shows an auditor a second building it owns, where servers are running and a copy of its data is kept updated live. Which of the following has the chain set up?",
+      "choices": [
+        { "id": "a", "text": "A warm site" },
+        { "id": "b", "text": "A reciprocal arrangement" },
+        { "id": "c", "text": "A cloud site" },
+        { "id": "d", "text": "A hot site" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["7.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.3",
+        "title": "Disaster Recovery Sites",
+        "quote": "",
+        "find": "operational computer equipment that is kept"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q219" }
+    },
+    {
+      "id": "n-u07-q058",
+      "stem": "A coastal shipping company worries that a hurricane could shut down its office and the server room inside it, so it moves its processing and data storage to the cloud. Which of the following BEST describes how this move protects the company's services?",
+      "choices": [
+        { "id": "a", "text": "The provider can run the services from a datacenter in another region" },
+        { "id": "b", "text": "The provider loads the latest data at another site after a disaster" },
+        { "id": "c", "text": "The provider gives each server it runs redundant power supplies" },
+        { "id": "d", "text": "The provider keeps an empty building in another region until needed" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["7.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.3",
+        "title": "Disaster Recovery Sites",
+        "quote": "",
+        "find": "able to maintain hot site redundancy"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q205" }
+    },
+    {
+      "id": "n-u07-q059",
+      "stem": "A regional airline's booking app runs on two clustered servers in an active-passive configuration, and IT plans to switch the cluster to active-active. Which of the following will the airline gain from the switch?",
+      "choices": [
+        { "id": "a", "text": "Client requests shared between the servers" },
+        { "id": "b", "text": "Service that keeps running if one server fails" },
+        { "id": "c", "text": "Higher performance while both servers are up" },
+        { "id": "d", "text": "One virtual IP address for clients to connect to" },
+        { "id": "e", "text": "Data that both servers share with each other" }
+      ],
+      "answer": ["a", "c"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.6",
+        "title": "High Availability Clusters",
+        "quote": "",
+        "find": "both nodes are processing connections concurrently"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q113" }
+    },
+    {
+      "id": "n-u07-q060",
+      "stem": "A college runs its online learning system on two servers in an active-active cluster. If one of them crashes, which of the following takes over the sessions it was handling?",
+      "choices": [
+        { "id": "a", "text": "A passive server that was standing by" },
+        { "id": "b", "text": "The other server, already serving users" },
+        { "id": "c", "text": "A standby server at the college's warm site" },
+        { "id": "d", "text": "No server, until the crashed one restarts" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.6",
+        "title": "High Availability Clusters",
+        "quote": "",
+        "find": "the workload of the failed node"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q192" }
+    },
+    {
+      "id": "n-u07-q061",
+      "stem": "A ticket company's checkout system will run on a two-node active-passive cluster, and the finance team asks why the cluster's hardware and software costs are so high. Which of the following BEST explains these costs?",
+      "choices": [
+        { "id": "a", "text": "Each node must have its own public IP address" },
+        { "id": "b", "text": "Every client needs software to find the active node" },
+        { "id": "c", "text": "One node sits idle while the other does the work" },
+        { "id": "d", "text": "Both nodes must process every connection at once" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.6",
+        "title": "High Availability Clusters",
+        "quote": "",
+        "find": "operating system costs might be higher"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q204" }
+    },
+    {
+      "id": "n-u07-q062",
+      "stem": "A technician builds a file server with two power supplies, two mirrored drives, two cooling fans, and a four-port network card. For which of the following functions does the server still have a single point of failure?",
+      "choices": [
+        { "id": "a", "text": "Power" },
+        { "id": "b", "text": "Storage" },
+        { "id": "c", "text": "Cooling" },
+        { "id": "d", "text": "Networking" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.4",
+        "title": "Fault Tolerance and Redundancy",
+        "quote": "",
+        "find": "multiple components for each function"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q188" }
+    },
+    {
+      "id": "n-u07-q063",
+      "stem": "Two clustered servers run the ordering website for a food delivery company, and they send each other heartbeat messages over a private link using CARP. Which of the following BEST describes the purpose of these messages?",
+      "choices": [
+        { "id": "a", "text": "To let the passive server take over if the active one fails" },
+        { "id": "b", "text": "To split incoming orders evenly between the two servers" },
+        { "id": "c", "text": "To keep the clocks on the two servers set to the same time" },
+        { "id": "d", "text": "To restore the active server from a backup after it fails" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.6",
+        "title": "High Availability Clusters",
+        "quote": "",
+        "find": "passive node if the active one"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q217" }
+    },
+    {
+      "id": "n-u07-q064",
+      "stem": "A large hotel runs its reservation system on two servers in the same server room and sets up cluster services for them. Which of the following will the cluster services protect the reservation system against?",
+      "choices": [
+        { "id": "a", "text": "A blackout across the whole building" },
+        { "id": "b", "text": "A complete failure of one server" },
+        { "id": "c", "text": "A flood that destroys the server room" },
+        { "id": "d", "text": "A clerk deleting bookings by mistake" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.4",
+        "title": "Fault Tolerance and Redundancy",
+        "quote": "",
+        "find": "the total failure of a server"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q207" }
+    },
+    {
+      "id": "n-u07-q065",
+      "stem": "A pharmacy chain requires its new prescription system to be fault tolerant. Which of the following BEST describes a system that meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "It loses no more than a set amount of data in a disaster" },
+        { "id": "b", "text": "It returns to service within a set time after an outage" },
+        { "id": "c", "text": "It uses components with a long expected lifetime" },
+        { "id": "d", "text": "It keeps providing the same service when a component fails" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.4",
+        "title": "Fault Tolerance and Redundancy",
+        "quote": "",
+        "find": "subsystems and continue to provide"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q271" }
     }
   ]
 }

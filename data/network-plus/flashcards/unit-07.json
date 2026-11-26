@@ -1,6 +1,6 @@
 {
   "$schema": "../../../schemas/flashcard-pack.schema.json",
-  "pack": { "id": "unit-07", "title": "Unit 7.0 Explaining Application Services", "reviewed": false },
+  "pack": { "id": "unit-07", "title": "Unit 7.0 Explaining Application Services", "reviewed": false, "notes": "WIP: written without class materials; needs a pass once they are made." },
   "flashcards": [
     {
       "id": "n-u07-f001",
