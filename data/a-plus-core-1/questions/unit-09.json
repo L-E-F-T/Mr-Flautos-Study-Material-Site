@@ -1223,6 +1223,153 @@
         "find": "not enough space left to install"
       },
       "origin": { "kind": "messer-variation", "basedOn": "Messer A73" }
+    },
+    {
+      "id": "c1-u09-q059",
+      "stem": "A phone store employee sells a customer a short adapter that has a USB-C plug on one end and a 3.5 mm socket on the other. Which of the following is the customer MOST likely trying to do?",
+      "choices": [
+        { "id": "a", "text": "Pair a set of wireless earbuds with the phone" },
+        { "id": "b", "text": "Share the phone's cellular data with a laptop" },
+        { "id": "c", "text": "Use wired headphones on a phone with no audio jack" },
+        { "id": "d", "text": "Charge the phone from a laptop's USB port" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.b"],
+      "units": ["9.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.1",
+        "title": "Mobile Device Accessories",
+        "quote": "",
+        "find": "an adapter cable can be used"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 9.1.1 (3.5 mm adapter)" }
+    },
+    {
+      "id": "c1-u09-q060",
+      "stem": "A developer has finished an iPhone app that lets a dental office's patients book their cleanings. Which of the following must happen before patients can download it from Apple's App Store?",
+      "choices": [
+        { "id": "a", "text": "The app must be reviewed and approved for the store" },
+        { "id": "b", "text": "Patients' phones must be enrolled in MDM" },
+        { "id": "c", "text": "The app must first be listed in a third-party store" },
+        { "id": "d", "text": "An Android version must be released at the same time" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.3"],
+      "units": ["9.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.1",
+        "title": "Mobile Apps",
+        "quote": "",
+        "find": "submitted to and approved by Apple"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q25" }
+    },
+    {
+      "id": "c1-u09-q061",
+      "stem": "A bakery owner signs in to her new Android tablet with a Google Account. Which of the following does that account give her free access to?",
+      "choices": [
+        { "id": "a", "text": "Office apps and OneDrive storage" },
+        { "id": "b", "text": "Workspace apps and Drive storage" },
+        { "id": "c", "text": "Apple's apps and iCloud storage" },
+        { "id": "d", "text": "Exchange mail and a company calendar" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.2",
+        "title": "Account Setup",
+        "quote": "",
+        "find": "free storage tier on Google Drive"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 9.2.2 (Google Account)" }
+    },
+    {
+      "id": "c1-u09-q062",
+      "stem": "While typing a sales rep's mail settings into her phone by hand, a technician turns on TLS. Which of the following does this setting do?",
+      "choices": [
+        { "id": "a", "text": "Keeps mail on the server so other devices can see it" },
+        { "id": "b", "text": "Protects the account password and other confidential data" },
+        { "id": "c", "text": "Finds the correct server settings from DNS records" },
+        { "id": "d", "text": "Downloads mail and removes it from the server" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.3", "1.3.e"],
+      "units": ["9.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.4",
+        "title": "Email Configuration Options",
+        "quote": "",
+        "find": "TLS protects confidential information such"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 9.2.4 (TLS for mail)" }
+    },
+    {
+      "id": "c1-u09-q063",
+      "stem": "A technician at a tax preparation office is taking apart a laptop to replace its keyboard. Which of the following will BEST help her put every screw and cable back in its original place?",
+      "choices": [
+        { "id": "a", "text": "Use a screwdriver that fits each screw" },
+        { "id": "b", "text": "Keep static-sensitive parts in antistatic bags" },
+        { "id": "c", "text": "Look for screws hidden under rubber tabs" },
+        { "id": "d", "text": "Note where each screw size and connector goes" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.1"],
+      "units": ["9.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.3.1",
+        "title": "Laptop Disassembly Processes",
+        "quote": "",
+        "find": "screws of a specific size"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q38" }
+    },
+    {
+      "id": "c1-u09-q064",
+      "stem": "An architect's new laptop connects to his smartphone whenever he holds the phone against a marked spot beside the touchpad. Which of the following components is MOST likely under that spot?",
+      "choices": [
+        { "id": "a", "text": "A digitizer" },
+        { "id": "b", "text": "A Wi-Fi adapter" },
+        { "id": "c", "text": "An NFC scanner" },
+        { "id": "d", "text": "A track point" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.1", "1.1.f"],
+      "units": ["9.3.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.3.5",
+        "title": "Keyboard and Security Component Replacement",
+        "quote": "",
+        "find": "primarily used to pair peripheral"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 9.3.5 (near-field scanner)" }
+    },
+    {
+      "id": "c1-u09-q065",
+      "stem": "A help desk technician accidentally gives a sales manager a 45 W AC adapter for a laptop that needs 65 W. Which of the following will the manager MOST likely notice?",
+      "choices": [
+        { "id": "a", "text": "A power warning each time the laptop boots" },
+        { "id": "b", "text": "A battery meter that shows the wrong percentage" },
+        { "id": "c", "text": "A laptop that wobbles when set on a flat desk" },
+        { "id": "d", "text": "Apps that drain the battery faster than usual" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["9.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.4.1",
+        "title": "Power and Battery Issues",
+        "quote": "",
+        "find": "If an underpowered adapter is used"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 9.4.1 (laptop AC adapter wattage)" }
     }
   ]
 }

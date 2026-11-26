@@ -1137,6 +1137,174 @@
         "find": "Ensure the tray is properly seated"
       },
       "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q60" }
+    },
+    {
+      "id": "c1-u10-q055",
+      "stem": "A clinic's new printer will print lab results that list patients' diagnoses. Which of the following locations BEST suits it?",
+      "choices": [
+        { "id": "a", "text": "A shelf behind a curtain in the hallway" },
+        { "id": "b", "text": "A locked room that only staff can enter" },
+        { "id": "c", "text": "A back stairwell that visitors rarely use" },
+        { "id": "d", "text": "A desk at the open nurses' station" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.7", "3.7.a"],
+      "units": ["10.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.1",
+        "title": "Printer Unboxing and Setup Location",
+        "quote": "",
+        "find": "consider an access-controlled area"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.1 (set-up location)" }
+    },
+    {
+      "id": "c1-u10-q056",
+      "stem": "A vendor warns that older firmware on its MFDs has a security flaw, and a school's IT manager must check the firmware version on each of the school's networked MFDs. Which of the following should she do from her desk?",
+      "choices": [
+        { "id": "a", "text": "Reflash every MFD with the newest firmware" },
+        { "id": "b", "text": "Reset every MFD to its factory defaults" },
+        { "id": "c", "text": "Open each MFD's web interface by its IP address" },
+        { "id": "d", "text": "Compare the printer drivers on the school's PCs" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.7", "3.7.c"],
+      "units": ["10.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.2",
+        "title": "Firmware Management in MFDs and Printers",
+        "quote": "",
+        "find": "by entering its IP address"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.2 (firmware version in a browser)" }
+    },
+    {
+      "id": "c1-u10-q057",
+      "stem": "A library replaced its front desk PC with a thin laptop that has USB-C ports and no others. Which of the following cables will connect the laptop to the desk's USB printer?",
+      "choices": [
+        { "id": "a", "text": "A USB-A to USB-B cable" },
+        { "id": "b", "text": "A USB-A to USB-C cable" },
+        { "id": "c", "text": "A USB-C to USB-C cable" },
+        { "id": "d", "text": "A USB-B to USB-C cable" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.7", "3.7.d"],
+      "units": ["10.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.3",
+        "title": "Print Device Connectivity",
+        "quote": "",
+        "find": "USB B to USB C cable"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.3 (USB-B adapter)" }
+    },
+    {
+      "id": "c1-u10-q058",
+      "stem": "A car dealership wants any customer in its service lounge, including first-time visitors, to print on their own from a phone or laptop to the lounge printer. Which of the following should the dealership's IT contractor do?",
+      "choices": [
+        { "id": "a", "text": "Set up badging that reads loyalty cards" },
+        { "id": "b", "text": "Set it up as a public printer" },
+        { "id": "c", "text": "Set up sign-in with staff accounts only" },
+        { "id": "d", "text": "Set up secured print released by staff" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.7", "3.7.e"],
+      "units": ["10.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.8",
+        "title": "Printer Sharing",
+        "quote": "",
+        "find": "public printer has no access controls"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.8 (public printer)" }
+    },
+    {
+      "id": "c1-u10-q059",
+      "stem": "A receptionist at an architecture firm unpacked a new toner cartridge for the laser printer but left it on a desk under bright lights for an hour before installing it. Which of the following parts is MOST likely to be harmed by the light?",
+      "choices": [
+        { "id": "a", "text": "The imaging drum" },
+        { "id": "b", "text": "The fuser unit" },
+        { "id": "c", "text": "The transfer roller" },
+        { "id": "d", "text": "The primary charge roller" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.8", "3.8.a"],
+      "units": ["10.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.2",
+        "title": "Laser Printer Maintenance",
+        "quote": "",
+        "find": "toner cartridge is light-sensitive"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.2.2 (toner cartridge and light)" }
+    },
+    {
+      "id": "c1-u10-q060",
+      "stem": "An office manager at an insurance agency opens the laser printer to clear a paper jam and finds the sheet caught in the fuser unit. Which of the following is the BEST way to remove the sheet?",
+      "choices": [
+        { "id": "a", "text": "Pull the sheet firmly out through the fuser" },
+        { "id": "b", "text": "Replace the fuser unit with a new one" },
+        { "id": "c", "text": "Use the release levers to free the sheet" },
+        { "id": "d", "text": "Delete the waiting jobs from the print queue" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.6", "5.6.c"],
+      "units": ["10.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.2",
+        "title": "Print Feed Issues",
+        "quote": "",
+        "find": "use the release levers"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.3.2 (fuser release levers)" }
+    },
+    {
+      "id": "c1-u10-q061",
+      "stem": "A tax preparation office's laser printer still makes a grinding noise during every job after a technician reseated its components and found no jams or debris in the paper path. Which of the following should the technician do NEXT?",
+      "choices": [
+        { "id": "a", "text": "Re-engage the carriage clutch mechanism" },
+        { "id": "b", "text": "Run the printer's calibration routine" },
+        { "id": "c", "text": "Reinstall the driver on each PC" },
+        { "id": "d", "text": "Replace the printer's toner cartridge" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.6", "5.6.j"],
+      "units": ["10.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.2",
+        "title": "Print Feed Issues",
+        "quote": "",
+        "find": "replace the printer cartridge"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.3.2 (laser grinding noise)" }
+    },
+    {
+      "id": "c1-u10-q062",
+      "stem": "Packing slips from a warehouse's dot matrix printer now carry an extra row of dots through every printed line, while the letters themselves look sharp. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A platen gap set too narrow" },
+        { "id": "b", "text": "Paper slipping on the tractor feed" },
+        { "id": "c", "text": "A blocked ink nozzle" },
+        { "id": "d", "text": "A stuck pin in the print head" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.6", "5.6.a"],
+      "units": ["10.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.3.3",
+        "title": "Print Quality Issues",
+        "quote": "",
+        "find": "indicate a stuck pin"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.3.3 (dot matrix stuck pin)" }
     }
   ]
 }
