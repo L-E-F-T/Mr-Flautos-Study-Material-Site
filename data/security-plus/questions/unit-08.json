@@ -930,6 +930,91 @@
         "find": "Exceptions and exemptions describe scenarios where"
       },
       "origin": { "kind": "teacher", "basedOn": "Study Guide 8.0 Q101" }
+    },
+    {
+      "id": "s-u08-q045",
+      "stem": "A hospital buys new network-connected infusion pumps whose preinstalled firmware already contains a known flaw. Which part of the supply chain introduced this vulnerability?",
+      "choices": [
+        { "id": "a", "text": "A cloud service provider" },
+        { "id": "b", "text": "A software library provider" },
+        { "id": "c", "text": "A development agency" },
+        { "id": "d", "text": "A hardware provider" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.3", "2.3.g"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Supply Chain",
+        "quote": "",
+        "find": "come with preinstalled firmware"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 8.2.5 (supply chain)" }
+    },
+    {
+      "id": "s-u08-q046",
+      "stem": "A video game studio wants independent security researchers around the world to look for flaws in its online game, and it will pay a reward for each flaw a researcher finds and reports. Which of the following would BEST meet this goal?",
+      "choices": [
+        { "id": "a", "text": "A penetration test" },
+        { "id": "b", "text": "A bug bounty program" },
+        { "id": "c", "text": "A vulnerability scan" },
+        { "id": "d", "text": "A threat feed subscription" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.3", "4.3.a"],
+      "units": ["8.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.4",
+        "title": "Other Vulnerability Assessment Methods",
+        "quote": "",
+        "find": "Rewards for finding and reporting vulnerabilities"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 8.3.4 (bug bounty program)" }
+    },
+    {
+      "id": "s-u08-q047",
+      "stem": "A city water utility's scan report lists one flaw with a CVSS score of 9.1 and another with a score of 5.0. What does the higher score tell the security team?",
+      "choices": [
+        { "id": "a", "text": "That flaw was disclosed more recently" },
+        { "id": "b", "text": "That flaw is less likely to be a false positive" },
+        { "id": "c", "text": "That flaw is rated as more severe" },
+        { "id": "d", "text": "That flaw was found by more of the team's scanners" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.3", "4.3.b"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Vulnerability Response and Remediation",
+        "quote": "",
+        "find": "standardized method for rating the severity"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 8.4.4 (CVSS)" }
+    },
+    {
+      "id": "s-u08-q048",
+      "stem": "A law firm's IT team patched a critical flaw on its document servers, and the security manager wants to be sure the patch worked and caused no new problems. Which of the following actions would BEST confirm this?",
+      "choices": [
+        { "id": "a", "text": "Place the servers on a separate network segment" },
+        { "id": "b", "text": "Require a second sign-in factor on the servers" },
+        { "id": "c", "text": "Scan the patched servers again for vulnerabilities" },
+        { "id": "d", "text": "Install the same patch on the firm's mail servers" },
+        { "id": "e", "text": "Run manual checks and review the servers' logs" }
+      ],
+      "answer": ["c", "e"],
+      "objectives": ["4.3", "4.3.d"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Vulnerability Response and Remediation",
+        "quote": "",
+        "find": "Re-scanning involves performing additional vulnerability scans"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Study Guide 8.0 Q102" }
     }
   ]
 }

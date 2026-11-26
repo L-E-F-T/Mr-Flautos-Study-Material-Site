@@ -474,7 +474,8 @@ Unit 8.0 keyed nothing to these:
 
 ### Gaps
 
-- 4.3.d (Validation of remediation) and 4.3.e (Reporting) have no question: no pool or Messer item, and no exam evidence. His Study Guide 8.0 Q102 to Q104 cover them. They read Coming soon; their terms have cards.
+- 4.3.e (Reporting) has no question: no pool or Messer item, and no exam evidence. It reads Coming soon; its terms have cards, and his Study Guide 8.0 Q103 covers it. 4.3.d (Validation of remediation) has one question, added at Mr. Flauto's request (2026-11-23): s-u08-q048 (choose two: re-scanning and verification), from his Study Guide 8.0 Q102, a select two that keys auditing and re-scanning (its key agrees with 8.4.4).
+- Also added at Mr. Flauto's request (2026-11-23), written from the reading (origin "original"): s-u08-q045 (a supply chain weakness from a hardware provider's preinstalled firmware, 8.2.5), q046 (a bug bounty program, 8.3.4), and q047 (what a higher CVSS score means, 8.4.4). The CertMaster "All units" pool (`All.txt`) has items on bug bounty programs, CVSS, and validation that no Security+ unit file holds, so they cannot be numbered the guide's way; these facts were written from the reading instead.
 - Facts the exam evidence weighs that no item covers, so no question: known environment penetration testing (only a Messer wrong choice, in B15, C55, and C73; taught in 8.3.4 and again in 15.3.2), and SQL injection's cause and fix, input validation (Messer C9, tagged 4.1; taught in 11.2.1).
 
 ### For later units
