@@ -1,0 +1,489 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-10", "title": "Unit 10.0 Assess Endpoint Security Capabilities", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet." },
+  "questions": [
+    {
+      "id": "s-u10-q001",
+      "stem": "During a test before a ski resort's new lift-ticket server goes live, a penetration tester gets in through a remote access service and a database port that the resort never uses. Which of the following would BEST stop an attacker from doing the same?",
+      "choices": [
+        { "id": "a", "text": "Encrypt the server's drive" },
+        { "id": "b", "text": "Harden the server's settings" },
+        { "id": "c", "text": "Monitor the server's files for changes" },
+        { "id": "d", "text": "Add intrusion detection to the server" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.1",
+        "title": "Endpoint Hardening",
+        "quote": "",
+        "find": "Hardening describes changing an operating system"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B6" }
+    },
+    {
+      "id": "s-u10-q002",
+      "stem": "A newspaper's subscription server is fully patched, and its host-based firewall allows only web traffic, yet attackers keep breaking in through the subscription web application it runs. Which of the following would BEST stop these attacks?",
+      "choices": [
+        { "id": "a", "text": "Harden the web application's own settings" },
+        { "id": "b", "text": "Move the web application to its own network segment" },
+        { "id": "c", "text": "Turn on full disk encryption for the server" },
+        { "id": "d", "text": "Remove unneeded programs from the server" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.1",
+        "title": "Endpoint Hardening",
+        "quote": "",
+        "find": "application to make it operate securely"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C77" }
+    },
+    {
+      "id": "s-u10-q003",
+      "stem": "An attacker got into a hotel's reservation system through the wireless card of a front desk PC that normally uses only its wired connection. Which of the following hardening steps would BEST prevent this kind of attack?",
+      "choices": [
+        { "id": "a", "text": "Apply a strict control policy to USB ports" },
+        { "id": "b", "text": "Turn on automatic screen locks on the PC" },
+        { "id": "c", "text": "Encrypt the data stored on the PC's drive" },
+        { "id": "d", "text": "Disable network interfaces the PC does not need" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.1",
+        "title": "Endpoint Hardening",
+        "quote": "",
+        "find": "explicitly disabled rather than simply left"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q1" }
+    },
+    {
+      "id": "s-u10-q004",
+      "stem": "To keep malware on a rental counter PC from easily reaching its billing servers, a car rental company moves each group of systems onto its own subnet with its own security controls. Which of the following mitigation techniques BEST describes this change?",
+      "choices": [
+        { "id": "a", "text": "Segmentation" },
+        { "id": "b", "text": "Device isolation" },
+        { "id": "c", "text": "Least privilege" },
+        { "id": "d", "text": "Patch management" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.5", "2.5.a"],
+      "units": ["10.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.2",
+        "title": "Endpoint Protection",
+        "quote": "",
+        "find": "systems are divided into separate segments"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.2 (segmentation)" }
+    },
+    {
+      "id": "s-u10-q005",
+      "stem": "Employees at an architecture firm keep downloading free drawing tools that turn out to hide Trojans and spyware. Which of the following would BEST detect and block these programs on the firm's workstations?",
+      "choices": [
+        { "id": "a", "text": "Install antimalware software" },
+        { "id": "b", "text": "Turn on full disk encryption" },
+        { "id": "c", "text": "Enable a host-based firewall" },
+        { "id": "d", "text": "Add port control software" }
+      ],
+      "answer": ["a"],
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.2",
+        "title": "Endpoint Protection",
+        "quote": "",
+        "find": "now perform generalized malware detection"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.2 (antimalware on workstations)" }
+    },
+    {
+      "id": "s-u10-q006",
+      "stem": "A credit union requires that everything on each teller workstation's internal drive, including the operating system's own files, be unreadable without the correct key. Which of the following BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "Removable media encryption" },
+        { "id": "b", "text": "Full disk encryption" },
+        { "id": "c", "text": "Trusted Platform Module" },
+        { "id": "d", "text": "File integrity monitoring" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.f"],
+      "units": ["10.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.2",
+        "title": "Endpoint Protection",
+        "quote": "",
+        "find": "the entire contents of the drive"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q2" }
+    },
+    {
+      "id": "s-u10-q007",
+      "stem": "Skilled attackers got past a charity's antivirus software and stayed hidden on its laptops for months. Which of the following should the security team add to BEST protect the laptops against advanced persistent threats like this?",
+      "choices": [
+        { "id": "a", "text": "Host-based intrusion detection" },
+        { "id": "b", "text": "Daily antivirus signature updates" },
+        { "id": "c", "text": "Host-based firewall" },
+        { "id": "d", "text": "Endpoint detection and response" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.5", "4.5.k"],
+      "units": ["10.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.3",
+        "title": "Advanced Endpoint Protection",
+        "quote": "",
+        "find": "responds to advanced persistent threats"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q3" }
+    },
+    {
+      "id": "s-u10-q008",
+      "stem": "A shipping company wants software on each dispatch server that checks that server's own logs and traffic against known attack signatures and then alerts staff or blocks the attack. Which of the following BEST fits this need?",
+      "choices": [
+        { "id": "a", "text": "Extended detection and response" },
+        { "id": "b", "text": "Host-based intrusion detection/prevention" },
+        { "id": "c", "text": "Network-based intrusion prevention" },
+        { "id": "d", "text": "User and entity behavior analytics" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.3",
+        "title": "Advanced Endpoint Protection",
+        "quote": "",
+        "find": "monitor and protect individual hosts"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q7" }
+    },
+    {
+      "id": "s-u10-q009",
+      "stem": "An attacker replaced a system program on a ferry company's booking server with a look-alike that records passwords, and no one noticed for weeks. Which of the following would BEST alert the IT team to this kind of change in the future?",
+      "choices": [
+        { "id": "a", "text": "File integrity monitoring" },
+        { "id": "b", "text": "Full disk encryption" },
+        { "id": "c", "text": "File system permissions" },
+        { "id": "d", "text": "User behavior analytics" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.5", "4.5.h"],
+      "units": ["10.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.3",
+        "title": "Advanced Endpoint Protection",
+        "quote": "",
+        "find": "used to detect changes on endpoints"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B68" }
+    },
+    {
+      "id": "s-u10-q010",
+      "stem": "A mortgage lender's security team wants an alert when an employee account that always connects to the network from the main office during the workday suddenly connects from overseas at night. Which of the following would BEST provide this alert?",
+      "choices": [
+        { "id": "a", "text": "User and entity behavior analytics (UEBA)" },
+        { "id": "b", "text": "Host-based intrusion prevention (HIPS)" },
+        { "id": "c", "text": "Extended detection and response (XDR)" },
+        { "id": "d", "text": "File integrity monitoring (FIM)" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.5", "4.5.l"],
+      "units": ["10.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.3",
+        "title": "Advanced Endpoint Protection",
+        "quote": "",
+        "find": "analyzing the behavior of users within"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q6" }
+    },
+    {
+      "id": "s-u10-q011",
+      "stem": "A construction firm's payroll clerk only enters timesheet data, so IT gives the clerk's account edit rights to the timesheet folder and no access to the rest of the file server. Which of the following BEST describes this decision?",
+      "choices": [
+        { "id": "a", "text": "Mandatory access control" },
+        { "id": "b", "text": "Least privilege" },
+        { "id": "c", "text": "Configuration enforcement" },
+        { "id": "d", "text": "Application allow list" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.h"],
+      "units": ["10.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.4",
+        "title": "Endpoint Configuration",
+        "quote": "",
+        "find": "only be granted the minimum permissions"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B26" }
+    },
+    {
+      "id": "s-u10-q012",
+      "stem": "On a symphony orchestra's file server, the fundraising group must be able to edit the donor spreadsheets, managers may only read them, and all other staff must be denied. Which of the following should the administrator configure?",
+      "choices": [
+        { "id": "a", "text": "Configuration baseline" },
+        { "id": "b", "text": "Application allow list" },
+        { "id": "c", "text": "Host-based firewall" },
+        { "id": "d", "text": "Access control list" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.5", "2.5.b"],
+      "units": ["10.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.4",
+        "title": "Endpoint Configuration",
+        "quote": "",
+        "find": "a list of rules or entries"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q9" }
+    },
+    {
+      "id": "s-u10-q013",
+      "stem": "A call center wants its agents' PCs to start only the phone, ticketing, and chat programs that IT has approved and to stop every other program from running. Which of the following should the security team configure?",
+      "choices": [
+        { "id": "a", "text": "Application block list" },
+        { "id": "b", "text": "Antimalware software" },
+        { "id": "c", "text": "Application allow list" },
+        { "id": "d", "text": "Endpoint detection and response" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.5", "2.5.c"],
+      "units": ["10.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.4",
+        "title": "Endpoint Configuration",
+        "quote": "",
+        "find": "denies execution unless the process is"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.4 (application allow list)" }
+    },
+    {
+      "id": "s-u10-q014",
+      "stem": "Every night, a moving company's management server checks each office PC's password rules and disk encryption setting against the company's security standard and reports any PC that does not match. Which of the following mitigation techniques BEST describes this process?",
+      "choices": [
+        { "id": "a", "text": "Patching" },
+        { "id": "b", "text": "Device isolation" },
+        { "id": "c", "text": "Configuration enforcement" },
+        { "id": "d", "text": "Application allow list" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.5", "2.5.i"],
+      "units": ["10.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.4",
+        "title": "Endpoint Configuration",
+        "quote": "",
+        "find": "adhere to mandatory security configurations"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A34" }
+    },
+    {
+      "id": "s-u10-q015",
+      "stem": "When a clerk signs in to a ticket counter PC at a movie theater chain, a management tool finds that the PC's firewall has been turned off and automatically turns it back on to match the required settings. Which of the following mitigation techniques BEST describes this process?",
+      "choices": [
+        { "id": "a", "text": "Patch management" },
+        { "id": "b", "text": "Decommissioning" },
+        { "id": "c", "text": "Least privilege" },
+        { "id": "d", "text": "Configuration enforcement" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.5", "2.5.i"],
+      "units": ["10.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.4",
+        "title": "Endpoint Configuration",
+        "quote": "",
+        "find": "used to apply and maintain standardized"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A53" }
+    },
+    {
+      "id": "s-u10-q016",
+      "stem": "Staff at a tax preparation office keep switching off the screen lock and firewall settings that the office's baseline requires on its Windows PCs. Which of the following would BEST keep these settings in place on every PC?",
+      "choices": [
+        { "id": "a", "text": "Enforce the settings through SELinux" },
+        { "id": "b", "text": "Track setting changes with file integrity monitoring" },
+        { "id": "c", "text": "Enforce the settings through Group Policy" },
+        { "id": "d", "text": "Add endpoint detection and response to each PC" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.5", "4.5.d"],
+      "units": ["10.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.4",
+        "title": "Endpoint Configuration",
+        "quote": "",
+        "find": "Group Policies enforce security settings"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q4" }
+    },
+    {
+      "id": "s-u10-q017",
+      "stem": "Visitors at a science museum could plug their own flash drives or keyboards into the touch-screen exhibits in its halls. Which of the following would BEST reduce this risk?",
+      "choices": [
+        { "id": "a", "text": "Turn on each exhibit's host-based firewall" },
+        { "id": "b", "text": "Disable each exhibit's unneeded physical ports" },
+        { "id": "c", "text": "Remove unneeded programs from each exhibit" },
+        { "id": "d", "text": "Encrypt each exhibit's hard drive" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.5",
+        "title": "Hardening Techniques",
+        "quote": "",
+        "find": "unnecessary physical ports such as USB"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q15" }
+    },
+    {
+      "id": "s-u10-q018",
+      "stem": "A film studio must stop video editors from copying unreleased footage to their own USB drives, while the studio's approved USB backup drives keep working on the same PCs. Which of the following BEST meets these requirements?",
+      "choices": [
+        { "id": "a", "text": "Disable the USB ports on the PCs" },
+        { "id": "b", "text": "Encrypt removable media used on the PCs" },
+        { "id": "c", "text": "Turn on user behavior analytics for the editors" },
+        { "id": "d", "text": "Install port control software on the PCs" }
+      ],
+      "answer": ["d"],
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.5",
+        "title": "Hardening Techniques",
+        "quote": "",
+        "find": "might block all USB mass storage"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A12" }
+    },
+    {
+      "id": "s-u10-q019",
+      "stem": "The PCs in a school's testing lab are used only for online exams, yet a security assessment finds that each one has a large attack surface. Which of the following hardening steps would BEST reduce it?",
+      "choices": [
+        { "id": "a", "text": "Change the default passwords on the PCs" },
+        { "id": "b", "text": "Turn on automatic updates for the PCs" },
+        { "id": "c", "text": "Uninstall software the PCs do not need" },
+        { "id": "d", "text": "Encrypt the hard drives in the PCs" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.5",
+        "title": "Hardening Techniques",
+        "quote": "",
+        "find": "reducing the number of software applications"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C24" }
+    },
+    {
+      "id": "s-u10-q020",
+      "stem": "Before a marketing agency gives its old laptops to a recycling company, IT securely erases each drive and resets each laptop to factory settings. Which of the following mitigation techniques BEST describes this process?",
+      "choices": [
+        { "id": "a", "text": "Device isolation" },
+        { "id": "b", "text": "Configuration enforcement" },
+        { "id": "c", "text": "Decommissioning" },
+        { "id": "d", "text": "Removal of unnecessary software" }
+      ],
+      "answer": ["c"],
+      "objectives": ["2.5", "2.5.j"],
+      "units": ["10.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.1.5",
+        "title": "Hardening Techniques",
+        "quote": "",
+        "find": "resetting devices to their factory settings"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 10.1.5 (decommissioning)" }
+    },
+    {
+      "id": "s-u10-q021",
+      "stem": "To cut equipment costs, a real estate office will stop buying tablets for its agents, who will run the office's listing app on tablets they own. Which of the following deployment models is the office moving to?",
+      "choices": [
+        { "id": "a", "text": "Bring your own device (BYOD)" },
+        { "id": "b", "text": "Corporate-owned, personally enabled (COPE)" },
+        { "id": "c", "text": "Corporate-owned, business only (COBO)" },
+        { "id": "d", "text": "Choose your own device (CYOD)" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.1",
+        "title": "Mobile Hardening Techniques",
+        "quote": "",
+        "find": "device is owned by the employee"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C90" }
+    },
+    {
+      "id": "s-u10-q022",
+      "stem": "A regional airline will buy one tablet model for all of its pilots and keep ownership of every tablet, but pilots may also use the tablets for their own email and web browsing. Which of the following deployment models BEST fits this plan?",
+      "choices": [
+        { "id": "a", "text": "Choose your own device (CYOD)" },
+        { "id": "b", "text": "Bring your own device (BYOD)" },
+        { "id": "c", "text": "Mobile device management (MDM)" },
+        { "id": "d", "text": "Corporate-owned, personally enabled (COPE)" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.1",
+        "title": "Mobile Hardening Techniques",
+        "quote": "",
+        "find": "the device is chosen and supplied"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A55" }
+    },
+    {
+      "id": "s-u10-q023",
+      "stem": "A food truck company gives smartphones to its drivers and wants to install its ordering app on every phone and stop drivers from adding any other apps. Which of the following would BEST let the IT team do both?",
+      "choices": [
+        { "id": "a", "text": "Apply the settings through Group Policy" },
+        { "id": "b", "text": "Create a geofence around the company's kitchen" },
+        { "id": "c", "text": "Enroll the phones in an MDM platform" },
+        { "id": "d", "text": "Move the phones to a CYOD deployment model" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "10.2.1",
+        "title": "Mobile Hardening Techniques",
+        "quote": "",
+        "find": "MDM helps centralize and enforce"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A30" }
+    }
+  ]
+}

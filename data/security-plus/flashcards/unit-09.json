@@ -7,7 +7,7 @@
       "term": "Secure baselines",
       "definition": "A collection of standard configurations and settings for areas such as network devices, software, patching, access controls, logging, and encryption, with consistent, centralized rules that improve security, manageability, and efficiency.",
       "objectives": ["4.1", "4.1.a"],
-      "units": ["9.1.1"],
+      "units": ["9.1.1", "10.1.1"],
       "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
     },
     {
@@ -39,7 +39,7 @@
       "term": "Hardening",
       "definition": "Improving a device's security by changing its default configuration, often by following a published secure baseline, because defaults with well-documented credentials, simple passwords, and insecure protocols attract attackers.",
       "objectives": ["4.1", "4.1.b"],
-      "units": ["9.1.1"],
+      "units": ["9.1.1", "10.1.1"],
       "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
     },
     {
@@ -175,7 +175,7 @@
       "term": "Monitoring",
       "definition": "Turning on logging on switches, routers, and servers and keeping watch on it, to help spot issues such as repeated login failures and configuration changes.",
       "objectives": ["4.1", "4.1.h"],
-      "units": ["9.1.1"],
+      "units": ["9.1.1", "10.1.4"],
       "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
     },
     {
@@ -199,7 +199,7 @@
       "term": "Access lists (access control lists, ACLs)",
       "definition": "A set of permissions tied to a network device, such as a router or switch, that permits or denies traffic at an interface by source and destination IP address, port number, and protocol.",
       "objectives": ["4.5", "4.5.a"],
-      "units": ["9.2.1"],
+      "units": ["9.2.1", "10.1.4"],
       "reference": { "source": "certmaster", "section": "9.2.1", "title": "Access Control Lists" }
     },
     {
@@ -207,7 +207,7 @@
       "term": "Ports/protocols",
       "definition": "Allowing or denying traffic by the TCP or UDP number a service runs on, such as letting only 80 and 443 (HTTP and HTTPS) reach a web server, or keeping FTP and SSH out when they are not needed.",
       "objectives": ["4.5", "4.5.a"],
-      "units": ["9.2.1"],
+      "units": ["9.2.1", "10.1.5"],
       "reference": { "source": "certmaster", "section": "9.2.1", "title": "Access Control Lists" }
     },
     {
@@ -311,7 +311,7 @@
       "term": "User behavior analytics (user and entity behavior analytics, UEBA)",
       "definition": "Machine-learning products that learn normal activity and flag anomalies, such as insider threats, using indicators from many intrusion detection and log sources, often integrated with a SIEM.",
       "objectives": ["4.5", "4.5.l"],
-      "units": ["9.2.3"],
+      "units": ["9.2.3", "10.1.3"],
       "reference": { "source": "certmaster", "section": "9.2.3", "title": "IDS and IPS Detection Methods" }
     }
   ]

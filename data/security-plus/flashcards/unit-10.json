@@ -1,0 +1,278 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-10", "title": "Unit 10.0 Assess Endpoint Security Capabilities", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet." },
+  "flashcards": [
+    {
+      "id": "s-u10-f001",
+      "term": "Access control",
+      "definition": "Regulating and managing which resources people, software, systems, and networks may use, so only authorized entities can see data or perform actions, across networks, physical sites, data, applications, and the cloud.",
+      "objectives": ["2.5", "2.5.b"],
+      "units": ["10.1.4"],
+      "reference": { "source": "certmaster", "section": "10.1.4", "title": "Endpoint Configuration" }
+    },
+    {
+      "id": "s-u10-f002",
+      "term": "Permissions (file system permissions)",
+      "definition": "The actions, such as read, write, and execute, that each account is allowed or denied on a file or folder, recorded as entries in that object's ACL.",
+      "objectives": ["2.5", "2.5.b"],
+      "units": ["10.1.4"],
+      "reference": { "source": "certmaster", "section": "10.1.4", "title": "Endpoint Configuration" }
+    },
+    {
+      "id": "s-u10-f003",
+      "term": "Application allow list (approved list)",
+      "definition": "An execution control policy that lets a program or process run only if it has been explicitly authorized and denies everything else.",
+      "objectives": ["2.5", "2.5.c"],
+      "units": ["10.1.4"],
+      "reference": { "source": "certmaster", "section": "10.1.4", "title": "Endpoint Configuration" }
+    },
+    {
+      "id": "s-u10-f004",
+      "term": "Isolation (device isolation)",
+      "definition": "Setting barriers between individual endpoints, rather than whole subnets, and restricting traffic among them, so a threat like a worm or ransomware that gets into one cannot easily spread to the others.",
+      "objectives": ["2.5", "2.5.d"],
+      "units": ["10.1.2"],
+      "reference": { "source": "certmaster", "section": "10.1.2", "title": "Endpoint Protection" }
+    },
+    {
+      "id": "s-u10-f005",
+      "term": "Encryption (endpoint encryption)",
+      "definition": "Guarding sensitive data on devices in several ways: the whole hard drive, so all data stays protected even while the OS is not running, plus removable media and stored email.",
+      "objectives": ["2.5", "2.5.f"],
+      "units": ["10.1.5"],
+      "reference": { "source": "certmaster", "section": "10.1.5", "title": "Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f006",
+      "term": "Least privilege (principle of least privilege, PoLP)",
+      "definition": "The rule that users, applications, and processes get only the minimum rights they need to do their tasks and nothing more; it covers software and operating systems, not just people.",
+      "objectives": ["2.5", "2.5.h"],
+      "units": ["10.1.4"],
+      "reference": { "source": "certmaster", "section": "10.1.4", "title": "Endpoint Configuration" }
+    },
+    {
+      "id": "s-u10-f007",
+      "term": "Configuration enforcement",
+      "definition": "Methods that make every system and device follow mandatory security settings, using automated tools that apply the baseline, continuous monitoring that catches and reverts drift, regular compliance checks, and change management that approves changes first.",
+      "objectives": ["2.5", "2.5.i"],
+      "units": ["10.1.4"],
+      "reference": { "source": "certmaster", "section": "10.1.4", "title": "Endpoint Configuration" }
+    },
+    {
+      "id": "s-u10-f008",
+      "term": "Decommissioning",
+      "definition": "Retiring a device that is no longer needed: sanitizing all its data so none can be recovered, resetting it to factory settings, destroying storage parts or using certified secure disposal when needed, and finally updating inventory records.",
+      "objectives": ["2.5", "2.5.j"],
+      "units": ["10.1.5"],
+      "reference": { "source": "certmaster", "section": "10.1.5", "title": "Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f009",
+      "term": "Installation of endpoint protection",
+      "definition": "Rolling out security agents to workstations, laptops, and servers by plan and in stages, with standardized settings, automated deployment, regular agent and definition updates, monitoring that agents run, and central management.",
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.5"],
+      "reference": { "source": "certmaster", "section": "10.1.5", "title": "Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f010",
+      "term": "Host-based firewall",
+      "definition": "A control on the endpoint itself that allows or blocks connections by port number, address, and protocol, with a default-deny policy that stops anything not explicitly allowed; advanced ones let only trusted applications communicate.",
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.5"],
+      "reference": { "source": "certmaster", "section": "10.1.5", "title": "Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f011",
+      "term": "Host-based intrusion prevention system (HIPS)",
+      "definition": "Agent software on one computer or server that spots threats by signature, anomaly, or behavior and blocks or mitigates them automatically, while its detection-only counterpart just alerts staff.",
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.3"],
+      "reference": { "source": "certmaster", "section": "10.1.3", "title": "Advanced Endpoint Protection" }
+    },
+    {
+      "id": "s-u10-f012",
+      "term": "Disabling ports/protocols",
+      "definition": "Turning off physical interfaces such as USB that serve no business purpose, or letting only authorized devices use them, and blocking the unneeded software-based communication features that applications and services use to exchange data.",
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.5"],
+      "reference": { "source": "certmaster", "section": "10.1.5", "title": "Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f013",
+      "term": "Default password changes",
+      "definition": "Replacing preset login credentials, often set by the manufacturer and widely known, with strong, unique ones during the initial setup of any device or system.",
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.5"],
+      "reference": { "source": "certmaster", "section": "10.1.5", "title": "Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f014",
+      "term": "Removal of unnecessary software",
+      "definition": "Cutting a device's applications down to only those its intended function needs and turning off unneeded features or services in the rest, which shrinks the attack surface and leaves fewer apps to patch.",
+      "objectives": ["2.5", "2.5.k"],
+      "units": ["10.1.5"],
+      "reference": { "source": "certmaster", "section": "10.1.5", "title": "Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f015",
+      "term": "Workstations (hardening targets)",
+      "definition": "The frontline computers employees operate, whose varied tasks and many applications give them a large attack surface, so securing them stresses user training, limited admin rights, tight control of app installs, and locking down USB ports.",
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["10.1.1"],
+      "reference": { "source": "certmaster", "section": "10.1.1", "title": "Endpoint Hardening" }
+    },
+    {
+      "id": "s-u10-f016",
+      "term": "Mobile devices (hardening targets)",
+      "definition": "Smartphones and tablets, more prone to loss or theft than traditional computers, so securing them stresses remote wiping, encryption, and secure lock screens, plus managing app permissions and GPS, Bluetooth, and NFC.",
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["10.2.1"],
+      "reference": { "source": "certmaster", "section": "10.2.1", "title": "Mobile Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f017",
+      "term": "ICS/SCADA (industrial control systems/supervisory control and data acquisition)",
+      "definition": "Systems that run physical operations, where a breach can mean utility failure or loss of life, hardened with strict network segmentation, robust authentication, and data diodes that let data flow only outward.",
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["10.1.6"],
+      "reference": { "source": "certmaster", "section": "10.1.6", "title": "Hardening Specialized Devices" }
+    },
+    {
+      "id": "s-u10-f018",
+      "term": "Embedded systems/RTOS (real-time operating systems)",
+      "definition": "Simple, resource-constrained devices and the operating software that runs them, which typically do not support traditional security measures, so security is ideally designed in from the start, with security standards and certifications guiding its design and evaluation.",
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["10.1.6"],
+      "reference": { "source": "certmaster", "section": "10.1.6", "title": "Hardening Specialized Devices" }
+    },
+    {
+      "id": "s-u10-f019",
+      "term": "IoT (Internet of Things) devices",
+      "definition": "Devices that share the hardening challenges of simple embedded systems and RTOS, such as little support for traditional security measures, but also raise significant privacy issues.",
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["10.1.6"],
+      "reference": { "source": "certmaster", "section": "10.1.6", "title": "Hardening Specialized Devices" }
+    },
+    {
+      "id": "s-u10-f020",
+      "term": "Mobile device management (MDM)",
+      "definition": "The strategy and tools IT uses to centrally control and secure smartphones and tablets: keeping an inventory, enforcing encryption and screen locks, restricting app installs, handling updates, and remotely locking or wiping a lost or stolen device.",
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.1"],
+      "reference": { "source": "certmaster", "section": "10.2.1", "title": "Mobile Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f021",
+      "term": "Deployment models (mobile device deployment models)",
+      "definition": "The approaches, such as BYOD, COPE, and CYOD, that define how an organization uses, manages, and secures devices, each giving the organization and the employee a different degree of control and flexibility.",
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.1"],
+      "reference": { "source": "certmaster", "section": "10.2.1", "title": "Mobile Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f022",
+      "term": "Bring your own device (BYOD)",
+      "definition": "The employee owns the device, but it must meet the organization's requirements, and the employee agrees to corporate apps and compliance checks; it saves equipment costs, but mixing personal and work data poses significant risk.",
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.1"],
+      "reference": { "source": "certmaster", "section": "10.2.1", "title": "Mobile Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f023",
+      "term": "Corporate-owned, personally enabled (COPE)",
+      "definition": "The organization picks and supplies the device and keeps it as its property, but the employee may also use it for their own email, social media, and browsing; more control than BYOD, at more equipment cost.",
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.1"],
+      "reference": { "source": "certmaster", "section": "10.2.1", "title": "Mobile Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f024",
+      "term": "Choose your own device (CYOD)",
+      "definition": "Like COPE, the organization supplies and keeps ownership of the device and allows some personal use, except the employee picks it from a preestablished list.",
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.1"],
+      "reference": { "source": "certmaster", "section": "10.2.1", "title": "Mobile Hardening Techniques" }
+    },
+    {
+      "id": "s-u10-f025",
+      "term": "Connection methods (mobile device connection methods)",
+      "definition": "The different ways smartphones, tablets, and laptops communicate, both in local and personal area networks and for Internet data access through service providers.",
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.4"],
+      "reference": { "source": "certmaster", "section": "10.2.4", "title": "Cellular and GPS Connection Methods" }
+    },
+    {
+      "id": "s-u10-f026",
+      "term": "Cellular (mobile data connections)",
+      "definition": "A service provider's data network that phones, tablets, and laptops use, which bypasses the enterprise's network protections and is unlikely to be monitored or filtered, so controls such as a VPN and MDM must sit on the device.",
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.4"],
+      "reference": { "source": "certmaster", "section": "10.2.4", "title": "Cellular and GPS Connection Methods" }
+    },
+    {
+      "id": "s-u10-f027",
+      "term": "Wi-Fi (connection method)",
+      "definition": "The link mobile devices use for data by default if present; fairly low risk on a corporate network with strong WPA3, but open access points and rogue ones posing as the corporate network expose users to attacks.",
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.5"],
+      "reference": { "source": "certmaster", "section": "10.2.5", "title": "Wi-Fi and Tethering Connection Methods" }
+    },
+    {
+      "id": "s-u10-f028",
+      "term": "Bluetooth (connection method)",
+      "definition": "A short-range radio technology for personal area networks; devices pair with a passkey set on both, which should be changed from its default, and even a device not in discoverable mode can still be detected.",
+      "objectives": ["4.1", "4.1.d"],
+      "units": ["10.2.6"],
+      "reference": { "source": "certmaster", "section": "10.2.6", "title": "Bluetooth Connection Methods" }
+    },
+    {
+      "id": "s-u10-f029",
+      "term": "Operating system security",
+      "definition": "The many practices that protect the complex core software of every information system from unauthorized access, data breaches, and malware, drawing on access controls, secure configurations, patching, endpoint protection, user training, and monitoring.",
+      "objectives": ["4.5", "4.5.d"],
+      "units": ["10.1.1"],
+      "reference": { "source": "certmaster", "section": "10.1.1", "title": "Endpoint Hardening" }
+    },
+    {
+      "id": "s-u10-f030",
+      "term": "Group Policy",
+      "definition": "The Windows feature that centrally manages OS, application, and user settings, applying consistent baseline settings across all the systems linked to it.",
+      "objectives": ["4.5", "4.5.d"],
+      "units": ["10.1.4"],
+      "reference": { "source": "certmaster", "section": "10.1.4", "title": "Endpoint Configuration" }
+    },
+    {
+      "id": "s-u10-f031",
+      "term": "SELinux (Security-Enhanced Linux)",
+      "definition": "A kernel feature that supports mandatory access control (MAC), strictly limiting what resources each process can reach and what it can do, and blocking any access a process or user does not need.",
+      "objectives": ["4.5", "4.5.d"],
+      "units": ["10.1.4"],
+      "reference": { "source": "certmaster", "section": "10.1.4", "title": "Endpoint Configuration" }
+    },
+    {
+      "id": "s-u10-f032",
+      "term": "File integrity monitoring (FIM)",
+      "definition": "Checking key system files against their authorized versions to detect and investigate changes on endpoints; a core HIDS feature.",
+      "objectives": ["4.5", "4.5.h"],
+      "units": ["10.1.3"],
+      "reference": { "source": "certmaster", "section": "10.1.3", "title": "Advanced Endpoint Protection" }
+    },
+    {
+      "id": "s-u10-f033",
+      "term": "Endpoint detection and response (EDR)",
+      "definition": "A tool that collects and analyzes data only from computers, laptops, and mobile devices to find, investigate, and act on advanced threats in real time, containing malware on one host and helping restore it.",
+      "objectives": ["4.5", "4.5.k"],
+      "units": ["10.1.3"],
+      "reference": { "source": "certmaster", "section": "10.1.3", "title": "Advanced Endpoint Protection" }
+    },
+    {
+      "id": "s-u10-f034",
+      "term": "Extended detection and response (XDR)",
+      "definition": "A tool that reaches beyond endpoints by also taking in data from the network, cloud platforms, email gateway, firewall, and other infrastructure, giving a broader view to identify threats better and act faster.",
+      "objectives": ["4.5", "4.5.k"],
+      "units": ["10.1.3"],
+      "reference": { "source": "certmaster", "section": "10.1.3", "title": "Advanced Endpoint Protection" }
+    }
+  ]
+}

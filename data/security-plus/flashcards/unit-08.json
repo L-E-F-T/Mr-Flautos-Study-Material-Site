@@ -439,7 +439,7 @@
       "term": "Patching",
       "definition": "Applying updates to software or systems to fix known flaws, managed centrally so it happens promptly and consistently. It is one of the most straightforward and effective fixes.",
       "objectives": ["4.3", "4.3.c"],
-      "units": ["8.4.4", "9.1.1"],
+      "units": ["8.4.4", "9.1.1", "10.1.2"],
       "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
     },
     {
@@ -455,7 +455,7 @@
       "term": "Segmentation",
       "definition": "Dividing a network into separate parts so an attacker who gets into one is confined to it and cannot move laterally. It contains the damage but leaves the flaw in place.",
       "objectives": ["4.3", "4.3.c"],
-      "units": ["8.4.4"],
+      "units": ["8.4.4", "10.1.2"],
       "reference": { "source": "certmaster", "section": "8.4.4", "title": "Vulnerability Response and Remediation" }
     },
     {
