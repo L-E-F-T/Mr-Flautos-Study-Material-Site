@@ -2267,6 +2267,237 @@
         "find": "lie with the server service"
       },
       "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q65" }
+    },
+    {
+      "id": "n-u06-q108",
+      "stem": "A packet capture shows that a newly started IPv6 host on a hospital's network sends a router solicitation (RS) message. Which of the following is the host requesting?",
+      "choices": [
+        { "id": "a", "text": "A router advertisement with the link's prefix" },
+        { "id": "b", "text": "A lease from a DHCPv6 server" },
+        { "id": "c", "text": "A link local address assigned by the router" },
+        { "id": "d", "text": "Proof that no other host uses its address" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.2",
+        "title": "IPv6 Interface Autoconfiguration and Testing",
+        "quote": "",
+        "find": "Routers send RAs periodically"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q157" }
+    },
+    {
+      "id": "n-u06-q109",
+      "stem": "A router advertisement tells a new IPv6 workstation at an architecture firm that a DHCPv6 server is available, but the workstation does not know the server's address. Which of the following BEST describes how the workstation looks for the server?",
+      "choices": [
+        { "id": "a", "text": "It sends its request to the broadcast address 255.255.255.255" },
+        { "id": "b", "text": "It sends a router solicitation to the routers on the link" },
+        { "id": "c", "text": "It sends its request to the multicast address ff02::1:2" },
+        { "id": "d", "text": "It sends its request to the default gateway's address" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.a"],
+      "units": ["6.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.3.3",
+        "title": "DHCPv6 Server Configuration",
+        "quote": "",
+        "find": "multicast address ff02::1:2 to discover"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q175" }
+    },
+    {
+      "id": "n-u06-q110",
+      "stem": "A county government runs 12 DHCP servers with more than 200 scopes, and its network team needs to track how much of every scope is in use. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "A DHCP relay agent on the main router" },
+        { "id": "b", "text": "A split scope across the DHCP servers" },
+        { "id": "c", "text": "An IP Address Management (IPAM) suite" },
+        { "id": "d", "text": "An exclusion range in the busiest scope" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["6.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.4.2",
+        "title": "DHCP Issues",
+        "quote": "",
+        "find": "track address usage across a complex"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q217" }
+    },
+    {
+      "id": "n-u06-q111",
+      "stem": "A landscaping company registered greenleafyard.com last year, and now a second company asks a registrar for both greenleafyard.com and greenleafyard.net. Which of the following will MOST likely happen?",
+      "choices": [
+        { "id": "a", "text": "Both requests are approved" },
+        { "id": "b", "text": "Only the .com request is refused" },
+        { "id": "c", "text": "Only the .net request is refused" },
+        { "id": "d", "text": "Both requests are refused" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.1",
+        "title": "Host Names and Domain Names",
+        "quote": "",
+        "find": "cannot be used by another organization"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q338" }
+    },
+    {
+      "id": "n-u06-q112",
+      "stem": "A technician tries to add a host record named Sales_2nd-Floor to a school's DNS zone, and the server refuses it. Which part of the name MOST likely caused the refusal?",
+      "choices": [
+        { "id": "a", "text": "The capital letters" },
+        { "id": "b", "text": "The digit 2" },
+        { "id": "c", "text": "The underscore" },
+        { "id": "d", "text": "The hyphen" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.1",
+        "title": "Host Names and Domain Names",
+        "quote": "",
+        "find": "letter, digit, and hyphen characters only"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q373" }
+    },
+    {
+      "id": "n-u06-q113",
+      "stem": "A credit union's DNS zone already holds a host record named payroll, and an administrator plans to add a record named PAYROLL for a new server. Which of the following BEST describes the two names?",
+      "choices": [
+        { "id": "a", "text": "Two separate names for two different hosts" },
+        { "id": "b", "text": "An alias and the host name that it points to" },
+        { "id": "c", "text": "A host name and the domain that it belongs to" },
+        { "id": "d", "text": "One name written with different capital letters" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.1",
+        "title": "Host Names and Domain Names",
+        "quote": "",
+        "find": "DNS labels are not case-sensitive"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q337" }
+    },
+    {
+      "id": "n-u06-q114",
+      "stem": "An administrator opens the SOA record in a shipping company's DNS zone. Which of the following will she find in it?",
+      "choices": [
+        { "id": "a", "text": "Each mail server and its preference value" },
+        { "id": "b", "text": "The service name and port of an application" },
+        { "id": "c", "text": "Each alias and the host name it points to" },
+        { "id": "d", "text": "The server where record changes are made" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.4",
+        "title": "Resource Record Types",
+        "quote": "",
+        "find": "identifies the primary authoritative name server"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q240" }
+    },
+    {
+      "id": "n-u06-q115",
+      "stem": "Video editing PCs at a television station must use DNS to look up the host and port of the station's new media service. Which type of record should the administrator add to the zone?",
+      "choices": [
+        { "id": "a", "text": "A record" },
+        { "id": "b", "text": "PTR record" },
+        { "id": "c", "text": "SRV record" },
+        { "id": "d", "text": "CNAME record" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.6",
+        "title": "Mail Exchange, Service, and Text Records",
+        "quote": "",
+        "find": "the service name and port"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q348" }
+    },
+    {
+      "id": "n-u06-q116",
+      "stem": "A school's internal DNS server holds only the school's private zone and has a forwarder set to the ISP's resolver. What does the server do when a student's PC asks for a public website's address?",
+      "choices": [
+        { "id": "a", "text": "Answers from its own copy of the website's zone" },
+        { "id": "b", "text": "Tells the PC to send its query to the ISP's resolver" },
+        { "id": "c", "text": "Rejects the query because the name is not in its zone" },
+        { "id": "d", "text": "Sends the query to the ISP's resolver and returns the reply" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.9",
+        "title": "Internal vs External DNS",
+        "quote": "",
+        "find": "forwarder transmits a client query"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q271" }
+    },
+    {
+      "id": "n-u06-q117",
+      "stem": "After a laptop's browser is set to use DNS over HTTPS (DoH), a network administrator can no longer find the laptop's DNS lookups in her packet captures. Which of the following BEST explains this?",
+      "choices": [
+        { "id": "a", "text": "The lookups are resolved by LLMNR on the local link" },
+        { "id": "b", "text": "The lookups now use TCP port 853 with TLS" },
+        { "id": "c", "text": "The lookups go out in plain text on UDP port 53" },
+        { "id": "d", "text": "The lookups are encrypted and look like web traffic" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.5.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.5.10",
+        "title": "DNS Security",
+        "quote": "",
+        "find": "which completely disguises the fact"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q335" }
+    },
+    {
+      "id": "n-u06-q118",
+      "stem": "The only DNS server at a small accounting office has been offline all week, yet the office's Windows workgroup PCs still find one another's shared folders by name. Which of the following MOST likely makes this possible?",
+      "choices": [
+        { "id": "a", "text": "ARP" },
+        { "id": "b", "text": "ICMP" },
+        { "id": "c", "text": "DHCP" },
+        { "id": "d", "text": "LLMNR" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.4", "3.4.b"],
+      "units": ["6.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "6.6.1",
+        "title": "Client DNS Issues",
+        "quote": "",
+        "find": "name resolution on a local link"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 6.0 Q429" }
     }
   ]
 }
