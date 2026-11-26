@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Command bank (Command line tool)",
-  "description": "One file per exam, data/<exam folder>/commands/bank.json, beside the command packs and not listed in their manifest. For each system, every command the drill covers, what it does, and every switch the reading teaches for it. The command screen shows the entries of its task's system behind a Command bank toggle (assets/js/lib/command-bank.js). docs/CONTENT-GUIDE.md, \"The command bank\", has the rules. The page ignores a field it does not know, and the content check warns about one.",
+  "description": "One file per exam, data/<exam folder>/commands/bank.json, beside the command packs and not listed in their manifest. For each system, every command the drill covers, what it does, and every switch the reading teaches for it. The terminal's help prints it: help lists the entries of the task's system, and a command's own help its syntax line and switches (assets/js/lib/command-help.js, docs/COMMAND-LINE-PLAN.md section 15). docs/CONTENT-GUIDE.md, \"The command bank\", has the rules. The page ignores a field it does not know, and the content check warns about one.",
   "type": "object",
   "required": ["entries"],
   "additionalProperties": false,

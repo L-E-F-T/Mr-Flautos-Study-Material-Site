@@ -1,5 +1,5 @@
 /**
- * Command line tool: the drill's own rules (docs/COMMAND-LINE-PLAN.md sections 4, 7, and 14):
+ * Command line tool: the drill's own rules (docs/COMMAND-LINE-PLAN.md sections 4, 7, 14, and 15):
  * which commands the page can show, the weighted draw, the version pick, and grading a saved
  * answer again when the page loads. No page code: no DOM, no fetch, and no saved data. The page
  * (assets/js/pages/commands.js) calls it, and the draw can be tried from the browser console.
@@ -11,10 +11,15 @@ import { matchLine, SYSTEMS } from './command-match.js';
 import { partnerIds, printableVersions } from './command-items.js';
 import { randomInt, shuffle } from './random.js';
 
-/** Counted tries before a command ends as missed. */
-export const MAX_TRIES = 2;
+/** Counted tries before Show answer appears. There is no limit on tries (section 15). */
+export const SHOW_ANSWER_AFTER = 2;
 /** The longest line the field takes, and the longest a saved drill keeps. */
 export const MAX_TYPED = 80;
+/**
+ * The lines a command saves. Past this many, only a line that adds a try and the right line are
+ * saved, so the tries and the answer are never lost.
+ */
+export const MAX_LINES = 50;
 
 function has(lookup, id) {
   return Boolean(lookup) && typeof lookup.has === 'function' && lookup.has(id);
@@ -88,7 +93,7 @@ export function drawIds(pool, count) {
 
 /**
  * The version a command shows, by id, from the ids of the versions the page can print.
- * options.keep: a version to show again when it is still in the list (Retry missed, when only the
+ * options.keep: a version to show again when it is still in the list (Retry, when only the
  * question was missed). options.avoid: the version last shown on this device; another one is
  * picked at random when there is one. Null when the list is empty.
  */
@@ -105,40 +110,39 @@ export function pickVersion(ids, options) {
 
 /**
  * A saved answer graded again with the matcher, so a reload shows what the student saw and a pack
- * edited since is read by its current lines. answer is { lines, shown }: lines are the lines that
- * counted a try, then the line that was accepted, each as typed. Slips are never saved.
- * Gives { state, tries, steps, group, shown }:
- *   state  'open' while a try is left, 'right', or 'missed' (two counted misses, or Show answer)
- *   tries  the counted tries, the accepted line included (2 for Correct on try 2)
- *   steps  { typed, result } for each line that still counts a try or is accepted, in order
- *   group  the answer group of the accepted line; 0 for any other state (its answer is shown)
- *   shown  true when Show answer ended the command
- * A saved line that no longer counts a try (a line added to alsoWorks since) is left out, and
- * lines after the command ended are ignored.
+ * edited since is read by its current lines. answer is { lines, shown }: lines are every line run
+ * on the command, as typed, ending with the right line once it was run.
+ * Gives { state, tries, steps, group, shown, cleared }:
+ *   state    'open' until a right line, 'right', or 'shown' (Show answer); there is no try limit
+ *   tries    the lines that added a try, the right line included (4 for Correct on try 4)
+ *   steps    { typed, result } for each line run, in order, up to the right line
+ *   group    the answer group of the right line; 0 for any other state (its answer is shown)
+ *   shown    true when Show answer ended the command
+ *   cleared  the index of the first step after the last cls or clear: the box shows the steps from it
+ * An empty saved line is skipped, and lines after the right line are ignored.
  */
 export function gradeAnswer(command, answer, ctx) {
   const lines = answer && Array.isArray(answer.lines) ? answer.lines : [];
   const steps = [];
   let misses = 0;
   let accepted = null;
+  let cleared = 0;
   for (const typed of lines) {
     if (typeof typed !== 'string') continue;
     const text = typed.substring(0, MAX_TYPED);
     const result = matchLine(command, text, ctx);
+    if (result.code === 'empty') continue;
+    steps.push({ typed: text, result: result });
     if (result.code === 'accepted') {
       accepted = result;
-      steps.push({ typed: text, result: result });
       break;
     }
-    if (result.counts) {
-      misses += 1;
-      steps.push({ typed: text, result: result });
-      if (misses >= MAX_TRIES) break;
-    }
+    if (result.counts) misses += 1;
+    else if (result.code === 'clear-screen') cleared = steps.length;
   }
-  if (accepted) return { state: 'right', tries: misses + 1, steps: steps, group: accepted.group, shown: false };
-  const shown = Boolean(answer && answer.shown === true) && misses < MAX_TRIES;
-  return { state: misses >= MAX_TRIES || shown ? 'missed' : 'open', tries: misses, steps: steps, group: 0, shown: shown };
+  if (accepted) return { state: 'right', tries: misses + 1, steps: steps, group: accepted.group, shown: false, cleared: cleared };
+  const shown = Boolean(answer && answer.shown === true);
+  return { state: shown ? 'shown' : 'open', tries: misses, steps: steps, group: 0, shown: shown, cleared: cleared };
 }
 
 /** The choice ids of a follow-up question in a new order: shuffled, unless the question says shuffleChoices false. */

@@ -41,7 +41,7 @@ The site labels anything without content **Coming soon**, and it works that out 
 | An exam that has the Command line tool (`commandUnits` in `data/exams.json`) and no command pack listed | Its home card shows Command line as Coming soon, and the Command line page reads Coming soon |
 | A unit that `commandUnits` lists with no published command | A greyed-out unit row labeled Coming soon in Command line. It cannot be picked. When no listed unit has a published command, the whole page reads Coming soon |
 | The extra set, while no extra pack has a published command | The Extra commands row in Command line is greyed out, with a Coming soon chip |
-| A system with no entry in the command bank (or no bank yet) | The Command bank under that system's commands is greyed out, with a Coming soon chip |
+| A system with no entry in the command bank (or no bank yet) | Help on that system's commands prints Coming soon |
 
 An exam without `commandUnits` shows no Command line at all: no button, no tab, and its `commands.html` address goes to the home page. Only a website chat sets that field.
 
@@ -165,7 +165,7 @@ Check every card against this before it goes in:
 
 ## A command (the Command line tool)
 
-Command line is the third study tool, for Network+ only so far: one exam-style task at a time, above a prompt for the system the task names (Windows, Linux, Router, Switch). The student types the command. A right line prints example output, then the reading. A wrong command, or the right command with wrong details, costs one of two tries. A slip that is not a recall mistake (a wrong address the task gave, a misspelled command name) costs nothing. An exam has the tool only when its entry in `data/exams.json` has `commandUnits`, which only a website chat sets. The build plan is `docs/COMMAND-LINE-PLAN.md`.
+Command line is the third study tool, for Network+ only so far: one exam-style task at a time, above a prompt for the system the task names (Windows, Linux, Router, Switch). The student types the command. A right line prints example output, then the reading. A wrong command, or the right command with wrong details, adds a try; there is no limit, and the results count the tries each command took. A slip that is not a recall mistake (a wrong address the task gave, a misspelled command name) costs nothing, and so does help: `help` lists the commands the tool covers on the task's system, and a command's own help (`ipconfig /?`, `show ?`) its switches ("The command bank"). An exam has the tool only when its entry in `data/exams.json` has `commandUnits`, which only a website chat sets. The build plan is `docs/COMMAND-LINE-PLAN.md`.
 
 A command pack (`data/network-plus/commands/unit-04.json`) looks like this:
 
@@ -252,7 +252,7 @@ Where the reading shows no output for a command, the layout comes from the real 
 
 ### The follow-up question
 
-After the output prints, a version may ask one multiple-choice question about that output. It is asked whichever right line was typed, and after a missed command too. The follow-up is a published question of the exam that reads this command's output and has a text exhibit: `"followUp": { "question": "n-u04-q059" }`. It stays one question, shown in Practice test and here. A follow-up must need the printed output: a question whose stem already says what the output shows is not used, and neither is a question that asks which command made the output. A question follows one output only.
+After the output prints, a version may ask one multiple-choice question about that output. It is asked whichever right line was typed, and after Show answer too. The follow-up is a published question of the exam that reads this command's output and has a text exhibit: `"followUp": { "question": "n-u04-q059" }`. It stays one question, shown in Practice test and here. A follow-up must need the printed output: a question whose stem already says what the output shows is not used, and neither is a question that asks which command made the output. A question follows one output only.
 
 The output printed for the answer group whose command made that question's exhibit is the exhibit itself (`{ "exhibitOf": "n-u04-q059" }`). When the exhibit's first line is the prompt and a line that group accepts (`C:\>ipconfig`), the tool leaves that line out, because the box has just printed it. Every other answer group's output carries the same values. The task leads into the follow-up: the same system, the same addresses, and nothing its stem contradicts.
 
@@ -274,7 +274,7 @@ A command may have two or three versions. Each has one output for every answer g
 
 ### The command bank
 
-Under an open command, a **Command bank** toggle lists every command the tool covers on that task's system: what each does, every switch the reading teaches for it, and a syntax line for a command that takes an address or a name. It stays closed until a student opens it. Opening it costs no try, but a right line after it reads Correct with bank, not Correct, the results count it as with bank, and Retry missed brings the command back (Mr. Flauto's choice, 2026-11-20). Where the bank has no entry for the task's system, the toggle reads Coming soon.
+The command bank is the text the terminal's help prints (Mr. Flauto, 2026-11-23 and 2026-11-26; `docs/COMMAND-LINE-PLAN.md` section 15). At the prompt, `help` or `?` lists every command the tool covers on the task's system, each with its words. A command's own help (`ipconfig /?`, `ip --help`, `show ?`) prints its syntax line (or, with none, its name) with its words, then every switch the reading teaches for it, with its words. Help costs no try; the results mark a command where help listed something, and Retry brings it back. Where the bank has no entry for the task's system, help prints Coming soon. A student never sees the words Command bank.
 
 The bank is one file per exam, `data/<exam folder>/commands/bank.json`, beside the command packs. It is not a pack and is not listed in the manifest: the site and the content check read it by its name. Its shape is `schemas/command-bank.schema.json`:
 
@@ -304,7 +304,7 @@ The bank is one file per exam, `data/<exam folder>/commands/bank.json`, beside t
 | `command` | The tool, written the way a stored line of that system starts with it: `ipconfig`, `ip`, `dig`. On a router or switch it is `show`. One entry for each tool on each system. |
 | `does` | What the command does, in 3 to 6 words. |
 | `syntax` | Only for a command that takes an address or a name: one line that starts with the command and shows where each value goes, in angle brackets (`arp -s <IP> <MAC>`), 36 characters at most. Left out for any other command. |
-| `section` | The command section that teaches the command. The site shows it as "Reading 4.4.3 arp", with the title from `units.json`. |
+| `section` | The command section that teaches the command, for the record and the checks: help does not print it. |
 | `switches` | Every switch the reading teaches for the command, each `{ "switch": "-a", "does": "..." }`, with a `section` of its own when a section other than the entry's teaches it. An empty list when the reading teaches none. |
 
 - **Which commands.** One entry for each tool that a stored line of the exam's command packs starts with, on each system it runs on, and no other: the bank shows what the drill asks. A later Command line pass that adds a tool adds its entry too.

@@ -5,6 +5,7 @@
 import { fetchJSON } from '../assets/js/lib/boot.js';
 import { validateAll, caseTableLine } from '../assets/js/lib/validate-core.js';
 import { SYSTEMS, VERDICTS, buildContext, matchSpec, specFromItem, systemName, wordsFor } from '../assets/js/lib/command-match.js';
+import { helpFor, helpLines, systemError } from '../assets/js/lib/command-help.js';
 import { h, mount, nextId, plural } from '../assets/js/lib/dom.js';
 import { initThemeToggle } from '../assets/js/lib/theme.js';
 
@@ -187,7 +188,7 @@ function commandLinePanel(commandLine) {
         )
       : null,
     bankTable(commandLine.bank),
-    tryBox(commandLine.commands),
+    tryBox(commandLine.commands, commandLine.bank),
   );
 }
 
@@ -231,11 +232,17 @@ function bankTable(bank) {
   );
 }
 
+// What a help line or an unknown command prints, under its row of the try-a-line box.
+const PRINTED_STYLE = { margin: '0.4rem 0 0', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', whiteSpace: 'pre-wrap' };
+
 /**
  * The try-a-line box: each typed line, read by the matcher against a command, or against a
  * stored line and an also-works line typed here, gets one row with the words the page would show.
+ * A help line also shows what the page's help prints on that system, from the exam's bank, and a
+ * command the system does not know shows the system's error (command-help.js, plan section 15).
  */
-function tryBox(commands) {
+function tryBox(commands, bank) {
+  const entries = bank && Array.isArray(bank.entries) ? bank.entries : [];
   const usable = commands.filter((command) => SYSTEMS.includes(command.system));
   const ctx = buildContext(usable.map(specFromItem));
   const pick = h('select', { style: FIELD_STYLE },
@@ -270,14 +277,19 @@ function tryBox(commands) {
             h('tbody', null, lines.map((line) => {
               const r = matchSpec(spec, line, ctx);
               const words = wordsFor(r);
+              const help = helpFor(entries, spec.system, r, false);
+              const printed = help ? helpLines(help) : systemError(spec.system, r);
               return h('tr', null,
                 h('td', null, h('code', null, line)),
-                h('td', null, h('div', { class: 'row' },
-                  words.label,
-                  words.tag ? h('span', { class: 'chip' }, words.tag) : null,
-                  r.code === 'accepted' && spec.groups.length > 1 ? h('span', { class: 'chip' }, `group ${r.group + 1}`) : null,
-                  r.counts ? h('span', { class: 'chip' }, 'a try') : null,
-                )),
+                h('td', null,
+                  h('div', { class: 'row' },
+                    words.label,
+                    words.tag ? h('span', { class: 'chip' }, words.tag) : null,
+                    r.code === 'accepted' && spec.groups.length > 1 ? h('span', { class: 'chip' }, `group ${r.group + 1}`) : null,
+                    r.counts ? h('span', { class: 'chip' }, 'a try') : null,
+                  ),
+                  printed && printed.length ? h('pre', { style: PRINTED_STYLE }, printed.join('\n')) : null,
+                ),
               );
             })),
           ),
