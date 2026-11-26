@@ -44,8 +44,13 @@
       "family": "Security+",
       "code": "SY0-701",
       "name": "CompTIA Security+",
-      "status": "planned",
-      "theme": "secplus"
+      "status": "live",
+      "theme": "secplus",
+      "dataPath": "data/security-plus",
+      "facts": { "maxQuestions": 90, "minutes": 90 },
+      "sources": {
+        "certmaster": { "title": "Security+ CertMaster Learn 7.0" }
+      }
     }
   ]
 }
