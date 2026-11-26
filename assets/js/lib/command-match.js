@@ -16,7 +16,9 @@
  *   1 clean    zero-width characters go; tabs and odd spaces become spaces; curly quotes become
  *              straight; hyphen look-alikes, an en dash, and a minus sign become one hyphen; an
  *              em dash becomes two; trim; squeeze spaces; drop a pasted copy of the prompt.
- *   2 never    an empty line; help, the question mark, cls, clear, exit; a line that asks for help.
+ *   2 never    an empty line; help, the question mark, or a command's own help (Help); cls on
+ *              Windows and clear on Linux (Clear screen); exit. A help line for a word that is no
+ *              command of the system reads Not recognized.
  *   3 read     the line the way its system does (readLine).
  *   4 compare  stored lines are read the same way; equal keys mean accepted; the first group wins.
  *   5 free     Not counted: an alsoWorks line, or on a router or switch a short form of each word.
@@ -26,7 +28,7 @@
  */
 
 /** tools/command-cases.json carries the same number. Change the two together. */
-export const MATCHER_VERSION = 2;
+export const MATCHER_VERSION = 3;
 
 export const SYSTEMS = ['windows', 'linux', 'router', 'switch'];
 
@@ -51,6 +53,9 @@ export const VERDICTS = freezeAll({
   'not-counted':     { verdict: 'slip', label: 'Not counted', counts: false, keepLine: true },
   'not-in-tool':     { verdict: 'slip', label: 'Not in this tool', counts: false, keepLine: true },
   'not-recognized':  { verdict: 'slip', label: 'Not recognized', counts: false, keepLine: true },
+  'help-list':       { verdict: 'ignored', label: 'Help', counts: false, keepLine: false },
+  'help-command':    { verdict: 'ignored', label: 'Help', counts: false, keepLine: false },
+  'clear-screen':    { verdict: 'ignored', label: 'Clear screen', counts: false, keepLine: false },
   'ignored-word':    { verdict: 'ignored', label: 'Not in this tool', counts: false, keepLine: false },
   'empty':           { verdict: 'ignored', label: '', counts: false, keepLine: false },
 });
@@ -60,10 +65,13 @@ function freezeAll(table) {
   return Object.freeze(table);
 }
 
-// Lines that never count (step 2), and the words that make a line ask for help.
-const IGNORED_WORDS = ['help', '?', 'cls', 'clear', 'exit'];
+// Lines that never count (step 2): the words that list the commands, the words that make a line
+// ask for a command's own help, the word that clears the box on each system, and the rest.
+const LIST_WORDS = ['help', '?', '/?'];
 const HELP_LAST_WORDS = ['?', '/?', '-?', '--help'];
 const HELP_FIRST_WORDS = ['help', 'man'];
+const CLEAR_WORDS = { 'windows': 'cls', 'linux': 'clear' };
+const IGNORED_WORDS = ['exit'];
 
 // A command that belongs to another system: Wrong command, with a tag. Checked against the
 // reading: 4.4.1 ipconfig (Windows), 4.4.2 ifconfig and ip (Linux), 5.1.8 tracert (Windows) and
@@ -81,11 +89,11 @@ const RUNS_ON = {
 const KNOWN = {
   'windows': ['ipconfig', 'ping', 'tracert', 'pathping', 'arp', 'netstat', 'route', 'nslookup', 'getmac', 'hostname',
     'nbtstat', 'netsh', 'net', 'ftp', 'ssh', 'curl', 'whoami', 'systeminfo', 'tasklist', 'gpupdate', 'gpresult',
-    'winver', 'sfc', 'chkdsk', 'robocopy', 'nltest', 'dir', 'cd', 'echo', 'type', 'ver'],
+    'winver', 'sfc', 'chkdsk', 'robocopy', 'nltest', 'dir', 'cd', 'echo', 'type', 'ver', 'cls'],
   'linux': ['ip', 'ifconfig', 'ping', 'traceroute', 'tracepath', 'mtr', 'dig', 'nslookup', 'host', 'hostname', 'netstat',
-    'ss', 'arp', 'route', 'tcpdump', 'nmap', 'curl', 'wget', 'ssh', 'ls', 'cd', 'pwd', 'cat', 'grep', 'man'],
-  'router': ['show', 'ping', 'traceroute', 'enable', 'disable', 'configure', 'copy', 'reload', 'telnet', 'ssh', 'debug', 'terminal', 'write'],
-  'switch': ['show', 'ping', 'traceroute', 'enable', 'disable', 'configure', 'copy', 'reload', 'telnet', 'ssh', 'debug', 'terminal', 'write'],
+    'ss', 'arp', 'route', 'tcpdump', 'nmap', 'curl', 'wget', 'ssh', 'ls', 'cd', 'pwd', 'cat', 'grep', 'man', 'clear'],
+  'router': ['show', 'ping', 'traceroute', 'enable', 'disable', 'configure', 'copy', 'reload', 'telnet', 'ssh', 'debug', 'terminal', 'write', 'clear'],
+  'switch': ['show', 'ping', 'traceroute', 'enable', 'disable', 'configure', 'copy', 'reload', 'telnet', 'ssh', 'debug', 'terminal', 'write', 'clear'],
 };
 
 // Windows ping switches that take a value (from ping /? on a Windows PC). Case matters: -S and -s differ.
@@ -541,12 +549,44 @@ function stripPeriods(text) {
   return out.join(' ');
 }
 
-function asksForHelp(text) {
+/**
+ * Step 2: a line that never counts, as { code, word }, or null for any other line.
+ *   help, ?, or /? alone lists the commands of the system (help-list).
+ *   A command's own help (help-command) is asked the way its system asks it: ?, /?, -?, or --help
+ *   as the last word; help or man in front; on Windows /? against the name (ipconfig/?, since cmd
+ *   splits the name at a slash); on Linux an ip line that ends in help (ip help, ip addr help); on a
+ *   router or switch ? against the last word (show?, show ip?). Its word is the command as the
+ *   system reads it (ipconfig, ip, show). When that is no command of the system, the line reads
+ *   Not recognized with the word as typed (ifconfig /? on Windows).
+ *   cls on Windows and clear on Linux clear the box (clear-screen). exit is ignored-word.
+ */
+function neverCounted(text, system) {
   const low = text.toLowerCase();
-  if (IGNORED_WORDS.indexOf(low) >= 0) return true;
-  const parts = low.split(' ');
-  if (parts.length < 2) return false;
-  return HELP_LAST_WORDS.indexOf(parts[parts.length - 1]) >= 0 || HELP_FIRST_WORDS.indexOf(parts[0]) >= 0;
+  if (LIST_WORDS.indexOf(low) >= 0) return { code: 'help-list', word: null };
+  let parts = text.split(' ');
+  if (system === 'windows') {
+    const slash = parts[0].indexOf('/');
+    if (slash > 0) parts = [parts[0].substring(0, slash), parts[0].substring(slash)].concat(parts.slice(1));
+  }
+  const last = parts[parts.length - 1];
+  const device = system === 'router' || system === 'switch';
+  let asked = null;
+  if (parts.length > 1 && HELP_LAST_WORDS.indexOf(last.toLowerCase()) >= 0) asked = parts.slice(0, -1);
+  else if (parts.length > 1 && HELP_FIRST_WORDS.indexOf(parts[0].toLowerCase()) >= 0) asked = parts.slice(1);
+  else if (system === 'linux' && parts.length > 1 && last === 'help' && readLine(text, system).name === 'ip') asked = parts.slice(0, -1);
+  else if (device && last.length > 1 && last.charAt(last.length - 1) === '?') asked = parts.slice(0, -1).concat([last.substring(0, last.length - 1)]);
+  if (asked) {
+    const read = readLine(asked.join(' '), system);
+    const name = system === 'linux' ? read.name : read.name.toLowerCase();
+    if (knownOn(system, name)) return { code: 'help-command', word: name };
+    return { code: 'not-recognized', word: read.first };
+  }
+  if (own(CLEAR_WORDS, system)) {
+    const read = readLine(text, system);
+    if (read.toks.length === 1 && read.name === CLEAR_WORDS[system]) return { code: 'clear-screen', word: null };
+  }
+  if (IGNORED_WORDS.indexOf(low) >= 0) return { code: 'ignored-word', word: null };
+  return null;
 }
 
 // Every result has the same ten fields. Those that do not apply are null.
@@ -578,7 +618,7 @@ function result(code, typed, more) {
  *   line      the stored or alsoWorks line that matched
  *   exact     true when the line was typed exactly as stored (accepted only)
  *   word      the command word: as typed for Not recognized and Not in this tool, as read for
- *             Wrong command
+ *             Wrong command and for the command whose help a Help line asks for
  *   runsOn    the systems another system's command runs on (Wrong command only)
  */
 export function matchSpec(spec, raw, ctx) {
@@ -587,7 +627,8 @@ export function matchSpec(spec, raw, ctx) {
   const given = Array.isArray(sp.given) ? sp.given : [];
   const text = cleanLine(raw, system);
   if (text === '') return result('empty', text);
-  if (asksForHelp(text)) return result('ignored-word', text);
+  const never = neverCounted(text, system);
+  if (never) return result(never.code, text, never.word ? { word: never.word } : null);
 
   const stored = storedReadings(sp);
   const also = alsoReadings(sp);
@@ -665,14 +706,15 @@ export function matchLine(item, raw, ctx) {
 }
 
 /**
- * The words for a result: { label, tag }. The label is the table's, and Not recognized adds a
- * colon and the typed word, cut at 20 characters (Not recognized: ipconfg). The tag is empty
- * except for another system's command: ifconfig: Linux, or show: Router, Switch.
+ * The words for a result: { label, tag }. The label is the table's, and Not recognized and a
+ * command's Help add a colon and the word, cut at 20 characters (Not recognized: ipconfg, Help:
+ * ipconfig). The tag is empty except for another system's command: ifconfig: Linux, or show:
+ * Router, Switch.
  */
 export function wordsFor(res) {
   if (!res || typeof res.code !== 'string' || !own(VERDICTS, res.code)) return { label: '', tag: '' };
   let label = VERDICTS[res.code].label;
-  if (res.code === 'not-recognized' && typeof res.word === 'string' && res.word !== '') label += ': ' + res.word.substring(0, 20);
+  if ((res.code === 'not-recognized' || res.code === 'help-command') && typeof res.word === 'string' && res.word !== '') label += ': ' + res.word.substring(0, 20);
   let tag = '';
   if (res.code === 'wrong-command' && Array.isArray(res.runsOn) && res.runsOn.length) {
     tag = res.word + ': ' + res.runsOn.map(function (s) { return systemName(s); }).join(', ');
@@ -695,7 +737,7 @@ export function plainFormProblems(line, system) {
   if (/\.exe$/i.test(first)) problems.push('must not end the command name with .exe');
   if (first.indexOf('/') > 0) problems.push('needs a space before the slash');
   if (first === 'sudo') problems.push('must not start with sudo');
-  if (asksForHelp(line)) problems.push('is a line the tool never counts');
+  if (neverCounted(line, system)) problems.push('is a line the tool never counts');
   if (/\.( |$)/.test(line)) problems.push('has a word that ends with a period');
   if (!knownOn(system, first)) problems.push('does not start with a command of this system');   // exact spelling: stored lines are already lower case where case does not matter
   if ((system === 'router' || system === 'switch') && readLine(line, system).key !== line) problems.push('must use full words');
