@@ -794,7 +794,7 @@ Files: `assets/js/pages/commands.js`, `assets/js/lib/command-drill.js`, `assets/
 
 | Push | What | State |
 |---|---|---|
-| 1 | The matcher, alone | `d4339ab`, committed, not pushed. It goes out with this plan's commit `a5f6dbb` and this table's first commit. |
+| 1 | The matcher, alone | `d4339ab`. Pushed 2026-11-26 on his word (`23e1303..cb727f6`), with this plan's commit `a5f6dbb` and "Command line: build state after exam-style push 1". GitHub run 45785467415: Check content passed ("Case table: 504 of 504, matcher 3", the matcher's first run on Node, then "Command line: 29 commands (0 extra), 30 versions, 4 follow-ups, 0 drafts, 0 lab-only", "Command bank: 13 commands, 60 switches", and "0 error(s), 853 warning(s)."), but Deploy failed on GitHub's side: deploy-pages found no `github-pages` artifact, the glitch of 2026-11-20. This commit, "Command line: exam-style push 1's run failed to deploy", is pushed by itself to start a fresh run on the same files (section 14, What the switch settled). |
 | 2 | The page, the help text, the try-a-line box, the docs | Next, after push 1's run is green |
 | 3 | Help off | After push 2's run is green |
 | Help-off pass | A content chat marks about a quarter of the commands | After push 3 |
