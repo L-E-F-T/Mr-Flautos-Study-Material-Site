@@ -1,6 +1,6 @@
 {
   "$schema": "../../../schemas/flashcard-pack.schema.json",
-  "pack": { "id": "unit-10", "title": "Unit 10.0 Assess Endpoint Security Capabilities", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet." },
+  "pack": { "id": "unit-10", "title": "Unit 10.0 Assess Endpoint Security Capabilities", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet. WIP: written without class materials; needs a pass once they are made." },
   "flashcards": [
     {
       "id": "s-u10-f001",

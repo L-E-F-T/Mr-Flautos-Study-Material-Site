@@ -247,7 +247,7 @@
       "term": "Static analysis (source code analysis)",
       "definition": "Reviewing a program's code without running it to find flaws, such as input validation errors.",
       "objectives": ["4.3", "4.3.a"],
-      "units": ["8.3.1"],
+      "units": ["8.3.1", "11.2.1"],
       "reference": { "source": "certmaster", "section": "8.3.1", "title": "Vulnerability Scanning" }
     },
     {

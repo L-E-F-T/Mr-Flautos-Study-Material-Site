@@ -1,0 +1,246 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-11", "title": "Unit 11.0 Enhance Application Security Capabilities", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet. WIP: written without class materials; needs a pass once they are made." },
+  "flashcards": [
+    {
+      "id": "s-u11-f001",
+      "term": "Implementation of secure protocols",
+      "definition": "Putting encrypted protocols in place through a formal process that assesses risks, reviews policies, and compares security features to decide each protocol, port, and transport method, documenting the results for audits.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1"],
+      "reference": { "source": "certmaster", "section": "11.1.1", "title": "Secure Protocols" }
+    },
+    {
+      "id": "s-u11-f002",
+      "term": "Protocol selection",
+      "definition": "Choosing what carries each kind of data, such as HTTPS, SSH, or SFTP for sensitive data, by first weighing the data's type and sensitivity, then balancing security, maintainability, performance, and cost.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1"],
+      "reference": { "source": "certmaster", "section": "11.1.1", "title": "Secure Protocols" }
+    },
+    {
+      "id": "s-u11-f003",
+      "term": "Port selection",
+      "definition": "Assigning the TCP number each service runs on, normally the standard one tied to its protocol, such as 443 for HTTPS; changing a default can obscure the service but may complicate configuration and cause accessibility issues.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1"],
+      "reference": { "source": "certmaster", "section": "11.1.1", "title": "Secure Protocols" }
+    },
+    {
+      "id": "s-u11-f004",
+      "term": "Transport method",
+      "definition": "The choice between the two principal ways data travels: connection-oriented TCP for reliability, ordering, and error-checking, or connectionless UDP for speed in real-time applications like video streaming and gaming.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1"],
+      "reference": { "source": "certmaster", "section": "11.1.1", "title": "Secure Protocols" }
+    },
+    {
+      "id": "s-u11-f005",
+      "term": "TCP (Transmission Control Protocol)",
+      "definition": "The connection-oriented transport method, providing reliability, ordering, and error-checking, which suits applications that need high reliability.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1"],
+      "reference": { "source": "certmaster", "section": "11.1.1", "title": "Secure Protocols" }
+    },
+    {
+      "id": "s-u11-f006",
+      "term": "UDP (User Datagram Protocol)",
+      "definition": "The connectionless transport method, faster than TCP, which suits real-time applications like video streaming, telephony, and gaming, where losing an occasional packet matters less.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1"],
+      "reference": { "source": "certmaster", "section": "11.1.1", "title": "Secure Protocols" }
+    },
+    {
+      "id": "s-u11-f007",
+      "term": "Insecure protocols",
+      "definition": "Older network standards, such as HTTP and Telnet, that send data in clear text, so anyone who captures the packets can read it, login credentials included; they should be used only when specifically justified.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1"],
+      "reference": { "source": "certmaster", "section": "11.1.1", "title": "Secure Protocols" }
+    },
+    {
+      "id": "s-u11-f008",
+      "term": "HTTPS (Hypertext Transfer Protocol Secure)",
+      "definition": "Encrypts website traffic so logins and data typed into form fields cannot be stolen; port 443.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1", "11.1.2"],
+      "reference": { "source": "certmaster", "section": "11.1.1", "title": "Secure Protocols" }
+    },
+    {
+      "id": "s-u11-f009",
+      "term": "SSH (Secure Shell)",
+      "definition": "Encrypts the login information, data, and commands engineers send when connecting to servers and equipment, in place of Telnet; TCP port 22.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1", "11.1.5"],
+      "reference": { "source": "certmaster", "section": "11.1.1", "title": "Secure Protocols" }
+    },
+    {
+      "id": "s-u11-f010",
+      "term": "TLS (Transport Layer Security)",
+      "definition": "The standard adopted from SSL that secures HTTP and other application protocols, or serves as a VPN, using a server certificate signed by a trusted CA; only its versions, not SSL's, are safe to use.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.2"],
+      "reference": { "source": "certmaster", "section": "11.1.2", "title": "Transport Layer Security" }
+    },
+    {
+      "id": "s-u11-f011",
+      "term": "SFTP (SSH File Transfer Protocol)",
+      "definition": "Moves files securely by sending the login, commands, and data through a link encrypted with SSH on TCP port 22, safe from eavesdropping and on-path attacks.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.5"],
+      "reference": { "source": "certmaster", "section": "11.1.5", "title": "File Transfer Services" }
+    },
+    {
+      "id": "s-u11-f012",
+      "term": "FTPS (File Transfer Protocol Secure)",
+      "definition": "Moves files securely by negotiating an SSL/TLS tunnel before any commands are exchanged, using secure port 990; since it is tricky to set up through firewalls, the explicit TLS mode (FTPES) is usually preferred.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.5"],
+      "reference": { "source": "certmaster", "section": "11.1.5", "title": "File Transfer Services" }
+    },
+    {
+      "id": "s-u11-f013",
+      "term": "LDAPS (Lightweight Directory Access Protocol Secure)",
+      "definition": "Protects directory logins, which the basic directory protocol sends in plaintext, by having the server use its digital certificate to set up a secure tunnel for the credential exchange; port 636.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.3"],
+      "reference": { "source": "certmaster", "section": "11.1.3", "title": "Secure Directory Services" }
+    },
+    {
+      "id": "s-u11-f014",
+      "term": "SNMP v3 (Simple Network Management Protocol version 3)",
+      "definition": "The version of the management and monitoring framework for network devices to use whenever possible, since it supports encryption and strong user-based authentication, giving agents usernames and permissions in place of plaintext community names.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.4"],
+      "reference": { "source": "certmaster", "section": "11.1.4", "title": "Simple Network Management Protocol Security" }
+    },
+    {
+      "id": "s-u11-f015",
+      "term": "SMTPS (Simple Mail Transfer Protocol Secure)",
+      "definition": "Secures mail sent between systems by setting up TLS before any mail commands are exchanged (implicit TLS), unlike the more widely used STARTTLS command, which upgrades an existing unsecure connection.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.6"],
+      "reference": { "source": "certmaster", "section": "11.1.6", "title": "Email Services" }
+    },
+    {
+      "id": "s-u11-f016",
+      "term": "POP3S (Post Office Protocol v3 Secure)",
+      "definition": "Downloads a user's messages from the server mailbox to the email client over a secured connection; TCP port 995 by default.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.6"],
+      "reference": { "source": "certmaster", "section": "11.1.6", "title": "Email Services" }
+    },
+    {
+      "id": "s-u11-f017",
+      "term": "IMAPS (Internet Message Access Protocol Secure)",
+      "definition": "Lets email clients manage messages and folders on the server through an SSL/TLS tunnel, with several clients able to use one mailbox at once; TCP port 993 by default.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.6"],
+      "reference": { "source": "certmaster", "section": "11.1.6", "title": "Email Services" }
+    },
+    {
+      "id": "s-u11-f018",
+      "term": "DNSSEC (DNS Security Extensions)",
+      "definition": "Protects name lookups against spoofing and poisoning by having a zone's authoritative server sign its records with a private key, so other servers can verify each response with its public key.",
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.9"],
+      "reference": { "source": "certmaster", "section": "11.1.9", "title": "DNS Filtering" }
+    },
+    {
+      "id": "s-u11-f019",
+      "term": "DNS (Domain Name System) filtering",
+      "definition": "Blocks or allows websites by controlling which names resolve into IP addresses, checking each lookup against a database of malicious or unapproved domains, so it protects every device on the network, IoT included.",
+      "objectives": ["4.5", "4.5.f"],
+      "units": ["11.1.9"],
+      "reference": { "source": "certmaster", "section": "11.1.9", "title": "DNS Filtering" }
+    },
+    {
+      "id": "s-u11-f020",
+      "term": "Email security",
+      "definition": "Protecting messages with SPF, DKIM, and DMARC, which verify they are authentic and unaltered, and with a gateway that screens them, so attackers find it much harder to impersonate trusted domains in phishing and spam.",
+      "objectives": ["4.5", "4.5.g"],
+      "units": ["11.1.7"],
+      "reference": { "source": "certmaster", "section": "11.1.7", "title": "Email Security" }
+    },
+    {
+      "id": "s-u11-f021",
+      "term": "Sender Policy Framework (SPF)",
+      "definition": "Detects forged sender addresses: the receiving server checks that the sending IP address is on the list of authorized sending IP addresses published in DNS for the sender's domain.",
+      "objectives": ["4.5", "4.5.g"],
+      "units": ["11.1.7"],
+      "reference": { "source": "certmaster", "section": "11.1.7", "title": "Email Security" }
+    },
+    {
+      "id": "s-u11-f022",
+      "term": "DomainKeys Identified Mail (DKIM)",
+      "definition": "Lets the sender sign messages with a digital signature, which the receiving server checks against a record in the sender's DNS to verify the signature and the message's integrity.",
+      "objectives": ["4.5", "4.5.g"],
+      "units": ["11.1.7"],
+      "reference": { "source": "certmaster", "section": "11.1.7", "title": "Email Security" }
+    },
+    {
+      "id": "s-u11-f023",
+      "term": "Domain-based Message Authentication Reporting and Conformance (DMARC)",
+      "definition": "Uses the results of SPF and DKIM checks to set rules for handling messages, such as quarantining, moving to spam, rejecting, or tagging them, and reports to the domain owner which systems send email on its behalf.",
+      "objectives": ["4.5", "4.5.g"],
+      "units": ["11.1.7"],
+      "reference": { "source": "certmaster", "section": "11.1.7", "title": "Email Security" }
+    },
+    {
+      "id": "s-u11-f024",
+      "term": "Gateway (email gateway)",
+      "definition": "The control point for all incoming and outgoing messages, scanning each with anti-spam filters, antivirus, and threat detection to remove threats before they reach inboxes, and enforcing rules on content and attachments.",
+      "objectives": ["4.5", "4.5.g"],
+      "units": ["11.1.7"],
+      "reference": { "source": "certmaster", "section": "11.1.7", "title": "Email Security" }
+    },
+    {
+      "id": "s-u11-f025",
+      "term": "DLP (data loss prevention)",
+      "definition": "Technology that stops unauthorized sharing of sensitive information by scanning emails and attachments for data types its policies define, such as credit card numbers, then blocking the email, alerting the sender or administrator, or encrypting it.",
+      "objectives": ["4.5", "4.5.i"],
+      "units": ["11.1.8"],
+      "reference": { "source": "certmaster", "section": "11.1.8", "title": "Email Data Loss Prevention" }
+    },
+    {
+      "id": "s-u11-f026",
+      "term": "Input validation",
+      "definition": "Checking the untrusted data an application receives, with allowlisting, blocklisting, data type and range checks, regular expressions, or encoding, so specially crafted data cannot carry injection attacks such as SQL injection or XSS.",
+      "objectives": ["4.1", "4.1.f"],
+      "units": ["11.2.1"],
+      "reference": { "source": "certmaster", "section": "11.2.1", "title": "Secure Coding Techniques" }
+    },
+    {
+      "id": "s-u11-f027",
+      "term": "Secure cookies",
+      "definition": "Protecting the small pieces of data a browser stores for a website with attributes that send them only over HTTPS, hide them from client-side scripts, and limit when they are sent, to stop session hijacking and cross-site attacks.",
+      "objectives": ["4.1", "4.1.f"],
+      "units": ["11.2.1"],
+      "reference": { "source": "certmaster", "section": "11.2.1", "title": "Secure Coding Techniques" }
+    },
+    {
+      "id": "s-u11-f028",
+      "term": "Code signing",
+      "definition": "Adding a digital signature to software, made with the signer's private key and backed by a trusted CA's certificate, to prove who published it and that it is unaltered, though not that it is safe or bug-free.",
+      "objectives": ["4.1", "4.1.f"],
+      "units": ["11.2.1"],
+      "reference": { "source": "certmaster", "section": "11.2.1", "title": "Secure Coding Techniques" }
+    },
+    {
+      "id": "s-u11-f029",
+      "term": "Sandboxing",
+      "definition": "Isolating running programs from each other and from the system they run on, with highly restrictive access, so malicious or faulty software stays contained; analysts also use it to safely run, or detonate, suspected malware.",
+      "objectives": ["4.1", "4.1.g"],
+      "units": ["11.2.3"],
+      "reference": { "source": "certmaster", "section": "11.2.3", "title": "Software Sandboxing" }
+    },
+    {
+      "id": "s-u11-f030",
+      "term": "Cloud infrastructure (hardening targets)",
+      "definition": "The platform a service provider must secure under the shared responsibility model, hardened to shrink its attack surface with least privilege, encryption in transit and at rest, audits and continuous monitoring, and vulnerability assessments and penetration testing.",
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["11.2.2"],
+      "reference": { "source": "certmaster", "section": "11.2.2", "title": "Application Protections" }
+    }
+  ]
+}

@@ -1,0 +1,556 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-11", "title": "Unit 11.0 Enhance Application Security Capabilities", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet. WIP: written without class materials; needs a pass once they are made." },
+  "questions": [
+    {
+      "id": "s-u11-q001",
+      "stem": "During a penetration test at a water utility, a tester captures network traffic and can read the usernames and passwords that technicians type to sign in to the pump controllers. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "Weak passwords" },
+        { "id": "b", "text": "Expired certificates" },
+        { "id": "c", "text": "Default credentials" },
+        { "id": "d", "text": "Insecure protocols" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.1",
+        "title": "Secure Protocols",
+        "quote": "",
+        "find": "transmit data in clear text format"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B27" }
+    },
+    {
+      "id": "s-u11-q002",
+      "stem": "A city library is adding a web page where patrons sign in with their card numbers and PINs to renew books. Which of the following protocols should the web server use so this information cannot be read as it travels from patrons' browsers?",
+      "choices": [
+        { "id": "a", "text": "HTTP" },
+        { "id": "b", "text": "LDAPS" },
+        { "id": "c", "text": "FTPS" },
+        { "id": "d", "text": "HTTPS" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.1",
+        "title": "Secure Protocols",
+        "quote": "",
+        "find": "Using HTTPS is crucial for protecting"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 11.0 Q6" }
+    },
+    {
+      "id": "s-u11-q003",
+      "stem": "A county is launching a website where residents pay property taxes, and the site will accept only HTTPS connections. Which of the following should the firewall in front of the new web server allow?",
+      "choices": [
+        { "id": "a", "text": "TCP port 80" },
+        { "id": "b", "text": "TCP port 443" },
+        { "id": "c", "text": "TCP port 636" },
+        { "id": "d", "text": "TCP port 993" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.1",
+        "title": "Secure Protocols",
+        "quote": "",
+        "find": "HTTPS uses port 443"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 11.1.1 (HTTPS port 443)" }
+    },
+    {
+      "id": "s-u11-q004",
+      "stem": "A payroll company moves its website from TLS 1.2 to TLS 1.3. Which of the following attacks is TLS 1.3 designed to prevent?",
+      "choices": [
+        { "id": "a", "text": "Downgrade attack" },
+        { "id": "b", "text": "Key reinstallation attack" },
+        { "id": "c", "text": "Evil twin attack" },
+        { "id": "d", "text": "Password spraying attack" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.2",
+        "title": "Transport Layer Security",
+        "quote": "",
+        "find": "the ability to perform downgrade attacks"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 11.0 Q8" }
+    },
+    {
+      "id": "s-u11-q005",
+      "stem": "An auditor warns that the passwords a transit agency's apps send when they sign in to its directory server could be sniffed on the internal network. Which of the following should the directory administrator do to BEST protect these sign-ins?",
+      "choices": [
+        { "id": "a", "text": "Block the LDAP port on the public interface" },
+        { "id": "b", "text": "Require simple binds with a DN and password" },
+        { "id": "c", "text": "Configure LDAPS with a digital certificate" },
+        { "id": "d", "text": "Limit the apps to read-only directory access" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.3",
+        "title": "Secure Directory Services",
+        "quote": "",
+        "find": "secure tunnel for the user credential"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 11.0 Q10" }
+    },
+    {
+      "id": "s-u11-q006",
+      "stem": "A hospital's directory servers listen on port 389 and accept only SASL binds that use the STARTTLS command. Which of the following BEST describes the staff logons these servers receive?",
+      "choices": [
+        { "id": "a", "text": "They are encrypted on LDAP's standard port" },
+        { "id": "b", "text": "They are encrypted only after port 636 is opened" },
+        { "id": "c", "text": "They are plaintext, since port 389 carries basic LDAP" },
+        { "id": "d", "text": "They are anonymous, since SASL binds skip credentials" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.3",
+        "title": "Secure Directory Services",
+        "quote": "",
+        "find": "require encryption (sealing) and message integrity"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 11.0 Q9" }
+    },
+    {
+      "id": "s-u11-q007",
+      "stem": "A stadium's new policy requires that SNMP monitoring of its switches be encrypted and that each administrator sign in with a username instead of a shared community name. Which of the following should the network team do to meet the policy?",
+      "choices": [
+        { "id": "a", "text": "Replace the community name with a hard-to-guess one" },
+        { "id": "b", "text": "Restrict SNMP to two monitoring hosts with an ACL" },
+        { "id": "c", "text": "Move the SNMP service to a nonstandard port" },
+        { "id": "d", "text": "Upgrade to SNMP v3 and disable the older versions" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.4",
+        "title": "Simple Network Management Protocol Security",
+        "quote": "",
+        "find": "Use SNMP v3 whenever possible"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 11.0 Q11" }
+    },
+    {
+      "id": "s-u11-q008",
+      "stem": "A children's hospital is placing a firewall between its SNMP monitor and the switches that the monitor polls for their statistics. Which of the following must the rule from the monitor to the switches allow?",
+      "choices": [
+        { "id": "a", "text": "TCP port 22" },
+        { "id": "b", "text": "TCP port 161" },
+        { "id": "c", "text": "UDP port 161" },
+        { "id": "d", "text": "UDP port 162" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.4",
+        "title": "Simple Network Management Protocol Security",
+        "quote": "",
+        "find": "queries take place over port 161"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 11.1.4 (SNMP over UDP)" }
+    },
+    {
+      "id": "s-u11-q009",
+      "stem": "A genetics lab sends nightly batches of patient test results to a partner clinic's server, and the login and the files must both be protected from eavesdropping. Which of the following protocols should the lab use?",
+      "choices": [
+        { "id": "a", "text": "SFTP" },
+        { "id": "b", "text": "FTP" },
+        { "id": "c", "text": "LDAPS" },
+        { "id": "d", "text": "SNMP v3" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.5",
+        "title": "File Transfer Services",
+        "quote": "",
+        "find": "addresses privacy and integrity issues"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 11.0 Q7" }
+    },
+    {
+      "id": "s-u11-q010",
+      "stem": "After a print shop installs a new firewall, customers can no longer connect to the shop's SFTP server to upload their print files. Which of the following ports is the new firewall MOST likely blocking?",
+      "choices": [
+        { "id": "a", "text": "TCP port 21" },
+        { "id": "b", "text": "TCP port 22" },
+        { "id": "c", "text": "TCP port 443" },
+        { "id": "d", "text": "TCP port 990" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.5",
+        "title": "File Transfer Services",
+        "quote": "",
+        "find": "Shell (SSH) over TCP port 22"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 11.1.5 (SSH port 22)" }
+    },
+    {
+      "id": "s-u11-q011",
+      "stem": "A school district wants staff email clients to download and manage their mailboxes only through the secured versions of POP3 and IMAP. Which of the following ports should the firewall allow for this mailbox access?",
+      "choices": [
+        { "id": "a", "text": "TCP port 25" },
+        { "id": "b", "text": "TCP port 110" },
+        { "id": "c", "text": "TCP port 143" },
+        { "id": "d", "text": "TCP port 993" },
+        { "id": "e", "text": "TCP port 995" }
+      ],
+      "answer": ["d", "e"],
+      "objectives": ["4.5", "4.5.e"],
+      "units": ["11.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.6",
+        "title": "Email Services",
+        "quote": "",
+        "find": "operating over TCP port 995"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 11.0 Q12" }
+    },
+    {
+      "id": "s-u11-q012",
+      "stem": "A nonprofit began sending its newsletters through a cloud email service, and receiving mail servers now flag them as forged because the service's IP addresses are not on its list of authorized senders. Which of the following should the nonprofit's administrator update?",
+      "choices": [
+        { "id": "a", "text": "The SPF record" },
+        { "id": "b", "text": "The DKIM record" },
+        { "id": "c", "text": "The DMARC record" },
+        { "id": "d", "text": "The MX record" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.5", "4.5.g"],
+      "units": ["11.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.7",
+        "title": "Email Security",
+        "quote": "",
+        "find": "list of authorized sending IP addresses"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A88" }
+    },
+    {
+      "id": "s-u11-q013",
+      "stem": "Attackers have been changing the bank details in invoices that a supplier emails to a construction company, so the supplier's mail server now digitally signs every message it sends. Which of the following should the construction company's mail server use to check these signatures?",
+      "choices": [
+        { "id": "a", "text": "SPF" },
+        { "id": "b", "text": "Code signing" },
+        { "id": "c", "text": "STARTTLS" },
+        { "id": "d", "text": "DKIM" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.5", "4.5.g"],
+      "units": ["11.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.7",
+        "title": "Email Security",
+        "quote": "",
+        "find": "DKIM record in the sender's DNS"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B17" }
+    },
+    {
+      "id": "s-u11-q014",
+      "stem": "To fight spoofing, a credit union wants receiving mail servers to quarantine messages that falsely claim to come from its domain and to send it reports showing which systems send mail in its name. Which of the following should the credit union configure?",
+      "choices": [
+        { "id": "a", "text": "SPF" },
+        { "id": "b", "text": "S/MIME" },
+        { "id": "c", "text": "DMARC" },
+        { "id": "d", "text": "DNSSEC" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.5", "4.5.g"],
+      "units": ["11.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.7",
+        "title": "Email Security",
+        "quote": "",
+        "find": "define rules for handling messages"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A7" }
+    },
+    {
+      "id": "s-u11-q015",
+      "stem": "Staff at a school district keep receiving spam, phishing links, and harmful attachments, so the district wants one control point that inspects every incoming message and removes these threats before they reach inboxes. Which of the following should the district deploy?",
+      "choices": [
+        { "id": "a", "text": "Web filter" },
+        { "id": "b", "text": "S/MIME" },
+        { "id": "c", "text": "DNS filtering" },
+        { "id": "d", "text": "Email gateway" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.5", "4.5.g"],
+      "units": ["11.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.7",
+        "title": "Email Security",
+        "quote": "",
+        "find": "control point for all incoming"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 11.1.7 (email gateway)" }
+    },
+    {
+      "id": "s-u11-q016",
+      "stem": "An insurance agency finds that an employee who is about to quit has been emailing customer files that contain Social Security numbers to a personal email account. Which of the following would BEST stop more of these files from being sent out?",
+      "choices": [
+        { "id": "a", "text": "Encrypt outgoing email with S/MIME" },
+        { "id": "b", "text": "Apply DLP rules to outgoing email" },
+        { "id": "c", "text": "Publish a DMARC reject policy" },
+        { "id": "d", "text": "Require STARTTLS for outgoing email" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.5", "4.5.i"],
+      "units": ["11.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.8",
+        "title": "Email Data Loss Prevention",
+        "quote": "",
+        "find": "such as blocking the email"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B78" }
+    },
+    {
+      "id": "s-u11-q017",
+      "stem": "To comply with PCI DSS, a sporting goods retailer adds DLP rules to its email system. Which of the following will these rules BEST stop?",
+      "choices": [
+        { "id": "a", "text": "A clerk emailing a customer's full card number to a vendor" },
+        { "id": "b", "text": "A phishing email that links to a fake card-payment page" },
+        { "id": "c", "text": "An attachment that installs malware when an employee opens it" },
+        { "id": "d", "text": "A forged email that claims to come from the retailer's card processor" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.5", "4.5.i"],
+      "units": ["11.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.8",
+        "title": "Email Data Loss Prevention",
+        "quote": "",
+        "find": "DLP scans emails and attachments"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 11.0 Q3" }
+    },
+    {
+      "id": "s-u11-q018",
+      "stem": "A security analyst at a property management company reviews the alert shown. Based on the alert, which of the following MOST likely generated it?",
+      "exhibit": { "type": "text", "text": "Alert: Policy violation\nChannel: Outbound email\nRule: Bank acct numbers\nMatches: 26\nAttachment: rent-nov.xlsx\nTo: lee.k@example.net\nNotified: sender, admin" },
+      "choices": [
+        { "id": "a", "text": "Intrusion detection system" },
+        { "id": "b", "text": "Data loss prevention" },
+        { "id": "c", "text": "Network access control" },
+        { "id": "d", "text": "Software sandboxing" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.5", "4.5.i"],
+      "units": ["11.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.8",
+        "title": "Email Data Loss Prevention",
+        "quote": "",
+        "find": "sender or administrator"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A86" }
+    },
+    {
+      "id": "s-u11-q019",
+      "stem": "After several employees at an architecture firm visit malware distribution sites from web search results, the IT team wants every device on the office network to be unable to reach known malicious domains. Which of the following would BEST meet this goal?",
+      "choices": [
+        { "id": "a", "text": "DNSSEC" },
+        { "id": "b", "text": "Application allow list" },
+        { "id": "c", "text": "DNS filtering" },
+        { "id": "d", "text": "Intrusion detection system" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.5", "4.5.f"],
+      "units": ["11.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.1.9",
+        "title": "DNS Filtering",
+        "quote": "",
+        "find": "blocking access to known phishing sites"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A49" }
+    },
+    {
+      "id": "s-u11-q020",
+      "stem": "An attacker typed part of a SQL statement into the pet search box on an animal shelter's adoption website and deleted every pet listing in its database. Which of the following should the shelter's developers do to BEST prevent this attack?",
+      "choices": [
+        { "id": "a", "text": "Encrypt the site's database at rest" },
+        { "id": "b", "text": "Use secure cookies for all visitor sessions" },
+        { "id": "c", "text": "Require HTTPS for all of the site's pages" },
+        { "id": "d", "text": "Allow only input that fits expected values" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.1", "4.1.f"],
+      "units": ["11.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.2.1",
+        "title": "Secure Coding Techniques",
+        "quote": "",
+        "find": "Without effective input validation, applications"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C9" }
+    },
+    {
+      "id": "s-u11-q021",
+      "stem": "A researcher in a bike-share company's bug bounty program reports that the request shown made the rental website list the files in its server's root folder. Which of the following would BEST stop this attack?",
+      "exhibit": { "type": "text", "text": "POST /rent/unlock\nbike=4471\ndock=12; ls /" },
+      "choices": [
+        { "id": "a", "text": "Code signing" },
+        { "id": "b", "text": "Input validation" },
+        { "id": "c", "text": "Intrusion detection system" },
+        { "id": "d", "text": "Web filter" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.1", "4.1.f"],
+      "units": ["11.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.2.1",
+        "title": "Secure Coding Techniques",
+        "quote": "",
+        "find": "addresses the issue of untrusted input"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C30" }
+    },
+    {
+      "id": "s-u11-q022",
+      "stem": "A penetration test shows that a concert ticket seller's web application is open to session hijacking and to cross-site scripting. Which of the following techniques should be added to the application to stop these attacks?",
+      "choices": [
+        { "id": "a", "text": "Multifactor authentication" },
+        { "id": "b", "text": "Secure cookies" },
+        { "id": "c", "text": "File integrity monitoring" },
+        { "id": "d", "text": "Real-time alerts" },
+        { "id": "e", "text": "Input validation" }
+      ],
+      "answer": ["b", "e"],
+      "objectives": ["4.1", "4.1.f"],
+      "units": ["11.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.2.1",
+        "title": "Secure Coding Techniques",
+        "quote": "",
+        "find": "Secure cookie techniques are critical"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 11.0 Q13" }
+    },
+    {
+      "id": "s-u11-q023",
+      "stem": "Before installing a free screen recorder, a technician confirms that its installer has a valid digital signature with a certificate from a trusted CA. Which of the following does this check prove about the program?",
+      "choices": [
+        { "id": "a", "text": "It is free of bugs and security vulnerabilities" },
+        { "id": "b", "text": "It contains no malicious code from its author" },
+        { "id": "c", "text": "It is from the publisher it claims and is unchanged" },
+        { "id": "d", "text": "It passed static code analysis before release" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.1", "4.1.f"],
+      "units": ["11.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.2.1",
+        "title": "Secure Coding Techniques",
+        "quote": "",
+        "find": "Code signing serves a dual purpose"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 11.2.1 (code signing)" }
+    },
+    {
+      "id": "s-u11-q024",
+      "stem": "Customers keep reporting security flaws in each new release of a fitness-tracking app, so its developers want to catch such flaws while they are still writing the code. Which of the following BEST meets this goal?",
+      "choices": [
+        { "id": "a", "text": "Static code analysis" },
+        { "id": "b", "text": "Code signing" },
+        { "id": "c", "text": "Input validation" },
+        { "id": "d", "text": "Sandboxing" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.1", "4.1.f"],
+      "units": ["11.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.2.1",
+        "title": "Secure Coding Techniques",
+        "quote": "",
+        "find": "critical because it enables early detection"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 11.2.1 (static code analysis)" }
+    },
+    {
+      "id": "s-u11-q025",
+      "stem": "An insurance company has its staff use a web browser that runs each tab and extension in its own sandbox. Which of the following BEST describes how this protects the company's computers?",
+      "choices": [
+        { "id": "a", "text": "It blocks lookups of known malicious domain names" },
+        { "id": "b", "text": "It stops malicious code from reaching the operating system" },
+        { "id": "c", "text": "It encrypts the traffic between the browser and each website" },
+        { "id": "d", "text": "It stops sensitive data from leaving through web forms" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.1", "4.1.g"],
+      "units": ["11.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.2.3",
+        "title": "Software Sandboxing",
+        "quote": "",
+        "find": "prevents malicious code from impacting the"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 10.0 Q11" }
+    },
+    {
+      "id": "s-u11-q026",
+      "stem": "A security analyst wants to safely run, or detonate, an unknown email attachment and log what it does, such as its system calls and network traffic. Which of the following should the analyst use?",
+      "choices": [
+        { "id": "a", "text": "File integrity monitoring" },
+        { "id": "b", "text": "Data loss prevention" },
+        { "id": "c", "text": "Sandboxing" },
+        { "id": "d", "text": "Static code analysis" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.1", "4.1.g"],
+      "units": ["11.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "11.2.3",
+        "title": "Software Sandboxing",
+        "quote": "",
+        "find": "controlled environment that allows the safe"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 11.2.3 (sandbox detonation)" }
+    }
+  ]
+}
