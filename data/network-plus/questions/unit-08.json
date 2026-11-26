@@ -1,0 +1,4133 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-08", "title": "Unit 8.0 Supporting Network Management", "reviewed": false, "notes": "WIP: written without class materials; needs a pass once they are made." },
+  "questions": [
+    {
+      "id": "n-u08-q001",
+      "stem": "A regional bank hires a consultant to set up configuration management for the networks at its branches. Which of the following will the consultant MOST likely do?",
+      "choices": [
+        { "id": "a", "text": "Wipe the drives of each branch's retired devices" },
+        { "id": "b", "text": "Have an advisory board approve each branch's changes" },
+        { "id": "c", "text": "Agree on uptime guarantees with each branch's ISP" },
+        { "id": "d", "text": "Record each branch's devices and their approved settings" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.1",
+        "title": "Configuration Management",
+        "quote": "",
+        "find": "Configuration management means identifying and documenting"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q31" }
+    },
+    {
+      "id": "n-u08-q002",
+      "stem": "A quarterly audit reports configuration drift on a warehouse's core switch. Which of the following BEST describes this finding?",
+      "choices": [
+        { "id": "a", "text": "The switch's settings were backed up at a set time" },
+        { "id": "b", "text": "The switch's baseline was updated after an approved change" },
+        { "id": "c", "text": "The switch's current settings no longer match its baseline" },
+        { "id": "d", "text": "The switch's settings were reset to its golden configuration" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.1",
+        "title": "Configuration Management",
+        "quote": "",
+        "find": "to as configuration drift"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q4" }
+    },
+    {
+      "id": "n-u08-q003",
+      "stem": "Before a university installs 40 new wireless access points, its network team tests one set of settings and approves it as the starting point for every access point. Which of the following terms describe these settings?",
+      "choices": [
+        { "id": "a", "text": "Production configuration" },
+        { "id": "b", "text": "Golden configuration" },
+        { "id": "c", "text": "Backup configuration" },
+        { "id": "d", "text": "Baseline configuration" },
+        { "id": "e", "text": "Performance baseline" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.1",
+        "title": "Configuration Management",
+        "quote": "",
+        "find": "referred to as a golden configuration"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q46" }
+    },
+    {
+      "id": "n-u08-q004",
+      "stem": "An administrator finds that a law firm's edge router has drifted from its documented baseline and must either revert the router to its golden configuration or update the baseline. Which of the following should the administrator base this decision on?",
+      "choices": [
+        { "id": "a", "text": "The age of the router's documented baseline" },
+        { "id": "b", "text": "The results of testing the router with each configuration" },
+        { "id": "c", "text": "A comparison of the router's last backup with its baseline" },
+        { "id": "d", "text": "The router's version history of previous configurations" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.1",
+        "title": "Configuration Management",
+        "quote": "",
+        "find": "You will need to perform testing"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q116" }
+    },
+    {
+      "id": "n-u08-q005",
+      "stem": "A pharmacy chain keeps two backups of each store's router: a state (bare metal) backup and a configuration file backup. Which of the following are true of these backups?",
+      "choices": [
+        { "id": "a", "text": "Either backup can restore the router's settings" },
+        { "id": "b", "text": "The state backup holds only the router's state data" },
+        { "id": "c", "text": "The configuration file backup holds only the router's settings" },
+        { "id": "d", "text": "The configuration file backup is an image of the whole router" },
+        { "id": "e", "text": "Only the state backup holds the router's settings" }
+      ],
+      "answer": ["a", "c"],
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Network Device Backup Management",
+        "quote": "",
+        "find": "snapshot-type image of the whole system"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q112" }
+    },
+    {
+      "id": "n-u08-q006",
+      "stem": "A failed firewall must be restored onto a new unit of the same model with its settings, NAT table, and intrusion detection signatures as of the last backup. Which of the following BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "A configuration file backup of the firewall" },
+        { "id": "b", "text": "A state (bare metal) backup of the firewall" },
+        { "id": "c", "text": "A version history of the firewall's configurations" },
+        { "id": "d", "text": "A documented baseline configuration for the firewall" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Network Device Backup Management",
+        "quote": "",
+        "find": "snapshot-type image of the whole system"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q30" }
+    },
+    {
+      "id": "n-u08-q007",
+      "stem": "A county library system backs up only the configuration file of each of its core switches. Which of the following would these backups NOT capture?",
+      "choices": [
+        { "id": "a", "text": "The VLAN assigned to each switch port" },
+        { "id": "b", "text": "The IP address of each management interface" },
+        { "id": "c", "text": "The MAC address table of each switch" },
+        { "id": "d", "text": "The access control lists on each switch" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Network Device Backup Management",
+        "quote": "",
+        "find": "the MAC tables in switches"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q75" }
+    },
+    {
+      "id": "n-u08-q008",
+      "stem": "A call center's main switch keeps a version history of its configurations, and voice calls began dropping right after a technician adjusted its QoS settings. Which of the following does the version history let the technician do?",
+      "choices": [
+        { "id": "a", "text": "Stop making scheduled backups of the switch's configuration" },
+        { "id": "b", "text": "Return the switch to the firmware version it used before" },
+        { "id": "c", "text": "Return the switch to the configuration it used before" },
+        { "id": "d", "text": "Update the switch's baseline to match the new settings" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.2",
+        "title": "Network Device Backup Management",
+        "quote": "",
+        "find": "rolled back if it causes problems"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q65" }
+    },
+    {
+      "id": "n-u08-q009",
+      "stem": "Technicians at a manufacturing plant edit switch and router settings whenever they find a free moment, and twice this month an edit took the network down in the middle of a shift. Which of the following would BEST prevent this unscheduled downtime?",
+      "choices": [
+        { "id": "a", "text": "A complete inventory of the network devices" },
+        { "id": "b", "text": "Daily backups of each device's configuration" },
+        { "id": "c", "text": "A configuration monitor that watches each device" },
+        { "id": "d", "text": "A documented change management process" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.c"],
+      "units": ["8.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.3",
+        "title": "Change Management",
+        "quote": "",
+        "find": "change management process minimizes the risk"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q44" }
+    },
+    {
+      "id": "n-u08-q010",
+      "stem": "A city's IT department plans to replace every core switch over one weekend, a major change that needs formal approval before any work starts. Which of the following MOST likely gives that approval?",
+      "choices": [
+        { "id": "a", "text": "The affected stakeholders" },
+        { "id": "b", "text": "The Change Advisory Board (CAB)" },
+        { "id": "c", "text": "The technicians who will replace the switches" },
+        { "id": "d", "text": "The person who wrote the Request for Change (RFC)" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.c"],
+      "units": ["8.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.3",
+        "title": "Change Management",
+        "quote": "",
+        "find": "project and require approval through a"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q15" }
+    },
+    {
+      "id": "n-u08-q011",
+      "stem": "Before any network change is scheduled, a utility company's change management team labels it major, significant, minor, or normal. Which of the following should each label be based on?",
+      "choices": [
+        { "id": "a", "text": "The level of risk the change carries" },
+        { "id": "b", "text": "Whether the need for the change is reactive or proactive" },
+        { "id": "c", "text": "Whether a service request ticket was opened for it" },
+        { "id": "d", "text": "The impact the change could have" },
+        { "id": "e", "text": "The person who must approve the change" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["3.1", "3.1.c"],
+      "units": ["8.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.3",
+        "title": "Change Management",
+        "quote": "",
+        "find": "potential impact and level of risk"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q90" }
+    },
+    {
+      "id": "n-u08-q012",
+      "stem": "A credit union's network team plans to add a second internet link before membership grows next year, though no outage, complaint, or new rule calls for it. Which of the following BEST describes the need for this change?",
+      "choices": [
+        { "id": "a", "text": "Reactive" },
+        { "id": "b", "text": "Proactive" },
+        { "id": "c", "text": "Significant" },
+        { "id": "d", "text": "Normal" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.c"],
+      "units": ["8.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.3",
+        "title": "Change Management",
+        "quote": "",
+        "find": "need for change is initiated internally"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q112" }
+    },
+    {
+      "id": "n-u08-q013",
+      "stem": "At a shipping company, technicians swap out failed switches from memory, two recent jobs left the new switches' ports unlabeled, and no one knows who signs off on the work. Which of the following would BEST solve these problems?",
+      "choices": [
+        { "id": "a", "text": "A Request for Change (RFC)" },
+        { "id": "b", "text": "A service level agreement (SLA)" },
+        { "id": "c", "text": "A standard operating procedure (SOP)" },
+        { "id": "d", "text": "A configuration management system (CMS)" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.c"],
+      "units": ["8.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.3",
+        "title": "Change Management",
+        "quote": "",
+        "find": "SOP sets out the principal goals"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q62" }
+    },
+    {
+      "id": "n-u08-q014",
+      "stem": "A teacher's new app cannot reach its cloud service, and a technician thinks opening one port on the school's firewall will fix it. Which of the following should be in place before the technician makes the change?",
+      "choices": [
+        { "id": "a", "text": "A job log entry that describes the change" },
+        { "id": "b", "text": "A service request ticket that authorizes the change" },
+        { "id": "c", "text": "An updated baseline that includes the open port" },
+        { "id": "d", "text": "A service level agreement with the school's ISP" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.c"],
+      "units": ["8.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.3",
+        "title": "Change Management",
+        "quote": "",
+        "find": "a service request ticket authorizing"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q34" }
+    },
+    {
+      "id": "n-u08-q015",
+      "stem": "Once a year, a technician scans the bar-code label on each laptop and tablet at a real estate office to confirm the location and user listed for it. Which of the following is the technician MOST likely checking?",
+      "choices": [
+        { "id": "a", "text": "The IPAM database" },
+        { "id": "b", "text": "The asset inventory" },
+        { "id": "c", "text": "The port location diagram" },
+        { "id": "d", "text": "The configuration baseline" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.4", "8.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Asset Inventory Documentation",
+        "quote": "",
+        "find": "asset ID, location, user(s), value"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q47" }
+    },
+    {
+      "id": "n-u08-q016",
+      "stem": "A credit union's new IT manager asks a technician to build an inventory of all of its hardware and software assets. Which of the following BEST describes the main purpose of keeping this inventory?",
+      "choices": [
+        { "id": "a", "text": "To log the IP addresses that DHCP servers assign" },
+        { "id": "b", "text": "To support change and configuration management" },
+        { "id": "c", "text": "To record which wall port connects to each switch port" },
+        { "id": "d", "text": "To define the service levels a provider must meet" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Asset Inventory Documentation",
+        "quote": "",
+        "find": "To support configuration and change management"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q83" }
+    },
+    {
+      "id": "n-u08-q017",
+      "stem": "A county library is moving its equipment records from a spreadsheet into an asset management database. Which of the following sets of details would this database typically store for each item?",
+      "choices": [
+        { "id": "a", "text": "Utilization, error rate, discards, and retransmissions" },
+        { "id": "b", "text": "Request, approval, stakeholders, and rollback plan" },
+        { "id": "c", "text": "Type, model, serial number, location, and user" },
+        { "id": "d", "text": "Timestamp, host name, severity level, and message" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Asset Inventory Documentation",
+        "quote": "",
+        "find": "typical data would be type, model"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q94" }
+    },
+    {
+      "id": "n-u08-q018",
+      "stem": "A growing nonprofit's technician enters every new computer into the asset records by hand, and it takes hours each month. Which of the following would BEST automate this work?",
+      "choices": [
+        { "id": "a", "text": "A host discovery scan that logs which addresses are up" },
+        { "id": "b", "text": "A configuration monitor that logs changes to each host's settings" },
+        { "id": "c", "text": "A scanner that compiles each host's hardware and software details" },
+        { "id": "d", "text": "A syslog server that stores each host's log messages" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Asset Inventory Documentation",
+        "quote": "",
+        "find": "scanning network hosts and automatically compiling"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q76" }
+    },
+    {
+      "id": "n-u08-q019",
+      "stem": "An architecture firm's software inventory records how many copies of each application are installed on its computers. Which of the following BEST describes why the firm tracks this?",
+      "choices": [
+        { "id": "a", "text": "To measure how much network bandwidth each application uses" },
+        { "id": "b", "text": "To detect any computers that have drifted from the baseline" },
+        { "id": "c", "text": "To stay within the terms of the vendors' license agreements" },
+        { "id": "d", "text": "To log the IP address that each computer is assigned" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Asset Inventory Documentation",
+        "quote": "",
+        "find": "complies with the vendor's licensing agreement"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q9" }
+    },
+    {
+      "id": "n-u08-q020",
+      "stem": "A month after a technician set up a new firewall at a dental office, its intrusion detection feature stopped working, even though no one had changed its configuration. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "The configuration drifted from its baseline" },
+        { "id": "b", "text": "The firmware reached its end of support" },
+        { "id": "c", "text": "The running configuration was never saved" },
+        { "id": "d", "text": "The evaluation license's grace period ended" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Asset Inventory Documentation",
+        "quote": "",
+        "find": "under a trial or evaluation period"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q74" }
+    },
+    {
+      "id": "n-u08-q021",
+      "stem": "A technician is adding a new file server to a law office's asset inventory and has already entered its basic details. Which of the following should the technician also include in the server's record?",
+      "choices": [
+        { "id": "a", "text": "Packet captures of the traffic it sends and receives" },
+        { "id": "b", "text": "Copies of the syslog messages it generates" },
+        { "id": "c", "text": "Its interface utilization and error rate counts" },
+        { "id": "d", "text": "Its invoice, warranty contract, and troubleshooting guides" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.4",
+        "title": "Asset Inventory Documentation",
+        "quote": "",
+        "find": "both an invoice and warranty/support contract"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q101" }
+    },
+    {
+      "id": "n-u08-q022",
+      "stem": "A university's IT director wants one managed process that covers how each switch and server is bought, put into service, used, and finally retired. Which of the following BEST describes this process?",
+      "choices": [
+        { "id": "a", "text": "Change management" },
+        { "id": "b", "text": "Life-cycle management" },
+        { "id": "c", "text": "Configuration management" },
+        { "id": "d", "text": "Patch management" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "life-cycle refers to the managed acquisition"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q104" }
+    },
+    {
+      "id": "n-u08-q023",
+      "stem": "A switch manufacturer announces the end of life (EOL) phase for the model that a school uses in every wiring closet. Which of the following BEST describes what this announcement means?",
+      "choices": [
+        { "id": "a", "text": "The model is no longer supported, and security updates have ended" },
+        { "id": "b", "text": "The switches must be wiped and taken out of service at once" },
+        { "id": "c", "text": "The model is no longer sold, and spares and updates will be limited" },
+        { "id": "d", "text": "The switches' feature licenses will expire after a grace period" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "manufacturer discontinues sales of a product"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q55" }
+    },
+    {
+      "id": "n-u08-q024",
+      "stem": "An audit finds that a clinic's file server runs an operating system that reached end of support (EOS) last year. Which of the following should the administrator do to BEST address this finding?",
+      "choices": [
+        { "id": "a", "text": "Roll the server back to an earlier OS version" },
+        { "id": "b", "text": "Install the vendor's monthly security updates" },
+        { "id": "c", "text": "Restore the server's golden configuration" },
+        { "id": "d", "text": "Upgrade the server to an OS the vendor still updates" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "a critical vulnerability if any remain"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q52" }
+    },
+    {
+      "id": "n-u08-q025",
+      "stem": "After customers report that a vendor's VPN app disconnects every time a laptop wakes from sleep, the vendor releases a single code change that corrects only that issue. Which of the following BEST describes this release?",
+      "choices": [
+        { "id": "a", "text": "A patch" },
+        { "id": "b", "text": "A bugfix" },
+        { "id": "c", "text": "A downgrade" },
+        { "id": "d", "text": "A hotfix" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "A hotfix is a code change"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q16" }
+    },
+    {
+      "id": "n-u08-q026",
+      "stem": "A new member of a city's IT team asks how a patch differs from the other software updates the team installs. Which of the following BEST describes a patch?",
+      "choices": [
+        { "id": "a", "text": "A code change for one issue that installs without downtime" },
+        { "id": "b", "text": "A public release that bundles fixes and feature changes" },
+        { "id": "c", "text": "A fix for a flaw caught during development and testing" },
+        { "id": "d", "text": "A return to an earlier version of software or firmware" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "patch is publicly-released collection of updates"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q49" }
+    },
+    {
+      "id": "n-u08-q027",
+      "stem": "An administrator is about to install a coldfix on an online store's order database server. Which of the following should the administrator plan for?",
+      "choices": [
+        { "id": "a", "text": "An install that needs no downtime" },
+        { "id": "b", "text": "A bundle of updates that adds new features" },
+        { "id": "c", "text": "A restart of the software or its host" },
+        { "id": "d", "text": "A return to the previous software version" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "a coldfix is one that requires"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q98" }
+    },
+    {
+      "id": "n-u08-q028",
+      "stem": "After attackers broke into a branch router through a known firmware flaw, a company's IT manager wants procedures that make sure vendor updates are installed on every device. Which of the following should the IT manager implement?",
+      "choices": [
+        { "id": "a", "text": "Change management" },
+        { "id": "b", "text": "Configuration management" },
+        { "id": "c", "text": "Configuration monitoring" },
+        { "id": "d", "text": "Patch management" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "Patch management refers to the procedures"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q60" }
+    },
+    {
+      "id": "n-u08-q029",
+      "stem": "A school district is starting a patch management program for its servers and network appliances. Which of the following BEST describes the purpose of this program?",
+      "choices": [
+        { "id": "a", "text": "To log which IP addresses each DHCP server assigns" },
+        { "id": "b", "text": "To approve major changes through a change advisory board" },
+        { "id": "c", "text": "To control how firmware and software updates are installed" },
+        { "id": "d", "text": "To alert staff when a device's configuration changes" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "the installation of updates for hardware"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q84" }
+    },
+    {
+      "id": "n-u08-q030",
+      "stem": "Right after the IT team installs an update to a school's attendance software, teachers report that it freezes several times a day. Which of the following should the team do to BEST resolve this?",
+      "choices": [
+        { "id": "a", "text": "Restore the software's baseline configuration" },
+        { "id": "b", "text": "Roll the software back to its earlier version" },
+        { "id": "c", "text": "Wait for the software vendor's next patch" },
+        { "id": "d", "text": "Reinstall the same update on every PC" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "necessary to fix a problem caused"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q67" }
+    },
+    {
+      "id": "n-u08-q031",
+      "stem": "A technician's change log shows that a warehouse switch's firmware was downgraded to an earlier version last week. Which of the following is the MOST likely reason?",
+      "choices": [
+        { "id": "a", "text": "The switch reached its end of support (EOS)" },
+        { "id": "b", "text": "The switch was being prepared for resale" },
+        { "id": "c", "text": "The switch's configuration drifted from the baseline" },
+        { "id": "d", "text": "A recent update caused a problem on the switch" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "problem caused by a recently upgraded"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q63" }
+    },
+    {
+      "id": "n-u08-q032",
+      "stem": "A hospital's network team keeps a checklist of the tasks it must finish before it installs a new firmware version on its core routers. Which of the following does NOT belong on this checklist?",
+      "choices": [
+        { "id": "a", "text": "Run the environment and compatibility checks" },
+        { "id": "b", "text": "Revert each router to its previous version" },
+        { "id": "c", "text": "Back up each router's current configuration" },
+        { "id": "d", "text": "Assess the impact of the new version's changes" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "Downgrading (or rollback) refers to reverting"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q44" }
+    },
+    {
+      "id": "n-u08-q033",
+      "stem": "After downgrading a firewall to an earlier firmware version, a technician finds that the configuration backup made on the newer version will not restore correctly. Which of the following is the MOST likely reason?",
+      "choices": [
+        { "id": "a", "text": "The earlier version has reached its end of support" },
+        { "id": "b", "text": "The backup is missing state data such as the NAT table" },
+        { "id": "c", "text": "The backup has drifted from the golden configuration" },
+        { "id": "d", "text": "The backup has settings that the earlier version lacks" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "settings not included in the earlier"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q89" }
+    },
+    {
+      "id": "n-u08-q034",
+      "stem": "A school's network administrator wants to learn about newly discovered flaws in the firmware of its switches and firewalls. Which of the following should the administrator check regularly?",
+      "choices": [
+        { "id": "a", "text": "The devices' syslog messages" },
+        { "id": "b", "text": "The devices' configuration baselines" },
+        { "id": "c", "text": "The vendors' security advisories" },
+        { "id": "d", "text": "The firewalls' intrusion detection alerts" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "the system security advisories posted on"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q7" }
+    },
+    {
+      "id": "n-u08-q035",
+      "stem": "A security advisory reports a flaw in the IOS version that runs on a library's Cisco routers. Which of the following BEST describes how an administrator should patch the routers?",
+      "choices": [
+        { "id": "a", "text": "Install the one IOS update for that flaw by itself" },
+        { "id": "b", "text": "Restore each router's configuration from a backup" },
+        { "id": "c", "text": "Reset each router to its factory default settings" },
+        { "id": "d", "text": "Load a new IOS image that includes the fix" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "by applying a new software image"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q114" }
+    },
+    {
+      "id": "n-u08-q036",
+      "stem": "A vendor warns that a flaw in its rack-mounted uninterruptible power supply (UPS) units could let an attacker turn them off over the network, and it has released a fix. Which of the following will a technician MOST likely apply to the UPS units?",
+      "choices": [
+        { "id": "a", "text": "An application update" },
+        { "id": "b", "text": "An operating system update" },
+        { "id": "c", "text": "A feature change" },
+        { "id": "d", "text": "A firmware update" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "updates for hardware (firmware) and software"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q42" }
+    },
+    {
+      "id": "n-u08-q037",
+      "stem": "A work order tells a technician to flash the chip on a branch office's router this weekend. Which of the following BEST describes this task?",
+      "choices": [
+        { "id": "a", "text": "Save the router's running configuration" },
+        { "id": "b", "text": "Replace the router's memory chip" },
+        { "id": "c", "text": "Update the router's firmware" },
+        { "id": "d", "text": "Reset the router to factory defaults" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "Updating firmware is known as flashing"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q26" }
+    },
+    {
+      "id": "n-u08-q038",
+      "stem": "A technician has downloaded the firmware that fixes a known flaw in a school's core switch and will install it during tonight's maintenance window. Which of the following should the technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Copy the new image to the switch's flash memory" },
+        { "id": "b", "text": "Save a copy of the switch's current configuration" },
+        { "id": "c", "text": "Set the switch to load the new image at startup" },
+        { "id": "d", "text": "Erase the switch's startup configuration" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.5",
+        "title": "Lifecycle Management",
+        "quote": "",
+        "find": "a backup of the system configuration"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q93" }
+    },
+    {
+      "id": "n-u08-q039",
+      "stem": "A law firm's disposal policy says that data remnant removal must be done on every laptop before it is donated to a school. Which of the following will this requirement ensure for each laptop?",
+      "choices": [
+        { "id": "a", "text": "Its custom settings have been factory reset" },
+        { "id": "b", "text": "Its firmware has been updated to the latest version" },
+        { "id": "c", "text": "Its software licenses have been removed from it" },
+        { "id": "d", "text": "Nothing stored on its drive can be recovered" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.6",
+        "title": "Decommissioning",
+        "quote": "",
+        "find": "Data remnant removal refers to ensuring"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q23" }
+    },
+    {
+      "id": "n-u08-q040",
+      "stem": "A state agency's IT department is writing the procedures its technicians will follow when decommissioned file servers and switches are sold or recycled. Which of the following does NOT belong in these procedures?",
+      "choices": [
+        { "id": "a", "text": "Running each device's built-in factory reset" },
+        { "id": "b", "text": "Preserving the data stored on each drive" },
+        { "id": "c", "text": "Sanitizing each drive so it can be reused" },
+        { "id": "d", "text": "Destroying any drive that cannot be sanitized" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.6",
+        "title": "Decommissioning",
+        "quote": "",
+        "find": "ensuring that no data is recoverable"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q31" }
+    },
+    {
+      "id": "n-u08-q041",
+      "stem": "An insurance company is selling its old branch routers to a reseller and must first wipe every custom setting from them so its configuration details cannot reach an attacker. Which of the following should be done to each router?",
+      "choices": [
+        { "id": "a", "text": "Degauss each router's internal storage" },
+        { "id": "b", "text": "Run each router's built-in factory reset" },
+        { "id": "c", "text": "Load the golden configuration on each router" },
+        { "id": "d", "text": "Roll each router back to its older firmware" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.6",
+        "title": "Decommissioning",
+        "quote": "",
+        "find": "factory reset routine is invoked"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q42" }
+    },
+    {
+      "id": "n-u08-q042",
+      "stem": "A technician has run the factory reset on a clinic's old network storage appliance, which will be sold with the hard disk drives that held patient records. Which of the following should the technician do NEXT to make sure no records can be recovered?",
+      "choices": [
+        { "id": "a", "text": "Leave the drives as they are, since the reset cleared them" },
+        { "id": "b", "text": "Flash the appliance's firmware to the latest version" },
+        { "id": "c", "text": "Overwrite each hard drive in several passes" },
+        { "id": "d", "text": "Roll the appliance back to its original firmware" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.6",
+        "title": "Decommissioning",
+        "quote": "",
+        "find": "sanitizing an HDD is called overwriting"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q18" }
+    },
+    {
+      "id": "n-u08-q043",
+      "stem": "Before reusing a server's SATA hard disk drive, a technician runs the Secure Erase (SE) command on it. Which of the following BEST describes what the command does to this drive?",
+      "choices": [
+        { "id": "a", "text": "It marks every block as empty for later erasure" },
+        { "id": "b", "text": "It writes zeros over the drive in a single pass" },
+        { "id": "c", "text": "It erases the key that encrypts the drive's data" },
+        { "id": "d", "text": "It writes zeros, then ones, then random patterns" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.6",
+        "title": "Decommissioning",
+        "quote": "",
+        "find": "performs a single pass of zero-filling"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q11" }
+    },
+    {
+      "id": "n-u08-q044",
+      "stem": "A technician overwrote a laptop's solid-state drive with a pass of zeros, a pass of ones, and a random pass, but an auditor warns that old data could still be recovered from it. Which of the following BEST explains the auditor's concern?",
+      "choices": [
+        { "id": "a", "text": "Zero-filling leaves patterns that special tools can read" },
+        { "id": "b", "text": "The utility needed more passes for a drive this large" },
+        { "id": "c", "text": "The drive's wear leveling controls which blocks get written" },
+        { "id": "d", "text": "The drive's factory reset was not run before the wipe" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.6",
+        "title": "Decommissioning",
+        "quote": "",
+        "find": "the device uses wear-leveling routines"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q100" }
+    },
+    {
+      "id": "n-u08-q045",
+      "stem": "A technician uses Instant Secure Erase (ISE) to sanitize the self-encrypting SSDs in a batch of laptops before they go to new staff. Which of the following BEST describes what ISE does?",
+      "choices": [
+        { "id": "a", "text": "It flags every block as empty for garbage collection" },
+        { "id": "b", "text": "It runs the laptop's factory reset routine" },
+        { "id": "c", "text": "It turns on the drive's built-in encryption" },
+        { "id": "d", "text": "It erases the media encryption key" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.6",
+        "title": "Decommissioning",
+        "quote": "",
+        "find": "the MEK is erased, rendering"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q36" }
+    },
+    {
+      "id": "n-u08-q046",
+      "stem": "A bank's policy says that retired hard drives that held customer records must be destroyed rather than reused. Which of the following methods meets this policy?",
+      "choices": [
+        { "id": "a", "text": "Overwriting each drive with a utility program" },
+        { "id": "b", "text": "Running the Secure Erase command on each drive" },
+        { "id": "c", "text": "Erasing each drive's media encryption key" },
+        { "id": "d", "text": "Passing each drive through a degausser" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.6",
+        "title": "Decommissioning",
+        "quote": "",
+        "find": "include incineration, pulverization, and degaussing"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q72" }
+    },
+    {
+      "id": "n-u08-q047",
+      "stem": "A cabling contractor hands a fire department a cable map, a port location diagram, and a rack diagram for its new station. Which of the following BEST describes these three documents?",
+      "choices": [
+        { "id": "a", "text": "Wiring diagrams" },
+        { "id": "b", "text": "Logical network diagrams" },
+        { "id": "c", "text": "Physical network diagrams" },
+        { "id": "d", "text": "Layer 2 network diagrams" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.7",
+        "title": "Physical Network Diagrams",
+        "quote": "",
+        "find": "Within the class of physical"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q14" }
+    },
+    {
+      "id": "n-u08-q048",
+      "stem": "A technician must replace a failed server at a branch office, but it looks identical to the servers mounted above and below it. Which of the following documents would BEST help the technician find the right one?",
+      "choices": [
+        { "id": "a", "text": "Wiring diagram" },
+        { "id": "b", "text": "Port location diagram" },
+        { "id": "c", "text": "Floor plan" },
+        { "id": "d", "text": "Rack diagram" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.7",
+        "title": "Physical Network Diagrams",
+        "quote": "",
+        "find": "A rack diagram records the position"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q95" }
+    },
+    {
+      "id": "n-u08-q049",
+      "stem": "A courthouse's network binder holds a to-scale drawing on the building's blueprint that traces each wire through the conduit from the telecommunications closets to the offices. Which of the following types of documentation is this?",
+      "choices": [
+        { "id": "a", "text": "Wiring diagram" },
+        { "id": "b", "text": "Rack diagram" },
+        { "id": "c", "text": "Cable map" },
+        { "id": "d", "text": "Network schematic" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.7",
+        "title": "Physical Network Diagrams",
+        "quote": "",
+        "find": "A cable map or floor plan"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q2" }
+    },
+    {
+      "id": "n-u08-q050",
+      "stem": "A company needs a physically accurate floor plan of its new office that shows every wall port and the conduit each cable follows back to the telecommunications closets. Which of the following will the company MOST likely need to produce it?",
+      "choices": [
+        { "id": "a", "text": "An architect or graphics professional" },
+        { "id": "b", "text": "Network mapping software" },
+        { "id": "c", "text": "A set of standard network icons" },
+        { "id": "d", "text": "Photos of the current cabling" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.7",
+        "title": "Physical Network Diagrams",
+        "quote": "",
+        "find": "require the help of an architect"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q9" }
+    },
+    {
+      "id": "n-u08-q051",
+      "stem": "A cabling contractor includes a port location diagram in the documentation for a new library. Which of the following does this diagram show?",
+      "choices": [
+        { "id": "a", "text": "How each wall jack connects back to the patch panel and switch" },
+        { "id": "b", "text": "How the twisted pairs are terminated in each wall jack" },
+        { "id": "c", "text": "Where each appliance is mounted in the equipment rack" },
+        { "id": "d", "text": "Which IP address is assigned to each router interface" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.7",
+        "title": "Physical Network Diagrams",
+        "quote": "",
+        "find": "A port location diagram identifies"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q35" }
+    },
+    {
+      "id": "n-u08-q052",
+      "stem": "An accountant is moving to a new cubicle, and a technician needs to find out where the cubicle's wall jack connects on the patch panel and on the switch. Which of the following documents should the technician check?",
+      "choices": [
+        { "id": "a", "text": "Port location diagram" },
+        { "id": "b", "text": "Wiring diagram" },
+        { "id": "c", "text": "Logical network diagram" },
+        { "id": "d", "text": "Asset inventory" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.7",
+        "title": "Physical Network Diagrams",
+        "quote": "",
+        "find": "a distribution frame or patch panel"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q4" }
+    },
+    {
+      "id": "n-u08-q053",
+      "stem": "A new wall jack in a veterinary office fails a cable test, and a technician suspects that two of its pairs were swapped when it was terminated. Which of the following documents should the technician compare the jack against?",
+      "choices": [
+        { "id": "a", "text": "Wiring diagram" },
+        { "id": "b", "text": "Port location diagram" },
+        { "id": "c", "text": "Cable map" },
+        { "id": "d", "text": "Rack diagram" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.7",
+        "title": "Physical Network Diagrams",
+        "quote": "",
+        "find": "shows detailed information about the termination"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q107" }
+    },
+    {
+      "id": "n-u08-q054",
+      "stem": "A manufacturer's cabling rules call for a label at both ends of every structured cable run and patch cord. Which of the following BEST describes the purpose of this rule?",
+      "choices": [
+        { "id": "a", "text": "To identify the full circuit that each run is part of" },
+        { "id": "b", "text": "To identify the wiring standard that each run follows" },
+        { "id": "c", "text": "To identify the route that each run takes through conduit" },
+        { "id": "d", "text": "To identify the subnet that each run belongs to" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.7",
+        "title": "Physical Network Diagrams",
+        "quote": "",
+        "find": "at both ends to fully identify"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q20" }
+    },
+    {
+      "id": "n-u08-q055",
+      "stem": "Users at a construction company's office lost network access over the weekend, and a technician suspects that someone moved patch cords in the office's wiring closet without approval. Which of the following would BEST help the technician confirm this?",
+      "choices": [
+        { "id": "a", "text": "Photos taken when the closet was documented" },
+        { "id": "b", "text": "Logical network diagram of the office" },
+        { "id": "c", "text": "Wiring diagrams for the office's wall jacks" },
+        { "id": "d", "text": "Asset inventory of the closet's devices" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.7",
+        "title": "Physical Network Diagrams",
+        "quote": "",
+        "find": "and identifying unauthorized changes"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q78" }
+    },
+    {
+      "id": "n-u08-q056",
+      "stem": "A newspaper's newly hired IT manager wants to understand how its routers, switches, firewalls, and servers connect to and depend on one another. Which of the following documents would BEST show these relationships?",
+      "choices": [
+        { "id": "a", "text": "A network diagram" },
+        { "id": "b", "text": "An asset inventory" },
+        { "id": "c", "text": "An IPAM database" },
+        { "id": "d", "text": "A baseline configuration" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.7",
+        "title": "Physical Network Diagrams",
+        "quote": "",
+        "find": "capture the complex relationships between network"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q2" }
+    },
+    {
+      "id": "n-u08-q057",
+      "stem": "Before a new web server goes into production, an administrator records a performance baseline to compare against later. Which of the following would NOT be part of this baseline?",
+      "choices": [
+        { "id": "a", "text": "Percent of its memory in use" },
+        { "id": "b", "text": "Free space left on its drives" },
+        { "id": "c", "text": "Bits per second sent over its network link" },
+        { "id": "d", "text": "TCP and UDP ports it listens on" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.8",
+        "title": "Logical Network Diagrams",
+        "quote": "",
+        "find": "baselines (CPU, memory, storage, and network"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q67" }
+    },
+    {
+      "id": "n-u08-q058",
+      "stem": "A regional airport's IT team will document the network in its passenger terminal with one physical diagram and one logical diagram. Which of the following belong on the logical diagram?",
+      "choices": [
+        { "id": "a", "text": "The position of each appliance in its rack" },
+        { "id": "b", "text": "The zones and subnets in use" },
+        { "id": "c", "text": "The IP address of each router interface" },
+        { "id": "d", "text": "The cable links between the devices" },
+        { "id": "e", "text": "The room where each device is placed" }
+      ],
+      "answer": ["b", "c"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.8",
+        "title": "Logical Network Diagrams",
+        "quote": "",
+        "find": "the logical structure of the network"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q16" }
+    },
+    {
+      "id": "n-u08-q059",
+      "stem": "A technician at a museum needs to find out which type of cable runs between each switch and patch panel in its wiring closet. Which of the following diagrams should the technician check?",
+      "choices": [
+        { "id": "a", "text": "The PHY (layer 1) diagram" },
+        { "id": "b", "text": "The Data Link (layer 2) diagram" },
+        { "id": "c", "text": "The Logical (layer 3) diagram" },
+        { "id": "d", "text": "The Application diagram" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.8",
+        "title": "Logical Network Diagrams",
+        "quote": "",
+        "find": "to represent the cable type"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q6" }
+    },
+    {
+      "id": "n-u08-q060",
+      "stem": "On a Data Link (layer 2) diagram of a company's network, some of the lines between devices are drawn much thicker than others. Which of the following do the thicker lines MOST likely represent?",
+      "choices": [
+        { "id": "a", "text": "Links with higher bandwidth" },
+        { "id": "b", "text": "Links that use a different cable type" },
+        { "id": "c", "text": "Links that run a different link-layer protocol" },
+        { "id": "d", "text": "Links that connect different IP subnets" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.8",
+        "title": "Logical Network Diagrams",
+        "quote": "",
+        "find": "use line thickness to represent bandwidth"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q110" }
+    },
+    {
+      "id": "n-u08-q061",
+      "stem": "A network team needs a diagram that shows how its switches and routers interconnect and which link-layer protocol runs on each of those links. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "A layer 1 diagram" },
+        { "id": "b", "text": "A layer 2 diagram" },
+        { "id": "c", "text": "A layer 3 diagram" },
+        { "id": "d", "text": "An application diagram" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.8",
+        "title": "Logical Network Diagrams",
+        "quote": "",
+        "find": "interface IDs, and link-layer protocol"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q15" }
+    },
+    {
+      "id": "n-u08-q062",
+      "stem": "Before adding a subnet for a new branch office, an administrator must make sure its network ID and netmask will not overlap any subnet already in use. Which of the following diagrams should the administrator check?",
+      "choices": [
+        { "id": "a", "text": "Layer 1 (PHY)" },
+        { "id": "b", "text": "Layer 2 (Data Link)" },
+        { "id": "c", "text": "Layer 3 (Logical)" },
+        { "id": "d", "text": "Application layer" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.8"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.8",
+        "title": "Logical Network Diagrams",
+        "quote": "",
+        "find": "the IP network ID and netmask"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q32" }
+    },
+    {
+      "id": "n-u08-q063",
+      "stem": "A restaurant chain's network team changes the settings on the DHCP and DNS servers at its 40 locations by signing in to each server separately. Which of the following would let the team manage and reconfigure all of these servers from one console?",
+      "choices": [
+        { "id": "a", "text": "An IPAM suite" },
+        { "id": "b", "text": "A configuration monitor" },
+        { "id": "c", "text": "A syslog collector" },
+        { "id": "d", "text": "A NetFlow collector" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.9",
+        "title": "IP Address Management",
+        "quote": "",
+        "find": "used to manage and reconfigure"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q39" }
+    },
+    {
+      "id": "n-u08-q064",
+      "stem": "A network manager is choosing IPAM software for a company with thousands of hosts across many subnets. Which of the following are core functions of IPAM software?",
+      "choices": [
+        { "id": "a", "text": "Capturing packets for protocol analysis" },
+        { "id": "b", "text": "Collecting traffic flow records from routers" },
+        { "id": "c", "text": "Scanning the DHCP and DNS servers" },
+        { "id": "d", "text": "Logging IP address use to a database" },
+        { "id": "e", "text": "Correlating security events from many logs" }
+      ],
+      "answer": ["c", "d"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.9",
+        "title": "IP Address Management",
+        "quote": "",
+        "find": "The core function of IPAM is"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q46" }
+    },
+    {
+      "id": "n-u08-q065",
+      "stem": "A ski resort's IT team records which IP address each host uses in a spreadsheet that staff update by hand, and the records are often out of date. Which of the following would BEST replace the spreadsheet?",
+      "choices": [
+        { "id": "a", "text": "An IPAM suite" },
+        { "id": "b", "text": "An asset inventory database" },
+        { "id": "c", "text": "A logical (IP) network diagram" },
+        { "id": "d", "text": "A network mapping tool" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.9",
+        "title": "IP Address Management",
+        "quote": "",
+        "find": "provides better automation and oversight"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q10" }
+    },
+    {
+      "id": "n-u08-q066",
+      "stem": "A network team suspects that several printers were given static IP addresses by hand. Which of the following BEST describes how the team's IPAM suite can find these addresses?",
+      "choices": [
+        { "id": "a", "text": "It scans the address ranges to see which addresses are in use" },
+        { "id": "b", "text": "It pulls the list of leased addresses from the DHCP servers" },
+        { "id": "c", "text": "It looks up each printer's record in the asset inventory" },
+        { "id": "d", "text": "It checks the static addresses shown on the logical diagram" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.9"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.9",
+        "title": "IP Address Management",
+        "quote": "",
+        "find": "detect use of statically assigned addresses"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q21" }
+    },
+    {
+      "id": "n-u08-q067",
+      "stem": "A school district signs an SLA with the company that runs its online student records system. Which of the following BEST describes the purpose of this agreement?",
+      "choices": [
+        { "id": "a", "text": "To set out the detailed terms under which the service is provided" },
+        { "id": "b", "text": "To record both sides' intent to work together without binding either" },
+        { "id": "c", "text": "To define which uses of the district's sensitive data are permitted" },
+        { "id": "d", "text": "To request a change to the service and record its approval" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.10",
+        "title": "Common Agreements",
+        "quote": "",
+        "find": "setting out the detailed terms"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q64" }
+    },
+    {
+      "id": "n-u08-q068",
+      "stem": "A car rental firm is signing an SLA with a provider that will back up the firm's files to the cloud. Which of the following would the SLA NOT typically define?",
+      "choices": [
+        { "id": "a", "text": "Which backup services the provider will supply" },
+        { "id": "b", "text": "How quickly lost files must be restored" },
+        { "id": "c", "text": "How the firm must report a failed backup" },
+        { "id": "d", "text": "How the firm's staff will organize their own files" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.10",
+        "title": "Common Agreements",
+        "quote": "",
+        "find": "define aspects of the service"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q33" }
+    },
+    {
+      "id": "n-u08-q069",
+      "stem": "An online flower shop needs its website to be up at least 99.99 percent of the time, and it wants its hosting company bound to meet that figure. Which of the following should contain this requirement?",
+      "choices": [
+        { "id": "a", "text": "Service level agreement (SLA)" },
+        { "id": "b", "text": "Memorandum of understanding (MOU)" },
+        { "id": "c", "text": "Nondisclosure agreement (NDA)" },
+        { "id": "d", "text": "Performance baseline" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.10",
+        "title": "Common Agreements",
+        "quote": "",
+        "find": "using SLAs to guarantee service standards"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q34" }
+    },
+    {
+      "id": "n-u08-q070",
+      "stem": "A university's IT team plans to write an SLA that is less formal and is not a legally binding contract. Which of the following is this SLA MOST likely to be with?",
+      "choices": [
+        { "id": "a", "text": "The admissions department in the same university" },
+        { "id": "b", "text": "The ISP that supplies the university's internet link" },
+        { "id": "c", "text": "The cloud provider that hosts the university's website" },
+        { "id": "d", "text": "The vendor that repairs the university's network switches" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.10",
+        "title": "Common Agreements",
+        "quote": "",
+        "find": "an SLA agreed on between internal"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q92" }
+    },
+    {
+      "id": "n-u08-q071",
+      "stem": "A network engineer who is leaving an airline is reminded that a clause in her contract of employment still bars her from sharing passenger records she saw at work. Which of the following BEST describes this clause?",
+      "choices": [
+        { "id": "a", "text": "NDA" },
+        { "id": "b", "text": "MOU" },
+        { "id": "c", "text": "SLA" },
+        { "id": "d", "text": "SOP" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1"],
+      "units": ["8.1.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.10",
+        "title": "Common Agreements",
+        "quote": "",
+        "find": "contract of employment is highly likely"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q25" }
+    },
+    {
+      "id": "n-u08-q072",
+      "stem": "Two engineering firms are about to share confidential product designs, and each wants a binding agreement that sets out how the designs may be used and the penalties for a leak. Which of the following should the firms sign?",
+      "choices": [
+        { "id": "a", "text": "Nondisclosure agreement" },
+        { "id": "b", "text": "Memorandum of understanding" },
+        { "id": "c", "text": "Contract of employment" },
+        { "id": "d", "text": "Software licensing agreement" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.1"],
+      "units": ["8.1.10"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.1.10",
+        "title": "Common Agreements",
+        "quote": "",
+        "find": "NDAs are also used between companies"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q13" }
+    },
+    {
+      "id": "n-u08-q073",
+      "stem": "An accounting firm's DHCP server has handed out far more addresses than there are devices in the firm's asset inventory. Which of the following would BEST show the network administrator which devices are actually on the network?",
+      "choices": [
+        { "id": "a", "text": "Set up an availability monitor for each server" },
+        { "id": "b", "text": "Review the logical network diagram of each VLAN" },
+        { "id": "c", "text": "Compare each switch's production and baseline configurations" },
+        { "id": "d", "text": "Sweep each subnet for live hosts with an IP scanner" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Network Discovery",
+        "quote": "",
+        "find": "tool that performs host discovery"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q155" }
+    },
+    {
+      "id": "n-u08-q074",
+      "stem": "An administrator needs a quick list of which IP addresses on a new subnet are in use, and nothing more. Which of the following types of IP scanning BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Port scanning" },
+        { "id": "b", "text": "Fingerprinting" },
+        { "id": "c", "text": "Half-open scanning" },
+        { "id": "d", "text": "Host discovery" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Network Discovery",
+        "quote": "",
+        "find": "a basic type of IP scanning"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q130" }
+    },
+    {
+      "id": "n-u08-q075",
+      "stem": "A technician at a small office has no IP scanner and needs to find out which of the office's PCs are up. Which of the following would BEST do this?",
+      "choices": [
+        { "id": "a", "text": "Capture the office's traffic with tcpdump" },
+        { "id": "b", "text": "Test throughput between two PCs with iperf" },
+        { "id": "c", "text": "Ping each address on the office subnet" },
+        { "id": "d", "text": "Check the error counters on the office switch" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Network Discovery",
+        "quote": "",
+        "find": "most basic techniques use the ping"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q139" }
+    },
+    {
+      "id": "n-u08-q076",
+      "stem": "An administrator suspects that some hosts on a subnet are set not to answer pings, so a ping sweep will miss them. Which of the following would BEST locate these hosts?",
+      "choices": [
+        { "id": "a", "text": "An availability monitor" },
+        { "id": "b", "text": "A protocol analyzer" },
+        { "id": "c", "text": "A traceroute tool" },
+        { "id": "d", "text": "A security-oriented scanner" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Network Discovery",
+        "quote": "",
+        "find": "scanners can use specially crafted probes"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q128" }
+    },
+    {
+      "id": "n-u08-q077",
+      "stem": "A plant manager worries that a network scan during a shift could make the factory's networked machines stop working. Which of the following BEST describes this concern?",
+      "choices": [
+        { "id": "a", "text": "It is valid, because a scan can disrupt the hosts it probes" },
+        { "id": "b", "text": "It is not valid, because a scan only collects information" },
+        { "id": "c", "text": "It is valid, because a scan can change each host's settings" },
+        { "id": "d", "text": "It is not valid, because a scan adds very little traffic" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Network Discovery",
+        "quote": "",
+        "find": "network performance or host reliability"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q144" }
+    },
+    {
+      "id": "n-u08-q078",
+      "stem": "A company's network discovery scans have always run at midnight every Sunday. Which of the following is the BEST reason to also run some scans ad hoc?",
+      "choices": [
+        { "id": "a", "text": "They are less likely to slow down the network" },
+        { "id": "b", "text": "They also record asset details about each host" },
+        { "id": "c", "text": "They can find hosts that are set not to answer pings" },
+        { "id": "d", "text": "They are more likely to catch unauthorized activity" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Network Discovery",
+        "quote": "",
+        "find": "might be better at detecting unauthorized"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q164" }
+    },
+    {
+      "id": "n-u08-q079",
+      "stem": "A university's IT team wants one system that scans every campus subnet and ties each address it finds to inventory details about the host. Which of the following BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "A lightweight standalone open source IP scanner" },
+        { "id": "b", "text": "A SIEM that collects logs from each host" },
+        { "id": "c", "text": "An enterprise network management suite with IPAM" },
+        { "id": "d", "text": "A protocol analyzer on a mirrored switch port" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.1",
+        "title": "Network Discovery",
+        "quote": "",
+        "find": "Enterprise network management suites will also"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q137" }
+    },
+    {
+      "id": "n-u08-q080",
+      "stem": "A workstation's firewall drops pings and all incoming TCP and UDP traffic, yet an Nmap scan with no switches from a laptop on its subnet still reports it as up. Which of the following MOST likely let Nmap detect the workstation?",
+      "choices": [
+        { "id": "a", "text": "ARP and Neighbor Discovery sweeps" },
+        { "id": "b", "text": "LLDP and CDP neighbor announcements" },
+        { "id": "c", "text": "SNMP queries to the access switch" },
+        { "id": "d", "text": "Lookups on the DHCP and DNS servers" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Nmap",
+        "quote": "",
+        "find": "perform ARP and Neighbor Discovery (ND)"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q204" }
+    },
+    {
+      "id": "n-u08-q081",
+      "stem": "A technician runs Nmap with no switches to check a warehouse subnet. Which of the following does Nmap do FIRST at each address?",
+      "choices": [
+        { "id": "a", "text": "Scans the 1,000 most commonly used ports at the address" },
+        { "id": "b", "text": "Probes the address to identify its OS and software version" },
+        { "id": "c", "text": "Pings the address and sends TCP ACK packets to ports 80 and 443" },
+        { "id": "d", "text": "Traces the route to the address and counts its hops" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Nmap",
+        "quote": "",
+        "find": "packet to ports 80 and 443"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q127" }
+    },
+    {
+      "id": "n-u08-q082",
+      "stem": "An Nmap scan of a large subnet has been running for hours, so a coworker suggests running it again with the -sn switch. Which of the following will Nmap do differently?",
+      "choices": [
+        { "id": "a", "text": "It will scan each host's UDP ports as well as its TCP ports" },
+        { "id": "b", "text": "It will identify the OS and software version of each host" },
+        { "id": "c", "text": "It will find which hosts are up but not scan their ports" },
+        { "id": "d", "text": "It will scan only the 10 most commonly used ports on each host" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Nmap",
+        "quote": "",
+        "find": "switch to suppress the port scan"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q152" }
+    },
+    {
+      "id": "n-u08-q083",
+      "stem": "A credit union's policy allows the IT team to check which devices on 10.20.0.0/24 are online but forbids scanning any of their ports. Which of the following commands should the team run?",
+      "choices": [
+        { "id": "a", "text": "nmap -sn 10.20.0.0/24" },
+        { "id": "b", "text": "nmap -sT 10.20.0.0/24" },
+        { "id": "c", "text": "nmap -sU 10.20.0.0/24" },
+        { "id": "d", "text": "nmap -p 1-1024 10.20.0.0/24" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Nmap",
+        "quote": "",
+        "find": "the -sn switch to suppress"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q196" }
+    },
+    {
+      "id": "n-u08-q084",
+      "stem": "Traffic from a branch office to a file server at 10.50.8.20 has slowed, and an administrator at the branch suspects it now takes a longer path. Which of the following Nmap commands would BEST show how many hops lie between the administrator's PC and the server?",
+      "choices": [
+        { "id": "a", "text": "nmap --traceroute 10.50.8.20" },
+        { "id": "b", "text": "nmap --top-ports 25 10.50.8.20" },
+        { "id": "c", "text": "nmap -sU 10.50.8.20" },
+        { "id": "d", "text": "nmap -sS 10.50.8.20" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Nmap",
+        "quote": "",
+        "find": "work out hop counts by specifying"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q169" }
+    },
+    {
+      "id": "n-u08-q085",
+      "stem": "A company hires a security firm to test its network defenses, and the firm starts by running Nmap. Which of the following will the firm MOST likely use Nmap to do?",
+      "choices": [
+        { "id": "a", "text": "Capture and decode the traffic crossing each link" },
+        { "id": "b", "text": "Scan for live hosts and the ports they have open" },
+        { "id": "c", "text": "Measure the throughput between two of the hosts" },
+        { "id": "d", "text": "Collect and analyze the logs from each device" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Nmap",
+        "quote": "",
+        "find": "widely used for IP scanning"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q188" }
+    },
+    {
+      "id": "n-u08-q086",
+      "stem": "A technician wants to run Nmap on a Windows laptop at one site and on a Linux server at another. Which of the following statements is true?",
+      "choices": [
+        { "id": "a", "text": "Nmap runs only on Linux, so the laptop cannot run it" },
+        { "id": "b", "text": "Nmap runs only on Windows, so the server cannot run it" },
+        { "id": "c", "text": "Nmap is sold with a paid license for each computer" },
+        { "id": "d", "text": "Nmap has packages for both of these operating systems" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Nmap",
+        "quote": "",
+        "find": "of Windows, Linux, and macOS"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q184" }
+    },
+    {
+      "id": "n-u08-q087",
+      "stem": "After a firewall change on a branch office server, a technician needs to confirm from another PC which of the server's ports still accept connections. Which of the following tools should the technician run?",
+      "choices": [
+        { "id": "a", "text": "Wireshark" },
+        { "id": "b", "text": "Nmap" },
+        { "id": "c", "text": "traceroute" },
+        { "id": "d", "text": "iperf" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Nmap Port Scanning",
+        "quote": "",
+        "find": "identify which TCP and UDP ports"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q185" }
+    },
+    {
+      "id": "n-u08-q088",
+      "stem": "A technician suspects that malware on a records server at 172.16.5.20 is listening on a random TCP port. Which of the following commands is MOST likely to reveal that port?",
+      "choices": [
+        { "id": "a", "text": "nmap 172.16.5.20" },
+        { "id": "b", "text": "nmap -sV 172.16.5.20" },
+        { "id": "c", "text": "nmap --top-ports 100 172.16.5.20" },
+        { "id": "d", "text": "nmap -p 1-65535 172.16.5.20" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Nmap Port Scanning",
+        "quote": "",
+        "find": "Use the -p argument"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q113" }
+    },
+    {
+      "id": "n-u08-q089",
+      "stem": "A security consultant runs Nmap with the -sS switch against a client's web server. Which of the following BEST describes how this scan works?",
+      "choices": [
+        { "id": "a", "text": "It has the operating system make a full connection to each port" },
+        { "id": "b", "text": "It waits for a response or a timeout on each UDP port" },
+        { "id": "c", "text": "It starts a connection on each port but never completes it" },
+        { "id": "d", "text": "It probes each open port to find the software running it" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Nmap Port Scanning",
+        "quote": "",
+        "find": "requests a connection without acknowledging"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q143" }
+    },
+    {
+      "id": "n-u08-q090",
+      "stem": "A technician needs to scan a server's TCP ports, but Nmap cannot get privileged access to the network driver on the technician's laptop. Which of the following scan types will Nmap have to use, even though it is less stealthy?",
+      "choices": [
+        { "id": "a", "text": "A TCP SYN scan (-sS)" },
+        { "id": "b", "text": "A TCP connect scan (-sT)" },
+        { "id": "c", "text": "A UDP scan (-sU)" },
+        { "id": "d", "text": "A host discovery scan (-sn)" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Nmap Port Scanning",
+        "quote": "",
+        "find": "attempt a full TCP connection"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q123" }
+    },
+    {
+      "id": "n-u08-q091",
+      "stem": "A county's weekend audit script runs nmap -sT against 10.20.30.0/24, and the network team adds -sU to the command. Which of the following will the scan now report for each host that is up?",
+      "choices": [
+        { "id": "a", "text": "The state of its TCP ports and its UDP ports" },
+        { "id": "b", "text": "The state of its UDP ports instead of its TCP ports" },
+        { "id": "c", "text": "The state of its TCP ports only, as before" },
+        { "id": "d", "text": "The software version running on each open port" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Nmap Port Scanning",
+        "quote": "",
+        "find": "combined with a TCP scan"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q199" }
+    },
+    {
+      "id": "n-u08-q092",
+      "stem": "A technician scanned a VoIP server at 10.6.1.40 with nmap -sS and found the port for its web management page, but not the UDP port the phones use for calls. Which of the following commands would have found both?",
+      "choices": [
+        { "id": "a", "text": "nmap -sU 10.6.1.40" },
+        { "id": "b", "text": "nmap -sT -sV 10.6.1.40" },
+        { "id": "c", "text": "nmap -sS -p 1-65535 10.6.1.40" },
+        { "id": "d", "text": "nmap -sS -sU 10.6.1.40" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Nmap Port Scanning",
+        "quote": "",
+        "find": "UDP scan can be combined"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q194" }
+    },
+    {
+      "id": "n-u08-q093",
+      "stem": "A technician's Nmap scan shows that ports 22 and 443 are open on a new server, so the technician runs the scan again with the -sV switch. Which of the following will the second scan add?",
+      "choices": [
+        { "id": "a", "text": "The hop count from the technician to the server" },
+        { "id": "b", "text": "The software and version on each of those ports" },
+        { "id": "c", "text": "The state of each UDP port on the server" },
+        { "id": "d", "text": "The other hosts that are up on the server's subnet" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Nmap Port Scanning",
+        "quote": "",
+        "find": "discover the software or software version"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q122" }
+    },
+    {
+      "id": "n-u08-q094",
+      "stem": "A security alert warns that attackers are exploiting a flaw in one version of a popular FTP server program. Which of the following commands would BEST show which version each server on 10.8.0.0/24 is running?",
+      "choices": [
+        { "id": "a", "text": "nmap -sV 10.8.0.0/24" },
+        { "id": "b", "text": "nmap -sn 10.8.0.0/24" },
+        { "id": "c", "text": "nmap -sS 10.8.0.0/24" },
+        { "id": "d", "text": "nmap --traceroute 10.8.0.0/24" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Nmap Port Scanning",
+        "quote": "",
+        "find": "with the -sV or -A switch"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q150" }
+    },
+    {
+      "id": "n-u08-q095",
+      "stem": "A network team leaves CDP running on all of a company's Cisco switches, routers, and access points. Which of the following BEST describes what CDP does?",
+      "choices": [
+        { "id": "a", "text": "It records the traffic flows that pass through each device" },
+        { "id": "b", "text": "It sends each device's log messages to a central log server" },
+        { "id": "c", "text": "It lets each device learn about its directly connected neighbors" },
+        { "id": "d", "text": "It scans the hosts on the network for open TCP and UDP ports" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.4",
+        "title": "Discovery Protocols",
+        "quote": "",
+        "find": "simpler discovery protocols to identify other"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q132" }
+    },
+    {
+      "id": "n-u08-q096",
+      "stem": "Each month, a network administrator compares the core routers' CPU and bandwidth utilization with a baseline taken last spring. Which of the following is the administrator MOST likely trying to learn?",
+      "choices": [
+        { "id": "a", "text": "Whether the routers' configurations have drifted" },
+        { "id": "b", "text": "Whether the routers' performance has changed" },
+        { "id": "c", "text": "How fast the routers' interfaces are rated to run" },
+        { "id": "d", "text": "Whether the routers have had any unscheduled downtime" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Performance Monitoring",
+        "quote": "",
+        "find": "provides a comparison to measure system"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q177" }
+    },
+    {
+      "id": "n-u08-q097",
+      "stem": "Since a marketing agency's file server was installed and its performance baseline was taken, the number of staff who use it has doubled. Which of the following should the network team do with the baseline?",
+      "choices": [
+        { "id": "a", "text": "Compare the server's running configuration with its baseline configuration" },
+        { "id": "b", "text": "Measure the server's utilization now and compare it with the baseline" },
+        { "id": "c", "text": "Raise the baseline's figures to match the larger number of staff" },
+        { "id": "d", "text": "Keep the baseline as the normal level for the server's alerts" },
+        { "id": "e", "text": "Review whether the baseline still fits, and take a new one if it does not" }
+      ],
+      "answer": ["b", "e"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Performance Monitoring",
+        "quote": "",
+        "find": "measure system responsiveness later"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q165" }
+    },
+    {
+      "id": "n-u08-q098",
+      "stem": "A technician set the performance baseline for a new branch office firewall by copying the figures from the manufacturer's data sheet. Which of the following BEST explains why this baseline is a problem?",
+      "choices": [
+        { "id": "a", "text": "A baseline should record the firewall's measured utilization" },
+        { "id": "b", "text": "A baseline should be taken only after the firewall has run for a year" },
+        { "id": "c", "text": "A baseline should record the firewall's running configuration" },
+        { "id": "d", "text": "A baseline should record the rated speed of the firewall's interfaces" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Performance Monitoring",
+        "quote": "",
+        "find": "establish the level of resource utilization"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q58" }
+    },
+    {
+      "id": "n-u08-q099",
+      "stem": "A backup server's nightly job now runs into the workday, and monitoring shows that the server's 1 Gbps link to its switch carries a steady 1 Gbps for the whole job. Which of the following would MOST likely shorten the job?",
+      "choices": [
+        { "id": "a", "text": "Install more memory in the server" },
+        { "id": "b", "text": "Install a second network adapter in the server" },
+        { "id": "c", "text": "Move the server's data to faster storage drives" },
+        { "id": "d", "text": "Configure storm control on the server's switch port" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Performance Monitoring",
+        "quote": "",
+        "find": "rated speed of all the interfaces"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q59" }
+    },
+    {
+      "id": "n-u08-q100",
+      "stem": "Since a hardware store chain added security cameras that stream video to a cloud service, its order system responds slowly during business hours. Which of the following metrics would BEST show whether the camera streams are overloading the network?",
+      "choices": [
+        { "id": "a", "text": "CPU and memory utilization on switches and routers" },
+        { "id": "b", "text": "Free storage space for logs on switches and routers" },
+        { "id": "c", "text": "Utilization/throughput on the stores' links" },
+        { "id": "d", "text": "Rated bandwidth of the stores' links" },
+        { "id": "e", "text": "Hop count from the stores to the order system's server" }
+      ],
+      "answer": ["a", "c"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Performance Monitoring",
+        "quote": "",
+        "find": "indicate a problem with network traffic"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q200" }
+    },
+    {
+      "id": "n-u08-q101",
+      "stem": "A branch office's WAN link is rated at 100 Mbps, and the monitoring tool shows it is carrying 38 Mbps of data during the busiest hour. Which of the following does the 38 Mbps figure measure?",
+      "choices": [
+        { "id": "a", "text": "Throughput" },
+        { "id": "b", "text": "Bandwidth" },
+        { "id": "c", "text": "Latency" },
+        { "id": "d", "text": "Packet loss" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.4", "5.4.c"],
+      "units": ["8.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.5",
+        "title": "Performance Monitoring",
+        "quote": "",
+        "find": "throughput is the amount of data"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q124" }
+    },
+    {
+      "id": "n-u08-q102",
+      "stem": "A network team sets up an availability monitor for a company's online store. Which of the following will the monitor do?",
+      "choices": [
+        { "id": "a", "text": "Alert the team when a switch's configuration is changed" },
+        { "id": "b", "text": "Alert the team when the web server goes down unexpectedly" },
+        { "id": "c", "text": "Alert the team when a link's throughput passes a set limit" },
+        { "id": "d", "text": "Alert the team when an unknown host joins the network" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.6",
+        "title": "Availability Monitoring",
+        "quote": "",
+        "find": "triggers an alert or alarm if"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q176" }
+    },
+    {
+      "id": "n-u08-q103",
+      "stem": "A ticket website slows down for every customer during big sales because the web server's CPU and memory utilization stay very high, and new server hardware is a month away. Which of the following should the administrator do in the meantime?",
+      "choices": [
+        { "id": "a", "text": "Configure storm control on the switch ports" },
+        { "id": "b", "text": "Enable Spanning Tree Protocol on the switches" },
+        { "id": "c", "text": "Take a new performance baseline of the server" },
+        { "id": "d", "text": "Throttle client connections to the server" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.4", "5.4.b"],
+      "units": ["8.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.6",
+        "title": "Availability Monitoring",
+        "quote": "",
+        "find": "Try throttling client connections until"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q134" }
+    },
+    {
+      "id": "n-u08-q104",
+      "stem": "A technician makes an unscheduled change to the running configuration of a core switch at a company that uses a configuration monitor. Which of the following will the monitor MOST likely do?",
+      "choices": [
+        { "id": "a", "text": "Undo the change with the backup configuration" },
+        { "id": "b", "text": "Log the change and alert the network team" },
+        { "id": "c", "text": "Save the change as the new golden configuration" },
+        { "id": "d", "text": "Block the change until it has been approved" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.7",
+        "title": "Configuration Monitoring",
+        "quote": "",
+        "find": "A configuration monitor generates logs"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q197" }
+    },
+    {
+      "id": "n-u08-q105",
+      "stem": "After a technician enables the SNMP agent on a county office's new router, the monitoring server begins showing the router's memory use and traffic counts. Which of the following on the router holds these values?",
+      "choices": [
+        { "id": "a", "text": "Trap" },
+        { "id": "b", "text": "OID" },
+        { "id": "c", "text": "MIB" },
+        { "id": "d", "text": "Community string" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "SNMP Agents and Monitors",
+        "quote": "",
+        "find": "holds variables relating to the activity"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q209" }
+    },
+    {
+      "id": "n-u08-q106",
+      "stem": "A technician writes a script that asks the SNMP agent on a router for a single value, the router's uptime. Which of the following does the script use to tell the agent which value it wants?",
+      "choices": [
+        { "id": "a", "text": "MIB" },
+        { "id": "b", "text": "OID" },
+        { "id": "c", "text": "PRI code" },
+        { "id": "d", "text": "Event ID" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "SNMP Agents and Monitors",
+        "quote": "",
+        "find": "Each parameter stored in a MIB"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q178" }
+    },
+    {
+      "id": "n-u08-q107",
+      "stem": "A switch vendor's documentation lists the OIDs it has defined for its switches. Which of the following BEST describes an OID?",
+      "choices": [
+        { "id": "a", "text": "A number that names one parameter stored in a MIB" },
+        { "id": "b", "text": "A message an agent sends to report a notable event" },
+        { "id": "c", "text": "A command the monitor uses to query an agent" },
+        { "id": "d", "text": "A data store of variables about a device's activity" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "SNMP Agents and Monitors",
+        "quote": "",
+        "find": "referred to by a numeric Object"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q223" }
+    },
+    {
+      "id": "n-u08-q108",
+      "stem": "A technician sets up the SNMP agent on a dental office's new firewall with the same community string that the office's monitoring server uses. Which of the following BEST describes the purpose of this string?",
+      "choices": [
+        { "id": "a", "text": "It encrypts the messages between the agent and monitor" },
+        { "id": "b", "text": "It acts as a simple password between the agent and monitor" },
+        { "id": "c", "text": "It identifies each value stored in the agent's MIB" },
+        { "id": "d", "text": "It sets the threshold at which the agent sends a trap" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "SNMP Agents and Monitors",
+        "quote": "",
+        "find": "a rudimentary type of password"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q210" }
+    },
+    {
+      "id": "n-u08-q109",
+      "stem": "A school district wants one central server to poll its switches and routers for CPU and traffic statistics at set intervals and to be notified when a device crosses a threshold. Which of the following protocols BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Syslog" },
+        { "id": "b", "text": "NetFlow" },
+        { "id": "c", "text": "SNMP" },
+        { "id": "d", "text": "LLDP" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "SNMP Agents and Monitors",
+        "quote": "",
+        "find": "widely used framework for remote"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q224" }
+    },
+    {
+      "id": "n-u08-q110",
+      "stem": "A ski resort is replacing the server that collects data from the SNMP agents on its switches, and the new server will use the old server's IP address. If the agents keep their current settings, which of the following must be set up on the new server?",
+      "choices": [
+        { "id": "a", "text": "SNMP monitor software" },
+        { "id": "b", "text": "Syslog collector software" },
+        { "id": "c", "text": "An SNMP agent of its own" },
+        { "id": "d", "text": "The agents' community string" },
+        { "id": "e", "text": "A new community string" },
+        { "id": "f", "text": "NetFlow collector software" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "SNMP Agents and Monitors",
+        "quote": "",
+        "find": "An SNMP monitor is management software"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q49" }
+    },
+    {
+      "id": "n-u08-q111",
+      "stem": "An SNMP monitor at a bank checks the error counters on each branch router every five minutes. Which of the following BEST describes how the monitor collects these values?",
+      "choices": [
+        { "id": "a", "text": "It sends a Set command to the agent on each router" },
+        { "id": "b", "text": "It walks the MIB on each router to learn its layout" },
+        { "id": "c", "text": "It waits for the agent on each router to send a trap" },
+        { "id": "d", "text": "It sends a Get command to the agent on each router" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "SNMP Agents and Monitors",
+        "quote": "",
+        "find": "The software queries the agent"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q213" }
+    },
+    {
+      "id": "n-u08-q112",
+      "stem": "A warehouse's SNMP monitor polls each switch once an hour, so a fan that fails in a switch does not show up until the next poll. Which of the following should the administrator configure so that the monitor learns of such a failure as soon as it happens?",
+      "choices": [
+        { "id": "a", "text": "Get requests for each fan's OID" },
+        { "id": "b", "text": "Traps sent by each switch's agent" },
+        { "id": "c", "text": "A read-write community string on each agent" },
+        { "id": "d", "text": "A walk of each switch's MIB subtree" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "SNMP Agents and Monitors",
+        "quote": "",
+        "find": "The agent informs the monitor"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q138" }
+    },
+    {
+      "id": "n-u08-q113",
+      "stem": "The SNMP agent on a museum's core switch sends the monitor a trap each time the switch's CPU load goes up or down by as little as 1 percent. Which of the following should the administrator change so that only high CPU loads are reported?",
+      "choices": [
+        { "id": "a", "text": "The agent's threshold for that trap" },
+        { "id": "b", "text": "The monitor's polling interval for the switch" },
+        { "id": "c", "text": "The UDP port the agent sends its traps to" },
+        { "id": "d", "text": "The agent's read-only community string" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.1",
+        "title": "SNMP Agents and Monitors",
+        "quote": "",
+        "find": "for triggering traps can be set"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q214" }
+    },
+    {
+      "id": "n-u08-q114",
+      "stem": "A company plans to use SNMP v2c to monitor a branch office's switches from its main office, and the SNMP traffic will cross the internet. Which of the following BEST describes the security risk of this plan?",
+      "choices": [
+        { "id": "a", "text": "The users' passphrases could be read by anyone who captures the traffic" },
+        { "id": "b", "text": "The agents would answer a monitor that sends any community string" },
+        { "id": "c", "text": "The community strings could be read by anyone who captures the traffic" },
+        { "id": "d", "text": "The agents' default community strings could not be changed" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.2",
+        "title": "SNMP Security",
+        "quote": "",
+        "find": "community strings are sent in plaintext"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q207" }
+    },
+    {
+      "id": "n-u08-q115",
+      "stem": "While capturing traffic at a law firm, a technician can read both the read-only and the read-write community strings that a monitor sends to a switch. Which version of SNMP is the switch MOST likely running?",
+      "choices": [
+        { "id": "a", "text": "SNMP v3 without authentication" },
+        { "id": "b", "text": "SNMP v2c" },
+        { "id": "c", "text": "SNMP v3 in authNoPriv mode" },
+        { "id": "d", "text": "SNMP v3 in authPriv mode" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.2",
+        "title": "SNMP Security",
+        "quote": "",
+        "find": "SNMP v2c community strings are sent"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q75" }
+    },
+    {
+      "id": "n-u08-q116",
+      "stem": "An older router at a factory can run only SNMP v2c, and it will not be replaced this year. Which of the following is a recommended way to make its SNMP access more secure?",
+      "choices": [
+        { "id": "a", "text": "Enable authPriv mode so its SNMP packets are encrypted" },
+        { "id": "b", "text": "Configure usernames in place of its community strings" },
+        { "id": "c", "text": "Use an ACL so only the monitoring server can manage it" },
+        { "id": "d", "text": "Leave its community strings blank so none can be captured" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.2",
+        "title": "SNMP Security",
+        "quote": "",
+        "find": "restrict management operations to known hosts"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q215" }
+    },
+    {
+      "id": "n-u08-q117",
+      "stem": "An insurance company's new policy requires that all SNMP traffic be encrypted and that each administrator be authenticated with a username. Which of the following BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "Change the SNMP v2c community strings to difficult-to-guess ones" },
+        { "id": "b", "text": "Use ACLs to limit v2c management to one or two hosts" },
+        { "id": "c", "text": "Set separate read-only and read-write community strings" },
+        { "id": "d", "text": "Upgrade the agents and the monitor to SNMP v3" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.2",
+        "title": "SNMP Security",
+        "quote": "",
+        "find": "SNMP v3 supports encryption and strong"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q208" }
+    },
+    {
+      "id": "n-u08-q118",
+      "stem": "A vulnerability scan shows that the SNMP v2c agents on a clinic's switches still use the community strings they were shipped with. Which of the following should the administrator do with these strings?",
+      "choices": [
+        { "id": "a", "text": "Replace them with community strings that are difficult to guess" },
+        { "id": "b", "text": "Clear them so that the agents have no community strings set" },
+        { "id": "c", "text": "Keep them so that any monitor can still reach the agents" },
+        { "id": "d", "text": "Change only the read-write string and keep the read-only one" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.2",
+        "title": "SNMP Security",
+        "quote": "",
+        "find": "Use difficult-to-guess community strings"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q212" }
+    },
+    {
+      "id": "n-u08-q119",
+      "stem": "A water utility runs the SNMP v3 agents on its routers in authNoPriv mode. Which of the following could an attacker who captures the SNMP traffic read?",
+      "choices": [
+        { "id": "a", "text": "The values in each message, because the packets are not encrypted" },
+        { "id": "b", "text": "Only the usernames, because the message values are encrypted" },
+        { "id": "c", "text": "The agents' community strings, because v3 sends them in plaintext" },
+        { "id": "d", "text": "The users' passphrases, because v3 sends them in each message" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.3.2",
+        "title": "SNMP Security",
+        "quote": "",
+        "find": "If authNoPriv mode is used"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q211" }
+    },
+    {
+      "id": "n-u08-q120",
+      "stem": "Staff at a travel agency say that the network often feels slow. Which of the following logs should the administrator review to see how heavily the agency's internet link was used each hour over the past month?",
+      "choices": [
+        { "id": "a", "text": "Traffic log" },
+        { "id": "b", "text": "Audit log" },
+        { "id": "c", "text": "System log" },
+        { "id": "d", "text": "Application log" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.1",
+        "title": "Network Device Logs",
+        "quote": "",
+        "find": "Performance and traffic logs record metrics"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q171" }
+    },
+    {
+      "id": "n-u08-q121",
+      "stem": "A school district's network has grown to 150 switches and routers, and checking the log files on each device separately is no longer practical. Which of the following BEST describes what a log collector would do for the district?",
+      "choices": [
+        { "id": "a", "text": "Receive the event messages the devices forward and store them in one place" },
+        { "id": "b", "text": "Normalize the devices' log data so that it is consistent and searchable" },
+        { "id": "c", "text": "Poll the MIB on each device for statistics at regular intervals" },
+        { "id": "d", "text": "Set the logging level that decides which events each device forwards" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.2",
+        "title": "Log Collectors and Syslog",
+        "quote": "",
+        "find": "log collector receives event messages forwarded"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q257" }
+    },
+    {
+      "id": "n-u08-q122",
+      "stem": "A company wants its Cisco switches and Linux servers to send their event messages to one remote collector. Which of the following is the standard way to do this?",
+      "choices": [
+        { "id": "a", "text": "SNMP" },
+        { "id": "b", "text": "NetFlow" },
+        { "id": "c", "text": "Syslog" },
+        { "id": "d", "text": "tcpdump" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["8.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.2",
+        "title": "Log Collectors and Syslog",
+        "quote": "",
+        "find": "de facto standard for logging events"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q54" }
+    },
+    {
+      "id": "n-u08-q123",
+      "stem": "A technician is writing a script to read the entries that a company's routers send to its syslog collector. Which of the following parts does each syslog entry include?",
+      "choices": [
+        { "id": "a", "text": "A PRI code, a header with a timestamp and host name, and a message part" },
+        { "id": "b", "text": "A community string, an object identifier, and the value stored for it" },
+        { "id": "c", "text": "The source and destination addresses and ports, plus the protocol" },
+        { "id": "d", "text": "A host address, the ports found open, and the service on each port" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["8.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.2",
+        "title": "Log Collectors and Syslog",
+        "quote": "",
+        "find": "syslog message comprises a PRI code"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q226" }
+    },
+    {
+      "id": "n-u08-q124",
+      "stem": "A network administrator wants the on-call technician to get a text message whenever the number of sessions on the company's web servers climbs far above its normal level. Which of the following should the administrator configure?",
+      "choices": [
+        { "id": "a", "text": "An availability monitor" },
+        { "id": "b", "text": "A configuration monitor" },
+        { "id": "c", "text": "A protocol analyzer" },
+        { "id": "d", "text": "An automated event management system" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Event Prioritization and Alerting",
+        "quote": "",
+        "find": "An automated event management system"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q272" }
+    },
+    {
+      "id": "n-u08-q125",
+      "stem": "A firewall's operating system halts after a kernel panic, and the firewall cannot be used until it restarts. Which of the following syslog severity levels BEST describes this condition?",
+      "choices": [
+        { "id": "a", "text": "0" },
+        { "id": "b", "text": "1" },
+        { "id": "c", "text": "2" },
+        { "id": "d", "text": "3" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Event Prioritization and Alerting",
+        "quote": "",
+        "find": "The system is unusable"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q61" }
+    },
+    {
+      "id": "n-u08-q126",
+      "stem": "A syslog message from a core router reports a fault that has already happened and must be fixed right away, although the router is still running. Which of the following severity levels does this message MOST likely carry?",
+      "choices": [
+        { "id": "a", "text": "0" },
+        { "id": "b", "text": "1" },
+        { "id": "c", "text": "2" },
+        { "id": "d", "text": "3" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Event Prioritization and Alerting",
+        "quote": "",
+        "find": "A fault requiring immediate"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q62" }
+    },
+    {
+      "id": "n-u08-q127",
+      "stem": "Each night, a file server sends a syslog message to report that its scheduled backup finished successfully. Which of the following severity levels should this message carry?",
+      "choices": [
+        { "id": "a", "text": "4" },
+        { "id": "b", "text": "5" },
+        { "id": "c", "text": "6" },
+        { "id": "d", "text": "7" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Event Prioritization and Alerting",
+        "quote": "",
+        "find": "A normal but reportable event"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q63" }
+    },
+    {
+      "id": "n-u08-q128",
+      "stem": "A hospital's syslog server copies urgent events to a separate log file, and policy says that file may hold only faults that need immediate remediation, whether they have occurred or are likely to develop. Which of the following sets of severity levels should the server copy to the file?",
+      "choices": [
+        { "id": "a", "text": "Emergency and Alert" },
+        { "id": "b", "text": "Emergency, Alert, and Critical" },
+        { "id": "c", "text": "Emergency, Alert, Critical, and Error" },
+        { "id": "d", "text": "Error, Warning, and Notice" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Event Prioritization and Alerting",
+        "quote": "",
+        "find": "A fault that will require immediate"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q264" }
+    },
+    {
+      "id": "n-u08-q129",
+      "stem": "A technician notices that each event a firewall logs is tagged with a number from 0 to 7 that shows how urgently the event needs a response. Which of the following do these numbers represent?",
+      "choices": [
+        { "id": "a", "text": "802.1p priority values" },
+        { "id": "b", "text": "Object identifiers (OIDs)" },
+        { "id": "c", "text": "Severity levels" },
+        { "id": "d", "text": "Performance counter thresholds" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Event Prioritization and Alerting",
+        "quote": "",
+        "find": "Syslog severity levels are as follows"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q146" }
+    },
+    {
+      "id": "n-u08-q130",
+      "stem": "A branch router sends its events of severity 0 to 4 to the company's syslog collector, but the network team also needs the router's events of severity 5 to 7 there. Which of the following should the team change?",
+      "choices": [
+        { "id": "a", "text": "The collector's listening port for syslog messages" },
+        { "id": "b", "text": "The router's logging level for remote forwarding" },
+        { "id": "c", "text": "The router's community string for SNMP traps" },
+        { "id": "d", "text": "The collector's storage space for event logs" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.3",
+        "title": "Event Prioritization and Alerting",
+        "quote": "",
+        "find": "logging level configured on each host"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q278" }
+    },
+    {
+      "id": "n-u08-q131",
+      "stem": "A ski resort's IT team is adding a SIEM to the network that serves its lodges and shops. Which of the following BEST describes the core function of this tool?",
+      "choices": [
+        { "id": "a", "text": "Capturing the frames on a link so their contents can be decoded" },
+        { "id": "b", "text": "Aggregating logs from many sources so they can be analyzed together" },
+        { "id": "c", "text": "Forwarding each device's event messages to a remote collector" },
+        { "id": "d", "text": "Recording each use of authentication and authorization privileges" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Security Information and Event Management",
+        "quote": "",
+        "find": "aggregate logs from multiple sources"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q241" }
+    },
+    {
+      "id": "n-u08-q132",
+      "stem": "A retail chain has intrusion detection sensors at every store, and its security team wants their alerts gathered in one place and analyzed along with the logs from its firewalls and servers. Which of the following should the team deploy?",
+      "choices": [
+        { "id": "a", "text": "A NetFlow collector" },
+        { "id": "b", "text": "A protocol analyzer" },
+        { "id": "c", "text": "A configuration monitor" },
+        { "id": "d", "text": "A SIEM" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Security Information and Event Management",
+        "quote": "",
+        "find": "routers, firewalls, intrusion detection"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q45" }
+    },
+    {
+      "id": "n-u08-q133",
+      "stem": "A county's IT team is comparing log collection with the log aggregation that its new SIEM performs. Which of the following BEST describes log aggregation?",
+      "choices": [
+        { "id": "a", "text": "Gathering the messages that devices send into one storage location" },
+        { "id": "b", "text": "Ranking each event by severity so urgent events are handled first" },
+        { "id": "c", "text": "Putting data from different sources into one consistent, searchable form" },
+        { "id": "d", "text": "Inspecting stored logs after an incident to work out what happened" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Security Information and Event Management",
+        "quote": "",
+        "find": "log aggregation refers to normalizing data"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q227" }
+    },
+    {
+      "id": "n-u08-q134",
+      "stem": "A company's SIEM takes in logs from offices in New York, Denver, and London, and each office's devices stamp their events with local time. Which of the following does the SIEM do so that the events can be compared in the order they happened?",
+      "choices": [
+        { "id": "a", "text": "Condenses each office's repeated events into one summary event" },
+        { "id": "b", "text": "Ranks the events by severity so the most urgent come first" },
+        { "id": "c", "text": "Plots each office's events over time on a separate graph" },
+        { "id": "d", "text": "Puts the date and time of every event on a single timeline" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Security Information and Event Management",
+        "quote": "",
+        "find": "differences to a single timeline"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q228" }
+    },
+    {
+      "id": "n-u08-q135",
+      "stem": "A SIEM takes in logs from a bank's firewalls, switches, and servers, makes their formats match so they can all be searched together, and rolls repeated events into one summary event with a count. Which of the following terms BEST describes this process?",
+      "choices": [
+        { "id": "a", "text": "Log collection" },
+        { "id": "b", "text": "Traffic analysis" },
+        { "id": "c", "text": "Log aggregation" },
+        { "id": "d", "text": "Anomaly alerting" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Security Information and Event Management",
+        "quote": "",
+        "find": "Aggregation can also condense repetitive"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q70" }
+    },
+    {
+      "id": "n-u08-q136",
+      "stem": "A SIEM administrator writes a regular expression tailored to the log file format of a new web application. Which of the following will the SIEM use this regular expression to do?",
+      "choices": [
+        { "id": "a", "text": "Decide which severity levels the application forwards to the SIEM" },
+        { "id": "b", "text": "Compare each entry with a baseline to spot unusual activity" },
+        { "id": "c", "text": "Plot the entries as a graph on the SIEM's dashboard" },
+        { "id": "d", "text": "Pick out each entry's attributes and content for mapping to standard fields" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Security Information and Event Management",
+        "quote": "",
+        "find": "to identify attributes and content"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q252" }
+    },
+    {
+      "id": "n-u08-q137",
+      "stem": "A security team wants its SIEM to start a scan on the company's configuration monitor each night and have the results returned straight to the SIEM. Which of the following methods BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "SNMP traps" },
+        { "id": "b", "text": "API integration" },
+        { "id": "c", "text": "Port mirroring" },
+        { "id": "d", "text": "Log aggregation" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.4",
+        "title": "Security Information and Event Management",
+        "quote": "",
+        "find": "products can also be integrated using"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 8.4.4 (API integration)" }
+    },
+    {
+      "id": "n-u08-q138",
+      "stem": "A technician notices that a database server has been answering requests a little more slowly each month, but no single event in its performance log shows a problem. Which of the following would BEST help the technician see the trend?",
+      "choices": [
+        { "id": "a", "text": "Plotting the log's metrics as a graph" },
+        { "id": "b", "text": "Raising the server's logging level to Debug" },
+        { "id": "c", "text": "Reading each event in the log in order" },
+        { "id": "d", "text": "Setting an alert for every Error-level event" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.4.5",
+        "title": "Log Reviews",
+        "quote": "",
+        "find": "Plotting data as a graph"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q232" }
+    },
+    {
+      "id": "n-u08-q139",
+      "stem": "A technician must leave a protocol analyzer running for 12 hours on a laptop with little free disk space, and only the security cameras' traffic needs to be kept. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Set a display filter" },
+        { "id": "b", "text": "Set a capture filter" },
+        { "id": "c", "text": "Configure an SNMP trap" },
+        { "id": "d", "text": "Install a passive TAP" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.5.1", "8.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.1",
+        "title": "Packet Capture",
+        "quote": "",
+        "find": "reduce the amount of data captured"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q188" }
+    },
+    {
+      "id": "n-u08-q140",
+      "stem": "A technician installs a protocol analyzer on a laptop to troubleshoot a slow file server. Which of the following BEST describes the job of the analyzer's sniffer component?",
+      "choices": [
+        { "id": "a", "text": "Capturing the frames that travel across the network" },
+        { "id": "b", "text": "Mirroring the frames of chosen switch ports to one port" },
+        { "id": "c", "text": "Copying the signal from the cabling to a monitor port" },
+        { "id": "d", "text": "Polling SNMP agents for the values stored in their MIBs" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.1",
+        "title": "Packet Capture",
+        "quote": "",
+        "find": "captures frames moving over the network"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q286" }
+    },
+    {
+      "id": "n-u08-q141",
+      "stem": "A payroll server connects to its switch over a fiber link, and a technician wants a sniffer to get copies of the frames on that link. Which of the following will NOT provide these copies?",
+      "choices": [
+        { "id": "a", "text": "Placing an active TAP in the fiber link" },
+        { "id": "b", "text": "Turning on NetFlow export on the server's switch" },
+        { "id": "c", "text": "Mirroring the server's switch port to the sniffer's port" },
+        { "id": "d", "text": "Placing a passive TAP in the fiber link" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.5.1", "8.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.1",
+        "title": "Packet Capture",
+        "quote": "",
+        "find": "main options for connecting a sniffer"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q317" }
+    },
+    {
+      "id": "n-u08-q142",
+      "stem": "A technician connects a laptop running a protocol analyzer to an access switch and needs the laptop to receive copies of the frames that the other computers on the switch send and receive. Which of the following should the technician configure on the switch?",
+      "choices": [
+        { "id": "a", "text": "Port mirroring" },
+        { "id": "b", "text": "Traffic shaping" },
+        { "id": "c", "text": "NetFlow" },
+        { "id": "d", "text": "SNMP" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.1",
+        "title": "Packet Capture",
+        "quote": "",
+        "find": "specially configured port on the switch"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q77" }
+    },
+    {
+      "id": "n-u08-q143",
+      "stem": "A sniffer on a switch's SPAN port loses power while it captures the traffic of a VoIP gateway on the same switch. Which of the following BEST describes what happens to the gateway's calls?",
+      "choices": [
+        { "id": "a", "text": "They drop, because the gateway's frames must pass through the sniffer" },
+        { "id": "b", "text": "They slow down, because the switch limits a mirrored port's bandwidth" },
+        { "id": "c", "text": "They drop, because the SPAN port is a point of failure for the gateway's link" },
+        { "id": "d", "text": "They keep working, because the switch forwards the gateway's frames as usual" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.1",
+        "title": "Packet Capture",
+        "quote": "",
+        "find": "receives copies of frames addressed to"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q299" }
+    },
+    {
+      "id": "n-u08-q144",
+      "stem": "During a quiet weekend, a protocol analyzer with no filters on a switch's SPAN port shows a file server's normal traffic but none of the corrupt frames that the switch reports on the server's port. Which of the following BEST explains this?",
+      "choices": [
+        { "id": "a", "text": "Heavy load is causing the SPAN port to drop frames" },
+        { "id": "b", "text": "The SPAN port is mirroring the wrong access port" },
+        { "id": "c", "text": "Frames with errors are not mirrored to the SPAN port" },
+        { "id": "d", "text": "A display filter is hiding the corrupt frames" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.1",
+        "title": "Packet Capture",
+        "quote": "",
+        "find": "not be mirrored, and frames may"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q307" }
+    },
+    {
+      "id": "n-u08-q145",
+      "stem": "A security team uses two separate tools on a busy link: one captures the frames passing over the link and saves them to a file, and the other opens those files so the team can inspect the traffic. Which of the following identifies the two tools, in that order?",
+      "choices": [
+        { "id": "a", "text": "A packet sniffer, then a protocol analyzer" },
+        { "id": "b", "text": "A protocol analyzer, then a packet sniffer" },
+        { "id": "c", "text": "A passive TAP, then a packet sniffer" },
+        { "id": "d", "text": "A packet sniffer, then a NetFlow collector" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.1",
+        "title": "Packet Capture",
+        "quote": "",
+        "find": "A sniffer captures frames moving over"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q214" }
+    },
+    {
+      "id": "n-u08-q146",
+      "stem": "A technician needs a sniffer to receive every frame on a server's fiber link, corrupt ones included, even under very heavy load, without adding a point of failure if power is lost. Which of the following should the technician use?",
+      "choices": [
+        { "id": "a", "text": "A SPAN port on the server's switch" },
+        { "id": "b", "text": "An active TAP in the server's cable" },
+        { "id": "c", "text": "A passive TAP in the server's cable" },
+        { "id": "d", "text": "An aggregation TAP in the server's cable" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.b"],
+      "units": ["8.5.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.1",
+        "title": "Packet Capture",
+        "quote": "",
+        "find": "monitor port receives every frame"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q287" }
+    },
+    {
+      "id": "n-u08-q147",
+      "stem": "Users report slow page loads from a Linux web server, and a senior administrator asks a technician to run tcpdump on it. Which of the following will the utility do?",
+      "choices": [
+        { "id": "a", "text": "Probe the server's subnet to find which hosts are up" },
+        { "id": "b", "text": "Measure the throughput between the server and a second host" },
+        { "id": "c", "text": "Capture packets and display them until the command is stopped" },
+        { "id": "d", "text": "Forward the server's event messages to a syslog collector" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.2",
+        "title": "tcpdump",
+        "quote": "",
+        "find": "display captured packets until halted manually"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q292" }
+    },
+    {
+      "id": "n-u08-q148",
+      "stem": "A technician signed in to a Linux mail server over SSH needs to capture the packets reaching its network interface and watch each one on screen. Which of the following should the technician use?",
+      "choices": [
+        { "id": "a", "text": "Nmap" },
+        { "id": "b", "text": "tcpdump" },
+        { "id": "c", "text": "iperf" },
+        { "id": "d", "text": "NetFlow" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.2",
+        "title": "tcpdump",
+        "quote": "",
+        "find": "command line packet capture utility"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q208" }
+    },
+    {
+      "id": "n-u08-q149",
+      "stem": "A technician runs tcpdump -i eth0 -w frontdesk.pcap on a busy Linux server, and no packets appear on the screen while it runs. Which of the following BEST explains this?",
+      "choices": [
+        { "id": "a", "text": "The command writes its output to a file instead of the screen" },
+        { "id": "b", "text": "The command shows captured packets only after it is stopped" },
+        { "id": "c", "text": "The command shows packets only when the -v switch is added" },
+        { "id": "d", "text": "The command reads packets from a saved file instead of eth0" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.2",
+        "title": "tcpdump",
+        "quote": "",
+        "find": "switches write output to a file"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q282" }
+    },
+    {
+      "id": "n-u08-q150",
+      "stem": "A Linux server has two network interfaces, and a technician needs tcpdump to listen only on the one named ens224. Which of the following commands should the technician run?",
+      "choices": [
+        { "id": "a", "text": "tcpdump -e ens224" },
+        { "id": "b", "text": "tcpdump -i ens224" },
+        { "id": "c", "text": "tcpdump -r ens224" },
+        { "id": "d", "text": "tcpdump -w ens224" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.2",
+        "title": "tcpdump",
+        "quote": "",
+        "find": "is the interface to listen on"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q284" }
+    },
+    {
+      "id": "n-u08-q151",
+      "stem": "A technician runs tcpdump -i eth0 \"host 10.20.4.7 and (port 53 or port 123)\" on a Linux server. Which of the following BEST describes what the parentheses in this filter do?",
+      "choices": [
+        { "id": "a", "text": "They enclose the complete filter expression" },
+        { "id": "b", "text": "They require each packet to match both port numbers" },
+        { "id": "c", "text": "They leave out packets that match the port numbers" },
+        { "id": "d", "text": "They group the two port conditions into one expression" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.2",
+        "title": "tcpdump",
+        "quote": "",
+        "find": "using parentheses to group expressions"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q304" }
+    },
+    {
+      "id": "n-u08-q152",
+      "stem": "A technician who suspects duplicate IP addresses on a LAN wants tcpdump to capture only the ARP traffic on interface eth0. Which of the following commands meets this need?",
+      "choices": [
+        { "id": "a", "text": "tcpdump -i eth0 not arp" },
+        { "id": "b", "text": "tcpdump -i eth0 port arp" },
+        { "id": "c", "text": "tcpdump -i eth0 arp" },
+        { "id": "d", "text": "tcpdump -i eth0 dst arp" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.2",
+        "title": "tcpdump",
+        "quote": "",
+        "find": "named protocol rather than port number"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q314" }
+    },
+    {
+      "id": "n-u08-q153",
+      "stem": "A web server at 10.8.3.44 slows down under a flood of requests, and a technician wants tcpdump to capture only the packets that arrive at the server on port 443. Which of the following commands will do this?",
+      "choices": [
+        { "id": "a", "text": "tcpdump -i eth0 src host 10.8.3.44 and src port 443" },
+        { "id": "b", "text": "tcpdump -i eth0 dst host 10.8.3.44 or dst port 443" },
+        { "id": "c", "text": "tcpdump -i eth0 src host 10.8.3.44 and dst port 443" },
+        { "id": "d", "text": "tcpdump -i eth0 dst host 10.8.3.44 and dst port 443" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.2",
+        "title": "tcpdump",
+        "quote": "",
+        "find": "or destination (dst) parameters"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q315" }
+    },
+    {
+      "id": "n-u08-q154",
+      "stem": "A network team performs traffic analysis on a capture from a school's internet link, which slows down every afternoon. Which of the following will this analysis show?",
+      "choices": [
+        { "id": "a", "text": "The configuration changes made on each switch" },
+        { "id": "b", "text": "The bandwidth each protocol and each host consumed" },
+        { "id": "c", "text": "The severity level of each logged event" },
+        { "id": "d", "text": "The header fields and payload of one selected frame" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.3",
+        "title": "Protocol Analyzers",
+        "quote": "",
+        "find": "bandwidth consumed by each protocol"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q313" }
+    },
+    {
+      "id": "n-u08-q155",
+      "stem": "During an audit, a consultant connects a laptop to a switch's mirror port and soon shows the IT manager the plaintext password that technicians send when they manage the switches over Telnet. Which of the following tools did the consultant MOST likely use?",
+      "choices": [
+        { "id": "a", "text": "Port scanner" },
+        { "id": "b", "text": "Protocol analyzer" },
+        { "id": "c", "text": "IP scanner" },
+        { "id": "d", "text": "NetFlow collector" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.3",
+        "title": "Protocol Analyzers",
+        "quote": "",
+        "find": "payload contents in a readable format"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q221" }
+    },
+    {
+      "id": "n-u08-q156",
+      "stem": "A company turns on encryption for the backups that its backup server sends to an offsite server, and a technician must confirm that the data no longer crosses the WAN link in readable form. Which of the following should the technician do?",
+      "choices": [
+        { "id": "a", "text": "Review the event messages the backup server sends to the syslog collector" },
+        { "id": "b", "text": "Poll the backup server's SNMP agent for the interface counters in its MIB" },
+        { "id": "c", "text": "Capture the backup traffic with a protocol analyzer and check the payloads" },
+        { "id": "d", "text": "Run iperf between the two servers to measure the link's throughput" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.3",
+        "title": "Protocol Analyzers",
+        "quote": "",
+        "find": "its header fields and payload contents"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q213" }
+    },
+    {
+      "id": "n-u08-q157",
+      "stem": "A school's IT director allows only two senior staff members to run a protocol analyzer on the school's network. Which of the following BEST explains this rule?",
+      "choices": [
+        { "id": "a", "text": "The analyzer can change device settings by sending SNMP Set commands" },
+        { "id": "b", "text": "The analyzer can probe hosts to find which TCP and UDP ports are listening" },
+        { "id": "c", "text": "The analyzer can flood a link with test traffic to measure its throughput" },
+        { "id": "d", "text": "The analyzer can show the payload of captured frames in readable form" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.3",
+        "title": "Protocol Analyzers",
+        "quote": "",
+        "find": "payload contents in a readable format"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q222" }
+    },
+    {
+      "id": "n-u08-q158",
+      "stem": "A technician suspects that a misconfigured service on a database server is causing some client requests to fail and wants to examine those requests at the packet level. Which of the following should the technician use?",
+      "choices": [
+        { "id": "a", "text": "SNMP monitor" },
+        { "id": "b", "text": "SIEM" },
+        { "id": "c", "text": "NetFlow analyzer" },
+        { "id": "d", "text": "Protocol analyzer" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.3",
+        "title": "Protocol Analyzers",
+        "quote": "",
+        "find": "identify protocol or service misconfigurations"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q76" }
+    },
+    {
+      "id": "n-u08-q159",
+      "stem": "While a protocol analyzer reads frames from a busy link, a technician enters a display filter. Which of the following will the display filter do?",
+      "choices": [
+        { "id": "a", "text": "Show only the matching frames out of all those captured" },
+        { "id": "b", "text": "Limit the frames the sniffer saves to the matching ones" },
+        { "id": "c", "text": "Piece together the data sent in one TCP session" },
+        { "id": "d", "text": "List the most active hosts seen on the link" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.3",
+        "title": "Protocol Analyzers",
+        "quote": "",
+        "find": "show only particular frames or sequences"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q291" }
+    },
+    {
+      "id": "n-u08-q160",
+      "stem": "A coworker sends a technician a capture file saved from a slow branch office link, and the technician needs to look at only the DNS frames in it. Which of the following is the BEST way to do this?",
+      "choices": [
+        { "id": "a", "text": "Apply a capture filter" },
+        { "id": "b", "text": "Run a traffic analysis report" },
+        { "id": "c", "text": "Apply a display filter" },
+        { "id": "d", "text": "Mirror the DNS server's switch port" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.3",
+        "title": "Protocol Analyzers",
+        "quote": "",
+        "find": "display filters to show only particular"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q225" }
+    },
+    {
+      "id": "n-u08-q161",
+      "stem": "A technician wants a free, open source protocol analyzer with a graphical interface to capture and study packets on a Windows laptop. Which of the following should the technician install?",
+      "choices": [
+        { "id": "a", "text": "tcpdump" },
+        { "id": "b", "text": "Zenmap" },
+        { "id": "c", "text": "Angry IP" },
+        { "id": "d", "text": "Wireshark" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.3",
+        "title": "Protocol Analyzers",
+        "quote": "",
+        "find": "open source graphical packet capture"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q289" }
+    },
+    {
+      "id": "n-u08-q162",
+      "stem": "A technician starts Wireshark on a laptop whose wired adapter connects to a switch's SPAN port, but the capture shows only the laptop's own Wi-Fi traffic. Which of the following should the technician do FIRST?",
+      "choices": [
+        { "id": "a", "text": "Apply a display filter for the wired adapter's address" },
+        { "id": "b", "text": "Configure the switch to mirror more of its ports" },
+        { "id": "c", "text": "Install a passive TAP on the switch's uplink" },
+        { "id": "d", "text": "Choose the wired adapter's interface to listen on" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.3",
+        "title": "Protocol Analyzers",
+        "quote": "",
+        "find": "Having chosen the interfaces to listen"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q302" }
+    },
+    {
+      "id": "n-u08-q163",
+      "stem": "While troubleshooting a web application that uses plain HTTP, a technician right-clicks one of its frames in Wireshark and chooses Follow TCP Stream. Which of the following will this command do?",
+      "choices": [
+        { "id": "a", "text": "Show the TCP header fields of only the selected frame" },
+        { "id": "b", "text": "Chart the link's utilization across the whole capture" },
+        { "id": "c", "text": "Rebuild the contents of the TCP session from its frames" },
+        { "id": "d", "text": "Rank the protocols in the capture from most to least active" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.3",
+        "title": "Protocol Analyzers",
+        "quote": "",
+        "find": "reconstruct the packet contents for"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q297" }
+    },
+    {
+      "id": "n-u08-q164",
+      "stem": "Staff in every department of a newspaper find that web pages and shared files open slowly whenever the photo team uploads the day's photos to the cloud, though no one loses a connection. Which of the following BEST describes this problem?",
+      "choices": [
+        { "id": "a", "text": "Bottleneck" },
+        { "id": "b", "text": "Broadcast storm" },
+        { "id": "c", "text": "Jitter" },
+        { "id": "d", "text": "DoS attack" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.4", "5.4.b"],
+      "units": ["8.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.1",
+        "title": "Common Performance Issues",
+        "quote": "",
+        "find": "a point of poor performance"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q367" }
+    },
+    {
+      "id": "n-u08-q165",
+      "stem": "For several weeks, monitoring has shown that the link between a school's two buildings is a bottleneck around the clock, at busy and quiet times alike. Which of the following is MOST likely causing the bottleneck?",
+      "choices": [
+        { "id": "a", "text": "Students streaming videos in the library" },
+        { "id": "b", "text": "A cloud sync app on the staff laptops" },
+        { "id": "c", "text": "A device that is underpowered or faulty" },
+        { "id": "d", "text": "Teachers sharing large files with classes" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.4", "5.4.b"],
+      "units": ["8.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.1",
+        "title": "Common Performance Issues",
+        "quote": "",
+        "find": "If the problem is continual"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q383" }
+    },
+    {
+      "id": "n-u08-q166",
+      "stem": "A retail chain's contract with its cloud provider promises that data sent from any of its stores will reach the provider's servers in under 40 ms. Which of the following does this promise place a limit on?",
+      "choices": [
+        { "id": "a", "text": "Jitter" },
+        { "id": "b", "text": "Throughput" },
+        { "id": "c", "text": "Packet loss" },
+        { "id": "d", "text": "Latency" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.4", "5.4.d"],
+      "units": ["8.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.1",
+        "title": "Common Performance Issues",
+        "quote": "",
+        "find": "a transmission to reach the recipient"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q368" }
+    },
+    {
+      "id": "n-u08-q167",
+      "stem": "Teachers at a middle school say the district's grading website loads slowly, and a technician wants to measure the delay on the link to the district office. Which of the following tools should the technician use?",
+      "choices": [
+        { "id": "a", "text": "ping" },
+        { "id": "b", "text": "LLDP" },
+        { "id": "c", "text": "syslog" },
+        { "id": "d", "text": "SSH" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.4", "5.4.d"],
+      "units": ["8.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.1",
+        "title": "Common Performance Issues",
+        "quote": "",
+        "find": "test the latency of a link"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q376" }
+    },
+    {
+      "id": "n-u08-q168",
+      "stem": "An overloaded router at a medical clinic is discarding some of the data it receives instead of forwarding it, which disrupts the clinic's connection to its main hospital. Which of the following performance issues is the router causing?",
+      "choices": [
+        { "id": "a", "text": "Latency" },
+        { "id": "b", "text": "Packet loss" },
+        { "id": "c", "text": "Jitter" },
+        { "id": "d", "text": "Broadcast storm" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.4", "5.4.e"],
+      "units": ["8.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.1",
+        "title": "Common Performance Issues",
+        "quote": "",
+        "find": "device that is dropping the frames"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q326" }
+    },
+    {
+      "id": "n-u08-q169",
+      "stem": "Listeners say a radio station's live show sounds choppy on the air, and a capture on the wired link to its transmitter tower shows the audio packets arriving at an uneven, inconsistent rate. Which of the following is MOST likely causing this?",
+      "choices": [
+        { "id": "a", "text": "Network bottleneck" },
+        { "id": "b", "text": "Cable attenuation" },
+        { "id": "c", "text": "Network jitter" },
+        { "id": "d", "text": "Network latency" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.4", "5.4.f"],
+      "units": ["8.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.1",
+        "title": "Common Performance Issues",
+        "quote": "",
+        "find": "an inconsistent rate of packet delivery"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q81" }
+    },
+    {
+      "id": "n-u08-q170",
+      "stem": "A monitoring tool shows that jitter on an architecture firm's wired network has risen sharply this week. Which of the following will the rise in jitter MOST likely disrupt?",
+      "choices": [
+        { "id": "a", "text": "Calls on the firm's VoIP phones" },
+        { "id": "b", "text": "Emails sent to the firm's clients" },
+        { "id": "c", "text": "Live video meetings with clients" },
+        { "id": "d", "text": "Drawings saved to the file server" },
+        { "id": "e", "text": "Software updates for the laptops" }
+      ],
+      "answer": ["a", "c"],
+      "objectives": ["5.4", "5.4.f"],
+      "units": ["8.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.1",
+        "title": "Common Performance Issues",
+        "quote": "",
+        "find": "much more sensitive to their effects"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q149" }
+    },
+    {
+      "id": "n-u08-q171",
+      "stem": "A city council streams its meetings live on its website, and viewers say the picture keeps freezing and then jumping ahead, though the city's internet link is far from full. Which of the following would BEST help the city's network team find the cause?",
+      "choices": [
+        { "id": "a", "text": "Measuring the bandwidth of the internet link" },
+        { "id": "b", "text": "Measuring latency and jitter on the internet link" },
+        { "id": "c", "text": "Reviewing per-protocol utilization on the core switch" },
+        { "id": "d", "text": "Reviewing configuration changes on the city's router" }
+      ],
+      "answer": ["b"],
+      "objectives": ["5.4", "5.4.f"],
+      "units": ["8.6.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.1",
+        "title": "Common Performance Issues",
+        "quote": "",
+        "find": "manifest as echo, delay, and video"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q395" }
+    },
+    {
+      "id": "n-u08-q172",
+      "stem": "A network administrator sets up alerts for the utilization, error rate, and discards on each port of a county library's core switches. Which of the following is the administrator MOST likely trying to do?",
+      "choices": [
+        { "id": "a", "text": "Diagnose performance issues on the network" },
+        { "id": "b", "text": "Detect unauthorized configuration changes" },
+        { "id": "c", "text": "Confirm that services stay up and available" },
+        { "id": "d", "text": "Discover the hosts connected to the network" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.2",
+        "title": "Interface Statistics",
+        "quote": "",
+        "find": "To diagnose a performance issue"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q330" }
+    },
+    {
+      "id": "n-u08-q173",
+      "stem": "A network administrator is building a dashboard from the interface statistics of an airport's core switch ports. Which of the following can the dashboard NOT show from these statistics?",
+      "choices": [
+        { "id": "a", "text": "Error rate" },
+        { "id": "b", "text": "Round trip time" },
+        { "id": "c", "text": "Per-protocol utilization" },
+        { "id": "d", "text": "Retransmissions" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.2",
+        "title": "Interface Statistics",
+        "quote": "",
+        "find": "configure alerts for interface statistics"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q65" }
+    },
+    {
+      "id": "n-u08-q174",
+      "stem": "While troubleshooting slow backups at a law office, a technician sees that the discards/drops counter on the backup server's switch port is climbing quickly. Which of the following could be adding to this counter?",
+      "choices": [
+        { "id": "a", "text": "Retransmissions" },
+        { "id": "b", "text": "Frame errors" },
+        { "id": "c", "text": "High latency" },
+        { "id": "d", "text": "High traffic load" },
+        { "id": "e", "text": "High jitter" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.2",
+        "title": "Interface Statistics",
+        "quote": "",
+        "find": "lost due to high load"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q66" }
+    },
+    {
+      "id": "n-u08-q175",
+      "stem": "A file server's interface statistics show an error rate of 6%, but a cable tester finds nothing wrong with the server's cable. Which of the following is the MOST likely cause of the errors?",
+      "choices": [
+        { "id": "a", "text": "A heavy traffic load" },
+        { "id": "b", "text": "A faulty adapter driver" },
+        { "id": "c", "text": "A security policy" },
+        { "id": "d", "text": "A switching loop" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.2",
+        "title": "Interface Statistics",
+        "quote": "",
+        "find": "may indicate a driver problem"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q333" }
+    },
+    {
+      "id": "n-u08-q176",
+      "stem": "A technician pulls a report of the utilization on a file server's network adapter. Which of the following does this statistic show?",
+      "choices": [
+        { "id": "a", "text": "The maximum data rate the adapter is rated to carry" },
+        { "id": "b", "text": "The number of packets per second that caused errors" },
+        { "id": "c", "text": "The data the adapter sent and received over a period" },
+        { "id": "d", "text": "The number of frames that had to be sent again" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.2",
+        "title": "Interface Statistics",
+        "quote": "",
+        "find": "data transferred over a period"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q410" }
+    },
+    {
+      "id": "n-u08-q177",
+      "stem": "A network administrator adds the queue length for the internet-facing port on a hotel's router to a monitoring dashboard. Which of the following will this statistic MOST help the administrator determine?",
+      "choices": [
+        { "id": "a", "text": "Whether the link has become a bottleneck" },
+        { "id": "b", "text": "Whether frames on the link are being corrupted" },
+        { "id": "c", "text": "Whether one protocol is using most of the link" },
+        { "id": "d", "text": "Whether the router's configuration has changed" }
+      ],
+      "answer": ["a"],
+      "objectives": ["5.4", "5.4.b"],
+      "units": ["8.6.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.2",
+        "title": "Interface Statistics",
+        "quote": "",
+        "find": "Monitoring the queue length can help"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q332" }
+    },
+    {
+      "id": "n-u08-q178",
+      "stem": "To track down a bottleneck, a university's network administrator needs to see which hosts and applications use the most bandwidth on the campus core links, without the heavy processing load of recording every frame. Which of the following should the administrator deploy?",
+      "choices": [
+        { "id": "a", "text": "Protocol analyzer" },
+        { "id": "b", "text": "Nmap" },
+        { "id": "c", "text": "Traffic shaping" },
+        { "id": "d", "text": "NetFlow" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.3",
+        "title": "Flow Data",
+        "quote": "",
+        "find": "gather traffic flow data only"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q365" }
+    },
+    {
+      "id": "n-u08-q179",
+      "stem": "A network team configures the routers at each of its branch offices as NetFlow exporters. Which of the following will the routers do in this role?",
+      "choices": [
+        { "id": "a", "text": "Define flows and cache data about each new flow" },
+        { "id": "b", "text": "Gather the flow records sent by many other devices" },
+        { "id": "c", "text": "Query stored flow records to build reports and alerts" },
+        { "id": "d", "text": "Copy every frame on an interface to a mirror port" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.3",
+        "title": "Flow Data",
+        "quote": "",
+        "find": "flow is defined on an exporter"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q331" }
+    },
+    {
+      "id": "n-u08-q180",
+      "stem": "Soon after a shipping company turns on NetFlow across 300 of its switches and routers, one server's network link is overloaded and its disks are almost full. Which of the following roles is this server MOST likely performing?",
+      "choices": [
+        { "id": "a", "text": "NetFlow analyzer" },
+        { "id": "b", "text": "NetFlow exporter" },
+        { "id": "c", "text": "SNMP monitor" },
+        { "id": "d", "text": "NetFlow collector" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.3",
+        "title": "Flow Data",
+        "quote": "",
+        "find": "so the collector needs a high-bandwidth"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q384" }
+    },
+    {
+      "id": "n-u08-q181",
+      "stem": "A state agency's NetFlow collector stores the flow records sent by its routers, and the same product also queries those records to produce reports and raise alerts. Which of the following components is combined with the collector in this product?",
+      "choices": [
+        { "id": "a", "text": "Syslog collector" },
+        { "id": "b", "text": "NetFlow exporter" },
+        { "id": "c", "text": "NetFlow analyzer" },
+        { "id": "d", "text": "Protocol analyzer" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.3",
+        "title": "Flow Data",
+        "quote": "",
+        "find": "often implemented as a single product"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q351" }
+    },
+    {
+      "id": "n-u08-q182",
+      "stem": "A NetFlow exporter treats packets as part of the same flow when they share the same 5-tuple. Which of the following lists the values in a 5-tuple?",
+      "choices": [
+        { "id": "a", "text": "Source MAC, destination MAC, VLAN ID, priority, protocol" },
+        { "id": "b", "text": "Source IP, destination IP, protocol, input interface, type of service" },
+        { "id": "c", "text": "Source IP, destination IP, source port, DSCP value, TTL value" },
+        { "id": "d", "text": "Source IP, destination IP, source port, destination port, protocol" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.3",
+        "title": "Flow Data",
+        "quote": "",
+        "find": "Destination IP Address, Source Port"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q401" }
+    },
+    {
+      "id": "n-u08-q183",
+      "stem": "A data center team stops recording every frame on its busy core links and starts collecting only the packet metadata instead. Which of the following is the BEST reason for this change?",
+      "choices": [
+        { "id": "a", "text": "It saves each packet's payload for later review" },
+        { "id": "b", "text": "It reduces the bandwidth that monitoring requires" },
+        { "id": "c", "text": "It captures the frames that a mirror port drops" },
+        { "id": "d", "text": "It encrypts the traffic data before it is stored" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.6.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.3",
+        "title": "Flow Data",
+        "quote": "",
+        "find": "bandwidth required by the sniffer"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q329" }
+    },
+    {
+      "id": "n-u08-q184",
+      "stem": "A technician runs a broadband speed checker from a PC in a small accounting office. Which of the following will the test measure?",
+      "choices": [
+        { "id": "a", "text": "How quickly the pages of a chosen website load" },
+        { "id": "b", "text": "The throughput between two hosts on the office LAN" },
+        { "id": "c", "text": "How fast the office's link to the Internet is" },
+        { "id": "d", "text": "Which hosts on the LAN send the most traffic" }
+      ],
+      "answer": ["c"],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.6.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.4",
+        "title": "Traffic Testing Tools",
+        "quote": "",
+        "find": "how fast the local broadband link"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q353" }
+    },
+    {
+      "id": "n-u08-q185",
+      "stem": "A hospital needs its network to recognize the traffic from its patient monitoring systems and forward it ahead of other traffic, so that congestion does not disrupt it. Which of the following BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "QoS" },
+        { "id": "b", "text": "VPN" },
+        { "id": "c", "text": "CDN" },
+        { "id": "d", "text": "Load balancer" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.5",
+        "title": "Bandwidth Management",
+        "quote": "",
+        "find": "A QoS system identifies the packets"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q6" }
+    },
+    {
+      "id": "n-u08-q186",
+      "stem": "At a travel agency, VoIP calls break up and lag whenever staff download large files from the office's file server. Which of the following should the network technician configure to prevent this?",
+      "choices": [
+        { "id": "a", "text": "SIP" },
+        { "id": "b", "text": "QoS" },
+        { "id": "c", "text": "RTP" },
+        { "id": "d", "text": "NetFlow" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.5",
+        "title": "Bandwidth Management",
+        "quote": "",
+        "find": "prioritizes them over other applications"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q149" }
+    },
+    {
+      "id": "n-u08-q187",
+      "stem": "Every weekday morning, when the whole staff signs in at once, a credit union's core switch starts to queue and drop packets. Which of the following is the MOST likely cause?",
+      "choices": [
+        { "id": "a", "text": "A QoS policy is giving voice calls priority over data" },
+        { "id": "b", "text": "Interference is corrupting the frames on the uplinks" },
+        { "id": "c", "text": "A switching loop is causing a broadcast storm" },
+        { "id": "d", "text": "The network cannot meet the demand of its peak load" }
+      ],
+      "answer": ["d"],
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["8.6.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.5",
+        "title": "Bandwidth Management",
+        "quote": "",
+        "find": "meeting the demands of peak load"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q347" }
+    },
+    {
+      "id": "n-u08-q188",
+      "stem": "A network engineer wants the company's routers to prioritize packets based on a 6-bit value that the sending host or a router writes into each packet's IP header. Which of the following should the engineer implement?",
+      "choices": [
+        { "id": "a", "text": "802.1p" },
+        { "id": "b", "text": "MPLS" },
+        { "id": "c", "text": "DiffServ" },
+        { "id": "d", "text": "Traffic policing" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.5",
+        "title": "Bandwidth Management",
+        "quote": "",
+        "find": "a 6-bit DiffServ Code Point"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q7" }
+    },
+    {
+      "id": "n-u08-q189",
+      "stem": "A call center's network administrator is setting up DiffServ and wants voice calls placed in the type of traffic class that has the highest priority. Which of the following should the administrator assign to the calls?",
+      "choices": [
+        { "id": "a", "text": "Assured Forwarding" },
+        { "id": "b", "text": "Best Effort" },
+        { "id": "c", "text": "Per Hop Behavior" },
+        { "id": "d", "text": "Expedited Forwarding" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.5",
+        "title": "Bandwidth Management",
+        "quote": "",
+        "find": "which has the highest priority"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q335" }
+    },
+    {
+      "id": "n-u08-q190",
+      "stem": "A network team plans to use IEEE 802.1p on a school district's network. Which of the following will 802.1p classify and prioritize?",
+      "choices": [
+        { "id": "a", "text": "Frames at layer 2 as they pass over a switch" },
+        { "id": "b", "text": "Packets at layer 3 as routers forward them" },
+        { "id": "c", "text": "Segments at layer 4 as hosts open connections" },
+        { "id": "d", "text": "Messages at layer 7 as applications send them" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.5",
+        "title": "Bandwidth Management",
+        "quote": "",
+        "find": "classify and prioritize traffic passing over"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q382" }
+    },
+    {
+      "id": "n-u08-q191",
+      "stem": "A pharmacy's VoIP phones share switches with its computers, and the phones already give their voice traffic a priority tag. Which of the following is also commonly used to manage that voice traffic on the switches?",
+      "choices": [
+        { "id": "a", "text": "Port mirroring" },
+        { "id": "b", "text": "Storm control" },
+        { "id": "c", "text": "VLAN segmentation" },
+        { "id": "d", "text": "Spanning Tree Protocol" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.5",
+        "title": "Bandwidth Management",
+        "quote": "",
+        "find": "VLAN infrastructure is often used"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q366" }
+    },
+    {
+      "id": "n-u08-q192",
+      "stem": "A network engineer is changing how a core switch decides which traffic gets priority and where each frame should be switched. Which of the following planes is responsible for these decisions?",
+      "choices": [
+        { "id": "a", "text": "Data plane" },
+        { "id": "b", "text": "Control plane" },
+        { "id": "c", "text": "Operational plane" },
+        { "id": "d", "text": "Management plane" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.6",
+        "title": "Traffic Shaping",
+        "quote": "",
+        "find": "about how traffic should be prioritized"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q397" }
+    },
+    {
+      "id": "n-u08-q193",
+      "stem": "A trucking company's WAN link is often congested, and CoS alone has not kept its VoIP calls clear. Which of the following can QoS do for the link that CoS cannot?",
+      "choices": [
+        { "id": "a", "text": "Tag each frame or packet with its traffic class" },
+        { "id": "b", "text": "Forward every packet in the order it arrives" },
+        { "id": "c", "text": "Report how much bandwidth each traffic flow uses" },
+        { "id": "d", "text": "Reserve bandwidth and set limits on latency and jitter" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.6",
+        "title": "Traffic Shaping",
+        "quote": "",
+        "find": "QoS functionality can reserve required bandwidth"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q338" }
+    },
+    {
+      "id": "n-u08-q194",
+      "stem": "At a factory, control messages for the assembly line share a WAN link with large backup transfers, and the messages arrive late whenever a backup runs. Which of the following would BEST get the control messages through first?",
+      "choices": [
+        { "id": "a", "text": "Traffic policing" },
+        { "id": "b", "text": "Storm control" },
+        { "id": "c", "text": "Traffic shaping" },
+        { "id": "d", "text": "SNMP traps" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.6",
+        "title": "Traffic Shaping",
+        "quote": "",
+        "find": "Traffic shapers delay certain packet"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q369" }
+    },
+    {
+      "id": "n-u08-q195",
+      "stem": "A grocery chain's network team replaces the traffic policing device on a store's WAN link with a traffic shaper. Which of the following should the team expect when traffic goes over the link's limit?",
+      "choices": [
+        { "id": "a", "text": "Packets are dropped at the threshold instead of being held" },
+        { "id": "b", "text": "Every packet is delayed by the same amount to even out the load" },
+        { "id": "c", "text": "More packets are lost at busy times while bandwidth sits idle at quiet times" },
+        { "id": "d", "text": "Packets are held until bandwidth is free instead of being dropped" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.6",
+        "title": "Traffic Shaping",
+        "quote": "",
+        "find": "store packets until there is free"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q372" }
+    },
+    {
+      "id": "n-u08-q196",
+      "stem": "During a long traffic spike, the buffer on a company's traffic shaper fills up completely. Which of the following will the shaper do with the packets that no longer fit?",
+      "choices": [
+        { "id": "a", "text": "Hold them in a backup queue until bandwidth is free" },
+        { "id": "b", "text": "Drop them outright or with a dropping algorithm" },
+        { "id": "c", "text": "Expand the buffer until every packet can be held" },
+        { "id": "d", "text": "Tag them with a lower DSCP value and send them on" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.6.6",
+        "title": "Traffic Shaping",
+        "quote": "",
+        "find": "must implement a dropping algorithm"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 8.0 Q361" }
+    }
+  ]
+}

@@ -1,0 +1,606 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-08", "title": "Unit 8.0 Supporting Network Management", "reviewed": false, "notes": "WIP: written without class materials; needs a pass once they are made." },
+  "flashcards": [
+    {
+      "id": "n-u08-f001",
+      "term": "Physical network diagram",
+      "definition": "The class of diagram that documents where a site's cabling and assets are, including cable maps, port location diagrams, and rack diagrams; it needs a labeling system to make sense.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": { "source": "certmaster", "section": "8.1.7", "title": "Physical Network Diagrams" }
+    },
+    {
+      "id": "n-u08-f002",
+      "term": "Logical network diagram",
+      "definition": "A simplified schematic, not drawn to scale, that shows how the network is organized into zones and subnets instead of where its devices and cables sit.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.8"],
+      "reference": { "source": "certmaster", "section": "8.1.8", "title": "Logical Network Diagrams" }
+    },
+    {
+      "id": "n-u08-f003",
+      "term": "Rack diagram",
+      "definition": "Records the mounted position of each appliance in the rack, labeled with key details such as service tags, port IDs, and links.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": { "source": "certmaster", "section": "8.1.7", "title": "Physical Network Diagrams" }
+    },
+    {
+      "id": "n-u08-f004",
+      "term": "Cable map (floor plan)",
+      "definition": "An accurate drawing of the building that shows how wires are routed through conduit from telecommunications closets to work areas, marking each run and wall port.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": { "source": "certmaster", "section": "8.1.7", "title": "Physical Network Diagrams" }
+    },
+    {
+      "id": "n-u08-f005",
+      "term": "Port location diagram",
+      "definition": "A physical diagram that follows each work-area wall port back to its port on the patch panel or distribution frame, and from there to its switch port.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.7"],
+      "reference": { "source": "certmaster", "section": "8.1.7", "title": "Physical Network Diagrams" }
+    },
+    {
+      "id": "n-u08-f006",
+      "term": "Layer 1 network diagram",
+      "definition": "The per-layer schematic of asset IDs, cable links, and wall, patch panel, and switch port IDs, with color or line style showing each cable type.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.8"],
+      "reference": { "source": "certmaster", "section": "8.1.8", "title": "Logical Network Diagrams" }
+    },
+    {
+      "id": "n-u08-f007",
+      "term": "Layer 2 network diagram",
+      "definition": "The per-layer schematic of how switches and routers interconnect, with asset IDs or management IPs, interface IDs, and each link's protocol and bandwidth.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.8"],
+      "reference": { "source": "certmaster", "section": "8.1.8", "title": "Logical Network Diagrams" }
+    },
+    {
+      "id": "n-u08-f008",
+      "term": "Layer 3 network diagram",
+      "definition": "The per-layer schematic of router and firewall interface IP addresses, each link's network ID and netmask, VLAN IDs, and DHCP scopes.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.8"],
+      "reference": { "source": "certmaster", "section": "8.1.8", "title": "Logical Network Diagrams" }
+    },
+    {
+      "id": "n-u08-f009",
+      "term": "Asset inventory",
+      "definition": "A record of the organization's hardware, such as appliances, servers, workstations, and cabling, and its software, such as operating systems and applications, linked to each item's warranty and support documents.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.4"],
+      "reference": { "source": "certmaster", "section": "8.1.4", "title": "Asset Inventory Documentation" }
+    },
+    {
+      "id": "n-u08-f010",
+      "term": "Licensing (asset inventory)",
+      "definition": "Tracking usage so every installation complies with the vendor's agreement; on a switch or router, an activation problem can limit ports, routes, or routing protocols, and trial features stop when the grace period ends.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.4"],
+      "reference": { "source": "certmaster", "section": "8.1.4", "title": "Asset Inventory Documentation" }
+    },
+    {
+      "id": "n-u08-f011",
+      "term": "IPAM (IP address management)",
+      "definition": "Software that scans DHCP and DNS servers and logs which addresses are in use to a database, replacing hand-kept spreadsheets, and can often reconfigure those servers remotely.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.9", "8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.1.9", "title": "IP Address Management" }
+    },
+    {
+      "id": "n-u08-f012",
+      "term": "SLA (service-level agreement)",
+      "definition": "A contract setting out the detailed terms of an ongoing service, such as its scope, performance, and each side's responsibilities, between a provider and a customer or between internal departments.",
+      "objectives": ["3.1", "3.1.a"],
+      "units": ["8.1.10"],
+      "reference": { "source": "certmaster", "section": "8.1.10", "title": "Common Agreements" }
+    },
+    {
+      "id": "n-u08-f013",
+      "term": "NDA (nondisclosure agreement)",
+      "definition": "The legal basis for protecting information assets: it sets the permitted uses of sensitive data, storage and distribution limits, and penalties for breaches; employment contracts usually contain its clauses.",
+      "objectives": ["3.1"],
+      "units": ["8.1.10"],
+      "reference": { "source": "certmaster", "section": "8.1.10", "title": "Common Agreements" }
+    },
+    {
+      "id": "n-u08-f014",
+      "term": "Life-cycle management",
+      "definition": "Overseeing assets from acquisition through deployment and use to decommissioning, with up-to-date inventory records showing which ones the vendor no longer fully supports.",
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": { "source": "certmaster", "section": "8.1.5", "title": "Lifecycle Management" }
+    },
+    {
+      "id": "n-u08-f015",
+      "term": "EOL (end-of-life)",
+      "definition": "The phase that begins when the manufacturer stops selling a product, in which support and the availability of spares and updates become more limited.",
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": { "source": "certmaster", "section": "8.1.5", "title": "Lifecycle Management" }
+    },
+    {
+      "id": "n-u08-f016",
+      "term": "EOS (end-of-support)",
+      "definition": "The status of a product its developer or vendor no longer maintains: it receives no security updates, so one still in active use is a critical vulnerability.",
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": { "source": "certmaster", "section": "8.1.5", "title": "Lifecycle Management" }
+    },
+    {
+      "id": "n-u08-f017",
+      "term": "Software management",
+      "definition": "Keeping firmware, operating systems, and applications updated as vendors fix vulnerabilities; a host OS can take patches one at a time, but an appliance OS is updated to a particular version with a new system image.",
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": { "source": "certmaster", "section": "8.1.5", "title": "Lifecycle Management" }
+    },
+    {
+      "id": "n-u08-f018",
+      "term": "Patch",
+      "definition": "The publicly released update package, which can carry feature changes as well as fixes, as opposed to a bugfix, the name kept for an issue caught during development and testing.",
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": { "source": "certmaster", "section": "8.1.5", "title": "Lifecycle Management" }
+    },
+    {
+      "id": "n-u08-f019",
+      "term": "Bug fix",
+      "definition": "The name usually reserved for a fix to an issue caught during product development and testing.",
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": { "source": "certmaster", "section": "8.1.5", "title": "Lifecycle Management" }
+    },
+    {
+      "id": "n-u08-f020",
+      "term": "Firmware",
+      "definition": "The software built into a hardware device such as a router or firewall; updating it is called flashing the chip, and the configuration should be backed up first.",
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": { "source": "certmaster", "section": "8.1.5", "title": "Lifecycle Management" }
+    },
+    {
+      "id": "n-u08-f021",
+      "term": "Downgrading (rollback)",
+      "definition": "Reverting software or firmware to a previous version, such as to fix a problem a recent update caused; it is not always possible, and a configuration backup may not fit the older version.",
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.5"],
+      "reference": { "source": "certmaster", "section": "8.1.5", "title": "Lifecycle Management" }
+    },
+    {
+      "id": "n-u08-f022",
+      "term": "Decommissioning",
+      "definition": "The life-cycle phase when a server or appliance is resold, given away, or recycled; a factory reset wipes its custom settings, but leftover data must also be removed.",
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.6"],
+      "reference": { "source": "certmaster", "section": "8.1.6", "title": "Decommissioning" }
+    },
+    {
+      "id": "n-u08-f023",
+      "term": "Media sanitization",
+      "definition": "Erasing the data on HDDs, SSDs, and tapes before disposal or reuse while leaving them intact; on an HDD the standard method is overwriting, using the drive's firmware tools or a utility.",
+      "objectives": ["3.1", "3.1.b"],
+      "units": ["8.1.6"],
+      "reference": { "source": "certmaster", "section": "8.1.6", "title": "Decommissioning" }
+    },
+    {
+      "id": "n-u08-f024",
+      "term": "Change management",
+      "definition": "A documented process for implementing modifications in a planned and controlled way, with approval, to minimize configuration drift and unscheduled downtime.",
+      "objectives": ["3.1", "3.1.c"],
+      "units": ["8.1.3"],
+      "reference": { "source": "certmaster", "section": "8.1.3", "title": "Change Management" }
+    },
+    {
+      "id": "n-u08-f025",
+      "term": "Request process tracking (service request)",
+      "definition": "Following each change through a ticket system: the ticket documents the proposed change and its approval, the stakeholders, and the change and rollback plans, and monitors progress through implementation and testing.",
+      "objectives": ["3.1", "3.1.c"],
+      "units": ["8.1.3"],
+      "reference": { "source": "certmaster", "section": "8.1.3", "title": "Change Management" }
+    },
+    {
+      "id": "n-u08-f026",
+      "term": "Configuration management",
+      "definition": "A systematic approach to keeping each IT system in its desired state throughout its life, built on identifying and documenting all the infrastructure and devices at a site.",
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.1"],
+      "reference": { "source": "certmaster", "section": "8.1.1", "title": "Configuration Management" }
+    },
+    {
+      "id": "n-u08-f027",
+      "term": "Production configuration",
+      "definition": "The state a device is actually in on the working network; a temporary or lasting deviation from the baseline is called configuration drift.",
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.1", "8.2.7"],
+      "reference": { "source": "certmaster", "section": "8.1.1", "title": "Configuration Management" }
+    },
+    {
+      "id": "n-u08-f028",
+      "term": "Backup configuration",
+      "definition": "A copy of the production configuration made at a particular time; because production may have drifted, it might not match the golden configuration.",
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.1", "8.2.7", "8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.1", "title": "Configuration Management" }
+    },
+    {
+      "id": "n-u08-f029",
+      "term": "Baseline configuration (golden configuration)",
+      "definition": "The documented, approved state a device should be in, used as a template so audits can detect unexpected or unauthorized changes.",
+      "objectives": ["3.1", "3.1.d"],
+      "units": ["8.1.1", "8.2.7", "8.1.2"],
+      "reference": { "source": "certmaster", "section": "8.1.1", "title": "Configuration Management" }
+    },
+    {
+      "id": "n-u08-f030",
+      "term": "SNMP trap",
+      "definition": "The message an agent sends to inform the monitor of a notable event, such as a port failure, once a value passes its set threshold; the monitor shows it as an alert.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1"],
+      "reference": { "source": "certmaster", "section": "8.3.1", "title": "SNMP Agents and Monitors" }
+    },
+    {
+      "id": "n-u08-f031",
+      "term": "MIB (management information base)",
+      "definition": "The data store an SNMP agent keeps of variables about its device's activity, each referred to by a numeric object identifier (OID) in a tree structure.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1"],
+      "reference": { "source": "certmaster", "section": "8.3.1", "title": "SNMP Agents and Monitors" }
+    },
+    {
+      "id": "n-u08-f032",
+      "term": "SNMPv2c",
+      "definition": "The SNMP version that many networks still run, with no robust authentication or encryption: its community strings are sent in plaintext, where v3 uses usernames and signed messages instead.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.2"],
+      "reference": { "source": "certmaster", "section": "8.3.2", "title": "SNMP Security" }
+    },
+    {
+      "id": "n-u08-f033",
+      "term": "SNMPv3",
+      "definition": "The SNMP version with encryption and strong user-based authentication: agents hold usernames and permissions instead of community strings, and messages are signed with a hash of the user's passphrase.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.2"],
+      "reference": { "source": "certmaster", "section": "8.3.2", "title": "SNMP Security" }
+    },
+    {
+      "id": "n-u08-f034",
+      "term": "Community string (SNMP)",
+      "definition": "A basic kind of password configured on an agent: the agent passes information only to management systems set with the same one, and there are usually two, for read-only and read-write access.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1", "8.3.2"],
+      "reference": { "source": "certmaster", "section": "8.3.1", "title": "SNMP Agents and Monitors" }
+    },
+    {
+      "id": "n-u08-f035",
+      "term": "SNMP monitor",
+      "definition": "Management software that gives one place to oversee network activity: it polls agents at regular intervals for their MIB data, displays it for review, and shows traps as alerts.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.3.1"],
+      "reference": { "source": "certmaster", "section": "8.3.1", "title": "SNMP Agents and Monitors" }
+    },
+    {
+      "id": "n-u08-f036",
+      "term": "Flow data",
+      "definition": "Metadata about groups of packets that share the same source and destination IP addresses, ports, and protocol, collected instead of whole payloads to cut processing and bandwidth.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.6.3"],
+      "reference": { "source": "certmaster", "section": "8.6.3", "title": "Flow Data" }
+    },
+    {
+      "id": "n-u08-f037",
+      "term": "NetFlow",
+      "definition": "A technology on routers and switches that gathers only traffic flow metadata, not whole packets, and reports it to a database for analysis.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.6.3"],
+      "reference": { "source": "certmaster", "section": "8.6.3", "title": "Flow Data" }
+    },
+    {
+      "id": "n-u08-f038",
+      "term": "Packet capture",
+      "definition": "Using a sniffer to record the frames moving over the network medium and save them to a file; the sniffer can connect through a mirrored switch port or a TAP.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.5.1"],
+      "reference": { "source": "certmaster", "section": "8.5.1", "title": "Packet Capture" }
+    },
+    {
+      "id": "n-u08-f039",
+      "term": "Baseline metrics",
+      "definition": "Measurements of resource utilization at a point in time, such as when a system is first installed, to compare responsiveness against later; system changes usually call for new ones.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.2.5"],
+      "reference": { "source": "certmaster", "section": "8.2.5", "title": "Performance Monitoring" }
+    },
+    {
+      "id": "n-u08-f040",
+      "term": "Anomaly alerting/notification",
+      "definition": "Recording and highlighting behavior or usage that is not consistent with normal activity, then, for a high-priority case, announcing it with a message such as an email or text.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.3"],
+      "reference": { "source": "certmaster", "section": "8.4.3", "title": "Event Prioritization and Alerting" }
+    },
+    {
+      "id": "n-u08-f041",
+      "term": "Log aggregation",
+      "definition": "Making log data from different sources consistent and searchable, which goes beyond simply collecting it, and condensing repeated events into one summary event that counts them.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Security Information and Event Management" }
+    },
+    {
+      "id": "n-u08-f042",
+      "term": "Syslog collector",
+      "definition": "A server that receives the event messages many devices forward to it and keeps them in one storage location; it usually listens on UDP port 514.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.2"],
+      "reference": { "source": "certmaster", "section": "8.4.2", "title": "Log Collectors and Syslog" }
+    },
+    {
+      "id": "n-u08-f043",
+      "term": "SIEM (security information and event management)",
+      "definition": "A tool that integrates network and security monitoring by automatically collecting, aggregating, and analyzing log data from many sources, such as hosts, firewalls, and intrusion detection sensors.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Security Information and Event Management" }
+    },
+    {
+      "id": "n-u08-f044",
+      "term": "API (application programming interface) integration",
+      "definition": "Linking monitoring and logging products by making one product's functions available to scripts, so a SIEM can, for example, start a configuration monitor's scan and get the results directly.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.4"],
+      "reference": { "source": "certmaster", "section": "8.4.4", "title": "Security Information and Event Management" }
+    },
+    {
+      "id": "n-u08-f045",
+      "term": "Port mirroring (SPAN)",
+      "definition": "A switch feature that copies frames addressed to chosen ports, or all ports, to one specially configured port for a sniffer; frames with errors are not copied, and frames may drop under heavy load.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.5.1"],
+      "reference": { "source": "certmaster", "section": "8.5.1", "title": "Packet Capture" }
+    },
+    {
+      "id": "n-u08-f046",
+      "term": "Syslog level 0 (Emergency)",
+      "definition": "The syslog severity code meaning the system is unusable, as in a kernel panic.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.3"],
+      "reference": { "source": "certmaster", "section": "8.4.3", "title": "Event Prioritization and Alerting" }
+    },
+    {
+      "id": "n-u08-f047",
+      "term": "Syslog level 1 (Alert)",
+      "definition": "The syslog severity code one step less severe than emergency, for a fault needing immediate remediation that has already occurred.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.3"],
+      "reference": { "source": "certmaster", "section": "8.4.3", "title": "Event Prioritization and Alerting" }
+    },
+    {
+      "id": "n-u08-f048",
+      "term": "Syslog level 6 (Informational)",
+      "definition": "The syslog severity code one step more severe than debug, for a normal event that is still worth reporting.",
+      "objectives": ["3.2", "3.2.a"],
+      "units": ["8.4.3"],
+      "reference": { "source": "certmaster", "section": "8.4.3", "title": "Event Prioritization and Alerting" }
+    },
+    {
+      "id": "n-u08-f049",
+      "term": "Network discovery",
+      "definition": "Verifying exactly what is connected to the network and what it communicates, to confirm hosts are in the right VLANs or subnets and to find rogue or unauthorized machines.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Network Discovery" }
+    },
+    {
+      "id": "n-u08-f050",
+      "term": "Ad hoc network discovery",
+      "definition": "Network scans run whenever the administrator decides one is needed; since adversaries cannot time their activity around them, they may catch unauthorized activity better.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Network Discovery" }
+    },
+    {
+      "id": "n-u08-f051",
+      "term": "Scheduled network discovery",
+      "definition": "Network scans run on a regular timetable; an adversary who knows the timetable could keep malicious activity low during those windows.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.1"],
+      "reference": { "source": "certmaster", "section": "8.2.1", "title": "Network Discovery" }
+    },
+    {
+      "id": "n-u08-f052",
+      "term": "Traffic analysis",
+      "definition": "The protocol analyzer function that monitors statistics instead of reading each frame: bandwidth used by each protocol or host, the most active hosts, and link utilization and reliability.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.5.3"],
+      "reference": { "source": "certmaster", "section": "8.5.3", "title": "Protocol Analyzers" }
+    },
+    {
+      "id": "n-u08-f053",
+      "term": "Performance monitoring",
+      "definition": "Watching a host's or appliance's metrics, such as bandwidth, utilization and throughput, CPU, memory, and storage, to tell whether it is operating normally.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.5"],
+      "reference": { "source": "certmaster", "section": "8.2.5", "title": "Performance Monitoring" }
+    },
+    {
+      "id": "n-u08-f054",
+      "term": "Availability monitoring",
+      "definition": "Probing a host or service for a non-error response, and raising an alert or alarm if it suffers an outage or other unscheduled downtime.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.6"],
+      "reference": { "source": "certmaster", "section": "8.2.6", "title": "Availability Monitoring" }
+    },
+    {
+      "id": "n-u08-f055",
+      "term": "Configuration monitoring",
+      "definition": "Generating logs, alerts, or alarms when a device's production settings change; some tools show line-by-line differences from the baseline.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.2.7"],
+      "reference": { "source": "certmaster", "section": "8.2.7", "title": "Configuration Monitoring" }
+    },
+    {
+      "id": "n-u08-f056",
+      "term": "Interface statistics",
+      "definition": "Data collected for a network adapter or a switch or router port to diagnose performance problems: utilization, per-protocol utilization, error rate, discards and drops, and retransmissions.",
+      "objectives": ["3.2", "3.2.b"],
+      "units": ["8.6.2"],
+      "reference": { "source": "certmaster", "section": "8.6.2", "title": "Interface Statistics" }
+    },
+    {
+      "id": "n-u08-f057",
+      "term": "Congestion",
+      "definition": "When the network infrastructure cannot meet the demands of peak load and starts to queue or drop packets.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["8.6.5"],
+      "reference": { "source": "certmaster", "section": "8.6.5", "title": "Bandwidth Management" }
+    },
+    {
+      "id": "n-u08-f058",
+      "term": "Contention",
+      "definition": "The ratio between the demand for a service and its available capacity; a planning issue, which monitoring tracks in case hosts or their bandwidth needs grow.",
+      "objectives": ["5.4", "5.4.a"],
+      "units": ["8.6.5"],
+      "reference": { "source": "certmaster", "section": "8.6.5", "title": "Bandwidth Management" }
+    },
+    {
+      "id": "n-u08-f059",
+      "term": "Bottlenecking (bottleneck)",
+      "definition": "A point of poor performance that reduces the whole network's productivity; a continual problem points to a device, and one only at certain times to user or application behavior.",
+      "objectives": ["5.4", "5.4.b"],
+      "units": ["8.6.1"],
+      "reference": { "source": "certmaster", "section": "8.6.1", "title": "Common Performance Issues" }
+    },
+    {
+      "id": "n-u08-f060",
+      "term": "Bandwidth",
+      "definition": "The amount of information a link can transmit, in bits per second: the link's available capacity, not the throughput actually achieved over it.",
+      "objectives": ["5.4", "5.4.c"],
+      "units": ["8.6.1", "8.2.5"],
+      "reference": { "source": "certmaster", "section": "8.6.1", "title": "Common Performance Issues" }
+    },
+    {
+      "id": "n-u08-f061",
+      "term": "Latency",
+      "definition": "The time it takes a transmission to reach the recipient, measured in milliseconds; real-time voice and video are much more sensitive to it than bursty data.",
+      "objectives": ["5.4", "5.4.d"],
+      "units": ["8.6.1"],
+      "reference": { "source": "certmaster", "section": "8.6.1", "title": "Common Performance Issues" }
+    },
+    {
+      "id": "n-u08-f062",
+      "term": "Packet loss",
+      "definition": "Packets that never reach their destination, expected only to a degree; in a capture, high numbers of TCP retransmissions and duplicate acknowledgments strongly indicate it.",
+      "objectives": ["5.4", "5.4.e"],
+      "units": ["8.6.1"],
+      "reference": { "source": "certmaster", "section": "8.6.1", "title": "Common Performance Issues" }
+    },
+    {
+      "id": "n-u08-f063",
+      "term": "Jitter",
+      "definition": "A variation in the delay, seen as an inconsistent rate of packet delivery and measured in milliseconds; real-time voice and video suffer most from it.",
+      "objectives": ["5.4", "5.4.f"],
+      "units": ["8.6.1"],
+      "reference": { "source": "certmaster", "section": "8.6.1", "title": "Common Performance Issues" }
+    },
+    {
+      "id": "n-u08-f064",
+      "term": "QoS (quality of service)",
+      "definition": "A system that identifies the traffic of a specific application, such as VoIP, and prioritizes it over others, such as file transfer, instead of forwarding packets in arrival order.",
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.5", "8.6.6"],
+      "reference": { "source": "certmaster", "section": "8.6.5", "title": "Bandwidth Management" }
+    },
+    {
+      "id": "n-u08-f065",
+      "term": "Traffic shaping",
+      "definition": "Delaying certain packet types, based on their content, so other traffic gets priority and critical applications see less latency; packets wait for free bandwidth, where policing simply drops them.",
+      "objectives": ["1.2", "1.2.c"],
+      "units": ["8.6.6"],
+      "reference": { "source": "certmaster", "section": "8.6.6", "title": "Traffic Shaping" }
+    },
+    {
+      "id": "n-u08-f066",
+      "term": "Protocol analyzer",
+      "definition": "A tool that works with a sniffer to break down each frame, live or from a saved file, and show its header fields and payload contents in a readable format.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.3", "8.5.1"],
+      "reference": { "source": "certmaster", "section": "8.5.3", "title": "Protocol Analyzers" }
+    },
+    {
+      "id": "n-u08-f067",
+      "term": "Capture filter",
+      "definition": "A sniffer filter that limits which frames get saved at all, reducing the amount of data collected; frames it leaves out are never stored.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.1"],
+      "reference": { "source": "certmaster", "section": "8.5.1", "title": "Packet Capture" }
+    },
+    {
+      "id": "n-u08-f068",
+      "term": "Display filter",
+      "definition": "An analyzer filter that shows only particular frames, or sequences of frames, from a live stream or saved file, without deleting the frames it hides.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.3"],
+      "reference": { "source": "certmaster", "section": "8.5.3", "title": "Protocol Analyzers" }
+    },
+    {
+      "id": "n-u08-f069",
+      "term": "tcpdump",
+      "definition": "The Linux command line packet capture utility, which shows captured packets until stopped, can write them to a file, and filters them by host, port, direction, or protocol.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.2"],
+      "reference": { "source": "certmaster", "section": "8.5.2", "title": "tcpdump" }
+    },
+    {
+      "id": "n-u08-f070",
+      "term": "Nmap",
+      "definition": "The open-source security scanner used for auditing and penetration testing: given a subnet or address, by default it finds which hosts are up, then port scans each one for its services.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.2", "8.2.3"],
+      "reference": { "source": "certmaster", "section": "8.2.2", "title": "Nmap" }
+    },
+    {
+      "id": "n-u08-f071",
+      "term": "Port scanner",
+      "definition": "A tool, often part of a host discovery tool, that tries to identify which TCP and UDP ports on a host are listening; analyzing the responses can also reveal software and OS versions.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": { "source": "certmaster", "section": "8.2.3", "title": "Nmap Port Scanning" }
+    },
+    {
+      "id": "n-u08-f072",
+      "term": "LLDP (Link Layer Discovery Protocol)",
+      "definition": "The IEEE standards-based protocol that switches, routers, and access points run to identify other devices on the same local network.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.4"],
+      "reference": { "source": "certmaster", "section": "8.2.4", "title": "Discovery Protocols" }
+    },
+    {
+      "id": "n-u08-f073",
+      "term": "CDP (Cisco Discovery Protocol)",
+      "definition": "The proprietary protocol that runs by default on one vendor's switches, routers, and access points, multicasting status announcements so each device keeps a cache of its neighbors' details.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.4"],
+      "reference": { "source": "certmaster", "section": "8.2.4", "title": "Discovery Protocols" }
+    },
+    {
+      "id": "n-u08-f074",
+      "term": "Speed tester",
+      "definition": "An online tool for checking Internet links: a broadband checker measures how fast the downlink and uplink are, plus latency, and a website checker times how quickly a site's pages load.",
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.6.4"],
+      "reference": { "source": "certmaster", "section": "8.6.4", "title": "Traffic Testing Tools" }
+    },
+    {
+      "id": "n-u08-f075",
+      "term": "TAP (test access point)",
+      "definition": "A box in the cabling that copies the signal to a monitor port; a passive one passes every frame, even corrupt ones, at any load, and an active one is powered and regenerates the signal.",
+      "objectives": ["5.5", "5.5.b"],
+      "units": ["8.5.1"],
+      "reference": { "source": "certmaster", "section": "8.5.1", "title": "Packet Capture" }
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "$schema": "../../schemas/units.schema.json",
   "courseware": "Network+ CertMaster Learn 9.1",
-  "source": "Mapped from the Network+ CertMaster Learn 9.1 page printouts (Book\\bySubunit, printed 8/14/26 to 9/28/26) for Units 1.0 to 7.0, and from the chapter PDFs (Book\\byUnit) for Units 8.0 to 14.0. Lesson objectives come from each lesson's \"Exam Objectives Covered\" box (the chapter's \"Objectives Covered\" box for Units 8.0 to 14.0), plus every objective whose Lesson Index in B.1.3 names the lesson.",
-  "notes": "Only printed reading sections are listed, so section numbers skip where CertMaster has a video, lab, or activity, or a number it skips (2.4.7 is one). 0.0 Network+ CertMaster Perform (the course introduction), the exam pages B.1.2 and B.1.3, and each unit's last lesson, Additional Resources, are left out because they have no reading. Units 8.0 to 14.0 have their units and lessons from the chapter PDFs, with \"sections\": [] until Mr. Flauto prints those units. Each lesson's objectives are its \"Exam Objectives Covered\" box plus every objective whose B.1.3 Lesson Index names the lesson (Mr. Flauto's decision, 2026-11-14); lesson 13.1 prints no Objectives Covered box in its chapter, so its objectives come from the Lesson Index alone. No unit or lesson is marked notOnExam, because lesson 1.4 teaches objective 5.1 (the troubleshooting methodology).",
+  "source": "Mapped from the Network+ CertMaster Learn 9.1 page printouts (Book\\bySubunit, printed 8/14/26 to 9/28/26) for Units 1.0 to 7.0; for Unit 8.0, from its unit and lesson page printouts and 17 section printouts (Book\\bySubunit, printed 2026-11-19) and 16 sections split from its chapter PDF; and from the chapter PDFs (Book\\byUnit) for Units 9.0 to 14.0. Lesson objectives come from each lesson's \"Exam Objectives Covered\" box (the chapter's \"Objectives Covered\" box for Units 9.0 to 14.0), plus every objective whose Lesson Index in B.1.3 names the lesson.",
+  "notes": "Only printed reading sections are listed, so section numbers skip where CertMaster has a video, lab, or activity, or a number it skips (2.4.7 is one). 0.0 Network+ CertMaster Perform (the course introduction), the exam pages B.1.2 and B.1.3, and each unit's last lesson, Additional Resources, are left out because they have no reading. Unit 8.0 also lists 16 sections that are not printed yet (8.1.4, 8.1.7, 8.1.8, 8.2.1 to 8.2.4, 8.3.1, 8.4.1 to 8.4.5, 8.5.3, 8.6.3, and 8.6.4): their text is split from the chapter PDF by section, and their numbers and titles were checked against the CertMaster platform's table of contents (2026-11-19) and CertMaster's course outline. Units 9.0 to 14.0 have their units and lessons from the chapter PDFs, with \"sections\": [] until Mr. Flauto prints those units. Each lesson's objectives are its \"Exam Objectives Covered\" box plus every objective whose B.1.3 Lesson Index names the lesson (Mr. Flauto's decision, 2026-11-14); lesson 13.1 prints no Objectives Covered box in its chapter, so its objectives come from the Lesson Index alone. No unit or lesson is marked notOnExam, because lesson 1.4 teaches objective 5.1 (the troubleshooting methodology).",
   "units": [
     {
       "id": "1.0",
@@ -519,37 +519,76 @@
           "id": "8.1",
           "title": "Organizational Policies and Documentation",
           "objectives": ["3.1"],
-          "sections": []
+          "sections": [
+            { "id": "8.1.1", "title": "Configuration Management" },
+            { "id": "8.1.2", "title": "Network Device Backup Management" },
+            { "id": "8.1.3", "title": "Change Management" },
+            { "id": "8.1.4", "title": "Asset Inventory Documentation" },
+            { "id": "8.1.5", "title": "Lifecycle Management" },
+            { "id": "8.1.6", "title": "Decommissioning" },
+            { "id": "8.1.7", "title": "Physical Network Diagrams" },
+            { "id": "8.1.8", "title": "Logical Network Diagrams" },
+            { "id": "8.1.9", "title": "IP Address Management" },
+            { "id": "8.1.10", "title": "Common Agreements" }
+          ]
         },
         {
           "id": "8.2",
           "title": "Host Discovery and Monitoring",
           "objectives": ["3.2", "5.5"],
-          "sections": []
+          "sections": [
+            { "id": "8.2.1", "title": "Network Discovery" },
+            { "id": "8.2.2", "title": "Nmap" },
+            { "id": "8.2.3", "title": "Nmap Port Scanning" },
+            { "id": "8.2.4", "title": "Discovery Protocols" },
+            { "id": "8.2.5", "title": "Performance Monitoring" },
+            { "id": "8.2.6", "title": "Availability Monitoring" },
+            { "id": "8.2.7", "title": "Configuration Monitoring" }
+          ]
         },
         {
           "id": "8.3",
           "title": "Simple Network Management Protocol",
           "objectives": ["1.4", "3.2"],
-          "sections": []
+          "sections": [
+            { "id": "8.3.1", "title": "SNMP Agents and Monitors" },
+            { "id": "8.3.2", "title": "SNMP Security" }
+          ]
         },
         {
           "id": "8.4",
           "title": "Event Management",
           "objectives": ["1.4", "3.2"],
-          "sections": []
+          "sections": [
+            { "id": "8.4.1", "title": "Network Device Logs" },
+            { "id": "8.4.2", "title": "Log Collectors and Syslog" },
+            { "id": "8.4.3", "title": "Event Prioritization and Alerting" },
+            { "id": "8.4.4", "title": "Security Information and Event Management" },
+            { "id": "8.4.5", "title": "Log Reviews" }
+          ]
         },
         {
           "id": "8.5",
           "title": "Packet Capture and Analysis",
           "objectives": ["3.2", "5.5"],
-          "sections": []
+          "sections": [
+            { "id": "8.5.1", "title": "Packet Capture" },
+            { "id": "8.5.2", "title": "tcpdump" },
+            { "id": "8.5.3", "title": "Protocol Analyzers" }
+          ]
         },
         {
           "id": "8.6",
           "title": "Traffic Monitoring",
           "objectives": ["1.2", "1.4", "3.2", "5.4", "5.5"],
-          "sections": []
+          "sections": [
+            { "id": "8.6.1", "title": "Common Performance Issues" },
+            { "id": "8.6.2", "title": "Interface Statistics" },
+            { "id": "8.6.3", "title": "Flow Data" },
+            { "id": "8.6.4", "title": "Traffic Testing Tools" },
+            { "id": "8.6.5", "title": "Bandwidth Management" },
+            { "id": "8.6.6", "title": "Traffic Shaping" }
+          ]
         }
       ]
     },

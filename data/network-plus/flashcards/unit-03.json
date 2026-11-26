@@ -295,7 +295,7 @@
       "term": "Drops (discards)",
       "definition": "Incoming or outgoing frames an interface throws away, for reasons such as checksum errors, mismatched MTUs, frames too small or too large, high load, or permissions.",
       "objectives": ["5.2", "5.2.b"],
-      "units": ["3.4.4"],
+      "units": ["3.4.4", "8.6.2"],
       "reference": { "source": "certmaster", "section": "3.4.4", "title": "Interface Error Counters" }
     },
     {

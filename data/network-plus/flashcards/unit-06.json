@@ -87,7 +87,7 @@
       "term": "SNMP (Simple Network Management Protocol)",
       "definition": "Manages network devices; port 161, and port 162 for SNMP traps.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6"],
+      "units": ["6.1.6", "8.3.1"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {
@@ -119,7 +119,7 @@
       "term": "Syslog",
       "definition": "The protocol that uses well-known port 514.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6"],
+      "units": ["6.1.6", "8.4.2"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {
