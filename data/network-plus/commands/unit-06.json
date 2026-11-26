@@ -140,6 +140,7 @@
     },
     {
       "id": "n-u06-c006",
+      "help": false,
       "typedFormOf": ["n-u06-q097", "n-u06-q102"],
       "system": "windows",
       "task": "The DNS record for the company wiki, wiki.oak.example, was just changed, and a technician at a Windows PC with no added software wants to ask the PC's default DNS server for the wiki's new IP address. Which command should the technician run?",

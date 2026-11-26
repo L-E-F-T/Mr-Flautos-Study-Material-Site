@@ -84,6 +84,7 @@
     },
     {
       "id": "n-u05-c004",
+      "help": false,
       "typedFormOf": ["n-u05-q015", "n-u05-q018"],
       "system": "windows",
       "task": "A technician at a Windows PC in the office needs to list every hop between the PC and a partner's web server at 203.0.113.45, with the time each hop takes to respond to each probe. Which command should the technician run?",

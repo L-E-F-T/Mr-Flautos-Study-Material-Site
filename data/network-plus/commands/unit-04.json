@@ -4,6 +4,7 @@
   "commands": [
     {
       "id": "n-u04-c001",
+      "help": false,
       "typedFormOf": ["n-u04-q033"],
       "system": "windows",
       "task": "A technician is troubleshooting a connection problem on a Windows PC and wants to see the IPv4 address, subnet mask, and default gateway of its network adapter. Which command should the technician run?",
@@ -41,6 +42,7 @@
     },
     {
       "id": "n-u04-c002",
+      "help": false,
       "typedFormOf": ["n-u04-q032"],
       "system": "windows",
       "task": "To fill out a repair ticket for a Windows PC, a technician needs the complete TCP/IP settings of its network adapter, including the MAC address and the address of the DHCP server that gave the PC its IPv4 address. Which command should the technician run?",
@@ -145,6 +147,7 @@
     },
     {
       "id": "n-u04-c006",
+      "help": false,
       "typedFormOf": ["n-u04-q041"],
       "system": "windows",
       "task": "Students say a Windows PC in the school library is slow to open files from a server at 192.168.30.12. Which command will run a basic connectivity test from the PC to the server, with the default number of echo requests, and show the round-trip time of each reply?",
@@ -171,6 +174,7 @@
     },
     {
       "id": "n-u04-c007",
+      "help": false,
       "typedFormOf": ["n-u04-q042"],
       "system": "windows",
       "task": "A network printer at 172.19.4.30 may have a loose cable, so a technician wants a Windows PC to ping it over and over until the technician stops the command. Which command should the technician run?",
@@ -197,6 +201,7 @@
     },
     {
       "id": "n-u04-c008",
+      "help": false,
       "typedFormOf": ["n-u04-q022"],
       "system": "windows",
       "task": "After a driver update, a Windows PC that runs IPv4 only cannot reach any host. Which command will test the PC's own TCP/IP software by pinging its default loopback address with the default number of echo requests?",
