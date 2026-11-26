@@ -331,7 +331,7 @@ Tested on the fixture ports (8091: the test bank, with no router entry; 8094: no
 
 ## Exam-style terminal
 
-Plan section 15 (2026-11-26): help in place of the Command bank, no limit on tries, and help off on the easiest quarter. Three pushes, each by itself: X1 the matcher, X2 the page, X3 help off. A line is run before the commit unless it says after the push. Every push adds E1 to E7, E11, E12, and E13; E8 does not apply (his word of 2026-11-26 waives the day apart), and E9 and E10 only if `site.css` changes.
+Plan section 15 (2026-11-26): help in place of the Command bank, no limit on tries, and help off on the easiest quarter. Three pushes, each by itself: X1 the matcher, X2 the page, X3 help off. A line is run before the commit unless it says after the push. Every push adds E1 to E3, E5 to E7, E11, E12, and E13. E4 does not apply (the switch put `commandUnits` in), nor does E8 (his word of 2026-11-26 waives the day apart). E9 and E10 apply only if `site.css` changes.
 
 | # | Must be true | How to prove it |
 |---|---|---|

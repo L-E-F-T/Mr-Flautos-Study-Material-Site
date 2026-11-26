@@ -794,14 +794,22 @@ Files: `assets/js/pages/commands.js`, `assets/js/lib/command-drill.js`, `assets/
 
 | Push | What | State |
 |---|---|---|
-| 1 | The matcher, alone | Next |
-| 2 | The page, the help text, the try-a-line box, the docs | After push 1's run is green |
+| 1 | The matcher, alone | `d4339ab`, committed, not pushed. It goes out with this plan's commit `a5f6dbb` and this table's first commit. |
+| 2 | The page, the help text, the try-a-line box, the docs | Next, after push 1's run is green |
 | 3 | Help off | After push 2's run is green |
 | Help-off pass | A content chat marks about a quarter of the commands | After push 3 |
 
 Section 14's rules for a build chat hold, with these changes. The pushes run in the chat that wrote this section, one after another. His word of 2026-11-26 is the word for each `git push` above once its proofs pass, and it waives the day apart; each push still goes out by itself, with its run watched (rule 8). A push that will not fit (rule 5) leaves the rest to a new chat started with: "Continue the exam-style Command line work: read docs/COMMAND-LINE-PLAN.md section 15 and do the push it names as Next." Each push updates this table in commits of their own (rule 9). The proofs are the list "Exam-style terminal" in `docs/COMMAND-LINE-CHECKLISTS.md`, with Every push.
 
 **Cost (estimate).** Push 1 about 1 point of the weekly limit, push 2 about 3 to 5, push 3 about 1 to 2, and the pass about 1. The weekly limit read 1% when this section was written.
+
+**What push 1 settled** (`d4339ab`).
+
+- Step 2 is `neverCounted(text, system)`, not exported, which gives `{ code, word }` or null; `asksForHelp` is gone, and `plainFormProblems` refuses any line `neverCounted` reads. A later push reads help only through the result: `code` (`help-list`, `help-command`, `clear-screen`, or `not-recognized` for help on an unknown word), `word` (the command as read, for `help-command`), and `typed` (the cleaned line, from which the page reads a device's words after `show`). `ignored-word` is now only `exit`.
+- `KNOWN` gains `cls` (Windows) and `clear` (Linux, router, and switch), so `clear -x` and a device's `clear` read Not in this tool, and `cls /?` asks for help (each has a row).
+- The case table has 504 rows (485 cases, 12 `given`, 7 `commandLines`). The two guard rows keep matcher 2's results: `dig help` reads Right command, wrong details, and `nslookup help.example.org` Wrong host name.
+- Proofs, before the commit: X1.1 (port 8081: 0 errors, 853 warnings; port 8091: 0 errors, 804 warnings; both "Case table: 504 of 504, matcher 3"), X1.2 (each whole report, with the old case table line put back, has the SHA-1 of its report before the edit: `f8d6deb2` on port 8081, the same with and without lab-only packs, and `ca90bd2f` on port 8091), X1.3 (all 54 rows of the table above, plus `cls /?` and `clear -x`, no repeated row, and only `exit` left as `ignored-word`), X1.4 (port 8083, today's page on the Windows command `n-u04-c002`: `help` printed Help, `cls` Clear screen, and `ipconfig/?` Help: ipconfig in the slip slot, each with no try and nothing saved; `ipconfg` printed Not recognized: ipconfg; `ipconfig /all` ended it as Correct; the only console errors were the three 404s of the optional private manifests; the drill was removed after), and X1.5. E1 to E3, E5, E11, and E12 hold. E7 runs after the push.
+- Cost to the build commit, the plan and the reading included: the weekly limit went from 1% to 8%, and the Fable line from 0% to 4%, so other sessions ran too. Context 43% full.
 
 **Not verified.** What a simulation prints comes from forum reports. The Linux and device help forms and errors are general knowledge, and nobody here can run them (section 12).
 
