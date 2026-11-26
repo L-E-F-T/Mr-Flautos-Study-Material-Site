@@ -1,0 +1,808 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-07", "title": "Unit 7.0 Explaining Application Services", "reviewed": false },
+  "questions": [
+    {
+      "id": "n-u07-q001",
+      "stem": "An administrator is choosing NTP servers for a hospital's network and wants ones that are only a few network steps from an accurate clock source. Which of the following describes how many steps each server is from that source?",
+      "choices": [
+        { "id": "a", "text": "Stratum" },
+        { "id": "b", "text": "Time drift" },
+        { "id": "c", "text": "Path delay" },
+        { "id": "d", "text": "Slew" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["7.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.2",
+        "title": "Network Time Protocol",
+        "quote": "",
+        "find": "Each stratum level represents a step"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q138" }
+    },
+    {
+      "id": "n-u07-q002",
+      "stem": "A school wants the event logs on its servers and switches to show the same time, so it is adding a time server to its network. Which of the following protocols could the devices use to get the time from that server?",
+      "choices": [
+        { "id": "a", "text": "RTP" },
+        { "id": "b", "text": "NTP" },
+        { "id": "c", "text": "SIP" },
+        { "id": "d", "text": "PTP" },
+        { "id": "e", "text": "TLS" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["7.1.2", "7.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.2",
+        "title": "Network Time Protocol",
+        "quote": "",
+        "find": "enables the synchronization of these"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q139" }
+    },
+    {
+      "id": "n-u07-q003",
+      "stem": "A manufacturer is adding robotic controllers to an assembly line, and their clocks must stay synchronized to within a few nanoseconds. Which of the following protocols should the network team implement?",
+      "choices": [
+        { "id": "a", "text": "NTP" },
+        { "id": "b", "text": "SNTP" },
+        { "id": "c", "text": "PTP" },
+        { "id": "d", "text": "NTS" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["7.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.3",
+        "title": "Precision Time Protocol",
+        "quote": "",
+        "find": "industrial processes, 5G cellular data"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q28" }
+    },
+    {
+      "id": "n-u07-q004",
+      "stem": "Students in one computer lab get an invalid token error each time they try to log on to the school's server. Which of the following should the technician check FIRST?",
+      "choices": [
+        { "id": "a", "text": "The students' account settings" },
+        { "id": "b", "text": "The clocks on the lab PCs" },
+        { "id": "c", "text": "The DNS settings on the lab PCs" },
+        { "id": "d", "text": "The port settings on the lab switch" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["7.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.2",
+        "title": "Network Time Protocol",
+        "quote": "",
+        "find": "rule out time synchronization"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 3.0 Q161" }
+    },
+    {
+      "id": "n-u07-q005",
+      "stem": "A company's older application sends user names and passwords over TCP in plaintext. Which of the following would BEST protect this traffic?",
+      "choices": [
+        { "id": "a", "text": "DTLS" },
+        { "id": "b", "text": "HTTPS" },
+        { "id": "c", "text": "TLS" },
+        { "id": "d", "text": "SSL" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["7.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.1",
+        "title": "Transport Layer Security",
+        "quote": "",
+        "find": "authenticate and encrypt TCP connections"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q18" }
+    },
+    {
+      "id": "n-u07-q006",
+      "stem": "A vulnerability scan shows that a company's web server still allows the obsolete protocol that Transport Layer Security (TLS) was developed from. Which of the following should the administrator disable to fix this?",
+      "choices": [
+        { "id": "a", "text": "Secure Sockets Layer (SSL)" },
+        { "id": "b", "text": "Datagram Transport Layer Security (DTLS)" },
+        { "id": "c", "text": "Secure Shell (SSH)" },
+        { "id": "d", "text": "HTTP Secure (HTTPS)" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.1",
+        "title": "Transport Layer Security",
+        "quote": "",
+        "find": "developed from an older protocol called"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q144" }
+    },
+    {
+      "id": "n-u07-q007",
+      "stem": "Visitors to a town library's new website get a browser warning that the site's identity cannot be verified when they connect over HTTPS. Which of the following would BEST fix this?",
+      "choices": [
+        { "id": "a", "text": "Configure the server to accept only TLSv1.3" },
+        { "id": "b", "text": "Turn on Perfect Forward Secrecy (PFS) for the site" },
+        { "id": "c", "text": "Create a new public/private key pair for the server" },
+        { "id": "d", "text": "Install a certificate issued by a trusted CA" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["7.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.1.1",
+        "title": "Transport Layer Security",
+        "quote": "",
+        "find": "digital certificate issued by some trusted"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 5 Q116" }
+    },
+    {
+      "id": "n-u07-q008",
+      "stem": "Sales staff at a car dealership open the company's inventory website in their web browsers. Which of the following do the browsers MOST likely use to request pages from the web server?",
+      "choices": [
+        { "id": "a", "text": "HTML" },
+        { "id": "b", "text": "SMB" },
+        { "id": "c", "text": "HTTPS" },
+        { "id": "d", "text": "SFTP" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.2",
+        "title": "HTTP Secure",
+        "quote": "",
+        "find": "browser will open a secure session"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q118" }
+    },
+    {
+      "id": "n-u07-q009",
+      "stem": "A clinic's patient portal website now uses TLS to protect every connection. Which of the following should the links to the portal in the clinic's reminder emails begin with?",
+      "choices": [
+        { "id": "a", "text": "https://" },
+        { "id": "b", "text": "http://" },
+        { "id": "c", "text": "ftps://" },
+        { "id": "d", "text": "sftp://" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.2",
+        "title": "HTTP Secure",
+        "quote": "",
+        "find": "using a URL starting with https://"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q135" }
+    },
+    {
+      "id": "n-u07-q010",
+      "stem": "A county parks office is moving its campsite booking website from HTTP to HTTPS. Which of the following will be true of connections to the site after the move?",
+      "choices": [
+        { "id": "a", "text": "Traffic between browsers and the site is encrypted" },
+        { "id": "b", "text": "SSH protects the connection to the site" },
+        { "id": "c", "text": "Traffic is carried over UDP instead of TCP" },
+        { "id": "d", "text": "Browsers connect to a different TCP port" },
+        { "id": "e", "text": "The pages are no longer written in HTML" }
+      ],
+      "answer": ["a", "d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.2", "7.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.2",
+        "title": "HTTP Secure",
+        "quote": "",
+        "find": "HTTPS encrypted traffic is sent over"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q136" }
+    },
+    {
+      "id": "n-u07-q011",
+      "stem": "A tax preparer's website has a form where clients enter their Social Security numbers, and the form sends them to the server over HTTP. Which of the following BEST protects the numbers as they cross the network?",
+      "choices": [
+        { "id": "a", "text": "Submit the form with the HTTP POST method" },
+        { "id": "b", "text": "Put the clients' numbers in the HTTP header" },
+        { "id": "c", "text": "Send the form's data to the server with FTP" },
+        { "id": "d", "text": "Serve the form over HTTPS instead of HTTP" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.2",
+        "title": "HTTP Secure",
+        "quote": "",
+        "find": "HTTP protected by Transport Layer Security"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q67" }
+    },
+    {
+      "id": "n-u07-q012",
+      "stem": "A marketing firm's web team uploads site updates to its web server with FTP, and the IT manager wants the team to use SFTP instead. Which of the following problems with FTP will this change fix?",
+      "choices": [
+        { "id": "a", "text": "It does not guarantee that files are delivered" },
+        { "id": "b", "text": "It sends logins and files without encryption" },
+        { "id": "c", "text": "It is suitable only for transferring small files" },
+        { "id": "d", "text": "It cannot browse directories or delete files" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.4",
+        "title": "Secure File Transfer Protocol",
+        "quote": "",
+        "find": "addresses the privacy and integrity issues"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q140" }
+    },
+    {
+      "id": "n-u07-q013",
+      "stem": "A client's firewall lets in only SSH traffic, and a contractor needs to upload project files to the client's server through it. Which of the following protocols should the contractor use?",
+      "choices": [
+        { "id": "a", "text": "FTPS" },
+        { "id": "b", "text": "SFTP" },
+        { "id": "c", "text": "TFTP" },
+        { "id": "d", "text": "FTP" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.4",
+        "title": "Secure File Transfer Protocol",
+        "quote": "",
+        "find": "using Secure Shell (SSH) over TCP"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q70" }
+    },
+    {
+      "id": "n-u07-q014",
+      "stem": "A technician finds that older switches and routers at a warehouse download their configuration files from a server each time they start. Which of the following services is that server MOST likely running?",
+      "choices": [
+        { "id": "a", "text": "TFTP" },
+        { "id": "b", "text": "FTP" },
+        { "id": "c", "text": "SFTP" },
+        { "id": "d", "text": "SMB" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.3",
+        "title": "File Transfer Protocol",
+        "quote": "",
+        "find": "A TFTP server is most commonly"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q84" }
+    },
+    {
+      "id": "n-u07-q015",
+      "stem": "A technician shares a folder and a printer on one PC so the other PCs on a law office's Windows network can use them. Which of the following protocols provides this file and print sharing?",
+      "choices": [
+        { "id": "a", "text": "SMTP" },
+        { "id": "b", "text": "FTP" },
+        { "id": "c", "text": "TFTP" },
+        { "id": "d", "text": "SMB" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.5",
+        "title": "Server Message Block",
+        "quote": "",
+        "find": "the File/Print Sharing Service is provided"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q121" }
+    },
+    {
+      "id": "n-u07-q016",
+      "stem": "An accounting office wants one device on its network that does nothing but store and share staff files. Which of the following BEST meets this need?",
+      "choices": [
+        { "id": "a", "text": "Load balancer" },
+        { "id": "b", "text": "Database server" },
+        { "id": "c", "text": "NAS appliance" },
+        { "id": "d", "text": "Server cluster" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["7.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.6",
+        "title": "Network Attached Storage",
+        "quote": "",
+        "find": "dedicated to performing a file server"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q67" }
+    },
+    {
+      "id": "n-u07-q017",
+      "stem": "Every night, a photo studio's backup software copies the day's edited photos to a NAS appliance on the studio network. Which of the following protocols would the software MOST likely use to copy the files?",
+      "choices": [
+        { "id": "a", "text": "HTTP or HTTPS" },
+        { "id": "b", "text": "SMB or FTP" },
+        { "id": "c", "text": "SMTP or IMAP" },
+        { "id": "d", "text": "SIP or RTP" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["7.2.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.2.6",
+        "title": "Network Attached Storage",
+        "quote": "",
+        "find": "Message Block (SMB) or File Transfer"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q60" }
+    },
+    {
+      "id": "n-u07-q018",
+      "stem": "A school district's new mail server must exchange email with other organizations' mail servers and let teachers keep their messages in folders on the server. Which of the following protocols should the server support?",
+      "choices": [
+        { "id": "a", "text": "SMB" },
+        { "id": "b", "text": "SMTP" },
+        { "id": "c", "text": "SIP" },
+        { "id": "d", "text": "IMAP" },
+        { "id": "e", "text": "FTP" }
+      ],
+      "answer": ["b", "d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.3.2", "7.3.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.2",
+        "title": "Internet Message Access Protocol",
+        "quote": "",
+        "find": "manage the mailbox on the server"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q131" }
+    },
+    {
+      "id": "n-u07-q019",
+      "stem": "A dental office is replacing its old phone switchboard with software on a Linux server that connects calls between its IP desk phones and handles outside calls. Which of the following BEST describes the new system?",
+      "choices": [
+        { "id": "a", "text": "VoIP PBX" },
+        { "id": "b", "text": "TDM PBX" },
+        { "id": "c", "text": "VoIP service provider" },
+        { "id": "d", "text": "VoIP endpoint" }
+      ],
+      "answer": ["a"],
+      "objectives": ["1.2"],
+      "units": ["7.3.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.3",
+        "title": "Voice and Video Services",
+        "quote": "",
+        "find": "a VoIP PBX establishes connections between"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q82" }
+    },
+    {
+      "id": "n-u07-q020",
+      "stem": "A technician installs a VoIP desk phone at a library's checkout counter so staff can place and answer calls. Which of the following terms BEST describes the phone in the library's VoIP system?",
+      "choices": [
+        { "id": "a", "text": "VoIP PBX" },
+        { "id": "b", "text": "SIP URI" },
+        { "id": "c", "text": "VoIP service provider" },
+        { "id": "d", "text": "SIP endpoint" }
+      ],
+      "answer": ["d"],
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.3.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.3.4",
+        "title": "VoIP Protocols",
+        "quote": "",
+        "find": "endpoints are the end user devices"
+      },
+      "origin": { "kind": "original", "basedOn": "Reading 7.3.4 (SIP endpoint)" }
+    },
+    {
+      "id": "n-u07-q021",
+      "stem": "A company's disaster recovery plan states that its payroll server may be offline for no more than six hours while IT identifies the problem and restores the server from backup. Which of the following metrics does this limit define?",
+      "choices": [
+        { "id": "a", "text": "Recovery time objective (RTO)" },
+        { "id": "b", "text": "Recovery point objective (RPO)" },
+        { "id": "c", "text": "Work recovery time (WRT)" },
+        { "id": "d", "text": "Mean time to repair (MTTR)" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["7.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.2",
+        "title": "Disaster Recovery Metrics",
+        "quote": "",
+        "find": "perform recovery (restore from backup"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q91" }
+    },
+    {
+      "id": "n-u07-q022",
+      "stem": "A bank's managers decide that if the loan database is ever destroyed, no more than two hours of transactions may be lost, so backups now run every two hours. Which of the following metrics did the managers set?",
+      "choices": [
+        { "id": "a", "text": "Recovery time objective (RTO)" },
+        { "id": "b", "text": "Mean time to repair (MTTR)" },
+        { "id": "c", "text": "Mean time between failures (MTBF)" },
+        { "id": "d", "text": "Recovery point objective (RPO)" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["7.4.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.2",
+        "title": "Disaster Recovery Metrics",
+        "quote": "",
+        "find": "data loss that a system can"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q262" }
+    },
+    {
+      "id": "n-u07-q023",
+      "stem": "A call center's IT staff throw away the solid-state drives from its laptops when they fail, because the drives cannot be repaired. Which of the following metrics BEST describes how long one of these drives can be expected to last?",
+      "choices": [
+        { "id": "a", "text": "Mean time to failure (MTTF)" },
+        { "id": "b", "text": "Mean time between failures (MTBF)" },
+        { "id": "c", "text": "Mean time to repair (MTTR)" },
+        { "id": "d", "text": "Recovery time objective (RTO)" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["7.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.4",
+        "title": "Fault Tolerance and Redundancy",
+        "quote": "",
+        "find": "similar metric for non-repairable components"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q92" }
+    },
+    {
+      "id": "n-u07-q024",
+      "stem": "A technician adds up the time that 40 routers ran in service, 320,000 hours in all, and divides that total by the 8 failures the routers had. Which of the following metrics did the technician calculate?",
+      "choices": [
+        { "id": "a", "text": "MTTF" },
+        { "id": "b", "text": "MTTR" },
+        { "id": "c", "text": "MTBF" },
+        { "id": "d", "text": "RPO" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["7.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.4",
+        "title": "Fault Tolerance and Redundancy",
+        "quote": "",
+        "find": "MTBF is the total operational time"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q268" }
+    },
+    {
+      "id": "n-u07-q025",
+      "stem": "A hospital's patient records system must fail over to another location with almost no delay if a disaster destroys the main datacenter. Which of the following BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "A warm site" },
+        { "id": "b", "text": "A reciprocal arrangement" },
+        { "id": "c", "text": "A cold site" },
+        { "id": "d", "text": "A hot site" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["7.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.3",
+        "title": "Disaster Recovery Sites",
+        "quote": "",
+        "find": "can failover almost immediately"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 6 Q96" }
+    },
+    {
+      "id": "n-u07-q026",
+      "stem": "An insurance agency's disaster recovery plan leases an empty office where servers and network equipment would be installed only after a disaster. Which of the following types of site does the plan use?",
+      "choices": [
+        { "id": "a", "text": "A hot site" },
+        { "id": "b", "text": "A warm site" },
+        { "id": "c", "text": "A cold site" },
+        { "id": "d", "text": "A cloud site" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["7.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.3",
+        "title": "Disaster Recovery Sites",
+        "quote": "",
+        "find": "may be an empty building"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q216" }
+    },
+    {
+      "id": "n-u07-q027",
+      "stem": "An online retailer is converting its hot site into a warm site. Which of the following BEST describes the site after the change?",
+      "choices": [
+        { "id": "a", "text": "It is an empty building until a disaster occurs" },
+        { "id": "b", "text": "It needs the latest data loaded before it can take over" },
+        { "id": "c", "text": "It is kept updated with a live copy of the data" },
+        { "id": "d", "text": "It can take over almost immediately after a disaster" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["7.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.3",
+        "title": "Disaster Recovery Sites",
+        "quote": "",
+        "find": "requirement that the latest dataset"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q186" }
+    },
+    {
+      "id": "n-u07-q028",
+      "stem": "A manufacturing company with one datacenter wants a disaster recovery option, and its leaders ask for the MOST cost-effective approach. Which of the following should the network administrator recommend?",
+      "choices": [
+        { "id": "a", "text": "A cold site" },
+        { "id": "b", "text": "A warm site" },
+        { "id": "c", "text": "A reciprocal arrangement" },
+        { "id": "d", "text": "A cloud site" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["7.4.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.3",
+        "title": "Disaster Recovery Sites",
+        "quote": "",
+        "find": "the most cost-effective solution is"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q90" }
+    },
+    {
+      "id": "n-u07-q029",
+      "stem": "A news site's traffic passes through two clustered firewalls, and readers must notice no drop in speed even while one firewall is down. Which of the following configurations BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "Active-passive clustering" },
+        { "id": "b", "text": "Active-active clustering" },
+        { "id": "c", "text": "Load balancing across both firewalls" },
+        { "id": "d", "text": "NIC teaming on each firewall" }
+      ],
+      "answer": ["a"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.6",
+        "title": "High Availability Clusters",
+        "quote": "",
+        "find": "major advantage of active/passive configurations"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q247" }
+    },
+    {
+      "id": "n-u07-q030",
+      "stem": "A warehouse's inventory server must stay up even if a power supply unit fails. Which of the following setups BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "Two power supplies that are both needed to run the server" },
+        { "id": "b", "text": "One power supply plugged into its own UPS" },
+        { "id": "c", "text": "Two power supplies that can each run the server alone" },
+        { "id": "d", "text": "One power supply and a spare kept on a shelf" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.4",
+        "title": "Fault Tolerance and Redundancy",
+        "quote": "",
+        "find": "not essential to the normal function"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q12" }
+    },
+    {
+      "id": "n-u07-q031",
+      "stem": "When a cable between two core switches is cut, the switches detect the fault and move traffic to a second link within seconds, with no action from staff. Which of the following concepts BEST describes this?",
+      "choices": [
+        { "id": "a", "text": "Load balancing" },
+        { "id": "b", "text": "Hot site" },
+        { "id": "c", "text": "Validation test" },
+        { "id": "d", "text": "Failover" }
+      ],
+      "answer": ["d"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.4",
+        "title": "Fault Tolerance and Redundancy",
+        "quote": "",
+        "find": "automatically failover to a working path"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q87" }
+    },
+    {
+      "id": "n-u07-q032",
+      "stem": "An online store's order database runs on three servers that share the same data, and if one server stops working, its connections move to another. Which of the following BEST describes this setup?",
+      "choices": [
+        { "id": "a", "text": "Load balancing" },
+        { "id": "b", "text": "NIC teaming" },
+        { "id": "c", "text": "Clustering" },
+        { "id": "d", "text": "RAID" }
+      ],
+      "answer": ["c"],
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.6",
+        "title": "High Availability Clusters",
+        "quote": "",
+        "find": "multiple redundant processing nodes"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q270" }
+    },
+    {
+      "id": "n-u07-q033",
+      "stem": "A county's IT staff meet in a conference room and talk through how they would respond if a flood shut down the main data center, without touching any systems. Which of the following BEST describes this activity?",
+      "choices": [
+        { "id": "a", "text": "Validation test" },
+        { "id": "b", "text": "Tabletop exercise" },
+        { "id": "c", "text": "Business impact analysis" },
+        { "id": "d", "text": "IT contingency planning" }
+      ],
+      "answer": ["b"],
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["7.4.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.1",
+        "title": "Disaster Recovery Concepts",
+        "quote": "",
+        "find": "discussing and working through hypothetical scenarios"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q225" }
+    },
+    {
+      "id": "n-u07-q034",
+      "stem": "Every host on a subnet uses one router as its default gateway, and the hosts must keep reaching other networks if that router fails. Which of the following BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "A second default gateway set on every host" },
+        { "id": "b", "text": "A first hop redundancy protocol on two routers" },
+        { "id": "c", "text": "Dual power supplies in the router" },
+        { "id": "d", "text": "A full mesh of links between the routers" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.1", "2.1.e"],
+      "units": ["7.4.7"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.7",
+        "title": "First Hop Redundancy",
+        "quote": "",
+        "find": "various types of first hop redundancy"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 7 Q38" }
+    },
+    {
+      "id": "n-u07-q035",
+      "stem": "A network team wants two routers to share one virtual IP address so that the second router takes over if the first one fails. Which of the following protocols would NOT meet this requirement?",
+      "choices": [
+        { "id": "a", "text": "VRRP" },
+        { "id": "b", "text": "RTP" },
+        { "id": "c", "text": "HSRP" },
+        { "id": "d", "text": "CARP" }
+      ],
+      "answer": ["b"],
+      "objectives": ["2.1", "2.1.e"],
+      "units": ["7.4.7", "7.4.6"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.7",
+        "title": "First Hop Redundancy",
+        "quote": "",
+        "find": "to share a common virtual IP"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q33" }
+    },
+    {
+      "id": "n-u07-q036",
+      "stem": "A web app's clients all connect to one virtual IP (VIP) address, but several devices behind that address can answer them. Which of the following high-availability methods work this way?",
+      "choices": [
+        { "id": "a", "text": "Server clustering" },
+        { "id": "b", "text": "NIC teaming" },
+        { "id": "c", "text": "Load balancing" },
+        { "id": "d", "text": "Multiple default gateways" },
+        { "id": "e", "text": "Redundant network links" }
+      ],
+      "answer": ["a", "c"],
+      "objectives": ["2.1", "2.1.f"],
+      "units": ["7.4.6", "7.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.6",
+        "title": "High Availability Clusters",
+        "quote": "",
+        "find": "referred to as a virtual IP"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 3 Q95" }
+    },
+    {
+      "id": "n-u07-q037",
+      "stem": "All of a streaming company's viewers connect to one of its eight media servers, which is swamped while the other seven sit idle. Which of the following should the company add so that viewer requests are spread across all eight servers?",
+      "choices": [
+        { "id": "a", "text": "A NIC team on the busy server" },
+        { "id": "b", "text": "A load balancer for the servers" },
+        { "id": "c", "text": "A NAS appliance for the media files" },
+        { "id": "d", "text": "A layer 2 switch for the servers" }
+      ],
+      "answer": ["b"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["7.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.5",
+        "title": "Load Balancers",
+        "quote": "",
+        "find": "distribute client requests across server nodes"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 7.0 Q236" }
+    },
+    {
+      "id": "n-u07-q038",
+      "stem": "A city government's website runs one group of web servers for its permit pages and another for its payment pages, and each request must go to the right group based on the URL it contains. Which of the following BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "A layer 4 switch" },
+        { "id": "b", "text": "An active-active cluster" },
+        { "id": "c", "text": "A layer 7 switch" },
+        { "id": "d", "text": "A NIC team" }
+      ],
+      "answer": ["c"],
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["7.4.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "7.4.5",
+        "title": "Load Balancers",
+        "quote": "",
+        "find": "Layer 7 switch (content switch)"
+      },
+      "origin": { "kind": "practice-exam-variation", "basedOn": "Practice Tests 2 Q78" }
+    }
+  ]
+}

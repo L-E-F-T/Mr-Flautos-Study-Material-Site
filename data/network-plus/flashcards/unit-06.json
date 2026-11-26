@@ -7,7 +7,7 @@
       "term": "FTP (File Transfer Protocol)",
       "definition": "Transfers files using two ports: port 20 for data and port 21 for control.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6"],
+      "units": ["6.1.6", "7.2.3"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {
@@ -15,7 +15,7 @@
       "term": "SFTP (Secure File Transfer Protocol)",
       "definition": "Runs FTP over an SSH connection to transfer files securely, so it uses SSH's port, 22.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6"],
+      "units": ["6.1.6", "7.2.4"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {
@@ -39,7 +39,7 @@
       "term": "SMTP (Simple Mail Transfer Protocol)",
       "definition": "Sends (transfers) email messages; port 25.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6"],
+      "units": ["6.1.6", "7.3.1"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {
@@ -63,7 +63,7 @@
       "term": "TFTP (Trivial File Transfer Protocol)",
       "definition": "A simplified (trivial) way to transfer files; port 69.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6"],
+      "units": ["6.1.6", "7.2.3"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {
@@ -71,7 +71,7 @@
       "term": "HTTP (Hypertext Transfer Protocol)",
       "definition": "Delivers web pages (hypertext) to browsers; port 80.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6", "6.1.3", "6.1.1"],
+      "units": ["6.1.6", "6.1.3", "6.1.1", "7.2.1"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {
@@ -79,7 +79,7 @@
       "term": "NTP (Network Time Protocol)",
       "definition": "Synchronizes the clocks of hosts on a network; port 123.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6", "6.2.3"],
+      "units": ["6.1.6", "6.2.3", "7.1.2"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {
@@ -103,7 +103,7 @@
       "term": "HTTPS (Hypertext Transfer Protocol Secure)",
       "definition": "Delivers web pages over a secure SSL/TLS connection; port 443.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6", "6.1.3"],
+      "units": ["6.1.6", "6.1.3", "7.2.2"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {
@@ -111,7 +111,7 @@
       "term": "SMB (Server Message Block)",
       "definition": "The protocol that uses well-known port 445.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6"],
+      "units": ["6.1.6", "7.2.5"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {
@@ -127,7 +127,7 @@
       "term": "SMTPS (Simple Mail Transfer Protocol Secure)",
       "definition": "Sends (transfers) email messages over a secure connection; port 587.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6"],
+      "units": ["6.1.6", "7.3.1"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {
@@ -151,7 +151,7 @@
       "term": "SIP (Session Initiation Protocol)",
       "definition": "Sets up (initiates) communication sessions; port 5060, or 5061 for SIP-Secure.",
       "objectives": ["1.4", "1.4.a"],
-      "units": ["6.1.6"],
+      "units": ["6.1.6", "7.3.4"],
       "reference": { "source": "certmaster", "section": "6.1.6", "title": "Common TCP and UDP Ports" }
     },
     {

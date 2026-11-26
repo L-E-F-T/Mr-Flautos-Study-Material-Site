@@ -1,0 +1,270 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-07", "title": "Unit 7.0 Explaining Application Services", "reviewed": false },
+  "flashcards": [
+    {
+      "id": "n-u07-f001",
+      "term": "SQL Server (Structured Query Language Server)",
+      "definition": "The relational database platform that clients connect to over TCP port 1433.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.7"],
+      "reference": { "source": "certmaster", "section": "7.2.7", "title": "Database Services" }
+    },
+    {
+      "id": "n-u07-f002",
+      "term": "NAS (Network-attached storage)",
+      "definition": "An appliance dedicated to the file server role, reached by IP address, that copies and backs up data at file level with protocols such as SMB; it shares bandwidth with other network traffic.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["7.2.6"],
+      "reference": { "source": "certmaster", "section": "7.2.6", "title": "Network Attached Storage" }
+    },
+    {
+      "id": "n-u07-f003",
+      "term": "Load balancer",
+      "definition": "A hardware appliance or software instance that spreads client requests across a pool of servers doing the same job, so the service can scale and stay fault tolerant.",
+      "objectives": ["1.2", "1.2.a"],
+      "units": ["7.4.5"],
+      "reference": { "source": "certmaster", "section": "7.4.5", "title": "Load Balancers" }
+    },
+    {
+      "id": "n-u07-f004",
+      "term": "FHRP (First Hop Redundancy Protocol)",
+      "definition": "The family of protocols, such as HSRP and VRRP, that let several routers share one virtual IP address as a subnet's default gateway, so hosts keep a gateway if one router fails.",
+      "objectives": ["2.1", "2.1.e"],
+      "units": ["7.4.7"],
+      "reference": { "source": "certmaster", "section": "7.4.7", "title": "First Hop Redundancy" }
+    },
+    {
+      "id": "n-u07-f005",
+      "term": "VIP (Virtual IP)",
+      "definition": "The single address that clients use to reach a cluster or a group of routers; the active device owns it, and another device takes it over if that one fails.",
+      "objectives": ["2.1", "2.1.f"],
+      "units": ["7.4.6", "7.4.7"],
+      "reference": { "source": "certmaster", "section": "7.4.6", "title": "High Availability Clusters" }
+    },
+    {
+      "id": "n-u07-f006",
+      "term": "RPO (Recovery point objective)",
+      "definition": "The most data loss a system can sustain, measured as the time between the last good backup and the disaster.",
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["7.4.2"],
+      "reference": { "source": "certmaster", "section": "7.4.2", "title": "Disaster Recovery Metrics" }
+    },
+    {
+      "id": "n-u07-f007",
+      "term": "RTO (Recovery time objective)",
+      "definition": "The longest an individual IT system may stay offline after a disaster, covering both finding the problem and restoring from backup or switching in another system.",
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["7.4.2"],
+      "reference": { "source": "certmaster", "section": "7.4.2", "title": "Disaster Recovery Metrics" }
+    },
+    {
+      "id": "n-u07-f008",
+      "term": "MTTR (Mean time to repair)",
+      "definition": "The average time it takes to correct a fault and restore a system to full operation.",
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["7.4.4"],
+      "reference": { "source": "certmaster", "section": "7.4.4", "title": "Fault Tolerance and Redundancy" }
+    },
+    {
+      "id": "n-u07-f009",
+      "term": "MTBF (Mean time between failures)",
+      "definition": "The expected lifetime of a product that can be repaired, such as a server.",
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["7.4.4"],
+      "reference": { "source": "certmaster", "section": "7.4.4", "title": "Fault Tolerance and Redundancy" }
+    },
+    {
+      "id": "n-u07-f010",
+      "term": "Cold site",
+      "definition": "An alternate site that takes longest to set up: it may be an empty building with a lease agreement to install the needed equipment when necessary.",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["7.4.3"],
+      "reference": { "source": "certmaster", "section": "7.4.3", "title": "Disaster Recovery Sites" }
+    },
+    {
+      "id": "n-u07-f011",
+      "term": "Warm site",
+      "definition": "An alternate site with operational equipment in place, but the latest dataset must be loaded before services can fail over to it.",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["7.4.3"],
+      "reference": { "source": "certmaster", "section": "7.4.3", "title": "Disaster Recovery Sites" }
+    },
+    {
+      "id": "n-u07-f012",
+      "term": "Hot site",
+      "definition": "An alternate site that can take over almost immediately, with operational equipment kept updated with a live dataset.",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["7.4.3"],
+      "reference": { "source": "certmaster", "section": "7.4.3", "title": "Disaster Recovery Sites" }
+    },
+    {
+      "id": "n-u07-f013",
+      "term": "Active-active",
+      "definition": "A cluster in which every node handles connections at once, using the hardware's full capacity, but performance drops when a node fails and the rest take on its workload.",
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.6"],
+      "reference": { "source": "certmaster", "section": "7.4.6", "title": "High Availability Clusters" }
+    },
+    {
+      "id": "n-u07-f014",
+      "term": "Active-passive",
+      "definition": "A cluster in which a standby node sits unused until the working node fails, so performance holds during failover, but the unused capacity can raise costs.",
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.6"],
+      "reference": { "source": "certmaster", "section": "7.4.6", "title": "High Availability Clusters" }
+    },
+    {
+      "id": "n-u07-f015",
+      "term": "Tabletop exercises",
+      "definition": "Teams discussing and working through a hypothetical disaster scenario to assess their response plans and decision-making and find gaps in knowledge, communication, and coordination.",
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["7.4.1"],
+      "reference": { "source": "certmaster", "section": "7.4.1", "title": "Disaster Recovery Concepts" }
+    },
+    {
+      "id": "n-u07-f016",
+      "term": "Validation tests",
+      "definition": "Performing simulated failovers to prove that services can be restored from backup configurations and data, and to measure recovery time.",
+      "objectives": ["3.3", "3.3.d"],
+      "units": ["7.4.1"],
+      "reference": { "source": "certmaster", "section": "7.4.1", "title": "Disaster Recovery Concepts" }
+    },
+    {
+      "id": "n-u07-f017",
+      "term": "PTP (Precision Time Protocol)",
+      "definition": "Synchronizes clocks to within nanoseconds, where NTP manages milliseconds, for the most timing-critical networks.",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["7.1.3"],
+      "reference": { "source": "certmaster", "section": "7.1.3", "title": "Precision Time Protocol" }
+    },
+    {
+      "id": "n-u07-f018",
+      "term": "NTS (Network Time Security)",
+      "definition": "Protects NTP with TLS against unauthorized time sources and manipulated time data.",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["7.1.2"],
+      "reference": { "source": "certmaster", "section": "7.1.2", "title": "Network Time Protocol" }
+    },
+    {
+      "id": "n-u07-f019",
+      "term": "IMAP (Internet Message Access Protocol)",
+      "definition": "The most widely used mail retrieval protocol, letting clients manage a mailbox kept on the server, with several clients on one mailbox at once; SMTP only delivers the mail.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.3.2"],
+      "reference": { "source": "certmaster", "section": "7.3.2", "title": "Internet Message Access Protocol" }
+    },
+    {
+      "id": "n-u07-f020",
+      "term": "TLS (Transport Layer Security)",
+      "definition": "Uses a server's digital certificate to authenticate it and then encrypts the TCP connection, turning HTTP into HTTPS; it was developed from the older SSL, which is now obsolete.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.1.1"],
+      "reference": { "source": "certmaster", "section": "7.1.1", "title": "Transport Layer Security" }
+    },
+    {
+      "id": "n-u07-f021",
+      "term": "SSL (Secure Sockets Layer)",
+      "definition": "The older protocol that TLS was developed from; it is now completely obsolete.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.1.1"],
+      "reference": { "source": "certmaster", "section": "7.1.1", "title": "Transport Layer Security" }
+    },
+    {
+      "id": "n-u07-f022",
+      "term": "FTPS (File Transfer Protocol Secure)",
+      "definition": "Protects an FTP session with an SSL/TLS tunnel that is set up before any FTP commands are sent; SFTP uses SSH instead.",
+      "objectives": ["1.4", "1.4.a"],
+      "units": ["7.2.4"],
+      "reference": { "source": "certmaster", "section": "7.2.4", "title": "Secure File Transfer Protocol" }
+    },
+    {
+      "id": "n-u07-f023",
+      "term": "Stratum (NTP)",
+      "definition": "An NTP server's distance from an accurate clock source: servers linked directly to the clock are at level 1, and each network step away adds one level.",
+      "objectives": ["3.4", "3.4.c"],
+      "units": ["7.1.2"],
+      "reference": { "source": "certmaster", "section": "7.1.2", "title": "Network Time Protocol" }
+    },
+    {
+      "id": "n-u07-f024",
+      "term": "VoIP PBX (private branch exchange)",
+      "definition": "An automated switchboard that connects calls between endpoints over the local IP network and routes calls to and from outside networks through a service provider.",
+      "objectives": ["1.2"],
+      "units": ["7.3.3"],
+      "reference": { "source": "certmaster", "section": "7.3.3", "title": "Voice and Video Services" }
+    },
+    {
+      "id": "n-u07-f025",
+      "term": "VoIP endpoint (user agent)",
+      "definition": "The end-user device that a person uses to place and receive VoIP calls.",
+      "objectives": ["1.2"],
+      "units": ["7.3.4", "7.3.5"],
+      "reference": { "source": "certmaster", "section": "7.3.4", "title": "VoIP Protocols" }
+    },
+    {
+      "id": "n-u07-f026",
+      "term": "HSRP (Hot Standby Router Protocol)",
+      "definition": "Cisco's proprietary protocol in which a group of routers shares one virtual IP as the default gateway: the active router answers, and the router with the next highest priority waits to take over.",
+      "objectives": ["2.1", "2.1.e"],
+      "units": ["7.4.7"],
+      "reference": { "source": "certmaster", "section": "7.4.7", "title": "First Hop Redundancy" }
+    },
+    {
+      "id": "n-u07-f027",
+      "term": "VRRP (Virtual Router Redundancy Protocol)",
+      "definition": "The open standard protocol in which a master router answers as the default gateway on a shared virtual IP, every other router is a backup, and no router needs its own unique IP address.",
+      "objectives": ["2.1", "2.1.e"],
+      "units": ["7.4.7"],
+      "reference": { "source": "certmaster", "section": "7.4.7", "title": "First Hop Redundancy" }
+    },
+    {
+      "id": "n-u07-f028",
+      "term": "DR (disaster recovery)",
+      "definition": "Plans and tasks for specific large-scale outages that threaten a whole site, such as switching services to failover systems or sites and restoring systems and data from backups.",
+      "objectives": ["3.3"],
+      "units": ["7.4.1"],
+      "reference": { "source": "certmaster", "section": "7.4.1", "title": "Disaster Recovery Concepts" }
+    },
+    {
+      "id": "n-u07-f029",
+      "term": "Fault tolerance",
+      "definition": "Keeping the same, or nearly the same, level of service when individual components fail, usually through redundancy, such as RAID, UPSs, or clusters, that removes single points of failure.",
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.4"],
+      "reference": { "source": "certmaster", "section": "7.4.4", "title": "Fault Tolerance and Redundancy" }
+    },
+    {
+      "id": "n-u07-f030",
+      "term": "Failover",
+      "definition": "Switching automatically to a redundant component, path, or node when the one in use fails, so the system keeps operating normally.",
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.4"],
+      "reference": { "source": "certmaster", "section": "7.4.4", "title": "Fault Tolerance and Redundancy" }
+    },
+    {
+      "id": "n-u07-f031",
+      "term": "Clustering",
+      "definition": "Linking redundant nodes that share data with one another so clients see one server on a shared virtual IP; if a node stops working, its connections fail over to another.",
+      "objectives": ["3.3", "3.3.c"],
+      "units": ["7.4.6"],
+      "reference": { "source": "certmaster", "section": "7.4.6", "title": "High Availability Clusters" }
+    },
+    {
+      "id": "n-u07-f032",
+      "term": "Cloud site",
+      "definition": "The most cost-effective recovery option for many companies: moving processing and data storage to a provider whose datacenters in other regions keep services running through a local disaster.",
+      "objectives": ["3.3", "3.3.b"],
+      "units": ["7.4.3"],
+      "reference": { "source": "certmaster", "section": "7.4.3", "title": "Disaster Recovery Sites" }
+    },
+    {
+      "id": "n-u07-f033",
+      "term": "MTTF (Mean time to failure)",
+      "definition": "The expected lifetime of a component that cannot be repaired, such as a hard drive.",
+      "objectives": ["3.3", "3.3.a"],
+      "units": ["7.4.4"],
+      "reference": { "source": "certmaster", "section": "7.4.4", "title": "Fault Tolerance and Redundancy" }
+    }
+  ]
+}
