@@ -6,6 +6,7 @@ import { fetchJSON } from '../assets/js/lib/boot.js';
 import { validateAll, caseTableLine } from '../assets/js/lib/validate-core.js';
 import { SYSTEMS, VERDICTS, buildContext, matchSpec, specFromItem, systemName, wordsFor } from '../assets/js/lib/command-match.js';
 import { helpFor, helpLines, systemError } from '../assets/js/lib/command-help.js';
+import { helpOff } from '../assets/js/lib/command-items.js';
 import { h, mount, nextId, plural } from '../assets/js/lib/dom.js';
 import { initThemeToggle } from '../assets/js/lib/theme.js';
 
@@ -165,6 +166,7 @@ function commandLinePanel(commandLine) {
       stat(n.commands, 'commands'),
       stat(n.versions, 'versions'),
       stat(n.followUps, 'follow-ups'),
+      stat(n.helpOff, 'help off'),
       stat(n.extra, 'extra'),
       n.drafts ? stat(n.drafts, 'drafts') : null,
       n.placeholder ? stat(n.placeholder, 'placeholder') : null,
@@ -238,8 +240,9 @@ const PRINTED_STYLE = { margin: '0.4rem 0 0', fontFamily: 'var(--font-mono)', fo
 /**
  * The try-a-line box: each typed line, read by the matcher against a command, or against a
  * stored line and an also-works line typed here, gets one row with the words the page would show.
- * A help line also shows what the page's help prints on that system, from the exam's bank, and a
- * command the system does not know shows the system's error (command-help.js, plan section 15).
+ * A help line also shows what the page's help prints on that system, from the exam's bank (Help
+ * off on a picked command with "help": false), and a command the system does not know shows the
+ * system's error (command-help.js, plan section 15).
  */
 function tryBox(commands, bank) {
   const entries = bank && Array.isArray(bank.entries) ? bank.entries : [];
@@ -261,8 +264,10 @@ function tryBox(commands, bank) {
     for (const el of own) el.hidden = pick.value !== '';
   });
   tryButton.addEventListener('click', () => {
-    const spec = pick.value !== ''
-      ? specFromItem(usable[Number(pick.value)])
+    const command = pick.value !== '' ? usable[Number(pick.value)] : null;
+    const off = helpOff(command);
+    const spec = command
+      ? specFromItem(command)
       : {
           system: system.value,
           groups: stored.value.trim() ? [[stored.value.trim()]] : [],
@@ -277,7 +282,7 @@ function tryBox(commands, bank) {
             h('tbody', null, lines.map((line) => {
               const r = matchSpec(spec, line, ctx);
               const words = wordsFor(r);
-              const help = helpFor(entries, spec.system, r, false);
+              const help = helpFor(entries, spec.system, r, off);
               const printed = help ? helpLines(help) : systemError(spec.system, r);
               return h('tr', null,
                 h('td', null, h('code', null, line)),

@@ -154,6 +154,27 @@
       "objectives": ["5.5", "5.5.a"],
       "units": ["6.3.1"],
       "reference": { "source": "certmaster", "section": "6.3.1", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
+    },
+    {
+      "id": "n-u98-c008",
+      "help": false,
+      "origin": { "kind": "other", "basedOn": "TEST SOURCE 8" },
+      "system": "windows",
+      "task": "TEST ITEM, not content. On this Windows PC, which test command has its test help turned off?",
+      "accept": [
+        { "lines": ["netstat"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u98-v008",
+          "outputs": [
+            { "text": "TEST OUTPUT\nhelp off test command" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["4.4.2"],
+      "reference": { "source": "certmaster", "section": "4.4.2", "title": "TEST ITEM", "quote": "", "find": "test phrase only" }
     }
   ]
 }

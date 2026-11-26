@@ -39,7 +39,8 @@
                          the items first appear, and every line the pack stores is a row of its item.
     work\commands-<unit>.json  { "commands": [ { "slot": "U4-1", "typedFormOf", "origin" (only where no
                            partner is a question), "system", "task", "accept", "alsoWorks", "versions",
-                           "objectives", "units", "reference" } ] }, with no ids (the kit sets them).
+                           "objectives", "units", "reference", and "help": false only where help is
+                           off } ] }, with no ids (the kit sets them).
     work\commands-<unit>-fixes*.json  The same shape. A later file (by name) wins, command by command.
     text\<section>.raw.txt  The find-phrase check, and the words of each stored line.
 
@@ -55,7 +56,8 @@
                              version with the same follow-up (or, with none, the same place), and a new one
                              takes a number above "lastCommand" and "lastVersion" in the pack header, which
                              keep the highest numbers ever used, so a dropped id is never used again. A kept
-                             command keeps Mr. Flauto's quote.
+                             command keeps Mr. Flauto's quote, and its "help": false (help off) when its
+                             draft leaves "help" out. "help": false goes on the line under "id".
     command-ids.tsv          id, slot, command or version N, partners or follow-up, kept or new.
     stored-lines.tsv         system, line, id, slot, group (1 to 3, or also for alsoWorks), section.
 
@@ -223,7 +225,8 @@ if ($CommandsOnly) {
   $draftFiles = @(Get-ChildItem -LiteralPath "$Scratch\work" -Filter "commands-$Unit.json" -File -ErrorAction SilentlyContinue) + @(Get-ChildItem -LiteralPath "$Scratch\work" -Filter "commands-$Unit-fixes*.json" -File -ErrorAction SilentlyContinue | Sort-Object Name)
   foreach ($f in $draftFiles) { foreach ($c in @((Read-Json $f.FullName).commands)) { if ($c -and $c.slot) { $cmdDraft[[string]$c.slot] = $c } } }
 
-  # The unit's pack in -Data, if there is one: the ids, the highest numbers ever used, and his quotes.
+  # The unit's pack in -Data, if there is one: the ids, the highest numbers ever used, his quotes, and
+  # which commands have help off.
   $oldFile = "$Data\commands\$packName"
   $old = New-Object System.Collections.Generic.List[object]
   $lastC = 0; $lastV = 0
@@ -242,7 +245,8 @@ if ($CommandsOnly) {
         if ($v.id -match '-v(\d+)$' -and [int]$Matches[1] -gt $lastV) { $lastV = [int]$Matches[1] }
         $vers.Add([pscustomobject]@{ id = [string]$v.id; followUp = [string]$v.followUp.question; taken = $false })
       }
-      $old.Add([pscustomobject]@{ id = [string]$c.id; keys = $keys; versions = $vers; quote = [string]$c.reference.quote; section = [string]$c.reference.section; taken = '' })
+      $off = (@($c.PSObject.Properties.Name) -contains 'help') -and ($c.help -is [bool]) -and (-not $c.help)
+      $old.Add([pscustomobject]@{ id = [string]$c.id; keys = $keys; versions = $vers; quote = [string]$c.reference.quote; section = [string]$c.reference.section; helpOff = $off; taken = '' })
     }
     # A trial pack may be re-assembled until the tool is switched on (docs/CONTENT-HANDOFF.md, rule 8).
     $examsFile = Join-Path (Split-Path $Data -Parent) 'exams.json'
@@ -415,6 +419,13 @@ if ($CommandsOnly) {
       if ($prev.section -eq $ownSec) { $quote = $prev.quote }
       else { $cp.Add("$tag has Mr. Flauto's quote for $($prev.section) in ${packName}, and its section is now ${ownSec}: keep the section, or ask him (a quote is never blanked)") }
     }
+    # Help off (docs/CONTENT-GUIDE.md, "Help off"): "help": false from the draft or, when the draft leaves
+    # "help" out, from the kept command, as its quote is kept.
+    $helpOff = $false
+    if (@($src.PSObject.Properties.Name) -contains 'help') {
+      if (($src.help -is [bool]) -and (-not $src.help)) { $helpOff = $true }
+      else { $cp.Add("$tag help must be false (help off), or left out") }
+    } elseif ($prev -and $prev.helpOff) { $helpOff = $true }
 
     # The versions: one, or one for each follow-up the line list gives the item (only those of
     # docs/COMMAND-LINE-PLAN.md section 3), each with one output for each answer group.
@@ -482,6 +493,7 @@ if ($CommandsOnly) {
       origin = $(if ($hasOrigin) { [ordered]@{ kind = [string]$src.origin.kind; basedOn = $basedOn } } else { $null })
       system = $system; task = $task; groups = $groups; sections = $groupSecs; also = $also; versions = $vOut
       objectives = $objs; units = $units; section = $ownSec; title = $title; quote = $quote; find = $find
+      helpOff = $helpOff
     })
   }
 
@@ -510,6 +522,7 @@ if ($CommandsOnly) {
     @(
       '    {'
       '      "id": ' + (ConvertTo-JsonString $c.id) + ','
+      if ($c.helpOff) { '      "help": false,' }
       if (@($c.partners).Count) { '      "typedFormOf": ' + (ConvertTo-JsonList $c.partners) + ',' }
       if ($c.origin) { '      "origin": { "kind": ' + (ConvertTo-JsonString $c.origin.kind) + ', "basedOn": ' + (ConvertTo-JsonString $c.origin.basedOn) + ' },' }
       '      "system": ' + (ConvertTo-JsonString $c.system) + ','
@@ -561,8 +574,11 @@ if ($CommandsOnly) {
 
   $nv = 0; $nf = 0
   foreach ($c in $sorted) { $nv += $c.versions.Count; $nf += @($c.versions | Where-Object { $_.followUp }).Count }
+  # The commands with help off, named only when there are some.
+  $nh = @($sorted | Where-Object { $_.helpOff }).Count
+  $helpNote = if ($nh) { "; help off: $nh" } else { '' }
   "$unitTitle"
-  "Commands: $($sorted.Count) ($(@($sorted | Where-Object { $_.state -eq 'kept' }).Count) kept their ids, $(@($sorted | Where-Object { $_.state -eq 'new' }).Count) new); versions: $nv, with a follow-up: $nf; lastCommand $lastC, lastVersion $lastV"
+  "Commands: $($sorted.Count) ($(@($sorted | Where-Object { $_.state -eq 'kept' }).Count) kept their ids, $(@($sorted | Where-Object { $_.state -eq 'new' }).Count) new); versions: $nv, with a follow-up: $nf$helpNote; lastCommand $lastC, lastVersion $lastV"
   $unbuilt = @($cmdDraft.Keys | Where-Object { $itemOrder -notcontains $_ } | Sort-Object)
   if ($unbuilt.Count) { "Drafts with no rows in $listName (not built): $($unbuilt -join ', ')" }
   $retired = @(@($old | Where-Object { -not $_.taken } | ForEach-Object { $_.id }) + @($old | ForEach-Object { $_.versions } | Where-Object { -not $_.taken } | ForEach-Object { $_.id }))

@@ -122,6 +122,7 @@
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z][a-z0-9]*-u[0-9]{2}-c[0-9]{3}$", "description": "Course code, unit, the letter c, a number: n-u04-c001. Shared with no question, card, or version of any exam. Never reuse one." },
         "status": { "enum": ["draft", "published"], "description": "Drafts are hidden from students (preview with ?drafts=1)." },
+        "help": { "const": false, "description": "Only on a command with help off: there help, ?, and a command's own help (ipconfig /?) print Help off, as on some exam items. Left out, help is on. A content chat turns help off on the easiest commands, about a quarter of them, on the line under \"id\" (docs/CONTENT-GUIDE.md, \"Help off\")." },
         "typedFormOf": {
           "type": "array",
           "minItems": 1,

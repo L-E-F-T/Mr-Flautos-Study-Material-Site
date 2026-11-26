@@ -1,8 +1,8 @@
 /**
- * Command line tool: how a command is read (docs/COMMAND-LINE-PLAN.md sections 4 and 14).
+ * Command line tool: how a command is read (docs/COMMAND-LINE-PLAN.md sections 4, 14, and 15).
  * The page and the content check both read a command through this file: its partners, what
- * each answer group prints in a version, the follow-up question, the weight in the draw, and
- * the reference it shows. No page code: no DOM and no fetch.
+ * each answer group prints in a version, the follow-up question, the weight in the draw, the
+ * reference it shows, and whether its help is off. No page code: no DOM and no fetch.
  *
  * Questions come in as a lookup by id (questionById): a Map, or anything with get(id).
  *
@@ -42,6 +42,14 @@ export function partnerQuestions(command, questionById) {
 /** True for a command from a pack marked "set": "extra" (commandsFromPacks stamps _set). */
 export function isExtra(command) {
   return Boolean(command) && command._set === 'extra';
+}
+
+/**
+ * True when help is off on a command: "help": false (docs/CONTENT-GUIDE.md, "Help off"). There
+ * help and a command's own help print Help off. With no field, help is on.
+ */
+export function helpOff(command) {
+  return Boolean(command) && command.help === false;
 }
 
 /** The versions of a command, as a list. */

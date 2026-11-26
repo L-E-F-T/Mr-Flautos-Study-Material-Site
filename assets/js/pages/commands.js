@@ -34,7 +34,7 @@ import { buildSelectionTree, itemIdsForLeaves, ancestorAtDepth, tagChips } from 
 import { shuffle } from '../lib/random.js';
 import * as store from '../lib/storage.js';
 import { matchLine, buildContext, specFromItem, wordsFor, SYSTEMS } from '../lib/command-match.js';
-import { printableVersions, versionById, outputText, followUpOf, drawWeight, isExtra } from '../lib/command-items.js';
+import { printableVersions, versionById, outputText, followUpOf, drawWeight, isExtra, helpOff } from '../lib/command-items.js';
 import {
   usableCommands, drawIds, pickVersion, gradeAnswer, gradePick, newChoiceOrder, keptChoiceOrder, SHOW_ANSWER_AFTER, MAX_TYPED, MAX_LINES,
 } from '../lib/command-drill.js';
@@ -95,8 +95,8 @@ async function start(ctx) {
   // question packs (boot.js hands back its answer for them), the command packs, and the bank.
   showTestContentBanner(ctx.placeholderContent || packs.some(isPlaceholderPack) || isPlaceholderBank(bank));
   const bankList = bankEntries(bank);
-  // What a help line on a command prints from: the bank, and whether help is off on the command.
-  const helpOf = () => ({ entries: bankList, off: false });
+  // What a help line on a command prints from: the bank, and help off on the command ("help": false).
+  const helpOf = (command) => ({ entries: bankList, off: helpOff(command) });
 
   const loaded = commandsFromPacks(packs);
   // What the matcher knows about the whole exam (a command the tool asks elsewhere reads Wrong

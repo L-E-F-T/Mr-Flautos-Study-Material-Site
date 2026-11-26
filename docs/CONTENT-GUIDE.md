@@ -165,7 +165,7 @@ Check every card against this before it goes in:
 
 ## A command (the Command line tool)
 
-Command line is the third study tool, for Network+ only so far: one exam-style task at a time, above a prompt for the system the task names (Windows, Linux, Router, Switch). The student types the command. A right line prints example output, then the reading. A wrong command, or the right command with wrong details, adds a try; there is no limit, and the results count the tries each command took. A slip that is not a recall mistake (a wrong address the task gave, a misspelled command name) costs nothing, and so does help: `help` lists the commands the tool covers on the task's system, and a command's own help (`ipconfig /?`, `show ?`) its switches ("The command bank"). An exam has the tool only when its entry in `data/exams.json` has `commandUnits`, which only a website chat sets. The build plan is `docs/COMMAND-LINE-PLAN.md`.
+Command line is the third study tool, for Network+ only so far: one exam-style task at a time, above a prompt for the system the task names (Windows, Linux, Router, Switch). The student types the command. A right line prints example output, then the reading. A wrong command, or the right command with wrong details, adds a try; there is no limit, and the results count the tries each command took. A slip that is not a recall mistake (a wrong address the task gave, a misspelled command name) costs nothing, and so does help: `help` lists the commands the tool covers on the task's system, and a command's own help (`ipconfig /?`, `show ?`) its switches ("The command bank"), except on a command with help off, where it prints Help off ("Help off"). An exam has the tool only when its entry in `data/exams.json` has `commandUnits`, which only a website chat sets. The build plan is `docs/COMMAND-LINE-PLAN.md`.
 
 A command pack (`data/network-plus/commands/unit-04.json`) looks like this:
 
@@ -210,6 +210,7 @@ A command pack (`data/network-plus/commands/unit-04.json`) looks like this:
 | `versions` | One to three. Each has an id of its own (`n-u04-v001`, never reused), one output for each answer group in the order of `accept`, and at most one `followUp`. An output is `{ "text": "..." }`, which may be empty, or `{ "exhibitOf": "<question id>" }`, which prints the exhibit of the version's own follow-up ("Output", "The follow-up question", "Output versions"). |
 | `objectives`, `units`, `reference` | As for a question, with the quote rule 5 of "Quotes from the book" gives. A command is listed under the unit its `units` roll up to; once the exam has `commandUnits`, that unit must be one it names. |
 | `status` | Leave out (published) or `"draft"` to hide it from students. Preview drafts with `?drafts=1`. |
+| `help` | Leave out (help is on), or `false` to turn help off on the command ("Help off"). It goes on the line under `id`. |
 
 No weight is stored. The draw works it out from the source of the partner question (the practice exam book's two full tests, Practice Tests 6 and 7, count 3, the rest of the book 2, anything else 1; with several partners the highest counts), or from the command's own `origin`.
 
@@ -313,6 +314,14 @@ The bank is one file per exam, `data/<exam folder>/commands/bank.json`, beside t
 - **Never an answer line.** No text in the bank holds a stored line of two or more words (`ipconfig /all`), and no syntax line holds an address or a name that a task gives. The student puts the line together. A one-word stored line, such as `netstat`, is the entry's own command, and that is shown.
 - **Reviewed.** The bank has `"reviewed": false` until Mr. Flauto reads it.
 - **The checks.** The content check refuses a bank that is not valid JSON or has no `entries` list; an entry with an unknown system, or a command that is not one word written as the tool's name; a second entry for one tool on one system; a switch with no text, or listed twice; a command or switch with no words; a section that `units.json` does not have; a syntax line that does not start with its command, shows no value in angle brackets, or is longer than 36 characters; a tab or an en or em dash in a command, switch, or syntax line; any text that holds a stored line of two or more words; and a syntax line that holds a value a task gives. It warns about words outside 3 to 6, an em dash in the words, an unknown field, `"reviewed": false`, a tool a stored line starts with that has no entry, a switch a stored line uses that its entry does not list, an entry whose command no stored line starts with, and an exam with command packs and no bank. It cannot see a taught switch that no task asks: the blind switch list of a Command bank pass (`docs/CONTENT-HANDOFF.md`) finds those.
+
+### Help off
+
+On some exam items, `help` does nothing, so the tool turns help off on some commands. Mr. Flauto, 2026-11-26: "Only off on the easiest so a content chat picks the ones students really shouldnt need help on. It should ultimaly be 25% of the total about". On a command with `"help": false`, `help`, `?`, and every command's own help (`ipconfig /?`, `show ?`) print Help off. That costs no try, and the results do not mark the command with Help. Show answer still appears after 2 counted tries.
+
+- **Which commands.** The easiest: the ones students really should not need help on. Help off changes nothing else: the task, the lines, the outputs, and the follow-up stay as they are.
+- **How many.** About a quarter of the exam's commands. The content check counts them on its `Command line:` line (`29 commands (0 extra), ..., 7 help off`) and gives no warning on the share, so the content chat keeps it. A help-off pass (`docs/CONTENT-HANDOFF.md`) marks the commands already published, and each later Command line pass marks the easiest of its unit's new commands, so the share stays about a quarter.
+- **Where it goes.** `"help": false` on the line under the command's `id`, where `assemble.ps1` writes it. A rebuild of the unit keeps it on a command that keeps its id, as it keeps a quote. The content check refuses any other value. To turn help back on, take the line out.
 
 ## Where questions come from (the rule)
 

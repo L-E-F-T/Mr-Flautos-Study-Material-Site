@@ -12,7 +12,7 @@ import {
   MATCHER_VERSION, SYSTEMS, VERDICTS, buildContext, cleanLine, givenTargets, isCommandLine, matchSpec, plainFormProblems,
   promptFor, readLine, specFromItem, systemName, wordsFor,
 } from './command-match.js';
-import { drawWeight, exhibitText, isExtra, outputText, partnerIds, partnerQuestions, quotePartner } from './command-items.js';
+import { drawWeight, exhibitText, helpOff, isExtra, outputText, partnerIds, partnerQuestions, quotePartner } from './command-items.js';
 import { bankEntries, bankPath, loadCommandBank, toolOf, unlistedSwitches, usedSwitches } from './command-bank.js';
 
 export const MAX_QUOTE_WORDS = 40;
@@ -407,7 +407,7 @@ function validateExam(exam, content, { error, warn, commandPacks = [], commandsE
 
 /* ---------- Command line: command packs (docs/COMMAND-LINE-PLAN.md, Appendix I and section 14) ---------- */
 
-const COMMAND_FIELDS = ['id', 'status', 'typedFormOf', 'origin', 'system', 'task', 'accept', 'alsoWorks', 'versions', 'objectives', 'units', 'reference'];
+const COMMAND_FIELDS = ['id', 'status', 'help', 'typedFormOf', 'origin', 'system', 'task', 'accept', 'alsoWorks', 'versions', 'objectives', 'units', 'reference'];
 // commandsFromPacks stamps these on each command. They are not fields of a pack.
 const COMMAND_STAMPS = ['_pack', '_visibility', '_set'];
 const GROUP_FIELDS = ['lines', 'sections'];
@@ -554,7 +554,7 @@ function checkCommandLine(env) {
   const partnerOwner = new Map();
   const followUpOwner = new Map();
   const firstAnswers = new Map();
-  const counts = { commands: commands.length, versions: 0, followUps: 0, extra: 0, drafts: 0, placeholder: 0, labOnly: 0 };
+  const counts = { commands: commands.length, versions: 0, followUps: 0, helpOff: 0, extra: 0, drafts: 0, placeholder: 0, labOnly: 0 };
   const lines = [];
   // Every stored line with its system, its command, and the targets its task gives: what the
   // command bank is checked against.
@@ -573,6 +573,11 @@ function checkCommandLine(env) {
     for (const key of Object.keys(command)) {
       if (!COMMAND_FIELDS.includes(key) && !COMMAND_STAMPS.includes(key)) warn(where, `Unknown field "${key}".`);
     }
+
+    // Help off (docs/CONTENT-GUIDE.md, "Help off"): "help" is false or left out. The share of
+    // commands with help off is counted, never warned about: the content chat keeps it.
+    if (helpOff(command)) counts.helpOff += 1;
+    else if (command.help !== undefined) error(where, '"help" is false to turn help off on the command, and left out to keep it on.');
 
     // C1: the id's shape, and an id no other command, version, question, or card uses.
     if (!nonEmptyString(command.id) || !commandIdPattern.test(command.id)) {
@@ -961,7 +966,7 @@ function count(n, one, many) {
 function commandLineSummary(commandLine) {
   const n = commandLine.counts;
   return `  Command line: ${count(n.commands, 'command', 'commands')} (${n.extra} extra), ${count(n.versions, 'version', 'versions')}, `
-    + `${count(n.followUps, 'follow-up', 'follow-ups')}, ${count(n.drafts, 'draft', 'drafts')}, ${n.labOnly} lab-only`
+    + `${count(n.followUps, 'follow-up', 'follow-ups')}, ${n.helpOff} help off, ${count(n.drafts, 'draft', 'drafts')}, ${n.labOnly} lab-only`
     + (n.placeholder ? `, ${n.placeholder} placeholder` : '');
 }
 

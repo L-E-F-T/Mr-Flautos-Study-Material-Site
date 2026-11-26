@@ -63,7 +63,7 @@ As for a question (the guide, "A question"): `objectives` the CompTIA objective 
 
 ## Command JSON
 
-Write `{ "commands": [ ... ] }` to `<<OUTPUT FILE, for example SP\work\commands-4.0.json>>` with the Write tool, one object per item with its slot in `slot`, and reply with only the count. You may write nothing else. Leave out `id`, `status`, and `alsoWorks`: the kit sets the ids, and the chat adds `alsoWorks` after the blind check. `origin` is only for a command whose partner is a card (its row names the source item), written as for a question.
+Write `{ "commands": [ ... ] }` to `<<OUTPUT FILE, for example SP\work\commands-4.0.json>>` with the Write tool, one object per item with its slot in `slot`, and reply with only the count. You may write nothing else. Leave out `id`, `status`, `alsoWorks`, and `help`: the kit sets the ids, the chat adds `alsoWorks` after the blind check, and the chat marks help off on the easiest commands once the checks are done (the guide, "Help off"). A command that keeps its id keeps its help off, which the kit carries over. `origin` is only for a command whose partner is a card (its row names the source item), written as for a question.
 
 ```json
 {
