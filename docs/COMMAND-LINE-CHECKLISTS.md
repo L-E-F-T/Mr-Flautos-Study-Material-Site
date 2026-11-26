@@ -329,6 +329,38 @@ Tested on the fixture ports (8091: the test bank, with no router entry; 8094: no
 | CB14 | The rules are in place, and rule 6 is whole. | The guide has "The command bank" and its rows in the tree and the Coming soon table; the handoff has "A Command bank pass", its bullet under Your unit, and its line in the intro. After the commit, the pass's `git grep -l command-bank HEAD -- ...` line lists its four files. `git diff` changes neither rule 6 of the handoff, the line near its top that points at it, nor the guide's flashcard section. |
 | CB15 | After the push. | The run is green. The published home and practice pages are as before, `commands.html?exam=network-plus` goes home, and with `&drafts=1` a drill opens with the Command bank reading Coming soon (no bank is published yet). No script errors. |
 
+## Exam-style terminal
+
+Plan section 15 (2026-11-26): help in place of the Command bank, no limit on tries, and help off on the easiest quarter. Three pushes, each by itself: X1 the matcher, X2 the page, X3 help off. A line is run before the commit unless it says after the push. Every push adds E1 to E7, E11, E12, and E13; E8 does not apply (his word of 2026-11-26 waives the day apart), and E9 and E10 only if `site.css` changes.
+
+| # | Must be true | How to prove it |
+|---|---|---|
+| X1.1 | The case table passes with the new rows. | The content check on port 8081 and on port 8091 prints "Case table: N of N, matcher 3", N being the rows of `tools/command-cases.json`. |
+| X1.2 | Nothing else moved. | Port 8081's whole `formatReport` text, compared by SHA-1 with the text from before the edit, differs only in the case table line; so does port 8091's. |
+| X1.3 | The rows are section 15's. | Every row of section 15's table is in the case table with its code and label, and each changed row differs only in `x`, `label`, `keep`, `ev`, and `why`. |
+| X1.4 | The page of today still works. | On port 8083, a drill of real Windows commands: `help` prints Help and `cls` prints Clear screen in the slip slot, `ipconfig/?` costs no try, and a right line ends the command as before. No script error. Port 8083's saved drill is removed after. |
+| X1.5 | Plain code. | No `?.`, `??`, or `(?<` in the matcher; LF line ends; no character outside ASCII. |
+| X1.6 | After the push. | E7, and the run's Check content prints "Case table: N of N, matcher 3". |
+| X2.1 | help lists the system's commands, and a command's help its switches. | Port 8091, a Windows test command: `help` prints the test bank's Windows entries in file order, each command with its words under it; `ipconfig /?` prints its switches, and a command with a syntax line prints that first; `hostname /?` prints Not in this tool. A Linux command's help lists only the Linux entries. The router command `n-u99-c002` (no router entry) prints Coming soon. None adds a try. |
+| X2.2 | No limit, and Show answer after 2. | Three counted misses leave the command open. Show answer is not in the strip before the second and is after it. A right line then reads Correct on try 4; Show answer on another command reads Answer shown. |
+| X2.3 | The box is the transcript, and a reload draws it again. | Every line run stays in the box with what it printed. After a reload the box's text is the same, line for line, and the field is empty. |
+| X2.4 | The system's own errors. | `ipconfg` on Windows prints the two lines of section 15, `ipconfg` on Linux `ipconfg: command not found`, `shw` on a device the one-word message, and `shw ip route` the caret line (the caret under the s) and `% Invalid input detected at '^' marker.` None adds a try. |
+| X2.5 | cls, clear, Up, and Down. | `cls` (Windows) and `clear` (Linux) empty the box above the prompt, and it stays empty after a reload. Up brings back the last line run on the command, again the one before, and Down goes back. The field is the same node throughout. |
+| X2.6 | Skip. | Skip moves the open command to the end with its lines (they print again when it comes back), is not shown on the last open command, and the drill ends when every command has ended. |
+| X2.7 | The report. | A drill of four on port 8091: right on the first try; right on try 3; help, then right on the first try; Show answer after 2 misses. The results read 25%, 1 of 4 on the first try, 7 tries, 1 with help, and 1 answer shown. The cards read 1 try, 3 tries, 1 try with Help, and Answer shown. To retry (2) holds the help command and the shown one, and Retry brings back exactly those two. The Last drill banner reads 1 of 4 on the first try. |
+| X2.8 | The saved format. | A version 1 drill saved on port 8091 is dropped once when the page loads, and the setup stays. A version 2 drill resumes where it was. |
+| X2.9 | The bank is gone from the page. | No screen of the drill on port 8091 or 8081 holds the words Command bank, with bank, or With bank (`document.body.textContent`). |
+| X2.10 | Phone width, light and dark. | At 320 by 568 with touch, with the Windows `help` and `ipconfig /?` printed, each words line wraps inside its indent and `document.documentElement.scrollWidth` is 320 or less. Screenshots: nothing cut off. |
+| X2.11 | One spoken message for each Run. | For example: "Help. 7 commands.", "Wrong command. ifconfig: Linux.", "Not recognized. No try used.", "Correct on try 4. Output printed, 12 lines." |
+| X2.12 | The try-a-line box. | Port 8081, with the real bank: `help` on a Windows command shows the 7 Windows commands under its row, `show ?` on a switch command the switch entry's 10 switches, and `ipconfg` the Windows error lines. |
+| X2.13 | The content check report is unchanged. | Port 8081's whole report is the same before and after. |
+| X2.14 | After the push. | E7. Then the published `commands.html?exam=network-plus` runs a drill with `help`, `ipconfig /?`, and a right line, with no script error, and the drill's saved data is removed after. |
+| X3.1 | The field and its checks. | In memory on port 8081, `"help": false` on a command adds no message, and `true` or `"no"` adds exactly one error at that command. `formatReport`'s Command line line and the panel count the commands with help off. |
+| X3.2 | Help off on the page. | Port 8091, the test command with help off: `help` and its command's help print Help off, add no try, and the results do not count the command as with help. |
+| X3.3 | The kit keeps it. | In the scratchpad, `assemble.ps1 -CommandsOnly` keeps `"help": false` on a kept command whose draft leaves it out, and takes it from a draft that has it. |
+| X3.4 | The rules. | The guide has the field row and Help off with his words, and the handoff "A help-off pass" and the new step of "A Command line pass". After the commit, the new `git grep` line lists its files. Rule 6 of the handoff and the guide's flashcard section are unchanged. |
+| X3.5 | After the push. | E7. |
+
 ## Picks used where the planners' checks disagreed
 
 | Subject | Pick |

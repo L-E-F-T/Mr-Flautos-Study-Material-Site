@@ -2,7 +2,7 @@
 
 A third study tool for Network+ only: a typed command drill. This is the plan a website chat builds from and the list of what the content chat writes.
 
-**Status: approved by Mr. Flauto on 2026-11-19 ("Yes to all four", questions A to D in section 2). The build is under way. Section 14 says where it stands, what the next push is, and how a new chat picks it up. Read section 14 first.**
+**Status: approved by Mr. Flauto on 2026-11-19 ("Yes to all four", questions A to D in section 2). The build is under way. Section 14 says where it stands, what the next push is, and how a new chat picks it up. Read section 14 first.** The exam-style terminal of 2026-11-26 (help in place of the Command bank, no limit on tries) is section 15, which says where that work stands.
 
 How it was made: two research and design rounds, then a planning round (four planners read the code, the rules, the sources, and the manuals; two critics attacked the result). Sections 1 to 11 are the merged plan. The appendices are the planners' own tables. **Where an appendix differs from sections 1 to 11, the sections win.**
 
@@ -297,7 +297,7 @@ The planners' full notes, the matcher sketch, and the 373 test rows are kept out
 
 ### Next
 
-**The build is done (2026-11-20).** The switch is out and published (the Done table, run 44807863588): Network+ students have Command line. There is no next push and no next chat. A chat started with the prompt at the top of this section builds nothing: it tells him the build is done and points him to the two lists below. Work on the tool from now on is ordinary website work: its `git push` needs his word in that chat (his word of 2026-11-19 covered this build only), and the day of `CLAUDE.md`'s "A day apart" holds in full, because students now load the tool's scripts.
+**The build is done (2026-11-20).** The switch is out and published (the Done table, run 44807863588): Network+ students have Command line. There is no next push and no next chat. A chat started with the prompt at the top of this section builds nothing: it tells him the build is done and points him to the two lists below. Work on the tool from now on is ordinary website work: its `git push` needs his word in that chat (his word of 2026-11-19 covered this build only), and the day of `CLAUDE.md`'s "A day apart" holds in full, because students now load the tool's scripts. The exam-style terminal (2026-11-26) is planned, and tracked, in section 15.
 
 **For him to open and try, when he is back** (point 6):
 
@@ -680,6 +680,130 @@ They are never committed and never copied into the repository, with the two exce
 - What may go into `alsoWorks`, and who decides that a Linux or device line is real (section 9).
 - Phase 3: whether later output versions go in a pack of their own.
 - Two parts of the command bank were the bank chat's choices, not his: each command has its own 3 to 6 words, as well as its switches, so a student who has no idea which command it is can find it; and the words With bank (the review card's chip and the results line, such as 2 with bank) beside his Correct with bank. A right command with the bank also does not count on the first try.
+
+## 15. Exam-style terminal (2026-11-26)
+
+**Status.** Planned and decided on 2026-11-26. The table under Pushes is the only place that says where this work stands. For the terminal, tries, help, and the report, this section wins over sections 1 to 14; the rest of them still holds. It was written while the Security+ Unit 9.0 content chat sat idle with nothing committed, and Mr. Flauto said not to wait for it.
+
+### His words
+
+On 2026-11-23, after reading that typing `help` in a CompTIA command-line simulation lists the commands it supports:
+
+- "instead of the command bank we should implement it exactly like how it is on the cert exam"
+- "Yes lets plan when we have credits to do it like the exam does it."
+- "Instead of saying if it was right or wrong it could count how many times it took to get the command right in the final report."
+- "I still like the idea that we tell them if the command ws right but options wrong."
+- "Ideally this tool just prepare them for the exam in the best way. So it should allow them to use the help command to get used to trying it."
+- "Maybe we dont allow help on certain ones to simulate how it will really be."
+
+On 2026-11-26, in the chat that wrote this section:
+
+- "wait for unit 9.0 on main? I dont think that is necissary."
+- Asked which of eight ideas to keep, he chose Up arrow, cls, clear and Skip, come back later, and wrote: "So please choose whatever features you think best represent that other than what I have selected." The chat's picks are under The ideas.
+- On help off: "Only off on the easiest so a content chat picks the ones students really shouldnt need help on. It should ultimaly be 25% of the total about"
+- On the pushes: "all the pushes should be asap it is break time no student is on the tool". This is his word for each `git push` under Pushes once its proofs pass, and it waives the day apart of `CLAUDE.md` for them. Each push still goes out by itself, with its run watched (section 14, rule 8).
+
+### What is known about the exam
+
+Forum reports only: CompTIA publishes nothing about the simulator (comptia.org, "Performance-based questions explained"; community.infosecinstitute.com discussions 95948 and 101029). Typing `help` lists the commands a simulation supports on some items and does nothing on others. Candidates report no limit on attempts. A command a simulation does not support is refused or prints an error. Only the end result is scored. A simulation has a reset button, and an item can be skipped and revisited.
+
+### The design
+
+1. **No limit on tries.** A command stays open until a right line runs, or until Show answer, Skip, or End drill. A Wrong command or a Right command, wrong details adds a try and prints its red label, as before (his word: keep right command, wrong details). A slip, help, and clearing the screen add none. "1 try left" goes, and so does the right and wrong count at the top of the command screen: nothing scores a command while the drill runs. Command 3 of 10 and the progress bar stay.
+2. **The box is a transcript.** Every line run stays in the box with what it printed, as on a terminal: the echo, then a red label, a slip's label, a help listing, the system's error, or the output. (Before, a slip printed in one slot that the next Run replaced.) Every line run is saved, so a reload draws the same box. After a slip, or the right command with wrong details, the line stays in the field, as before.
+3. **help.** `help` or `?` at the prompt lists the commands the tool covers on the task's system: each bank entry's command, with its words on the line under it. A command's own help prints the entry's syntax line, when it has one, then each switch with its words under it. It is asked the way the system asks it: `ipconfig /?`, `ipconfig -?`, or `help ipconfig` on Windows; `ip --help`, `ip help`, or `man ip` on Linux; `show ?` on a router or switch, where `show ip ?` lists only the switches whose first word is `ip`, and `show i?` those whose first word starts with `i`. Help costs no try. On a router or switch, a help line whose words start no switch prints `% Unrecognized command`. A help line for a real command of the system that has no entry (`hostname /?`, or `ping ?` on a router) prints Not in this tool. On a system with no entry, help prints Coming soon. Nothing on the screen says that help exists, as on the exam: Mr. Flauto tells his classes.
+4. **Help off** on about a quarter of the commands, the easiest, which a content chat marks (his word). There `help` and a command's help print Help off and cost no try. This is push 3.
+5. **The Command bank goes.** The toggle under Run, Correct with bank, the With bank chip, and the with-bank line of the results are taken out. `bank.json` stays, with its schema, its rules, and its checks: it is now the text the help prints. Its `section` fields stay in the file but are not printed. A student never sees the words Command bank.
+6. **When a command ends.** The strip reads Correct or Correct on try 4, green with the check icon, or Answer shown, red with the x icon. The follow-up question, the reading, and Next work as before.
+7. **The report.** The big number is the share of ended commands right on the first try without help (60%). Under it, each line only when it has a count: 6 of 10 on the first try; 16 tries (every counted try of the ended commands, each right line included); 2 with help; 1 answer shown; 2 of 3 questions; Retry of missed commands; 2 not answered. A review card's head shows its tries in green (1 try, 3 tries), or Answer shown in red, or Not answered; then a plain Help chip when help was used, and a red Question missed chip. In a card, a help line prints its echo and one plain line for what it listed (Help: 7 commands; Help: ipconfig, 8 switches), not the listing. The review's switch reads To retry (N) and Full drill (N), and its button Retry. Retry takes the commands with an answer shown, a question missed, or help used (help takes the bank's place). The Last drill banner reads 6 of 10 on the first try. These are working labels: he sees them and may rename them.
+8. **Saved on the device.** The drill is saved format version 2. `answers[id]` is `{ lines, shown, version, fu }`, and `lines` is every line run on the command, as typed, up to 50; past 50 only a line that adds a try and the right line are saved, so the tries and the answer are never lost. The drill is graded again from `lines` on every load, as before. A drill saved by the version 1 page is dropped once, the first time the new page loads (its two-try grading cannot be read under these rules); the setup and the versions seen stay.
+
+### The ideas
+
+| Idea | Kept | What it does |
+|---|---|---|
+| 1. The system's own error for an unknown command | Yes, the chat's pick: it is what the exam's terminal does | In place of the label Not recognized the box prints, on Windows, `'ipconfg' is not recognized as an internal or external command,` and `operable program or batch file.`; on Linux, `ipconfg: command not found`; on a router or switch, for one word, `% Unknown command or computer name, or unable to find computer address`, and for more words a line with a caret under the word's first letter, then `% Invalid input detected at '^' marker.` Still no try. The Linux and device texts are general knowledge: nobody here can run those systems. |
+| 2. Show answer after a few tries | Yes, the chat's pick, after 2 counted tries | Show answer appears in the title strip once the command has 2 counted tries, where the old tool showed the answer by itself. No student is worse off, and none is trapped on a command with help off. |
+| 3. Reset per task | No, the chat's pick | Nothing a task does changes the drill, so Reset could only repeat cls, or wipe tries from the report. |
+| 4. Skip now, come back at the end | Yes, his pick | Skip, beside Run, moves the open command to the end of the drill with what was typed, and opens the next command. It shows only while a later command is open. |
+| 5. Time per task | Later, the chat's pick | Only on his word. |
+| 6. Retry the commands that took more than one try or used help | In part, the chat's pick | Retry takes help used, in the bank's place, with answer shown and question missed. A command right on a later try without help is not retried, as before. |
+| 7. Up-arrow history, cls and clear | Yes, his pick | Up and Down in the field bring back the lines run on this command, newest first (a keyboard only: phone keyboards have no arrows). `cls` on Windows and `clear` on Linux empty the box above the prompt; the line is saved, so a reload stays clear. |
+| 8. Help off on some commands | His pick: the easiest, about 25%, marked by a content chat | Push 3, then a content pass. |
+
+### Push 1: the matcher, alone (matcher 3)
+
+Files: `assets/js/lib/command-match.js` and `tools/command-cases.json` (`"matcher": 3`). No export is added or renamed, and the case table hook in `validate-core.js` is unchanged.
+
+Three codes join `VERDICTS`, each `{ verdict: 'ignored', counts: false, keepLine: false }`: `help-list` (Help), `help-command` (Help, which `wordsFor` gives as Help: ipconfig, adding the command as it does for Not recognized), and `clear-screen` (Clear screen). `ignored-word` stays, for `exit`. Step 2 reads:
+
+- `help`, `?`, or `/?` alone, in any case: `help-list`.
+- A line of two words or more whose last word is `?`, `/?`, `-?`, or `--help`; `help` or `man` and a second word; on Windows `/?` against the command's name (`ipconfig/?`, the known gap of section 14, which closes); on Linux an `ip` line whose last word is `help` (`ip help`, `ip addr help`); on a router or switch `?` against the last word (`show?`, `show i?`): `help-command`. Its `word` is the command as the system reads it: any case and cut at a slash on Windows, after a dropped `sudo` on Linux, and `sh` read as show on a device. When that word is not a command of the system, the line reads Not recognized with that word instead: `ifconfig /?` on Windows and `ipconfig --help` on Linux cost no try and print the system's error.
+- `cls` on Windows and `clear` on Linux: `clear-screen`. Elsewhere they read as other lines do: `clear` on Windows and `cls` on Linux, a router, or a switch read Not recognized, and `clear`, added to the router and switch command names, reads Not in this tool there.
+- `exit`: `ignored-word`, as before.
+
+`plainFormProblems` still refuses a stored line that is any of these. Until push 2 is out, the page prints the label (Help, Clear screen) in its slip slot, and nothing breaks.
+
+**The case table rows.** The rows for `help`, `?`, `CLS`, `ipconfig /?`, and `help ipconfig` (Windows), `clear`, `man ip`, and `ip --help` (Linux), and `show ip route ?` (router) change `x` and `label`. New rows, each with its label; `ev` is `doc` for a help switch that the system's own help names (Windows `/?`, `--help`, `man`) and `rule` for the tool's own choices. Nobody here runs a Linux or device line.
+
+| Set | Typed | Code and label |
+|---|---|---|
+| `win-ipconfig-all` | `help`, `HELP`, `?`, `/?` | `help-list`, Help |
+| `win-ipconfig-all` | `ipconfig /?`, `IPCONFIG /?`, `ipconfig/?`, `ipconfig -?`, `ipconfig ?`, `ipconfig --help`, `ipconfig /all /?`, `help ipconfig` | `help-command`, Help: ipconfig |
+| `win-ping`, `win-netstat` | `ping /?`, `netstat /?` | `help-command`, Help: ping, Help: netstat |
+| `win-ipconfig-all` | `hostname /?` (a real command with no item) | `help-command`, Help: hostname |
+| `win-ipconfig-all` | `ipconfg /?`, `ifconfig /?`, `help ifconfig`, `clear`, `ipconfig?` | `not-recognized`, Not recognized: ipconfg (and so on) |
+| `win-ipconfig-all` | `cls`, `CLS` | `clear-screen`, Clear screen |
+| `win-ipconfig-all` | `exit` | `ignored-word`, Not in this tool |
+| `linux-addr` | `help`, `?` | `help-list`, Help |
+| `linux-addr` | `ip --help`, `ip help`, `ip addr help`, `man ip`, `Ip --help`, `sudo ip --help` | `help-command`, Help: ip |
+| `linux-addr` | `ifconfig --help` | `help-command`, Help: ifconfig |
+| `linux-addr` | `IP --help`, `ipconfig --help`, `man ipconfig`, `cls` | `not-recognized`, Not recognized: IP (and so on) |
+| `linux-addr` | `clear` | `clear-screen`, Clear screen |
+| `router-route` | `?`, `help` | `help-list`, Help |
+| `router-route` | `show ?`, `sh ?`, `show?`, `show ip ?`, `show i?`, `SHOW IP ?`, `show ip route ?` | `help-command`, Help: show |
+| `router-route` | `ping ?` | `help-command`, Help: ping |
+| `router-route` | `shw ?`, `cls` | `not-recognized`, Not recognized: shw (and so on) |
+| `router-route` | `clear` | `not-in-tool`, Not in this tool |
+| `switch-vlan` | `?`; `show vlan ?` | `help-list`, Help; `help-command`, Help: show |
+
+Two guard rows show that a help word inside a real line is not help: `dig help` on `linux-dig` (a query for the name help) and `nslookup help.example.org` on `win-nslookup` keep the codes they get today.
+
+### Push 2: the page
+
+Files: `assets/js/pages/commands.js`, `assets/js/lib/command-drill.js`, `assets/js/components/command-terminal.js`, `assets/js/components/command-review.js`, `assets/js/lib/command-help.js` (new), `tools/validate.js`, and the docs below. No `site.css`: the help rows, the chips, and Skip use existing classes and inline styles, as the bank push did, so no shared code changes. (A rule that must go in `site.css` is a `cl-` rule, with E9 and E10.)
+
+- **`command-help.js`** (no DOM, the matcher's plain dialect). `helpFor(entries, system, result, off)` gives what a help line prints: `{ kind, syntax, rows }`. `kind` is `list` (`rows`: the system's entries, each `{ head, words }` from its command and `does`), `command` (`syntax`: the entry's syntax line or an empty string; `rows`: its switches, each from `switch` and `does`, on a device only those that start with the typed words), `unrecognized` (a device line whose words start no switch: `% Unrecognized command`), `none` (a real command with no entry: Not in this tool), `soon` (no entry on the system: Coming soon), or `off` (Help off, push 3). `systemError(system, result)` gives the lines of idea 1. The page and the try-a-line box print through these two, so they always agree.
+- **`command-drill.js`.** `MAX_TRIES` goes. New: `SHOW_ANSWER_AFTER` (2) and `MAX_LINES` (50). `gradeAnswer(command, answer, ctx)` gives `{ state, tries, steps, group, shown, help, cleared }`: `state` is `open`, `right`, or `shown`; `steps` is every saved line with its result, in order, up to the right line; `tries` counts the lines that add a try, the right line included; `help` is true when a help line ran; `cleared` is the index of the first step after the last `clear-screen`.
+- **`command-terminal.js`.** One entry for each step, by its result: the echo, then a red label, a plain label, a help block, an error block, or the output. `endedBody` draws the steps after `cleared`. `missEntry` loses its tries left.
+- **`command-review.js`.** `reviewCard` takes `tries`, `help`, and the status `shown` in place of `withBank`, and prints a help step as one plain line.
+- **`commands.js`.** The transcript; Show answer after 2 counted tries; Skip; Up and Down; cls and clear; the saved format version 2; the strip; the results and review of the design. The bank toggle and its code go. The bank is still read after the packs, in a try of its own, and a missing or unreadable bank makes help read Coming soon.
+- **`tools/validate.js`.** The try-a-line box takes the exam's bank. A help line's row shows its label, then what the box would print on that system (`helpFor`); a Not recognized row shows the system's error lines (`systemError`). Nothing else on the content check page changes, and `formatReport` is unchanged.
+- **Docs.** The guide's "A command" (its first paragraph: no limit on tries, and help; a follow-up asked "after a missed command" becomes after Show answer) and "The command bank" (what help prints from each field), with its Coming soon table; `CLAUDE.md` (the Coming soon sentence names help on a system with no bank entry, in place of the Command bank); `README.md`; `docs/PLAN.md`; the handoff's "A Command bank pass" (where students see the bank's words); `schemas/command-bank.schema.json` (descriptions only); sections 1, 3, 6, and 7 of this plan, each pointing here.
+
+### Push 3: help off
+
+- **The field.** `"help": false` on a command turns its help off; with no field, help is on. `schemas/command-pack.schema.json` adds `help` (`const: false`). The content check refuses any other value, counts the commands with help off on the `Command line:` line of `formatReport` (`..., 4 follow-ups, 7 help off`) and as a stat of the panel, and gives no warning on the share: the content chat keeps it about a quarter. `command-items.js` gains `helpOff(command)`.
+- **The page.** On such a command `help` and a command's help print Help off, cost no try, and do not count as help used. In the try-a-line box, a picked command with help off reads Help off.
+- **The kit.** `assemble.ps1 -CommandsOnly` takes `help` from a draft, and keeps a kept command's `help` when its draft leaves it out, as it keeps a quote. Its README and `brief-commands.md` say so.
+- **The rules.** The guide's field table gets `help`, and "A command" a paragraph Help off with his words of 2026-11-26. The handoff gets "A help-off pass", a step of "A Command line pass" that marks the easiest of a unit's new commands so the share stays about a quarter, and an eighth `git grep` line for the kit.
+- **Test data.** A test command with `"help": false` in `tools/test-data/ready/network-plus/commands/unit-98.json`, named in `tools/test-data/README.md`.
+- **Then the help-off pass**, in a content chat (his word above): it reads every published command, marks the easiest, about a quarter of them (7 of the 29 today), runs the content check, and pushes on his word.
+
+### Pushes
+
+| Push | What | State |
+|---|---|---|
+| 1 | The matcher, alone | Next |
+| 2 | The page, the help text, the try-a-line box, the docs | After push 1's run is green |
+| 3 | Help off | After push 2's run is green |
+| Help-off pass | A content chat marks about a quarter of the commands | After push 3 |
+
+Section 14's rules for a build chat hold, with these changes. The pushes run in the chat that wrote this section, one after another. His word of 2026-11-26 is the word for each `git push` above once its proofs pass, and it waives the day apart; each push still goes out by itself, with its run watched (rule 8). A push that will not fit (rule 5) leaves the rest to a new chat started with: "Continue the exam-style Command line work: read docs/COMMAND-LINE-PLAN.md section 15 and do the push it names as Next." Each push updates this table in commits of their own (rule 9). The proofs are the list "Exam-style terminal" in `docs/COMMAND-LINE-CHECKLISTS.md`, with Every push.
+
+**Cost (estimate).** Push 1 about 1 point of the weekly limit, push 2 about 3 to 5, push 3 about 1 to 2, and the pass about 1. The weekly limit read 1% when this section was written.
+
+**Not verified.** What a simulation prints comes from forum reports. The Linux and device help forms and errors are general knowledge, and nobody here can run them (section 12).
 
 ## Appendices: the planners' tables
 
