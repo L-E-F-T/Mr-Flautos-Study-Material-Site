@@ -453,19 +453,20 @@ The starting list for a Command line pass (the guide's "A command" has the rules
 
 ## Security+ (SY0-701)
 
-Started 2026-11-21 by the Unit 8.0 chat, in the hands-off run Mr. Flauto asked for ("Pass off to sec+ lets start with 8.0 and move to 9.0 then stop"). Item names follow the guide's numbering rule ("Messer B15", "CertMaster 8.0 Q5"). Each entry gives the item's lesson and section, then the bullet it turns on: "A33 (9.1, 9.1.4, 4.1.e)". Messer prints each item's own objective, but an item goes to the unit whose reading answers it.
+Started 2026-11-21 by the Unit 8.0 chat, in the hands-off run Mr. Flauto asked for ("Pass off to sec+ lets start with 8.0 and move to 9.0 then stop"). Item names follow the guide's numbering rule ("Messer B15", "CertMaster 8.0 Q5"). Each entry gives the item's lesson and section, then the bullet it turns on: "A33 (9.1, 9.1.4, 4.1.e)". Messer prints each item's own objective, but an item goes to the unit whose reading answers it. Unit 9.0 followed on 2026-11-26 in the same chat.
 
-**Needs revision.** Unit 8.0 was written hands-off on his word ("Add a flag that it needs revision though becuase I did this in a lazy manner"): both packs have `"reviewed": false` and the pack note "Needs revision: written hands-off; Mr. Flauto has not checked it yet."
+**Needs revision.** Units 8.0 and 9.0 were written hands-off on his word ("Add a flag that it needs revision though becuase I did this in a lazy manner"): their packs have `"reviewed": false` and the pack note "Needs revision: written hands-off; Mr. Flauto has not checked it yet."
 
 ### What has been screened
 
 - Unit 8.0 mapped every Messer item tagged 2.3 or 4.3 (A1, a performance-based item, is skipped) and screened the 219 Messer items that are not performance-based and not tagged 2.3, 4.3, 4.1, or 4.5 for questions that turn on a bullet of any of those four objectives. 20 did (below); the other 199 touch none of the four. Unit 9.0 maps the Messer items tagged 4.1 and 4.5 (B2, A5, and C1 are performance-based) with the placements below, and has nothing else to screen.
+- Unit 9.0 (2026-11-26) mapped those 19 items and the 5 Unit 8.0 placed in it: 11 are its own, and 13 belong to Units 10.0 and 11.0 (below).
 
 ### Source items that another unit's reading answers
 
-- **Unit 9.0:** Messer A33 (9.1, 9.1.4, 4.1.e) and C56 (9.1, 9.1.3, 4.1.e); B54 and B83 (9.2, 9.2.1, 4.5.a); C8 (9.2, 9.2.3, 4.5.b).
-- **Unit 10.0:** Messer B6, B57, C24, and C77 (10.1, 10.1.5, 4.1.b).
-- **Unit 11.0:** Messer A86 (11.1, 11.1.8, 4.5.i).
+- **Unit 9.0:** it used Messer C56 (s-u09-q005), A33 (q009), B83 (q013), and B54 (q016). For a later revision of Unit 9.0: Messer C8 (9.2.3, 4.5.b), whose question was dropped after three review rounds, and CertMaster 10.0 Q12 and Q13 (9.2, 9.2.3, 4.5.b) and Q14 (9.2, 9.2.4, 4.5.c), which Unit 10.0's mapping found; Q14 could give 4.5.c its question.
+- **Unit 10.0:** Messer B6, B57, C24, and C77 (10.1, 10.1.5, 4.1.b); A30, A55, and C90 (10.2, 10.2.1, 4.1.d), A51 (10.1, 10.1.6, 4.1.b), and B68 (10.1, 10.1.3, 4.5.h), from Unit 9.0's mapping; CertMaster 9.0 Q3 (10.1, 10.1.5).
+- **Unit 11.0:** Messer A86 (11.1, 11.1.8, 4.5.i); from Unit 9.0's mapping, C9 and C30 (11.2, 11.2.1, 4.1.f), A7, A88, and B17 (11.1, 11.1.7, 4.5.g), A49 (11.1, 11.1.9, 4.5.f), B27 (11.1, 11.1.1, 4.5.e), and B78 (11.1, 11.1.8, 4.5.i).
 - **Unit 12.0:** Messer B44 (12.4, 12.4.3, 4.4.b), alert tuning. Unit 8.0's s-u08-q033 already asks its false-positive reasoning.
 - **Unit 13.0:** Messer C49 (13.3, 13.3.5, 2.3.c), directory traversal.
 - **Unit 15.0:** Messer A6 and C55 (15.3, 15.3.2, 4.3.a; Messer tags them 5.5), penetration test reconnaissance.
@@ -476,6 +477,7 @@ Started 2026-11-21 by the Unit 8.0 chat, in the hands-off run Mr. Flauto asked f
 - CertMaster 8.0 Q9 (nearest 8.2.4): no section says an unsecured API is attacked by injection.
 - CertMaster 8.0 Q13 (nearest 8.2.3): a select-two item whose second answer no section settles.
 - Messer B46 (nearest 8.3.4; Messer tags it 5.4): no section says regular audits and vulnerability scans meet a card-data standard. 14.1.3 defines PCI DSS: check it when Unit 14.0 is written.
+- CertMaster 9.0 Q17 (nearest 10.1.1): its answer, best practice baselines (10.1.1), is not among its choices.
 
 ### Known problems in the reading
 
@@ -487,9 +489,18 @@ Unit 8.0 keyed nothing to these:
 - 8.2.1 calls CVE-2020-0796 a race condition elevation of privilege flaw; it is the SMBv3 remote code execution flaw. Dirty COW is the reading's other race condition example.
 - 8.4.1 says a CVE ID's year is the year the vulnerability was discovered and its number shows the order of discovery; the year is when the ID was assigned or made public. The format itself is right.
 
+Unit 9.0 keyed nothing to these:
+
+- 9.2.1 says traffic that matches a rule "is allowed to pass", while the same section says each rule can block or allow and ends a rule set with an explicit deny. Rule order and implicit deny are keyable; "a match means it passes" is not.
+- 9.1.4 says the whole RADIUS Access-Request is encrypted with the shared secret; RADIUS hides only the password.
+- SAE: 9.1.3 says an attacker cannot intercept the Wi-Fi password, while 9.1.4 says every Wi-Fi personal method has been shown open to dictionary attacks. Key only that SAE is designed to stop offline dictionary attacks on a captured handshake.
+- 9.1.3 pairs the full name "Counter Mode with Cipher Block Chaining Message Authentication Code Protocol" with "CCM" (the protocol is CCMP). It also says WPA3 replaces AES CCM with GCM, while outside the reading WPA3-Personal keeps CCMP: key WPA3 and GCM as 9.1.3 says, never "WPA3 never uses CCM".
+- 9.1.2's text and figure caption disagree on which heat map color means a strong signal: key no color.
+
 ### Disagreements between a source and the reading
 
 - None in Unit 8.0: Messer's key agrees with the reading on all 21 Messer items it mapped, and his Unit 8.0 study guide agrees with every usable item.
+- None in Unit 9.0: Messer's key agrees with the reading on all 11 Messer items it used, and his 9.1 lesson deck agrees with 15 usable items. CertMaster 9.0 Q2's mapped key worded the heat map result differently from 9.1.2: s-u09-q003 is keyed to 9.1.2's words.
 - Objective 4.3 writes "Common Vulnerability Enumeration (CVE)"; reading 8.4.1 writes "Common Vulnerabilities and Exposures". The card's front carries both names.
 
 ### Gaps
@@ -497,11 +508,13 @@ Unit 8.0 keyed nothing to these:
 - 4.3.e (Reporting) has no question: no pool or Messer item, and no exam evidence. It reads Coming soon; its terms have cards, and his Study Guide 8.0 Q103 covers it. 4.3.d (Validation of remediation) has one question, added at Mr. Flauto's request (2026-11-23): s-u08-q048 (choose two: re-scanning and verification), from his Study Guide 8.0 Q102, a select two that keys auditing and re-scanning (its key agrees with 8.4.4).
 - Also added at Mr. Flauto's request (2026-11-23), written from the reading (origin "original"): s-u08-q045 (a supply chain weakness from a hardware provider's preinstalled firmware, 8.2.5), q046 (a bug bounty program, 8.3.4), and q047 (what a higher CVSS score means, 8.4.4). The CertMaster "All units" pool (`All.txt`) has items on bug bounty programs, CVSS, and validation that no Security+ unit file holds, so they cannot be numbered the guide's way; these facts were written from the reading instead.
 - Facts the exam evidence weighs that no item covers, so no question: known environment penetration testing (only a Messer wrong choice, in B15, C55, and C73; taught in 8.3.4 and again in 15.3.2), and SQL injection's cause and fix, input validation (Messer C9, tagged 4.1; taught in 11.2.1).
+- Unit 9.0: 4.5.c (Web filter) has no question. Its only one, from Messer C35, was dropped after three review rounds, with five more: from Messer C78, B25, C16, and C8, and CertMaster 9.0 Q9 (each still too close to its source, or with throwaway choices). Those six items are free for a revision. Facts the exam evidence weighs that no Unit 9.0 item covers: how a firewall matches a flow against its rule table and screened subnets (9.2.1), host-based versus network-based IDS/IPS (9.2.2), and URL scanning and reputation (9.2.4).
 
 ### For later units
 
 - s-u08-q031 (from Messer B15) asks which penetration test environment fits a tester given full information, and is tagged 5.5.d. Unit 15.0 asks no second question on that fact unless its scenario makes a student reason differently.
 - Unit 8.0 carded the 2.3 and 4.3 terms its reading teaches: 64 cards. "Penetration testing (pen testing)" is a card under 4.3.a, so Unit 15.0 (5.5.d) adds its section to that card's `units` instead of writing a second card. Three cards were dropped after three review rounds (Malicious update, Service provider, System/process audit): a later pass may write them again.
+- Unit 9.0 carded the 4.1 and 4.5 terms its reading teaches: 39 cards, and it added 9.2.3 to s-u08-f044 and f045 (False positive, False negative) and 9.1.1 to s-u08-f055 (Patching). No card for: EAP-TTLS and PEAP (9.1.4 describes them alike, so no back could point to one); WEP, WPA, and WPA2 (they failed the testable check: 4.1.e names only WPA3, and no Messer item tagged 4.1 or 4.5 keys them); Block rules (still flagged after three rounds). Units 10.0 and 11.0 also list 4.1 and 4.5: they add their sections to Unit 9.0's cards (Secure baselines, Hardening, Monitoring, Firewall, Ports/protocols, Access lists, Signatures, User behavior analytics) instead of writing second ones.
 
 ## Other exams
 

@@ -1,0 +1,386 @@
+{
+  "$schema": "../../../schemas/question-pack.schema.json",
+  "pack": { "id": "unit-09", "title": "Unit 9.0 Evaluate Network Security Capabilities", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet." },
+  "questions": [
+    {
+      "id": "s-u09-q001",
+      "stem": "An audit finds that a county government's servers were each set up by a different technician, so their password, logging, and encryption settings all differ. Which of the following should the security team create so every server gets the same approved settings?",
+      "choices": [
+        { "id": "a", "text": "Access control list" },
+        { "id": "b", "text": "Secure baseline" },
+        { "id": "c", "text": "SCAP compliance scan" },
+        { "id": "d", "text": "Intrusion detection system" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["9.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.1",
+        "title": "Benchmarks and Secure Configuration Guides",
+        "quote": "",
+        "find": "collection of standard configurations and settings"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q4" }
+    },
+    {
+      "id": "s-u09-q002",
+      "stem": "A security audit of a manufacturing company's new access switches finds that administrators manage them over Telnet. Which of the following hardening changes BEST addresses this finding?",
+      "choices": [
+        { "id": "a", "text": "Turn on logging of failed sign-ins" },
+        { "id": "b", "text": "Manage the switches over HTTP instead" },
+        { "id": "c", "text": "Enable port security on every port" },
+        { "id": "d", "text": "Manage the switches over SSH instead" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["9.1.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.1",
+        "title": "Benchmarks and Secure Configuration Guides",
+        "quote": "",
+        "find": "such as SSH instead of Telnet"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Deck 9.1 slide 7" }
+    },
+    {
+      "id": "s-u09-q003",
+      "stem": "After a site survey of a three-story library, the heat map shows almost no signal in the back offices and two lobby WAPs covering the same area. Which of the following BEST improves the wireless design?",
+      "choices": [
+        { "id": "a", "text": "Bond the lobby WAPs' channels to reach the back offices" },
+        { "id": "b", "text": "Put both lobby WAPs on the same channel to cut interference" },
+        { "id": "c", "text": "Lower the transmit power on both lobby WAPs to cut overlap" },
+        { "id": "d", "text": "Move one of the lobby WAPs to cover the back offices" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.1", "4.1.c"],
+      "units": ["9.1.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.2",
+        "title": "Wireless Network Installation Considerations",
+        "quote": "",
+        "find": "or physically moving a WAP"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q2" }
+    },
+    {
+      "id": "s-u09-q004",
+      "stem": "A food warehouse is adding dozens of wireless temperature sensors with Wi-Fi Protected Setup (WPS), whose PIN an attacker can brute force in a few hours. Which of the following should the network team use instead to add the sensors securely?",
+      "choices": [
+        { "id": "a", "text": "Simultaneous Authentication of Equals (SAE)" },
+        { "id": "b", "text": "Temporal Key Integrity Protocol (TKIP)" },
+        { "id": "c", "text": "Pre-shared key (PSK)" },
+        { "id": "d", "text": "Device Provisioning Protocol (DPP)" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.3",
+        "title": "Wireless Encryption",
+        "quote": "",
+        "find": "is intended to replace WPS"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q16" }
+    },
+    {
+      "id": "s-u09-q005",
+      "stem": "A security analyst reviews the configuration of the access point in a car dealership's showroom. Based on the settings shown, which of the following security issues should the analyst report?",
+      "exhibit": { "type": "text", "text": "AP name: SHOWROOM-AP1\nSSID 1: Lakeside-Sales\nSecurity 1: WEP\nSSID 2: Lakeside-Guest\nSecurity 2: Enhanced Open\nAdmin access: HTTPS" },
+      "choices": [
+        { "id": "a", "text": "Unencrypted guest network" },
+        { "id": "b", "text": "Insecure admin access" },
+        { "id": "c", "text": "Weak encryption" },
+        { "id": "d", "text": "Default credentials" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.3",
+        "title": "Wireless Encryption",
+        "quote": "",
+        "find": "Neither WEP nor the original WPA"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C56" }
+    },
+    {
+      "id": "s-u09-q006",
+      "stem": "An auditor tells a pharmacy to stop using WPA with TKIP, and the pharmacy's new access points support every Wi-Fi security standard. Which of the following should the pharmacy configure to BEST protect its wireless traffic?",
+      "choices": [
+        { "id": "a", "text": "WEP with a longer key" },
+        { "id": "b", "text": "WPA3 with AES GCM" },
+        { "id": "c", "text": "WPA2 with AES CCM" },
+        { "id": "d", "text": "WPA2 with TKIP" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.3",
+        "title": "Wireless Encryption",
+        "quote": "",
+        "find": "replaces AES CCM with the AES"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q8" }
+    },
+    {
+      "id": "s-u09-q007",
+      "stem": "During an assessment of an accounting office's WPA2-Personal network, a penetration tester records a laptop's successful login and then cracks the Wi-Fi password from that recording offline. Which of the following is designed to prevent this attack?",
+      "choices": [
+        { "id": "a", "text": "Simultaneous Authentication of Equals (SAE)" },
+        { "id": "b", "text": "Device Provisioning Protocol (DPP)" },
+        { "id": "c", "text": "Temporal Key Integrity Protocol (TKIP)" },
+        { "id": "d", "text": "AES Galois Counter Mode (GCM)" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.3",
+        "title": "Wireless Encryption",
+        "quote": "",
+        "find": "capturing data from a successful login"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q15" }
+    },
+    {
+      "id": "s-u09-q008",
+      "stem": "A clinic's security officer worries that someone in the parking lot could capture and read the patient data staff send over the Wi-Fi. Which of the following should the access points use to BEST address this concern?",
+      "choices": [
+        { "id": "a", "text": "RADIUS" },
+        { "id": "b", "text": "NAC" },
+        { "id": "c", "text": "WPA3" },
+        { "id": "d", "text": "IDS" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.3",
+        "title": "Wireless Encryption",
+        "quote": "",
+        "find": "with the AES Galois Counter"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B53" }
+    },
+    {
+      "id": "s-u09-q009",
+      "stem": "Employees at a hotel keep giving the staff Wi-Fi passphrase to guests, so the hotel wants each employee to sign in to the Wi-Fi with their own email account instead. Which of the following BEST meets this goal?",
+      "choices": [
+        { "id": "a", "text": "802.1X" },
+        { "id": "b", "text": "SAE" },
+        { "id": "c", "text": "WPS" },
+        { "id": "d", "text": "DPP" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.4",
+        "title": "Wi-Fi Authentication Methods",
+        "quote": "",
+        "find": "have a unique set of credentials"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer A33" }
+    },
+    {
+      "id": "s-u09-q010",
+      "stem": "A law firm wants its Wi-Fi logs to show exactly which attorney was connected at any time, so attorneys must not share one passphrase. Which of the following security modes BEST meets this requirement?",
+      "choices": [
+        { "id": "a", "text": "WPA3-Personal (SAE)" },
+        { "id": "b", "text": "WPA2-Personal (PSK)" },
+        { "id": "c", "text": "WPA3-Enterprise" },
+        { "id": "d", "text": "WPA3 Enhanced Open" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.4",
+        "title": "Wi-Fi Authentication Methods",
+        "quote": "",
+        "find": "track network usage at a granular"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q5" }
+    },
+    {
+      "id": "s-u09-q011",
+      "stem": "A security engineer at a defense contractor is setting up WPA3-Enterprise Wi-Fi and requires both the RADIUS server and every laptop to present a certificate, so each side proves its identity. Which of the following authentication methods should the engineer choose?",
+      "choices": [
+        { "id": "a", "text": "PEAP" },
+        { "id": "b", "text": "EAP-TLS" },
+        { "id": "c", "text": "EAP-TTLS" },
+        { "id": "d", "text": "CHAP" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.4"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.4",
+        "title": "Wi-Fi Authentication Methods",
+        "quote": "",
+        "find": "uses client-server certificates"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Deck 9.1 slide 18" }
+    },
+    {
+      "id": "s-u09-q012",
+      "stem": "A city government lets employees connect personal tablets only if each tablet's operating system is patched and its antivirus is up to date. Which of the following should the security team deploy to check the tablets and move any that fail to an isolated VLAN?",
+      "choices": [
+        { "id": "a", "text": "Network access control (NAC)" },
+        { "id": "b", "text": "802.1X authentication" },
+        { "id": "c", "text": "Intrusion prevention system (IPS)" },
+        { "id": "d", "text": "Access control list (ACL)" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.5", "4.5.j"],
+      "units": ["9.1.5"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.1.5",
+        "title": "Network Access Control",
+        "quote": "",
+        "find": "By evaluating the operating system version"
+      },
+      "origin": { "kind": "teacher", "basedOn": "Deck 9.1 slide 21" }
+    },
+    {
+      "id": "s-u09-q013",
+      "stem": "Workstations in a company's warehouse subnet can connect to the HR department's servers, but company policy allows only the HR subnet to reach them. Which of the following should a network administrator add to enforce this policy?",
+      "choices": [
+        { "id": "a", "text": "Intrusion prevention system" },
+        { "id": "b", "text": "802.1X authentication" },
+        { "id": "c", "text": "Access control list" },
+        { "id": "d", "text": "Intrusion detection system" }
+      ],
+      "answer": ["c"],
+      "objectives": ["4.5", "4.5.a"],
+      "units": ["9.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.1",
+        "title": "Access Control Lists",
+        "quote": "",
+        "find": "source and destination IP addresses"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B83" }
+    },
+    {
+      "id": "s-u09-q014",
+      "stem": "An online store is adding a database server that answers queries from the store's web server. Which of the following firewall rule sets BEST reduces the database server's attack surface?",
+      "choices": [
+        { "id": "a", "text": "Allow the web server's queries, then block the rest" },
+        { "id": "b", "text": "Allow all company devices, then block the rest" },
+        { "id": "c", "text": "Allow FTP, SSH, and the web server's queries, then block the rest" },
+        { "id": "d", "text": "Block the ports attackers often use, then allow the rest" }
+      ],
+      "answer": ["a"],
+      "objectives": ["4.5", "4.5.a"],
+      "units": ["9.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.1",
+        "title": "Access Control Lists",
+        "quote": "",
+        "find": "block any traffic that has not"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q7" }
+    },
+    {
+      "id": "s-u09-q015",
+      "stem": "After a firewall is added in front of a company's servers, users can still reach the staff portal at 10.0.8.5, but the scheduling app at 10.0.8.6 no longer loads. Based on the rules shown, which of the following would BEST fix this?",
+      "exhibit": { "type": "text", "text": "Rule Dest     Port Action\n1    10.0.8.5 443  Allow\n2    10.0.8.5 80   Allow\n3    10.0.8.7 25   Allow" },
+      "choices": [
+        { "id": "a", "text": "Add an explicit deny all rule after rule 3" },
+        { "id": "b", "text": "Add an allow rule for traffic to 10.0.8.6" },
+        { "id": "c", "text": "Add an IPS to inspect traffic to 10.0.8.6" },
+        { "id": "d", "text": "Move rule 3 to the top of the rule list" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.5", "4.5.a"],
+      "units": ["9.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.1",
+        "title": "Access Control Lists",
+        "quote": "",
+        "find": "matched a rule (implicit deny)"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer C27" }
+    },
+    {
+      "id": "s-u09-q016",
+      "stem": "A nonprofit learns that an infected office PC is sending thousands of spam emails to addresses outside the network. Which of the following would BEST stop this?",
+      "choices": [
+        { "id": "a", "text": "Add an IDS that alerts on the spam emails" },
+        { "id": "b", "text": "Add a firewall rule that blocks incoming port 25 traffic" },
+        { "id": "c", "text": "Add reputation-based filtering to the web proxy" },
+        { "id": "d", "text": "Add a firewall rule that blocks outgoing port 25 traffic" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.5", "4.5.a"],
+      "units": ["9.2.1"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.1",
+        "title": "Access Control Lists",
+        "quote": "",
+        "find": "block all outgoing traffic to"
+      },
+      "origin": { "kind": "messer-variation", "basedOn": "Messer B54" }
+    },
+    {
+      "id": "s-u09-q017",
+      "stem": "A security team wants a system that spots attacks from the internet against the company's web servers and automatically drops the attacker's packets. Which of the following should the team deploy?",
+      "choices": [
+        { "id": "a", "text": "Host-based intrusion detection system" },
+        { "id": "b", "text": "Network access control" },
+        { "id": "c", "text": "Intrusion detection system" },
+        { "id": "d", "text": "Intrusion prevention system" }
+      ],
+      "answer": ["d"],
+      "objectives": ["4.5", "4.5.b"],
+      "units": ["9.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.2",
+        "title": "Intrusion Detection and Prevention Systems",
+        "quote": "",
+        "find": "block traffic from the offending source"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q10" }
+    },
+    {
+      "id": "s-u09-q018",
+      "stem": "A company's IDS downloads a weekly feed of patterns from known attacks and raises an alert whenever traffic matches one of them. Which of the following BEST describes how this IDS finds attacks?",
+      "choices": [
+        { "id": "a", "text": "Anomaly-based detection" },
+        { "id": "b", "text": "Signature-based detection" },
+        { "id": "c", "text": "Trend analysis" },
+        { "id": "d", "text": "Reputation-based filtering" }
+      ],
+      "answer": ["b"],
+      "objectives": ["4.5", "4.5.b"],
+      "units": ["9.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "9.2.3",
+        "title": "IDS and IPS Detection Methods",
+        "quote": "",
+        "find": "database of attack patterns or signatures"
+      },
+      "origin": { "kind": "certmaster-variation", "basedOn": "CertMaster 9.0 Q11" }
+    }
+  ]
+}

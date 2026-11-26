@@ -1,0 +1,318 @@
+{
+  "$schema": "../../../schemas/flashcard-pack.schema.json",
+  "pack": { "id": "unit-09", "title": "Unit 9.0 Evaluate Network Security Capabilities", "reviewed": false, "notes": "Needs revision: written hands-off; Mr. Flauto has not checked it yet." },
+  "flashcards": [
+    {
+      "id": "s-u09-f001",
+      "term": "Secure baselines",
+      "definition": "A collection of standard configurations and settings for areas such as network devices, software, patching, access controls, logging, and encryption, with consistent, centralized rules that improve security, manageability, and efficiency.",
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
+    },
+    {
+      "id": "s-u09-f002",
+      "term": "Establish (secure baselines)",
+      "definition": "The step of defining the standard configurations a baseline will hold, usually built from published best-practice guides.",
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
+    },
+    {
+      "id": "s-u09-f003",
+      "term": "Deploy (secure baselines)",
+      "definition": "The step of pushing the baseline's settings out to many diverse systems, automated with configuration management tools so every system gets the same configuration.",
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
+    },
+    {
+      "id": "s-u09-f004",
+      "term": "Maintain (secure baselines)",
+      "definition": "The ongoing step of checking that systems still match the baseline and correcting any setting that drifts from it.",
+      "objectives": ["4.1", "4.1.a"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
+    },
+    {
+      "id": "s-u09-f005",
+      "term": "Hardening",
+      "definition": "Improving a device's security by changing its default configuration, often by following a published secure baseline, because defaults with well-documented credentials, simple passwords, and insecure protocols attract attackers.",
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
+    },
+    {
+      "id": "s-u09-f006",
+      "term": "Switches (hardening targets)",
+      "definition": "Network devices hardened from the list they share with routers (changing default credentials, SSH or HTTPS instead of Telnet or HTTP, ACLs), plus port security to limit which devices can connect to each of their ports.",
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
+    },
+    {
+      "id": "s-u09-f007",
+      "term": "Routers (hardening targets)",
+      "definition": "Network devices hardened from the list they share with switches: change default credentials, turn off unneeded services like Telnet and HTTP, manage them over SSH or HTTPS, and limit who can reach them with ACLs.",
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
+    },
+    {
+      "id": "s-u09-f008",
+      "term": "Servers (hardening targets)",
+      "definition": "Systems kept in racks or datacenters whose hardening adds regular patches, least privilege, antivirus, and firewalls and an IDS to the steps they share with switches and routers.",
+      "objectives": ["4.1", "4.1.b"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
+    },
+    {
+      "id": "s-u09-f009",
+      "term": "Installation considerations (wireless network installation considerations)",
+      "definition": "The factors that keep authorized Wi-Fi access points available, such as where each one is placed and which channel it uses, because patchy coverage leaves the network open to rogue and evil twin attacks.",
+      "objectives": ["4.1", "4.1.c"],
+      "units": ["9.1.2"],
+      "reference": { "source": "certmaster", "section": "9.1.2", "title": "Wireless Network Installation Considerations" }
+    },
+    {
+      "id": "s-u09-f010",
+      "term": "Site surveys",
+      "definition": "Measuring signal strength and channel usage across the area to cover, starting from a map with interference sources marked, as a laptop or mobile device running Wi-Fi analyzer software records readings at regular points.",
+      "objectives": ["4.1", "4.1.c"],
+      "units": ["9.1.2"],
+      "reference": { "source": "certmaster", "section": "9.1.2", "title": "Wireless Network Installation Considerations" }
+    },
+    {
+      "id": "s-u09-f011",
+      "term": "Heat maps",
+      "definition": "A color-coded picture built from site survey readings that shows where the signal is strong or weak and how channels overlap, used to adjust power, change channels, or add or move access points.",
+      "objectives": ["4.1", "4.1.c"],
+      "units": ["9.1.2"],
+      "reference": { "source": "certmaster", "section": "9.1.2", "title": "Wireless Network Installation Considerations" }
+    },
+    {
+      "id": "s-u09-f012",
+      "term": "Wireless security settings",
+      "definition": "What a Wi-Fi network is configured with to protect it: a standard such as WPA2 or WPA3, which determines the encryption, how the key is made, and how devices authenticate when they join.",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.3"],
+      "reference": { "source": "certmaster", "section": "9.1.3", "title": "Wireless Encryption" }
+    },
+    {
+      "id": "s-u09-f013",
+      "term": "Wi-Fi Protected Access 3 (WPA3)",
+      "definition": "The wireless security standard that uses SAE in place of the pre-shared key exchange and the higher-performance AES GCM in place of AES CCM.",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.3"],
+      "reference": { "source": "certmaster", "section": "9.1.3", "title": "Wireless Encryption" }
+    },
+    {
+      "id": "s-u09-f014",
+      "term": "Remote Authentication Dial-In User Service (RADIUS)",
+      "definition": "The standard for the AAA server that 802.1X typically uses to check the credentials of users or devices trying to connect.",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.4"],
+      "reference": { "source": "certmaster", "section": "9.1.4", "title": "Wi-Fi Authentication Methods" }
+    },
+    {
+      "id": "s-u09-f015",
+      "term": "Cryptographic protocols (wireless encryption)",
+      "definition": "The ciphers a Wi-Fi security standard supports so that no one in range can read the traffic, from RC4 in WEP and WPA to AES with CCM in WPA2 and AES with GCM in WPA3.",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.3"],
+      "reference": { "source": "certmaster", "section": "9.1.3", "title": "Wireless Encryption" }
+    },
+    {
+      "id": "s-u09-f016",
+      "term": "Authentication protocols (Wi-Fi authentication methods)",
+      "definition": "The ways a Wi-Fi network confirms only valid users join, in three types: personal (a passphrase, with PSK or SAE), open, and enterprise (each user's own credentials, through 802.1X).",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.4"],
+      "reference": { "source": "certmaster", "section": "9.1.4", "title": "Wi-Fi Authentication Methods" }
+    },
+    {
+      "id": "s-u09-f017",
+      "term": "Pre-shared key (PSK) (group authentication)",
+      "definition": "The WPA2 personal method in which the access point and every device are set with the same passphrase.",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.4"],
+      "reference": { "source": "certmaster", "section": "9.1.4", "title": "Wi-Fi Authentication Methods" }
+    },
+    {
+      "id": "s-u09-f018",
+      "term": "Simultaneous Authentication of Equals (SAE)",
+      "definition": "The WPA3 personal method that replaces PSK and is designed to stop offline dictionary attacks on a captured handshake.",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.4"],
+      "reference": { "source": "certmaster", "section": "9.1.4", "title": "Wi-Fi Authentication Methods" }
+    },
+    {
+      "id": "s-u09-f019",
+      "term": "802.1X (port-based network access control)",
+      "definition": "The enterprise-mode framework that lets a device onto the network only after it authenticates, with each user's own credentials checked by a server such as RADIUS instead of a shared passphrase.",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.4"],
+      "reference": { "source": "certmaster", "section": "9.1.4", "title": "Wi-Fi Authentication Methods" }
+    },
+    {
+      "id": "s-u09-f020",
+      "term": "Extensible Authentication Protocol (EAP)",
+      "definition": "A protocol with many types, each defining a specific way to check credentials, used with 802.1X and RADIUS in enterprise Wi-Fi.",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.4"],
+      "reference": { "source": "certmaster", "section": "9.1.4", "title": "Wi-Fi Authentication Methods" }
+    },
+    {
+      "id": "s-u09-f021",
+      "term": "Extensible Authentication Protocol-Transport Layer Security (EAP-TLS)",
+      "definition": "The enterprise Wi-Fi method that uses certificates on both the client and the server, so each side proves its identity to the other (mutual authentication).",
+      "objectives": ["4.1", "4.1.e"],
+      "units": ["9.1.4"],
+      "reference": { "source": "certmaster", "section": "9.1.4", "title": "Wi-Fi Authentication Methods" }
+    },
+    {
+      "id": "s-u09-f022",
+      "term": "Monitoring",
+      "definition": "Turning on logging on switches, routers, and servers and keeping watch on it, to help spot issues such as repeated login failures and configuration changes.",
+      "objectives": ["4.1", "4.1.h"],
+      "units": ["9.1.1"],
+      "reference": { "source": "certmaster", "section": "9.1.1", "title": "Benchmarks and Secure Configuration Guides" }
+    },
+    {
+      "id": "s-u09-f023",
+      "term": "Firewall",
+      "definition": "A security system designed to protect a network's perimeter by stopping unauthorized access to or from it. It typically gives both network-level and application-level control over inbound and outbound traffic.",
+      "objectives": ["4.5", "4.5.a"],
+      "units": ["9.2.1"],
+      "reference": { "source": "certmaster", "section": "9.2.1", "title": "Access Control Lists" }
+    },
+    {
+      "id": "s-u09-f024",
+      "term": "Rules (firewall rules)",
+      "definition": "Entries telling a firewall to allow or block inbound or outbound traffic by address, port, protocol, or even an application's traffic pattern, read top to bottom and typically ending in an implicit deny.",
+      "objectives": ["4.5", "4.5.a"],
+      "units": ["9.2.1"],
+      "reference": { "source": "certmaster", "section": "9.2.1", "title": "Access Control Lists" }
+    },
+    {
+      "id": "s-u09-f025",
+      "term": "Access lists (access control lists, ACLs)",
+      "definition": "A set of permissions tied to a network device, such as a router or switch, that permits or denies traffic at an interface by source and destination IP address, port number, and protocol.",
+      "objectives": ["4.5", "4.5.a"],
+      "units": ["9.2.1"],
+      "reference": { "source": "certmaster", "section": "9.2.1", "title": "Access Control Lists" }
+    },
+    {
+      "id": "s-u09-f026",
+      "term": "Ports/protocols",
+      "definition": "Allowing or denying traffic by the TCP or UDP number a service runs on, such as letting only 80 and 443 (HTTP and HTTPS) reach a web server, or keeping FTP and SSH out when they are not needed.",
+      "objectives": ["4.5", "4.5.a"],
+      "units": ["9.2.1"],
+      "reference": { "source": "certmaster", "section": "9.2.1", "title": "Access Control Lists" }
+    },
+    {
+      "id": "s-u09-f027",
+      "term": "Screened subnets (perimeter networks)",
+      "definition": "A neutral zone that holds public-facing servers, such as web and email, apart from the internal network, to limit the damage if those servers are compromised.",
+      "objectives": ["4.5", "4.5.a"],
+      "units": ["9.2.1"],
+      "reference": { "source": "certmaster", "section": "9.2.1", "title": "Access Control Lists" }
+    },
+    {
+      "id": "s-u09-f028",
+      "term": "Intrusion detection system (IDS)",
+      "definition": "A passive system that inspects traffic for potential threats, using predefined rules or unusual behavior, and alerts administrators without blocking anything, so false positives do not disrupt legitimate traffic.",
+      "objectives": ["4.5", "4.5.b"],
+      "units": ["9.2.2"],
+      "reference": { "source": "certmaster", "section": "9.2.2", "title": "Intrusion Detection and Prevention Systems" }
+    },
+    {
+      "id": "s-u09-f029",
+      "term": "Intrusion prevention system (IPS)",
+      "definition": "A proactive system that spots threats in traffic and acts on them by blocking the offending source, dropping malicious packets, or resetting connections, which can stop damage at once but may block legitimate traffic on a false positive.",
+      "objectives": ["4.5", "4.5.b"],
+      "units": ["9.2.2"],
+      "reference": { "source": "certmaster", "section": "9.2.2", "title": "Intrusion Detection and Prevention Systems" }
+    },
+    {
+      "id": "s-u09-f030",
+      "term": "Signatures (signature-based detection, pattern-matching)",
+      "definition": "An IDS method in which the engine is loaded with a database of known attacks and raises an incident when traffic fits one of them; the database needs regular updates for the latest threats.",
+      "objectives": ["4.5", "4.5.b"],
+      "units": ["9.2.3"],
+      "reference": { "source": "certmaster", "section": "9.2.3", "title": "IDS and IPS Detection Methods" }
+    },
+    {
+      "id": "s-u09-f031",
+      "term": "Trends (trend analysis)",
+      "definition": "Tracking IDS and IPS events and alerts over time to spot patterns, such as a rise in alerts for one attack, and to find frequent false positives that can be tuned down so analysts can focus on more important alerts.",
+      "objectives": ["4.5", "4.5.b"],
+      "units": ["9.2.3"],
+      "reference": { "source": "certmaster", "section": "9.2.3", "title": "IDS and IPS Detection Methods" }
+    },
+    {
+      "id": "s-u09-f032",
+      "term": "Web filter (content filtering)",
+      "definition": "A control that analyzes browsing traffic, often in real time, and stops users from reaching malicious or inappropriate sites by URL, IP address, category, or keyword. Set too strict, it overblocks useful sites; too loose, it underblocks harmful ones.",
+      "objectives": ["4.5", "4.5.c"],
+      "units": ["9.2.4"],
+      "reference": { "source": "certmaster", "section": "9.2.4", "title": "Web Filtering" }
+    },
+    {
+      "id": "s-u09-f033",
+      "term": "Agent-based (agent-based web filtering)",
+      "definition": "Software installed on each desktop, laptop, and mobile device that gets browsing policies from a management server and applies them on the device itself, so they still work off the corporate network, such as at home.",
+      "objectives": ["4.5", "4.5.c"],
+      "units": ["9.2.4"],
+      "reference": { "source": "certmaster", "section": "9.2.4", "title": "Web Filtering" }
+    },
+    {
+      "id": "s-u09-f034",
+      "term": "Centralized proxy (centralized proxy server)",
+      "definition": "An intermediary server that an organization routes its Internet traffic through, so it can permit or deny each web request by policy, log activity, anonymize requests, and cache content.",
+      "objectives": ["4.5", "4.5.c"],
+      "units": ["9.2.4"],
+      "reference": { "source": "certmaster", "section": "9.2.4", "title": "Web Filtering" }
+    },
+    {
+      "id": "s-u09-f035",
+      "term": "Universal Resource Locator (URL) scanning",
+      "definition": "A proxy technique that examines the web address each user requests and stops specific addresses known to host malicious content, be inappropriate, or break the usage policy.",
+      "objectives": ["4.5", "4.5.c"],
+      "units": ["9.2.4"],
+      "reference": { "source": "certmaster", "section": "9.2.4", "title": "Web Filtering" }
+    },
+    {
+      "id": "s-u09-f036",
+      "term": "Content categorization",
+      "definition": "A proxy technique that classifies websites into groups, such as social networking, gambling, adult, and webmail, so rules can allow or deny a whole group at once.",
+      "objectives": ["4.5", "4.5.c"],
+      "units": ["9.2.4"],
+      "reference": { "source": "certmaster", "section": "9.2.4", "title": "Web Filtering" }
+    },
+    {
+      "id": "s-u09-f037",
+      "term": "Reputation (reputation-based filtering)",
+      "definition": "A proxy technique that uses continually updated databases scoring websites on their observed behavior and history, so sites known for malware, phishing, or spam get a poor score and can be stopped automatically.",
+      "objectives": ["4.5", "4.5.c"],
+      "units": ["9.2.4"],
+      "reference": { "source": "certmaster", "section": "9.2.4", "title": "Web Filtering" }
+    },
+    {
+      "id": "s-u09-f038",
+      "term": "Network access control (NAC)",
+      "definition": "A system that authenticates users and devices and also checks that each meets security policy, such as its operating system version, patch level, and antivirus status, before it may connect, and can quarantine one that does not.",
+      "objectives": ["4.5", "4.5.j"],
+      "units": ["9.1.5"],
+      "reference": { "source": "certmaster", "section": "9.1.5", "title": "Network Access Control" }
+    },
+    {
+      "id": "s-u09-f039",
+      "term": "User behavior analytics (user and entity behavior analytics, UEBA)",
+      "definition": "Machine-learning products that learn normal activity and flag anomalies, such as insider threats, using indicators from many intrusion detection and log sources, often integrated with a SIEM.",
+      "objectives": ["4.5", "4.5.l"],
+      "units": ["9.2.3"],
+      "reference": { "source": "certmaster", "section": "9.2.3", "title": "IDS and IPS Detection Methods" }
+    }
+  ]
+}

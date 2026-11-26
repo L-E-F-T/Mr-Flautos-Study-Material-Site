@@ -1,1 +1,1 @@
-{ "$schema": "../../../schemas/manifest.schema.json", "packs": ["unit-08.json"] }
+{ "$schema": "../../../schemas/manifest.schema.json", "packs": ["unit-08.json", "unit-09.json"] }
