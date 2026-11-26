@@ -16,7 +16,7 @@ You are mapping source items for Mr. Flauto's CompTIA study site, a high school 
 | Not reading sections: never cite them, and never take a section number from them | `SP\text\0.0.txt` (course introduction); for Network+, `SP\text\B.1.2 ...txt` and `SP\text\B.1.3 ...txt` (exam details and objectives) and every `SP\text\8.*` to `SP\text\14.*` file (split from the chapter PDFs, not CertMaster printouts) |
 | Outline: units, lessons, the objectives each lesson lists, sections, titles | `C:\CompTIA Website\data\<<EXAM FOLDER>>\units.json` |
 | CompTIA objectives and bullets (`3.4.c`) | `C:\CompTIA Website\data\<<EXAM FOLDER>>\objectives.json` |
-| CertMaster question pools, numbered, NO answer key | `SP\pool\<file>.txt`, items headed `=== CertMaster 3.0 Q41 ===` |
+| CertMaster question pools, numbered, NO answer key | `SP\pool\<file>.txt`, items headed `=== CertMaster 3.0 Q41 ===`. Security+ also has `SP\pool\All.txt` (`=== CertMaster All Q679 ===`): an item there that repeats a unit file's item shows only the name it keeps |
 | The exam's keyed practice exam. A+ Core 1: Professor Messer's items with the book's answer, explanation, and objective tag | `SP\messer\<label>.txt`, for example `SP\messer\B44.txt` |
 | Index of Messer items: label, PDF page, objective, topic | `SP\messer\messer-<<EXAM CODE>>.tsv` |
 | Network+: the practice exam book's items with the book's key and explanation | `SP\practice\<item>.txt`: Practice Tests 1 Q33 is `SP\practice\1-Q33.txt` |
@@ -48,17 +48,17 @@ You may write only your output file. Never edit anything else.
    - It must not cross a line break or a page break, and must not include a word hyphenated across two lines.
    - Prefer words that appear on only one line of the section. Never use a page header or footer line.
    - Also copy that whole line exactly as it is in the file (`findLine`), so the phrase can be checked by machine.
-7. **Name items exactly:** "CertMaster 3.0 Q41", "Messer B44", "Practice Tests 1 Q33", "Study Guide 3.0 Q56", "Review 2.0-3.0 slide 85".
+7. **Name items exactly:** "CertMaster 3.0 Q41", "CertMaster All Q679" (only for an item no unit file has), "Messer B44", "Practice Tests 1 Q33", "Study Guide 3.0 Q56", "Review 2.0-3.0 slide 85".
 8. **One fact per item.** State in one plain sentence the single fact the item tests, so items that test the same fact with the same answer can be merged (`sameFactAs`).
 9. **"Select all that apply", "Select two", and "Select three"** items, and the practice exam's "Choose all that apply", "Choose two", and "Choose three": give every option the reading supports as correct. The index's `answers` column is the book's key count; go by it when the stem's wording disagrees.
 
-## Screening (Network+ practice exam candidates)
+## Screening (Network+ practice exam candidates, Security+ `All.txt` items)
 
 When the chat gives you a screening share instead of items to map, do not key the items or find phrases: this unit's items are mapped in full afterwards. For each one, decide only where it belongs, by rules 2 to 4 above and from `units.json` (every unit's lessons and the objectives they list), `SP\text\`, and `SP\chapters\`. In place of the Return below, write one record per item, `{ "items": [ ... ] }`, to `<<OUTPUT FILE, for example SP\map\screen-1-Q104-Q153.json>>` with the Write tool, and reply with only the counts by status.
 
 | Field | Value |
 |---|---|
-| `item` | "Practice Tests 1 Q104" |
+| `item` | "Practice Tests 1 Q104", "CertMaster All Q679" |
 | `status` | `this-unit`, `other-unit`, `no-reading`, or `skip` (a `figure` item) |
 | `unit`, `lesson` | The unit and lesson whose reading answers it ("6.0", "6.5") |
 | `section` | The section that answers it, where one is printed (none for Units 8.0 to 14.0 yet) |

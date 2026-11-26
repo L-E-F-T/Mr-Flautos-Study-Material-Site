@@ -28,13 +28,14 @@ For each question write
 
 ```json
 { "id": "...", "exam": "strong | ok | weak", "copy": "fine | too close",
-  "flags": ["giveaway: ...", "distractor: ...", "wording: ...", "exhibit: ...", "reference: ...", "two facts", "recall the exam would not ask", "answer count changed"],
+  "flags": ["giveaway: ...", "distractor: ...", "wording: ...", "exhibit: ...", "reference: ...", "two facts", "recall the exam would not ask", "answer count changed", "restatement: same as ..."],
   "fix": "a concrete rewrite of the stem or the choices, or empty" }
 ```
 
 - `exam: weak` when the exam would not ask it this way (bare recall where the exam uses a scenario, a trivial or invented detail, a scenario that gives the answer away).
 - `copy: too close` when the stem or choices keep the source item's scenario or sentence shape. A cousin, not a copy.
 - `answer count changed` when a single-answer source became choose two or three, or the reverse.
+- **Each fact's questions side by side.** A fact may have two or three questions (`brief-weight.md`, "Reconcile"): each slot's fact is in `SP\plan-counts.json`, and `SP\packs\ids.tsv` gives each slot's id. Read every fact's questions together, in other lessons too, and flag the weaker of any pair that restates the other (`restatement: same as <id>`): the same scenario or symptom, the same direction, the same stem frame, or the same set of choices.
 - Giveaways: the key repeats a distinctive stem word, is the only plural, is far longer, or is the only one with an article or example. Distractors must be real terms from the unit that a student could confuse with the key.
 - House style: plain 10th-grade wording, at most two sentences in the stem, no em dashes, BEST, MOST likely, FIRST, and NOT in capitals.
 - **An exhibit** (a question's `exhibit` text, such as a command's output): flag `exhibit: ...` when it copies the source item's output or values, does not match the reading, does not settle the answer with the stem, or would not show cleanly at 320 px (more than 12 lines, or a line over 25 characters, which wraps on a phone). Flag a stem that says "shown" with no exhibit.

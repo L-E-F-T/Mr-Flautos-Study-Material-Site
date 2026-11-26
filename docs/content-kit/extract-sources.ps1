@@ -25,8 +25,14 @@
                               Read and cite from these.
     text\_index.csv           Section id, page count, PDF name.
     pool\<file>.txt           Each CertMaster pool file with its items numbered "=== CertMaster 3.0 Q41 ===".
-                              Numbering follows the guide: count the lines that read "answer". All.txt
-                              (every unit's items again, in one file) is skipped.
+                              Numbering follows the guide: count the lines that read "answer". Network+'s
+                              All.txt (its unit files joined) is skipped.
+    pool\All.txt              Security+ only: All.txt numbered the same way, after the unit files
+                              ("=== CertMaster All Q679 ==="). An item that repeats a unit file's item
+                              is that item: it shows only its header and the name it keeps.
+    pool\All-repeats.tsv      Security+ only: item, sameAs, differs. One line for each All.txt item that
+                              repeats an item of a unit file (or of All.txt), with the name it keeps and
+                              what differs apart from spacing (-, choice order, punctuation).
     messer\<label>.txt        Each Messer item with the book's answer, explanation, and objective.
     messer-q\<label>.txt      The same item with no answer or explanation, for blind checks.
     messer\messer-<exam>.tsv  One line per objective tag: label, PDF page, objective, topic.
@@ -58,18 +64,19 @@ $ErrorActionPreference = 'Stop'
 if (-not $Exam) { throw 'extract-sources.ps1 needs -Exam a-plus-core-1, -Exam network-plus, or -Exam security-plus.' }
 # Each exam's folders and books. CourseDir is under the OneDrive Documents folder; a parameter given on
 # the command line wins over its preset. The practice exam book is found by a pattern, so no author's
-# name is in this repository.
+# name is in this repository. NumberAll numbers the pool's All.txt too (Security+ only, on Mr. Flauto's
+# word of 2026-11-26); it has no parameter.
 $presets = @{
   'a-plus-core-1' = @{ CourseDir = 'CompTIAA+\Core 1'; ModulesDir = '..\Book\bySubunit'; PoolDir = 'Certmaster Questions'
     MesserBook = 'professor-messer-a-plus-220-1201-core-1-practice-exams-v112.pdf'; PracticeBook = ''
-    ExamCode = '220-1201'; ExamDetails = 'A+Core1ExamDetails.pdf' }
+    ExamCode = '220-1201'; ExamDetails = 'A+Core1ExamDetails.pdf'; NumberAll = $false }
   'network-plus' = @{ CourseDir = 'CompTIANet+'; ModulesDir = 'Book\bySubunit'; PoolDir = 'Certmaster Questions'
     MesserBook = ''; PracticeBook = 'CompTIA-Network-Practice-Tests*N10-009*.pdf'
-    ExamCode = 'N10-009'; ExamDetails = 'Book\bySubunit\B.1.2 Exam Details for CompTIA Network+ N10-009.pdf' }
+    ExamCode = 'N10-009'; ExamDetails = 'Book\bySubunit\B.1.2 Exam Details for CompTIA Network+ N10-009.pdf'; NumberAll = $false }
   # The objectives PDF was downloaded from comptia.org on Mr. Flauto's word (2026-11-21), under CompTIA's name.
   'security-plus' = @{ CourseDir = 'CompTIASec+'; ModulesDir = 'Book\bySubunit'; PoolDir = 'Certmaster Questions'
     MesserBook = 'professor-messer-sy0-701-comptia-security-plus-practice-exams-v18.pdf'; PracticeBook = ''
-    ExamCode = 'SY0-701'; ExamDetails = 'CompTIA Security+ SY0-701 Exam Objectives (7.0).pdf' }
+    ExamCode = 'SY0-701'; ExamDetails = 'CompTIA Security+ SY0-701 Exam Objectives (7.0).pdf'; NumberAll = $true }
 }
 $preset = $presets[$Exam]
 foreach ($k in @($preset.Keys)) { if (-not $PSBoundParameters.ContainsKey($k)) { Set-Variable -Name $k -Value $preset[$k] } }
@@ -99,46 +106,143 @@ $index | Sort-Object { Get-SortKey $_.id } | Export-Csv (Join-Path $textDir '_in
 $pools = Join-Path $CourseDir $PoolDir
 if (Test-Path -LiteralPath $pools) {
   $poolOut = New-Dir (Join-Path $Scratch 'pool')
-  foreach ($file in Get-ChildItem -LiteralPath $pools -Filter *.txt -File) {
-    $name = $file.BaseName
-    # Network+ and Security+ also have All.txt, every unit's items again in one file. Items are numbered
-    # from the unit files only (docs/CONTENT-HANDOFF.md).
-    if ($name -eq 'All') { 'Pool All: skipped (every unit file again in one; items are numbered from the unit files)'; continue }
-    $lines = [IO.File]::ReadAllLines($file.FullName, [Text.Encoding]::UTF8)
+  # A pool file's items, each numbered by its "answer" line (docs/CONTENT-GUIDE.md, "Numbering source
+  # items"): its stem (the lines since the last "Select Question" line) and its choices (a letter line,
+  # A to J, then the choice's text). noAnswer counts the "Select Question" blocks with no "answer" line
+  # (matching or drag-and-drop items, which get no number).
+  function Read-Pool([string]$path) {
+    $lines = [IO.File]::ReadAllLines($path, [Text.Encoding]::UTF8)
+    $items = New-Object System.Collections.Generic.List[object]
     $stem = New-Object System.Collections.Generic.List[string]
-    $sb = New-Object System.Text.StringBuilder
-    $n = 0; $multi = 0; $i = 0
+    $n = 0; $i = 0; $afterSelect = $false; $selects = 0; $selected = 0
     while ($i -lt $lines.Count) {
       $ln = $lines[$i].Trim()
       if ($ln -eq 'answer') {
         $n++
+        if ($afterSelect) { $selected++ }
         $opts = New-Object System.Collections.Generic.List[string]
+        # The lines after the last choice. They are the next item's stem when its "answer" line comes
+        # with no "Select Question" line before it (Security+ 1.0 + 2.0.txt Q15).
+        $after = New-Object System.Collections.Generic.List[string]
+        $atAnswer = $false; $afterSelect = $false
         $i++
         while ($i -lt $lines.Count) {
           $l2 = $lines[$i].Trim()
-          if ($l2 -eq 'Select Question') { break }
+          if ($l2 -eq 'Select Question') { $selects++; $afterSelect = $true; break }
+          if ($l2 -eq 'answer') { $atAnswer = $true; break }
           # Up to J: Network+ 4.0 Q224 ("Select four") runs to I.
           if ($l2 -cmatch '^[A-J]$') {
             $letter = $l2; $i++
             while ($i -lt $lines.Count -and $lines[$i].Trim() -eq '') { $i++ }
             if ($i -lt $lines.Count) { $opts.Add("$letter) " + $lines[$i].Trim()) }
-          }
+            $after.Clear()
+          } elseif ($l2 -ne '') { $after.Add($l2) }
           $i++
         }
-        $stemText = ($stem -join "`n").Trim()
-        # Security+ writes "(Select the two best options.)".
-        if ($stemText -match 'Select (?:the )?(two|three|four|all that apply)') { $multi++ }
-        [void]$sb.AppendLine("=== CertMaster $name Q$n ===")
-        [void]$sb.AppendLine($stemText)
-        foreach ($o in $opts) { [void]$sb.AppendLine($o) }
-        [void]$sb.AppendLine()
+        $items.Add([pscustomobject]@{ n = $n; stem = ($stem -join "`n").Trim(); choices = $opts.ToArray() })
         $stem.Clear()
-      } elseif ($ln -eq 'Select Question') { $stem.Clear() }
+        # The outer loop reads that "answer" line next.
+        if ($atAnswer) { $stem.AddRange($after); continue }
+      } elseif ($ln -eq 'Select Question') { $selects++; $afterSelect = $true; $stem.Clear() }
       elseif ($ln -ne '') { $stem.Add($ln) }
       $i++
     }
+    [pscustomobject]@{ items = $items; noAnswer = $selects - $selected }
+  }
+  function Add-PoolItem($sb, [string]$label, $it) {
+    [void]$sb.AppendLine("=== $label ===")
+    [void]$sb.AppendLine($it.stem)
+    foreach ($o in $it.choices) { [void]$sb.AppendLine($o) }
+    [void]$sb.AppendLine()
+  }
+  # Security+ writes "(Select the two best options.)", and some items "(Select the best two options.)".
+  function Get-Multi($items) { @($items | Where-Object { $_.stem -match 'Select (?:the )?(?:best )?(two|three|four|all that apply)' }).Count }
+  # An item's words, to find the All.txt item that repeats it: the stem and the set of choices, in lower
+  # case, with every run of spaces and punctuation read as one space. All.txt prints some of Security+'s
+  # unit items with their choices in another order (1.0 + 2.0.txt, 3.0.txt) or with a question mark that
+  # the unit file leaves off (11.0.txt).
+  function Get-Words([string]$s) { ($s -replace '[^\p{L}\p{N}]+', ' ').Trim().ToLowerInvariant() }
+  function Get-ItemKey($it) { (@(Get-Words $it.stem) + @($it.choices | ForEach-Object { Get-Words $_.Substring(3) } | Sort-Object)) -join "`n" }
+  # What else tells a repeat from its unit item, apart from spacing: for the README and the repeat list.
+  function Get-Spaced($it) { @(@($it.stem) + @($it.choices | ForEach-Object { $_.Substring(3) }) | ForEach-Object { ($_ -replace '\s+', ' ').Trim() }) }
+  function Get-Difference($a, $b) {
+    $x = @(Get-Spaced $a); $y = @(Get-Spaced $b)
+    if (($x -join "`n") -ceq ($y -join "`n")) { return '-' }
+    $order = (($x[0..0] + @($x | Select-Object -Skip 1 | Sort-Object)) -join "`n") -ceq (($y[0..0] + @($y | Select-Object -Skip 1 | Sort-Object)) -join "`n")
+    if ($order) { return 'choice order' }
+    if ((@($x | ForEach-Object { Get-Words $_ }) -join "`n") -eq (@($y | ForEach-Object { Get-Words $_ }) -join "`n")) { return 'punctuation' }
+    'choice order, punctuation'
+  }
+  $allFile = $null
+  $unitByKey = @{}; $unitTwins = New-Object System.Collections.Generic.List[string]; $unitCount = 0
+  foreach ($file in Get-ChildItem -LiteralPath $pools -Filter *.txt -File) {
+    $name = $file.BaseName
+    # Network+ also has All.txt, its unit files joined, and its items are numbered from the unit files only.
+    # Security+'s All.txt holds 1,135 items, three times its unit files: it is numbered after them (NumberAll).
+    if ($name -eq 'All') {
+      if ($NumberAll) { $allFile = $file; continue }
+      'Pool All: skipped (every unit file again in one; items are numbered from the unit files)'; continue
+    }
+    $items = (Read-Pool $file.FullName).items
+    $sb = New-Object System.Text.StringBuilder
+    foreach ($it in $items) { Add-PoolItem $sb "CertMaster $name Q$($it.n)" $it }
     [IO.File]::WriteAllText((Join-Path $poolOut "$name.txt"), $sb.ToString(), $utf8)
-    "Pool ${name}: $n items ($multi say select two, three, or all that apply)"
+    "Pool ${name}: $($items.Count) items ($(Get-Multi $items) say select two, three, or all that apply)"
+    if ($NumberAll) {
+      foreach ($it in $items) {
+        $unitCount++
+        $k = Get-ItemKey $it; $label = "CertMaster $name Q$($it.n)"
+        if ($unitByKey.ContainsKey($k)) { $unitTwins.Add("$label is $($unitByKey[$k].label)") }
+        else { $unitByKey[$k] = [pscustomobject]@{ label = $label; file = $name; item = $it; copies = New-Object System.Collections.Generic.List[string] } }
+      }
+    }
+  }
+  # Security+'s All.txt. Its items are numbered as in a unit file ("CertMaster All Q679"). An item that
+  # repeats a unit file's item (the same stem and choices, in any order, allowing for spacing, capitals,
+  # and punctuation) is that item and keeps its name ("CertMaster 8.0 Q12"; docs/CONTENT-GUIDE.md,
+  # "Numbering source items"): pool\All.txt gives it only its header and that name, and
+  # pool\All-repeats.tsv lists every such item. A second copy inside All.txt is named by its first copy.
+  if ($NumberAll -and -not $allFile) { "Pool All: no All.txt in $pools" }
+  if ($allFile) {
+    $read = Read-Pool $allFile.FullName
+    $items = $read.items
+    $sb = New-Object System.Text.StringBuilder
+    $rows = New-Object System.Collections.Generic.List[string]
+    $rows.Add("item`tsameAs`tdiffers")
+    $allByKey = @{}; $inside = New-Object System.Collections.Generic.List[string]
+    $only = 0; $kinds = @{}
+    foreach ($it in $items) {
+      $label = "CertMaster All Q$($it.n)"
+      $k = Get-ItemKey $it
+      $same = $null; $differs = '-'
+      if ($unitByKey.ContainsKey($k)) {
+        $u = $unitByKey[$k]; $u.copies.Add($label)
+        $same = $u.label; $differs = Get-Difference $u.item $it
+      } elseif ($allByKey.ContainsKey($k)) {
+        $same = $allByKey[$k].label; $differs = Get-Difference $allByKey[$k].item $it
+        $inside.Add("$label is $same")
+      } else { $allByKey[$k] = [pscustomobject]@{ label = $label; item = $it } }
+      if ($same) {
+        [void]$sb.AppendLine("=== $label ===")
+        [void]$sb.AppendLine("Repeats $same, the same source item: it keeps that name.")
+        [void]$sb.AppendLine()
+        $rows.Add("$label`t$same`t$differs")
+        $kinds[$differs] = 1 + [int]$kinds[$differs]
+      } else { Add-PoolItem $sb $label $it; $only++ }
+    }
+    [IO.File]::WriteAllText((Join-Path $poolOut 'All.txt'), $sb.ToString(), $utf8)
+    [IO.File]::WriteAllLines((Join-Path $poolOut 'All-repeats.tsv'), $rows, $utf8)
+    $repeats = $rows.Count - 1
+    $unrepeated = @($unitByKey.Values | Where-Object { $_.copies.Count -eq 0 } | ForEach-Object { $_.label })
+    $twice = @($unitByKey.Values | Where-Object { $_.copies.Count -gt 1 } | ForEach-Object { "$($_.label) ($($_.copies -join ', '))" })
+    "Pool All: $($items.Count) items ($(Get-Multi $items) say select two, three, or all that apply), CertMaster All Q1 to Q$($items.Count)"
+    "Pool All: $repeats repeat an item of a unit file or of All.txt and keep its name (pool\All-repeats.tsv), $only are only in All.txt; $repeats + $only = $($repeats + $only)"
+    "Pool All: what else differs in a repeat: " + (($kinds.Keys | Sort-Object | ForEach-Object { "$(if ($_ -eq '-') { 'nothing' } else { $_ }) $($kinds[$_])" }) -join ', ')
+    "Pool All: copies inside All.txt: " + $(if ($inside.Count) { $inside -join '; ' } else { 'none' })
+    "Pool All: blocks with no answer line (not numbered): $($read.noAnswer)"
+    "Pool All: unit file items ($unitCount) that All.txt does not repeat: " + $(if ($unrepeated.Count) { $unrepeated -join ', ' } else { 'none' })
+    "Pool All: unit file items that All.txt repeats more than once: " + $(if ($twice.Count) { $twice -join '; ' } else { 'none' })
+    "Pool All: unit file items that repeat another unit file's item: " + $(if ($unitTwins.Count) { $unitTwins -join '; ' } else { 'none' })
   }
 } else { "No pool folder at $pools" }
 

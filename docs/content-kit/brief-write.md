@@ -27,7 +27,7 @@ The site prepares students for the real CompTIA exam. **Each unit's questions ar
    - Network+ practice exam items: `"kind": "practice-exam-variation", "basedOn": "Practice Tests 1 Q33"`, written exactly that way. An item is used once per exam.
    - Mr. Flauto's items: `"kind": "teacher", "basedOn": "Study Guide 3.0 Q12"` or `"Review 2.0-3.0 slide 85"`. When one of his items is close to a pool or practice exam item, base the question on that item instead.
 2. **The reading decides the answer.** Key every question from the section you cite. <<KNOWN READING PROBLEMS: key nothing to these>>
-3. **One question per fact.** Your slot names the fact. Do not test a second fact in the same question.
+3. **One fact per question.** Your slot names the fact. Do not test a second fact in the same question. When two or three of your slots name one fact, each is modeled on its own source item: write each so a student reasons differently (a different scenario or symptom, or a different direction), and never give two of them the same stem frame or set of choices.
 4. **Option counts.** Exactly 4 choices for one answer. 5 for choose two or three, and 6 only when the source item had 6 or more.
 5. **Wording.** CompTIA voice, plain enough for a 10th grader meeting the topic for the first time. Stem at most two sentences. "BEST", "MOST likely", and "FIRST" in capitals. A negative question only with NOT in capitals. No em dashes. No "all of the above" or "none of the above". Never "(Select TWO.)" or a stated answer count in the stem.
 6. **No giveaways.**

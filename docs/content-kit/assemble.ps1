@@ -33,6 +33,9 @@
                            "reference": { "section", "title" } } ] }
     card-terms.tsv       The unit's card list, if there is one: a card whose term is not a "card" row is reported.
     practice\practice-<exam>.tsv  From extract-sources.ps1 (Network+): a practice exam basedOn must be in it.
+    pool\*.txt           From extract-sources.ps1: a pool basedOn (certmaster-variation) must be an item
+                         headed there ("=== CertMaster 8.0 Q12 ==="), and never the All.txt name of an
+                         item that pool\All-repeats.tsv (Security+) names by its unit item. Both modes.
     text\<section>.raw.txt  From extract-sources.ps1, for the find-phrase check.
   With -CommandsOnly, instead:
     command-lines-<unit>.tsv  The line list (command-lines-4.0.tsv): one command for each item, in the order
@@ -124,6 +127,26 @@ if (Test-Path -LiteralPath "$Scratch\card-terms.tsv") {
 $practiceIndex = @{}
 foreach ($t in @(Get-ChildItem -LiteralPath "$Scratch\practice" -Filter 'practice-*.tsv' -File -ErrorAction SilentlyContinue)) {
   foreach ($r in (Import-Csv -LiteralPath $t.FullName -Delimiter "`t" -Encoding UTF8)) { $practiceIndex[$r.item] = $r }
+}
+# The CertMaster pools (extract-sources.ps1): a pool basedOn must be an item headed in pool\, written as
+# its header writes it, and an All.txt item that repeats a unit file's item goes by that item's name
+# (pool\All-repeats.tsv), so no item has two names (docs/CONTENT-GUIDE.md, "Numbering source items").
+# With no pool\ files there is nothing to check a name against.
+$poolItems = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
+foreach ($t in @(Get-ChildItem -LiteralPath "$Scratch\pool" -Filter '*.txt' -File -ErrorAction SilentlyContinue)) {
+  foreach ($m in [regex]::Matches([IO.File]::ReadAllText($t.FullName, [Text.Encoding]::UTF8), '(?m)^=== (CertMaster .+ Q[1-9]\d*) ===\r?$')) { [void]$poolItems.Add($m.Groups[1].Value) }
+}
+$poolRepeat = @{}
+if (Test-Path -LiteralPath "$Scratch\pool\All-repeats.tsv") {
+  foreach ($r in (Import-Csv -LiteralPath "$Scratch\pool\All-repeats.tsv" -Delimiter "`t" -Encoding UTF8)) { $poolRepeat[$r.item] = $r.sameAs }
+}
+function Get-PoolProblem([string]$kind, [string]$basedOn) {
+  if ($kind -ne 'certmaster-variation' -or -not $basedOn -or -not $poolItems.Count) { return }
+  if ($poolRepeat.ContainsKey($basedOn)) { "basedOn '$basedOn' repeats $($poolRepeat[$basedOn]), the same source item: name it '$($poolRepeat[$basedOn])'" }
+  elseif ($poolItems.Contains($basedOn)) { return }
+  elseif ($basedOn -cmatch '^CertMaster All Q' -and $Exam -ne 'security-plus') { "basedOn '$basedOn': only Security+'s All.txt is numbered. Name the item from its unit file" }
+  elseif ($basedOn -cmatch '^CertMaster All Q' -and -not (Test-Path -LiteralPath "$Scratch\pool\All.txt")) { "basedOn '$basedOn': pool\ has no All.txt. Run extract-sources.ps1 again (it numbers Security+'s All.txt since 2026-11-26)" }
+  else { "basedOn '$basedOn' is not an item of pool\ (write it as its header does: 'CertMaster 8.0 Q12', 'CertMaster All Q679')" }
 }
 
 # ---- What the exam's other packs already use ---------------------------------------------------------
@@ -381,6 +404,8 @@ if ($CommandsOnly) {
         if (-not $practiceIndex.ContainsKey($basedOn)) { $cp.Add("$tag $basedOn is not in the practice exam index") }
         elseif ($practiceIndex[$basedOn].flags -match 'figure') { $cp.Add("$tag $basedOn needs a figure (not usable)") }
       }
+      $poolProblem = Get-PoolProblem $okind $basedOn
+      if ($poolProblem) { $cp.Add("$tag $poolProblem") }
       if ($basedOn) {
         if ($usedSource.ContainsKey($basedOn)) { $cp.Add("$tag $basedOn is already used by $($usedSource[$basedOn])") }
         $sk = Get-Norm $basedOn
@@ -671,6 +696,8 @@ foreach ($lp in $lessons) {
       if (-not $practiceIndex.ContainsKey($q.origin.basedOn)) { $problems.Add("$tag $($q.origin.basedOn) is not in the practice exam index") }
       elseif ($practiceIndex[$q.origin.basedOn].flags -match 'figure') { $problems.Add("$tag $($q.origin.basedOn) needs a figure (not usable)") }
     }
+    $poolProblem = Get-PoolProblem $q.origin.kind $q.origin.basedOn
+    if ($poolProblem) { $problems.Add("$tag $poolProblem") }
     if ($q.origin.basedOn -and $usedSource.ContainsKey($q.origin.basedOn)) { $problems.Add("$tag $($q.origin.basedOn) is already used by $($usedSource[$q.origin.basedOn])") }
     $items.Add([pscustomobject]@{ lesson = $lp.Name; slot = $slot.slot; keep = [bool]$src.keepOrder; q = $q })
   }

@@ -37,13 +37,14 @@ For each bullet: how much of the reading teaches it (sections and rough length),
 ## Reconcile (the chat does this, not an agent)
 
 1. **The tier comes from lens A.** Where the two scores differ, write one line saying why lens A holds. Lens B can only break a tie, or show that a tier 2 or 3 fact is needed to understand a tier 1 item (then that fact gets a question).
-2. **Counts.**
-   - Tier 1: a question for every distinct fact that has a usable source item, plus a second question where a second item makes a student reason differently (a scenario versus a definition, a different symptom).
-   - Tier 2: one question per distinct fact with a usable item.
-   - Tier 3: only the facts the exam evidence actually keys. List the rest under "cut".
+2. **Counts.** Mr. Flauto, 2026-11-26: the units read light; exam evidence still sets the tiers, and the tiers now set how many questions a fact gets.
+   - Tier 1: up to three questions for each distinct fact that has enough usable source items.
+   - Tier 2: up to two questions for each distinct fact that has enough usable source items.
+   - Tier 3: one question for each distinct fact that an objective's bullet or detail line names, or that the exam evidence keys, when it has a usable item. A fact under no bullet or detail line that the exam evidence does not key is listed under "cut".
    - Every bullet the reading teaches with a usable item gets at least one question, so the site shows it.
+   - Every question after a fact's first is modeled on its own unused source item and must make a student reason differently from the others on that fact: a different scenario or symptom, or a different direction (definition to use, cause to fix, choose or rule out). Two questions never share a stem frame or a set of choices.
 3. **Mr. Flauto's materials never add weight.** A fact that only his materials stress, with no exam evidence, is cut or kept at one question. His items are used only to cover an exam-weighted fact that no pool or practice exam item covers (`"origin": { "kind": "teacher" }`).
-4. **Count facts, not items, across the whole exam.** Items that test the same fact with the same answer become one question ("same as Qn"). A fact that another unit's pack already asks gets no new slot unless the scenario makes a student reason differently: list it under `cut` with that question's id. (Students build one test from several units, so a repeat shows up as the same question twice.)
+4. **Count facts, not items, across the whole exam.** Items that test the same fact in the same scenario become one question ("same as Qn"); an item that tests it in a different scenario may take one of the fact's extra slots (item 2). A fact that another unit's pack already asks gets no new slot unless the scenario makes a student reason differently: list it under `cut` with that question's id. (Students build one test from several units, so a repeat shows up as the same question twice.)
 5. **Flashcards are not weighted.** The cards are the `card` rows of `SP\card-terms.tsv` (the guide's "Which terms get a card"). A bullet's tier never adds a card, and a term with no row gets none.
 
 Write the result to `SP\plan-counts.json`:
