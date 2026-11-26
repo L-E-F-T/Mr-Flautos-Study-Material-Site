@@ -1,0 +1,194 @@
+{
+  "$schema": "../../../schemas/command-pack.schema.json",
+  "pack": { "id": "unit-08", "title": "Unit 8.0 Supporting Network Management", "reviewed": false, "lastCommand": 8, "lastVersion": 8 },
+  "commands": [
+    {
+      "id": "n-u08-c001",
+      "help": false,
+      "typedFormOf": ["n-u08-q087"],
+      "system": "linux",
+      "task": "Before a new server at 10.30.4.25 goes into service, a technician on a Linux laptop wants to find out whether it is up and then which of its 1,000 most commonly used ports are open. Which command, run with its default settings and no options, should the technician use?",
+      "accept": [
+        { "lines": ["nmap 10.30.4.25"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u08-v001",
+          "outputs": [
+            { "text": "Nmap scan report for\n  10.30.4.25\nHost is up\n  (0.00048s latency).\nNot shown: 996\n  closed ports\nPORT     STATE SERVICE\n22/tcp   open  ssh\n80/tcp   open  http\n443/tcp  open  https\n3306/tcp open  mysql" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Nmap",
+        "quote": "",
+        "find": "the default behavior of Nmap"
+      }
+    },
+    {
+      "id": "n-u08-c002",
+      "help": false,
+      "typedFormOf": ["n-u08-q083"],
+      "system": "linux",
+      "task": "To update the list of devices in a school's computer lab, a technician on a Linux workstation wants Nmap to report only which hosts on the subnet 172.20.8.0/24 are up, with no port scan of any host. Which Nmap command should the technician run?",
+      "accept": [
+        { "lines": ["nmap -sn 172.20.8.0/24"] }
+      ],
+      "alsoWorks": ["nmap -sP 172.20.8.0/24"],
+      "versions": [
+        {
+          "id": "n-u08-v002",
+          "outputs": [
+            { "text": "Nmap scan report for\n  172.20.8.1\nHost is up\n  (0.00062s latency).\nNmap scan report for\n  172.20.8.15\nHost is up\n  (0.0011s latency).\nNmap scan report for\n  172.20.8.42\nHost is up\n  (0.00087s latency)." }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Nmap",
+        "quote": "",
+        "find": "perform only host discovery"
+      }
+    },
+    {
+      "id": "n-u08-c003",
+      "typedFormOf": ["n-u08-q084"],
+      "system": "linux",
+      "task": "Before moving nightly backups to a server at 10.70.3.9, a technician on a Linux workstation wants Nmap to run its default scan of that server and also work out the hop count between the two hosts. Which Nmap command should the technician run?",
+      "accept": [
+        { "lines": ["nmap --traceroute 10.70.3.9"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u08-v003",
+          "outputs": [
+            { "text": "Nmap scan report for\n  10.70.3.9\nHost is up\n  (0.0016s latency).\nPORT     STATE SERVICE\n22/tcp   open  ssh\n2049/tcp open  nfs\nTRACEROUTE\n  (using port 22/tcp)\nHOP RTT     ADDRESS\n1   0.58 ms 10.70.1.1\n2   1.60 ms 10.70.3.9" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.2",
+        "title": "Nmap",
+        "quote": "",
+        "find": "can also work out hop counts"
+      }
+    },
+    {
+      "id": "n-u08-c004",
+      "typedFormOf": ["n-u08-q088"],
+      "system": "linux",
+      "task": "For a security audit, a technician on a Linux laptop wants Nmap's default scan of a server at 192.168.12.40 to check every TCP port, 1-65535, not only the common ones. Which Nmap command should the technician run?",
+      "accept": [
+        { "lines": ["nmap -p 1-65535 192.168.12.40"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u08-v004",
+          "outputs": [
+            { "text": "Nmap scan report for\n  192.168.12.40\nHost is up\n  (0.00061s latency).\nNot shown: 65532\n  closed ports\nPORT      STATE SERVICE\n22/tcp    open  ssh\n443/tcp   open  https\n53817/tcp open  unknown" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Nmap Port Scanning",
+        "quote": "",
+        "find": "to specify a port range"
+      }
+    },
+    {
+      "id": "n-u08-c005",
+      "typedFormOf": ["n-u08-q092"],
+      "system": "linux",
+      "task": "A technician on a Linux laptop where Nmap has privileged access wants one Nmap scan of a DNS server at 10.12.5.60 that checks its TCP ports with the fast half-open technique and its UDP ports too, changing nothing else. Which Nmap command should the technician run?",
+      "accept": [
+        { "lines": ["nmap -sS -sU 10.12.5.60"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u08-v005",
+          "outputs": [
+            { "text": "Nmap scan report for\n  10.12.5.60\nHost is up\n  (0.00052s latency).\nPORT    STATE SERVICE\n22/tcp  open  ssh\n53/tcp  open  domain\n53/udp  open  domain\n123/udp open  ntp" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Nmap Port Scanning",
+        "quote": "",
+        "find": "combined with a TCP scan"
+      }
+    },
+    {
+      "id": "n-u08-c006",
+      "typedFormOf": ["n-u08-q094"],
+      "system": "linux",
+      "task": "To plan software updates, a technician on a Linux laptop who has already found open ports on a web server at 192.168.50.21 wants Nmap to probe the server more intensively, with the default ports and scan type, to learn which software, and which version of it, runs on each port. Which Nmap command should the technician run?",
+      "accept": [
+        { "lines": ["nmap -sV 192.168.50.21"] },
+        { "lines": ["nmap -A 192.168.50.21"] }
+      ],
+      "versions": [
+        {
+          "id": "n-u08-v006",
+          "outputs": [
+            { "text": "Nmap scan report for\n  192.168.50.21\nHost is up\n  (0.00039s latency).\nPORT    STATE SERVICE\n  VERSION\n80/tcp  open  http\n  nginx 1.18.0 (Ubuntu)\n443/tcp open  ssl/http\n  nginx 1.18.0 (Ubuntu)" },
+            { "text": "Nmap scan report for\n  192.168.50.21\nHost is up\n  (0.00039s latency).\nPORT    STATE SERVICE\n  VERSION\n80/tcp  open  http\n  nginx 1.18.0 (Ubuntu)\n443/tcp open  ssl/http\n  nginx 1.18.0 (Ubuntu)\nRunning: Linux 5.X\nOS details: Linux 5.4" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.2.3"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.2.3",
+        "title": "Nmap Port Scanning",
+        "quote": "",
+        "find": "When services are discovered"
+      }
+    },
+    {
+      "id": "n-u08-c008",
+      "typedFormOf": ["n-u08-q152"],
+      "system": "linux",
+      "task": "Hosts on a LAN have trouble reaching their default gateway, so a technician on a Linux server wants a tcpdump capture on interface eth1 that shows ARP traffic and nothing else, in the default level of detail. Which tcpdump command should the technician run?",
+      "accept": [
+        { "lines": ["tcpdump -i eth1 arp"] }
+      ],
+      "alsoWorks": ["tcpdump -i eth1 ether proto 0x0806"],
+      "versions": [
+        {
+          "id": "n-u08-v008",
+          "outputs": [
+            { "text": "listening on eth1,\n  link-type EN10MB\n  (Ethernet), snapshot\n  length 262144 bytes\n14:02:55.318004 ARP,\n  Request who-has\n  10.3.6.1 tell 10.3.6.9,\n  length 28\n14:02:55.318412 ARP,\n  Reply 10.3.6.1 is-at\n  00:00:0c:07:ac:01\n  (oui Cisco), length 46" }
+          ]
+        }
+      ],
+      "objectives": ["5.5", "5.5.a"],
+      "units": ["8.5.2"],
+      "reference": {
+        "source": "certmaster",
+        "section": "8.5.2",
+        "title": "tcpdump",
+        "quote": "",
+        "find": "Filter by a named protocol"
+      }
+    }
+  ]
+}

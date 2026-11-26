@@ -140,6 +140,55 @@
       ]
     },
     {
+      "system": "linux",
+      "command": "nmap",
+      "does": "Scans for hosts and open ports",
+      "syntax": "nmap <subnet or IP>",
+      "section": "8.2.2",
+      "switches": [
+        { "switch": "-sn", "does": "Finds hosts without scanning ports" },
+        { "switch": "--traceroute", "does": "Counts the hops to each host" },
+        { "switch": "-sS", "does": "Runs a fast half-open SYN scan", "section": "8.2.3" },
+        { "switch": "-sT", "does": "Makes full TCP connections, less stealthy", "section": "8.2.3" },
+        { "switch": "-sU", "does": "Scans UDP ports (can be slow)", "section": "8.2.3" },
+        { "switch": "-p", "does": "Sets the port range to scan", "section": "8.2.3" },
+        { "switch": "--top-ports", "does": "Sets the number of common ports", "section": "8.2.3" },
+        { "switch": "-sV", "does": "Finds software versions on each port", "section": "8.2.3" },
+        { "switch": "-A", "does": "Finds the OS and software versions", "section": "8.2.3" }
+      ]
+    },
+    {
+      "system": "linux",
+      "command": "tcpdump",
+      "does": "Captures and displays network packets",
+      "syntax": "tcpdump -i <interface>",
+      "section": "8.5.2",
+      "switches": [
+        { "switch": "-i", "does": "Sets the interface to listen on" },
+        { "switch": "-w", "does": "Writes captured packets to a file" },
+        { "switch": "-r", "does": "Reads a saved capture file" },
+        { "switch": "-v", "does": "Shows more detail per frame" },
+        { "switch": "-vv", "does": "Shows even more detail per frame" },
+        { "switch": "-vvv", "does": "Shows the most detail per frame" },
+        { "switch": "-e", "does": "Shows the Ethernet header" },
+        { "switch": "host", "does": "Filters by a host address" },
+        { "switch": "net", "does": "Filters by a network address" },
+        { "switch": "port", "does": "Filters by a port number" },
+        { "switch": "portrange", "does": "Filters by a range of ports" },
+        { "switch": "src", "does": "Filters by source address or port" },
+        { "switch": "dst", "does": "Filters by destination address or port" },
+        { "switch": "arp", "does": "Captures only ARP traffic" },
+        { "switch": "icmp", "does": "Captures only ICMP traffic" },
+        { "switch": "ip", "does": "Captures only IPv4 traffic" },
+        { "switch": "ip6", "does": "Captures only IPv6 traffic" },
+        { "switch": "tcp", "does": "Captures only TCP traffic" },
+        { "switch": "udp", "does": "Captures only UDP traffic" },
+        { "switch": "and", "does": "Joins filters; both must match" },
+        { "switch": "or", "does": "Joins filters; either can match" },
+        { "switch": "not", "does": "Leaves out traffic that matches" }
+      ]
+    },
+    {
       "system": "router",
       "command": "show",
       "does": "Reports routing and ARP tables",
